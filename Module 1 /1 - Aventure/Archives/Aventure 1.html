@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.333">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aurélien Nicosia">
+
+<title>Aventure 1 - Plongée en science des données</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Aventure 1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Aventure 1_files/libs/quarto-html/quarto.js"></script>
+<script src="Aventure 1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Aventure 1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Aventure 1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Aventure 1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Aventure 1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Aventure 1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Aventure 1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Aventure 1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Aventure 1 - Plongée en science des données</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Aurélien Nicosia </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level1">
+<h1>Introduction&lt;</h1>
+<p>Bienvenue dans cette première aventure en sciences des données ! Ce module est conçu pour vous offrir une introduction complète aux outils et concepts fondamentaux qui vous accompagneront tout au long de votre parcours en science des données.</p>
+<section id="objectifs-de-ce-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-de-ce-module">Objectifs de ce module</h2>
+<p>Dans ce module, vous allez :</p>
+<ul>
+<li><p><strong>Découvrir les outils professionnels utilisés en science des données</strong> : vous apprendrez à utiliser RStudio et Quarto, deux outils indispensables pour l’analyse de données, la visualisation et la production de rapports reproductibles.</p></li>
+<li><p><strong>Explorer des jeux de données réels</strong> : grâce à des données fournies par une bibliothèque spécialisée, vous allez acquérir les bases de l’importation, de la manipulation et du nettoyage des données.</p></li>
+<li><p><strong>Apprendre les bonnes pratiques de codage</strong> : nous mettrons l’accent sur des pratiques professionnelles pour écrire du code clair, reproductible et efficace.</p></li>
+<li><p><strong>Introduction au concept de données propres (Tidy)</strong> : comprendre pourquoi organiser vos données est essentiel pour une analyse efficace et reproductible.</p></li>
+</ul>
+<p>Ce module est structuré pour allier <strong>théorie et pratique</strong>. Vous serez guidé à travers des explications détaillées tout en ayant l’opportunité de mettre en pratique les concepts grâce à des exemples interactifs.</p>
+</section>
+<section id="à-quoi-vous-attendre" class="level2">
+<h2 class="anchored" data-anchor-id="à-quoi-vous-attendre">À quoi vous attendre</h2>
+<section id="présentation-des-outils" class="level3">
+<h3 class="anchored" data-anchor-id="présentation-des-outils">1. Présentation des outils</h3>
+<p>Nous commencerons par une exploration des fonctionnalités de RStudio et de Quarto. Vous découvrirez comment ces outils interagissent pour vous permettre de produire des analyses et des rapports professionnels. Vous apprendrez également à configurer un environnement de travail optimal.</p>
+</section>
+<section id="manipulation-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="manipulation-de-données">2. Manipulation de données</h3>
+<p>Vous serez initié aux concepts fondamentaux de manipulation de données. À travers des exemples concrets, nous explorerons comment sélectionner des variables ou observations, créer de nouvelles variables, et transformer vos données pour qu’elles soient prêtes à l’analyse.</p>
+</section>
+<section id="bonnes-pratiques-de-codage" class="level3">
+<h3 class="anchored" data-anchor-id="bonnes-pratiques-de-codage">3. Bonnes pratiques de codage</h3>
+<p>Enfin, nous discuterons des bonnes pratiques de codage en R, indispensables pour structurer efficacement vos projets de science des données.</p>
+</section>
+</section>
+<section id="comment-réussir-ce-module" class="level2">
+<h2 class="anchored" data-anchor-id="comment-réussir-ce-module">Comment réussir ce module</h2>
+<ul>
+<li><p><strong>Lisez attentivement chaque section</strong> avant de passer à l’expérimentation. Les explications théoriques fournissent les bases pour comprendre les exemples pratiques.</p></li>
+<li><p><strong>Expérimentez activement</strong> en exécutant le code proposé et en explorant les résultats. N’hésitez pas à modifier les exemples pour tester vos idées.</p></li>
+<li><p><strong>Posez des questions</strong> si vous rencontrez des difficultés ou si certains concepts restent flous.</p></li>
+</ul>
+<p>Ce module est une porte d’entrée vers le vaste monde des sciences des données. Prenez le temps de bien explorer chaque étape, et amusez-vous à apprendre !</p>
+</section>
+</section>
+<section id="outils-informatiques" class="level1">
+<h1>Outils informatiques</h1>
+<p>Mettre du texte qui explique</p>
+<section id="découverte-de-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="découverte-de-rstudio">Découverte de RStudio</h2>
+<p>RStudio est un environnement de développement intégré (IDE) pour R. Il facilite la rédaction, l’exécution, et la gestion de projets en R, tout en intégrant de nombreuses fonctionnalités professionnelles. Voici un aperçu de ses principales fenêtres et fonctionnalités :</p>
+<section id="les-fenêtres-principales-de-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="les-fenêtres-principales-de-rstudio">Les fenêtres principales de RStudio</h3>
+<p>RStudio est composé de quatre panneaux principaux :</p>
+<ul>
+<li><p><strong>Console</strong> : située généralement en bas à gauche, elle permet d’exécuter directement des commandes en R.</p></li>
+<li><p><strong>Script</strong> : en haut à gauche, c’est l’endroit où vous rédigez et sauvegardez vos scripts (fichiers <code>.R</code> ou <code>.qmd</code>). Vous pouvez remarquer que la présente aventure est bien un <code>.qmd</code> dans la fenetre de script.</p></li>
+<li><p><strong>Environnement</strong> : en haut à droite, il affiche les objets actuellement disponibles en mémoire (datasets, variables, fonctions).</p></li>
+<li><p><strong>Plots, fichiers et aide</strong> : en bas à droite, ce panneau vous permet de visualiser vos graphiques, explorer les fichiers du projet, ou accéder à la documentation.</p></li>
+</ul>
+<section id="expérimentation" class="level4">
+<h4 class="anchored" data-anchor-id="expérimentation">Expérimentation</h4>
+<ul>
+<li><p><strong>Testez la console</strong> : ouvrez la console et tapez la commande suivante :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Bonjour, RStudio !"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Observez le résultat affiché directement dans la console.</p></li>
+<li><p><strong>Créez un script</strong> : Cliquez sur <code>File &gt; New File &gt; R Script</code>, écrivez le code suivant et exécutez-le avec <code>Ctrl + Enter</code> :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Vous travaillez dans un script R !"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sauvegardez le fichier sous le nom <code>test_script.R</code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="fonctionnalités-importantes" class="level3">
+<h3 class="anchored" data-anchor-id="fonctionnalités-importantes">Fonctionnalités importantes</h3>
+<ul>
+<li><p><strong>Projets</strong> : RStudio organise votre travail en projets, ce qui est idéal pour structurer vos fichiers et données. Nous travaillerons dans des projet dès la semaine prochaine.</p></li>
+<li><p><strong>Raccourcis clavier</strong> : par exemple, <code>Ctrl + Enter</code> (Windows/Linux) ou <code>Cmd + Enter</code> (Mac) exécute une ligne de code.</p>
+<ul>
+<li><strong>Exercice</strong> : Tapez plusieurs lignes de code dans un script et testez les raccourcis pour les exécuter rapidement.</li>
+</ul></li>
+<li><p><strong>Terminal intégré</strong> : pour exécuter des commandes système sans quitter RStudio.</p></li>
+<li><p><strong>Packages</strong> : l’onglet “Packages” permet d’installer et de charger facilement des bibliothèques.</p>
+<ul>
+<li><p><strong>Expérimentation</strong> : Installez le package <code>dplyr</code> à l’aide de l’interface graphique ou via la commande suivante dans la console :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Une fois installé, chargez-le avec :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ul>
+</section>
+<section id="configurer-votre-environnement" class="level3">
+<h3 class="anchored" data-anchor-id="configurer-votre-environnement">Configurer votre environnement</h3>
+<p>Pour démarrer efficacement :</p>
+<ol type="1">
+<li><p>Personnalisez les préférences (<code>Tools &gt; Global Options</code>) pour ajuster l’apparence et les paramètres selon vos besoins.</p></li>
+<li><p>Familiarisez-vous avec les options d’exportation pour vos graphiques ou rapports.</p></li>
+</ol>
+<section id="exercice" class="level4">
+<h4 class="anchored" data-anchor-id="exercice">Exercice</h4>
+<ul>
+<li><strong>Exploration des options</strong> : Accédez à <code>Tools &gt; Global Options</code> et explorez les différentes configurations possibles. Essayez de changer le thème de l’interface (ex. : thème sombre) et observez la différence.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="bases-de-la-programmation-en-r" class="level2">
+<h2 class="anchored" data-anchor-id="bases-de-la-programmation-en-r">Bases de la programmation en R</h2>
+<p>La programmation en R est essentielle pour manipuler, analyser et visualiser des données. Cette section vous introduit aux bases de la programmation et vous propose des exercices pour vous entraîner.</p>
+<section id="créer-et-manipuler-des-objets" class="level3">
+<h3 class="anchored" data-anchor-id="créer-et-manipuler-des-objets">Créer et manipuler des objets</h3>
+<p>En R, tout est un objet. Voici les bases pour créer des objets et les manipuler :</p>
+<section id="expérimentation-1" class="level4">
+<h4 class="anchored" data-anchor-id="expérimentation-1">Expérimentation</h4>
+<ul>
+<li><p><strong>Créer un objet</strong> :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">42</span>  <span class="co"># Assigne la valeur 42 à l'objet x</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)  <span class="co"># Affiche la valeur de x</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x <span class="co"># Affiche aussi la valeur de x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Manipuler un vecteur</strong> :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)  <span class="co"># Crée un vecteur</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>somme <span class="ot">&lt;-</span> <span class="fu">sum</span>(vecteur)  <span class="co"># Calcule la somme des éléments</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>somme</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="exercice-1" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-1">Exercice</h4>
+<ul>
+<li>Créez un vecteur contenant les chiffres de 1 à 10 et calculez sa moyenne en utilisant la fonction <code>mean()</code>.</li>
+</ul>
+</section>
+</section>
+<section id="écrire-des-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="écrire-des-conditions">Écrire des conditions</h3>
+<p>Les conditions permettent de rendre vos scripts dynamiques.</p>
+<section id="expérimentation-2" class="level4">
+<h4 class="anchored" data-anchor-id="expérimentation-2">Expérimentation</h4>
+<ul>
+<li><p><strong>Condition simple</strong> :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (nombre <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Le nombre est supérieur à 5"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Le nombre est inférieur ou égal à 5"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="exercice-2" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-2">Exercice</h4>
+<ul>
+<li>Écrivez une condition qui affiche si un nombre est pair ou impair.</li>
+</ul>
+</section>
+</section>
+<section id="fonctions-de-base" class="level3">
+<h3 class="anchored" data-anchor-id="fonctions-de-base">Fonctions de base</h3>
+<p>R dispose de nombreuses fonctions intégrées pour effectuer des calculs simples ou avancés.</p>
+<section id="expérimentation-3" class="level4">
+<h4 class="anchored" data-anchor-id="expérimentation-3">Expérimentation</h4>
+<ul>
+<li><p><strong>Calcul de base</strong> :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>carre <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">carre</span>(<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="exercice-3" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-3">Exercice</h4>
+<ul>
+<li>Créez une fonction <code>cube</code> qui calcule le cube d’un nombre, puis testez-la avec les valeurs 2, 3 et 4.</li>
+</ul>
+</section>
+</section>
+<section id="bonnes-pratiques-en-programmation" class="level3">
+<h3 class="anchored" data-anchor-id="bonnes-pratiques-en-programmation">Bonnes pratiques en programmation</h3>
+<p>Voici quelques conseils pour écrire un code propre et facile à maintenir :</p>
+<section id="règles-dor" class="level4">
+<h4 class="anchored" data-anchor-id="règles-dor">Règles d’or</h4>
+<ol type="1">
+<li><p><strong>Nommer vos objets de manière descriptive</strong> :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>moyenne_notes <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Organiser votre script avec des commentaires</strong> :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul de la somme</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>somme <span class="ot">&lt;-</span> <span class="fu">sum</span>(vecteur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Utiliser un style cohérent</strong> : Respectez une indentation uniforme pour améliorer la lisibilité.</p></li>
+</ol>
+</section>
+<section id="exercice-4" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-4">Exercice</h4>
+<ul>
+<li><p>Réorganisez ce code pour le rendre plus lisible :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x<span class="sc">&gt;</span><span class="dv">5</span>){<span class="fu">print</span>(<span class="st">"Grand"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{<span class="fu">print</span>(<span class="st">"Petit"</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="introduction-à-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-à-quarto">Introduction à Quarto</h2>
+<p>Quarto est un outil puissant pour créer des documents reproductibles combinant texte, code, et résultats. Il prend en charge différents formats, tels que HTML, PDF et Word.</p>
+<section id="quest-ce-que-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="quest-ce-que-quarto">Qu’est-ce que Quarto ?</h3>
+<p>Quarto vous permet de combiner du code R, Python ou Julia avec des explications textuelles, tout en générant des rapports professionnels. Bien sûr, dans ce cours nous l’utiliserons avec R. Ses principaux atouts incluent :</p>
+<ul>
+<li><p>La <strong>reproductibilité</strong> : le code et les résultats sont directement intégrés dans le même document.</p></li>
+<li><p>La <strong>polyvalence</strong> : possibilité de générer divers types de fichiers (rapports, présentations, sites web).</p></li>
+<li><p>La <strong>simplicité d’utilisation</strong>.</p></li>
+</ul>
+</section>
+<section id="structure-dun-document-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="structure-dun-document-quarto">Structure d’un document Quarto</h3>
+<p>Un fichier Quarto commence toujours par un en-tête YAML, suivi de contenu en Markdown et de blocs de code (chunks).</p>
+<section id="exemple-de-fichier-quarto-de-base" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-fichier-quarto-de-base">Exemple de fichier Quarto de base</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Mon premier document Quarto"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="insérer-un-chunk-r" class="level4">
+<h4 class="anchored" data-anchor-id="insérer-un-chunk-r">Insérer un chunk R</h4>
+<p>Pour inserer un chunk (bloc de code) dans un document quarto, vous pouvez cliqué sur le symbole suivant :</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="image/bouton_chunck.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Bouton pour ajouter un chunck dans Rstudio</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un chunk de code</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>Vous pouvez facilement executer un chuck soit en executant (<code>Ctrl + Enter</code>) ligne par ligne ou alors en cliquant sur la petite flèche verte dans le coin haut gauche du chunk. Vous remarquerez que vos résultats s’affiche sous la boite de code.</p>
+<p>Une fois que votre rapport est final, vous pouvez generer le rapport en cliquant sur le bouton render: <img src="image/bouton_render.png" class="img-fluid" alt="Bouton pour ajouter generer le rapport"></p>
+</section>
+</section>
+<section id="expérimentation-4" class="level3">
+<h3 class="anchored" data-anchor-id="expérimentation-4">Expérimentation</h3>
+<ul>
+<li><strong>Créer un document Quarto</strong> :
+<ol type="1">
+<li>Cliquez sur <code>File &gt; New File &gt; Quarto Document</code>.</li>
+<li>Choisissez le format souhaité (HTML, PDF, Word) et générez un document de base.</li>
+<li>Insérez un chunk avec le raccourci <code>Ctrl + Alt + I</code> (ou le symbole) et ajoutez du code R (un truc simple).</li>
+</ol></li>
+<li><strong>Generer le document</strong> : Utilisez <code>Ctrl + Shift + K</code> (ou le bouton render) pour générer le document final.</li>
+</ul>
+</section>
+<section id="exercice-5" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-5">Exercice</h3>
+<ol type="1">
+<li>Créez un document Quarto au format HTML.</li>
+<li>Ajoutez un chunk R pour afficher un résumé du dataset <code>mtcars</code> (il s’agit de <code>summary(mtcars)</code>).</li>
+<li>Personnalisez l’en-tête YAML pour inclure votre nom et une date.</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="librairie-et-données" class="level1">
+<h1>Librairie et données</h1>
+<p>Nous avons vu plus haut que vous pouvez ameliorer votre experience de R en utilisant des librairies. Dans le cadre du cours, nous allons utiliser une librairie appellé <code>UlavalDataScience</code>. Il s’agit d’une librairie developpé pour le cours.</p>
+<section id="ulavaldatascience" class="level2">
+<h2 class="anchored" data-anchor-id="ulavaldatascience"><code>UlavalDataScience</code></h2>
+<p>Premièrement, vous allez installer la librairie <code>UlavalDataScience</code> et la charger dans votre environnment de travail.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("~/Nouveau cours Ulaval/Package R Ulaval/UlavalDataScience_0.1.0.tar.gz", repos = NULL, type = "source")</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalDataScience)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le fait de charger la librairie va nous permettre d’acceder à tous son contenu. Vous pouvez voir les fichiers d’aide de la librairie avec le code suivant (ou en cherchant dans l’onglet package à droite)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">"UlavalDataScience"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="expérimentation-5" class="level3">
+<h3 class="anchored" data-anchor-id="expérimentation-5">Expérimentation</h3>
+<ul>
+<li>Fouillez dans le contenu du package. Que remarquez vous?</li>
+</ul>
+</section>
+</section>
+<section id="données-meteoquebec" class="level2">
+<h2 class="anchored" data-anchor-id="données-meteoquebec">Données <code>MeteoQuebec</code></h2>
+<p>Dans cette aventure, nous allons travailler avec le jeu de données appelé <code>MeteoQuebec</code> disponible dans la librairie <code>UlavalDataScience</code>. Il est important de noter que si la libraire n’est pas chargé (<code>library(UlavalDataScience)</code>) alors vous ne pourrez pas acceder a ce jeu de données.</p>
+<section id="experimentation" class="level3">
+<h3 class="anchored" data-anchor-id="experimentation">Experimentation</h3>
+<ul>
+<li><code>MeteoQuebec</code> est un nom d’objet dans l’environnement. Afficher la base de données en créant un chunck.</li>
+<li>Combien de lignes et de colonnes possèdent ce jeu de données?</li>
+<li>Explorer l’aide pour vous assurer de bien comprendre ce que représente chaque colonne.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="données-propres-tidy-en-anglais" class="level1">
+<h1>Données propres (<code>Tidy</code> en anglais)</h1>
+<section id="quest-ce-que-des-données-propres" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-que-des-données-propres">Qu’est-ce que des données propres ?</h2>
+<p>Dans le cadre de la science des données, <strong>des données propres</strong> désignent un ensemble de données qui est prêt à être utilisé pour des analyses. Cela signifie que les données sont organisées, cohérentes et exemptes d’erreurs ou d’incohérences. Travailler avec des données propres est essentiel pour garantir la qualité des résultats d’analyse et des modèles.</p>
+<section id="caractéristiques-des-données-propres" class="level3">
+<h3 class="anchored" data-anchor-id="caractéristiques-des-données-propres">Caractéristiques des données propres</h3>
+<p>Les données propres doivent respecter les critères suivants :</p>
+<ul>
+<li><strong>Aucune valeur manquante</strong> : Toutes les données nécessaires pour l’analyse sont présentes.</li>
+<li><strong>Uniformité des formats</strong> : Les formats des dates, des nombres et des chaînes de caractères sont cohérents.</li>
+<li><strong>Absence de doublons</strong> : Les entrées en double ont été identifiées et supprimées si nécessaire.</li>
+<li><strong>Suppression des erreurs</strong> : Les données incohérentes ou incorrectes ont été corrigées.</li>
+<li><strong>Colonnes bien définies</strong> : Chaque colonne a une signification claire et unique.</li>
+<li><strong>Une ligne par observation</strong> : Les données sont structurées de manière tabulaire, avec une ligne représentant une seule observation.</li>
+</ul>
+</section>
+<section id="exemple-de-données-non-propres" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-de-données-non-propres">Exemple de données non propres</h3>
+<p>Un tableau contenant les données suivantes :</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Nom</th>
+<th>Date Naissance</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>01/01/1990</td>
+<td>85.5</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>1990-02-15</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td>Charlie</td>
+<td></td>
+<td>87.5</td>
+</tr>
+<tr class="even">
+<td>Alice</td>
+<td>01/01/1990</td>
+<td>85.5</td>
+</tr>
+</tbody>
+</table>
+<p>Problèmes : - Le format des dates n’est pas cohérent. - Une ligne contient une valeur manquante (Date Naissance pour Charlie). - Les données contiennent un doublon pour Alice.</p>
+</section>
+<section id="exemple-de-données-propres" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-de-données-propres">Exemple de données propres</h3>
+<p>Après nettoyage, les données deviennent :</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Nom</th>
+<th>Date Naissance</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>1990-01-01</td>
+<td>85.5</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>1990-02-15</td>
+<td>90.0</td>
+</tr>
+<tr class="odd">
+<td>Charlie</td>
+<td>1992-03-20</td>
+<td>87.5</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Le format des dates est uniforme (AAAA-MM-JJ).</li>
+<li>Les doublons ont été supprimés.</li>
+<li>Les valeurs manquantes ont été complétées ou supprimées.</li>
+</ul>
+<p>Dans les prochaines semaines, nous aurons un module complet sur le nettoyage des données, il s’agit ici de vous introduire à ces concepts clés de données propres afin que vous vous posiez la question à chaque fois que vous rencontrer des données.</p>
+<section id="experimentation-1" class="level4">
+<h4 class="anchored" data-anchor-id="experimentation-1">Experimentation</h4>
+<ul>
+<li>Dans le jeu de données <code>MeteoQuebec</code>, verifier s’il y a des données manquantes. VOus pouvez utiliser pour cela la fonction <code>summary</code>. Quand on applique la fonction <code>summary</code> sur un jeu de données, celle-ci nous donne des statistiques descriptives (pas interessant pour l’instant), mais elle donne surtout le nombre de données manquantes par colonne.</li>
+</ul>
+</section>
+<section id="exercice-6" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-6">Exercice</h4>
+<ul>
+<li>Les données <code>MeteoQuebec</code> sont-telles propres? Justifiez votre réponse.</li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<section id="manipulation-de-données-1" class="level1">
+<h1>Manipulation de données</h1>
+<p>Dans cette section, nous allons apprendre à manipuler des tableaux de données simples en R. Vous découvrirez comment extraire une ligne, une colonne et créer une nouvelle colonne en utilisant les crochets <code>[]</code> et l’opérateur <code>$</code>.</p>
+<section id="exemple-de-tableau-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-de-tableau-de-données">Exemple de tableau de données</h2>
+<p>Nous allons utiliser les données <code>MeteoQuebec</code>. La fonction <code>head</code> est très pratique, car comme son nom l’indique, elle permet d’afficher le haut (la tête) de la base de données. Cela permets d’avoir un accès rapide aux informations contenu dans les variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Affichage du haut du jeu de données</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year month day max_temp mean_temp min_temp total_precip total_rain total_snow
+1 1970    01  01    -12.8     -16.1    -19.4          0.0          0        0.0
+2 1970    01  02    -12.8     -16.1    -19.4          0.0          0        0.0
+3 1970    01  03    -13.3     -16.1    -18.9          0.0          0        0.0
+4 1970    01  04    -13.3     -17.0    -20.6          0.0          0        0.0
+5 1970    01  05    -12.8     -17.0    -21.1          0.3          0        0.5
+6 1970    01  06    -10.0     -14.2    -18.3          0.0          0        0.0
+  snow_grnd
+1        18
+2        18
+3        18
+4        18
+5        15
+6        15</code></pre>
+</div>
+</div>
+<section id="extraire-une-ligne-avec-des-crochets" class="level3">
+<h3 class="anchored" data-anchor-id="extraire-une-ligne-avec-des-crochets">Extraire une ligne avec des crochets <code>[]</code></h3>
+<p>Pour extraire une ligne spécifique, utilisez le format <code>nom_data[numéro_de_ligne, ]</code>.</p>
+<p>Exemple : Obtenons la 2e ligne :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire la 2ᵉ ligne</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ligne_2 <span class="ot">&lt;-</span> MeteoQuebec[<span class="dv">2</span>, ]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ligne_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year month day max_temp mean_temp min_temp total_precip total_rain total_snow
+2 1970    01  02    -12.8     -16.1    -19.4            0          0          0
+  snow_grnd
+2        18</code></pre>
+</div>
+</div>
+</section>
+<section id="extraire-une-colonne-avec-des-crochets" class="level3">
+<h3 class="anchored" data-anchor-id="extraire-une-colonne-avec-des-crochets">Extraire une colonne avec des crochets <code>[]</code></h3>
+<p>Pour extraire une colonne, vous pouvez utiliser <code>nom_data[, numéro_de_colonne]</code> ou <code>nom_data[["nom_de_colonne"]]</code>.</p>
+<p>Exemple : Obtenons la colonne <strong>total_precip</strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Méthode 1 : Par numéro de colonne</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>colonne_score <span class="ot">&lt;-</span> MeteoQuebec[, <span class="dv">7</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_score)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Méthode 2 : Par nom de colonne</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>colonne_score2 <span class="ot">&lt;-</span> MeteoQuebec[[<span class="st">"total_precip"</span>]]</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_score2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="extraire-une-colonne-avec-lopérateur" class="level3">
+<h3 class="anchored" data-anchor-id="extraire-une-colonne-avec-lopérateur">Extraire une colonne avec l’opérateur <code>$</code></h3>
+<p>Une méthode plus simple pour extraire une colonne consiste à utiliser l’opérateur <code>$</code>.</p>
+<p>Exemple : Obtenons la colonne <strong>mean_temp</strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire la colonne "mean_temp"</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>colonne_mean_temp <span class="ot">&lt;-</span> MeteoQuebec<span class="sc">$</span>mean_temp </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_mean_temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="experimentation-2" class="level4">
+<h4 class="anchored" data-anchor-id="experimentation-2">Experimentation</h4>
+<ul>
+<li>Dans le console, taper le nom de la base de données <code>MeteoQuebec</code>, ajouter un <code>$</code> à la fin. Que se passe t-il?</li>
+</ul>
+</section>
+</section>
+<section id="ajouter-une-nouvelle-colonne-avec" class="level3">
+<h3 class="anchored" data-anchor-id="ajouter-une-nouvelle-colonne-avec">Ajouter une nouvelle colonne avec <code>$</code></h3>
+<p>Pour créer une nouvelle colonne, utilisez l’opérateur <code>$</code> et assignez-y une valeur.</p>
+<p>Exemple : Ajoutons une colonne <strong>etendu_temp</strong>, égale à <strong>max_temp-min_temp</strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter une nouvelle colonne</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>MeteoQuebec<span class="sc">$</span>etendu_temp <span class="ot">&lt;-</span> MeteoQuebec<span class="sc">$</span>max_temp <span class="sc">-</span>MeteoQuebec<span class="sc">$</span>min_temp</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year month day max_temp mean_temp min_temp total_precip total_rain total_snow
+1 1970    01  01    -12.8     -16.1    -19.4          0.0          0        0.0
+2 1970    01  02    -12.8     -16.1    -19.4          0.0          0        0.0
+3 1970    01  03    -13.3     -16.1    -18.9          0.0          0        0.0
+4 1970    01  04    -13.3     -17.0    -20.6          0.0          0        0.0
+5 1970    01  05    -12.8     -17.0    -21.1          0.3          0        0.5
+6 1970    01  06    -10.0     -14.2    -18.3          0.0          0        0.0
+  snow_grnd etendu_temp
+1        18         6.6
+2        18         6.6
+3        18         5.6
+4        18         7.3
+5        15         8.3
+6        15         8.3</code></pre>
+</div>
+</div>
+<section id="exercice-7" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-7">Exercice</h4>
+<ul>
+<li>Creer une nouvelle colonne <strong>mean_temp_F</strong> qui correspond à la temperature moyenne par jour en degrés fahrenheit.</li>
+</ul>
+</section>
+</section>
+<section id="filtrer-des-lignes-selon-des-conditions-logiques" class="level3">
+<h3 class="anchored" data-anchor-id="filtrer-des-lignes-selon-des-conditions-logiques">Filtrer des lignes selon des conditions logiques</h3>
+<p>Vous pouvez utiliser des conditions logiques avec les crochets <code>[]</code> pour extraire des lignes spécifiques.</p>
+<p>Exemple : Obtenons les lignes où la temperature moyenne <strong>mean_temp </strong> est supérieur à 25 :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire les lignes avec un Score &gt; 85</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>lignes_mean_temp_25 <span class="ot">&lt;-</span> MeteoQuebec[MeteoQuebec<span class="sc">$</span>mean_temp <span class="sc">&gt;</span> <span class="dv">25</span>, ]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lignes_mean_temp_25)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="exercice-8" class="level4">
+<h4 class="anchored" data-anchor-id="exercice-8">Exercice</h4>
+<ul>
+<li>Obtenons les lignes où le total de precipitation <strong>total_precip</strong> est nul:</li>
+<li>Obtenir un sous ensemble de données pour le mois de juin seulement.</li>
+</ul>
+<p>Exemple : Combiner plusieurs conditions avec <code>&amp;</code> ou <code>|</code> :</p>
+</section>
+<section id="comprendre-les-opérateurs-logiques" class="level4">
+<h4 class="anchored" data-anchor-id="comprendre-les-opérateurs-logiques">Comprendre les opérateurs logiques</h4>
+<ul>
+<li><strong>ET (<code>&amp;</code>)</strong> : Toutes les conditions doivent être vraies pour inclure une ligne.</li>
+<li><strong>OU (<code>|</code>)</strong> : Au moins une des conditions doit être vraie pour inclure une ligne.</li>
+</ul>
+<p>Voici un exemple, ou on va chercher le sous-ensemble des données de l’année 2000 lorsqu’il n’y avait aucune neige au sol</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>MeteoQuebec[MeteoQuebec<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2000</span> <span class="sc">&amp;</span> MeteoQuebec<span class="sc">$</span>snow_grnd <span class="sc">==</span> <span class="dv">0</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="résumé" class="level3">
+<h3 class="anchored" data-anchor-id="résumé">Résumé</h3>
+<table class="table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Extraire une ligne</td>
+<td><code>data[numéro_de_ligne, ]</code></td>
+</tr>
+<tr class="even">
+<td>Extraire une colonne (crochets)</td>
+<td><code>data[, numéro_de_colonne]</code> ou <code>data[["nom_de_colonne"]]</code></td>
+</tr>
+<tr class="odd">
+<td>Extraire une colonne (<code>$</code>)</td>
+<td><code>data$nom_de_colonne</code></td>
+</tr>
+<tr class="even">
+<td>Ajouter une nouvelle colonne</td>
+<td><code>data$nouvelle_colonne &lt;- ...</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="défi" class="level1">
+<h1>Défi</h1>
+<p>Félication, vous venez de terminer cette première aventure! Vous pouvez passer au défi:</p>
+<p>Vous devez créer un rapport Quarto au format HTML. Votre rapport doit inclure :</p>
+<ul>
+<li>une en-tête parlante (titre, date et auteur) ;</li>
+<li>trois sections : introduction, analyse et conclusion.</li>
+</ul>
+<p>Le rapport doit répondre à la question suivante : <strong>“Suis-je né(e) la bonne année ?”</strong></p>
+<p>Pour répondre à cette question, vous devrez réaliser une analyse simple de la base de données <code>MeteoQuebec</code> de la librairie <code>UlavalDataScience</code>. Voici les étapes à suivre :</p>
+<ol type="1">
+<li><strong>Décrire les conditions météorologiques</strong> lors de votre jour de naissance.</li>
+<li><strong>Analyser les conditions météorologiques</strong> en comparant votre jour de naissance avec les données de 5 années consécutives avant et 5 années après votre année de naissance. Cela vous permettra de déterminer si les conditions météorologiques de votre jour de naissance étaient plus favorables.</li>
+</ol>
+<p><strong>Remarque importante :</strong><br>
+Si les données correspondant à votre jour de naissance contiennent des valeurs manquantes, par exemple pour la température moyenne, vous pouvez choisir une autre date symbolique, comme la date de fête d’un membre de votre famille, d’un ami ou de votre animal de compagnie.</p>
+<p>Dans la section conclusion, vous devez répondre avec du texte à la question du défi.</p>
+<p><strong>Livrables attendus :</strong></p>
+<ul>
+<li><p>Un rapport HTML ;</p></li>
+<li><p>Votre fichier source <code>.qmd</code>.</p></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
