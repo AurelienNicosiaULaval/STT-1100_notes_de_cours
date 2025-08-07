@@ -1,0 +1,91 @@
+---
+title: "Examen 2 — Audit & Rescue d’une application Shiny"
+subtitle: "*INF416 • Juin 2025"
+author: "Aurélien Nicosia"
+format:
+  html:
+    toc: true
+    toc-title: "Plan de la mission"
+    embed-resources: true
+    code-link: true
+    theme: journal
+editor: visual
+editor_options:
+  chunk_output_type: console
+---
+
+## 🎯 Objectif
+
+Vous partirez d’une application Shiny existante (dossier **`bad_app/`**) que vous exécuterez localement :
+
+``` r
+shiny::runApp("bad_app")
+```
+
+Votre travail :
+
+1.  **Diagnostiquer** les problèmes d’interface, d’accessibilité et de narration.
+2.  **Prioriser** les actions de correction.
+3.  **Mettre en œuvre** les **3 Quick Wins** les plus urgents **et un (1) High‑Impact** dans le code de l’application.
+4.  **Documenter** vos choix et votre démarche dans un rapport Quarto.
+
+> 👉 Aucun nouveau code complet n’est exigé : vous améliorez l’app fournie, puis vous expliquez vos décisions.
+
+------------------------------------------------------------------------
+
+## 1 • Livrables finaux
+
+| Lettre | Livrable | Attentes détaillées |
+|-----------------|------------------|-------------------------------------|
+| **a** | **Contexte et public cible** | Décrivez en 250 mots max :<br>- Qui est l’utilisateur principal (personne, âge, besoins) ?<br>- Quel est l’objectif pédagogique / décisionnel de l’app ?<br>- Pourquoi cette app est‑elle utile dans ce contexte ? |
+| **b** | **Diagnostic UX/UI** | Tableau des problèmes contenant **3 colonnes obligatoires** :<br>**Gravité** : Mineur / Majeur / Bloquant (impact sur l’usage).<br>**Preuve** : capture d’écran, message d’erreur, etc.<br>**Catégorie** : Contenu / Visuel / Accessibilité / Réactivité / Performance / Navigation. |
+| **c** | **Priorisation & feuille de route** | Classez vos correctifs selon :<br>- **Quick Win** : faible effort, fort gain immédiat.<br>- **High‑Impact** : effort modéré / élevé, amélioration majeure.<br>- **Moonshot** : idée ambitieuse à plus long terme (décrit mais **non implémenté**).<br><br>⚠️ Pour la partie (code), **implémentez seulement vos 3 Quick Wins et 1 High‑Impact**, mais vous devez en écrire plus, tout ce que vous obtenez dans votre analyse. |
+| **d** | **Application améliorée** | Nouveau dossier `improved_app/` (ou mise à jour de `bad_app/`) contenant votre code corrigé **fonctionnel**. Ajoutez un *changelog* succinct dans un commentaire en tête de fichier. |
+| **e** | **Bilan critique & améliorations futures** | Une ½ page où vous discutez :<br>- Ce qui reste imparfait et pourquoi (temps, contraintes).<br>- Les hypothèses posées.<br>- Les prochaines étapes pour atteindre le “Moonshot”. |
+
+Le rapport `.qmd` (5 pages max) doit intégrer vos captures d’écran et s’ouvrir hors‑ligne (`embed-resources: true`).
+
+------------------------------------------------------------------------
+
+## 2 • Barème d’évaluation (100 pts)
+
+| Axe                                              | Points |
+|--------------------------------------------------|--------|
+| Diagnostic étayé (b)                             | 35     |
+| Priorisation & alignement (c)                    | 25     |
+| **Qualité et robustesse de l’app améliorée (d)** | 25     |
+| Réflexion critique (e)                           | 10     |
+| Professionnalisme (forme)                        | 5      |
+
+------------------------------------------------------------------------
+
+## 3 • Ressources autorisées
+
+-   Tout le matériel de cours, livres et Internet.\
+-   Forums publics en lecture seule (StackOverflow, Posit Community).\
+-   **Interdit** : partager vos correctifs avec d’autres étudiant·es.
+
+------------------------------------------------------------------------
+
+## 4 • Modalités de remise
+
+1.  Déposez sur **Moodle** avant **2025‑06‑11 23 h 59** :<br>
+    -   Votre fichier `rapport.qmd` **et** son rendu HTML.<br>
+    -   Le dossier compressé `improved_app/` (ou `bad_app/` mis à jour).\
+2.  Assurez‑vous que l’app se lance via `shiny::runApp("improved_app")` sans erreur.\
+3.  N’oubliez pas d’inclure vos captures (`fig/` ou `www/`).
+
+------------------------------------------------------------------------
+
+## 5 • Fiche client détaillée
+
+> **Organisation cliente** : **Observatoire Québec‑Antarctique (OQA)**, organisme à but non lucratif francophone qui vulgarise la biodiversité polaire.\
+> **Public cible** : élèves du secondaire (12‑18 ans) et grand public curieux, francophone.\
+> **Objectif pédagogique** : aider les visiteur·euses à *comparer visuellement* les caractéristiques morphologiques des trois espèces de manchots de Palmer afin de comprendre l’adaptation au milieu.\
+> **Problématique actuelle** : l’app est jugée « confuse », « difficile à lire sur mobile », et « trop chargée en informations ».\
+> **Contraintes** : budget limité, temps de correction 10 h max.\
+> **Ton visuel souhaité** : scientifique mais ludique, palette inspirée de la banquise (bleus doux, contrastes élevés).
+
+------------------------------------------------------------------------
+
+Bonne mission !

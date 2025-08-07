@@ -1,0 +1,493 @@
+---
+title: "Quoi de neuf dans les outils en sciences des données ?"
+author: "Aurélien Nicosia"
+date: "2025-05-15"
+format:
+  revealjs:
+    theme: solarized
+    transition: slide
+    slide-number: true
+execute:
+  echo: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Introduction
+
+## Qui suis‑je ?
+
+-   Chargé d'enseignement en **statistique & science des données** à
+    l’Université Laval.
+
+-   Passionné de sciences des données!
+
+## Contexte
+
+-   **Passionné par l’écosystème R**, je suis en permanence les annonces
+    sur LinkedIn, Posit Blog et R-Bloggers.\
+-   À chaque nouveauté, je l’ajoute à ma *todo* « à tester »… mais,
+    faute de temps, la liste s’allonge !\
+-   Pour cette présentation, j’ai enfin passé ces outils en revue, pris
+    le temps de les essayer et d’en extraire **l’essentiel**.
+
+## Objectifs de la présentation
+
+1.  Vous offrir un **résumé clair et pratique** des avancées 
+    des deux dernières années en lien avec R.
+2.  Passer en revue les **outils récents** qui optimisent le workflow R
+    en sciences des données.\
+3.  Les voir **en action** via des démos live.\
+4.  Vous fournir un **kit de ressources** (sur Github) pour aller plus loin.
+
+# Plan de la présentation
+
+-   🚀 **IDE: Posit, Posit Cloud et Positron**
+
+-   📄 **Quarto : reproducibilité**
+
+-    🅁 **Base R : nouveautés**
+
+-   🤖 **IA & productivité de code**
+
+-   💬 **Shiny + agents conversationnels**
+
+-   🎨 **Design**
+<!-- -   📈 **Modèles prédictifs : tidymodels & Orbital** -->
+-   ❓ **Conclusion & Q&R**
+
+# 🚀 IDEs modernes : Posit Desktop/Workbench, Posit Cloud & Positron
+
+## Pourquoi un bon IDE ?
+
+-   **Expérience unifiée** : code, exécution, visualisation dans la même
+    fenêtre.
+-   **Assistance IA** : Copilot, Shiny Assistant.
+-   **DevOps prêt‑à‑l’emploi** : Git, publication
+    Quarto/Shiny → Posit Connect & Cloud.
+-   **Collaboration** : Posit Cloud pour l’enseignement, Positron pour
+    projets multi‑langages.
+
+## Posit Desktop ("Kousa Dogwood" 2024‑12)
+
+-   **Copilot Preview** in‑line pour R, Python et Quarto.
+-   **Formatter externe** : support natif *styler*, *Air*.
+-   UX Quarto revue : icône « gear » sur chaque chunk.
+
+## Posit Cloud : RStudio dans le navigateur
+
+-   **Templates** prêts à l’emploi (tidyverse, Shiny, Quarto).
+-   **Copilot in‑browser** (depuis déc 2023).
+-   Mises à jour R & drivers automatiques, bouton
+    *Publish* → Posit Connect Cloud.
+
+## Positron (beta) : IDE polyglotte
+
+-   Projets **R, Python, Julia, SQL, Bash** dans un même workspace.
+
+## Bonnes pratiques IDE
+
+-   **Versionnez** vos réglages (`.Rprofile`, `settings.json`).
+-   Activez **format‑on‑save** (*Air* ou *styler*).
+-   Utilisez **Project Templates** pour isoler les dépendances.
+-   Relisez et tester toujours le code généré par l’IA avant de committer.
+
+# 📄 Quarto : nouveautés
+
+## Qu'est‑ce que Quarto ?
+
+-   **Quarto** est un système de publication open‑source pour le langage
+    R, Python et Julia.
+-   **Successeur moderne de R Markdown** : chunks \`\``{}` similaires et
+    YAML cohérent.
+-   **Polyglotte** : R, Python, Julia, Observable — un document,
+    plusieurs kernels.
+-   Export **multi‑format** : HTML, PDF, Word, RevealJS, Beamer,
+    Dashboards, livres, sites.
+
+## Pourquoi suivre Quarto de près ?
+
+-   Plate‑forme polyvalente accélérant la production de contenus
+    scientifiques.
+-   Workflows plus fluides : moins de YAML, meilleures
+    prévisualisations (mode visual).
+-   Nouveaux formats (Dashboard, Manuscript), thèmes unifiés,
+    intégration IA.
+
+## Quarto Dashboards (v1.4)
+
+-   Nouveau format **dashboard** basé sur `grid-page` : rows, columns,
+    value‑boxes, cards.
+-   Compatible Shiny et HTML widgets.
+-   YAML minimal :`format: dashboard   theme: minty`.
+
+## Moteur Typst (v1.5)
+
+-   Export PDF ultra‑rapide via **Typst** au lieu de LaTeX.
+-   Pas besoin de distribution TeX lourde.
+-   Support des équations LaTeX et de la coloration syntaxique.
+
+## Brand / Dark‑Mode Themes (v1.6)
+
+-   Switch d’un thème clair à sombre avec `theme-dark: darkly`.
+-   **Brand CSS** : déposez `brand.css` → toutes les sorties alignées à
+    la charte graphique.
+
+## Cross‑References & shortcode
+
+-   Auto‑numérotation des tableaux/figures → `@tbl-…`.
+-   Shortcode `{{< version >}}` injecte la version Quarto utilisée.
+
+## Nouveautés Quarto 1.7 (avril 2025)
+
+-   **Light / Dark renderings** : fournissez deux versions d’une figure
+    ou d’un tableau → Quarto sert la bonne selon le thème.\
+-   `respect-user-color-scheme: true` : bascule automatique clair/sombre
+    selon les préférences du navigateur.
+
+> ⚠️ Une preview 1.8 existe mais l’équipe prévient d’une **instabilité
+> temporaire** ; attendez la stable avant d’upgrader.
+
+## Conclusion – bonnes pratiques Quarto
+
+-   \***Utilise** des Quarto Projects.
+-   Documente le YAML : commentaires.
+-   Active `embed-resources: true` pour le partage offline.
+
+# Base R : nouveautés
+
+## Pourquoi mettre à jour R ?
+
+-   **Corrections de bugs & sécurité** : vulnérabilités corrigées
+    rapidement.
+-   **Performance** : téléchargement parallèle (`install.packages`) dès
+    4.5.
+-   **Ergonomie** : pipe `|>` complet, `use()` pour imports ciblés,
+    nouvelles fonctions utilitaires.
+-   **Compatibilité** : packages récents exigent souvent ≥ 4.3.
+
+## Pipe `%>%` (tidyverse) vs `|>` (base R)
+
+-   `%>%` provient du package **magrittr** ; nécessite `library(dplyr)`\
+    ou `library(magrittr)`.
+-   `|>` est intégré à **base R ≥ 4.1** : zéro dépendance, un soupçon
+    plus rapide.
+-   Passer l’objet ailleurs qu’au **premier argument** :
+    -   `%>%` → placeholder `.`\
+    -   `|>` → identifiant `_` (R 4.3+).
+
+## Mini-démo
+
+```{r}
+# tidyverse pipe
+library(dplyr)
+library(tidyverse)
+iris %>% 
+  dplyr::filter(Species == "setosa") %>% 
+  dplyr::summarise(mean_sepal = mean(Sepal.Length))
+
+
+# base R pipe (≥ 4.1)
+iris |>
+  subset(Species == "setosa") |>
+  with(mean(Sepal.Length))
+
+```
+
+## R 4.3 ("Already There?" – 20 avr 2023)
+
+-   **Vérifications longueur‑1 plus strictes** : `x && y` génère une
+    *erreur* si `x` ou `y` \> 1 élément.
+-   **Extraction depuis le pipe** : l’identifiant `_` peut être
+    réutilisé après `|>` → `mtcars |> lm(mpg~disp, data=_) |> _$coef` 
+-   **Métriques** : gains de \~5‑10 % sur l’évaluation vectorisée.
+
+## Démo rapide
+
+```{r}
+# stricte longueur‑1
+x <- c(TRUE, FALSE)
+# x && TRUE  # ← génère erreur depuis R 4.3
+
+# pipe avec _
+mtcars |> lm(mpg ~ disp, data = _) |> _$coef
+```
+
+## R 4.5 ("How About a Twenty‑Six" – 11 avr 2025)
+
+-   **Datasets** : `penguins`, `penguins_raw` intégrés au base R.
+-   **`use()`** : import sélectif depuis un package → évite conflits de
+    noms.
+-   **Téléchargements parallèles** : `install.packages()` plus rapide
+    (2‑5×).
+
+## Démo rapide
+
+```{r eval=FALSE}
+penguins |> head()
+use("dplyr", c("filter", "select"))
+filtered <- penguins |> filter(bill_length_mm > 40) |> select(species, year)
+```
+
+## Roadmap & bonnes pratiques
+
+-   Surveillez **r‑devel NEWS** pour tester les nouveautés.
+-   **Mettez à jour** R régulièrement (4.3+).
+-   Utilisez `pak::pkg_install()` (encore plus rapide mais base R se
+    rapproche !).
+
+# IA & productivité du code
+
+## Pourquoi des copilotes IA & auto‑formatteurs ?
+
+-   **Gains de temps** : génération de code, refactorisations massives
+    en un clic.
+-   **Montée en compétences** : explications contextuelles.
+-   **Standardisation** : style uniforme (Air) → diff Git propres,
+    relectures focalisées sur la logique.
+-   **Réduction des erreurs**
+-   **Pédagogie** : outil d’apprentissage actif pour les étudiants comme
+    pour les équipes.
+
+## gander : le copilote contextuel pour R
+
+-   **Add‑in RStudio** qui dialogue avec un LLM et *réécrit directement*
+    la sélection courante : traduction base R → tidyverse,
+    vectorisation, documentation, etc.
+-   Se base sur **ellmer** + `rstudioapi` : aucune copie‑colle
+    manuelle ; le code retourné remplace immédiatement l’ancien.
+-   Avantages :
+    1.  Accélère les refactorisations répétitives.
+    2.  Sert de mentor (« explique-moi ce bloc »).
+    3.  Respecte le contexte : data frames chargés.
+    
+- On peut choisir entre différents modèles de LLM
+
+## Air : formateur de code ultra‑rapide
+
+-   **Air** applique le *Tidyverse style guide* en une fraction de
+    seconde 
+-   Avantages :
+    -   Style cohérent.
+    -   Revue de code concentrée sur la logique, pas la mise en forme.
+    -   Fonctionne « à l’enregistrement » dans Positron/Rstudio ou via
+        `air::style_file()`.
+
+## ellmer : passerelle LLM universelle
+
+-   Package **ellmer** : fonctions `chat()`, `complete()`, supporte
+    OpenAI/Anthropic/Ollama, stockage local des discussions.
+-   Utilisé en coulisses par gander pour insérer des
+    réponses dans RStudio.
+
+## Bonnes pratiques pour coder avec l’IA
+
+-   **Toujours relire** : l’IA peut halluciner ou omettre des cas
+    limites.
+-   **Tester systématiquement** 
+-   **Versionner & formater** : Git + Air pour du code propre.
+-   **Documenter les prompts** : garder une trace dans le repo ou dans
+    ellmer.
+-   **Respect des données** : ne pas envoyer d’info sensible ou
+    propriétaire; vérifier licences et RGPD.
+
+# Shiny + agents conversationnels
+
+## Qu’est‑ce qu’une application Shiny ?
+
+-   **Framework Web pour R (et maintenant Python)** : créez une appli
+    interactive *sans* écrire de HTML/JS.\
+-   Architecture **UI + Server réactif** : les widgets déclenchent un
+    recalcul côté R, l’interface se met à jour instantanément.\
+-   **Déploiement flexible** : local, *shinyapps.io*, Posit Connect ou
+    **Shinylive** (tout tourne dans le navigateur).\
+-   Cas d’usage : dashboards exploratoires, démonstrateurs de modèles,
+    outils pédagogiques, prototypes de produits.
+
+## Pourquoi marier Shiny et les LLM ?
+
+-   Explosion des assistants de codage (Shiny Assistant, **gander**) qui
+    génèrent du *code UI + server* en quelques secondes\
+
+-   [Shiny Assistant
+    (Posit)](https://gallery.shinyapps.io/assistant/?_gl=1*yzykgf*_ga*MTUwMDg2NTIyNy4xNzQyMzI1ODc3*_ga_2C0WZ1JHG0*czE3NDcwNTU5MDkkbzEzJGcwJHQxNzQ3MDU1OTA5JGowJGwwJGgw)
+
+
+
+# Design moderne pour apps & rapports
+
+## Pourquoi se soucier du design ?
+
+-   **Lisibilité & crédibilité** : un visuel propre renforce la
+    confiance.
+-   **Accessibilité** : contrastes, navigation clavier, dark‑mode →
+    public élargi.
+-   **Productivité** : composants réutilisables (cards, value_boxes)
+    accélèrent le prototypage.
+-   **Cohérence** : thèmes partagés entre Quarto, Shiny et
+    sites web.
+
+## bslib 0.7 : cartes, value_boxes, layout_sidebar
+-   **bslib** : package pour créer des thèmes Bootstrap 5 pour Shiny et
+    Quarto.
+-   Nouvelle version (mars 2024) ajoute `card()`, `value_box()`,
+    `layout_sidebar()` et refonte de `layout_columns()` → grilles
+    responsives sans CSS. 
+-   **Avantages** : prototypage rapide, cohérence visuelle.
+
+
+## Shiny Ui Editor 
+-   **Shiny UI Editor** : éditeur visuel pour créer des applications
+    Shiny sans écrire de code.
+-   **Drag‑and‑drop** pour construire l’UI; génère
+    du code R \
+-   Aperçu live, palette de composants {bslib}, export vers RStudio.
+-   **Avantages** : democratise UX, facilite le developpement d'app auprès des non‑développeurs.
+
+
+
+## esquisse : construire un ggplot sans coder
+
+- `{esquisse}` ouvre une **interface Shiny interactive** pour créer des graphiques `ggplot2`.  
+- Glissez vos variables dans X / Y / couleur / facette.  
+- Choisissez un type de graphique (`geom`) et personnalisez.  
+- Le **code R est généré automatiquement** et peut être copié/collé.
+
+> Idéal pour la formation, le prototypage rapide ou explorer un jeu de données inconnu.
+
+
+
+<!-- # ModelOps : de l’entraînement à la production -->
+
+<!-- ## Pourquoi le ModelOps ? -->
+
+<!-- -   Passage du **notebook** au **service en production** est la partie -->
+<!--     la plus coûteuse du cycle ML. -->
+<!-- -   Nécessité de **traçabilité**, **réplicabilité**, **scalabilité** et -->
+<!--     **monitoring** continu. -->
+<!-- -   L’écosystème R autour de **tidymodels** comble le fossé entre -->
+<!--     data science et ops sans quitter R. -->
+
+<!-- ## tidymodels : fondation du cycle ML tidy -->
+
+<!-- -   Métapackage (recipes, parsnip, workflows, tune, yardstick…). -->
+<!-- -   Pipeline déclaratif : recette de pré‑traitement → spécification -->
+<!--     modèle → workflow complet. -->
+<!-- -   Avantages : -->
+<!--     1.  Syntaxe cohérente « tidyverse ». -->
+<!--     2.  Historique complet des étapes & hyperparamètres. -->
+<!--     3.  Intégration native aux briques ModelOps (vetiver, pins, -->
+<!--         orbital). -->
+
+
+
+<!-- ## vetiver : empaqueter, versionner, déployer -->
+
+<!-- -   Transforme un **workflow** en objet vetiver prêt à être servi via -->
+<!--     API Plumber/FastAPI. -->
+<!-- -   Utilise **pins** pour sauvegarde/version ; ajoute validation -->
+<!--     d’entrées & monitoring. -->
+
+<!-- ## Démo vetiver – publier une API -->
+
+<!-- 1.  `pak::pkg_install(c("vetiver", "pins"))` -->
+<!-- 2.   -->
+
+<!-- ``` r -->
+<!--    library(vetiver) -->
+<!--    board <- board_folder("models/") -->
+<!--    v <- vetiver_model(final_wf, "adult_rf_v1") -->
+<!--    vetiver_pin_write(board, v) -->
+<!--    vetiver_write_plumber(board, "adult_rf_v1")   # crée plumber.R -->
+<!-- ``` -->
+
+<!-- 3.  `plumber::pr_run("plumber.R", port = 8000)` ⇒ POST `/predict`. -->
+<!-- 4.  Appeler : -->
+<!--     `curl -X POST -H "Content-Type: application/json" -d '{"age":42,...}' http://localhost:8000/predict`. -->
+
+<!-- ## orbital : prédire directement en SQL -->
+
+<!-- -   Convertit un **workflow tidymodels** en requête SQL ou UDF -->
+<!--     Snowflake/Postgres/BigQuery. -->
+<!-- -   Supprime la latence liée aux extractions ; garde les données dans -->
+<!--     leur base. -->
+
+<!-- ## Démo orbital – export Snowflake -->
+
+<!-- 1.  `pak::pkg_install("orbital")` -->
+<!-- 2.   -->
+
+<!-- ``` r -->
+<!--    library(orbital) -->
+<!--    orb <- orbital(final_wf) -->
+<!--    sql_code <- orbital_as_sql(orb, table = "RAW.ADULT_DATA") -->
+<!--    writeLines(sql_code)            # coller dans l'IDE Snowflake -->
+<!-- ``` -->
+
+<!-- 3.  Dans Snowflake : -->
+<!--     `CREATE FUNCTION predict_income(...) RETURNS FLOAT AS $$ ... $$;` -->
+<!-- 4.  `SELECT id, predict_income(*) AS proba FROM RAW.ADULT_DATA LIMIT 10;` -->
+
+<!-- ## workflowsets : multiverse tuning -->
+
+<!-- -   Génère et compare **des dizaines de workflows** en un objet. -->
+<!-- -   `autoplot()` intégré pour visualiser performances & rangs. -->
+
+<!-- ## Démo workflowsets -->
+
+<!-- ``` r -->
+<!-- library(workflowsets) -->
+<!-- set <- workflow_set( -->
+<!--   preproc = list(basic = rec, spline = rec %>% step_ns(age, deg_free = 4)), -->
+<!--   models  = list(rf = mod, logit = logistic_reg() %>% set_engine("glm")) -->
+<!-- ) -->
+<!-- fit_set <- workflow_map(set, "tune_grid", resamples = vfold_cv(train, v = 3)) -->
+<!-- autoplot(fit_set) -->
+<!-- ``` -->
+
+<!-- ## pins : versionner tous vos artefacts -->
+
+<!-- -   Sauvegarde objets sur **boards** (local, S3, GCS, Posit Connect) ; -->
+<!--     versioning activé. -->
+<!-- -   Se combine à vetiver pour historiser *chaque* build. -->
+
+<!-- ## Démo pins -->
+
+<!-- ``` r -->
+<!-- library(pins) -->
+<!-- board <- board_folder("boards/") -->
+<!-- board %>% pin_write(final_wf, "adult_rf", type = "rds") -->
+<!-- board %>% pin_versions("adult_rf") -->
+<!-- ``` -->
+
+<!-- ## Conclusion • Bonnes pratiques ModelOps -->
+
+<!-- -   **CI/CD** : GitHub Actions + `renv` pour des builds reproductibles. -->
+<!-- -   **Tests** : `testthat` + tests d’intégration prédictive. -->
+<!-- -   **Monitoring** : vetiver fournit des métriques de drift; exposez‑les -->
+<!--     via Prometheus/Grafana. -->
+<!-- -   **Gouvernance** : pins et orbital conservent l’historique + contexte -->
+<!--     directement dans le datawarehouse. -->
+
+# Conclusion & Q&R
+
+-   **Récapitulatif** des outils et bénéfices.\
+-   **Invitation** à tester et partager vos retours.
+-   Vous retrouverez la présentation et le code des exemples sur Github:
+-   **Questions ?**
+
+# Liens & Références
+
+-   Gander : https://posit.co/blog/introducing-gander/\
+-   Shiny Assistant :
+    https://shiny.posit.co/blog/posts/shiny-assistant/\
+-   Ellmer : https://posit.co/blog/announcing-ellmer/\
+-   do4ds : https://do4ds.com/\
+-   tidyverse AI :
+    https://www.tidyverse.org/blog/2025/01/experiments-llm/\
+-   air : https://www.tidyverse.org/blog/2025/02/air/\
+-   generate-data :
+    https://posit.co/blog/generate-data-with-an-llm-and-ellmer/\
+-   learn-tidyverse-ai :
+    https://www.tidyverse.org/blog/2025/04/learn-tidyverse-ai/

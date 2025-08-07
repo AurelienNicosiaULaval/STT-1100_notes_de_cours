@@ -1,0 +1,49 @@
+library(shiny)
+library(ggplot2)
+library(dplyr)
+
+ui <- fluidPage(
+  titlePanel("Analyse par espèce"),
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput(
+        "species",
+        "Choisissez l'espèce:",
+        choices = unique(palmerpenguins::penguins$species),
+        selected = "Adelie"
+      )
+    ),
+    mainPanel(
+      plotOutput("hist"),
+      verbatimTextOutput("summary")
+    )
+  )
+)
+
+server <- function(input, output) {
+  filtered_data <- reactive({
+    req(input$species)
+    palmerpenguins::penguins %>%
+      filter(species %in% input$species)
+  })
+
+  output$hist <- renderPlot({
+    # filtration
+    ggplot(filtered_data(), aes(x = body_mass_g, fill = species)) +
+      geom_histogram(binwidth = 200, alpha = 0.7, position = "identity") +
+      labs(title = "Distribution du poids corporel")
+  })
+
+  output$summary <- renderPrint({
+    # filtration
+    filtered_data() %>%
+      group_by(species) %>%
+      summarise(
+        Moyenne = mean(body_mass_g, na.rm = TRUE),
+        Médiane = median(body_mass_g, na.rm = TRUE),
+        n = n()
+      )
+  })
+}
+
+shinyApp(ui, server)

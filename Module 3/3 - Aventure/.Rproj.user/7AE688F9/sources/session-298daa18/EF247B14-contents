@@ -1,0 +1,332 @@
+---
+title: "Aventure 3 - Infractions dans les restaurants de Montréal"
+subtitle: "STT-1100"
+editor: visual
+editor_options: 
+  chunk_output_type: console
+format:
+  html:
+    toc: true
+    self-contained: true
+    number-sections: true
+    css: style.css
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(UlavalSSD)
+```
+
+# 🍿 Introduction : L'histoire
+
+Une nouvelle vague d'inspections alimentaires a récemment eu lieu au Québec Les autorités souhaitent vérifier la salubrité et la conformité des restaurants. **Vous êtes le ou la scientifique des données** chargé·e d’analyser les données de condamnations pour en tirer des informations probantes : 
+
+- Quelle est la proportion des établissements provenant de la ville de Montréal?
+
+- Quelles sont les infractions les plus courantes ? 
+
+- Quels types d’établissements sont touchés ? 
+
+- Quel montant d’amendes ont été imposées en moyenne ? Ce montant dépend t-il du type d'infractions?
+
+:::note  
+💡 **Note pour le rapport**  
+Tout au long de l'analyse, vous devrez garder en tête ces questions et y répondre de manière argumentée dans votre rapport `qmd`  
+:::
+
+
+Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infractions, leurs amendes et le type d’établissements concernés. Votre mission : **analyser les données pour répondre à l’objectif d’identifier les infractions dans les restaurants à Montréal**.
+
+------------------------------------------------------------------------
+
+# 🚀 Travail sur Github
+
+Avant de commencer l'analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.
+
+1️⃣ Clonez le dépôt "Aventure3-IDENTIFIANT_GITHUB".
+
+2️⃣ Créez un environnement de travail propre: Une fois le dépôt cloné, ouvrez RStudio et assurez-vous que vous êtes bien dans le dossier du projet.
+
+💡 Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier `.Rproj` dans votre explorateur de fichiers.
+
+3️⃣ Ajuster le fichier Quarto: Le rapport d'analyse est présent dans le dépôt. Allez inscrire votre nom.
+
+Dans le rapport, les titres de sections sont présent pour vous. Vous trouverez aussi une section conclusion ou vous devrez répondre aux questions posées.
+
+4️⃣ Premier commit et push vers GitHub: Une fois votre fichier `.qmd` ajusté et enregistré, commitez et poussez vos modifications sur GitHub :
+
+Attention: on se rappelle que les messages de commit doivent être parlant. Par exemple "Ajout du fichier d'analyse initial"
+
+🎯 Félicitations ! Vous êtes maintenant prêt à débuter l’analyse ! 🚀
+
+# 🎯 Comment réussir l'aventure
+
+1.  **Cloner le projet** : Assurez-vous de récupérer le dépôt GitHub (ou les fichiers) correspondant à l’aventure.
+2.  **Charger les données** : Vous pouvez soit :
+    -   Charger le package `UlavalSSD` et appeler `data(listecondamnation)`.
+3.  **Suivre les sections** : Chaque section contient des explications, une démonstration, des expérimentations à réaliser, puis des exercices.
+4.  **Documenter vos trouvailles** : Comme dans les aventures précédentes, commentez votre code, expliquez vos choix et validez vos analyses.
+
+------------------------------------------------------------------------
+
+# 🏷️ Variables catégoriques : les bases en R avec `stringr`
+
+## ✨ Explications
+
+En R, une variable catégorique est souvent représentée par : 
+
+- Un **facteur** (`factor`) qui contient un ensemble de niveaux définis.
+
+- Ou un simple **character** pour les chaînes de caractères.
+
+**Dans le Tidyverse**, on manipule souvent des chaînes de caractères via le package **stringr** ; pour la conversion en facteur, on peut utiliser `as.factor()` ou le package **forcats**.
+
+Pour le module 3, nous nous concentrerons sur les variables catégorique de type **character**. Dans le module 4, nous verrons plus en détail les facteurs.
+
+Voici des exemples démontrant comment utiliser `stringr` (partie du `Tidyverse`) pour manipuler des variables de type character dans un jeu de données comme `listecondamnation`. Les exemples ci‑dessous ciblent des cas fréquents : détection de motifs, extraction, remplacement, et nettoyage de chaînes.
+
+## 🚀 Démonstration
+
+On va utiliser le jeu de données `listecondamnation`  de la librarie `UlavalSSD` qui contient les condamnations des établissements alimentaires au Québec.
+
+
+```{r}
+library(UlavalSSD)
+library(tidyverse)
+glimpse(listecondamnation)
+```
+
+> **Remarque** : Lancer `glimpse()` sur vos données vous permettra de repérer quelles colonnes sont en `chr` (character) et lesquelles sont en `factor` ou encore en `numeric`.
+
+> **Remarque 2** : Trois colonnes sont au format date, pour l'instant, nous n'en tiendrons pas compte, nous reviendrons dans un module plus tard sur le format date.
+
+💡 **Question de réflexion** : Quel est le type de la variable `Amende`? Est-ce que cela vous semble problématique?
+
+### Détection de motifs (`str_detect()`)
+
+Pour vérifier si l’adresse mentionne `"MONTREAL"` (ou un code postal, etc.), on peut faire :
+
+```{r}
+
+# Créer une colonne booléenne 'est_montreal'
+listecondamnation <- listecondamnation %>%
+  mutate(est_montreal = str_detect(Adresse_lieu_infraction, "MONTREAL"))
+
+# Aperçu
+listecondamnation %>%
+  select(Adresse_lieu_infraction, est_montreal) %>%
+  head(10)
+```
+
+Vous obtenez `TRUE/FALSE` selon la présence du mot **MONTREAL** dans la chaîne.
+
+::: experimentation
+**Expérimentation**: Quelle est la proportion du nombre d'adresse contenant le mot **MONTREAL**?
+:::
+
+### Remplacement (`str_replace()` et `str_replace_all()`)
+
+Pour nettoyer la colonne `Amende`, on peut enlever le symbole `$` ou remplacer des virgules par des points, etc.
+
+```{r}
+
+# str_replace() remplace la 1re occurrence ; str_replace_all() toutes les occurrences  
+listecondamnation <- listecondamnation %>%   mutate( 
+  # Exemple : retirer le $ si présent 
+  Amende_clean = str_replace_all(Amende, "\\$", ""), 
+  # remplacer éventuelles virgules par un point   
+  Amende_clean = str_replace_all(Amende_clean, ",", ".")   )  
+
+# Vérifions 
+listecondamnation %>%  
+  select(Amende, Amende_clean) %>%  
+  head(10)
+```
+
+Ici, les motifs sont des **expressions régulières**.
+
+-   `\\$` correspond littéralement au signe `$`.
+
+-   `,` est remplacé par `.` (utile si votre texte comporte `\"1,000\"`).
+
+### Extraction de motifs (`str_extract()`)
+
+Pour extraire un élément précis. Par exemple, si `Adresse_lieu_infraction` contient un code postal de la forme `H2X 3E4`, on peut tenter :
+
+```{r}
+
+listecondamnation <- listecondamnation %>%   
+  mutate(     
+    code_postal = str_extract(Adresse_lieu_infraction, "[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]")   )  
+
+listecondamnation %>%  
+  select(Adresse_lieu_infraction, code_postal) %>%
+  head(10)
+```
+
+Le motif `[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]` est une forme simplifiée d’un code postal canadien.
+
+### Mise en forme (`str_to_lower()`, `str_to_upper()`, etc.)
+
+Parfois, il est utile d’harmoniser la casse (`MONTREAL`, `Montréal`, etc.) :
+
+```{r}
+listecondamnation <- listecondamnation %>%  
+  mutate(     Adresse_lower = str_to_lower(Adresse_lieu_infraction),    
+              # ou str_to_upper, str_to_title ...   
+              # trim pour enlever espaces en trop    
+              Adresse_trim = str_trim(Adresse_lieu_infraction)   )
+```
+
+### Suppression d’espaces multiples (`str_squish()`)
+
+Si les données contiennent des espaces superflus :
+
+``` {r}
+listecondamnation <- listecondamnation %>%   
+  mutate(     
+    Adresse_squish = str_squish(Adresse_lieu_infraction)  
+    )
+```
+
+`str_squish()` réduit tous les espaces répétés à un seul et supprime ceux en début/fin de chaîne.
+
+
+::: exercise
+📝 **Exercice** :
+
+1.  **Filtrer Montréal** : Créez un nouveau data frame `condamnation_mtl` ne contenant **que** les restaurants dont l’adresse indique "MONTREAL"  (casse insensible).
+
+2.  **Recherche de mots-clés** : Détectez un mot-clé (p. ex. “HYGIÈNE”) dans `SOC_NOM_ARTCL_INFRC`. Créez une variable booléenne `est_hygiene`.
+
+3.  **Nettoyage complet de la variable `Amende`** : Créer une variable `Amende_num` qui est de type `numeric` avec le montant de l'amende payé par le restaurant. Vous allez devoir utiliser le fonction `as.numeric`.
+:::
+
+
+Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀
+
+------------------------------------------------------------------------
+
+# 🏗 Statistiques descriptives pour variables catégoriques
+
+Dans cette section, nous allons découvrir comment résumer l’information contenue dans les variables qualitatives, appelées aussi catégorielles. Nous verrons comment compter les occurrences de chaque catégorie (tableaux de fréquences), calculer des proportions (ou pourcentages) afin de mieux visualiser la répartition, et associer plusieurs variables pour mieux comprendre leurs interactions (tableaux de contingence). L’objectif est de disposer d’un portrait clair de la distribution des catégories pour en tirer des conclusions rapides sur les tendances ou anomalies présentes dans les données.
+
+## ✨ Explications
+
+Les **tableaux de fréquences** et les **mesures de tendance** (nombre d’observations, pourcentages) sont un bon point de départ pour résumer des variables catégoriques.
+
+## 🚀 Démonstration
+
+```{r}
+# Nombre d'infractions par type d’établissement
+
+listecondamnation %>%
+  count(Type_etablissement) %>%
+  arrange(desc(n))
+```
+
+> **Astuce** : `count()` + `arrange(desc(n))` vous permet de classer les catégories par ordre d’occurrence.
+
+::: experimentation
+🧪 Expérimentations
+
+1.  **Proportions** : Calculez la proportion de chaque type d’établissement (ex. `count(Type_etablissement) %>% mutate(prop = n / sum(n))`).
+
+2.  **Amende moyenne** : Après avoir extrait la valeur numérique de la colonne `Amende` de l'exercice de la section précédente, regroupez par `Type_etablissement` et calculez la moyenne de l’amende (`mean(Amende_num)`).
+
+3.  **Infractions sur l’ensemble du Québec** : Comparez la distribution entre “Montréal” (filtrée précédemment) et le reste. Quelle catégorie d’établissements semble la plus concernée ?
+:::
+
+Un tableau de contingence (ou tableau croisé) est un tableau qui présente simultanément la répartition de deux (ou plusieurs) variables catégoriques, permettant ainsi de repérer des liens ou des tendances entre elles. Par exemple, pour croiser le type d’établissement et la nature de l’infraction dans votre jeu de données :
+```{r eval=FALSE}
+table(
+  listecondamnation$Type_etablissement,
+  listecondamnation$SOC_NOM_ARTCL_INFRC
+)
+
+```
+
+
+💡 **Question de réflexion** : Y a-t-il plus de restaurants qui ont eu une amende pour `INSECTES RONGEURS EXCREMENTS` ou de Rest. service rapide qui ont eu une amende pour `INSALUBRITE`?
+
+
+::: exercise
+📝 **Exercice** :
+
+1.  **Table de contingence** : Construisez un tableau croisé entre `Type_etablissement` et la nature de l’infraction (`SOC_NOM_ARTCL_INFRC`), dans votre sous-ensemble de Montréal.
+
+2.  **Résumé descriptif** : Dressez un petit tableau récapitulatif (type d’établissement, nombre total, amende moyenne).
+
+3.  **Catégories rares** : Déterminez si l’une des variables catégoriques (`SOC_NOM_ARTCL_INFRC` et `Type_etablissement`) a des catégories rare ou quasi inexploitée. Devrait-on la regrouper ?
+:::
+
+
+Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀
+
+------------------------------------------------------------------------
+
+# 📈  Visualisation de données catégoriques
+
+## ✨ Explications
+
+Pour représenter visuellement des variables catégoriques, on utilise souvent :
+
+- **Diagrammes en barres** (`geom_bar()` ou `geom_col()`), 
+
+- **Diagramme en tarte (Pie chart)** (moins recommandé, sauf usage très simple), 
+
+- **Graphique de mosaique (Mosaic plots)** si on veut comparer plusieurs catégories croisées.
+
+## 🚀 Démonstration
+
+```{r }
+library(ggplot2)
+
+# Exemple : Nombre d’infractions par type d’établissement
+listecondamnation %>%
+  ggplot(aes(x = Type_etablissement)) +
+  geom_bar(fill = "steelblue") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + # permet de rotationner les noms des labels sur l'axe des x
+  labs(
+    title = "Infractions par type d’établissement à Montréal",
+    x = "Type d’établissement",
+    y = "Nombre d'infractions"
+  )
+```
+
+> **Idée** : Appliquez un `coord_flip()` si les noms sont trop longs!
+
+
+::: experimentation
+Expérimentations:
+
+1.  **Top 5** : Concentrez-vous sur les 5 catégories les plus fréquentes de `SOC_NOM_ARTCL_INFRC` (via un tri ou `fct_lump()`).
+2.  **Diagramme à barre** : faites un diagramme à barre selon  `SOC_NOM_ARTCL_INFRC` et le type d'établissement `Type_etablissement`.
+3.  **Bonnes pratiques de visualisation** : Ajoutez un titre, des couleurs, modifiez le thème ou l’orientation de l’axe pour un rendu plus clair.
+:::
+
+::: exercise
+
+✏️ Exercices:
+
+1.  **Boites à moustaches** : Représentez (avec des boites à moustache) la répartition ddu montant de l'amende  au sein de chaque `Type_etablissement`.
+2.  **Comparaison** : Comparez Montréal versus hors Montréal (deux boites à moustaches côte à côte, par type d’établissement). Que remarquez-vous?
+3.  **Traitement de données manquantes** : Que faites-vous si `Amende` est manquante dans un sous-ensemble ? Explorez quelques pistes.
+:::
+
+------------------------------------------------------------------------
+
+# 🎉 Conclusion
+
+Dans cette aventure, vous avez :
+
+-   Découvert les bases du **traitement de variables catégoriques**.
+-   Réalisé des **statistiques descriptives** (tableaux de fréquences, proportion, etc.) sur un sous-ensemble filtré à Montréal.
+-   Construit des **visualisations** adaptées pour comprendre la distribution des infractions.
+
+En fil conducteur, votre objectif était d’**analyser les infractions dans les restaurants de Montréal**. Vos observations peuvent aider la ville et le ministère à cibler leurs contrôles. Il ne vous reste plus qu'a inscrire vos conclusions et répondre au question dans le rapport.
+
+Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀
+
+
+> 🎯 **Félicitations** ! Vous avez mis en pratique les concepts de variables catégoriques, de statistiques descriptives et de visualisation pour des données catégoriques réelles. Continuez ainsi, le prochain module vous attend.

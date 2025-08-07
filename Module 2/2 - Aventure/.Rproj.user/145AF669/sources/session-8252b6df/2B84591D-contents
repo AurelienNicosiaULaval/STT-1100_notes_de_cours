@@ -1,0 +1,102 @@
+# on va rendre la BD pas propre
+
+dat <- read_delim(
+  "~/Library/CloudStorage/OneDrive-UniversitéLaval/Documents/Nouveau cours Ulaval/STT-1100 Introduction à la science des données/Developpement materiel de cours/Module 4/Github/Dataset_pratique.csv",
+  delim = ";",
+  escape_double = FALSE,
+  trim_ws = TRUE
+)
+
+
+# erreur présente -----
+
+table(dat$SEASON, dat$Quarter) # Winter en Q2 par possible
+summary(dat$VEHICLE_YEAR) # 14 n'est pas possible
+
+table(dat$VEHICLE_TYPE) # animal n'est pas une type d'auto
+
+unique(nchar(dat$FSA_CODE))
+dat$FSA_CODE[nchar(dat$FSA_CODE) > 3] # code postal pas au meme format
+
+
+# erreur qu'on ajoute -----
+
+boxplot(dat$COMMUTE_DISTANCE)
+summary(dat$COMMUTE_DISTANCE) #
+# on remplace commute 150 par 1500
+dat$COMMUTE_DISTANCE[dat$COMMUTE_DISTANCE == 150] <- 1500
+summary(dat$COMMUTE_DISTANCE) #
+
+
+# on va ajouter une erreur dans 2 numériques liées
+ggplot(dat, aes(x = YEARS_LICENSED, y = AGE)) +
+  geom_point() +
+  theme_minimal() +
+  # ajoute une droite d'équation y = 16 + x
+  geom_abline(slope = 1, intercept = 16, color = "red", linetype = "dashed")
+
+# generation vs age
+
+ggplot(data = dat, aes(x = AGE)) +
+  geom_histogram() +
+  facet_grid(GENERATION ~ .) +
+  theme_minimal()
+
+# On va prendre un gen Z et on va le remplacer par tradionalist
+dat$GENERATION[dat$AGE == 18] <- "Traditionalist"
+
+ggplot(data = dat, aes(x = AGE)) +
+  geom_histogram() +
+  facet_grid(GENERATION ~ .) +
+  theme_minimal()
+
+# on va ajouter une catégorie dans MULTI_PRODUCT : "Maybe", sur 10% des 'No'
+table(dat$MULTI_PRODUCT)
+set.seed(123)
+dat$MULTI_PRODUCT[sample(
+  which(dat$MULTI_PRODUCT == "No"),
+  size = 0.1 * sum(dat$MULTI_PRODUCT == "No")
+)] <- "Maybe"
+table(dat$MULTI_PRODUCT)
+
+
+# on va ajouter des doublons de lignes, 5 lignes prix au hasard que l'on duplique, 4 deux fois et une 3 fois
+set.seed(123)
+doublons <- dat[sample(1:nrow(dat), 5), ]
+doublons <- rbind(doublons, doublons[1:4, ])
+doublons <- rbind(doublons, doublons[1, ])
+dat <- rbind(dat, doublons)
+# verifier c'est lesquelles
+dat[duplicated(dat), ] # on va voir les doublons
+
+# utilise messy -----
+library(messy)
+# changement du type de variables ----
+library(tidyverse)
+glimpse(dat)
+# changement de quelques formats pour que les étudiants nettoie ensuite
+dat <- dat %>%
+  mutate(
+    # changer le format de la date
+    YEAR_OF_BIRTH = as.character(YEAR_OF_BIRTH),
+    # changer le format de la colonne AGE
+    AGE = as.character(AGE)
+  )
+
+
+# on ajouter des caractères spéciaux ----
+
+dat <- dat %>%
+  add_special_chars(
+    cols = c("VEHICLE_USE", "MARITAL_STATUS"),
+    messiness = 0.000002
+  )
+
+# on ajoute des majuscule -----
+
+dat <- dat %>%
+  change_case(
+    cols = "VEHICLE_TYPE",
+    messiness = 0.0001,
+    case_type = "word"
+  )

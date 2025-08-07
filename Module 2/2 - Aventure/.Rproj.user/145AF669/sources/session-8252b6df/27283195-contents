@@ -1,0 +1,292 @@
+---
+title: "Module 3 - Plan d'apprentissage"
+subtitle: "STT-1100 Introduction à la science des données"
+format:
+  html:
+    toc: true
+    toc-title: Plan
+    self-contained: true
+    link-external-newwindow: true
+#    number-sections: true
+    css: [../css/base_css.css]
+editor: visual
+---
+
+# Objectifs du module
+
+À la fin de ce module, vous devriez être capable de
+
+# Lectures initiales
+
+## 📘 Lectures à faire avant l’aventure
+
+Dans ce module, nous allons explorer les variables **catégoriques** et la **visualisation adaptée** à ce type de données. Deux lectures sont proposées pour vous préparer :
+
+-   [**R for Data Science – Strings**](https://r4ds.hadley.nz/strings.html){target="_blank"}\
+    Ce chapitre vous introduit à la manipulation des chaînes de caractères avec le package `stringr`.\
+    \> 📝 **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `str_detect()` ou `str_to_lower()` peuvent déjà vous aider pour nettoyer ou préparer des variables catégoriques.
+
+-   [**Introduction to Modern Statistics – Chapitre 6 : Explore categorical data**](https://openintro-ims.netlify.app/explore-categorical){target="_blank"}\
+    Ce chapitre de **IMS** présente les concepts statistiques associés aux données catégoriques. On y parle notamment de tableaux de fréquence, de proportions et des façons de représenter visuellement ce type de variables.
+
+Prenez le temps de parcourir ces deux ressources. Elles vous seront utiles pour comprendre comment traiter les **données qualitatives**, tant du point de vue **statistique** que **pratique**.
+
+# Aventure
+
+[Aventure 3](https://sitescours.monportail.ulaval.ca/contenu/sitescours/036/03609/202509/site177541/modules1395096/module1745726/page4738675/bloccontenu5037472/Aventure%203.html?identifiant=0278d4344021ebee7ae2a5e2f025152db9866727)
+
+# Défi
+
+Au terme de ce module, **vous endosserez le rôle de journaliste de données** pour *Le Courrier Gourmand*.\
+Votre mission :
+
+1.  **Explorer et nettoyer** le jeu `listecondamnation` (infractions alimentaires au Québec).\
+2.  **Extraire des faits marquants** (top infractions, montants d’amendes, comparaison Montréal / hors-Montréal).\
+3.  **Illustrer vos analyses** par au moins **deux visuels** (un graphique de catégories + la carte des amendes).\
+4.  **Rédiger un article Quarto (HTML)** clair et accrocheur : chapeau ➜ contexte ➜ méthodologie ➜ résultats ➜ recommandations.\
+5.  **Citer deux chiffres narratifs** et **intégrer une courte citation d’Alexandre** pour humaniser la conclusion.
+
+> **À remettre** : le fichier `.qmd` et le HTML généré, livrés via votre dépôt GitHub avant la date limite.
+
+## 📝 Grille d'évaluation
+
+Votre article sera évalué selon les critères suivants. Assurez-vous de bien respecter le canevas fourni et les consignes données.
+
+| Critère                                                                 | Excellent (3) | Satisfaisant (2) | À améliorer (1) | Commentaire |
+|------------------------------------------------------------------------|----------------|------------------|------------------|-------------|
+| **📰 Chapeau introductif**                                              | Accroche percutante, angle clair, chiffres clés bien choisis | Présent mais peu engageant ou peu clair | Absent ou très vague | |
+| **📊 Contexte & présentation des données**                             | Source bien identifiée, pertinence expliquée, limites évoquées | Contexte partiel ou explication sommaire | Source absente ou non justifiée | |
+| **🧪 Méthodologie (section sans code)**                                | Démarche bien résumée, claire et logique | Présente mais confuse ou trop technique | Absente ou très floue | |
+| **📈 Résultat clé #1 (graphique + interprétation)**                    | Visuel clair, bonne interprétation, apport analytique évident | Visuel ou commentaire peu approfondi | Visuel ou analyse absente | |
+| **📊 Résultat clé #2 (graphique + interprétation)**                    | Visuel pertinent, insight bien formulé | Visuel correct mais analyse faible | Résultat peu exploité ou manquant | |
+| **📉 Résultat clé #3 (graphique + interprétation)**                    | Résultat original ou complémentaire, bien expliqué | Présent mais peu développé | Manquant ou superficiel | |
+| **🧠 Discussion (section 4)**                                          | Réflexion critique, mise en perspective des résultats | Discussion partielle ou descriptive | Discussion absente ou sans valeur ajoutée | |
+| **✅ Conclusion & recommandations**                                    | Messages d’action clairs, utiles, bien formulés | Messages présents mais peu convaincants | Peu clairs ou hors sujet | |
+| **🗣️ Chiffres narratifs + citation d’Alexandre**                       | Deux chiffres bien choisis + citation bien intégrée | Un des éléments présent seulement | Aucun ou mal intégré | |
+| **📂 Qualité du rendu (Quarto + dépôt GitHub)**                        | `.qmd` fonctionnel, HTML lisible, dépôt propre et complet | Quelques problèmes techniques ou dépôt désorganisé | Exécution impossible ou rendu partiel/absent | |
+
+---
+
+🧮 **Total sur 30 points** : `XX / 30`
+
+> ✍️ *N’oubliez pas de relire la checklist en fin de template avant de publier votre article.*
+
+
+# Exercices de consolidation
+
+```{r warning=FALSE, message=FALSE}
+# Charger les librairies nécessaires
+library(tidyverse)
+library(stringr)
+```
+
+------------------------------------------------------------------------
+
+### ❓ Exercice 1 – Identifier les variables catégoriques
+
+Voici un petit jeu de données :
+
+```{r}
+data <- tibble::tibble(
+  sexe = c("Homme", "Femme", "Femme", "Homme", "Homme"),
+  age = c(25, 32, 29, 40, 23),
+  région = c("Est", "Ouest", "Est", "Nord", "Sud")
+)
+```
+
+> Parmi les trois variables ci-dessus, lesquelles sont catégorielles ?
+
+::: {.callout-note collapse="true"}
+### ✅ Réponse
+
+Les variables `sexe` et `région` sont **catégorielles**. `age` est **numérique**.
+:::
+
+------------------------------------------------------------------------
+
+### ❓ Exercice 2 – Tableau de fréquence
+
+Crée un tableau de fréquence pour la variable `sexe`.
+
+::: {.callout-tip collapse="true"}
+### 💡 Piste
+
+Utilise `count()` du package `dplyr`.
+:::
+
+::: {.callout-note collapse="true"}
+### ✅ Solution
+
+```{r}
+data %>% count(sexe)
+```
+:::
+
+------------------------------------------------------------------------
+
+### ❓ Exercice 3 – Proportions
+
+Calcule les pourcentages pour chaque modalité de la variable `région`.
+
+::: {.callout-tip collapse="true"}
+### 💡 Piste
+
+Ajoute une colonne avec `mutate(n / sum(n))`.
+:::
+
+::: {.callout-note collapse="true"}
+### ✅ Solution
+
+```{r}
+data %>% count(région) %>% mutate(pourcentage = n / sum(n) * 100)
+```
+:::
+
+------------------------------------------------------------------------
+
+### ❓ Exercice 4 – Barplot d'une variable catégorielle
+
+Fais un barplot représentant la variable `région`.
+
+::: {.callout-tip collapse="true"}
+### 💡 Piste
+
+Utilise `geom_bar()` avec `aes(x = région)`.
+:::
+
+::: {.callout-note collapse="true"}
+### ✅ Solution
+
+```{r}
+ggplot(data, aes(x = région)) + geom_bar()
+```
+:::
+
+------------------------------------------------------------------------
+
+### ❓ Exercice 5 – Comparaison de deux variables catégorielles
+
+Ajoute une couleur par `sexe` dans le graphique précédent.
+
+::: {.callout-note collapse="true"}
+### ✅ Solution
+
+```{r}
+ggplot(data, aes(x = région, fill = sexe)) + geom_bar(position = "dodge")
+```
+:::
+
+------------------------------------------------------------------------
+
+### ❓ Exercice 6 – Nettoyer une variable catégorielle
+
+Voici une variable catégorielle incohérente :
+
+```{r}
+reponses <- c("Oui", "oui", "Non", "non", "OUI", "NON")
+```
+
+Nettoie cette variable pour que toutes les réponses soient en minuscules **et sans doublons**.
+
+::: {.callout-note collapse="true"}
+### ✅ Solution
+
+```{r}
+unique(str_to_lower(reponses))
+```
+:::
+
+------------------------------------------------------------------------
+
+### ❓ Exercice 7 – Tableau croisé
+
+Voici un autre jeu de données :
+
+```{r}
+data2 <- tibble(
+  fumeur = c("Oui", "Non", "Non", "Oui", "Oui", "Non", "Non"),
+  sport = c("Oui", "Oui", "Non", "Non", "Oui", "Non", "Non")
+)
+```
+
+Crée un tableau croisé (contingence) entre les deux variables.
+
+::: {.callout-note collapse="true"}
+### ✅ Solution
+
+```{r}
+data2 %>% count(fumeur, sport) %>% pivot_wider(names_from = sport, values_from = n, values_fill = 0)
+```
+:::
+
+------------------------------------------------------------------------
+
+### ❓ Exercice 8 – Pour aller plus loin : Mosaic plot
+
+Utilise le package `ggplot2` (ou `ggmosaic` si disponible) pour représenter visuellement la relation entre `fumeur` et `sport`.
+
+::: {.callout-note collapse="true"}
+### ✅ Solution avec ggplot2
+
+```{r}
+# En regroupant en barres groupées pour une approximation
+ggplot(data2, aes(x = fumeur, fill = sport)) +
+  geom_bar(position = "fill") +
+  ylab("Proportion")
+```
+:::
+
+------------------------------------------------------------------------
+
+## 📦 Problèmes
+
+### 🐧 Exercice 9 – Palmer Penguins
+
+On utilise le jeu de données `penguins` du package `palmerpenguins`.
+
+-   Variable catégorielle : `species`, `island`, `sex`
+-   Variable numérique : `flipper_length_mm`, `body_mass_g`
+
+Questions : 1. Crée un tableau de fréquence pour `species` 2. Visualise la distribution des espèces par île 3. Compare les sexes pour chaque espèce
+
+::: {.callout-note collapse="true"}
+### ✅ Solution
+
+```{r}
+library(palmerpenguins)
+
+penguins %>% count(species)
+
+ggplot(penguins, aes(x = island, fill = species)) + geom_bar(position = "dodge")
+
+ggplot(penguins, aes(x = species, fill = sex)) + geom_bar(position = "fill")
+```
+:::
+
+------------------------------------------------------------------------
+
+### 🚌 Exercice 10 – Données Titanic
+
+Utilise `titanic::titanic_train`
+
+Variables catégoriques : `Sex`, `Embarked`, `Survived`
+
+Questions : 1. Tableau croisé entre `Sex` et `Survived` 2. Proportion de survie par port d’embarquement (`Embarked`) 3. Représentation graphique croisée `Sex` × `Embarked` × `Survived`
+
+::: {.callout-note collapse="true"}
+### ✅ Solution
+
+```{r}
+library(titanic)
+titanic_train <- titanic::titanic_train
+
+titanic_train %>% count(Sex, Survived)
+
+titanic_train %>% count(Embarked, Survived) %>%
+  group_by(Embarked) %>% mutate(p = n / sum(n))
+
+ggplot(titanic_train, aes(x = Embarked, fill = factor(Survived))) +
+  geom_bar(position = "fill") +
+  facet_wrap(~Sex)
+```
+:::

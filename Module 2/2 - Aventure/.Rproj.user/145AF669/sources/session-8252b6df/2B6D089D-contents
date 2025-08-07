@@ -1,0 +1,64 @@
+library(shiny)
+library(palmerpenguins)
+library(ggplot2)
+library(DT)
+
+ui <- fluidPage(
+  titlePanel(""),
+
+  tags$style("body { background-color: #FFEEEE; }"),
+
+  h1("Penguins Dashboard!"),
+  h6("Because bigger text is better... right?"),
+
+  wellPanel(
+    checkboxGroupInput(
+      "species",
+      "Pick your favourite species",
+      choices = unique(penguins$species),
+      selected = ""
+    ),
+    sliderInput("point_size", "Point size", min = 1, max = 20, value = 5),
+    selectInput("unused", "Nothing to see here", choices = c("A", "B", "C"))
+  ),
+
+  plotOutput("scatter", height = "300px"),
+  plotOutput("hist", height = "300px"),
+
+  dataTableOutput("table"),
+
+  tags$div(
+    style = "color:#999; font-size:10px; margin-top:20px;",
+    "Data: palmerpenguins • App by ?"
+  )
+)
+
+server <- function(input, output, session) {
+  penguins_filtered <- reactive({
+    penguins[penguins$species %in% input$species, ]
+  })
+
+  output$scatter <- renderPlot({
+    ggplot(
+      penguins_filtered(),
+      aes(bill_length_mm, flipper_length_mm, colour = body_mass_g)
+    ) +
+      geom_point(size = input$point_size) +
+      theme_void()
+  })
+
+  output$hist <- renderPlot({
+    ggplot(penguins_filtered(), aes(body_mass_g)) +
+      geom_histogram(fill = "orange") +
+      theme_minimal()
+  })
+
+  output$table <- renderDataTable({
+    datatable(
+      penguins_filtered(),
+      options = list(pageLength = 50, scrollX = TRUE)
+    )
+  })
+}
+
+shinyApp(ui, server)

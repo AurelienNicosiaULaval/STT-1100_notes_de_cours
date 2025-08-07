@@ -1,0 +1,54 @@
+# title: "Outlier"
+# author: "Aur?lien Nicosia"
+# date: "janvier 2021"
+
+
+# ---- Exercice 1 ----
+
+# Definir une fonction  qui d?tecte les donn?es en dehors de 
+# l'intervalle (Q1- 1.5 IQR, Q3 + 1.5IQR) sont des outliers
+
+outlier_inter <- function(x){
+  q <- quantile(x)
+  intervale <- c(q[2]-1.5*IQR(x), q[4]+1.5*IQR(x))
+  return(x[x<intervale[1] | x>intervale[2]]) 
+}
+
+x <- rnorm(100)
+outlier_inter(x)
+
+# ---- Exercice 2 ----
+
+# Dans les donn?es dataset_pratique dans Moodle (seance 3)
+# d?tecter les erreurs de donn?es ou encore donn?es aberrantes
+library(readr)
+dat <- read_delim("~/Charge de cours/S?ance 3/Dataset_pratique.csv", 
+                  ";", escape_double = FALSE, trim_ws = TRUE)
+
+table(dat$SEASON, dat$Quarter) # Winter en Q2 par possible
+
+summary(dat$VEHICLE_YEAR) # 14 n'est pas possible
+
+table(dat$VEHICLE_TYPE) # animal n'est pas une type d'auto
+
+unique(nchar(dat$FSA_CODE))
+dat$FSA_CODE[nchar(dat$FSA_CODE)>3] # code postal pas au meme format
+
+boxplot(dat$COMMUTE_DISTANCE) 
+summary(dat$COMMUTE_DISTANCE) # le maximum semble atypique
+
+# on va le tester:
+library(outliers)
+grubbs.test(dat$COMMUTE_DISTANCE)
+# p value <0.05, on rejette H0 et donc la valeur maximale 150 est une donn?e aberrantes
+
+
+
+boxplot(dat$ANNUAL_KM) 
+summary(dat$ANNUAL_KM) # le maximum semble atypique
+
+# on va le tester:
+library(outliers)
+grubbs.test(dat$ANNUAL_KM)
+# p value <0.05, on rejette H0 et donc la valeur maximale 80 000 est une donn?e aberrantes
+

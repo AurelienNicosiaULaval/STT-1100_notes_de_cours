@@ -1,0 +1,52 @@
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(tools) # pour toTitleCase()
+
+ui <- fluidPage(
+  titlePanel("Visualisation interactive des penguins"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        "x",
+        "Variable X:",
+        choices = names(palmerpenguins::penguins),
+        selected = "bill_length_mm"
+      ),
+      selectInput(
+        "y",
+        "Variable Y:",
+        choices = names(palmerpenguins::penguins),
+        selected = "flipper_length_mm"
+      ),
+      sliderInput("alpha", "Transparence:", min = 0, max = 1, value = 0.6),
+      numericInput(
+        "n",
+        "Nombre de points aléatoires à afficher",
+        value = 100,
+        min = 1
+      ),
+      textInput("title", "Titre du graphique", placeholder = "Entrez un titre")
+    ),
+    mainPanel(
+      plotOutput("scatter")
+    )
+  )
+)
+
+server <- function(input, output) {
+  pretty_title <- reactive({
+    (input$title)
+  })
+
+  output$scatter <- renderPlot({
+    ggplot(
+      data = na.omit(palmerpenguins::penguins),
+      aes_string(x = input$x, y = input$y)
+    ) +
+      geom_point(alpha = input$alpha, color = "steelblue") +
+      labs(title = pretty_title())
+  })
+}
+
+shinyApp(ui, server)

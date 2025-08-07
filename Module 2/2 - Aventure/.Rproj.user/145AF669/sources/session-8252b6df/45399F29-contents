@@ -1,0 +1,100 @@
+---
+title: "Exploration : Spectres de matrices de poids dans les réseaux de neurones"
+subtitle: "Projet guidé en apprentissage automatique et matrices aléatoires"
+author: "Encadré par Aurélien Nicosia"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-title: "Plan du projet"
+    code-fold: true
+    number-sections: true
+---
+
+# Objectif du projet
+
+Ce projet vise à faire découvrir **comment la théorie des matrices aléatoires (RMT)** peut éclairer le comportement des **réseaux de neurones profonds**, en analysant les **spectres (valeurs singulières)** des **matrices de poids**.
+
+Tu entraîneras un **réseau de neurones simple (MLP)** sur un jeu de données comme **MNIST**, et tu analyseras comment les **valeurs singulières des poids** évoluent au cours de l'entraînement, en les comparant à la **loi de Marchenko–Pastur**.
+
+Le but n'est pas la performance, mais la **compréhension mathématique** de ce qui se passe à l'intérieur du réseau.
+
+# Intuition du sujet
+
+Un réseau de neurones est constitué de **couches** qui réalisent des transformations linéaires :
+
+$$
+\mathbf{y} = W \mathbf{x} + \mathbf{b}
+$$
+
+Chaque couche possède donc une **matrice de poids** $W \in \mathbb{R}^{n \times p}$. Lorsqu'on initialise ces matrices avec des coefficients **aléatoires**, elles ressemblent à des **matrices aléatoires classiques** : entrées i.i.d., centrées, variance contrôlée.
+
+La **loi de Marchenko–Pastur** décrit le **comportement asymptotique** du spectre (valeurs propres) de telles matrices aléatoires. Elle fournit un cadre théorique pour **distinguer le bruit du signal** :
+
+- si les valeurs propres/singulières de $W$ restent dans l'intervalle $[\lambda_-, \lambda_+]$, on est dans le bruit,
+- si elles s'écartent de cet intervalle, on observe un **signal**.
+- des **valeurs isolées** (outliers) signalent de la **structure apprise**.
+
+# Exemple d'analyse
+
+Tu vas :
+
+1. **Entraîner un MLP** sur MNIST avec 3–4 couches.
+2. **Sauvegarder les matrices de poids** de chaque couche à différentes époques.
+3. **Calculer leurs valeurs singulières** $\sigma_1, \ldots, \sigma_p$.
+4. **Tracer l'histogramme** de ces valeurs (Empirical Spectral Density).
+5. **Comparer avec la densité de Marchenko–Pastur** :
+   - en fonction du ratio $q = p/n$,
+   - en estimant la variance $\sigma^2$.
+
+Tu observeras comment les spectres évoluent avec l’apprentissage. L’apparition d’**outliers** dans les valeurs singulières est interprétée comme une manifestation de **structure utile apprise par le réseau**.
+
+# Pistes de questions à explorer
+
+- Le spectre des poids à l’initialisation suit-il bien la loi de Marchenko–Pastur ?
+- Quelle est la première couche à produire des outliers pendant l'entraînement ?
+- Peut-on relier le **nombre ou l'énergie des outliers** à la précision du modèle ?
+- L'utilisation d'une régularisation (Dropout, L2) modifie-t-elle le spectre ?
+
+# Lectures recommandées
+
+Voici quelques lectures fondamentales pour bien comprendre les bases mathématiques du projet :
+
+## Théorie des matrices aléatoires
+
+- Tao, T. (2012). *Topics in Random Matrix Theory*, AMS.  
+  📌 Lire le **chapitre 4** sur la loi de Marchenko–Pastur.  
+  📎 [https://terrytao.files.wordpress.com/2011/02/matrix-book.pdf](https://terrytao.files.wordpress.com/2011/02/matrix-book.pdf)
+
+- Couillet, R. & Liao, Z. *Random Matrix Theory for Machine Learning* (2021).  
+  📌 Lire les **sections 1 et 3** pour l’intuition.  
+  📎 [https://polaris.imag.fr/romain.couillet/docs/RMT_ML_Book.pdf](https://polaris.imag.fr/romain.couillet/docs/RMT_ML_Book.pdf)
+
+## PCA et applications statistiques
+
+- Johnstone, I. (2001). *On the distribution of the largest eigenvalue in PCA*.  
+  Pour comprendre le lien entre **PCA, RMT et loi de Tracy–Widom**.
+
+# Ressources techniques
+
+- Jeu de données : `torchvision.datasets.MNIST`
+- Réseau : MLP 3 ou 4 couches avec ReLU, SGD ou Adam
+- Librairies : `torch`, `matplotlib`, `numpy`, `scipy`
+- Code pour tracer la densité de Marchenko–Pastur fourni dans le notebook associé
+
+# Livrables
+
+- 📓 Un **notebook documenté** montrant les étapes de l'analyse
+- 📈 Des **figures claires** du spectre (avant / pendant / après entraînement)
+- 📄 Un **court rapport réflexif** en format Quarto (5–8 pages)
+
+# À toi de jouer !
+
+Tu peux faire évoluer le projet selon ton intérêt : ajouter d'autres architectures, tester différentes initialisations, ou même comparer avec un modèle ayant des étiquettes aléatoires. L'important, c'est de **mener une exploration rigoureuse et curieuse**, en utilisant la théorie pour interpréter ce que tu observes dans les matrices du réseau.
+
+# Pour aller plus loin:
+
+- [WeightWatcher](https://github.com/CalculatedContent/WeightWatcher) 
+est un outil Python qui permet d'analyser les poids des réseaux de neurones et de calculer leurs valeurs singulières. Il est particulièrement utile pour explorer la structure des poids et leur évolution pendant l'entraînement.
+
+- [Random Matrix Analysis of Neural Network Weight Matrices (Thamm et al., 2024)](https://openreview.net/pdf?id=41kpc2Nzwc) est un article qui explore l'utilisation de la théorie des matrices aléatoires pour analyser les poids des réseaux de neurones. Il fournit des résultats théoriques et empiriques sur la distribution des valeurs propres et leur relation avec la performance du modèle.
