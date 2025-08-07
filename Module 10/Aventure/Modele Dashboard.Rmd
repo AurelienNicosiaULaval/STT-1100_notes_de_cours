@@ -1,0 +1,96 @@
+---
+title: "Tableau de bord — Sentiment STT-1100"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+editor: visual
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(flexdashboard)
+library(shiny)
+library(tidytext)
+library(ggplot2)
+library(forcats)
+library(stopwords)
+```
+
+```{r data, echo=FALSE}
+# Jeu de données exemple
+exemple <- tibble(
+  id = 1:7,
+  semaine = c(1, 1, 2, 2, 2, 3, 3),
+  commentaire = c(
+    "J'ai trouvé le cours très clair cette semaine, bravo au prof !",
+    "Je commence à mieux comprendre, c'est motivant !",
+    "Trop de matière à assimiler en peu de temps, je me sens dépassé.",
+    "Pas facile cette semaine, j’ai eu du mal avec les graphiques.",
+    "Ouf très difficile cette semaine, particulièrement avec les graphiques.",
+    "Les outils sont puissants, mais je manque de pratique.",
+    "La construction du dashboard est super intéressante."
+  )
+)
+
+# Nettoyage
+stop_fr <- stopwords("fr")
+texte_nettoye <- exemple %>%
+  unnest_tokens(word, commentaire) %>%
+  filter(!word %in% stop_fr,
+         str_detect(word, "^[a-zéèêàâîôûùçäëïöü]+$"))
+
+# Lexique simple
+lexique_fr <- tibble(word = c("clair", "motivant", "bravo", "difficile", "dépassé", "mal", "intéressante", "puissants"),
+                     sentiment = c("positive", "positive", "positive", "negative", "negative", "negative", "positive", "positive"))
+
+# Jointure et score
+sentiment_fr <- texte_nettoye %>%
+  inner_join(lexique_fr, by = "word") %>%
+  count(semaine, sentiment) %>%
+  pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>%
+  mutate(score = positive - negative)
+```
+
+## Column {.sidebar}
+
+### Filtrer par semaine
+
+```{r}
+selectInput("sem", "Choisissez une semaine:", choices = unique(exemple$semaine), selected = 1)
+```
+
+## Column
+
+### Score de sentiment par semaine
+
+```{r}
+renderPlot({
+  ggplot(sentiment_fr, aes(x = semaine, y = score)) +
+    geom_col(fill = "steelblue") +
+    labs(title = "Évolution du sentiment", x = "Semaine", y = "Score net")
+})
+```
+
+## Column
+
+### Mots distinctifs (TF-IDF)
+
+```{r}
+renderPlot({ 
+  tfidf <- texte_nettoye %>% count(semaine, word) %>% bind_tf_idf(word, semaine, n)
+
+tfidf %>% filter(semaine == input$sem) %>%
+    slice_max(tf_idf, n = 8) %>%
+    mutate(word = fct_reorder(word, tf_idf)) %>%
+    ggplot(aes(x = word, y = tf_idf)) +
+    geom_col(fill = "darkorange") +
+    coord_flip() +
+    labs(title = paste("TF-IDF - Semaine", input$sem), x = NULL, y = "Score TF-IDF") })
+```
+
+
+

@@ -1,0 +1,65 @@
+---
+title: "Défi 2 - GitHub et visualisation de données"
+subtitle: "STT-1100"
+format: html
+editor: visual
+---
+
+# Présentation du défi
+
+Vous devrez réaliser les analyses appropriées sur la base de données `MeteoQuebec` de la librairie `UlavalSSD` afin de répondre aux questions sur Gradescope :
+
+XXXXXXXXXXXXXXXX
+
+Dans ce défi, nous ne considérerons que les données de l'année 1996. Nous ne conserverons que les colonnes `month`, `day`, `mean_temp` et `total_precip`.
+
+Commencez par créer un jeu de données nommé `df`, qui représente la base de données `MeteoQuebec` filtrée selon les indications précédentes.
+
+## Question 1.1  
+
+Combien y a-t-il de données manquantes dans la base de données `MeteoQuebec` pour la variable de précipitation totale (`total_precip`) en 1996 ?
+
+## Question 1.2  
+
+Quel est, en moyenne, le troisième mois le plus chaud de l'année 1996 ?
+
+## Question 1.3  
+
+Dans cette question, nous définissons le coefficient de variation pour une série de données. Le coefficient de variation, noté CV, est un indicateur de la variabilité d'une série de données sans unité. On peut calculer le CV en divisant l'écart-type de la série de données par sa moyenne.
+
+Quelle est la plus grande variabilité, en termes de CV, des précipitations totales en 1996 ?
+
+## Question 2  
+
+Dans cette question, vous devez réaliser un graphique de la température moyenne par jour en fonction du nombre de jours écoulés depuis le début de l'année. Chaque point doit être coloré en fonction du total de précipitations de la journée. Le graphique doit contenir une ligne brisée reliant les points entre eux.
+
+Dans cette question, j'évaluerai les bonnes pratiques de visualisation :
+
+- Toujours **étiqueter** les axes avec `labs()` pour rendre les graphiques compréhensibles.  
+- Ajouter un titre au graphique.  
+- Utiliser des **couleurs adaptées** pour distinguer les différentes valeurs de précipitations sans surcharger la visualisation.  
+- Vérifier que l'échelle des axes est cohérente et ne fausse pas l'interprétation des données.  
+
+## Question 3  
+
+Nous réalisons l'analyse de données suivante (que vous pouvez tester) :
+
+```{r eval=FALSE}
+df_sans_na = df %>% # Partie des données de 1996
+    na.omit() %>% # Suppression des données manquantes
+    mutate(precipitation = ifelse(total_precip > 0, "oui", "non")) # Création d'une nouvelle variable indiquant s'il y a eu des précipitations (oui/non) ce jour-là
+
+# Boxplot des températures moyennes par jour, par mois et selon la présence de précipitations ("oui"/"non")
+ggplot(data = df_sans_na, 
+       aes(x = month, y = mean_temp, fill = precipitation)) +
+  geom_boxplot()
+  
+# Moyenne des températures moyennes par jour, par mois et selon la présence de précipitations ("oui"/"non")
+df_sans_na %>% group_by(month, precipitation) %>% summarise(m = mean(mean_temp))
+```
+
+Dans cette question, nous souhaitons observer s'il existe des différences entre les températures moyennes des journées avec ou sans précipitations, et ce, selon les mois de l'année.
+
+Analysez les résultats obtenus et fournissez une réponse à cette interrogation.
+
+

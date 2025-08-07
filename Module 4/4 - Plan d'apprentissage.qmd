@@ -1,0 +1,214 @@
+---
+title: "Module 4 - Plan d'apprentissage"
+subtitle: "STT-1100 Introduction à la science des données"
+format:
+  html:
+    toc: true
+    toc-title: Plan
+    self-contained: true
+    link-external-newwindow: true
+#    number-sections: true
+    css: [../css/base_css.css]
+editor: visual
+---
+
+# Objectifs du module
+
+À la fin de ce module, vous devriez être capable de
+
+
+
+# Lectures initiales
+
+## 📘 Lectures à faire avant l’aventure
+
+Dans ce module, nous allons explorer les concepts de base de l'importation et du nettoyage de données. Voici quelques lectures initiales pour vous préparer :
+
+
+-   [**R for Data Science – Data import**](https://r4ds.hadley.nz/data-import.html){target="_blank"}\
+    Ce chapitre vous introduit à l’importation de données avec le package `readr`.\
+    
+    
+-   [**R for Data Science – Data tidying**](https://r4ds.hadley.nz/data-tidy.html){target="_blank"}\
+    Ce chapitre vous introduit à la manipulation de données avec le package `dplyr`.\
+   
+    
+-   [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html){target="_blank"}\
+    Ce chapitre vous introduit aux **facteurs** en R, qui sont des variables catégoriques.\
+    \> 📝 **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `factor()` ou `fct_reorder()` peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).
+    
+-   [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}\
+    Ce chapitre vous introduit à l’importation de données à partir de fichiers Excel.\
+   
+
+-   [**R for Data Science – Lists**](https://r4ds.hadley.nz/rectangling.html#lists){target="_blank"}\
+    Cette section vous introduit au concept de liste en programmation. \
+    
+
+# Aventure
+
+[Aventure 4](https://sitescours.monportail.ulaval.ca/contenu/sitescours/036/03609/202509/site177541/modules1395096/module1747262/page4742827/bloccontenu5043393/Aventure%204.html?identifiant=afa8069a82b693eba79bcfb3092d453ef69c140a){target="_blank"}
+
+# Défi
+
+A la fin de l'aventure, vous devez être en mesure d'avoir déposer dans votre dossier Github les éléments suivants :
+
+- le script `.qmd` de votre aventure, c'est à dire un document ou vous faites vos tests et construisez votre liste journal_nettoyage ;
+
+- la liste `journal_nettoyage` dans un objet `.Rdata` ;
+
+- la base de données nettoyée au format `.csv.`
+
+# 📝 Exercices de consolidation
+
+
+### Exercice 1 – Lecture contrôlée d’un CSV  (Data import, § readr)
+Importez `policies.csv` en :
+
+- forçant `policy_id` en **character** ;
+
+- laissant `premium_amount` en **double**  
+
+puis affichez la structure de l’objet.
+
+::: {.callout-note collapse="true"}
+### ✅ Réponse
+
+```r
+library(readr)
+
+policies <- read_csv(
+  "policies.csv",
+  col_types = cols(
+    policy_id      = col_character(),
+    premium_amount = col_double()
+  )
+)
+glimpse(policies)
+```
+:::
+
+
+
+### Exercice 2 – Nettoyage des valeurs manquantes  (Data import, ex. 4)
+Le fichier contient la chaîne `"missing"` pour indiquer une absence dans `vehicle_type`.  
+Ré-importez le fichier en la convertissant en `NA`.
+
+::: {.callout-note collapse="true"}
+### ✅ Réponse
+```r
+policies <- read_csv("policies.csv", na = "missing")
+```
+:::
+
+
+
+### Exercice 3 – Passage long ↔ large  (Data tidy, § pivot)
+Les colonnes `q1_claims:q4_claims` représentent le nombre de réclamations par trimestre.  
+
+1. Mettez-les en *long* (`quarter`, `claims`).  
+
+2. Revenez ensuite en *wide*.
+
+::: {.callout-note collapse="true"}
+### ✅ Réponse
+
+```r
+library(tidyr)
+library(dplyr)
+
+pol_long <- policies %>% 
+  pivot_longer(
+    cols = q1_claims:q4_claims,
+    names_to  = "quarter",
+    values_to = "claims"
+  )
+
+pol_wide <- pol_long %>% 
+  pivot_wider(names_from = quarter, values_from = claims)
+```
+:::
+
+
+
+### Exercice 5 – Lire une feuille Excel précise  (Import spreadsheets, ex. 3)
+Le classeur `quotes_2024.xlsx` possède une feuille « Q3 » où les libellés commencent à la 2ᵉ ligne.  
+Importez-la et vérifiez les types.
+
+::: {.callout-note collapse="true"}
+### ✅ Réponse
+
+```r
+library(readxl)
+
+q3 <- read_excel(
+  "quotes_2024.xlsx",
+  sheet = "Q3",
+  skip  = 1   # on saute la première ligne
+)
+glimpse(q3)
+```
+:::
+
+
+### Exercice 6 – Parse de nombres avec locale  (Data import, ex. 5)
+La colonne `euro_premium` contient « 1 234,56 » (virgule décimale, espace 000).  
+Parsez-la correctement en `double`.
+
+::: {.callout-note collapse="true"}
+### ✅ Réponse
+
+```r
+library(readr)
+
+parse_number("1 234,56", locale = locale(decimal_mark = ",", grouping_mark = " "))
+```
+:::
+
+
+### Exercice 7 – Rectangling d’une liste JSON  (Lists, ex. 1-2)
+Vous disposez d’une liste `lst <- jsonlite::read_json("coverage.json")`.  
+
+1. Récupérez `lst$collision$limit`.  
+
+2. Transformez `lst` en tibble rectangulaire.
+
+::: {.callout-note collapse="true"}
+### ✅ Réponse
+
+```r
+library(jsonlite)
+library(tidyr)
+library(dplyr)
+
+lst   <- read_json("coverage.json")
+limit <- lst$collision$limit
+
+tbl <- tibble(row = lst) %>% 
+  unnest_wider(row)
+```
+:::
+
+
+### Exercice 8 – Pipeline express  (Synthèse)
+En trois lignes :  
+
+1. importez `policies.csv` ;  
+
+2. nettoyez les noms (`janitor::clean_names`) ;  
+
+3. renvoyez les **5** plus grosses `claim_amount` par `vehicle_type`.
+
+::: {.callout-note collapse="true"}
+### ✅ Réponse```r
+library(readr); library(dplyr); library(janitor)
+
+read_csv("policies.csv") %>% 
+  clean_names() %>% 
+  slice_max(claim_amount, n = 5, by = vehicle_type)
+```
+:::
+
+
+
+
