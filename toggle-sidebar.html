@@ -1,0 +1,164 @@
+<style>
+  /* États de sidebar */
+  body.sidebar-hidden #quarto-sidebar,
+  body.sidebar-hidden .quarto-sidebar,
+  body.sidebar-hidden .sidebar { display: none !important; }
+
+  body.sidebar-hidden .page-columns { grid-template-columns: minmax(0, 1fr) !important; }
+  body.sidebar-hidden .page-columns .content {
+    grid-column: 1 / -1 !important;
+    max-width: 100% !important;
+  }
+  body.sidebar-hidden .sidebar-margin,
+  body.sidebar-hidden .submenu,
+  body.sidebar-hidden .margin-sidebar { display: none !important; }
+
+  /* Évite le chevauchement du logo sur desktop */
+  @media (min-width: 992px) {
+    :root { --content-left-offset: 88px; }
+    body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
+    body:not(.sidebar-hidden) main#quarto-document-content,
+    body:not(.sidebar-hidden) main.content {
+      padding-left: var(--content-left-offset) !important;
+    }
+    body.sidebar-hidden nav.quarto-page-breadcrumbs,
+    body.sidebar-hidden main#quarto-document-content,
+    body.sidebar-hidden main.content { padding-left: 0 !important; }
+  }
+
+  /* Style du bouton */
+  .qs-toggle-btn{
+    display:inline-flex;align-items:center;gap:.4rem;
+    border:1px solid rgba(0,0,0,.12);border-radius:.5rem;
+    padding:.25rem .5rem;background:var(--quarto-body-bg,#fff);
+    box-shadow:0 1px 4px rgba(0,0,0,.08);
+    cursor:pointer;font-size:.95rem; line-height:1;
+  }
+  .qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
+  .qs-toggle-container{ margin-left:.75rem; }
+
+  /* On ne masque QUE sur téléphone; tablettes/desktop voient le bouton */
+  @media (max-width: 575.98px){ .qs-toggle-btn{ display:none !important; } }
+</style>
+
+<script>
+(function(){
+  const KEY = 'quarto-sidebar-hidden';
+
+  function applyStateFromStorage(){
+    const hidden = localStorage.getItem(KEY) === '1';
+    document.body.classList.toggle('sidebar-hidden', hidden);
+    const btn = document.getElementById('qs-toggle-btn');
+    if (btn) btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+  }
+
+  function buildButton(){
+    const btn = document.createElement('button');
+    btn.id = 'qs-toggle-btn';
+    btn.className = 'qs-toggle-btn';
+    btn.type = 'button';
+    btn.title = 'Masquer/Afficher le menu de gauche';
+    btn.setAttribute('aria-label','Basculer la barre latérale');
+    btn.setAttribute('aria-pressed','false');
+    btn.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Menu</span>
+    `;
+    btn.addEventListener('click', ()=>{
+      document.body.classList.toggle('sidebar-hidden');
+      const hidden = document.body.classList.contains('sidebar-hidden');
+      btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+      try { localStorage.setItem(KEY, hidden ? '1' : '0'); } catch(e){}
+    });
+    return btn;
+  }
+
+  function insertIntoNavbar(){
+    const navbar = document.querySelector('.navbar, .quarto-navbar, #quarto-header .navbar');
+    if (!navbar) return false;
+
+    // Zone à droite si possible
+    let rightZone = navbar.querySelector('.navbar-nav.ms-auto') ||
+                    navbar.querySelector('.navbar-collapse .navbar-nav:last-child');
+
+    const btn = buildButton();
+
+    if (rightZone && rightZone.matches('.navbar-nav')) {
+      const li = document.createElement('li');
+      li.className = 'nav-item qs-toggle-container';
+      li.appendChild(btn);
+      rightZone.appendChild(li);
+    } else if (rightZone) {
+      const wrap = document.createElement('div');
+      wrap.className = 'qs-toggle-container';
+      wrap.appendChild(btn);
+      rightZone.appendChild(wrap);
+    } else {
+      // Fallback: insérer dans la zone collapse ou directement dans le header
+      const collapse = navbar.querySelector('.navbar-collapse') || navbar;
+      const wrap = document.createElement('div');
+      wrap.className = 'qs-toggle-container';
+      wrap.appendChild(btn);
+      collapse.appendChild(wrap);
+    }
+    return true;
+  }
+
+  function insertIntoHeader(){
+    const header = document.getElementById('quarto-header');
+    if (!header) return false;
+
+    // Crée une petite zone en haut à droite du header
+    let host = header.querySelector('.qs-toggle-host');
+    if (!host) {
+      host = document.createElement('div');
+      host.className = 'qs-toggle-host';
+      host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000;';
+      header.style.position = header.style.position || 'relative';
+      header.appendChild(host);
+    }
+    host.innerHTML = '';
+    const btn = buildButton();
+    host.appendChild(btn);
+    return true;
+  }
+
+  function ensureButton(){
+    // Essaie d’abord la navbar, sinon le header
+    if (insertIntoNavbar()) return;
+    insertIntoHeader();
+  }
+
+  function setupResponsiveGuard(){
+    const mq = window.matchMedia('(max-width: 575.98px)');
+    const handle = () => {
+      if (mq.matches) {
+        // Laisse Quarto gérer sur téléphone
+        document.body.classList.remove('sidebar-hidden');
+      } else {
+        applyStateFromStorage();
+      }
+    };
+    mq.addEventListener ? mq.addEventListener('change', handle) : mq.addListener(handle);
+    handle();
+  }
+
+  // 1) Au DOM prêt, tente une première insertion
+  document.addEventListener('DOMContentLoaded', ()=>{
+    applyStateFromStorage();
+    ensureButton();
+    setupResponsiveGuard();
+  });
+
+  // 2) Si le header/nav arrive plus tard, observe et insère
+  const obs = new MutationObserver(()=> {
+    if (document.getElementById('qs-toggle-btn')) return;
+    if (document.querySelector('.navbar, .quarto-navbar, #quarto-header .navbar, #quarto-header')) {
+      ensureButton();
+    }
+  });
+  obs.observe(document.documentElement, { childList:true, subtree:true });
+})();
+</script>
