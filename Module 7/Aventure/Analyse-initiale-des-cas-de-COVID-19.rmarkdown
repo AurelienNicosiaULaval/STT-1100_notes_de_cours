@@ -1,0 +1,134 @@
+---
+title: "Analyse initiale des cas de COVID-19"
+format:
+  html:
+    toc: true
+    toc-title: Plan
+    self-contained: true
+    link-external-newwindow: true
+editor: visual
+---
+
+## Contexte des données
+
+Le jeu de données présenté dans cette analyse simule des informations collectées durant l’année 2022 sur des cas de COVID-19 parmi des personnes âgées vivant dans trois régions du Québec : Montréal, Québec et l’Outaouais. Chaque ligne représente un individu identifié par son prénom, nom, âge, région, date d’observation et le nombre de cas confirmés associés à lui. Les données incluent aussi une date d’observation.
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+# Simulation d'une base de données problématique
+set.seed(1234)
+covid_problematique <- data.frame(
+  prenom = sample(c("Jean", "Marie", "Luc", "Chloé", "David"), 50, replace = TRUE),
+  nom = sample(c("Dupont", "Lavoie", "Nguyen", "Morin", "Gagné"), 50, replace = TRUE),
+  age = sample(60:95, 50, replace = TRUE),
+  region = sample(c("Montréal", "Québec", "Outaouais"), 50, replace = TRUE),
+  cas_confirmes = sample(60:150, 50, replace = TRUE),
+  date = sample(seq(as.Date('2022-01-01'), as.Date('2022-12-31'), by="day"), 50, replace = TRUE)
+)
+
+# Création d'une variable avec nom complet (problème de confidentialité)
+covid_problematique <- covid_problematique %>%
+  mutate(personne = paste(prenom, nom, ",", age, "ans"))
+
+# Données disponibles pour étudiants
+disponibles <- covid_problematique %>%
+  select(region, age, cas_confirmes, date)
+
+head(disponibles)
+
+write_csv(disponibles, "donnees_covid_module7.csv")
+```
+
+## Visualisation proposée par l'équipe de recherche
+
+```{r}
+cas_par_region <- covid_problematique %>%
+  group_by(region) %>%
+  summarise(cas_totaux = sum(cas_confirmes), .groups = "drop")
+
+ggplot(cas_par_region, aes(x = region, y = cas_totaux, fill = region)) +
+  geom_bar(stat = "identity") +
+  scale_y_continuous(breaks = seq(0, max(cas_par_region$cas_totaux), by = 10)) +
+  scale_fill_manual(values = c("Montréal" = "red", "Québec" = "orange", "Outaouais" = "purple")) +
+  theme_minimal() +
+  theme(legend.position = "none")  
+```
+
+## Interprétation des résultats
+
+Le graphique ci-dessus **montre clairement que la région de Montréal est la plus touchée**, avec un nombre de cas beaucoup plus élevé que les autres régions. Les données sont **tirées de nos rapports internes** collectés au courant de l'année 2012. Aucun ajustement par population n'a été fait, mais cela n’est pas jugé nécessaire.
+
+# Analyse descriptives 
+
+## Tableau de cas notables
+
+Dans cette section, nous cherchons à identifier les individus ayant généré le plus grand nombre de cas confirmés. 
+
+Le tableau suivant montre les 5 personnes ayant les plus hauts totaux individuels de cas confirmés selon notre base de données :
+
+```{r}
+# Extraction des 5 personnes avec le plus grand nombre de cas confirmés
+covid_problematique %>%
+  arrange(desc(cas_confirmes)) %>%
+  select(personne, region, cas_confirmes, date) %>%
+  head(5)
+```
+
+## Analyse exploratoire complémentaire
+
+```{r}
+covid_problematique %>%
+  mutate(risque = if_else(age > 85 & cas_confirmes > 100, "Élevé", "Modéré")) %>%
+  group_by(risque) %>%
+  summarise(
+    moyenne_age = mean(age),
+    moyenne_cas = mean(cas_confirmes),
+    .groups = "drop"
+  )
+
+covid_problematique %>%
+  ggplot(aes(x = age, y = cas_confirmes)) +
+  geom_point(color = "darkred") +
+  geom_smooth(method = "lm", se = FALSE, linetype = "dashed") +
+  labs(title = "Plus on est âgé, plus on contracte la COVID")
+```
+
+## Recommandations immédiates
+
+-   Les autorités devraient concentrer leurs efforts sur **Montréal**, qui semble en crise.
+-   Les personnes âgées de plus de 85 ans devraient être priorisées (voir tableau).
+-   La région de Québec semble peu affectée : les ressources pourraient être redistribuées.
+
+## Note méthodologique
+
+Les données ont été regroupées rapidement sans normalisation par population. Aucune marge d’erreur, d’intervalle de confiance ou vérification des sources n’a été fournie. Les données couvrent des périodes variables sans harmonisation.
+
+------------------------------------------------------------------------
+
+```{=html}
+<!-- 🧠 Problèmes inclus volontairement dans ce document :
+1. Axe tronqué à 80 (amplifie artificiellement les différences)
+2. Couleurs criardes et biaisées (rouge = danger, sans justification)
+3. Aucune légende ou explication des couleurs
+4. Pas de titre ou sous-titre explicite au graphique
+5. Absence de source et de date clairement indiquée
+6. Inclusion de données personnelles identifiables (PII : nom complet, âge exact)
+7. Données non anonymisées dans le tableau
+8. Aucun ajustement pour la taille de la population régionale
+9. Interprétations exagérées et biaisées dans la section d’analyse
+10. Recommandations non justifiées statistiquement
+11. Pas de vérification ou d’indication d’incertitude (IC, marges d’erreur)
+12. Sélection de données et période non uniforme (pas de fenêtre temporelle cohérente)
+13. Mauvaise utilisation des statistiques descriptives
+14. Corrélation artificielle entre âge et cas (présentation trompeuse)
+15. Visualisation de tendance linéaire non justifiée (regression simpliste)
+16. Absence de reproductibilité (aucun code clair pour reproduire les résultats)
+-->
+```
+
+**Remarque pédagogique** : Ce document contient volontairement de nombreuses erreurs de visualisation, d’éthique et d’analyse. Il est utilisé comme point de départ pour votre mission critique.
+
+Le fichier `donnees_covid_module7.csv` est celui que vous devez utiliser pour produire une version corrigée du graphique.
+
