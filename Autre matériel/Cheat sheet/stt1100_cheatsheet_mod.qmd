@@ -1,0 +1,127 @@
+---
+title: "STT-1100 — Feuille aide-mémoire"
+author: "Université Laval"
+format:
+  pdf:
+    pagetemplate: cheatsheet
+    keep-tex: true
+    geometry: "landscape"
+fontsize: 8pt
+mainfont: "Arial"
+logo: "../../css/STT-1100_hex.png"
+---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+# 🧰 ENVIRONNEMENT DE TRAVAIL
+
+## RStudio
+- Script : `Ctrl + Shift + N`
+- Rendu Quarto : `Ctrl + Shift + K`
+
+## Quarto
+```markdown
+---
+title: "Titre"
+format: html
+---
+```
+
+Chunk R :
+````r
+```{r}
+summary(df)
+```
+````
+
+## Packages de base
+```r
+library(tidyverse)
+library(readr)
+library(UlavalSSD)
+library(palmerpenguins)
+```
+
+---
+
+# 📊 MANIPULER DES DONNÉES — `dplyr`
+
+## Base
+
+```r
+select(df, col1)
+filter(df, col1 > 10)
+```
+
+## Transformation
+
+```r
+mutate(df, z = x/y)
+arrange(df, desc(x))
+```
+
+## Regrouper et résumer
+
+```r
+group_by(df, cat)
+summarise(df, moy = mean(x, na.rm = TRUE))
+```
+
+---
+
+# 📈 VISUALISATION — `ggplot2`
+
+## Numérique
+
+```r
+ggplot(df, aes(x, y)) + geom_point()
+ggplot(df, aes(x)) + geom_histogram()
+```
+
+## Catégorique
+
+```r
+ggplot(df, aes(x, fill = cat)) + geom_bar()
+ggplot(df, aes(cat, num)) + geom_boxplot()
+```
+
+🧠 Utiliser `facet_wrap()` pour comparer plusieurs groupes
+
+---
+
+# 📋 ANALYSE DESCRIPTIVE
+
+## Statistiques numériques
+
+```r
+mean(x, na.rm=TRUE)
+sd(x)
+summary(df)
+```
+
+## Fréquences
+
+```r
+table(df$cat)
+prop.table(table(df$cat))
+```
+
+## `skimr`
+
+```r
+library(skimr)
+skim(df)
+```
+
+---
+
+# 🧠 ASTUCES BONNES PRATIQUES
+
+- `glimpse(df)` : aperçu structure
+- `head(df)` / `tail(df)`
+- Commentaires `#` pour clarifier
+- Commits fréquents dans GitHub
+- Éviter les noms de variables ambigus

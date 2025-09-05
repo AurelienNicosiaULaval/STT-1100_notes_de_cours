@@ -1,0 +1,48 @@
+/* === ULaval override for RevealJS === */
+/* Base palette already defined in ulaval.css; we extend + resize here */
+
+/* 1. Global font-size shrink (≈80 % of default) */
+.reveal{
+  font-size:30px;          /* default Reveal is 40px */
+}
+
+/* 2. Heading hierarchy + brand colour */
+.reveal h1{
+  font-size:1.7em;         /* was 2.0em */
+  color:var(--ulaval-red);
+}
+.reveal h2{
+  font-size:1.4em;
+  color:var(--ulaval-red);
+}
+.reveal h3{
+  font-size:1.2em;
+  color:var(--ulaval-dark-grey);
+}
+
+/* 3. Paragraphs & lists */
+.reveal p,
+.reveal li{
+  font-size:0.7em;         /* keep lists compact */
+  line-height:1.25em;
+}
+
+/* 4. Table styling */
+.reveal table{
+  font-size:0.65em;
+  border-collapse:collapse;
+}
+.reveal table th{
+  background:var(--ulaval-yellow);
+  color:var(--ulaval-black);
+}
+.reveal table td, .reveal table th{
+  border:1px solid var(--ulaval-light-grey);
+  padding:4px 6px;
+}
+
+/* 5. Code blocks */
+.reveal pre code{
+  font-size:0.6em;
+  line-height:1.3em;
+}
