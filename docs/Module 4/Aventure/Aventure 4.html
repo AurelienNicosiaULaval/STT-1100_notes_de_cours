@@ -4608,7 +4608,7 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <span>  <span class="fu">as_factor</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Remplacer les valeurs aberrantes par NA</span></span>
-<span><span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_TYPE</span> <span class="op">&lt;-</span> <span class="fu">fct_na_value_to_level</span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_TYPE</span>, <span class="st">&quot;ANIMAL&quot;</span>, <span class="cn">NA</span><span class="op">)</span></span>
+<span><span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_TYPE</span> <span class="op">&lt;-</span> <span class="fu">na_if</span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_TYPE</span>, <span class="st">&quot;ANIMAL&quot;</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Ou en changeant les niveaux directement :</span></span>
 <span><span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_USE</span> <span class="op">&lt;-</span> <span class="fu">fct_collapse</span><span class="op">(</span></span>

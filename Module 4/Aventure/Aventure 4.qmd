@@ -294,7 +294,7 @@ base$VEHICLE_TYPE <- base$VEHICLE_TYPE %>%
   as_factor()
 
 # Remplacer les valeurs aberrantes par NA
-base$VEHICLE_TYPE <- fct_na_value_to_level(base$VEHICLE_TYPE, "ANIMAL", NA)
+base$VEHICLE_TYPE <- na_if(base$VEHICLE_TYPE, "ANIMAL")
 
 # Ou en changeant les niveaux directement :
 base$VEHICLE_USE <- fct_collapse(
