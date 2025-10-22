@@ -190,333 +190,429 @@
     ]
   },
   {
-    "objectID": "Autre matériel 3/Aide mémoire Rstudio et Github.html",
-    "href": "Autre matériel 3/Aide mémoire Rstudio et Github.html",
-    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
+    "objectID": "Module 7/Aventure/Aventure 7.html",
+    "href": "Module 7/Aventure/Aventure 7.html",
+    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
     "section": "",
-    "text": "✅ Tu dois avoir installé :\n\nR\nRStudio\nGit (vérifie avec git --version dans le terminal)\nUn compte GitHub\n\n💡 Optionnel mais recommandé : Lier RStudio à ton compte GitHub avec une clé SSH. (Rappelle-toi de jamais utiliser ton mot de passe GitHub directement)"
-  },
-  {
-    "objectID": "Autre matériel 3/Aide mémoire Rstudio et Github.html#préparation",
-    "href": "Autre matériel 3/Aide mémoire Rstudio et Github.html#préparation",
-    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
-    "section": "",
-    "text": "✅ Tu dois avoir installé :\n\nR\nRStudio\nGit (vérifie avec git --version dans le terminal)\nUn compte GitHub\n\n💡 Optionnel mais recommandé : Lier RStudio à ton compte GitHub avec une clé SSH. (Rappelle-toi de jamais utiliser ton mot de passe GitHub directement)"
-  },
-  {
-    "objectID": "Autre matériel 3/Aide mémoire Rstudio et Github.html#trouver-le-lien-du-projet-github",
-    "href": "Autre matériel 3/Aide mémoire Rstudio et Github.html#trouver-le-lien-du-projet-github",
-    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
-    "section": "🔗 Trouver le lien du projet GitHub",
-    "text": "🔗 Trouver le lien du projet GitHub\n\nVa sur la page du dépôt GitHub que tu veux cloner.\nClique sur le bouton vert &lt;&gt; Code.\nChoisis l’onglet SSH ou HTTPS, puis copie le lien affiché.\n\n\nExemple : - SSH : git@github.com:NomUtilisateur/nom-du-projet.git - HTTPS : https://github.com/NomUtilisateur/nom-du-projet.git"
-  },
-  {
-    "objectID": "Autre matériel 3/Aide mémoire Rstudio et Github.html#cloner-dans-rstudio",
-    "href": "Autre matériel 3/Aide mémoire Rstudio et Github.html#cloner-dans-rstudio",
-    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
-    "section": "💻 Cloner dans RStudio",
-    "text": "💻 Cloner dans RStudio\n\nOuvre RStudio\nVa dans File &gt; New Project\nChoisis Version Control\nSélectionne Git\nColle le lien copié dans le champ Repository URL\nChoisis un dossier local pour enregistrer le projet\nClique sur Create Project\n\n🎉 C’est fait ! Tu peux commencer à travailler dans ton nouveau projet RStudio."
-  },
-  {
-    "objectID": "Autre matériel 3/Aide mémoire Rstudio et Github.html#astuce-erreur-dauthentification-github",
-    "href": "Autre matériel 3/Aide mémoire Rstudio et Github.html#astuce-erreur-dauthentification-github",
-    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
-    "section": "⚠️ Astuce : Erreur d’authentification GitHub",
-    "text": "⚠️ Astuce : Erreur d’authentification GitHub\nSi tu obtiens cette erreur :\nfatal: Authentication failed\nremote: Support for password authentication was removed...\nC’est que tu as utilisé HTTPS sans jeton personnel (PAT).\n\nDeux solutions :\n\nGénérer un Jeton d’accès personnel (PAT) sur GitHub, puis l’utiliser comme mot de passe.\nOu configurer SSH, ce qui est plus simple à long terme."
-  },
-  {
-    "objectID": "Autre matériel 3/Aide mémoire Rstudio et Github.html#bonus-configurer-ssh-avec-github-recommandé",
-    "href": "Autre matériel 3/Aide mémoire Rstudio et Github.html#bonus-configurer-ssh-avec-github-recommandé",
-    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
-    "section": "🔐 Bonus : Configurer SSH avec GitHub (recommandé)",
-    "text": "🔐 Bonus : Configurer SSH avec GitHub (recommandé)\n# 1. Génère une clé SSH (si ce n'est pas déjà fait)\nssh-keygen -t ed25519 -C \"ton-email@example.com\"\n\n# 2. Ajoute ta clé SSH à l'agent\neval \"$(ssh-agent -s)\"\nssh-add ~/.ssh/id_ed25519\n\n# 3. Copie ta clé publique\ncat ~/.ssh/id_ed25519.pub\nPuis colle cette clé dans GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key.\n👉 Détails : https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
-  },
-  {
-    "objectID": "Autre matériel 3/Aide mémoire Rstudio et Github.html#ressources-utiles",
-    "href": "Autre matériel 3/Aide mémoire Rstudio et Github.html#ressources-utiles",
-    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
-    "section": "📎 Ressources utiles",
-    "text": "📎 Ressources utiles\n\nGuide GitHub RStudio (RStudio Support)\nCréer un token GitHub (PAT)\nConfigurer SSH GitHub (Officiel)\n\n\nBonne programmation ! 🧪💻"
-  },
-  {
-    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html",
-    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html",
-    "title": "Analyse initiale des cas de COVID-19",
-    "section": "",
-    "text": "Le jeu de données présenté dans cette analyse simule des informations collectées durant l’année 2022 sur des cas de COVID-19 parmi des personnes âgées vivant dans trois régions du Québec : Montréal, Québec et l’Outaouais. Chaque ligne représente un individu identifié par son prénom, nom, âge, région, date d’observation et le nombre de cas confirmés associés à lui. Les données incluent aussi une date d’observation.\n\n\n     region age cas_confirmes       date\n1    Québec  78           111 2022-08-03\n2    Québec  66            92 2022-03-20\n3 Outaouais  68            74 2022-01-30\n4  Montréal  94           144 2022-12-05\n5    Québec  85           133 2022-05-02\n6    Québec  75            93 2022-07-21"
-  },
-  {
-    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#contexte-des-données",
-    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#contexte-des-données",
-    "title": "Analyse initiale des cas de COVID-19",
-    "section": "",
-    "text": "Le jeu de données présenté dans cette analyse simule des informations collectées durant l’année 2022 sur des cas de COVID-19 parmi des personnes âgées vivant dans trois régions du Québec : Montréal, Québec et l’Outaouais. Chaque ligne représente un individu identifié par son prénom, nom, âge, région, date d’observation et le nombre de cas confirmés associés à lui. Les données incluent aussi une date d’observation.\n\n\n     region age cas_confirmes       date\n1    Québec  78           111 2022-08-03\n2    Québec  66            92 2022-03-20\n3 Outaouais  68            74 2022-01-30\n4  Montréal  94           144 2022-12-05\n5    Québec  85           133 2022-05-02\n6    Québec  75            93 2022-07-21"
-  },
-  {
-    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#visualisation-proposée-par-léquipe-de-recherche",
-    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#visualisation-proposée-par-léquipe-de-recherche",
-    "title": "Analyse initiale des cas de COVID-19",
-    "section": "Visualisation proposée par l’équipe de recherche",
-    "text": "Visualisation proposée par l’équipe de recherche\n\ncas_par_region &lt;- covid_problematique %&gt;%\n  group_by(region) %&gt;%\n  summarise(cas_totaux = sum(cas_confirmes), .groups = \"drop\")\n\nggplot(cas_par_region, aes(x = region, y = cas_totaux, fill = region)) +\n  geom_bar(stat = \"identity\") +\n  scale_y_continuous(breaks = seq(0, max(cas_par_region$cas_totaux), by = 10)) +\n  scale_fill_manual(values = c(\"Montréal\" = \"red\", \"Québec\" = \"orange\", \"Outaouais\" = \"purple\")) +\n  theme_minimal() +\n  theme(legend.position = \"none\")"
-  },
-  {
-    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#interprétation-des-résultats",
-    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#interprétation-des-résultats",
-    "title": "Analyse initiale des cas de COVID-19",
-    "section": "Interprétation des résultats",
-    "text": "Interprétation des résultats\nLe graphique ci-dessus montre clairement que la région de Montréal est la plus touchée, avec un nombre de cas beaucoup plus élevé que les autres régions. Les données sont tirées de nos rapports internes collectés au courant de l’année 2012. Aucun ajustement par population n’a été fait, mais cela n’est pas jugé nécessaire."
-  },
-  {
-    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#tableau-de-cas-notables",
-    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#tableau-de-cas-notables",
-    "title": "Analyse initiale des cas de COVID-19",
-    "section": "Tableau de cas notables",
-    "text": "Tableau de cas notables\nDans cette section, nous cherchons à identifier les individus ayant généré le plus grand nombre de cas confirmés.\nLe tableau suivant montre les 5 personnes ayant les plus hauts totaux individuels de cas confirmés selon notre base de données :\n\n# Extraction des 5 personnes avec le plus grand nombre de cas confirmés\ncovid_problematique %&gt;%\n  arrange(desc(cas_confirmes)) %&gt;%\n  select(personne, region, cas_confirmes, date) %&gt;%\n  head(5)\n\n              personne    region cas_confirmes       date\n1  Luc Dupont , 66 ans  Montréal           147 2022-09-29\n2 Chloé Morin , 67 ans Outaouais           146 2022-08-30\n3 Chloé Gagné , 84 ans    Québec           145 2022-02-11\n4  Luc Dupont , 90 ans    Québec           145 2022-08-28\n5 Chloé Morin , 94 ans  Montréal           144 2022-12-05"
-  },
-  {
-    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#analyse-exploratoire-complémentaire",
-    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#analyse-exploratoire-complémentaire",
-    "title": "Analyse initiale des cas de COVID-19",
-    "section": "Analyse exploratoire complémentaire",
-    "text": "Analyse exploratoire complémentaire\n\ncovid_problematique %&gt;%\n  mutate(risque = if_else(age &gt; 85 & cas_confirmes &gt; 100, \"Élevé\", \"Modéré\")) %&gt;%\n  group_by(risque) %&gt;%\n  summarise(\n    moyenne_age = mean(age),\n    moyenne_cas = mean(cas_confirmes),\n    .groups = \"drop\"\n  )\n\n# A tibble: 2 × 3\n  risque moyenne_age moyenne_cas\n  &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1 Modéré        76.3        105.\n2 Élevé         91.8        132 \n\ncovid_problematique %&gt;%\n  ggplot(aes(x = age, y = cas_confirmes)) +\n  geom_point(color = \"darkred\") +\n  geom_smooth(method = \"lm\", se = FALSE, linetype = \"dashed\") +\n  labs(title = \"Plus on est âgé, plus on contracte la COVID\")\n\n`geom_smooth()` using formula = 'y ~ x'"
-  },
-  {
-    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#recommandations-immédiates",
-    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#recommandations-immédiates",
-    "title": "Analyse initiale des cas de COVID-19",
-    "section": "Recommandations immédiates",
-    "text": "Recommandations immédiates\n\nLes autorités devraient concentrer leurs efforts sur Montréal, qui semble en crise.\nLes personnes âgées de plus de 85 ans devraient être priorisées (voir tableau).\nLa région de Québec semble peu affectée : les ressources pourraient être redistribuées."
-  },
-  {
-    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#note-méthodologique",
-    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#note-méthodologique",
-    "title": "Analyse initiale des cas de COVID-19",
-    "section": "Note méthodologique",
-    "text": "Note méthodologique\nLes données ont été regroupées rapidement sans normalisation par population. Aucune marge d’erreur, d’intervalle de confiance ou vérification des sources n’a été fournie. Les données couvrent des périodes variables sans harmonisation.\n\n\nRemarque pédagogique : Ce document contient volontairement de nombreuses erreurs de visualisation, d’éthique et d’analyse. Il est utilisé comme point de départ pour votre mission critique.\nLe fichier donnees_covid_module7.csv est celui que vous devez utiliser pour produire une version corrigée du graphique."
-  },
-  {
-    "objectID": "Module 7/Plan d'apprentissage module 7.html",
-    "href": "Module 7/Plan d'apprentissage module 7.html",
-    "title": "Module 7 - Plan d’apprentissage",
-    "section": "",
-    "text": "🎯 Objectifs du module\nÀ la fin de ce module, vous devriez être capable de :\n\nIdentifier des problèmes éthiques dans une visualisation.\nAnonymiser correctement des données.\nAppliquer les bonnes pratiques de visualisation pour représenter les données de manière claire et honnête.\nIdentifier et éviter les biais de présentation des données.\nComprendre les enjeux éthiques et de confidentialité liés à la science des données.\nMettre en place des mesures de protection et de sécurisation des données sensibles.\nExpliquer les principes CRAP.\nExpliquer les principes FAIR.\n\n\n\n📚 Lectures\nPour vous préparer, consultez les ressources suivantes :\n\n📘 R for Data Science — Communication\n📘 Guide de bonnes pratiques à l’usage des data scientists (gouvernement du Luxembourg)\n\n\n\n🧭 Aventure\nVous incarnerez un·e expert·e en éthique des données et serez chargé·e d’évaluer un rapport problématique.\nLien vers l’aventure :\n👉 Aventure 7 — Visualisation, éthique et sécurisation des données\n\n\n💡 Défi — Analyse éthique et visualisation responsable\nVous recevrez un jeu de données COVID simulé. Votre tâche sera de produire une analyse responsable :\n\nÉvaluer les aspects éthiques liés à la visualisation fournie.\nAnonymiser correctement les données.\nCréer une nouvelle visualisation fidèle et informative.\nRédiger une réflexion critique sur les enjeux rencontrés.\n\n\n\n🏋️ Exercices de consolidation\nVoici quelques exemples réels de visualisations problématiques ou controversées à analyser :\n\nFox News – Graphique sur le christianisme aux États-Unis\nLa chaîne a diffusé un graphique avec un axe Y tronqué, exagérant visuellement une baisse du taux de chômage.\n\n➤ Question : En quoi la forme de l’axe trompe-t-elle le lecteur ? Comment le représenter honnêtement ?\nUSA Today – Diagramme circulaire erroné\nLe graphique totalise plus de 100 % de parts, rendant la visualisation incohérente.\n\n➤ Question : Que montre cette erreur ? Quels types de graphiques alternatifs conviendraient mieux ?\nCartes électorales américaines – Distorsion par surface\nLes grandes zones rurales peu peuplées sont visuellement dominantes sur les cartes, même si elles comptent peu d’électeurs.\n\n➤ Question : Pourquoi la taille géographique peut-elle fausser la perception des résultats ? Comment faire mieux ?\nTicked Axis – Exemple pédagogique de manipulation\nDeux versions d’un même graphique, l’une honnête et l’autre manipulée par troncature d’axe, révèlent l’impact des choix visuels.\n\n\n\n➤ Question : Que remarquez-vous en comparant les deux versions ? Quels messages différents sont véhiculés ?\nCambridge Analytica – Profilage psychologique sans consentement\nDonnées Facebook utilisées à l’insu des utilisateur·rices à des fins de manipulation électorale.\nhttps://fr.wikipedia.org/wiki/Cambridge_Analytica\n➤ Question : Quels principes éthiques sont ici violés (transparence, consentement, anonymisation) ? Comment prévenir ce type de dérive ?",
+    "text": "Vous êtes un·e expert·e invité·e dans une commission d’éthique en science des données. Une organisation vous soumet un rapport contenant une visualisation et des statistiques issues d’un jeu de données simulé sur la COVID-19. Votre rôle : évaluer la conformité de ce rapport aux bonnes pratiques de communication visuelle, à l’éthique et à la protection des données sensibles.",
     "crumbs": [
       "Modules",
       "7 - Visualisation, éthique et sécurisation des données",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 7/Aventure/Aventure 7.html#instructions",
+    "href": "Module 7/Aventure/Aventure 7.html#instructions",
+    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
+    "section": "Instructions",
+    "text": "Instructions\nEn équipe, vous devez :\n\nLire attentivement le rapport fourni (Analyse initiale des cas de COVID-19.html).\nIdentifier tous les problèmes : visuels, statistiques, éthiques, méthodologiques, etc.\nCorriger et améliorer la visualisation à l’aide du fichier de données donnees_covid_module7.csv.\nRédiger un rapport critique incluant :\n\nProblèmes identifiés\nRaisonnement éthique\nRecommandations\n\nFournir une ou plusieurs visualisations corrigées avec explications.\nAjouter une courte conclusion personnelle (5 lignes par personne) sur ce que vous retenez de cette activité.",
+    "crumbs": [
+      "Modules",
+      "7 - Visualisation, éthique et sécurisation des données",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 7/Aventure/Aventure 7.html#travail-à-remettre",
+    "href": "Module 7/Aventure/Aventure 7.html#travail-à-remettre",
+    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
+    "section": "Travail à remettre",
+    "text": "Travail à remettre\nUn fichier .qmd sur GitHub contenant :\n\nUne section “Analyse critique”\nUne section “Visualisation améliorée”\nUne section “Conclusion personnelle”",
+    "crumbs": [
+      "Modules",
+      "7 - Visualisation, éthique et sécurisation des données",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 7/Aventure/Aventure 7.html#ressources-utiles",
+    "href": "Module 7/Aventure/Aventure 7.html#ressources-utiles",
+    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
+    "section": "Ressources utiles",
+    "text": "Ressources utiles\n\nRègles CRAP : Contraste, Répétition, Alignement, Proximité\nHow to Lie with Statistics — Darrell Huff\nRègles d’anonymisation des données (PII)\nPrincipes d’éthique : transparence, reproductibilité, non-nuisance\nBonnes pratiques de visualisation avec ggplot2\nConcepts abordés dans le module 7 : sécurité, biais, visualisation, éthique",
+    "crumbs": [
+      "Modules",
+      "7 - Visualisation, éthique et sécurisation des données",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 7/Aventure/Aventure 7.html#fichier-de-départ",
+    "href": "Module 7/Aventure/Aventure 7.html#fichier-de-départ",
+    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
+    "section": "Fichier de départ",
+    "text": "Fichier de départ\n\nAnalyse initiale des cas de COVID-19.html (fourni sur GitHub)\ndonnees_covid_module7.csv (données nettoyées à utiliser pour la version corrigée)",
+    "crumbs": [
+      "Modules",
+      "7 - Visualisation, éthique et sécurisation des données",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 7/Aventure/Aventure 7.html#critères-de-réussite",
+    "href": "Module 7/Aventure/Aventure 7.html#critères-de-réussite",
+    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
+    "section": "Critères de réussite",
+    "text": "Critères de réussite\n\nCapacité à identifier un grand nombre de problèmes (techniques, éthiques, visuels)\nCapacité à justifier vos corrections\nQualité de la visualisation améliorée (clarté, honnêteté, accessibilité)\nQualité du rapport critique\nCapacité à adopter une posture réflexive sur l’éthique en science des données",
+    "crumbs": [
+      "Modules",
+      "7 - Visualisation, éthique et sécurisation des données",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 10/Aventure/Modele Dashboard.html",
+    "href": "Module 10/Aventure/Modele Dashboard.html",
+    "title": "Tableau de bord — Sentiment STT-1100",
+    "section": "",
+    "text": "selectInput(\"sem\", \"Choisissez une semaine:\", choices = unique(exemple$semaine), selected = 1)\n\n\nChoisissez une semaine:\n\n1\n2\n3"
+  },
+  {
+    "objectID": "Module 10/Aventure/Modele Dashboard.html#column",
+    "href": "Module 10/Aventure/Modele Dashboard.html#column",
+    "title": "Tableau de bord — Sentiment STT-1100",
+    "section": "",
+    "text": "selectInput(\"sem\", \"Choisissez une semaine:\", choices = unique(exemple$semaine), selected = 1)\n\n\nChoisissez une semaine:\n\n1\n2\n3"
+  },
+  {
+    "objectID": "Module 10/Aventure/Modele Dashboard.html#column-1",
+    "href": "Module 10/Aventure/Modele Dashboard.html#column-1",
+    "title": "Tableau de bord — Sentiment STT-1100",
+    "section": "Column",
+    "text": "Column\n\nScore de sentiment par semaine\n\nrenderPlot({\n  ggplot(sentiment_fr, aes(x = semaine, y = score)) +\n    geom_col(fill = \"steelblue\") +\n    labs(title = \"Évolution du sentiment\", x = \"Semaine\", y = \"Score net\")\n})"
+  },
+  {
+    "objectID": "Module 10/Aventure/Modele Dashboard.html#column-2",
+    "href": "Module 10/Aventure/Modele Dashboard.html#column-2",
+    "title": "Tableau de bord — Sentiment STT-1100",
+    "section": "Column",
+    "text": "Column\n\nMots distinctifs (TF-IDF)\n\nrenderPlot({ \n  tfidf &lt;- texte_nettoye %&gt;% count(semaine, word) %&gt;% bind_tf_idf(word, semaine, n)\n\ntfidf %&gt;% filter(semaine == input$sem) %&gt;%\n    slice_max(tf_idf, n = 8) %&gt;%\n    mutate(word = fct_reorder(word, tf_idf)) %&gt;%\n    ggplot(aes(x = word, y = tf_idf)) +\n    geom_col(fill = \"darkorange\") +\n    coord_flip() +\n    labs(title = paste(\"TF-IDF - Semaine\", input$sem), x = NULL, y = \"Score TF-IDF\") })"
+  },
+  {
+    "objectID": "Module 10/Plan d'apprentissage module 10.html",
+    "href": "Module 10/Plan d'apprentissage module 10.html",
+    "title": "Module 10 - Plan d’apprentissage",
+    "section": "",
+    "text": "🎯 Objectifs du module\nÀ la fin de ce module, vous devriez être capable de :\n\nNettoyer et analyser des données textuelles.\nConstruire un lexique de sentiment simple en français.\nVisualiser les tendances lexicales et émotionnelles dans le temps.\nUtiliser TF-IDF pour repérer les mots distinctifs.\nCréer un tableau de bord interactif avec flexdashboard et shiny.\n\n\n\n📚 Lectures\nPour vous préparer, consultez les ressources suivantes :\n\n📘 Tidytext Text Mining – Chapitres 1 à 3 - Ce livre vous introduit aux bases du traitement de texte avec R.\n📘 Flexdashboard documentation (RStudio) - ce document vous guide dans la création de tableaux de bord interactifs avec flexdashboard.\n📘 Shiny for dashboards - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec shiny.\n\n\n\n🧭 Aventure\nVous êtes analyste d’affaires junior engagé par la Faculté des sciences et de génie de l’Université Laval. Votre mandat : analyser les commentaires anonymes des étudiant·es sur le cours STT-1100 et produire un tableau de bord interactif pour la direction du programme.\n👉 Aventure 10 — Analyse de sentiment et tableau de bord\n\n\n💡 Défi — Tableau de bord déployé\nVous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :\n\nAfficher un score de sentiment par semaine ;\nIdentifier les mots distinctifs (TF-IDF) ou un nuage de mots ;\nAnalyser les variables numériques (plaisir, engagement, difficulte) ;\nÊtre personnalisé (filtrage, couleurs, résumé) ;\nÊtre déployé et partagé à Anne-Sophie.\n\n\n\n📊 Grille d’évaluation\nChaque équipe doit remettre un tableau de bord interactif basé sur les commentaires des étudiant·es du cours. Voici la grille utilisée pour l’évaluation :\n\n\n\n\n\n\n\n\nCritère\nDescription\nPoints\n\n\n\n\nNettoyage du texte\nTexte bien transformé, tokenisé, stopwords retirés\n/10\n\n\nLexique et score de sentiment\nConstruction claire du lexique FR, application correcte par semaine\n/15\n\n\nTF-IDF ou nuage de mots\nAnalyse de mots distinctifs claire et bien illustrée\n/15\n\n\nAnalyse des variables numériques\nMoyennes ou tendances bien explorées (plaisir, difficulte, etc.)\n/15\n\n\nVisualisations\nGraphiques lisibles, pertinents, esthétiques\n/15\n\n\nTableau de bord interactif (Shiny)\nUtilisation efficace de filtres et composants dynamiques\n/15\n\n\nPersonnalisation / effort créatif\nAdaptation du modèle fourni, effort visuel et rédactionnel\n/10\n\n\nDéploiement et accessibilité\nDashboard fonctionnel, lien valide partagé dans les temps\n/5\n\n\n\nTotal : /100",
+    "crumbs": [
+      "Modules",
+      "10 - Au-delà des données : texte et tableau de bord",
       "Plan d'apprentissage"
     ]
   },
   {
-    "objectID": "Module 10/Aventure/Aventure 10.html",
-    "href": "Module 10/Aventure/Aventure 10.html",
-    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
+    "objectID": "Module 9/Aventure/Aventure 9.html",
+    "href": "Module 9/Aventure/Aventure 9.html",
+    "title": "Aventure 9 - Prédiction et biais algorithmiques",
     "section": "",
-    "text": "Cette semaine, vous avez été engagé·e comme analyste d’affaires junior par la Faculté des sciences et de génie de l’Université Laval. Dans le cadre de la réforme du baccalauréat en statistique et science des données, la direction souhaite évaluer l’évolution du ressenti étudiant tout au long de la session.\nChaque semaine, les étudiant·es ont répondu à un questionnaire sur leur expérience d’apprentissage dans le cours STT-1100. Vos analyses seront essentielles pour documenter les points forts et les pistes d’amélioration du nouveau programme.\nVous êtes guidé·e par Anne-Sophie, la directrice du programme, qui vous accompagne dans la structuration de votre tableau de bord et vous aide à interpréter les résultats.\n\n“L’idée, c’est d’avoir un portrait honnête, mais constructif. On veut voir les tendances de fond et s’en inspirer pour continuer d’améliorer notre programme.”",
-    "crumbs": [
-      "Modules",
-      "10 - Au-delà des données : texte et tableau de bord",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 10/Aventure/Aventure 10.html#étape-1-nettoyage-de-texte",
-    "href": "Module 10/Aventure/Aventure 10.html#étape-1-nettoyage-de-texte",
-    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
-    "section": "Étape 1 — Nettoyage de texte",
-    "text": "Étape 1 — Nettoyage de texte\n\n\n\n\n\n\n🧑‍💼 - Question d’Anne-Sophie\n\n\n\n« Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »\n\n\n\n\n\n\n\n\n🧑‍💼 - Petit rappel\n\n\n\nLe nettoyage de texte est essentiel avant toute analyse. Tu veux que chaque mot ait un sens pertinent. Essaie de retirer la ponctuation, les mots trop courants, et assure-toi que tout est bien en minuscules.\n\n\n\n\n\n\n\n\n🔎 Notions clés\n\n\n\n\n\nTokenisation : procédé qui consiste à découper le texte en unités de base (mots, n‑grammes). Chaque token devient une ligne dans votre tableau.\n\nStopwords : mots très fréquents (“le”, “de”, “et”, etc.) qui n’apportent généralement pas d’information sémantique utile pour l’analyse.\n\nNettoyage : mise en minuscules, retrait de la ponctuation, chiffres et caractères spéciaux pour normaliser les tokens.\n\n\n\nExemple de jeu de données simulé\n\n# Jeu de données fictif en français avec des commentaires\nexemple &lt;- tibble::tibble(\n  id = 1:7,\n  semaine = c(1, 1, 2, 2, 2, 3, 3),\n  commentaire = c(\n    \"J'ai trouvé le cours très clair cette semaine, bravo au prof !\",\n    \"Je commence à mieux comprendre, c'est motivant !\",\n    \"Trop de matière à assimiler en peu de temps, je me sens dépassé.\",\n    \"Pas facile cette semaine, j’ai eu du mal avec les graphiques.\",\n    \"Ouf très difficile cette semaine, particulièrement avec les graphiques.\",\n    \"Les outils sont puissants, mais je manque de pratique.\",\n    \"La construction du dashboard est super intéressante.\"\n  )\n)\n\nPrétraitement du texte\n\nlibrary(tidytext)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(stringr)\nlibrary(tibble)\nlibrary(ggplot2)\nlibrary(stopwords)\n\n# Charger les stopwords français\nstop_fr &lt;- stopwords::stopwords(\"fr\", source = \"snowball\")\n\ntexte_nettoye &lt;- exemple %&gt;%\n  unnest_tokens(word, commentaire) %&gt;%\n  filter(!word %in% stop_fr,             # Retirer les mots fréquents\n         str_detect(word, \"^[a-zéèêàâîôûùçäëïöü]+$\"))  # Garder les mots valides en français\n\nhead(texte_nettoye)\n\n# A tibble: 6 × 3\n     id semaine word   \n  &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  \n1     1       1 trouvé \n2     1       1 cours  \n3     1       1 très   \n4     1       1 clair  \n5     1       1 semaine\n6     1       1 bravo  \n\n\n\n\n\n\n\n\n🧑‍💼 - Question d’Anne-Sophie\n\n\n\n« Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »\n\n\nAnne-Sophie vous demande d’appliquer un nettoyage classique :\n\nretirer la ponctuation, les chiffres et les mots fréquents (stopwords),\ntransformer le texte en minuscules,\ntokeniser le texte (découper en mots).",
-    "crumbs": [
-      "Modules",
-      "10 - Au-delà des données : texte et tableau de bord",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 10/Aventure/Aventure 10.html#étape-2-analyse-de-sentiment",
-    "href": "Module 10/Aventure/Aventure 10.html#étape-2-analyse-de-sentiment",
-    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
-    "section": "Étape 2 — Analyse de sentiment",
-    "text": "Étape 2 — Analyse de sentiment\nOn s’intéresse ici à la valence émotionnelle des mots dans les commentaires. L’analyse de sentiment permet de quantifier si un texte est plutôt positif ou négatif.\n\n\n\n\n\n\n🔎 Notions clés\n\n\n\n\n\nSentiment d’un mot : étiquette (positive, négative) ou score numérique indiquant la valence émotionnelle du mot.\n\nScore de sentiment d’un texte : somme ou différence des scores/étiquettes des mots qu’il contient, souvent agrégé par document ou, ici, par semaine.\n\n\n\nAnalyse de sentiment en français\nActuellement, il n’existe pas de lexique intégré à tidytext::get_sentiments() pour le français (contrairement à l’anglais, où les lexiques bing, afinn, et nrc sont directement accessibles). Voici donc une approche pédagogique : créer un petit lexique personnalisé à enrichir en classe.\n\n\n\n\n\n\n🧑‍💼 - Suggestion d’Anne-Sophie\n\n\n\n« Pour cette étape, je vous recommande de construire un petit lexique maison. Vous pouvez commencer par les mots qui reviennent souvent et les classer subjectivement. Le but ici est de comprendre le principe d’une analyse de sentiment, même avec des outils simples. »\n\n\n\n# Lexique maison de base à adapter\nlexique_fr &lt;- tibble::tibble(\n  word = c(\"clair\", \"motivant\", \"bravo\", \"difficile\", \"dépassé\", \"mal\", \"intéressante\", \"puissants\"),\n  sentiment = c(\"positive\", \"positive\", \"positive\", \"negative\", \"negative\", \"negative\", \"positive\", \"positive\")\n)\n\nsentiment_fr &lt;- texte_nettoye %&gt;%\n  inner_join(lexique_fr, by = \"word\") %&gt;%\n  count(semaine, sentiment) %&gt;%\n  tidyr::pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %&gt;%\n  mutate(score = positive - negative)\n\nsentiment_fr\n\n# A tibble: 3 × 4\n  semaine positive negative score\n    &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt; &lt;int&gt;\n1       1        3        0     3\n2       2        0        3    -3\n3       3        2        0     2\n\n\nVisualisation des scores par semaine\nFaisons un graphique pour visualiser l’évolution du score de sentiment par semaine :\n\nggplot(sentiment_fr, aes(x = semaine, y = score)) +\n  geom_col(fill = \"steelblue\") +\n  labs(title = \"Score de sentiment par semaine\",\n       y = \"Score net (positif - négatif)\", x = \"Semaine\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n🧑‍💼 - Conseil d’Anne-Sophie\n\n\n\n« Comme les lexiques intégrés à get_sentiments() ne sont disponibles qu’en anglais, je vous propose de construire un petit lexique maison pour le français. Ce sera imparfait, mais cela vous permettra de comprendre le principe. On pourra ensuite en discuter ensemble pour l’enrichir. Ce qui m’intéresse, c’est que vous soyez capables d’interpréter l’évolution du sentiment d’une semaine à l’autre, même avec des outils simples. »\n\n\n🤝 Collaboration finale\nÀ la fin du cours, une activité en classe permettra à chaque étudiants/équipes de partager son propre lexique de sentiments en français construit durant l’analyse.\n🎓 L’enseignant collectera et fusionnera ces lexiques, en les vérifiant pour en retirer une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.",
-    "crumbs": [
-      "Modules",
-      "10 - Au-delà des données : texte et tableau de bord",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 10/Aventure/Aventure 10.html#étape-3-mots-distinctifs",
-    "href": "Module 10/Aventure/Aventure 10.html#étape-3-mots-distinctifs",
-    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
-    "section": "Étape 3 — Mots distinctifs",
-    "text": "Étape 3 — Mots distinctifs\nDans cette étape, nous allons identifier les mots qui ressortent le plus chaque semaine. Pour cela, nous utiliserons l’approche TF-IDF (Term Frequency-Inverse Document Frequency), qui permet de mettre en évidence les mots à la fois fréquents dans un document et rares dans l’ensemble des documents.\n\n\n\n\n\n\n🧑‍💼 - Idée d’Anne-Sophie\n\n\n\n« Un bon indicateur de ce que ressentent les étudiant·es, ce sont les mots qui ressortent le plus dans leurs commentaires. Vous pouvez essayer une analyse TF-IDF ou même créer un nuage de mots. »\n\n\n\n\n\n\n\n\n🔎 Notions clés\n\n\n\n\n\nTF (Term Frequency) : fréquence d’apparition d’un mot dans un document.\n\nIDF (Inverse Document Frequency) : importance inverse d’un mot dans l’ensemble des documents – les mots rares ont un IDF élevé.\n\nTF‑IDF : produit TF × IDF qui met en évidence les mots à la fois fréquents dans un document et rares dans les autres (mots “distinctifs”).\n\n\n\nCalcul TF-IDF\nCalculons le TF-IDF pour chaque mot par semaine :\n\ntfidf &lt;- texte_nettoye %&gt;%\n  count(semaine, word) %&gt;%\n  bind_tf_idf(word, semaine, n) %&gt;%\n  arrange(desc(tf_idf))\n\nhead(tfidf)\n\n# A tibble: 6 × 6\n  semaine word             n    tf   idf tf_idf\n    &lt;dbl&gt; &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n1       3 construction     1 0.125  1.10  0.137\n2       3 dashboard        1 0.125  1.10  0.137\n3       3 intéressante     1 0.125  1.10  0.137\n4       3 manque           1 0.125  1.10  0.137\n5       3 outils           1 0.125  1.10  0.137\n6       3 pratique         1 0.125  1.10  0.137\n\n\nVisualisation pour une semaine donnée\nFaisons un graphique pour visualiser les mots les plus distinctifs pour une semaine spécifique. Par exemple, la semaine 2 :\n\n# Choisir semaine 2 comme exemple\nlibrary(forcats)\n\ntfidf %&gt;%\n  filter(semaine == 2) %&gt;%\n  slice_max(tf_idf, n = 8) %&gt;%\n  mutate(word = fct_reorder(word, tf_idf)) %&gt;%\n  ggplot(aes(x = word, y = tf_idf)) +\n  geom_col(fill = \"darkorange\") +\n  coord_flip() +\n  labs(title = \"Mots les plus distinctifs — Semaine 2\",\n       x = NULL, y = \"TF-IDF\")\n\n\n\n\n\n\n\nUne visualisation comme celle-ci permet de voir quels mots sont les plus représentatifs des commentaires de cette semaine-là. Il existe aussi la possibilité de créer un nuage de mots pour une représentation plus visuelle. Un nuage de mot est une représentation graphique des mots les plus fréquents, où la taille de chaque mot est proportionnelle à sa fréquence d’apparition.\n💡 Pour créer un nuage de mots en français : - Utilisez la fonction wordcloud() du package wordcloud, ou ggwordcloud pour plus de personnalisation. - Inspirez-vous de cet exemple complet : https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html\n\n\n\n\n\n\n🧑‍💼 - Question d’Anne-Sophie\n\n\n\n« Peux-tu repérer les mots qui ressortent le plus chaque semaine ? Tu pourrais essayer une approche TF-IDF et me faire un graphique ou même un nuage de mots. »",
-    "crumbs": [
-      "Modules",
-      "10 - Au-delà des données : texte et tableau de bord",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 10/Aventure/Aventure 10.html#étape-4-création-du-dashboard",
-    "href": "Module 10/Aventure/Aventure 10.html#étape-4-création-du-dashboard",
-    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
-    "section": "Étape 4 — Création du dashboard",
-    "text": "Étape 4 — Création du dashboard\nMaintenant que nous avons nettoyé les données et effectué les analyses de sentiment et de mots distinctifs, il est temps de créer un tableau de bord interactif. Celui-ci permettra à Anne-Sophie de visualiser les résultats de manière claire et dynamique.\n\n\n\n\n\n\n🧑‍💼 - Rappel d’Anne-Sophie\n\n\n\nLe tableau de bord final doit être clair, interactif et utile. Un modèle prêt à l’emploi (Modele_Dashboardt.Rmd) se trouve dans le dépôt GitHub du module. Personnalisez‑le : branchez vos propres données, ajustez les filtres, et ajoutez au moins deux visualisations.",
-    "crumbs": [
-      "Modules",
-      "10 - Au-delà des données : texte et tableau de bord",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 10/Aventure/Aventure 10.html#étape-5-recommandations-et-analyse-finale",
-    "href": "Module 10/Aventure/Aventure 10.html#étape-5-recommandations-et-analyse-finale",
-    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
-    "section": "Étape 5 — Recommandations et analyse finale",
-    "text": "Étape 5 — Recommandations et analyse finale\nÀ la fin du tableau de bord, rédigez un résumé de vos observations clés :\n\névolution du score de sentiment,\nsemaines critiques,\nrecommandations d’action pour améliorer l’expérience étudiante,\n\nanalyse des variables numériques difficulte, engagement, plaisir : moyenne et tendance par semaine, comparaison avec le score de sentiment (ex. corrélations simples ou graphiques combinés).\n\n\n\n\n\n\n\n🧑‍💼 - Défi d’Anne-Sophie\n\n\n\n« N’oubliez pas d’explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »",
-    "crumbs": [
-      "Modules",
-      "10 - Au-delà des données : texte et tableau de bord",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 9/Plan d'apprentissage module 9.html",
-    "href": "Module 9/Plan d'apprentissage module 9.html",
-    "title": "Module 9 - Plan d’apprentissage",
-    "section": "",
-    "text": "À la fin de ce module, vous devriez être capable de :\n\nAjuster et interpréter un modèle de régression linéaire simple.\nUtiliser un modèle de régression linéaire simple pour obtenir des prédictions.\nAjuster et interpréter un modèle de régression linéaire multiple.\nReconnaître et discuter des biais potentiels, notamment ceux liés à la discrimination, dans les données ou les modèles.",
+    "text": "Vous travaillez comme scientifique de données junior au département de contrôle de la qualité et de l’équité au Ministère de l’Éducation du Québec. Votre mandat : utiliser des données réelles et fictives pour identifier, évaluer et atténuer des biais algorithmiques dans les décisions éducatives.\nVotre supérieur, Michel Dufour, directeur adjoint du département, vous accueille avec ces mots :\n\n« Bienvenue dans l’équipe ! Notre travail est crucial : assurer que chaque enfant ait des chances égales de réussite. Pour cela, nous devons non seulement prédire efficacement certains indicateurs, mais aussi comprendre et éviter les biais dans nos modèles. »\n\n\n\n\n\n\n\nNote\n\n\n\nVotre interlocuteur : Michel Dufour\nIl vous accompagne dans cette aventure : il posera des questions clés et attendra vos résultats et analyses détaillées.\n\n\n\n\n\nConstruire un modèle prédictif clair à partir de données réelles.\nIdentifier et expliquer des biais potentiels sur des données fictives.\nPrésenter clairement vos analyses et réflexions sur ces biais.\nProposer des recommandations concrètes pour atténuer ces biais.",
     "crumbs": [
       "Modules",
       "9 - Prédiction et biais",
-      "Plan d'apprentissage"
+      "Aventure"
     ]
   },
   {
-    "objectID": "Module 9/Plan d'apprentissage module 9.html#étude-de-la-masse-corporelle-des-manchots",
-    "href": "Module 9/Plan d'apprentissage module 9.html#étude-de-la-masse-corporelle-des-manchots",
-    "title": "Module 9 - Plan d’apprentissage",
-    "section": "🐧 Étude de la masse corporelle des manchots",
-    "text": "🐧 Étude de la masse corporelle des manchots\nVous travaillez pour une ONG environnementale qui souhaite mieux comprendre les facteurs influençant la masse corporelle des manchots en Antarctique. Vous disposez du jeu de données penguins, nettoyé à l’aide de la fonction drop_na() pour éviter les valeurs manquantes.\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\ndf &lt;- penguins %&gt;% \n  drop_na()\n\n1. Visualisation et hypothèse\nTracez la relation entre body_mass_g et flipper_length_mm. Est-ce qu’une relation linéaire vous semble plausible ?\n\n\n💡 Solution\n\nUtilisez ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = \"lm\"). La relation est clairement linéaire.\n\n\n\n2. Régression simple\nAjustez un modèle body_mass_g ~ flipper_length_mm. Interprétez la pente.\n\n\n💡 Solution\n\nChaque mm supplémentaire de longueur de nageoire est associé à une augmentation moyenne de X grammes de masse corporelle (voir valeur exacte dans le modèle).\n\n\n\n3. Régression multiple\nAjustez maintenant body_mass_g ~ flipper_length_mm + sex. Quelle est la variable de référence ? Quelles différences observez-vous ?\n\n\n💡 Solution\n\nR utilise la première modalité alphabétique comme référence (ici probablement “female”). Le coefficient de sexmale représente la différence moyenne de masse entre mâles et femelles, à longueur égale.\n\n\n\n4. Prédictions ciblées\nPrédisez la masse corporelle pour un manchot avec 200 mm de longueur de nageoire, mâle.\n\n\n💡 Solution\n\nCréer une table newdata &lt;- tibble(flipper_length_mm = 200, sex = \"male\") puis faire predict(model, newdata).\n\n\n\n5. Réflexion critique\nLa variable species est-elle pertinente à inclure ? Quelle précaution devez-vous prendre si vous l’ajoutez ?\n\n\n💡 Solution\n\nOui, species est très corrélée avec la masse. Il faut faire attention à la multicolinéarité si elle est fortement liée aux autres prédicteurs.\n\nBonne exploration !",
+    "objectID": "Module 9/Aventure/Aventure 9.html#objectifs-de-laventure",
+    "href": "Module 9/Aventure/Aventure 9.html#objectifs-de-laventure",
+    "title": "Aventure 9 - Prédiction et biais algorithmiques",
+    "section": "",
+    "text": "Construire un modèle prédictif clair à partir de données réelles.\nIdentifier et expliquer des biais potentiels sur des données fictives.\nPrésenter clairement vos analyses et réflexions sur ces biais.\nProposer des recommandations concrètes pour atténuer ces biais.",
     "crumbs": [
       "Modules",
       "9 - Prédiction et biais",
-      "Plan d'apprentissage"
+      "Aventure"
     ]
   },
   {
-    "objectID": "Module 8/Plan d'apprentissage module 8.html",
-    "href": "Module 8/Plan d'apprentissage module 8.html",
-    "title": "Module 8 - Plan d’apprentissage",
+    "objectID": "Module 9/Aventure/Aventure 9.html#étape-1-exploration-et-nettoyage",
+    "href": "Module 9/Aventure/Aventure 9.html#étape-1-exploration-et-nettoyage",
+    "title": "Aventure 9 - Prédiction et biais algorithmiques",
+    "section": "Étape 1 : Exploration et nettoyage",
+    "text": "Étape 1 : Exploration et nettoyage\n\nIdentifiez les variables pertinentes.\nFaites un nettoyage sommaire si nécessaire (valeurs manquantes, types de données, etc.).\nRéalisez une analyse descriptive complète de ces données (référez-vous aux modules 2 à 4).\n\n\ndf_ecoles &lt;- read_csv(\"ecoles_primaires_qc.csv\")\nglimpse(df_ecoles)",
+    "crumbs": [
+      "Modules",
+      "9 - Prédiction et biais",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 9/Aventure/Aventure 9.html#étape-2-modèle-de-régression",
+    "href": "Module 9/Aventure/Aventure 9.html#étape-2-modèle-de-régression",
+    "title": "Aventure 9 - Prédiction et biais algorithmiques",
+    "section": "Étape 2 : Modèle de régression",
+    "text": "Étape 2 : Modèle de régression\n\n\n\n\n\n\n🧑‍💼 - Michel vous demande\n\n\n\n« J’aimerais que vous construisiez un modèle de régression linéaire pour prédire l’IMSE (Indice de Milieu Socio-Économique), à partir de deux variables : la proportion d’élèves à faible revenu (SFR) et le nombre total d’élèves dans l’école. »\n\n\n\nmodele &lt;- lm( ... , data = ...)\nsummary(modele)\n\n\n\n\n\n\n\n🧑‍💼 - Michel vous interroge\n\n\n\n« Une fois le modèle construit, pouvez-vous m’expliquer, en langage simple, ce que signifient les deux coefficients ? »",
+    "crumbs": [
+      "Modules",
+      "9 - Prédiction et biais",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 9/Aventure/Aventure 9.html#étape-3-prédictions-ciblées",
+    "href": "Module 9/Aventure/Aventure 9.html#étape-3-prédictions-ciblées",
+    "title": "Aventure 9 - Prédiction et biais algorithmiques",
+    "section": "Étape 3 : Prédictions ciblées",
+    "text": "Étape 3 : Prédictions ciblées\nVous utiliserez ensuite la fonction predict() pour générer des prédictions d’IMSE à partir de votre modèle.\n\npredict(modele, newdata = df_ecoles)\n\n\n\n\n\n\n\n🧑‍💼 - Michel précise\n\n\n\n« J’aimerais que vous utilisiez votre modèle pour : »\n- prédire l’IMSE pour les 10 écoles les plus grandes (en nombre d’élèves);\n- prédire l’IMSE pour les 10 écoles ayant les SFR les plus élevés.\nComparer les valeurs prédites aux valeurs réelles. Votre modèle est-il bon?",
+    "crumbs": [
+      "Modules",
+      "9 - Prédiction et biais",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 9/Aventure/Aventure 9.html#étape-4-prédictions-sur-écoles-manquantes",
+    "href": "Module 9/Aventure/Aventure 9.html#étape-4-prédictions-sur-écoles-manquantes",
+    "title": "Aventure 9 - Prédiction et biais algorithmiques",
+    "section": "Étape 4 : Prédictions sur écoles manquantes",
+    "text": "Étape 4 : Prédictions sur écoles manquantes\n\n\n\n\n\n\n🧑‍💼 - Michel ajoute\n\n\n\n« Dernière chose : dans les données, certaines écoles ont la variable Diffusion à “NON”. Ces écoles n’ont pas d’IMSE mesuré — souvent parce qu’elles comptent moins de 30 élèves. »\n« Pouvez-vous utiliser votre modèle pour prédire l’IMSE de toutes les écoles ayant moins de 30 élèves ? Ensuite, j’aimerais savoir : que pensez-vous de la validité de ces prédictions ? Peut-on s’y fier ? »",
+    "crumbs": [
+      "Modules",
+      "9 - Prédiction et biais",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 8/Aventure/Aventure 8.html",
+    "href": "Module 8/Aventure/Aventure 8.html",
+    "title": "Aventure 8 - Données ouvertes du Québec",
     "section": "",
-    "text": "🎯 Objectifs du module\nÀ la fin de ce module, vous devriez être capable de :\n\nExtraire des données textuelles d’une page web en utilisant rvest.\nAutomatiser des tâches répétitives à l’aide de boucles et de fonctions en R.\nIdentifier les aspects éthiques liés à la collecte automatisée de données en ligne.\n\n\n\n📚 Lectures\nPour vous préparer, consultez les ressources suivantes :\n\n📘 R for Data Science — Web scraping\n📘 robots.txt documentation (MDN)\n\n\n\n🧭 Aventure\nVous incarnez un·e consultant·e freelance engagé·e pour développer une fonction d’extraction automatisée de métadonnées à partir du portail Données Québec.\nLien vers l’aventure :\n👉 Aventure 8 — Données ouvertes du Québec\n\n\n💡 Défi — Fonction de scraping\nVous devrez concevoir une fonction scrape_page(url) qui :\n\nprend en entrée une URL d’une page de recherche de Données Québec ;\nretourne un data.frame avec les colonnes titre, producteur, categorie.\n\n📁 Vous remettrez cette fonction dans un fichier IDUL.R dans votre dépôt GitHub. Elle sera testée automatiquement sur plusieurs pages.\n\n\n🏋️ Exercices de consolidation\nCes exercices utilisent une page différente du portail Données Québec, afin de pratiquer dans un autre contexte.\nUtilisez la version archivée de la page IMDb des 250 meilleurs films : 👉 https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/\n\nLire la page HTML\n➤ Utilisez read_html() puis html_nodes() pour observer les sections contenant les titres des films.\nExtraire les titres des films\n➤ Essayez html_nodes(..., \".titleColumn a\") %&gt;% html_text().\nExtraire les années\n➤ Utilisez html_nodes(..., \".titleColumn span\") pour extraire les années entre parenthèses.\nExtraire les notes\n➤ Utilisez html_nodes(..., \".imdbRating strong\") pour obtenir les cotes de chaque film.\nConstruire un tableau\n➤ Combinez les trois vecteurs (titre, année, note) dans un data.frame.\nRéflexion éthique\n➤ Vérifiez si l’archive de la page IMDb (ou IMDb directement) autorise le scraping en consultant leur robots.txt.",
+    "text": "Vous travaillez comme freelancer en science des données. À la différence d’un poste salarié, vous êtes mandaté·e ponctuellement par des client·e·s pour résoudre des problèmes spécifiques. Vous devez être autonome, rigoureux·se et capable de livrer des solutions efficaces, réutilisables et bien documentées.\nLes consultant·e·s freelance sont souvent appelés pour leur capacité à débloquer des projets rapidement et efficacement. Ils livrent des outils bien documentés, testables, et faciles à maintenir par leurs client·e·s. La clarté du code, le respect des standards et l’éthique sont donc des éléments clés de leur pratique.\nAujourd’hui, vous êtes engagé·e par Marie-Pier, directrice de recherche à l’Institut québécois pour les données durables. Elle souhaite explorer le portail donnéesquebec.ca pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : concevoir un outil de scraping fiable pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.\n\n\n\n\n\n\nNote\n\n\n\nVotre interlocutrice : Marie-Pier\nElle vous accompagne tout au long de cette aventure : elle posera des questions clés, vérifiera vos résultats, et vous aidera à affiner vos livrables.\n\n\n\n\n\nComprendre les bases du web scraping avec rvest.\nCréer une fonction pour extraire des métadonnées depuis une page web.\nAutomatiser l’extraction sur plusieurs pages.\nExplorer les tendances dans les données ouvertes du Québec.\nÉvaluer la faisabilité éthique et technique du scraping sur d’autres sites web.",
     "crumbs": [
       "Modules",
       "8 - Automatisation et exploration du web",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 8/Aventure/Aventure 8.html#objectifs-de-laventure",
+    "href": "Module 8/Aventure/Aventure 8.html#objectifs-de-laventure",
+    "title": "Aventure 8 - Données ouvertes du Québec",
+    "section": "",
+    "text": "Comprendre les bases du web scraping avec rvest.\nCréer une fonction pour extraire des métadonnées depuis une page web.\nAutomatiser l’extraction sur plusieurs pages.\nExplorer les tendances dans les données ouvertes du Québec.\nÉvaluer la faisabilité éthique et technique du scraping sur d’autres sites web.",
+    "crumbs": [
+      "Modules",
+      "8 - Automatisation et exploration du web",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html",
+    "href": "Module 6/Plan d'apprentissage module 6.html",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "",
+    "text": "À la fin de ce module, vous devriez être capable de :\n\nCollaborer efficacement sur des projets de science des données en utilisant GitHub.\nAssurer la reproductibilité des analyses avec Quarto.\nFusionner et gérer plusieurs jeux de données.\nExpliquer le cycle de vie des données et les principes de DataOps.",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
       "Plan d'apprentissage"
     ]
   },
   {
-    "objectID": "Module 6/Aventure/Aventure 6.html",
-    "href": "Module 6/Aventure/Aventure 6.html",
-    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#étapes-à-réaliser",
+    "href": "Module 6/Plan d'apprentissage module 6.html#étapes-à-réaliser",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "Étapes à réaliser",
+    "text": "Étapes à réaliser\n\nAttribution des paires : l’enseignant·e publiera un tableau listant pour chaque équipe le journal de bord à examiner.\nPartage du document :\n\nLe·la responsable du dépôt ajoute l’équipe destinataire comme Collaborator en lecture/écriture sur GitHub.\nL’URL du journal de bord HTML est communiqué.\n\nRevue par les pairs :\n\nChaque membre de l’équipe examinatrice ouvre une Issue dans le dépôt de l’équipe revue et dépose au moins un commentaire détaillé portant sur :\n\nClarté du contenu (structure, titres, lisibilité)\nRigueur de la méthodologie (description des rôles, reproductibilité du code)\nPertinence des réflexions (cycle de vie des données, leçons apprises)\n\nLes commentaires doivent contenir :\n\nUn énoncé d’aspect positif (« ce qui est réussi »)\nUne suggestion d’amélioration spécifique (« ce qui pourrait être clarifié »)\n\n\nAccusé de réception & révision :\n\nL’équipe réceptrice répond à chaque Issue et, si jugé nécessaire, pousse une mise à jour de son journal de bord.",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#livrables",
+    "href": "Module 6/Plan d'apprentissage module 6.html#livrables",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "Livrables",
+    "text": "Livrables\n\n\n\n\n\n\n\n\nÉquipe\nLivrable\nOù le déposer\n\n\n\n\nÉquipe examinatrice\n≥ 3 Issues (une par membre) contenant une rétroaction complète\nDépôt GitHub de l’équipe revue\n\n\nÉquipe révisée\nJournal de bord mis à jour (si modifications nécessaires) + réponses aux Issues\nMême dépôt GitHub",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#barème-20-pts",
+    "href": "Module 6/Plan d'apprentissage module 6.html#barème-20-pts",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "Barème (20 pts)",
+    "text": "Barème (20 pts)\n\n\n\n\n\n\n\nCritère\nPts\n\n\n\n\nQualité des commentaires (clarté, constructivité, exemples)\n10\n\n\nPertinence des suggestions vis‑à‑vis de la reproductibilité & collaboration\n5\n\n\nSuivi et réponses de l’équipe révisée\n5\n\n\n\n\n\n💡 Conseil : concentrez‑vous sur des rétroactions actionnables (ex. proposer un titre plus descriptif, ajouter un graphique supplémentaire, préciser un paramètre YAML) plutôt que des commentaires génériques.",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#penguins-islands",
+    "href": "Module 6/Plan d'apprentissage module 6.html#penguins-islands",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "1. Penguins & Islands",
+    "text": "1. Penguins & Islands\nJeux de données : palmerpenguins::penguins et palmerpenguins::penguins_raw (package palmerpenguins). Ajoute à chaque manchot la latitude (lat) et la longitude (long) de son île en faisant correspondre la variable island.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(palmerpenguins)\n\nislands &lt;- penguins_raw |&gt;\n  distinct(island, lat = latitude, long = longitude)\n\npenguins_loc &lt;- penguins |&gt;\n  left_join(islands, by = \"island\")",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#gapminder-code-iso-3",
+    "href": "Module 6/Plan d'apprentissage module 6.html#gapminder-code-iso-3",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "2. Gapminder × Code ISO-3",
+    "text": "2. Gapminder × Code ISO-3\nJeux de données : gapminder::gapminder (package gapminder) et countrycode::codelist (package countrycode). Récupère le code ISO‑3 (iso3c) et la région de la FAO pour chaque pays dans gapminder. Indice : clé = country.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(gapminder)\nlibrary(countrycode)\n\ngap_iso &lt;- gapminder |&gt;\n  inner_join(\n    select(countrycode::codelist, country = country.name.en, iso3c, region_fao),\n    by = \"country\"\n  )",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#star-wars-espèces-classifications",
+    "href": "Module 6/Plan d'apprentissage module 6.html#star-wars-espèces-classifications",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "3. Star Wars – Espèces & Classifications",
+    "text": "3. Star Wars – Espèces & Classifications\nJeu de données : dplyr::starwars (package dplyr). Crée un tibble species_class listant quelques espèces et leur classification (mammal, reptilian, etc.). Fais une left_join() pour ajouter la colonne classification et calcule la taille moyenne (height) par classification.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\n\nspecies_class &lt;- tibble::tribble(\n  ~species, ~classification,\n  \"Human\",  \"mammal\",\n  \"Droid\",  \"artificial\",\n  \"Gungan\", \"amphibian\",\n  \"Wookiee\",\"mammal\"\n)\n\nstarwars_cls &lt;- starwars |&gt;\n  left_join(species_class, by = \"species\") |&gt;\n  group_by(classification) |&gt;\n  summarise(mean_height = mean(height, na.rm = TRUE))",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#baseball-joueurs-canadiens",
+    "href": "Module 6/Plan d'apprentissage module 6.html#baseball-joueurs-canadiens",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "4. Baseball – Joueurs canadiens",
+    "text": "4. Baseball – Joueurs canadiens\nJeux de données : Lahman::People, Lahman::Batting (package Lahman).\n\nObtiens la liste des joueurs nés au Canada (birthCountry).\nCalcule leur moyenne au bâton (H/AB) en fusionnant People ↔︎ Batting sur playerID.\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(Lahman)\n\ncan_players &lt;- People |&gt;\n  filter(birthCountry == \"Canada\") |&gt;\n  select(playerID, nameFirst, nameLast)\n\ncan_stats &lt;- can_players |&gt;\n  inner_join(select(Batting, playerID, H, AB), by = \"playerID\") |&gt;\n  group_by(playerID, nameFirst, nameLast) |&gt;\n  summarise(avg = sum(H, na.rm = TRUE) / sum(AB, na.rm = TRUE),\n            .groups = \"drop\")",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#prénoms-première-lettre",
+    "href": "Module 6/Plan d'apprentissage module 6.html#prénoms-première-lettre",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "5. Prénoms & Première lettre",
+    "text": "5. Prénoms & Première lettre\nJeu de données : babynames::babynames (package babynames). Crée un tibble alphabet comportant la première lettre (initial) et sa catégorie (« A‑M », « N‑Z »). Ajoute la catégorie à babynames, puis compte les naissances par catégorie en 2010.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(babynames)\n\nalphabet &lt;- tibble::tibble(\n  initial = LETTERS,\n  group   = if_else(initial &lt;= \"M\", \"A-M\", \"N-Z\")\n)\n\nbabynames_2010 &lt;- babynames |&gt;\n  filter(year == 2010) |&gt;\n  mutate(initial = substr(name, 1, 1)) |&gt;\n  inner_join(alphabet, by = \"initial\") |&gt;\n  group_by(group) |&gt;\n  summarise(total = sum(n))",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#météo-canadienne-stations-observations",
+    "href": "Module 6/Plan d'apprentissage module 6.html#météo-canadienne-stations-observations",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "6. Météo canadienne – Stations & Observations",
+    "text": "6. Météo canadienne – Stations & Observations\nJeux de données : weathercan::stations_meta() et weathercan::weather_dl() (package weathercan). Télécharge les données quotidiennes de Québec‑Jean‑Lesage (station #7025250) pour 2024 et joins‑les aux métadonnées de station pour ajouter province et elevation.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(weathercan)\nlibrary(dplyr)\n\nmeta &lt;- stations_meta() |&gt;\n  filter(station_id == 7025250) |&gt;\n  select(station_id, province, elev = elevation)\n\nqc24 &lt;- weather_dl(station_ids = 7025250,\n                   start = \"2024-01-01\", end = \"2024-12-31\",\n                   interval = \"day\")\n\nqc24_full &lt;- qc24 |&gt;\n  left_join(meta, by = \"station_id\")",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#pizza-ratings",
+    "href": "Module 6/Plan d'apprentissage module 6.html#pizza-ratings",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "7. Pizza Ratings",
+    "text": "7. Pizza Ratings\nJeux de données : fivethirtyeight::pizza et fivethirtyeight::pizza_places (package fivethirtyeight). Associe chaque évaluation (pizza) à son restaurant (pizza_places) via place_id et trouve la note moyenne (rating) par state.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(fivethirtyeight)\n\npizza_avg_state &lt;- pizza |&gt;\n  inner_join(pizza_places, by = \"place_id\") |&gt;\n  group_by(state) |&gt;\n  summarise(mean_rating = mean(rating, na.rm = TRUE))",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#onu-votes-résolutions",
+    "href": "Module 6/Plan d'apprentissage module 6.html#onu-votes-résolutions",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "8. ONU – Votes & Résolutions",
+    "text": "8. ONU – Votes & Résolutions\nJeux de données : unvotes::un_votes, unvotes::un_roll_calls (package unvotes). Relie chaque vote (un_votes) à la description de la résolution (un_roll_calls) via rcid. Énumère les cinq pays ayant voté le plus souvent « no » entre 2000 et 2010.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(unvotes)\n\nvotes_desc &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  filter(year &gt;= 2000, year &lt;= 2010, vote == \"no\") |&gt;\n  count(country, sort = TRUE) |&gt;\n  slice_head(n = 5)",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#films-oscars",
+    "href": "Module 6/Plan d'apprentissage module 6.html#films-oscars",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "9. Films & Oscars",
+    "text": "9. Films & Oscars\nJeux de données : ggplot2movies::movies (package ggplot2movies) et un tibble oscars listant quelques titres et l’année de l’Oscar du meilleur film. Fais une full_join() puis repère les films présents dans un seul des deux ensembles.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(ggplot2movies)\n\noscars &lt;- tibble::tribble(\n  ~title,            ~oscar_year,\n  \"The Hurt Locker\", 2010,\n  \"Argo\",            2013,\n  \"Parasite\",        2020,\n  \"Nomadland\",       2021\n)\n\nmovies_oscar &lt;- full_join(\n  select(movies, title, year, rating),\n  oscars,\n  by = \"title\",\n  keep = TRUE\n)\n\nonly_one_side &lt;- movies_oscar |&gt;\n  filter(is.na(year) | is.na(oscar_year))",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 6/Plan d'apprentissage module 6.html#mini-projet-eda-incendies-de-forêt",
+    "href": "Module 6/Plan d'apprentissage module 6.html#mini-projet-eda-incendies-de-forêt",
+    "title": "Module 6 - Plan d’apprentissage",
+    "section": "10. Mini-projet EDA — Incendies de forêt",
+    "text": "10. Mini-projet EDA — Incendies de forêt\nJeux de données : fires::fires et fires::fire_weather (package fires).\n\nJoins : relie fires (incidents) et fire_weather (conditions météo) via fid.\nCalcule l’impact moyen de la température (temp) et du vent (wind) sur la superficie brûlée (area).\nVisualise temp × area avec un nuage de points et une droite de régression.\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(fires)\n\nfires_full &lt;- fires |&gt;\n  inner_join(fire_weather, by = \"fid\")\n\nsummary_tbl &lt;- fires_full |&gt;\n  summarise(\n    mean_area = mean(area, na.rm = TRUE),\n    corr_temp = cor(temp, area, use = \"complete.obs\"),\n    corr_wind = cor(wind, area, use = \"complete.obs\")\n  )",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Autre matériel/Ou et comment chercher/ou et comment chercher.html",
+    "href": "Autre matériel/Ou et comment chercher/ou et comment chercher.html",
+    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
     "section": "",
-    "text": "Vous êtes une équipe de scientifiques de données travaillant pour l’aéroport JFK. Votre mandat est de produire une analyse collaborative et reproductible visant à identifier les sources de retard des vols, en particulier en lien avec la météo.\nChaque membre de votre équipe devra contribuer activement à cette analyse, qui sera produite à l’aide de Quarto et hébergée sur GitHub.",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Aventure"
-    ]
+    "text": "Un bon scientifique des données ne connaît pas tout par cœur… mais sait où chercher et comment demander de l’aide intelligemment. Ce guide vous accompagne pour apprendre à le faire efficacement et sans stress."
   },
   {
-    "objectID": "Module 6/Aventure/Aventure 6.html#formation-des-équipes-et-rôles-dans-le-cycle-de-vie-des-données",
-    "href": "Module 6/Aventure/Aventure 6.html#formation-des-équipes-et-rôles-dans-le-cycle-de-vie-des-données",
-    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
-    "section": "👥 Formation des équipes et rôles dans le cycle de vie des données",
-    "text": "👥 Formation des équipes et rôles dans le cycle de vie des données\nTravaillez en équipes de 3 à 4 personnes. Chaque membre incarne un rôle essentiel dans le cycle de vie des données et d’un projet en science des données. Ces rôles seront maintenus pour les étapes suivantes.\n\n\n\n\n\n\n\n\n\nRôle\nFonctions techniques\nLien avec le cycle de vie des données\nÀ faire dans cette activité\n\n\n\n\nResponsable du dépôt\nCrée et structure le dépôt GitHub, gère les branches et les fusions\nAssure le versionnage, la traçabilité et la documentation\nCrée le dépôt, gère les pull requests, fusionne les branches, résout les conflits\n\n\nAnalyste des données\nPrépare le code de transformation et de fusion des données\nGère l’étape de préparation et transformation\nAjoute un chunk pour fusionner flights, airlines, weather dans le .qmd\n\n\nChargé·e de la reproductibilité\nOrganise le .qmd, assure la compilation et la clarté\nGarant·e de la reproductibilité et documentation\nMet en place les sections du .qmd, nettoie le rendu, vérifie le rendu HTML final\n\n\nVisualiseur·se (optionnel)\nProduit les graphiques, harmonise le style\nJoue un rôle clé dans la communication et diffusion\nAjoute un chunk ggplot2 illustratif et adapte les titres/légendes\n\n\n\n\n🔁 Tour de rôle recommandé dans l’aventure pour sensibiliser à toutes les étapes du cycle.",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Aventure"
-    ]
+    "objectID": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#aide-intégrée-dans-rstudio",
+    "href": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#aide-intégrée-dans-rstudio",
+    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
+    "section": "📌 Aide intégrée dans RStudio",
+    "text": "📌 Aide intégrée dans RStudio\n\nTapez ?fonction ou help(fonction) dans la console.\nUtilisez l’onglet Help de RStudio pour naviguer la documentation.\nTapez example(fonction) pour obtenir un exemple prêt à l’emploi.\nTestez aussi la fonction args(fonction) pour voir les arguments attendus."
   },
   {
-    "objectID": "Module 6/Aventure/Aventure 6.html#étapes-à-suivre",
-    "href": "Module 6/Aventure/Aventure 6.html#étapes-à-suivre",
-    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
-    "section": "🛠 Étapes à suivre",
-    "text": "🛠 Étapes à suivre\nVoici une séquence suggérée pour que les membres de l’équipe travaillent l’un après l’autre, pendant que les autres observent et apprennent :\n\nResponsable du dépôt : Cloner le dépôt de départ fourni par l’enseignant, créer le projet RStudio, initialiser les branches pour chaque membre et faire un premier commit avec un README.md mis à jour.\nChargé·e de la reproductibilité : Créer sa branche, organiser le .qmd, ajouter une structure de base avec titres et sous-titres. Ajouter un commentaire dans le YAML ou une section pour créer un petit conflit à venir.\nAnalyste des données : Créer sa branche, ajouter les premières lignes de code pour importer les données et fusionner les tables. Ajouter un chunk nommé fusion_donnees.\nVisualiseur·se (si présent·e) : Ajouter une première ébauche de visualisation simple (geom_bar() ou geom_point()) avec des labs() clairs. Pousser ses modifications sur sa branche et ouvrir une pull request.\nResponsable du dépôt : Fusionner les pull requests une par une. Lorsqu’un conflit survient (ex. dans l’intro ou le YAML), le gérer en direct avec les autres membres qui observent et prennent des notes sur le processus.\nUne fois toutes les branches fusionnées, compiler le .qmd en HTML et valider le rendu avec l’équipe.",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Aventure"
-    ]
+    "objectID": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#recherche-sur-le-web",
+    "href": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#recherche-sur-le-web",
+    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
+    "section": "🌍 Recherche sur le Web",
+    "text": "🌍 Recherche sur le Web\nDes milliards de réponses vous attendent ! Voici quelques conseils pour bien formuler vos recherches :\n\n\n\n\n\n\nTip\n\n\n\nFormulez vos questions comme un·e pro :\n\nMauvais : ça marche pas avec ggplot\nMeilleur : ggplot2 how to add color by group in scatterplot\n\nSites recommandés :\n\nStack Overflow\nPosit Community (anciennement RStudio Community)\nGitHub\nGoogle — tapez “r ggplot histogram group by color”"
   },
   {
-    "objectID": "Module 6/Aventure/Aventure 6.html#objectifs-de-la-partie-1",
-    "href": "Module 6/Aventure/Aventure 6.html#objectifs-de-la-partie-1",
-    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
-    "section": "✅ Objectifs de la Partie 1",
-    "text": "✅ Objectifs de la Partie 1\n\nUne branche par rôle avec au moins un commit\nToutes les branches fusionnées avec gestion de conflits\nLe .qmd compile en HTML\nLa présentation de l’équipe est complète\nChacun a réfléchi à sa place dans le cycle de vie des données",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Aventure"
-    ]
+    "objectID": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#livres-et-guides-conseillés",
+    "href": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#livres-et-guides-conseillés",
+    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
+    "section": "Livres et guides conseillés",
+    "text": "Livres et guides conseillés\n\nR for Data Science (2e éd.)\n\nGuide complet pour tout comprendre du tidyverse, des scripts, des graphiques, etc.\n\nThe Tidyverse Style Guide\n\nPour écrire du code clair, propre et compréhensible.\n\nIntroduction to Modern Statistics\n\nUne référence complémentaire qui met l’accent sur la visualisation, la modélisation, et la statistique moderne. Ce livre est aussi gratuit, clair et parfaitement adapté aux débutant·es.\n\nLes aventures Quarto (.qmd) sont là pour vous faire progresser pas à pas — n’hésitez pas à y revenir si vous êtes bloqué·e."
   },
   {
-    "objectID": "Module 6/Aventure/Aventure 6.html#tâches-par-rôle",
-    "href": "Module 6/Aventure/Aventure 6.html#tâches-par-rôle",
-    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
-    "section": "👥 Tâches par rôle",
-    "text": "👥 Tâches par rôle\nChaque membre de l’équipe poursuit son rôle défini précédemment. Voici les actions attendues pour chacun, dans le même ordre que la Partie 1 :\n\n🗂 Responsable du dépôt — Début de l’analyse\n\nCrée une branche spécifique à l’analyse collaborative.\nRevoit l’organisation du dépôt et s’assure que les fichiers nécessaires sont présents.\nS’assure que tous les chunks ont des noms, options (echo, message, etc.) cohérents.\nVérifie que chaque membre a bien poussé sa branche.\nLance la coordination de l’étape d’analyse.\n\n\n\n🧪 Analyste des données\n\nCrée une nouvelle section dans le .qmd intitulée Analyse collaborative.\nVérifie que les librairies nécessaires (tidyverse, nycflights23) sont bien chargées dans un chunk setup.\nPrépare les fusions suivantes :\n\nflights + airlines pour ajouter le nom des transporteurs.\nflights + weather pour intégrer les conditions météo.\n\nFiltrer sur l’aéroport JFK uniquement.\nNettoyer les données au besoin (NA, doublons, etc.).\nAjouter les résumés statistiques utiles (moyenne des retards, etc.).\n\n\n\n🧱 Chargé·e de la reproductibilité\n\nVérifie que les librairies nécessaires (tidyverse, nycflights23) sont bien chargées dans un chunk setup.\nS’assure que tous les chunks ont des noms, options (echo, message, etc.) cohérents.\nVérifie que le document se compile proprement.\nAjoute une phrase dans le texte principal utilisant du code en ligne (ex: r nrow(flights)), pour montrer un exemple de reproductibilité intégrée dans le texte. La phrase doit contenir au moins 3 codes en ligne différents, par exemple : &gt; Exemple : “Le jeu de données contient r nrow(flights) vols enregistrés en 2023.”\nS’assurer que tout soit reproductible dans le rapport.\n\n\n\n📊 Visualiseur·se (si présent·e)\n\nCrée au moins deux graphiques pertinents à partir du tableau fusionné :\n\nUn geom_col() montrant le retard moyen par transporteur.\nUn geom_point() ou geom_smooth() explorant la relation entre météo et retards.\n\nPersonnalise les titres, les axes, et la lisibilité du graphique.\nS’assure que les graphiques sont bien interprétables et alignés avec les questions posées.\n\n\n\n🗂 Responsable du dépôt — Fin de l’analyse\n\nRévise les contributions finales de chacun.\nFusionne les branches propres dans main.\nPousse la version finale sur GitHub.\nDocumente la démarche dans le README.md ou dans une section « Notes de production » du .qmd.",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Aventure"
-    ]
+    "objectID": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#traduire-et-comprendre-en-français",
+    "href": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#traduire-et-comprendre-en-français",
+    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
+    "section": "Traduire et comprendre en français",
+    "text": "Traduire et comprendre en français\nSi l’anglais vous freine :\n\nUtilisez DeepL pour traduire les explications ou messages d’erreurs.\nLe navigateur Google Chrome propose la traduction automatique des pages.\nN’hésitez pas à demander à GPT STT-1100 de reformuler ou traduire des passages.\n\n\nLes concepts restent les mêmes d’une langue à l’autre — l’important est de bien comprendre les idées derrière les commandes !"
   },
   {
-    "objectID": "Module 6/Aventure/Aventure 6.html#journal-de-bord",
-    "href": "Module 6/Aventure/Aventure 6.html#journal-de-bord",
-    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
-    "section": "Journal de bord",
-    "text": "Journal de bord\nDans cette section, chaque membre de l’équipe écrit un paragraphe sur :\n\nSon rôle dans le projet\nLes difficultés rencontrées avec GitHub (et comment elles ont été résolues)\nCe qu’il/elle a appris sur la collaboration et la reproductibilité\n\nLe responsable du projet doit bien sûr initialisé le document quarto de journal de bord et planifié les sections pour chaque membre. Chaque membre doit ensuite ajouter son paragraphe dans sa section dédiée.",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Aventure"
-    ]
+    "objectID": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#avant-de-poser-votre-question",
+    "href": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#avant-de-poser-votre-question",
+    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
+    "section": "🤔 Avant de poser votre question",
+    "text": "🤔 Avant de poser votre question\n\nAvez-vous lu le message d’erreur en entier ?\nAvez-vous essayé une recherche avec les mots clés ?\nPouvez-vous isoler le problème dans un exemple simple ?"
   },
   {
-    "objectID": "Module 6/Aventure/Aventure 6.html#cycle-de-vie-des-données",
-    "href": "Module 6/Aventure/Aventure 6.html#cycle-de-vie-des-données",
-    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
-    "section": "Cycle de vie des données",
-    "text": "Cycle de vie des données\nAjoutez une section expliquant comment votre projet illustre les étapes suivantes :\n\nCollecte\nTransformation\nAnalyse\nPartage\nRéutilisation et versionnage",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Accueil",
-    "section": "",
-    "text": "Bienvenue sur le site du cours STT-1100 Introduction à la science des données. Vous y trouverez les plans d’apprentissage, les aventures et le matériel de référence pour chaque module.\n\n\n\nMaîtriser les outils et techniques fondamentaux de la science des données : les étudiants apprendront à utiliser RStudio, GitHub et Quarto pour manipuler, analyser et présenter des données de manière efficace.\nDévelopper des compétences en gestion et en visualisation de données : les participants seront formés à importer, nettoyer, transformer et visualiser divers types de données, en mettant l’accent sur les bonnes pratiques et l’éthique.\nAppliquer des méthodes statistiques et algorithmiques pour l’analyse de données : les étudiants acquerront des compétences en statistiques descriptives, en analyse exploratoire et en modélisation prédictive, tout en étant sensibilisés aux biais algorithmiques.\nFavoriser la collaboration et la reproductibilité dans les projets de science des données : le cours encouragera le travail en équipe, l’utilisation de systèmes de contrôle de version et l’adoption de pratiques garantissant la reproductibilité des analyses.",
-    "crumbs": [
-      "Accueil"
-    ]
-  },
-  {
-    "objectID": "index.html#objectifs-généraux-du-cours",
-    "href": "index.html#objectifs-généraux-du-cours",
-    "title": "Accueil",
-    "section": "",
-    "text": "Maîtriser les outils et techniques fondamentaux de la science des données : les étudiants apprendront à utiliser RStudio, GitHub et Quarto pour manipuler, analyser et présenter des données de manière efficace.\nDévelopper des compétences en gestion et en visualisation de données : les participants seront formés à importer, nettoyer, transformer et visualiser divers types de données, en mettant l’accent sur les bonnes pratiques et l’éthique.\nAppliquer des méthodes statistiques et algorithmiques pour l’analyse de données : les étudiants acquerront des compétences en statistiques descriptives, en analyse exploratoire et en modélisation prédictive, tout en étant sensibilisés aux biais algorithmiques.\nFavoriser la collaboration et la reproductibilité dans les projets de science des données : le cours encouragera le travail en équipe, l’utilisation de systèmes de contrôle de version et l’adoption de pratiques garantissant la reproductibilité des analyses.",
-    "crumbs": [
-      "Accueil"
-    ]
+    "objectID": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#poser-une-bonne-question-à-gpt-stt-1100-à-une-assistante-ou-sur-le-forum",
+    "href": "Autre matériel/Ou et comment chercher/ou et comment chercher.html#poser-une-bonne-question-à-gpt-stt-1100-à-une-assistante-ou-sur-le-forum",
+    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
+    "section": "🗣️ Poser une bonne question (à GPT STT-1100, à un·e assistant·e ou sur le forum)",
+    "text": "🗣️ Poser une bonne question (à GPT STT-1100, à un·e assistant·e ou sur le forum)\n\nSoyez précis : indiquez le code minimal qui cause l’erreur.\nCopiez le message d’erreur complet.\nDécrivez ce que vous vouliez faire et ce qui se passe.\n\n\n\n\n\n\n\nNote\n\n\n\nExemple :\n\nJe voulais filtrer les données pour les pingouins ayant un bec de plus de 40 mm.\nVoici le code :\npenguins %&gt;% filter(bill_length_mm &gt; 40)\nMais j’obtiens l’erreur suivante :\nobject 'bill_length_mm' not found"
   },
   {
     "objectID": "Module 4/4 - Plan d'apprentissage.html",
@@ -1862,428 +1958,332 @@
     ]
   },
   {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html",
-    "href": "Module 6/Plan d'apprentissage module 6.html",
-    "title": "Module 6 - Plan d’apprentissage",
+    "objectID": "Autre matériel/Aide mémoire Rstudio et Github.html",
+    "href": "Autre matériel/Aide mémoire Rstudio et Github.html",
+    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
     "section": "",
-    "text": "À la fin de ce module, vous devriez être capable de :\n\nCollaborer efficacement sur des projets de science des données en utilisant GitHub.\nAssurer la reproductibilité des analyses avec Quarto.\nFusionner et gérer plusieurs jeux de données.\nExpliquer le cycle de vie des données et les principes de DataOps.",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
+    "text": "✅ Tu dois avoir installé :\n\nR\nRStudio\nGit (vérifie avec git --version dans le terminal)\nUn compte GitHub\n\n💡 Optionnel mais recommandé : Lier RStudio à ton compte GitHub avec une clé SSH. (Rappelle-toi de jamais utiliser ton mot de passe GitHub directement)"
   },
   {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#étapes-à-réaliser",
-    "href": "Module 6/Plan d'apprentissage module 6.html#étapes-à-réaliser",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "Étapes à réaliser",
-    "text": "Étapes à réaliser\n\nAttribution des paires : l’enseignant·e publiera un tableau listant pour chaque équipe le journal de bord à examiner.\nPartage du document :\n\nLe·la responsable du dépôt ajoute l’équipe destinataire comme Collaborator en lecture/écriture sur GitHub.\nL’URL du journal de bord HTML est communiqué.\n\nRevue par les pairs :\n\nChaque membre de l’équipe examinatrice ouvre une Issue dans le dépôt de l’équipe revue et dépose au moins un commentaire détaillé portant sur :\n\nClarté du contenu (structure, titres, lisibilité)\nRigueur de la méthodologie (description des rôles, reproductibilité du code)\nPertinence des réflexions (cycle de vie des données, leçons apprises)\n\nLes commentaires doivent contenir :\n\nUn énoncé d’aspect positif (« ce qui est réussi »)\nUne suggestion d’amélioration spécifique (« ce qui pourrait être clarifié »)\n\n\nAccusé de réception & révision :\n\nL’équipe réceptrice répond à chaque Issue et, si jugé nécessaire, pousse une mise à jour de son journal de bord.",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#livrables",
-    "href": "Module 6/Plan d'apprentissage module 6.html#livrables",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "Livrables",
-    "text": "Livrables\n\n\n\n\n\n\n\n\nÉquipe\nLivrable\nOù le déposer\n\n\n\n\nÉquipe examinatrice\n≥ 3 Issues (une par membre) contenant une rétroaction complète\nDépôt GitHub de l’équipe revue\n\n\nÉquipe révisée\nJournal de bord mis à jour (si modifications nécessaires) + réponses aux Issues\nMême dépôt GitHub",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#barème-20-pts",
-    "href": "Module 6/Plan d'apprentissage module 6.html#barème-20-pts",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "Barème (20 pts)",
-    "text": "Barème (20 pts)\n\n\n\n\n\n\n\nCritère\nPts\n\n\n\n\nQualité des commentaires (clarté, constructivité, exemples)\n10\n\n\nPertinence des suggestions vis‑à‑vis de la reproductibilité & collaboration\n5\n\n\nSuivi et réponses de l’équipe révisée\n5\n\n\n\n\n\n💡 Conseil : concentrez‑vous sur des rétroactions actionnables (ex. proposer un titre plus descriptif, ajouter un graphique supplémentaire, préciser un paramètre YAML) plutôt que des commentaires génériques.",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#penguins-islands",
-    "href": "Module 6/Plan d'apprentissage module 6.html#penguins-islands",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "1. Penguins & Islands",
-    "text": "1. Penguins & Islands\nJeux de données : palmerpenguins::penguins et palmerpenguins::penguins_raw (package palmerpenguins). Ajoute à chaque manchot la latitude (lat) et la longitude (long) de son île en faisant correspondre la variable island.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(palmerpenguins)\n\nislands &lt;- penguins_raw |&gt;\n  distinct(island, lat = latitude, long = longitude)\n\npenguins_loc &lt;- penguins |&gt;\n  left_join(islands, by = \"island\")",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#gapminder-code-iso-3",
-    "href": "Module 6/Plan d'apprentissage module 6.html#gapminder-code-iso-3",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "2. Gapminder × Code ISO-3",
-    "text": "2. Gapminder × Code ISO-3\nJeux de données : gapminder::gapminder (package gapminder) et countrycode::codelist (package countrycode). Récupère le code ISO‑3 (iso3c) et la région de la FAO pour chaque pays dans gapminder. Indice : clé = country.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(gapminder)\nlibrary(countrycode)\n\ngap_iso &lt;- gapminder |&gt;\n  inner_join(\n    select(countrycode::codelist, country = country.name.en, iso3c, region_fao),\n    by = \"country\"\n  )",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#star-wars-espèces-classifications",
-    "href": "Module 6/Plan d'apprentissage module 6.html#star-wars-espèces-classifications",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "3. Star Wars – Espèces & Classifications",
-    "text": "3. Star Wars – Espèces & Classifications\nJeu de données : dplyr::starwars (package dplyr). Crée un tibble species_class listant quelques espèces et leur classification (mammal, reptilian, etc.). Fais une left_join() pour ajouter la colonne classification et calcule la taille moyenne (height) par classification.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\n\nspecies_class &lt;- tibble::tribble(\n  ~species, ~classification,\n  \"Human\",  \"mammal\",\n  \"Droid\",  \"artificial\",\n  \"Gungan\", \"amphibian\",\n  \"Wookiee\",\"mammal\"\n)\n\nstarwars_cls &lt;- starwars |&gt;\n  left_join(species_class, by = \"species\") |&gt;\n  group_by(classification) |&gt;\n  summarise(mean_height = mean(height, na.rm = TRUE))",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#baseball-joueurs-canadiens",
-    "href": "Module 6/Plan d'apprentissage module 6.html#baseball-joueurs-canadiens",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "4. Baseball – Joueurs canadiens",
-    "text": "4. Baseball – Joueurs canadiens\nJeux de données : Lahman::People, Lahman::Batting (package Lahman).\n\nObtiens la liste des joueurs nés au Canada (birthCountry).\nCalcule leur moyenne au bâton (H/AB) en fusionnant People ↔︎ Batting sur playerID.\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(Lahman)\n\ncan_players &lt;- People |&gt;\n  filter(birthCountry == \"Canada\") |&gt;\n  select(playerID, nameFirst, nameLast)\n\ncan_stats &lt;- can_players |&gt;\n  inner_join(select(Batting, playerID, H, AB), by = \"playerID\") |&gt;\n  group_by(playerID, nameFirst, nameLast) |&gt;\n  summarise(avg = sum(H, na.rm = TRUE) / sum(AB, na.rm = TRUE),\n            .groups = \"drop\")",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#prénoms-première-lettre",
-    "href": "Module 6/Plan d'apprentissage module 6.html#prénoms-première-lettre",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "5. Prénoms & Première lettre",
-    "text": "5. Prénoms & Première lettre\nJeu de données : babynames::babynames (package babynames). Crée un tibble alphabet comportant la première lettre (initial) et sa catégorie (« A‑M », « N‑Z »). Ajoute la catégorie à babynames, puis compte les naissances par catégorie en 2010.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(babynames)\n\nalphabet &lt;- tibble::tibble(\n  initial = LETTERS,\n  group   = if_else(initial &lt;= \"M\", \"A-M\", \"N-Z\")\n)\n\nbabynames_2010 &lt;- babynames |&gt;\n  filter(year == 2010) |&gt;\n  mutate(initial = substr(name, 1, 1)) |&gt;\n  inner_join(alphabet, by = \"initial\") |&gt;\n  group_by(group) |&gt;\n  summarise(total = sum(n))",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#météo-canadienne-stations-observations",
-    "href": "Module 6/Plan d'apprentissage module 6.html#météo-canadienne-stations-observations",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "6. Météo canadienne – Stations & Observations",
-    "text": "6. Météo canadienne – Stations & Observations\nJeux de données : weathercan::stations_meta() et weathercan::weather_dl() (package weathercan). Télécharge les données quotidiennes de Québec‑Jean‑Lesage (station #7025250) pour 2024 et joins‑les aux métadonnées de station pour ajouter province et elevation.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(weathercan)\nlibrary(dplyr)\n\nmeta &lt;- stations_meta() |&gt;\n  filter(station_id == 7025250) |&gt;\n  select(station_id, province, elev = elevation)\n\nqc24 &lt;- weather_dl(station_ids = 7025250,\n                   start = \"2024-01-01\", end = \"2024-12-31\",\n                   interval = \"day\")\n\nqc24_full &lt;- qc24 |&gt;\n  left_join(meta, by = \"station_id\")",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#pizza-ratings",
-    "href": "Module 6/Plan d'apprentissage module 6.html#pizza-ratings",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "7. Pizza Ratings",
-    "text": "7. Pizza Ratings\nJeux de données : fivethirtyeight::pizza et fivethirtyeight::pizza_places (package fivethirtyeight). Associe chaque évaluation (pizza) à son restaurant (pizza_places) via place_id et trouve la note moyenne (rating) par state.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(fivethirtyeight)\n\npizza_avg_state &lt;- pizza |&gt;\n  inner_join(pizza_places, by = \"place_id\") |&gt;\n  group_by(state) |&gt;\n  summarise(mean_rating = mean(rating, na.rm = TRUE))",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#onu-votes-résolutions",
-    "href": "Module 6/Plan d'apprentissage module 6.html#onu-votes-résolutions",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "8. ONU – Votes & Résolutions",
-    "text": "8. ONU – Votes & Résolutions\nJeux de données : unvotes::un_votes, unvotes::un_roll_calls (package unvotes). Relie chaque vote (un_votes) à la description de la résolution (un_roll_calls) via rcid. Énumère les cinq pays ayant voté le plus souvent « no » entre 2000 et 2010.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(unvotes)\n\nvotes_desc &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  filter(year &gt;= 2000, year &lt;= 2010, vote == \"no\") |&gt;\n  count(country, sort = TRUE) |&gt;\n  slice_head(n = 5)",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#films-oscars",
-    "href": "Module 6/Plan d'apprentissage module 6.html#films-oscars",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "9. Films & Oscars",
-    "text": "9. Films & Oscars\nJeux de données : ggplot2movies::movies (package ggplot2movies) et un tibble oscars listant quelques titres et l’année de l’Oscar du meilleur film. Fais une full_join() puis repère les films présents dans un seul des deux ensembles.\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(ggplot2movies)\n\noscars &lt;- tibble::tribble(\n  ~title,            ~oscar_year,\n  \"The Hurt Locker\", 2010,\n  \"Argo\",            2013,\n  \"Parasite\",        2020,\n  \"Nomadland\",       2021\n)\n\nmovies_oscar &lt;- full_join(\n  select(movies, title, year, rating),\n  oscars,\n  by = \"title\",\n  keep = TRUE\n)\n\nonly_one_side &lt;- movies_oscar |&gt;\n  filter(is.na(year) | is.na(oscar_year))",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 6/Plan d'apprentissage module 6.html#mini-projet-eda-incendies-de-forêt",
-    "href": "Module 6/Plan d'apprentissage module 6.html#mini-projet-eda-incendies-de-forêt",
-    "title": "Module 6 - Plan d’apprentissage",
-    "section": "10. Mini-projet EDA — Incendies de forêt",
-    "text": "10. Mini-projet EDA — Incendies de forêt\nJeux de données : fires::fires et fires::fire_weather (package fires).\n\nJoins : relie fires (incidents) et fire_weather (conditions météo) via fid.\nCalcule l’impact moyen de la température (temp) et du vent (wind) sur la superficie brûlée (area).\nVisualise temp × area avec un nuage de points et une droite de régression.\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(fires)\n\nfires_full &lt;- fires |&gt;\n  inner_join(fire_weather, by = \"fid\")\n\nsummary_tbl &lt;- fires_full |&gt;\n  summarise(\n    mean_area = mean(area, na.rm = TRUE),\n    corr_temp = cor(temp, area, use = \"complete.obs\"),\n    corr_wind = cor(wind, area, use = \"complete.obs\")\n  )",
-    "crumbs": [
-      "Modules",
-      "6 - Collaboration et reproductibilité dans GitHub",
-      "Plan d'apprentissage"
-    ]
-  },
-  {
-    "objectID": "Module 8/Aventure/Aventure 8.html",
-    "href": "Module 8/Aventure/Aventure 8.html",
-    "title": "Aventure 8 - Données ouvertes du Québec",
+    "objectID": "Autre matériel/Aide mémoire Rstudio et Github.html#préparation",
+    "href": "Autre matériel/Aide mémoire Rstudio et Github.html#préparation",
+    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
     "section": "",
-    "text": "Vous travaillez comme freelancer en science des données. À la différence d’un poste salarié, vous êtes mandaté·e ponctuellement par des client·e·s pour résoudre des problèmes spécifiques. Vous devez être autonome, rigoureux·se et capable de livrer des solutions efficaces, réutilisables et bien documentées.\nLes consultant·e·s freelance sont souvent appelés pour leur capacité à débloquer des projets rapidement et efficacement. Ils livrent des outils bien documentés, testables, et faciles à maintenir par leurs client·e·s. La clarté du code, le respect des standards et l’éthique sont donc des éléments clés de leur pratique.\nAujourd’hui, vous êtes engagé·e par Marie-Pier, directrice de recherche à l’Institut québécois pour les données durables. Elle souhaite explorer le portail donnéesquebec.ca pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : concevoir un outil de scraping fiable pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.\n\n\n\n\n\n\nNote\n\n\n\nVotre interlocutrice : Marie-Pier\nElle vous accompagne tout au long de cette aventure : elle posera des questions clés, vérifiera vos résultats, et vous aidera à affiner vos livrables.\n\n\n\n\n\nComprendre les bases du web scraping avec rvest.\nCréer une fonction pour extraire des métadonnées depuis une page web.\nAutomatiser l’extraction sur plusieurs pages.\nExplorer les tendances dans les données ouvertes du Québec.\nÉvaluer la faisabilité éthique et technique du scraping sur d’autres sites web.",
+    "text": "✅ Tu dois avoir installé :\n\nR\nRStudio\nGit (vérifie avec git --version dans le terminal)\nUn compte GitHub\n\n💡 Optionnel mais recommandé : Lier RStudio à ton compte GitHub avec une clé SSH. (Rappelle-toi de jamais utiliser ton mot de passe GitHub directement)"
+  },
+  {
+    "objectID": "Autre matériel/Aide mémoire Rstudio et Github.html#trouver-le-lien-du-projet-github",
+    "href": "Autre matériel/Aide mémoire Rstudio et Github.html#trouver-le-lien-du-projet-github",
+    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
+    "section": "🔗 Trouver le lien du projet GitHub",
+    "text": "🔗 Trouver le lien du projet GitHub\n\nVa sur la page du dépôt GitHub que tu veux cloner.\nClique sur le bouton vert &lt;&gt; Code.\nChoisis l’onglet SSH ou HTTPS, puis copie le lien affiché.\n\n\nExemple : - SSH : git@github.com:NomUtilisateur/nom-du-projet.git - HTTPS : https://github.com/NomUtilisateur/nom-du-projet.git"
+  },
+  {
+    "objectID": "Autre matériel/Aide mémoire Rstudio et Github.html#cloner-dans-rstudio",
+    "href": "Autre matériel/Aide mémoire Rstudio et Github.html#cloner-dans-rstudio",
+    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
+    "section": "💻 Cloner dans RStudio",
+    "text": "💻 Cloner dans RStudio\n\nOuvre RStudio\nVa dans File &gt; New Project\nChoisis Version Control\nSélectionne Git\nColle le lien copié dans le champ Repository URL\nChoisis un dossier local pour enregistrer le projet\nClique sur Create Project\n\n🎉 C’est fait ! Tu peux commencer à travailler dans ton nouveau projet RStudio."
+  },
+  {
+    "objectID": "Autre matériel/Aide mémoire Rstudio et Github.html#astuce-erreur-dauthentification-github",
+    "href": "Autre matériel/Aide mémoire Rstudio et Github.html#astuce-erreur-dauthentification-github",
+    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
+    "section": "⚠️ Astuce : Erreur d’authentification GitHub",
+    "text": "⚠️ Astuce : Erreur d’authentification GitHub\nSi tu obtiens cette erreur :\nfatal: Authentication failed\nremote: Support for password authentication was removed...\nC’est que tu as utilisé HTTPS sans jeton personnel (PAT).\n\nDeux solutions :\n\nGénérer un Jeton d’accès personnel (PAT) sur GitHub, puis l’utiliser comme mot de passe.\nOu configurer SSH, ce qui est plus simple à long terme."
+  },
+  {
+    "objectID": "Autre matériel/Aide mémoire Rstudio et Github.html#bonus-configurer-ssh-avec-github-recommandé",
+    "href": "Autre matériel/Aide mémoire Rstudio et Github.html#bonus-configurer-ssh-avec-github-recommandé",
+    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
+    "section": "🔐 Bonus : Configurer SSH avec GitHub (recommandé)",
+    "text": "🔐 Bonus : Configurer SSH avec GitHub (recommandé)\n# 1. Génère une clé SSH (si ce n'est pas déjà fait)\nssh-keygen -t ed25519 -C \"ton-email@example.com\"\n\n# 2. Ajoute ta clé SSH à l'agent\neval \"$(ssh-agent -s)\"\nssh-add ~/.ssh/id_ed25519\n\n# 3. Copie ta clé publique\ncat ~/.ssh/id_ed25519.pub\nPuis colle cette clé dans GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key.\n👉 Détails : https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
+  },
+  {
+    "objectID": "Autre matériel/Aide mémoire Rstudio et Github.html#ressources-utiles",
+    "href": "Autre matériel/Aide mémoire Rstudio et Github.html#ressources-utiles",
+    "title": "Aide-mémoire — Cloner un projet GitHub dans RStudio",
+    "section": "📎 Ressources utiles",
+    "text": "📎 Ressources utiles\n\nGuide GitHub RStudio (RStudio Support)\nCréer un token GitHub (PAT)\nConfigurer SSH GitHub (Officiel)\n\n\nBonne programmation ! 🧪💻"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Accueil",
+    "section": "",
+    "text": "Bienvenue sur le site du cours STT-1100 Introduction à la science des données. Vous y trouverez les plans d’apprentissage, les aventures et le matériel de référence pour chaque module.\n\n\n\nMaîtriser les outils et techniques fondamentaux de la science des données : les étudiants apprendront à utiliser RStudio, GitHub et Quarto pour manipuler, analyser et présenter des données de manière efficace.\nDévelopper des compétences en gestion et en visualisation de données : les participants seront formés à importer, nettoyer, transformer et visualiser divers types de données, en mettant l’accent sur les bonnes pratiques et l’éthique.\nAppliquer des méthodes statistiques et algorithmiques pour l’analyse de données : les étudiants acquerront des compétences en statistiques descriptives, en analyse exploratoire et en modélisation prédictive, tout en étant sensibilisés aux biais algorithmiques.\nFavoriser la collaboration et la reproductibilité dans les projets de science des données : le cours encouragera le travail en équipe, l’utilisation de systèmes de contrôle de version et l’adoption de pratiques garantissant la reproductibilité des analyses.",
+    "crumbs": [
+      "Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#objectifs-généraux-du-cours",
+    "href": "index.html#objectifs-généraux-du-cours",
+    "title": "Accueil",
+    "section": "",
+    "text": "Maîtriser les outils et techniques fondamentaux de la science des données : les étudiants apprendront à utiliser RStudio, GitHub et Quarto pour manipuler, analyser et présenter des données de manière efficace.\nDévelopper des compétences en gestion et en visualisation de données : les participants seront formés à importer, nettoyer, transformer et visualiser divers types de données, en mettant l’accent sur les bonnes pratiques et l’éthique.\nAppliquer des méthodes statistiques et algorithmiques pour l’analyse de données : les étudiants acquerront des compétences en statistiques descriptives, en analyse exploratoire et en modélisation prédictive, tout en étant sensibilisés aux biais algorithmiques.\nFavoriser la collaboration et la reproductibilité dans les projets de science des données : le cours encouragera le travail en équipe, l’utilisation de systèmes de contrôle de version et l’adoption de pratiques garantissant la reproductibilité des analyses.",
+    "crumbs": [
+      "Accueil"
+    ]
+  },
+  {
+    "objectID": "Module 6/Aventure/Aventure 6.html",
+    "href": "Module 6/Aventure/Aventure 6.html",
+    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
+    "section": "",
+    "text": "Vous êtes une équipe de scientifiques de données travaillant pour l’aéroport JFK. Votre mandat est de produire une analyse collaborative et reproductible visant à identifier les sources de retard des vols, en particulier en lien avec la météo.\nChaque membre de votre équipe devra contribuer activement à cette analyse, qui sera produite à l’aide de Quarto et hébergée sur GitHub.",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 6/Aventure/Aventure 6.html#formation-des-équipes-et-rôles-dans-le-cycle-de-vie-des-données",
+    "href": "Module 6/Aventure/Aventure 6.html#formation-des-équipes-et-rôles-dans-le-cycle-de-vie-des-données",
+    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
+    "section": "👥 Formation des équipes et rôles dans le cycle de vie des données",
+    "text": "👥 Formation des équipes et rôles dans le cycle de vie des données\nTravaillez en équipes de 3 à 4 personnes. Chaque membre incarne un rôle essentiel dans le cycle de vie des données et d’un projet en science des données. Ces rôles seront maintenus pour les étapes suivantes.\n\n\n\n\n\n\n\n\n\nRôle\nFonctions techniques\nLien avec le cycle de vie des données\nÀ faire dans cette activité\n\n\n\n\nResponsable du dépôt\nCrée et structure le dépôt GitHub, gère les branches et les fusions\nAssure le versionnage, la traçabilité et la documentation\nCrée le dépôt, gère les pull requests, fusionne les branches, résout les conflits\n\n\nAnalyste des données\nPrépare le code de transformation et de fusion des données\nGère l’étape de préparation et transformation\nAjoute un chunk pour fusionner flights, airlines, weather dans le .qmd\n\n\nChargé·e de la reproductibilité\nOrganise le .qmd, assure la compilation et la clarté\nGarant·e de la reproductibilité et documentation\nMet en place les sections du .qmd, nettoie le rendu, vérifie le rendu HTML final\n\n\nVisualiseur·se (optionnel)\nProduit les graphiques, harmonise le style\nJoue un rôle clé dans la communication et diffusion\nAjoute un chunk ggplot2 illustratif et adapte les titres/légendes\n\n\n\n\n🔁 Tour de rôle recommandé dans l’aventure pour sensibiliser à toutes les étapes du cycle.",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 6/Aventure/Aventure 6.html#étapes-à-suivre",
+    "href": "Module 6/Aventure/Aventure 6.html#étapes-à-suivre",
+    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
+    "section": "🛠 Étapes à suivre",
+    "text": "🛠 Étapes à suivre\nVoici une séquence suggérée pour que les membres de l’équipe travaillent l’un après l’autre, pendant que les autres observent et apprennent :\n\nResponsable du dépôt : Cloner le dépôt de départ fourni par l’enseignant, créer le projet RStudio, initialiser les branches pour chaque membre et faire un premier commit avec un README.md mis à jour.\nChargé·e de la reproductibilité : Créer sa branche, organiser le .qmd, ajouter une structure de base avec titres et sous-titres. Ajouter un commentaire dans le YAML ou une section pour créer un petit conflit à venir.\nAnalyste des données : Créer sa branche, ajouter les premières lignes de code pour importer les données et fusionner les tables. Ajouter un chunk nommé fusion_donnees.\nVisualiseur·se (si présent·e) : Ajouter une première ébauche de visualisation simple (geom_bar() ou geom_point()) avec des labs() clairs. Pousser ses modifications sur sa branche et ouvrir une pull request.\nResponsable du dépôt : Fusionner les pull requests une par une. Lorsqu’un conflit survient (ex. dans l’intro ou le YAML), le gérer en direct avec les autres membres qui observent et prennent des notes sur le processus.\nUne fois toutes les branches fusionnées, compiler le .qmd en HTML et valider le rendu avec l’équipe.",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 6/Aventure/Aventure 6.html#objectifs-de-la-partie-1",
+    "href": "Module 6/Aventure/Aventure 6.html#objectifs-de-la-partie-1",
+    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
+    "section": "✅ Objectifs de la Partie 1",
+    "text": "✅ Objectifs de la Partie 1\n\nUne branche par rôle avec au moins un commit\nToutes les branches fusionnées avec gestion de conflits\nLe .qmd compile en HTML\nLa présentation de l’équipe est complète\nChacun a réfléchi à sa place dans le cycle de vie des données",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 6/Aventure/Aventure 6.html#tâches-par-rôle",
+    "href": "Module 6/Aventure/Aventure 6.html#tâches-par-rôle",
+    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
+    "section": "👥 Tâches par rôle",
+    "text": "👥 Tâches par rôle\nChaque membre de l’équipe poursuit son rôle défini précédemment. Voici les actions attendues pour chacun, dans le même ordre que la Partie 1 :\n\n🗂 Responsable du dépôt — Début de l’analyse\n\nCrée une branche spécifique à l’analyse collaborative.\nRevoit l’organisation du dépôt et s’assure que les fichiers nécessaires sont présents.\nS’assure que tous les chunks ont des noms, options (echo, message, etc.) cohérents.\nVérifie que chaque membre a bien poussé sa branche.\nLance la coordination de l’étape d’analyse.\n\n\n\n🧪 Analyste des données\n\nCrée une nouvelle section dans le .qmd intitulée Analyse collaborative.\nVérifie que les librairies nécessaires (tidyverse, nycflights23) sont bien chargées dans un chunk setup.\nPrépare les fusions suivantes :\n\nflights + airlines pour ajouter le nom des transporteurs.\nflights + weather pour intégrer les conditions météo.\n\nFiltrer sur l’aéroport JFK uniquement.\nNettoyer les données au besoin (NA, doublons, etc.).\nAjouter les résumés statistiques utiles (moyenne des retards, etc.).\n\n\n\n🧱 Chargé·e de la reproductibilité\n\nVérifie que les librairies nécessaires (tidyverse, nycflights23) sont bien chargées dans un chunk setup.\nS’assure que tous les chunks ont des noms, options (echo, message, etc.) cohérents.\nVérifie que le document se compile proprement.\nAjoute une phrase dans le texte principal utilisant du code en ligne (ex: r nrow(flights)), pour montrer un exemple de reproductibilité intégrée dans le texte. La phrase doit contenir au moins 3 codes en ligne différents, par exemple : &gt; Exemple : “Le jeu de données contient r nrow(flights) vols enregistrés en 2023.”\nS’assurer que tout soit reproductible dans le rapport.\n\n\n\n📊 Visualiseur·se (si présent·e)\n\nCrée au moins deux graphiques pertinents à partir du tableau fusionné :\n\nUn geom_col() montrant le retard moyen par transporteur.\nUn geom_point() ou geom_smooth() explorant la relation entre météo et retards.\n\nPersonnalise les titres, les axes, et la lisibilité du graphique.\nS’assure que les graphiques sont bien interprétables et alignés avec les questions posées.\n\n\n\n🗂 Responsable du dépôt — Fin de l’analyse\n\nRévise les contributions finales de chacun.\nFusionne les branches propres dans main.\nPousse la version finale sur GitHub.\nDocumente la démarche dans le README.md ou dans une section « Notes de production » du .qmd.",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 6/Aventure/Aventure 6.html#journal-de-bord",
+    "href": "Module 6/Aventure/Aventure 6.html#journal-de-bord",
+    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
+    "section": "Journal de bord",
+    "text": "Journal de bord\nDans cette section, chaque membre de l’équipe écrit un paragraphe sur :\n\nSon rôle dans le projet\nLes difficultés rencontrées avec GitHub (et comment elles ont été résolues)\nCe qu’il/elle a appris sur la collaboration et la reproductibilité\n\nLe responsable du projet doit bien sûr initialisé le document quarto de journal de bord et planifié les sections pour chaque membre. Chaque membre doit ensuite ajouter son paragraphe dans sa section dédiée.",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 6/Aventure/Aventure 6.html#cycle-de-vie-des-données",
+    "href": "Module 6/Aventure/Aventure 6.html#cycle-de-vie-des-données",
+    "title": "Aventure 6 — Collaboration et reproductibilité dans GitHub",
+    "section": "Cycle de vie des données",
+    "text": "Cycle de vie des données\nAjoutez une section expliquant comment votre projet illustre les étapes suivantes :\n\nCollecte\nTransformation\nAnalyse\nPartage\nRéutilisation et versionnage",
+    "crumbs": [
+      "Modules",
+      "6 - Collaboration et reproductibilité dans GitHub",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 8/Plan d'apprentissage module 8.html",
+    "href": "Module 8/Plan d'apprentissage module 8.html",
+    "title": "Module 8 - Plan d’apprentissage",
+    "section": "",
+    "text": "🎯 Objectifs du module\nÀ la fin de ce module, vous devriez être capable de :\n\nExtraire des données textuelles d’une page web en utilisant rvest.\nAutomatiser des tâches répétitives à l’aide de boucles et de fonctions en R.\nIdentifier les aspects éthiques liés à la collecte automatisée de données en ligne.\n\n\n\n📚 Lectures\nPour vous préparer, consultez les ressources suivantes :\n\n📘 R for Data Science — Web scraping\n📘 robots.txt documentation (MDN)\n\n\n\n🧭 Aventure\nVous incarnez un·e consultant·e freelance engagé·e pour développer une fonction d’extraction automatisée de métadonnées à partir du portail Données Québec.\nLien vers l’aventure :\n👉 Aventure 8 — Données ouvertes du Québec\n\n\n💡 Défi — Fonction de scraping\nVous devrez concevoir une fonction scrape_page(url) qui :\n\nprend en entrée une URL d’une page de recherche de Données Québec ;\nretourne un data.frame avec les colonnes titre, producteur, categorie.\n\n📁 Vous remettrez cette fonction dans un fichier IDUL.R dans votre dépôt GitHub. Elle sera testée automatiquement sur plusieurs pages.\n\n\n🏋️ Exercices de consolidation\nCes exercices utilisent une page différente du portail Données Québec, afin de pratiquer dans un autre contexte.\nUtilisez la version archivée de la page IMDb des 250 meilleurs films : 👉 https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/\n\nLire la page HTML\n➤ Utilisez read_html() puis html_nodes() pour observer les sections contenant les titres des films.\nExtraire les titres des films\n➤ Essayez html_nodes(..., \".titleColumn a\") %&gt;% html_text().\nExtraire les années\n➤ Utilisez html_nodes(..., \".titleColumn span\") pour extraire les années entre parenthèses.\nExtraire les notes\n➤ Utilisez html_nodes(..., \".imdbRating strong\") pour obtenir les cotes de chaque film.\nConstruire un tableau\n➤ Combinez les trois vecteurs (titre, année, note) dans un data.frame.\nRéflexion éthique\n➤ Vérifiez si l’archive de la page IMDb (ou IMDb directement) autorise le scraping en consultant leur robots.txt.",
     "crumbs": [
       "Modules",
       "8 - Automatisation et exploration du web",
-      "Aventure"
+      "Plan d'apprentissage"
     ]
   },
   {
-    "objectID": "Module 8/Aventure/Aventure 8.html#objectifs-de-laventure",
-    "href": "Module 8/Aventure/Aventure 8.html#objectifs-de-laventure",
-    "title": "Aventure 8 - Données ouvertes du Québec",
+    "objectID": "Module 9/Plan d'apprentissage module 9.html",
+    "href": "Module 9/Plan d'apprentissage module 9.html",
+    "title": "Module 9 - Plan d’apprentissage",
     "section": "",
-    "text": "Comprendre les bases du web scraping avec rvest.\nCréer une fonction pour extraire des métadonnées depuis une page web.\nAutomatiser l’extraction sur plusieurs pages.\nExplorer les tendances dans les données ouvertes du Québec.\nÉvaluer la faisabilité éthique et technique du scraping sur d’autres sites web.",
+    "text": "À la fin de ce module, vous devriez être capable de :\n\nAjuster et interpréter un modèle de régression linéaire simple.\nUtiliser un modèle de régression linéaire simple pour obtenir des prédictions.\nAjuster et interpréter un modèle de régression linéaire multiple.\nReconnaître et discuter des biais potentiels, notamment ceux liés à la discrimination, dans les données ou les modèles.",
     "crumbs": [
       "Modules",
-      "8 - Automatisation et exploration du web",
-      "Aventure"
+      "9 - Prédiction et biais",
+      "Plan d'apprentissage"
     ]
   },
   {
-    "objectID": "Module 9/Aventure/Aventure 9.html",
-    "href": "Module 9/Aventure/Aventure 9.html",
-    "title": "Aventure 9 - Prédiction et biais algorithmiques",
+    "objectID": "Module 9/Plan d'apprentissage module 9.html#étude-de-la-masse-corporelle-des-manchots",
+    "href": "Module 9/Plan d'apprentissage module 9.html#étude-de-la-masse-corporelle-des-manchots",
+    "title": "Module 9 - Plan d’apprentissage",
+    "section": "🐧 Étude de la masse corporelle des manchots",
+    "text": "🐧 Étude de la masse corporelle des manchots\nVous travaillez pour une ONG environnementale qui souhaite mieux comprendre les facteurs influençant la masse corporelle des manchots en Antarctique. Vous disposez du jeu de données penguins, nettoyé à l’aide de la fonction drop_na() pour éviter les valeurs manquantes.\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\ndf &lt;- penguins %&gt;% \n  drop_na()\n\n1. Visualisation et hypothèse\nTracez la relation entre body_mass_g et flipper_length_mm. Est-ce qu’une relation linéaire vous semble plausible ?\n\n\n💡 Solution\n\nUtilisez ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = \"lm\"). La relation est clairement linéaire.\n\n\n\n2. Régression simple\nAjustez un modèle body_mass_g ~ flipper_length_mm. Interprétez la pente.\n\n\n💡 Solution\n\nChaque mm supplémentaire de longueur de nageoire est associé à une augmentation moyenne de X grammes de masse corporelle (voir valeur exacte dans le modèle).\n\n\n\n3. Régression multiple\nAjustez maintenant body_mass_g ~ flipper_length_mm + sex. Quelle est la variable de référence ? Quelles différences observez-vous ?\n\n\n💡 Solution\n\nR utilise la première modalité alphabétique comme référence (ici probablement “female”). Le coefficient de sexmale représente la différence moyenne de masse entre mâles et femelles, à longueur égale.\n\n\n\n4. Prédictions ciblées\nPrédisez la masse corporelle pour un manchot avec 200 mm de longueur de nageoire, mâle.\n\n\n💡 Solution\n\nCréer une table newdata &lt;- tibble(flipper_length_mm = 200, sex = \"male\") puis faire predict(model, newdata).\n\n\n\n5. Réflexion critique\nLa variable species est-elle pertinente à inclure ? Quelle précaution devez-vous prendre si vous l’ajoutez ?\n\n\n💡 Solution\n\nOui, species est très corrélée avec la masse. Il faut faire attention à la multicolinéarité si elle est fortement liée aux autres prédicteurs.\n\nBonne exploration !",
+    "crumbs": [
+      "Modules",
+      "9 - Prédiction et biais",
+      "Plan d'apprentissage"
+    ]
+  },
+  {
+    "objectID": "Module 10/Aventure/Aventure 10.html",
+    "href": "Module 10/Aventure/Aventure 10.html",
+    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
     "section": "",
-    "text": "Vous travaillez comme scientifique de données junior au département de contrôle de la qualité et de l’équité au Ministère de l’Éducation du Québec. Votre mandat : utiliser des données réelles et fictives pour identifier, évaluer et atténuer des biais algorithmiques dans les décisions éducatives.\nVotre supérieur, Michel Dufour, directeur adjoint du département, vous accueille avec ces mots :\n\n« Bienvenue dans l’équipe ! Notre travail est crucial : assurer que chaque enfant ait des chances égales de réussite. Pour cela, nous devons non seulement prédire efficacement certains indicateurs, mais aussi comprendre et éviter les biais dans nos modèles. »\n\n\n\n\n\n\n\nNote\n\n\n\nVotre interlocuteur : Michel Dufour\nIl vous accompagne dans cette aventure : il posera des questions clés et attendra vos résultats et analyses détaillées.\n\n\n\n\n\nConstruire un modèle prédictif clair à partir de données réelles.\nIdentifier et expliquer des biais potentiels sur des données fictives.\nPrésenter clairement vos analyses et réflexions sur ces biais.\nProposer des recommandations concrètes pour atténuer ces biais.",
-    "crumbs": [
-      "Modules",
-      "9 - Prédiction et biais",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 9/Aventure/Aventure 9.html#objectifs-de-laventure",
-    "href": "Module 9/Aventure/Aventure 9.html#objectifs-de-laventure",
-    "title": "Aventure 9 - Prédiction et biais algorithmiques",
-    "section": "",
-    "text": "Construire un modèle prédictif clair à partir de données réelles.\nIdentifier et expliquer des biais potentiels sur des données fictives.\nPrésenter clairement vos analyses et réflexions sur ces biais.\nProposer des recommandations concrètes pour atténuer ces biais.",
-    "crumbs": [
-      "Modules",
-      "9 - Prédiction et biais",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 9/Aventure/Aventure 9.html#étape-1-exploration-et-nettoyage",
-    "href": "Module 9/Aventure/Aventure 9.html#étape-1-exploration-et-nettoyage",
-    "title": "Aventure 9 - Prédiction et biais algorithmiques",
-    "section": "Étape 1 : Exploration et nettoyage",
-    "text": "Étape 1 : Exploration et nettoyage\n\nIdentifiez les variables pertinentes.\nFaites un nettoyage sommaire si nécessaire (valeurs manquantes, types de données, etc.).\nRéalisez une analyse descriptive complète de ces données (référez-vous aux modules 2 à 4).\n\n\ndf_ecoles &lt;- read_csv(\"ecoles_primaires_qc.csv\")\nglimpse(df_ecoles)",
-    "crumbs": [
-      "Modules",
-      "9 - Prédiction et biais",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 9/Aventure/Aventure 9.html#étape-2-modèle-de-régression",
-    "href": "Module 9/Aventure/Aventure 9.html#étape-2-modèle-de-régression",
-    "title": "Aventure 9 - Prédiction et biais algorithmiques",
-    "section": "Étape 2 : Modèle de régression",
-    "text": "Étape 2 : Modèle de régression\n\n\n\n\n\n\n🧑‍💼 - Michel vous demande\n\n\n\n« J’aimerais que vous construisiez un modèle de régression linéaire pour prédire l’IMSE (Indice de Milieu Socio-Économique), à partir de deux variables : la proportion d’élèves à faible revenu (SFR) et le nombre total d’élèves dans l’école. »\n\n\n\nmodele &lt;- lm( ... , data = ...)\nsummary(modele)\n\n\n\n\n\n\n\n🧑‍💼 - Michel vous interroge\n\n\n\n« Une fois le modèle construit, pouvez-vous m’expliquer, en langage simple, ce que signifient les deux coefficients ? »",
-    "crumbs": [
-      "Modules",
-      "9 - Prédiction et biais",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 9/Aventure/Aventure 9.html#étape-3-prédictions-ciblées",
-    "href": "Module 9/Aventure/Aventure 9.html#étape-3-prédictions-ciblées",
-    "title": "Aventure 9 - Prédiction et biais algorithmiques",
-    "section": "Étape 3 : Prédictions ciblées",
-    "text": "Étape 3 : Prédictions ciblées\nVous utiliserez ensuite la fonction predict() pour générer des prédictions d’IMSE à partir de votre modèle.\n\npredict(modele, newdata = df_ecoles)\n\n\n\n\n\n\n\n🧑‍💼 - Michel précise\n\n\n\n« J’aimerais que vous utilisiez votre modèle pour : »\n- prédire l’IMSE pour les 10 écoles les plus grandes (en nombre d’élèves);\n- prédire l’IMSE pour les 10 écoles ayant les SFR les plus élevés.\nComparer les valeurs prédites aux valeurs réelles. Votre modèle est-il bon?",
-    "crumbs": [
-      "Modules",
-      "9 - Prédiction et biais",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 9/Aventure/Aventure 9.html#étape-4-prédictions-sur-écoles-manquantes",
-    "href": "Module 9/Aventure/Aventure 9.html#étape-4-prédictions-sur-écoles-manquantes",
-    "title": "Aventure 9 - Prédiction et biais algorithmiques",
-    "section": "Étape 4 : Prédictions sur écoles manquantes",
-    "text": "Étape 4 : Prédictions sur écoles manquantes\n\n\n\n\n\n\n🧑‍💼 - Michel ajoute\n\n\n\n« Dernière chose : dans les données, certaines écoles ont la variable Diffusion à “NON”. Ces écoles n’ont pas d’IMSE mesuré — souvent parce qu’elles comptent moins de 30 élèves. »\n« Pouvez-vous utiliser votre modèle pour prédire l’IMSE de toutes les écoles ayant moins de 30 élèves ? Ensuite, j’aimerais savoir : que pensez-vous de la validité de ces prédictions ? Peut-on s’y fier ? »",
-    "crumbs": [
-      "Modules",
-      "9 - Prédiction et biais",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 10/Plan d'apprentissage module 10.html",
-    "href": "Module 10/Plan d'apprentissage module 10.html",
-    "title": "Module 10 - Plan d’apprentissage",
-    "section": "",
-    "text": "🎯 Objectifs du module\nÀ la fin de ce module, vous devriez être capable de :\n\nNettoyer et analyser des données textuelles.\nConstruire un lexique de sentiment simple en français.\nVisualiser les tendances lexicales et émotionnelles dans le temps.\nUtiliser TF-IDF pour repérer les mots distinctifs.\nCréer un tableau de bord interactif avec flexdashboard et shiny.\n\n\n\n📚 Lectures\nPour vous préparer, consultez les ressources suivantes :\n\n📘 Tidytext Text Mining – Chapitres 1 à 3 - Ce livre vous introduit aux bases du traitement de texte avec R.\n📘 Flexdashboard documentation (RStudio) - ce document vous guide dans la création de tableaux de bord interactifs avec flexdashboard.\n📘 Shiny for dashboards - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec shiny.\n\n\n\n🧭 Aventure\nVous êtes analyste d’affaires junior engagé par la Faculté des sciences et de génie de l’Université Laval. Votre mandat : analyser les commentaires anonymes des étudiant·es sur le cours STT-1100 et produire un tableau de bord interactif pour la direction du programme.\n👉 Aventure 10 — Analyse de sentiment et tableau de bord\n\n\n💡 Défi — Tableau de bord déployé\nVous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :\n\nAfficher un score de sentiment par semaine ;\nIdentifier les mots distinctifs (TF-IDF) ou un nuage de mots ;\nAnalyser les variables numériques (plaisir, engagement, difficulte) ;\nÊtre personnalisé (filtrage, couleurs, résumé) ;\nÊtre déployé et partagé à Anne-Sophie.\n\n\n\n📊 Grille d’évaluation\nChaque équipe doit remettre un tableau de bord interactif basé sur les commentaires des étudiant·es du cours. Voici la grille utilisée pour l’évaluation :\n\n\n\n\n\n\n\n\nCritère\nDescription\nPoints\n\n\n\n\nNettoyage du texte\nTexte bien transformé, tokenisé, stopwords retirés\n/10\n\n\nLexique et score de sentiment\nConstruction claire du lexique FR, application correcte par semaine\n/15\n\n\nTF-IDF ou nuage de mots\nAnalyse de mots distinctifs claire et bien illustrée\n/15\n\n\nAnalyse des variables numériques\nMoyennes ou tendances bien explorées (plaisir, difficulte, etc.)\n/15\n\n\nVisualisations\nGraphiques lisibles, pertinents, esthétiques\n/15\n\n\nTableau de bord interactif (Shiny)\nUtilisation efficace de filtres et composants dynamiques\n/15\n\n\nPersonnalisation / effort créatif\nAdaptation du modèle fourni, effort visuel et rédactionnel\n/10\n\n\nDéploiement et accessibilité\nDashboard fonctionnel, lien valide partagé dans les temps\n/5\n\n\n\nTotal : /100",
+    "text": "Cette semaine, vous avez été engagé·e comme analyste d’affaires junior par la Faculté des sciences et de génie de l’Université Laval. Dans le cadre de la réforme du baccalauréat en statistique et science des données, la direction souhaite évaluer l’évolution du ressenti étudiant tout au long de la session.\nChaque semaine, les étudiant·es ont répondu à un questionnaire sur leur expérience d’apprentissage dans le cours STT-1100. Vos analyses seront essentielles pour documenter les points forts et les pistes d’amélioration du nouveau programme.\nVous êtes guidé·e par Anne-Sophie, la directrice du programme, qui vous accompagne dans la structuration de votre tableau de bord et vous aide à interpréter les résultats.\n\n“L’idée, c’est d’avoir un portrait honnête, mais constructif. On veut voir les tendances de fond et s’en inspirer pour continuer d’améliorer notre programme.”",
     "crumbs": [
       "Modules",
       "10 - Au-delà des données : texte et tableau de bord",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 10/Aventure/Aventure 10.html#étape-1-nettoyage-de-texte",
+    "href": "Module 10/Aventure/Aventure 10.html#étape-1-nettoyage-de-texte",
+    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
+    "section": "Étape 1 — Nettoyage de texte",
+    "text": "Étape 1 — Nettoyage de texte\n\n\n\n\n\n\n🧑‍💼 - Question d’Anne-Sophie\n\n\n\n« Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »\n\n\n\n\n\n\n\n\n🧑‍💼 - Petit rappel\n\n\n\nLe nettoyage de texte est essentiel avant toute analyse. Tu veux que chaque mot ait un sens pertinent. Essaie de retirer la ponctuation, les mots trop courants, et assure-toi que tout est bien en minuscules.\n\n\n\n\n\n\n\n\n🔎 Notions clés\n\n\n\n\n\nTokenisation : procédé qui consiste à découper le texte en unités de base (mots, n‑grammes). Chaque token devient une ligne dans votre tableau.\n\nStopwords : mots très fréquents (“le”, “de”, “et”, etc.) qui n’apportent généralement pas d’information sémantique utile pour l’analyse.\n\nNettoyage : mise en minuscules, retrait de la ponctuation, chiffres et caractères spéciaux pour normaliser les tokens.\n\n\n\nExemple de jeu de données simulé\n\n# Jeu de données fictif en français avec des commentaires\nexemple &lt;- tibble::tibble(\n  id = 1:7,\n  semaine = c(1, 1, 2, 2, 2, 3, 3),\n  commentaire = c(\n    \"J'ai trouvé le cours très clair cette semaine, bravo au prof !\",\n    \"Je commence à mieux comprendre, c'est motivant !\",\n    \"Trop de matière à assimiler en peu de temps, je me sens dépassé.\",\n    \"Pas facile cette semaine, j’ai eu du mal avec les graphiques.\",\n    \"Ouf très difficile cette semaine, particulièrement avec les graphiques.\",\n    \"Les outils sont puissants, mais je manque de pratique.\",\n    \"La construction du dashboard est super intéressante.\"\n  )\n)\n\nPrétraitement du texte\n\nlibrary(tidytext)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(stringr)\nlibrary(tibble)\nlibrary(ggplot2)\nlibrary(stopwords)\n\n# Charger les stopwords français\nstop_fr &lt;- stopwords::stopwords(\"fr\", source = \"snowball\")\n\ntexte_nettoye &lt;- exemple %&gt;%\n  unnest_tokens(word, commentaire) %&gt;%\n  filter(!word %in% stop_fr,             # Retirer les mots fréquents\n         str_detect(word, \"^[a-zéèêàâîôûùçäëïöü]+$\"))  # Garder les mots valides en français\n\nhead(texte_nettoye)\n\n# A tibble: 6 × 3\n     id semaine word   \n  &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  \n1     1       1 trouvé \n2     1       1 cours  \n3     1       1 très   \n4     1       1 clair  \n5     1       1 semaine\n6     1       1 bravo  \n\n\n\n\n\n\n\n\n🧑‍💼 - Question d’Anne-Sophie\n\n\n\n« Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »\n\n\nAnne-Sophie vous demande d’appliquer un nettoyage classique :\n\nretirer la ponctuation, les chiffres et les mots fréquents (stopwords),\ntransformer le texte en minuscules,\ntokeniser le texte (découper en mots).",
+    "crumbs": [
+      "Modules",
+      "10 - Au-delà des données : texte et tableau de bord",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 10/Aventure/Aventure 10.html#étape-2-analyse-de-sentiment",
+    "href": "Module 10/Aventure/Aventure 10.html#étape-2-analyse-de-sentiment",
+    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
+    "section": "Étape 2 — Analyse de sentiment",
+    "text": "Étape 2 — Analyse de sentiment\nOn s’intéresse ici à la valence émotionnelle des mots dans les commentaires. L’analyse de sentiment permet de quantifier si un texte est plutôt positif ou négatif.\n\n\n\n\n\n\n🔎 Notions clés\n\n\n\n\n\nSentiment d’un mot : étiquette (positive, négative) ou score numérique indiquant la valence émotionnelle du mot.\n\nScore de sentiment d’un texte : somme ou différence des scores/étiquettes des mots qu’il contient, souvent agrégé par document ou, ici, par semaine.\n\n\n\nAnalyse de sentiment en français\nActuellement, il n’existe pas de lexique intégré à tidytext::get_sentiments() pour le français (contrairement à l’anglais, où les lexiques bing, afinn, et nrc sont directement accessibles). Voici donc une approche pédagogique : créer un petit lexique personnalisé à enrichir en classe.\n\n\n\n\n\n\n🧑‍💼 - Suggestion d’Anne-Sophie\n\n\n\n« Pour cette étape, je vous recommande de construire un petit lexique maison. Vous pouvez commencer par les mots qui reviennent souvent et les classer subjectivement. Le but ici est de comprendre le principe d’une analyse de sentiment, même avec des outils simples. »\n\n\n\n# Lexique maison de base à adapter\nlexique_fr &lt;- tibble::tibble(\n  word = c(\"clair\", \"motivant\", \"bravo\", \"difficile\", \"dépassé\", \"mal\", \"intéressante\", \"puissants\"),\n  sentiment = c(\"positive\", \"positive\", \"positive\", \"negative\", \"negative\", \"negative\", \"positive\", \"positive\")\n)\n\nsentiment_fr &lt;- texte_nettoye %&gt;%\n  inner_join(lexique_fr, by = \"word\") %&gt;%\n  count(semaine, sentiment) %&gt;%\n  tidyr::pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %&gt;%\n  mutate(score = positive - negative)\n\nsentiment_fr\n\n# A tibble: 3 × 4\n  semaine positive negative score\n    &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt; &lt;int&gt;\n1       1        3        0     3\n2       2        0        3    -3\n3       3        2        0     2\n\n\nVisualisation des scores par semaine\nFaisons un graphique pour visualiser l’évolution du score de sentiment par semaine :\n\nggplot(sentiment_fr, aes(x = semaine, y = score)) +\n  geom_col(fill = \"steelblue\") +\n  labs(title = \"Score de sentiment par semaine\",\n       y = \"Score net (positif - négatif)\", x = \"Semaine\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n🧑‍💼 - Conseil d’Anne-Sophie\n\n\n\n« Comme les lexiques intégrés à get_sentiments() ne sont disponibles qu’en anglais, je vous propose de construire un petit lexique maison pour le français. Ce sera imparfait, mais cela vous permettra de comprendre le principe. On pourra ensuite en discuter ensemble pour l’enrichir. Ce qui m’intéresse, c’est que vous soyez capables d’interpréter l’évolution du sentiment d’une semaine à l’autre, même avec des outils simples. »\n\n\n🤝 Collaboration finale\nÀ la fin du cours, une activité en classe permettra à chaque étudiants/équipes de partager son propre lexique de sentiments en français construit durant l’analyse.\n🎓 L’enseignant collectera et fusionnera ces lexiques, en les vérifiant pour en retirer une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.",
+    "crumbs": [
+      "Modules",
+      "10 - Au-delà des données : texte et tableau de bord",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 10/Aventure/Aventure 10.html#étape-3-mots-distinctifs",
+    "href": "Module 10/Aventure/Aventure 10.html#étape-3-mots-distinctifs",
+    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
+    "section": "Étape 3 — Mots distinctifs",
+    "text": "Étape 3 — Mots distinctifs\nDans cette étape, nous allons identifier les mots qui ressortent le plus chaque semaine. Pour cela, nous utiliserons l’approche TF-IDF (Term Frequency-Inverse Document Frequency), qui permet de mettre en évidence les mots à la fois fréquents dans un document et rares dans l’ensemble des documents.\n\n\n\n\n\n\n🧑‍💼 - Idée d’Anne-Sophie\n\n\n\n« Un bon indicateur de ce que ressentent les étudiant·es, ce sont les mots qui ressortent le plus dans leurs commentaires. Vous pouvez essayer une analyse TF-IDF ou même créer un nuage de mots. »\n\n\n\n\n\n\n\n\n🔎 Notions clés\n\n\n\n\n\nTF (Term Frequency) : fréquence d’apparition d’un mot dans un document.\n\nIDF (Inverse Document Frequency) : importance inverse d’un mot dans l’ensemble des documents – les mots rares ont un IDF élevé.\n\nTF‑IDF : produit TF × IDF qui met en évidence les mots à la fois fréquents dans un document et rares dans les autres (mots “distinctifs”).\n\n\n\nCalcul TF-IDF\nCalculons le TF-IDF pour chaque mot par semaine :\n\ntfidf &lt;- texte_nettoye %&gt;%\n  count(semaine, word) %&gt;%\n  bind_tf_idf(word, semaine, n) %&gt;%\n  arrange(desc(tf_idf))\n\nhead(tfidf)\n\n# A tibble: 6 × 6\n  semaine word             n    tf   idf tf_idf\n    &lt;dbl&gt; &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n1       3 construction     1 0.125  1.10  0.137\n2       3 dashboard        1 0.125  1.10  0.137\n3       3 intéressante     1 0.125  1.10  0.137\n4       3 manque           1 0.125  1.10  0.137\n5       3 outils           1 0.125  1.10  0.137\n6       3 pratique         1 0.125  1.10  0.137\n\n\nVisualisation pour une semaine donnée\nFaisons un graphique pour visualiser les mots les plus distinctifs pour une semaine spécifique. Par exemple, la semaine 2 :\n\n# Choisir semaine 2 comme exemple\nlibrary(forcats)\n\ntfidf %&gt;%\n  filter(semaine == 2) %&gt;%\n  slice_max(tf_idf, n = 8) %&gt;%\n  mutate(word = fct_reorder(word, tf_idf)) %&gt;%\n  ggplot(aes(x = word, y = tf_idf)) +\n  geom_col(fill = \"darkorange\") +\n  coord_flip() +\n  labs(title = \"Mots les plus distinctifs — Semaine 2\",\n       x = NULL, y = \"TF-IDF\")\n\n\n\n\n\n\n\nUne visualisation comme celle-ci permet de voir quels mots sont les plus représentatifs des commentaires de cette semaine-là. Il existe aussi la possibilité de créer un nuage de mots pour une représentation plus visuelle. Un nuage de mot est une représentation graphique des mots les plus fréquents, où la taille de chaque mot est proportionnelle à sa fréquence d’apparition.\n💡 Pour créer un nuage de mots en français : - Utilisez la fonction wordcloud() du package wordcloud, ou ggwordcloud pour plus de personnalisation. - Inspirez-vous de cet exemple complet : https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html\n\n\n\n\n\n\n🧑‍💼 - Question d’Anne-Sophie\n\n\n\n« Peux-tu repérer les mots qui ressortent le plus chaque semaine ? Tu pourrais essayer une approche TF-IDF et me faire un graphique ou même un nuage de mots. »",
+    "crumbs": [
+      "Modules",
+      "10 - Au-delà des données : texte et tableau de bord",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 10/Aventure/Aventure 10.html#étape-4-création-du-dashboard",
+    "href": "Module 10/Aventure/Aventure 10.html#étape-4-création-du-dashboard",
+    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
+    "section": "Étape 4 — Création du dashboard",
+    "text": "Étape 4 — Création du dashboard\nMaintenant que nous avons nettoyé les données et effectué les analyses de sentiment et de mots distinctifs, il est temps de créer un tableau de bord interactif. Celui-ci permettra à Anne-Sophie de visualiser les résultats de manière claire et dynamique.\n\n\n\n\n\n\n🧑‍💼 - Rappel d’Anne-Sophie\n\n\n\nLe tableau de bord final doit être clair, interactif et utile. Un modèle prêt à l’emploi (Modele_Dashboardt.Rmd) se trouve dans le dépôt GitHub du module. Personnalisez‑le : branchez vos propres données, ajustez les filtres, et ajoutez au moins deux visualisations.",
+    "crumbs": [
+      "Modules",
+      "10 - Au-delà des données : texte et tableau de bord",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 10/Aventure/Aventure 10.html#étape-5-recommandations-et-analyse-finale",
+    "href": "Module 10/Aventure/Aventure 10.html#étape-5-recommandations-et-analyse-finale",
+    "title": "Aventure 10 — Au-delà des données : texte et tableau de bord",
+    "section": "Étape 5 — Recommandations et analyse finale",
+    "text": "Étape 5 — Recommandations et analyse finale\nÀ la fin du tableau de bord, rédigez un résumé de vos observations clés :\n\névolution du score de sentiment,\nsemaines critiques,\nrecommandations d’action pour améliorer l’expérience étudiante,\n\nanalyse des variables numériques difficulte, engagement, plaisir : moyenne et tendance par semaine, comparaison avec le score de sentiment (ex. corrélations simples ou graphiques combinés).\n\n\n\n\n\n\n\n🧑‍💼 - Défi d’Anne-Sophie\n\n\n\n« N’oubliez pas d’explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »",
+    "crumbs": [
+      "Modules",
+      "10 - Au-delà des données : texte et tableau de bord",
+      "Aventure"
+    ]
+  },
+  {
+    "objectID": "Module 7/Plan d'apprentissage module 7.html",
+    "href": "Module 7/Plan d'apprentissage module 7.html",
+    "title": "Module 7 - Plan d’apprentissage",
+    "section": "",
+    "text": "🎯 Objectifs du module\nÀ la fin de ce module, vous devriez être capable de :\n\nIdentifier des problèmes éthiques dans une visualisation.\nAnonymiser correctement des données.\nAppliquer les bonnes pratiques de visualisation pour représenter les données de manière claire et honnête.\nIdentifier et éviter les biais de présentation des données.\nComprendre les enjeux éthiques et de confidentialité liés à la science des données.\nMettre en place des mesures de protection et de sécurisation des données sensibles.\nExpliquer les principes CRAP.\nExpliquer les principes FAIR.\n\n\n\n📚 Lectures\nPour vous préparer, consultez les ressources suivantes :\n\n📘 R for Data Science — Communication\n📘 Guide de bonnes pratiques à l’usage des data scientists (gouvernement du Luxembourg)\n\n\n\n🧭 Aventure\nVous incarnerez un·e expert·e en éthique des données et serez chargé·e d’évaluer un rapport problématique.\nLien vers l’aventure :\n👉 Aventure 7 — Visualisation, éthique et sécurisation des données\n\n\n💡 Défi — Analyse éthique et visualisation responsable\nVous recevrez un jeu de données COVID simulé. Votre tâche sera de produire une analyse responsable :\n\nÉvaluer les aspects éthiques liés à la visualisation fournie.\nAnonymiser correctement les données.\nCréer une nouvelle visualisation fidèle et informative.\nRédiger une réflexion critique sur les enjeux rencontrés.\n\n\n\n🏋️ Exercices de consolidation\nVoici quelques exemples réels de visualisations problématiques ou controversées à analyser :\n\nFox News – Graphique sur le christianisme aux États-Unis\nLa chaîne a diffusé un graphique avec un axe Y tronqué, exagérant visuellement une baisse du taux de chômage.\n\n➤ Question : En quoi la forme de l’axe trompe-t-elle le lecteur ? Comment le représenter honnêtement ?\nUSA Today – Diagramme circulaire erroné\nLe graphique totalise plus de 100 % de parts, rendant la visualisation incohérente.\n\n➤ Question : Que montre cette erreur ? Quels types de graphiques alternatifs conviendraient mieux ?\nCartes électorales américaines – Distorsion par surface\nLes grandes zones rurales peu peuplées sont visuellement dominantes sur les cartes, même si elles comptent peu d’électeurs.\n\n➤ Question : Pourquoi la taille géographique peut-elle fausser la perception des résultats ? Comment faire mieux ?\nTicked Axis – Exemple pédagogique de manipulation\nDeux versions d’un même graphique, l’une honnête et l’autre manipulée par troncature d’axe, révèlent l’impact des choix visuels.\n\n\n\n➤ Question : Que remarquez-vous en comparant les deux versions ? Quels messages différents sont véhiculés ?\nCambridge Analytica – Profilage psychologique sans consentement\nDonnées Facebook utilisées à l’insu des utilisateur·rices à des fins de manipulation électorale.\nhttps://fr.wikipedia.org/wiki/Cambridge_Analytica\n➤ Question : Quels principes éthiques sont ici violés (transparence, consentement, anonymisation) ? Comment prévenir ce type de dérive ?",
+    "crumbs": [
+      "Modules",
+      "7 - Visualisation, éthique et sécurisation des données",
       "Plan d'apprentissage"
     ]
   },
   {
-    "objectID": "Module 10/Aventure/Modele Dashboard.html",
-    "href": "Module 10/Aventure/Modele Dashboard.html",
-    "title": "Tableau de bord — Sentiment STT-1100",
+    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html",
+    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html",
+    "title": "Analyse initiale des cas de COVID-19",
     "section": "",
-    "text": "selectInput(\"sem\", \"Choisissez une semaine:\", choices = unique(exemple$semaine), selected = 1)\n\n\nChoisissez une semaine:\n\n1\n2\n3"
+    "text": "Le jeu de données présenté dans cette analyse simule des informations collectées durant l’année 2022 sur des cas de COVID-19 parmi des personnes âgées vivant dans trois régions du Québec : Montréal, Québec et l’Outaouais. Chaque ligne représente un individu identifié par son prénom, nom, âge, région, date d’observation et le nombre de cas confirmés associés à lui. Les données incluent aussi une date d’observation.\n\n\n     region age cas_confirmes       date\n1    Québec  78           111 2022-08-03\n2    Québec  66            92 2022-03-20\n3 Outaouais  68            74 2022-01-30\n4  Montréal  94           144 2022-12-05\n5    Québec  85           133 2022-05-02\n6    Québec  75            93 2022-07-21"
   },
   {
-    "objectID": "Module 10/Aventure/Modele Dashboard.html#column",
-    "href": "Module 10/Aventure/Modele Dashboard.html#column",
-    "title": "Tableau de bord — Sentiment STT-1100",
+    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#contexte-des-données",
+    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#contexte-des-données",
+    "title": "Analyse initiale des cas de COVID-19",
     "section": "",
-    "text": "selectInput(\"sem\", \"Choisissez une semaine:\", choices = unique(exemple$semaine), selected = 1)\n\n\nChoisissez une semaine:\n\n1\n2\n3"
+    "text": "Le jeu de données présenté dans cette analyse simule des informations collectées durant l’année 2022 sur des cas de COVID-19 parmi des personnes âgées vivant dans trois régions du Québec : Montréal, Québec et l’Outaouais. Chaque ligne représente un individu identifié par son prénom, nom, âge, région, date d’observation et le nombre de cas confirmés associés à lui. Les données incluent aussi une date d’observation.\n\n\n     region age cas_confirmes       date\n1    Québec  78           111 2022-08-03\n2    Québec  66            92 2022-03-20\n3 Outaouais  68            74 2022-01-30\n4  Montréal  94           144 2022-12-05\n5    Québec  85           133 2022-05-02\n6    Québec  75            93 2022-07-21"
   },
   {
-    "objectID": "Module 10/Aventure/Modele Dashboard.html#column-1",
-    "href": "Module 10/Aventure/Modele Dashboard.html#column-1",
-    "title": "Tableau de bord — Sentiment STT-1100",
-    "section": "Column",
-    "text": "Column\n\nScore de sentiment par semaine\n\nrenderPlot({\n  ggplot(sentiment_fr, aes(x = semaine, y = score)) +\n    geom_col(fill = \"steelblue\") +\n    labs(title = \"Évolution du sentiment\", x = \"Semaine\", y = \"Score net\")\n})"
+    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#visualisation-proposée-par-léquipe-de-recherche",
+    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#visualisation-proposée-par-léquipe-de-recherche",
+    "title": "Analyse initiale des cas de COVID-19",
+    "section": "Visualisation proposée par l’équipe de recherche",
+    "text": "Visualisation proposée par l’équipe de recherche\n\ncas_par_region &lt;- covid_problematique %&gt;%\n  group_by(region) %&gt;%\n  summarise(cas_totaux = sum(cas_confirmes), .groups = \"drop\")\n\nggplot(cas_par_region, aes(x = region, y = cas_totaux, fill = region)) +\n  geom_bar(stat = \"identity\") +\n  scale_y_continuous(breaks = seq(0, max(cas_par_region$cas_totaux), by = 10)) +\n  scale_fill_manual(values = c(\"Montréal\" = \"red\", \"Québec\" = \"orange\", \"Outaouais\" = \"purple\")) +\n  theme_minimal() +\n  theme(legend.position = \"none\")"
   },
   {
-    "objectID": "Module 10/Aventure/Modele Dashboard.html#column-2",
-    "href": "Module 10/Aventure/Modele Dashboard.html#column-2",
-    "title": "Tableau de bord — Sentiment STT-1100",
-    "section": "Column",
-    "text": "Column\n\nMots distinctifs (TF-IDF)\n\nrenderPlot({ \n  tfidf &lt;- texte_nettoye %&gt;% count(semaine, word) %&gt;% bind_tf_idf(word, semaine, n)\n\ntfidf %&gt;% filter(semaine == input$sem) %&gt;%\n    slice_max(tf_idf, n = 8) %&gt;%\n    mutate(word = fct_reorder(word, tf_idf)) %&gt;%\n    ggplot(aes(x = word, y = tf_idf)) +\n    geom_col(fill = \"darkorange\") +\n    coord_flip() +\n    labs(title = paste(\"TF-IDF - Semaine\", input$sem), x = NULL, y = \"Score TF-IDF\") })"
+    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#interprétation-des-résultats",
+    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#interprétation-des-résultats",
+    "title": "Analyse initiale des cas de COVID-19",
+    "section": "Interprétation des résultats",
+    "text": "Interprétation des résultats\nLe graphique ci-dessus montre clairement que la région de Montréal est la plus touchée, avec un nombre de cas beaucoup plus élevé que les autres régions. Les données sont tirées de nos rapports internes collectés au courant de l’année 2012. Aucun ajustement par population n’a été fait, mais cela n’est pas jugé nécessaire."
   },
   {
-    "objectID": "Module 7/Aventure/Aventure 7.html",
-    "href": "Module 7/Aventure/Aventure 7.html",
-    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
-    "section": "",
-    "text": "Vous êtes un·e expert·e invité·e dans une commission d’éthique en science des données. Une organisation vous soumet un rapport contenant une visualisation et des statistiques issues d’un jeu de données simulé sur la COVID-19. Votre rôle : évaluer la conformité de ce rapport aux bonnes pratiques de communication visuelle, à l’éthique et à la protection des données sensibles.",
-    "crumbs": [
-      "Modules",
-      "7 - Visualisation, éthique et sécurisation des données",
-      "Aventure"
-    ]
+    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#tableau-de-cas-notables",
+    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#tableau-de-cas-notables",
+    "title": "Analyse initiale des cas de COVID-19",
+    "section": "Tableau de cas notables",
+    "text": "Tableau de cas notables\nDans cette section, nous cherchons à identifier les individus ayant généré le plus grand nombre de cas confirmés.\nLe tableau suivant montre les 5 personnes ayant les plus hauts totaux individuels de cas confirmés selon notre base de données :\n\n# Extraction des 5 personnes avec le plus grand nombre de cas confirmés\ncovid_problematique %&gt;%\n  arrange(desc(cas_confirmes)) %&gt;%\n  select(personne, region, cas_confirmes, date) %&gt;%\n  head(5)\n\n              personne    region cas_confirmes       date\n1  Luc Dupont , 66 ans  Montréal           147 2022-09-29\n2 Chloé Morin , 67 ans Outaouais           146 2022-08-30\n3 Chloé Gagné , 84 ans    Québec           145 2022-02-11\n4  Luc Dupont , 90 ans    Québec           145 2022-08-28\n5 Chloé Morin , 94 ans  Montréal           144 2022-12-05"
   },
   {
-    "objectID": "Module 7/Aventure/Aventure 7.html#instructions",
-    "href": "Module 7/Aventure/Aventure 7.html#instructions",
-    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
-    "section": "Instructions",
-    "text": "Instructions\nEn équipe, vous devez :\n\nLire attentivement le rapport fourni (Analyse initiale des cas de COVID-19.html).\nIdentifier tous les problèmes : visuels, statistiques, éthiques, méthodologiques, etc.\nCorriger et améliorer la visualisation à l’aide du fichier de données donnees_covid_module7.csv.\nRédiger un rapport critique incluant :\n\nProblèmes identifiés\nRaisonnement éthique\nRecommandations\n\nFournir une ou plusieurs visualisations corrigées avec explications.\nAjouter une courte conclusion personnelle (5 lignes par personne) sur ce que vous retenez de cette activité.",
-    "crumbs": [
-      "Modules",
-      "7 - Visualisation, éthique et sécurisation des données",
-      "Aventure"
-    ]
+    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#analyse-exploratoire-complémentaire",
+    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#analyse-exploratoire-complémentaire",
+    "title": "Analyse initiale des cas de COVID-19",
+    "section": "Analyse exploratoire complémentaire",
+    "text": "Analyse exploratoire complémentaire\n\ncovid_problematique %&gt;%\n  mutate(risque = if_else(age &gt; 85 & cas_confirmes &gt; 100, \"Élevé\", \"Modéré\")) %&gt;%\n  group_by(risque) %&gt;%\n  summarise(\n    moyenne_age = mean(age),\n    moyenne_cas = mean(cas_confirmes),\n    .groups = \"drop\"\n  )\n\n# A tibble: 2 × 3\n  risque moyenne_age moyenne_cas\n  &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1 Modéré        76.3        105.\n2 Élevé         91.8        132 \n\ncovid_problematique %&gt;%\n  ggplot(aes(x = age, y = cas_confirmes)) +\n  geom_point(color = \"darkred\") +\n  geom_smooth(method = \"lm\", se = FALSE, linetype = \"dashed\") +\n  labs(title = \"Plus on est âgé, plus on contracte la COVID\")\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
-    "objectID": "Module 7/Aventure/Aventure 7.html#travail-à-remettre",
-    "href": "Module 7/Aventure/Aventure 7.html#travail-à-remettre",
-    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
-    "section": "Travail à remettre",
-    "text": "Travail à remettre\nUn fichier .qmd sur GitHub contenant :\n\nUne section “Analyse critique”\nUne section “Visualisation améliorée”\nUne section “Conclusion personnelle”",
-    "crumbs": [
-      "Modules",
-      "7 - Visualisation, éthique et sécurisation des données",
-      "Aventure"
-    ]
+    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#recommandations-immédiates",
+    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#recommandations-immédiates",
+    "title": "Analyse initiale des cas de COVID-19",
+    "section": "Recommandations immédiates",
+    "text": "Recommandations immédiates\n\nLes autorités devraient concentrer leurs efforts sur Montréal, qui semble en crise.\nLes personnes âgées de plus de 85 ans devraient être priorisées (voir tableau).\nLa région de Québec semble peu affectée : les ressources pourraient être redistribuées."
   },
   {
-    "objectID": "Module 7/Aventure/Aventure 7.html#ressources-utiles",
-    "href": "Module 7/Aventure/Aventure 7.html#ressources-utiles",
-    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
-    "section": "Ressources utiles",
-    "text": "Ressources utiles\n\nRègles CRAP : Contraste, Répétition, Alignement, Proximité\nHow to Lie with Statistics — Darrell Huff\nRègles d’anonymisation des données (PII)\nPrincipes d’éthique : transparence, reproductibilité, non-nuisance\nBonnes pratiques de visualisation avec ggplot2\nConcepts abordés dans le module 7 : sécurité, biais, visualisation, éthique",
-    "crumbs": [
-      "Modules",
-      "7 - Visualisation, éthique et sécurisation des données",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 7/Aventure/Aventure 7.html#fichier-de-départ",
-    "href": "Module 7/Aventure/Aventure 7.html#fichier-de-départ",
-    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
-    "section": "Fichier de départ",
-    "text": "Fichier de départ\n\nAnalyse initiale des cas de COVID-19.html (fourni sur GitHub)\ndonnees_covid_module7.csv (données nettoyées à utiliser pour la version corrigée)",
-    "crumbs": [
-      "Modules",
-      "7 - Visualisation, éthique et sécurisation des données",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Module 7/Aventure/Aventure 7.html#critères-de-réussite",
-    "href": "Module 7/Aventure/Aventure 7.html#critères-de-réussite",
-    "title": "Aventure 7 — Visualisation, éthique et sécurisation des données",
-    "section": "Critères de réussite",
-    "text": "Critères de réussite\n\nCapacité à identifier un grand nombre de problèmes (techniques, éthiques, visuels)\nCapacité à justifier vos corrections\nQualité de la visualisation améliorée (clarté, honnêteté, accessibilité)\nQualité du rapport critique\nCapacité à adopter une posture réflexive sur l’éthique en science des données",
-    "crumbs": [
-      "Modules",
-      "7 - Visualisation, éthique et sécurisation des données",
-      "Aventure"
-    ]
-  },
-  {
-    "objectID": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html",
-    "href": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html",
-    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
-    "section": "",
-    "text": "Un bon scientifique des données ne connaît pas tout par cœur… mais sait où chercher et comment demander de l’aide intelligemment. Ce guide vous accompagne pour apprendre à le faire efficacement et sans stress."
-  },
-  {
-    "objectID": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#aide-intégrée-dans-rstudio",
-    "href": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#aide-intégrée-dans-rstudio",
-    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
-    "section": "📌 Aide intégrée dans RStudio",
-    "text": "📌 Aide intégrée dans RStudio\n\nTapez ?fonction ou help(fonction) dans la console.\nUtilisez l’onglet Help de RStudio pour naviguer la documentation.\nTapez example(fonction) pour obtenir un exemple prêt à l’emploi.\nTestez aussi la fonction args(fonction) pour voir les arguments attendus."
-  },
-  {
-    "objectID": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#recherche-sur-le-web",
-    "href": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#recherche-sur-le-web",
-    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
-    "section": "🌍 Recherche sur le Web",
-    "text": "🌍 Recherche sur le Web\nDes milliards de réponses vous attendent ! Voici quelques conseils pour bien formuler vos recherches :\n\n\n\n\n\n\nTip\n\n\n\nFormulez vos questions comme un·e pro :\n\nMauvais : ça marche pas avec ggplot\nMeilleur : ggplot2 how to add color by group in scatterplot\n\nSites recommandés :\n\nStack Overflow\nPosit Community (anciennement RStudio Community)\nGitHub\nGoogle — tapez “r ggplot histogram group by color”"
-  },
-  {
-    "objectID": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#livres-et-guides-conseillés",
-    "href": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#livres-et-guides-conseillés",
-    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
-    "section": "Livres et guides conseillés",
-    "text": "Livres et guides conseillés\n\nR for Data Science (2e éd.)\n\nGuide complet pour tout comprendre du tidyverse, des scripts, des graphiques, etc.\n\nThe Tidyverse Style Guide\n\nPour écrire du code clair, propre et compréhensible.\n\nIntroduction to Modern Statistics\n\nUne référence complémentaire qui met l’accent sur la visualisation, la modélisation, et la statistique moderne. Ce livre est aussi gratuit, clair et parfaitement adapté aux débutant·es.\n\nLes aventures Quarto (.qmd) sont là pour vous faire progresser pas à pas — n’hésitez pas à y revenir si vous êtes bloqué·e."
-  },
-  {
-    "objectID": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#traduire-et-comprendre-en-français",
-    "href": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#traduire-et-comprendre-en-français",
-    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
-    "section": "Traduire et comprendre en français",
-    "text": "Traduire et comprendre en français\nSi l’anglais vous freine :\n\nUtilisez DeepL pour traduire les explications ou messages d’erreurs.\nLe navigateur Google Chrome propose la traduction automatique des pages.\nN’hésitez pas à demander à GPT STT-1100 de reformuler ou traduire des passages.\n\n\nLes concepts restent les mêmes d’une langue à l’autre — l’important est de bien comprendre les idées derrière les commandes !"
-  },
-  {
-    "objectID": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#avant-de-poser-votre-question",
-    "href": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#avant-de-poser-votre-question",
-    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
-    "section": "🤔 Avant de poser votre question",
-    "text": "🤔 Avant de poser votre question\n\nAvez-vous lu le message d’erreur en entier ?\nAvez-vous essayé une recherche avec les mots clés ?\nPouvez-vous isoler le problème dans un exemple simple ?"
-  },
-  {
-    "objectID": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#poser-une-bonne-question-à-gpt-stt-1100-à-une-assistante-ou-sur-le-forum",
-    "href": "Autre matériel 3/Ou et comment chercher/ou et comment chercher.html#poser-une-bonne-question-à-gpt-stt-1100-à-une-assistante-ou-sur-le-forum",
-    "title": "Comment rechercher et obtenir de l’aide efficacement ?",
-    "section": "🗣️ Poser une bonne question (à GPT STT-1100, à un·e assistant·e ou sur le forum)",
-    "text": "🗣️ Poser une bonne question (à GPT STT-1100, à un·e assistant·e ou sur le forum)\n\nSoyez précis : indiquez le code minimal qui cause l’erreur.\nCopiez le message d’erreur complet.\nDécrivez ce que vous vouliez faire et ce qui se passe.\n\n\n\n\n\n\n\nNote\n\n\n\nExemple :\n\nJe voulais filtrer les données pour les pingouins ayant un bec de plus de 40 mm.\nVoici le code :\npenguins %&gt;% filter(bill_length_mm &gt; 40)\nMais j’obtiens l’erreur suivante :\nobject 'bill_length_mm' not found"
+    "objectID": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#note-méthodologique",
+    "href": "Module 7/Aventure/Analyse initiale des cas de COVID19.html#note-méthodologique",
+    "title": "Analyse initiale des cas de COVID-19",
+    "section": "Note méthodologique",
+    "text": "Note méthodologique\nLes données ont été regroupées rapidement sans normalisation par population. Aucune marge d’erreur, d’intervalle de confiance ou vérification des sources n’a été fournie. Les données couvrent des périodes variables sans harmonisation.\n\n\nRemarque pédagogique : Ce document contient volontairement de nombreuses erreurs de visualisation, d’éthique et d’analyse. Il est utilisé comme point de départ pour votre mission critique.\nLe fichier donnees_covid_module7.csv est celui que vous devez utiliser pour produire une version corrigée du graphique."
   }
 ]
