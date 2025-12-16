@@ -1,0 +1,440 @@
+---
+title: "Aventure 4 - Nettoyer pour mieux assurer"
+subtitle: "STT-1100 Introduction à la science des données"
+author: 
+  - institute: "Université Laval"
+format: 
+  html:
+    toc: true
+    toc-title: "Plan de l’aventure"
+    embed-resources: true
+    link-external-newwindow: true
+    code-link: true
+    theme: flatly
+    css: [../css/base_css.css]
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# 🧠 Mise en situation
+
+Vous venez tout juste de commencer un stage comme **ingénieur·e de données junior** dans une grande **compagnie d’assurance**. Vous travaillez avec Alex, un·e analyste d’affaires expérimenté·e, qui vous a confié une mission importante.
+
+Alex vous a fourni une base de données extraite d’un ancien système d’archives. Cette base contient des informations clés sur les clients, les polices d’assurance et les réclamations. Malheureusement, la base est **truffée d’erreurs** : doublons, valeurs manquantes, incohérences, erreurs de format, fautes de frappe…
+
+Votre rôle sera d’assurer la **qualité des données** pour permettre à Alex de faire une analyse fiable.
+
+# 🎯 Objectifs de l’aventure
+
+-   Importer une base de données brute (`Dataset_pratique.csv`).
+-   Identifier différents types d’erreurs courantes.
+-   Nettoyer et transformer les données avec `dplyr`, `forcats` et `stringr`.
+-   Documenter de façon claire **toutes les modifications apportées** à la base.
+
+# ✅ Comment réussir cette aventure ?
+
+À la fin de cette aventure, vous devrez :
+
+1.  Fournir une **base de données propre** (`donnees_propres.csv`).
+2.  Maintenir une **liste R structurée** appelée `journal_nettoyage` dans votre script.
+
+> 💡 Pensez à **documenter chaque étape de votre nettoyage**. Votre rigueur est votre meilleure alliée !
+
+# 🗃️ Typologie des erreurs et structure de la liste
+
+Voici un tableau de référence pour les types d’erreurs que vous pouvez rencontrer :
+
+| Code | Type d’erreur | Description | Exemple |
+|------------------|------------------|------------------|------------------|
+| VM | Valeurs manquantes | Champs essentiels non remplis | Lignes sans valeur pour `age` ou `revenu_annuel` |
+| DF | Doublons | Lignes identiques ou très similaires | Deux lignes avec le même `id_client` |
+| IF | Incohérences de format | Données du même type mais formats différents | `date_naissance` en formats mixtes (`1980-01-01`, `01/01/1980`) |
+| VA | Valeurs aberrantes | Valeurs manifestement extrêmes ou irréalistes | `revenu_annuel = 99,999,999 $` |
+| FT | Fautes de frappe | Erreurs typographiques affectant la cohérence | Province inscrite comme "Quebéc", "quebec", "Québec" |
+| RC | Recodage ou regroupement | Catégories similaires à fusionner | "sans emploi", "inactif", "au chômage" |
+| TY | Types mal définis | Mauvais type de variable pour les données | `revenu_annuel` enregistré comme texte |
+| LG | Erreurs logiques | Relations temporelles ou conditionnelles incorrectes | Client né en 2022 mais contrat signé en 2020 |
+| CI | Incohérences inter-variables | Données incohérentes entre deux colonnes | `province = "Québec"` mais `code_postal` commence par "H" |
+| RU | Données redondantes ou inutiles | Colonnes dupliquées ou peu pertinentes | Deux colonnes contenant la même information |
+| TR | Troncations ou mauvaise fusion | Chaînes de texte tronquées ou mal fusionnées | Noms de famille coupés comme "Du" |
+| EC | Problèmes d'encodage | Caractères spéciaux mal encodés | "Ã©" au lieu de "é" |
+
+Cette typologie permet de structurer rigoureusement la détection et la documentation des erreurs dans le journal de nettoyage R (liste `journal_nettoyage`).
+
+Dans votre script, vous allez construire la liste `journal_nettoyage` structurée par catégorie :
+
+```{r}
+journal_nettoyage <- list(
+  VM = list(
+    list(
+      id = c(12, 27),
+      variables = "age",
+      probleme = "Valeurs manquantes",
+      action = "Remplacé par la médiane",
+      justification = "Pour garder la cohérence"
+    )
+  ),
+  DF = list(
+    list(
+      id = c(45, 46),
+      variables = "id_client",
+      probleme = "Doublons complets",
+      action = "Suppression",
+      justification = "Inutiles pour l’analyse"
+    )
+  )
+)
+journal_nettoyage
+```
+
+Chaque catégorie (`VM`, `DF`, etc.) contient une **liste de corrections**, où chaque correction est un `list()` avec :
+
+-   `id` : ligne(s) ou position(s) affectée(s)
+
+-   `variables` : les variables concernées
+
+-   `probleme` : nature du problème
+
+-   `action` : action effectuée
+
+-   `justification` : pourquoi cette action a été choisie
+
+> 🔁 Cette structure vous aidera à **rendre compte de vos modifications** de façon propre et professionnelle.
+
+# 🧪 GitHub et rendu
+
+Comme pour les aventures précédentes :
+
+-   **Clonez** le dépôt GitHub du module 4 depuis l’organisation du cours. Vous pouvez utiliser la cheat sheet du cours si vous avez un trou de mémoire.
+-   Travaillez dans RStudio et **faites des commits régulièrement** pour documenter votre avancement.
+-   Votre dépôt doit contenir :
+    -   le script `.qmd` de votre aventure, c'est à dire un document ou vous faites vos tests et construisez votre liste `journal_nettoyage` ;
+    -   la liste `journal_nettoyage` dans un objet `.Rdata` ;
+    -   la base de données nettoyée au format `.csv`.
+
+Bonne chance, et que vos données soient propres ! 🧽📊
+
+# 📥 Importation des données
+
+Avant de nettoyer une base de données, il faut savoir l’importer correctement. Pour cette mission, Alex vous a transmis le fichier `Dataset_pratique.csv`. Il vous recommande de :
+
+-   charger les données dans R avec la fonction `read_csv()` du package `readr`,
+-   examiner les premières lignes pour repérer les incohérences évidentes,
+-   et convertir immédiatement les noms de colonnes en minuscules avec `janitor::clean_names()` pour faciliter les manipulations à venir.
+
+``` r
+library(readr)
+library(janitor)
+
+# Importation des données
+base <- read_csv("dataset_pratique.csv")
+
+# Nettoyage des noms de colonnes
+base <- base %>% clean_names()
+
+# Aperçu des données
+head(base)
+glimpse(base)
+```
+
+> 💬 **Alex** : « Cette base est un vrai casse-tête ! J’ai besoin que tu la rendes exploitable rapidement. Tu devrais commencer par repérer ce qui cloche dans les noms, les formats ou les valeurs. »
+
+------------------------------------------------------------------------
+
+# 🔍 Exploration initiale des problèmes potentiels
+
+## Format des variables
+
+Maintenant que vous avez importé la base, il est temps de faire une première exploration pour identifier les erreurs potentielles. Voici quelques étapes clés à suivre :
+
+``` r
+# Dimensions de la base
+nrow(base)
+ncol(base)
+
+# Variables disponibles
+names(base)
+
+# type des variables
+glimpse(base)
+```
+
+> 💬 **Alex** : « Tu verras, certains types des variables ne font aucun sens... Garde une trace de tout ce que tu trouves bizarre pour qu’on décide ensemble quoi en faire. »
+
+L’une des fonctions les plus utiles ici est `glimpse()` (du package `dplyr`). Elle affiche un aperçu des premières valeurs de chaque variable **ainsi que leur type** : par exemple `chr` pour une chaîne de caractères (character), `dbl` pour un nombre décimal (double), `int` pour un entier, ou encore `lgl` pour un booléen.
+
+Voici un rappel des principaux types de données en R :
+
+-   `character` (`chr`) : texte
+
+-   `numeric` / `double` (`dbl`) : nombres réels
+
+-   `integer` (`int`) : nombres entiers
+
+-   `logical` (`lgl`) : booléens (`TRUE`, `FALSE`)
+
+-   `factor` : variable catégorielle à niveaux définis
+
+-   `Date` : date au format standard R
+
+Pour transformer une variable, vous pouvez utiliser les fonctions suivantes :
+
+```         
+as.character(base$colonne)
+as.numeric(base$colonne)
+as.integer(base$colonne)
+as.logical(base$colonne)
+as.factor(base$colonne)
+```
+
+Pensez à toujours vérifier le résultat de la transformation avec `glimpse()` ou `summary()`.
+
+> 💬 Alex : « Quand on regarde les types de variables avec glimpse(), il faut garder en tête qu’il y a des standards en science des données. En général, les variables contenant du texte devraient être de type `character` ou `factor` si elles prennent un nombre limité de valeurs (par exemple, une colonne sexe ou province). Les variables contenant des nombres devraient normalement être de type `dbl` (pour les décimaux) ou `int` (pour les entiers), selon le cas.
+
+> Un piège courant, c’est les identifiants ! Même s’ils ont l’air d’être des nombres, comme une colonne `ID_client` ou `numero_contrat`, ce ne sont pas des quantités sur lesquelles on va faire des calculs. Ce sont des étiquettes uniques. On devrait donc les convertir en character. Ça évite qu’un identifiant comme 0012 soit transformé en 12 par erreur, ou que R pense qu’on veut faire une moyenne avec ça… 😅
+
+> Bref, vérifiez bien chaque type. Posez-vous la question : est-ce que cette variable est du texte ? Est-ce que je vais calculer dessus ? Est-ce que ce sont des catégories ? »
+
+## 🔁 Vérification des doublons
+
+Un des premiers réflexes à avoir dans toute opération de nettoyage : **vérifier les doublons**. Il peut s’agir :
+
+-   de doublons **complets** (lignes identiques sur toutes les colonnes),
+-   de doublons **partiels** (même identifiant, mais des valeurs légèrement différentes ailleurs).
+
+💡 Commencez par détecter les doublons complets avec :
+
+``` r
+duplicated(base) %>% sum()
+```
+
+Et pour les identifier :
+
+``` r
+base[duplicated(base), ]
+```
+
+Vous pouvez ensuite les retirer :
+
+``` r
+base <- base %>% distinct()
+```
+
+Si vous voulez repérer les doublons sur une ou plusieurs colonnes clés (ex. : `ID_Variable`), utilisez :
+
+``` r
+base %>% 
+  group_by(ID_Variable) %>% 
+  filter(n() > 1)
+```
+
+> 💬 **Alex** : « Deux clients avec le même numéro, c’est louche. Regarde ce qui se passe. Supprimer aveuglément n’est pas toujours la bonne solution. Note bien ce que tu fais dans le `journal_nettoyage` ! »
+
+Et bien sûr, si vous intervenez, n’oubliez pas de l’indiquer dans la section `DF` de votre `journal_nettoyage`.
+
+``` r
+journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
+  list(
+    id = c(101, 102),
+    variables = "Toutes les colonnes",
+    probleme = "Doublons complets",
+    action = "Lignes supprimées",
+    justification = "Doublons exacts détectés automatiquement"
+  )
+))
+```
+
+# 🧹 Nettoyage des facteurs avec `forcats`
+
+On continue l'exploration avec un type de variable souvent négligé… mais qui peut faire dérailler toute une analyse : les **facteurs**.
+
+En R, les facteurs sont utilisés pour représenter des **catégories**. Par exemple, dans la colonne `VEHICLE_TYPE`, chaque valeur correspond à un type de véhicule : `"car"`, `"truck"`, `"CAR"`, `"ANIMAL"`, etc.
+
+Pour voir l'ensemble des niveaux d'un facteur, vous pouvez utiliser la fonction `levels()` :
+
+```{r, eval=FALSE}
+levels(base$VEHICLE_TYPE)
+```
+
+Bien sur, il faut que ta variable soit de type `factor` pour que cette fonction fonctionne. Si ce n'est pas le cas, vous pouvez la convertir avec `as.factor()` (voir section précédente).
+
+Le problème ?\
+Quand on regarde les niveaux d’un facteur, on remarque souvent des **doublons déguisés** (`"car"` vs `"CAR"`), des **niveaux aberrants** (`"ANIMAL"`) ou des **catégories très rares** qui ne méritent peut-être pas leur propre niveau.
+
+## 🛠 Quelques outils utiles (avec `forcats`)
+
+Pour nettoyer tout ça, voici quelques fonctions clés du package `forcats` :
+
+-   `fct_count()` : pour compter les niveaux et repérer les anomalies
+-   `fct_recode()` : pour renommer des niveaux (par exemple fusionner `"CAR"` et `"car"`)
+-   `fct_collapse()` : pour fusionner plusieurs niveaux en un seul
+-   `fct_lump()` : pour regrouper les niveaux rares en "Autre"
+-   `fct_relevel()` ou `fct_infreq()` : pour réordonner les niveaux
+
+## 👀 Étapes proposées
+
+Prenez le temps de :
+
+1.  **Lister les variables de type facteur** avec `glimpse()` ou `select(where(is.factor))`.
+2.  **Explorer les niveaux** avec `fct_count()`.
+3.  **Identifier les incohérences**, comme :
+    -   mêmes valeurs avec casse différente (`"CAR"` vs `"car"`)
+    -   fautes de frappe (`"Commute"` vs `"Com.mute"`)
+    -   niveaux aberrants (`"ANIMAL"` dans `VEHICLE_TYPE`)
+
+> 💬 **Alex** : « Faites attention à ces valeurs étranges. Si une valeur n’a aucun sens dans le contexte (par exemple `"ANIMAL"` dans une colonne sur les types de véhicules), ne cherchez pas à deviner. Mettez-la à `NA`. On préfère une donnée manquante qu’une mauvaise information. »
+
+## ✏️ Exemple à adapter
+
+``` r
+# Harmoniser les minuscules/majuscules
+base$VEHICLE_TYPE <- base$VEHICLE_TYPE %>% 
+  str_to_title() %>%                     # "car" -> "Car", "TRUCK" -> "Truck"
+  as_factor()
+
+# Remplacer les valeurs aberrantes par NA
+base$VEHICLE_TYPE <- na_if(base$VEHICLE_TYPE, "ANIMAL")
+
+# Ou en changeant les niveaux directement :
+base$VEHICLE_USE <- fct_collapse(
+  base$VEHICLE_USE,
+  Pleasure = c( "Pleasure", "Pleasure"),
+  Commute = c("Commute", "Com.mute"))
+```
+
+Il ne faudra pas oublier de documenter ces modifications dans votre liste `journal_nettoyage` ! Par exemple, pour la variable `VEHICULE_USE` ci-dessus, vous pourriez ajouter :
+
+```{r}
+journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
+  list(
+    id = c(101, 203, 317),  # Adapter avec les bonnes lignes concernées
+    variables = "VEHICLE_USE",
+    probleme = "Fusion de niveaux similaires (majuscules/fautes)",
+    action = "Regroupement de 'Pleasure' et 'pleasure', 'Commute' et 'Com.mute'",
+    justification = "Amélioration de la cohérence et réduction des doublons"
+  )
+))
+```
+
+⚠️ *Ce ne sont que des exemples. À vous d'explorer la base de données et de choisir ce qui est cohérent.*
+
+# 🧼 Recette de nettoyage — Approfondissement
+
+Bravo ! Vous avez déjà corrigé les types de variables et nettoyé les facteurs les plus visibles. Maintenant, on pousse le nettoyage plus loin, en croisant **statistiques**, **relations logiques** et **comportements aberrants**. Voici votre **recette de nettoyage avancé**.
+
+## 📊 Étape 1 – Statistiques descriptives sur les variables numériques
+
+Tout comme on a vérifié les niveaux des facteurs, on doit vérifier si certaines **valeurs numériques sont aberrantes**.
+
+Prenez chaque variable numérique et résumez-la avec `summary()` ou un boxplot pour identifier les extrêmes.
+
+💡 **Exemple : `COMMUTE_DISTANCE`**
+
+``` r
+summary(base$COMMUTE_DISTANCE)
+ggplot(base, aes(x = COMMUTE_DISTANCE)) +
+  geom_histogram(bins = 50, fill = "blue", alpha = 0.7) +
+  labs(title = "Distribution de la distance de trajet domicile-travail",
+       x = "Distance (km)", y = "Fréquence")
+```
+
+Posez-vous la question : - Une distance de 3000 km pour se rendre au travail, c’est plausible ? - Est-ce que certaines valeurs sont manquantes ou négatives ?
+
+Si vous intervenez, n'oubliez pas de **justifier dans `journal_nettoyage`**, en utilisant le code `VA` (valeurs aberrantes) ou `VM` (valeurs manquantes).
+
+## 📉 Étape 2 – Combinaisons incohérentes de deux facteurs
+
+Il peut exister des **relations logiques** entre deux variables catégoriques. Par exemple, le trimestre (`QUARTER`) et la saison (`SEASON`) devraient être cohérents.
+
+💡 **Exemple : `QUARTER` et `SEASON`**
+
+``` r
+table(base$QUARTER, base$SEASON)
+```
+
+> 💬 **Alex** : « Si tu vois `QUARTER = 1` avec `SEASON = "Summer"`, tu devrais tiquer... Ce genre d’incohérence mérite d’être noté, même si tu ne sais pas quoi corriger. »
+
+Vous pouvez aussi visualiser avec un graphique à barres croisé :
+
+``` r
+ggplot(base, aes(x = QUARTER, fill = SEASON)) +
+  geom_bar(position = "fill")
+```
+
+Si vous corrigez, utilisez le code `CI` (incohérences inter-variables).
+
+## 👶 Étape 3 – Statistiques groupées : facteur + numérique
+
+Autre vérification : est-ce que certaines **valeurs numériques sont incohérentes pour certains groupes** ?
+
+💡 **Exemple : `AGE` selon `GENERATION`**
+
+``` r
+base %>% 
+  group_by(GENERATION) %>% 
+  summarise(min = min(AGE, na.rm = TRUE),
+            max = max(AGE, na.rm = TRUE),
+            mean = mean(AGE, na.rm = TRUE))
+
+ggplot(base, aes(x = AGE, fill = GENERATION)) +
+  geom_histogram(position = "identity", alpha = 0.6, bins = 40)
+```
+
+-   Est-ce qu’un bébé appartient à la génération X ?
+-   Une personne de 122 ans est-elle bien classée ?
+
+S’il y a recodage ou regroupement à faire, utilisez le code `RC`.
+
+## 🧠 Étape 4 – Liens logiques entre deux variables numériques
+
+Ici, on vérifie que les relations numériques **ont du sens**.
+
+💡 **Exemple : `AGE` vs `YEARS_LICENSED`**
+
+``` r
+ggplot(base, aes(x = AGE, y = YEARS_LICENSED)) +
+  geom_point(alpha = 0.3) 
+```
+
+-   Est-ce qu’il y a des points au-dessus d'une certaines lignes ? De quelle ligne parle t-on ici?
+-   Peut-on avoir plus d’années de permis que d’âge ?
+
+> 💬 **Alex** : « Tu n’es pas obligé de corriger ici. Par contre, **si tu remarques quelque chose d’étrange**, prends deux minutes pour l’écrire dans le `journal_nettoyage`. Juste pour montrer que tu l’as vu, réfléchi, et que tu as pris une décision. C’est ça être rigoureux. »
+
+Utilisez ici le code `LG` pour une **erreur logique**.
+
+## 🧪 Étape 5 – Vérifications avancées (facultatives mais pros !)
+
+Voici quelques autres choses à garder à l’œil :
+
+-   **Variables redondantes** : deux colonnes qui disent la même chose (`CITY_NAME` et `MUNICIPALITY`)
+-   **Colonnes inutiles** : identifiants internes, colonnes vides ou avec une seule modalité (`EC` ou `RU`)
+-   **Problèmes de format de texte** : accents, caractères spéciaux (`stringr::str_detect`)
+-   **Colonnes fusionnées à la hâte** : chaînes comme `"Smith, John"` dans une seule cellule au lieu de deux (`TR`)
+-   **Format de dates mélangés** : on a laissé cela de côté depuis le début de ce cours, mais sachez que ca s'en vient, nous aurons un module spécial sur les dates.
+
+🧾 *Tout au long de votre nettoyage, documentez vos décisions dans la liste `journal_nettoyage`. Le but n’est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.*
+
+# 🎉 Mission accomplie !
+
+Bravo d’être allé·e jusqu’au bout de cette aventure ! 🧽\
+Vous avez maintenant acquis une solide méthodologie pour nettoyer des données de manière rigoureuse et professionnelle. Vous avez :
+
+-   identifié et corrigé des erreurs de format, de type et de cohérence ;
+-   utilisé les outils de `dplyr`, `stringr`, `forcats` et `ggplot2` pour explorer les données sous toutes leurs coutures ;
+-   documenté chaque intervention dans une structure claire et transparente avec la liste `journal_nettoyage`.
+
+💾 **Avant de terminer**, n’oubliez pas de **pousser sur GitHub** les trois éléments suivants :
+
+1.  📄 Le script `.qmd` de votre aventure (là où vous avez effectué vos tests, analyses et nettoyage)\
+2.  📦 La liste `journal_nettoyage` enregistrée dans un objet `.Rdata`\
+3.  📊 La base de données nettoyée au format `.csv`
+
+Pour sauvegarder votre liste dans un fichier `.Rdata`, utilisez simplement ce code à la fin de votre script :
+
+``` r
+save(journal_nettoyage, file = "journal_nettoyage.Rdata")
+```
+
+> 💬 **Alex** : « Vous venez de faire ce que peu de gens font bien : nettoyer des données proprement, en gardant une trace de vos décisions. C’est ce qui distingue un·e vrai·e professionnel·le de quelqu’un qui bidouille. Chapeau ! »

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Accueil – STT-1100 Introduction à la science des données</title>
+<title>Tableau de bord — Sentiment STT-1100 – STT-1100 Introduction à la science des données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -67,9 +102,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="../site_libs/selectize-0.15.2/css/selectize.bootstrap3.css" rel="stylesheet">
+<script src="../site_libs/selectize-0.15.2/js/selectize.min.js"></script>
+<script src="../site_libs/selectize-0.15.2/accessibility/js/selectize-plugin-a11y.min.js"></script>
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="css/base_css.css">
 </head>
 
 <body class="nav-sidebar floating fullcontent quarto-light">
@@ -81,7 +119,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Accueil</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      STT-1100 Introduction à la science des données
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">STT-1100 Introduction à la science des données</a> 
+      <a href="../">STT-1100 Introduction à la science des données</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -108,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accueil</span></a>
   </div>
 </li>
@@ -132,25 +172,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_01/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_01/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_01/defi.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_01/defi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Défi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices corrigés</span></a>
   </div>
 </li>
@@ -167,13 +207,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_02/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_02/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -190,13 +230,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_03/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_03/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -213,13 +253,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_04/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_04/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -236,19 +276,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_05/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_05/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_05/exercices.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_05/exercices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
 </li>
@@ -265,13 +305,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_06/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_06/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -288,19 +328,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_07/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_07/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse COVID</span></a>
   </div>
 </li>
@@ -317,13 +357,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_08/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_08/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -340,13 +380,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_09/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_09/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -363,13 +403,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_10/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_10/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -386,7 +426,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
+  <a href="../projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Énoncé du projet</span></a>
   </div>
 </li>
@@ -396,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matériel de référence</span></a>
   </div>
 </li>
@@ -411,7 +451,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Accueil</h1>
+<h1 class="title">Tableau de bord — Sentiment STT-1100</h1>
 </div>
 
 
@@ -428,43 +468,61 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenue-en-science-des-données" class="level1">
-<h1>Bienvenue en Science des Données 👋</h1>
-<p><strong>STT-1100 Introduction à la science des données</strong></p>
-<p>Ce site regroupe l’ensemble des notes de cours, des exercices et des projets pour votre session.</p>
-<hr>
-<section id="votre-parcours-dapprentissage" class="level2">
-<h2 class="anchored" data-anchor-id="votre-parcours-dapprentissage">🗺️ Votre parcours d’apprentissage</h2>
-<p>Ce cours est conçu pour vous plonger dans la réalité du métier de scientifique de données. Chaque module est structuré autour d’une approche immersive :</p>
-<div class="grid">
-<section id="laventure" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="laventure">🧭 1. L’Aventure</h3>
-<p><strong>Une mise en situation professionnelle.</strong> Vous n’êtes pas seulement un étudiant, vous êtes un consultant, un analyste junior ou un expert mandaté. Vous apprenez les concepts en résolvant un problème concret pour un client fictif.</p>
-</section>
-<section id="le-défi" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="le-défi">⚔️ 2. Le Défi</h3>
-<p><strong>Votre mission en autonomie.</strong> Après avoir appris les outils nécessaires durant l’aventure, vous devez relever un défi technique pour prouver votre maîtrise. C’est le moment de mettre la main à la pâte !</p>
-</section>
-<section id="le-plan" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="le-plan">📚 3. Le Plan</h3>
-<p><strong>Vos ressources.</strong> Chaque module commence par un plan d’apprentissage clair et des lectures ciblées pour vous préparer à l’aventure.</p>
-</section>
+<section id="column" class="level2 sidebar">
+<h2 class="sidebar anchored" data-anchor-id="column">Column</h2>
+<section id="filtrer-par-semaine" class="level3">
+<h3 class="anchored" data-anchor-id="filtrer-par-semaine">Filtrer par semaine</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">selectInput</span>(<span class="st">"sem"</span>, <span class="st">"Choisissez une semaine:"</span>, <span class="at">choices =</span> <span class="fu">unique</span>(exemple<span class="sc">$</span>semaine), <span class="at">selected =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display no-overflow-x">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="sem-label" for="sem">Choisissez une semaine:</label>
+<div>
+<select id="sem" class="shiny-input-select"><option value="1" selected="">1</option>
+<option value="2">2</option>
+<option value="3">3</option></select>
+<script type="application/json" data-for="sem" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
 </div>
-<hr>
+</div>
+</div>
+</div>
 </section>
-<section id="objectifs-du-cours" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-du-cours">🎯 Objectifs du cours</h2>
-<ol type="1">
-<li><strong>Maîtriser les outils</strong> : RStudio, GitHub, Quarto.</li>
-<li><strong>Gérer les données</strong> : Importation, nettoyage, transformation.</li>
-<li><strong>Analyser et Visualiser</strong> : Créer des graphiques percutants et des analyses statistiques.</li>
-<li><strong>Collaborer</strong> : Travailler en équipe de manière reproductible et éthique.</li>
-</ol>
-<hr>
 </section>
-<section id="prêt-à-commencer" class="level2">
-<h2 class="anchored" data-anchor-id="prêt-à-commencer">🚀 Prêt à commencer ?</h2>
-<p>Rendez-vous dans le menu latéral pour accéder au <strong>Module 1</strong> et débuter votre première aventure !</p>
+<section id="column-1" class="level2">
+<h2 class="anchored" data-anchor-id="column-1">Column</h2>
+<section id="score-de-sentiment-par-semaine" class="level3">
+<h3 class="anchored" data-anchor-id="score-de-sentiment-par-semaine">Score de sentiment par semaine</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">renderPlot</span>({</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(sentiment_fr, <span class="fu">aes</span>(<span class="at">x =</span> semaine, <span class="at">y =</span> score)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Évolution du sentiment"</span>, <span class="at">x =</span> <span class="st">"Semaine"</span>, <span class="at">y =</span> <span class="st">"Score net"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="shiny-plot-output html-fill-item" id="out477a1406691f0157" style="width:100%;height:400px;"></div>
+</div>
+</div>
+</section>
+</section>
+<section id="column-2" class="level2">
+<h2 class="anchored" data-anchor-id="column-2">Column</h2>
+<section id="mots-distinctifs-tf-idf" class="level3">
+<h3 class="anchored" data-anchor-id="mots-distinctifs-tf-idf">Mots distinctifs (TF-IDF)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">renderPlot</span>({ </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  tfidf <span class="ot">&lt;-</span> texte_nettoye <span class="sc">%&gt;%</span> <span class="fu">count</span>(semaine, word) <span class="sc">%&gt;%</span> <span class="fu">bind_tf_idf</span>(word, semaine, n)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>tfidf <span class="sc">%&gt;%</span> <span class="fu">filter</span>(semaine <span class="sc">==</span> input<span class="sc">$</span>sem) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_max</span>(tf_idf, <span class="at">n =</span> <span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">fct_reorder</span>(word, tf_idf)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> word, <span class="at">y =</span> tf_idf)) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"TF-IDF - Semaine"</span>, input<span class="sc">$</span>sem), <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Score TF-IDF"</span>) })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="shiny-plot-output html-fill-item" id="out1c78aee95a5a8765" style="width:100%;height:400px;"></div>
+</div>
+</div>
 
 
 </section>

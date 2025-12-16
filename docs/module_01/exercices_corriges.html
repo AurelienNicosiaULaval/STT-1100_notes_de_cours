@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Aurélien Nicosia">
 
-<title>Accueil – STT-1100 Introduction à la science des données</title>
+<title>Corrigés exercice module 1 - Plongée en science des données – STT-1100 Introduction à la science des données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +21,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,7 +105,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="css/base_css.css">
 </head>
 
 <body class="nav-sidebar floating fullcontent quarto-light">
@@ -81,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Accueil</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_01/plan_apprentissage.html">1 - Plongée en science des données</a></li><li class="breadcrumb-item"><a href="../module_01/exercices_corriges.html">Exercices corrigés</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">STT-1100 Introduction à la science des données</a> 
+      <a href="../">STT-1100 Introduction à la science des données</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -108,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accueil</span></a>
   </div>
 </li>
@@ -123,34 +158,34 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">1 - Plongée en science des données</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_01/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_01/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_01/defi.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_01/defi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Défi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Exercices corrigés</span></a>
   </div>
 </li>
@@ -167,13 +202,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_02/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_02/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -190,13 +225,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_03/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_03/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -213,13 +248,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_04/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_04/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -236,19 +271,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_05/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_05/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_05/exercices.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_05/exercices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
 </li>
@@ -265,13 +300,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_06/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_06/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -288,19 +323,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_07/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_07/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse COVID</span></a>
   </div>
 </li>
@@ -317,13 +352,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_08/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_08/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -340,13 +375,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_09/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_09/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -363,13 +398,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./module_10/aventure.html" class="sidebar-item-text sidebar-link">
+  <a href="../module_10/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
@@ -386,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
+  <a href="../projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Énoncé du projet</span></a>
   </div>
 </li>
@@ -396,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matériel de référence</span></a>
   </div>
 </li>
@@ -409,15 +444,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_01/plan_apprentissage.html">1 - Plongée en science des données</a></li><li class="breadcrumb-item"><a href="../module_01/exercices_corriges.html">Exercices corrigés</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Accueil</h1>
+<h1 class="title">Corrigés exercice module 1 - Plongée en science des données</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Aurélien Nicosia </p>
+          </div>
+  </div>
     
   
     
@@ -428,46 +469,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenue-en-science-des-données" class="level1">
-<h1>Bienvenue en Science des Données 👋</h1>
-<p><strong>STT-1100 Introduction à la science des données</strong></p>
-<p>Ce site regroupe l’ensemble des notes de cours, des exercices et des projets pour votre session.</p>
-<hr>
-<section id="votre-parcours-dapprentissage" class="level2">
-<h2 class="anchored" data-anchor-id="votre-parcours-dapprentissage">🗺️ Votre parcours d’apprentissage</h2>
-<p>Ce cours est conçu pour vous plonger dans la réalité du métier de scientifique de données. Chaque module est structuré autour d’une approche immersive :</p>
-<div class="grid">
-<section id="laventure" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="laventure">🧭 1. L’Aventure</h3>
-<p><strong>Une mise en situation professionnelle.</strong> Vous n’êtes pas seulement un étudiant, vous êtes un consultant, un analyste junior ou un expert mandaté. Vous apprenez les concepts en résolvant un problème concret pour un client fictif.</p>
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
+<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
 </section>
-<section id="le-défi" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="le-défi">⚔️ 2. Le Défi</h3>
-<p><strong>Votre mission en autonomie.</strong> Après avoir appris les outils nécessaires durant l’aventure, vous devez relever un défi technique pour prouver votre maîtrise. C’est le moment de mettre la main à la pâte !</p>
-</section>
-<section id="le-plan" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="le-plan">📚 3. Le Plan</h3>
-<p><strong>Vos ressources.</strong> Chaque module commence par un plan d’apprentissage clair et des lectures ciblées pour vous préparer à l’aventure.</p>
-</section>
+<section id="running-code" class="level2">
+<h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
+<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
 </div>
-<hr>
-</section>
-<section id="objectifs-du-cours" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-du-cours">🎯 Objectifs du cours</h2>
-<ol type="1">
-<li><strong>Maîtriser les outils</strong> : RStudio, GitHub, Quarto.</li>
-<li><strong>Gérer les données</strong> : Importation, nettoyage, transformation.</li>
-<li><strong>Analyser et Visualiser</strong> : Créer des graphiques percutants et des analyses statistiques.</li>
-<li><strong>Collaborer</strong> : Travailler en équipe de manière reproductible et éthique.</li>
-</ol>
-<hr>
-</section>
-<section id="prêt-à-commencer" class="level2">
-<h2 class="anchored" data-anchor-id="prêt-à-commencer">🚀 Prêt à commencer ?</h2>
-<p>Rendez-vous dans le menu latéral pour accéder au <strong>Module 1</strong> et débuter votre première aventure !</p>
+</div>
+<p>You can add options to executable code like this</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
