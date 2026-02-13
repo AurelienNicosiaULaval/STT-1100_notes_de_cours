@@ -4712,6 +4712,9 @@ Exercice
 </ol>
 <p>Dans le cours, vous devez suivre les <a href="https://style.tidyverse.org/">bonnes pratiques de codage du tydiverse</a>. Pour ce module, on portera une attention particulière à certaines partie de ce guide : chapitre 1 Files, chapitre 2 Syntax et section 3.1 Functions/Naming. La table ci-dessous résume les critères importants de ces sections et servira de grille d’évaluation pour vos codes. Notez que cette grille sera amenée à évoluer au fil des modules.</p>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;knitr&#39; was built under R version 4.5.2</code></pre>
+</div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Grille d’évaluation du code R selon le style tidyverse.</caption>
@@ -4775,15 +4778,15 @@ Exercice
 <ul>
 <li><p>Identifiez les erreurs de style dans le code.</p></li>
 <li><p>Corrigez-les en appliquant les bonnes pratiques du style tidyverse.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>MyFunction <span class="ot">=</span> <span class="cf">function</span>(x,y){</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>result<span class="ot">=</span>x<span class="sc">+</span>y</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(result) }</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">id=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">name=</span><span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>,<span class="st">&quot;Bob&quot;</span>,<span class="st">&quot;Charlie&quot;</span>,<span class="st">&quot;David&quot;</span>,<span class="st">&quot;Eva&quot;</span>))</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">=</span> <span class="fu">subset</span>(df, id<span class="sc">&gt;</span><span class="dv">2</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>df_selected <span class="ot">=</span> df_filtered[,<span class="fu">c</span>(<span class="st">&quot;name&quot;</span>)]</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>df_selected<span class="sc">$</span>Upper <span class="ot">=</span> <span class="fu">toupper</span>(df_selected<span class="sc">$</span>name)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>MyFunction <span class="ot">=</span> <span class="cf">function</span>(x,y){</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>result<span class="ot">=</span>x<span class="sc">+</span>y</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(result) }</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">id=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">name=</span><span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>,<span class="st">&quot;Bob&quot;</span>,<span class="st">&quot;Charlie&quot;</span>,<span class="st">&quot;David&quot;</span>,<span class="st">&quot;Eva&quot;</span>))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">=</span> <span class="fu">subset</span>(df, id<span class="sc">&gt;</span><span class="dv">2</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df_selected <span class="ot">=</span> df_filtered[,<span class="fu">c</span>(<span class="st">&quot;name&quot;</span>)]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>df_selected<span class="sc">$</span>Upper <span class="ot">=</span> <span class="fu">toupper</span>(df_selected<span class="sc">$</span>name)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </div>
 </div>
@@ -4807,11 +4810,11 @@ Exercice
 <p>Un fichier Quarto commence toujours par un en-tête YAML, suivi de contenu en Markdown et de blocs de code (chunks).</p>
 <section id="exemple-de-fichier-quarto-de-base" class="level4">
 <h4 class="anchored" data-anchor-id="exemple-de-fichier-quarto-de-base">Exemple de fichier Quarto de base</h4>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Mon premier document Quarto&quot;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Mon premier document Quarto&quot;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="insérer-un-chunk-bloc-de-code-r" class="level4">
 <h4 class="anchored" data-anchor-id="insérer-un-chunk-bloc-de-code-r">Insérer un <em>chunk</em> (bloc de code) R</h4>
@@ -4823,8 +4826,8 @@ Exercice
 </figure>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un bloc de code</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un bloc de code</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
@@ -4880,18 +4883,18 @@ Exercice
 <h2 class="anchored" data-anchor-id="ulavalssd"><code>UlavalSSD</code></h2>
 <p>Premièrement, vous allez installer la librairie <code>UlavalSSD</code> et la charger dans votre environnement de travail.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer le package remotes si nécessaire</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer UlavalSSD depuis GitHub</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;AurelienNicosiaULaval/UlavalSSD&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer le package remotes si nécessaire</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer UlavalSSD depuis GitHub</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;AurelienNicosiaULaval/UlavalSSD&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Le fait de charger la librairie va nous permettre d’accéder à tout son contenu. Vous pouvez voir les fichiers d’aide de la librairie avec le code suivant (ou en cherchant dans l’onglet package à droite)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">&quot;UlavalSSD&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">&quot;UlavalSSD&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5045,8 +5048,8 @@ Exercice
 <h2 class="anchored" data-anchor-id="exemple-de-tableau-de-données">Exemple de tableau de données</h2>
 <p>Nous allons utiliser les données <code>MeteoQuebec</code>. La fonction <code>head</code> est très pratique, car comme son nom l’indique, elle permet d’afficher le haut (la tête) de la base de données. Cela permet d’avoir un accès rapide aux informations contenues dans les variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Affichage du haut du jeu de données</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Affichage du haut du jeu de données</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ...1 year month day max_temp mean_temp min_temp total_precip total_rain
 1    1 1970    01  01    -12.8     -16.1    -19.4          0.0          0
@@ -5069,9 +5072,9 @@ Exercice
 <p>Pour extraire une ligne spécifique, utilisez le format <code>nom_donnees[numéro_de_ligne, ]</code>.</p>
 <p>Exemple : Obtenons la 2e ligne :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire la 2ᵉ ligne</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ligne_2 <span class="ot">&lt;-</span> MeteoQuebec[<span class="dv">2</span>, ]</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ligne_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire la 2ᵉ ligne</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>ligne_2 <span class="ot">&lt;-</span> MeteoQuebec[<span class="dv">2</span>, ]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ligne_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ...1 year month day max_temp mean_temp min_temp total_precip total_rain
 2    2 1970    01  02    -12.8     -16.1    -19.4            0          0
@@ -5086,13 +5089,13 @@ Exercice
 <p><strong>Attention</strong>, habituellement on préfère extraire une colonne par son nom que par son numéro. Tout d’abord, si votre ensemble de données contient de nombreuses colonnes, cela va devenir fastidieux de trouver le bon numéro. Aussi, pour être reproductible, il vaut mieux travailler avec le nom, puisque même si l’ordre des colonnes change, votre analyse restera valide.</p>
 <p>Exemple : Obtenons la colonne <strong>total_precip</strong> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Méthode 1 : Par numéro de colonne</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>colonne_score <span class="ot">&lt;-</span> MeteoQuebec[, <span class="dv">7</span>]</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_score)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Méthode 2 : Par nom de colonne</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>colonne_score2 <span class="ot">&lt;-</span> MeteoQuebec[[<span class="st">&quot;total_precip&quot;</span>]]</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_score2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Méthode 1 : Par numéro de colonne</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>colonne_score <span class="ot">&lt;-</span> MeteoQuebec[, <span class="dv">7</span>]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_score)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Méthode 2 : Par nom de colonne</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>colonne_score2 <span class="ot">&lt;-</span> MeteoQuebec[[<span class="st">&quot;total_precip&quot;</span>]]</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_score2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="extraire-une-colonne-avec-lopérateur" class="level3">
@@ -5100,9 +5103,9 @@ Exercice
 <p>Une méthode plus simple pour extraire une colonne consiste à utiliser l’opérateur <code>$</code>.</p>
 <p>Exemple : Obtenons la colonne <strong>mean_temp</strong> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire la colonne &quot;mean_temp&quot;</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>colonne_mean_temp <span class="ot">&lt;-</span> MeteoQuebec<span class="sc">$</span>mean_temp </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_mean_temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire la colonne &quot;mean_temp&quot;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>colonne_mean_temp <span class="ot">&lt;-</span> MeteoQuebec<span class="sc">$</span>mean_temp </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_mean_temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5125,9 +5128,9 @@ Exemple
 <p>Pour créer une nouvelle colonne, utilisez l’opérateur <code>$</code> et assignez-y une valeur.</p>
 <p>Exemple : Ajoutons une colonne <strong>etendue_temp</strong>, égale à <strong>max_temp-min_temp</strong> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter une nouvelle colonne</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>MeteoQuebec<span class="sc">$</span>etendue_temp <span class="ot">&lt;-</span> MeteoQuebec<span class="sc">$</span>max_temp <span class="sc">-</span>MeteoQuebec<span class="sc">$</span>min_temp</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter une nouvelle colonne</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>MeteoQuebec<span class="sc">$</span>etendue_temp <span class="ot">&lt;-</span> MeteoQuebec<span class="sc">$</span>max_temp <span class="sc">-</span>MeteoQuebec<span class="sc">$</span>min_temp</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ...1 year month day max_temp mean_temp min_temp total_precip total_rain
 1    1 1970    01  01    -12.8     -16.1    -19.4          0.0          0
@@ -5166,9 +5169,9 @@ Exercice
 <p>Vous pouvez utiliser des conditions logiques avec les crochets <code>[]</code> pour extraire des lignes spécifiques.</p>
 <p>Exemple : Obtenons les lignes où la temperature moyenne <strong>mean_temp</strong> est supérieure à 25 :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire les lignes avec un Score &gt; 85</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>lignes_mean_temp_25 <span class="ot">&lt;-</span> MeteoQuebec[MeteoQuebec<span class="sc">$</span>mean_temp <span class="sc">&gt;</span> <span class="dv">25</span>, ]</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lignes_mean_temp_25)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire les lignes avec un Score &gt; 85</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>lignes_mean_temp_25 <span class="ot">&lt;-</span> MeteoQuebec[MeteoQuebec<span class="sc">$</span>mean_temp <span class="sc">&gt;</span> <span class="dv">25</span>, ]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lignes_mean_temp_25)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5193,7 +5196,7 @@ Exercice
 </ul>
 <p>Voici un exemple où on va chercher le sous-ensemble des données correspondant aux journées de l’année 2000 pour lesquelles il n’y avait aucune précipitation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec[MeteoQuebec<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2000</span> <span class="sc">&amp;</span> MeteoQuebec<span class="sc">$</span>total_precip <span class="sc">==</span> <span class="dv">0</span>,])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec[MeteoQuebec<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2000</span> <span class="sc">&amp;</span> MeteoQuebec<span class="sc">$</span>total_precip <span class="sc">==</span> <span class="dv">0</span>,])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       ...1 year month day max_temp mean_temp min_temp total_precip total_rain
 10962 10962 2000    01  05     -3.1     -10.1    -17.0            0         NA
