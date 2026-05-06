@@ -88,9 +88,25 @@
     gap:.35rem;
   }
 
-  /* Hide controls only on phones; tablets/desktops keep them visible */
+  /* Keep controls visible on mobile to ensure language switch is always accessible */
   @media (max-width: 575.98px){
-    .qs-toggle-controls{ display:none !important; }
+    .qs-toggle-host{
+      top: 6px;
+      right: 8px;
+      gap: .3rem;
+      align-items: flex-start;
+    }
+    .qs-language-switch{
+      padding: .15rem .25rem;
+      font-size: .8rem;
+    }
+    .qs-toggle-btn{
+      padding: .15rem .35rem;
+      font-size: .8rem;
+    }
+    .qs-toggle-btn span{
+      display: none;
+    }
   }
 </style>
 
