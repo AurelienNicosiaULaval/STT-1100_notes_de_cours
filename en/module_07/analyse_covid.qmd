@@ -6,7 +6,7 @@ format:
     toc-title: Plan
     self-contained: true
     link-external-newwindow: true
-editor:visual
+editor: visual
 ---
 
 ## Data context
@@ -19,8 +19,8 @@ library(tidyverse)
 # Simulation of a problematic database
 set.seed(1234)
 covid_problematic <- data.frame(
-  first name = sample(c("Jean", "Marie", "Luc", "Chloé", "David"), 50, replace = TRUE),
-  name = sample(c("Dupont", "Lavoie", "Nguyen", "Morin", "Gagné"), 50, replace = TRUE),
+  first_name = sample(c("Jean", "Marie", "Luc", "Chloé", "David"), 50, replace = TRUE),
+  last_name = sample(c("Dupont", "Lavoie", "Nguyen", "Morin", "Gagné"), 50, replace = TRUE),
   age = sample(60:95, 50, replace = TRUE),
   region = sample(c("Montreal", "Quebec", "Outaouais"), 50, replace = TRUE),
   confirmed_cases = sample(60:150, 50, replace = TRUE),
@@ -29,7 +29,7 @@ covid_problematic <- data.frame(
 
 # Creating a variable with full name (privacy issue)
 covid_problematic <- covid_problematic %>%
-  mutate(person = paste(first name, last name, ",", age, "years"))
+  mutate(person = paste(first_name, last_name, ",", age, "years"))
 
 # Data available for students
 available <- covid_problematic %>%
@@ -37,7 +37,7 @@ available <- covid_problematic %>%
 
 head(available)
 
-write_csv(available, “data_covid_module7.csv”)
+write_csv(available, "data_covid_module7.csv")
 ```
 
 ## Visualization proposed by the research team
@@ -47,9 +47,9 @@ case_by_region <- covid_problematic %>%
   group_by(region) %>%
   summarise(total_cases = sum(confirmed_cases), .groups = "drop")
 
-ggplot(cas_par_region, aes(x = region, y = total_cases, fill = region)) +
+ggplot(case_by_region, aes(x = region, y = total_cases, fill = region)) +
   geom_bar(stat = "identity") +
-  scale_y_continuous(breaks = seq(0, max(cas_par_region$cas_totals), by = 10)) +
+  scale_y_continuous(breaks = seq(0, max(case_by_region$total_cases), by = 10)) +
   scale_fill_manual(values = c("Montreal" = "red", "Quebec" = "orange", "Outaouais" = "purple")) +
   theme_minimal() +
   theme(legend.position = "none")  
@@ -129,4 +129,4 @@ Data were pooled quickly without standardization by population. No margin of err
 
 **Educational note**: This document deliberately contains numerous visualization, ethical and analytical errors. It is used as a starting point for your critical mission.
 
-The `donnees_covid_module7.csv` file is the one you must use to produce a corrected version of the graph.
+The `data_covid_module7.csv` file is the one you must use to produce a corrected version of the graph.

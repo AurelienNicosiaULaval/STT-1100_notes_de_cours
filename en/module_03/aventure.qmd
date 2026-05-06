@@ -3,7 +3,7 @@ title: "Adventure 3 - Violations in Montreal restaurants"
 subtitle: "STT-1100 Introduction to Data Science"
 author: 
   - institute: “Laval University”
-editor:visual
+editor: visual
 editor_options: 
   chunk_output_type: console
 format:
@@ -93,7 +93,7 @@ In R, a categorical variable is often represented by:
 
 For module 3, we will focus on categorical variables of type **character**. In Module 4, we will look at the factors in more detail.
 
-Here are examples demonstrating how to use `stringr` (part of the `Tidyverse`) to manipulate character variables in a dataset like `convictionlist`. The examples below target common cases: pattern detection, extraction, replacement, and string cleaning.
+Here are examples demonstrating how to use `stringr` (part of the `Tidyverse`) to manipulate character variables in a dataset like `listecondamnation`. The examples below target common cases: pattern detection, extraction, replacement, and string cleaning.
 
 ## 🚀 Demonstration
 
@@ -102,7 +102,7 @@ We will use the `listecondemnation` dataset from the `UlavalSSD` library which c
 ```{r}
 library(UlavalSSD)
 library(tidyverse)
-glimpse(convictionlist)
+glimpse(listecondamnation)
 ```
 
 > **Note**: Running `glimpse()` on your data will allow you to identify which columns are in `chr` (character) and which are in `factor` or even in `numeric`.
@@ -134,12 +134,12 @@ To check if the address mentions `"MONTREAL"` (or a postal code, etc.), you can 
 ```{r}
 
 # Create a Boolean column 'est_montreal'
-condemnationlist <- condemnationlist %>%
-  mutate(est_montreal = str_detect(Address_place_offense, "MONTREAL"))
+listecondamnation <- listecondamnation %>%
+  mutate(est_montreal = str_detect(Adresse_lieu_infraction, "MONTREAL"))
 
 # Overview
-condemnationlist %>%
-  select(Address_place_offense, est_montreal) %>%
+listecondamnation %>%
+  select(Adresse_lieu_infraction, est_montreal) %>%
   head(10)
 ```
 
@@ -162,15 +162,15 @@ To clean up the `Fine` column, you can remove the `$` symbol or replace commas w
 ```{r}
 
 # str_replace() replaces the 1st occurrence; str_replace_all() all occurrences  
-condemnationlist <- condemnationlist %>% mutate( 
+listecondamnation <- listecondamnation %>% mutate( 
   # Example: remove the $ if present 
-  Fine_clean = str_replace_all(Fine, "\\$", ""), 
+  Amende_clean = str_replace_all(Amende, "\\$", ""), 
   # replace any commas with a period   
   Amende_clean = str_replace_all(Amende_clean, ",", ".") )  
 
 # Let's check 
-condemnationlist %>%  
-  select(Fine, Fine_clean) %>%  
+listecondamnation %>%  
+  select(Amende, Amende_clean) %>%  
   head(10)
 ```
 
@@ -196,12 +196,12 @@ To extract a specific element. For example, if `Address_lieu_offense` contains a
 
 ```{r}
 
-condemnationlist <- condemnationlist %>%   
+listecondamnation <- listecondamnation %>%   
   mutate(     
-    postal_code = str_extract(Offense_location_address, "[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]") )  
+    code_postal = str_extract(Adresse_lieu_infraction, "[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]") )  
 
-condemnationlist %>%  
-  select(Address_place_offense, postal_code) %>%
+listecondamnation %>%  
+  select(Adresse_lieu_infraction, code_postal) %>%
   head(10)
 ```
 
@@ -226,11 +226,11 @@ A nice addition to your article!
 Sometimes it is useful to harmonize the case (`MONTREAL`, `Montréal`, etc.):
 
 ```{r}
-condemnationlist <- condemnationlist %>%  
-  mutate(Address_lower = str_to_lower(Address_place_offense),    
+listecondamnation <- listecondamnation %>%  
+  mutate(Adresse_lower = str_to_lower(Adresse_lieu_infraction),    
               # or str_to_upper, str_to_title ...   
               # trim to remove excess spaces    
-              Address_trim = str_trim(Address_place_offense) )
+              Adresse_trim = str_trim(Adresse_lieu_infraction) )
 ```
 
 ### Removing multiple spaces (`str_squish()`)
@@ -238,9 +238,9 @@ condemnationlist <- condemnationlist %>%
 If the data contains unnecessary spaces:
 
 ```{r}
-condemnationlist <- condemnationlist %>%   
+listecondamnation <- listecondamnation %>%   
   mutate(     
-    Squish_address = str_squish(offense_location_address)  
+    Adresse_squish = str_squish(Adresse_lieu_infraction)  
     )
 ```
 
@@ -292,7 +292,7 @@ Now we can do the same thing but for offenses related to temperature with `liste
 And there are 5 of them:
 
 ```{r echo=FALSE}
-condemnationlist %>% 
+listecondamnation %>% 
   mutate(est_temp = str_detect(SOC_NOM_ARTCL_INFRC, "TEMPERATURE")) %>%
   filter(est_temp == TRUE) %>%
   select(SOC_NOM_ARTCL_INFRC) %>% 
@@ -323,8 +323,8 @@ In this section, we will discover how to summarize the information contained in 
 ```{r}
 # Number of offenses by type of establishment
 
-condemnationlist %>%
-  count(Type_establishment) %>%
+listecondamnation %>%
+  count(Type_etablissement) %>%
   arrange(desc(n))
 ```
 
@@ -348,8 +348,8 @@ A contingency table (or cross-tabulation) is a table which simultaneously presen
 
 ```{r eval=FALSE}
 table(
-  convictionlist$Type_establishment,
-  convictionlist$SOC_NOM_ARTCL_INFRC
+  listecondamnation$Type_etablissement,
+  listecondamnation$SOC_NOM_ARTCL_INFRC
 )
 
 ```
@@ -363,13 +363,13 @@ You can easily find the information by looking for it directly in the crosstab:
 
 ```{r}
 tab <-table(
-  convictionlist$Type_establishment,
-  convictionlist$SOC_NOM_ARTCL_INFRC
+  listecondamnation$Type_etablissement,
+  listecondamnation$SOC_NOM_ARTCL_INFRC
 )
 
-tab["QUICK SERVICE RESTAURANT", "UNSALUBRITY"]
+tab["RESTAURANT SERVICE RAPIDE", "INSALUBRITE"]
 
-tab["RESTAURANT", "INSECTS RODENT EXCREEMENT"]
+tab["RESTAURANT", "INSECTES RONGEURS EXCREMENTS"]
 ```
 :::
 
@@ -407,8 +407,8 @@ To visually represent categorical variables, we often use:
 library(ggplot2)
 
 # Example: Number of offenses by type of establishment
-condemnationlist %>%
-  ggplot(aes(x = establishment_type)) +
+listecondamnation %>%
+  ggplot(aes(x = Type_etablissement)) +
   geom_bar(fill = "steelblue") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) + # allows you to rotate the label names on the x axis
   labs(
@@ -458,7 +458,7 @@ To close the investigation, **Alexandre** got his hands on a piece of R code wri
 # ────────────────────────────── ──────────────────────────────
 # Utility function: from postal code (e.g. "H2X 3X2") to lon/lat
 # Uses tidygeocoder + Nominatim geocoding API (OpenStreetMap)
-geocode_pc <- function(df, pc_col = "postal_code") {
+geocode_pc <- function(df, pc_col = "code_postal") {
   df %>%
      #1) Clean up postal codes: remove spaces, capital letters
     mutate(
@@ -492,24 +492,24 @@ geocode_pc <- function(df, pc_col = "postal_code") {
 
 ```{r solution-map, message=FALSE, warning=FALSE, echo=FALSE, eval=FALSE}
 library(viridis)
-#1. Geocoding (sample for demo; remove slice_head() in final render)
-offenses_geo <- convictionlist %>%
+##1. Geocoding (sample for demo; remove slice_head() in final render)
+infractions_geo <- listecondamnation %>%
   mutate(Amende = as.numeric(Amende_clean)) %>%
-  select(postal_code, fine = Fine) %>%
-  filter(!is.na(postal_code), !is.na(fine)) %>%
+  select(code_postal, amende = Amende) %>%
+  filter(!is.na(code_postal), !is.na(amende)) %>%
   slice_head(n = 500) %>%
-  geocode_pc(pc_col = "postal_code") %>%
+  geocode_pc(pc_col = "code_postal") %>%
   mutate(pc_round = paste0(round(latitude, 4), "_", round(longitude, 4)))
 
 #2. Aggregation by geocoded point
-pts_card <- geo_offenses %>%
+carte_pts <- infractions_geo %>%
   group_by(pc_round) %>%
   summarize(lat = mean(latitude), lon = mean(longitude),
-            total_fine = sum(fine, na.rm = TRUE), .groups = "drop")
+            total_amende = sum(amende, na.rm = TRUE), .groups = "drop")
 
 #3. Static Map
-ggplot(map_pts, aes(lon, lat)) +
-  geom_point(aes(size = total_fine, color = total_fine), alpha = 0.7) +
+ggplot(carte_pts, aes(lon, lat)) +
+  geom_point(aes(size = total_amende, color = total_amende), alpha = 0.7) +
   scale_size_continuous(labels = scales::dollar_format()) +
   scale_color_viridis_c(labels = scales::dollar_format()) +
   coord_sf(crs = 4326) +
