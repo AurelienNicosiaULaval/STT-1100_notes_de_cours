@@ -1,10 +1,10 @@
 ---
 title: "Aventure 1 - Plongée en science des données"
 subtitle: "STT-1100 Introduction à la science des données"
-author: 
+author:
   - institute: "Université Laval"
 editor: visual
-editor_options: 
+editor_options:
   chunk_output_type: console
 format:
   html:
@@ -12,7 +12,7 @@ format:
     toc-title: Plan
     css: [../css/base_css.css]
     self-contained: true
-#    number-sections: true
+# number-sections: true
 ---
 
 # Comment réussir ce module {.unnumbered}
@@ -219,7 +219,7 @@ Voici quelques conseils pour écrire un code propre et facile à maintenir :
     somme <- sum(vecteur)
     ```
 
-Dans le cours, vous devez suivre les [bonnes pratiques de codage du tydiverse](https://style.tidyverse.org/). Pour ce module, on portera une attention particulière à certaines partie de ce guide : chapitre 1 Files, chapitre 2 Syntax et section 3.1 Functions/Naming. La table ci-dessous résume les critères importants de ces sections et servira de grille d'évaluation pour vos codes. Notez que cette grille sera amenée à évoluer au fil des modules.
+Dans le cours, vous devez suivre les [bonnes pratiques de codage du tidyverse](https://style.tidyverse.org/). Pour ce module, on portera une attention particulière à certaines parties de ce guide : chapitre 1 Files, chapitre 2 Syntax et section 3.1 Functions/Naming. La table ci-dessous résume les critères importants de ces sections et servira de grille d'évaluation pour vos codes. Notez que cette grille sera amenée à évoluer au fil des modules.
 
 ```{r, echo=FALSE}
 library(knitr)
@@ -227,12 +227,12 @@ kable(
   data.frame(
     Critère = c("Syntaxe et indentation", "Espaces et lisibilité", "Longueur des lignes", "Assignation", "Nommage des objets", "Style des fonctions", "Cohérence et clarté", "Commentaires utiles"),
     Explication = c(
-      "Respect de l’indentation et de la structure du code (2 espaces par niveau d’imbrication, pas de tabulation).",
+      "Respect de l'indentation et de la structure du code (2 espaces par niveau d'imbrication, pas de tabulation).",
       "Espaces cohérents autour des opérateurs (`<-`, `=`, `+`, etc.) et après les virgules pour améliorer la lisibilité.",
       "Les lignes de code ne dépassent pas 80 caractères (sauf exceptions justifiées).",
-      "Utilisation de `<-` au lieu de `=` pour l’assignation de valeurs.",
+      "Utilisation de `<-` au lieu de `=` pour l'assignation de valeurs.",
       "Utilisation de noms explicites et en `snake_case` Ex: `ma_variable` plutôt que `MaVariable` ou `maVariable`.",
-      "Espaces après les virgules, pas d’espace avant l’ouverture des parenthèses. Ex: `mean(x, na.rm = TRUE)`.",
+      "Espaces après les virgules, pas d'espace avant l'ouverture des parenthèses. Ex: `mean(x, na.rm = TRUE)`.",
       "Le code est écrit de manière claire et compréhensible, en évitant la complexité inutile.",
       "Les commentaires sont concis et utiles, sans être redondants. Utilisation de `#` avec un espace après."    )
   ),
@@ -316,9 +316,9 @@ editor: visual
 
 #### Insérer un *chunk* (bloc de code) R
 
-Pour insérer un *chunk* (bloc de code) dans un document quarto, vous pouvez cliquer sur le symbole suivant :
+Pour insérer un *chunk* (bloc de code) dans un document Quarto, vous pouvez cliquer sur le symbole suivant :
 
-![Bouton pour ajouter un bloc de code dans Rstudio](resources/bouton_chunck.png)
+![Bouton pour ajouter un bloc de code dans RStudio](resources/bouton_chunck.png)
 
 ```{r}
 # Ceci est un bloc de code
@@ -440,7 +440,7 @@ Dans les prochaines semaines, nous aurons un module complet sur le nettoyage des
 ::: callout-tip
 #### Exercice
 
--   Dans le jeu de données `MeteoQuebec`, verifiez s'il y a des données manquantes. Vous pouvez utiliser pour cela la fonction `summary`. Quand on applique la fonction `summary` sur un jeu de données, celle-ci nous donne des statistiques descriptives (nous y reviendrons), mais elle donne surtout le nombre de données manquantes par colonne.
+-   Dans le jeu de données `MeteoQuebec`, vérifiez s'il y a des données manquantes. Vous pouvez utiliser pour cela la fonction `summary`. Quand on applique la fonction `summary` sur un jeu de données, celle-ci nous donne des statistiques descriptives (nous y reviendrons), mais elle donne surtout le nombre de données manquantes par colonne.
 
 -   Les données `MeteoQuebec` sont-telles propres? Justifiez votre réponse.
 :::
@@ -496,7 +496,7 @@ Exemple : Obtenons la colonne **mean_temp** :
 
 ```{r,eval=FALSE}
 # Extraire la colonne "mean_temp"
-colonne_mean_temp <- MeteoQuebec$mean_temp 
+colonne_mean_temp <- MeteoQuebec$mean_temp
 print(colonne_mean_temp)
 ```
 

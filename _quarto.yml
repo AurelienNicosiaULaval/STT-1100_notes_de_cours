@@ -1,6 +1,13 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "module_*/**/*.qmd"
+    - "projet_session/**/*.qmd"
+    - "autre_materiel/**/*.qmd"
+  resources:
+    - module_07/donnees_covid_module7.csv
 
 website:
   title: "STT-1100 Introduction à la science des données"
@@ -85,6 +92,16 @@ website:
                 href: "projet_session/enonce_projet.qmd"
       - text: "Matériel de référence"
         href: references.qmd
+      - section: "Ressources complémentaires"
+        contents:
+          - text: "Aide-mémoire GitHub/RStudio"
+            href: "autre_materiel/aide-memoire-rstudio-github.qmd"
+          - text: "Chercher de l'aide"
+            href: "autre_materiel/rechercher-aide/comment-chercher-aide.qmd"
+          - text: "Feuille aide-mémoire"
+            href: "autre_materiel/cheatsheet/stt1100_cheatsheet_mod.qmd"
+          - text: "Rôles en science des données"
+            href: "autre_materiel/roles-science-donnees/roles_presentation_v2.qmd"
 format:
   html:
     include-after-body: toggle-sidebar.html

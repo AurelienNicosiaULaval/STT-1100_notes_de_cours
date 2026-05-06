@@ -3971,7 +3971,7 @@ font-size: 0.65em;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Corrected exercises</span></a>
+ <span class="menu-text">Exercise solutions</span></a>
   </div>
 </li>
       </ul>
@@ -4220,6 +4220,41 @@ font-size: 0.65em;
  <span class="menu-text">Reference material</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">Additional resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/clone-github-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clone GitHub in RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/help-search/how-to-get-help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Find help effectively</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/cheatsheet/stt1100_cheatsheet_mod.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course cheat sheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources/data-science-roles/roles_presentation_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data science roles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -4230,7 +4265,7 @@ font-size: 0.65em;
     <h2 id="toc-title">Adventure plan</h2>
    
   <ul>
-  <li><a href="#put-in-context" id="toc-put-in-context" class="nav-link active" data-scroll-target="#put-in-context">✈️ Put in context</a></li>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
   <li><a href="#adventure-objectives" id="toc-adventure-objectives" class="nav-link" data-scroll-target="#adventure-objectives">Adventure objectives</a>
   <ul class="collapse">
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
@@ -4265,8 +4300,8 @@ font-size: 0.65em;
 </header>
 
 
-<section id="put-in-context" class="level1">
-<h1>✈️ Put in context</h1>
+<section id="context" class="level1">
+<h1>Context</h1>
 <p>You are an <strong>invited expert</strong> in a data science ethics committee. An organization submits a report to you containing visualization and statistics from a simulated COVID-19 dataset. Your role: assess the compliance of this report with good visual communication practices, ethics and the protection of sensitive data.</p>
 </section>
 <section id="adventure-objectives" class="level1">
@@ -4283,7 +4318,7 @@ font-size: 0.65em;
 <ol type="1">
 <li><strong>Read the provided report carefully</strong> (<code>Initial Analysis of COVID-19 Cases.html</code>).</li>
 <li><strong>Identify all problems</strong>: visual, statistical, ethical, methodological, etc.</li>
-<li><strong>Correct and improve the visualization</strong> using the data file <code>donnees_covid_module7.csv</code>.</li>
+<li><strong>Correct and improve the visualization</strong> using the data file <code>data_covid_module7.csv</code>.</li>
 <li><strong>Write a critical report</strong> including:
 <ul>
 <li>Problems identified</li>
@@ -4318,7 +4353,7 @@ font-size: 0.65em;
 <h2 class="anchored" data-anchor-id="starting-file">Starting file</h2>
 <ul>
 <li><code>Initial analysis of COVID-19 cases.html</code> (provided on GitHub)</li>
-<li><code>donnees_covid_module7.csv</code> (cleaned data to use for the corrected version)</li>
+<li><code>data_covid_module7.csv</code> (cleaned data to use for the corrected version)</li>
 </ul>
 </section>
 <section id="success-criteria" class="level2">
@@ -4337,115 +4372,106 @@ font-size: 0.65em;
 
 </main> <!-- /main -->
 <style>
-  /* Sidebar states */
-  body.sidebar-hidden #quarto-sidebar,
-  body.sidebar-hidden .quarto-sidebar,
-  body.sidebar-hidden .sidebar {
-    display: none !important;
-  }
 
-  body.sidebar-hidden .page-columns {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-  body.sidebar-hidden .page-columns .content {
-    grid-column: 1 / -1 !important;
-    max-width: 100% !important;
-  }
-  body.sidebar-hidden .sidebar-margin,
-  body.sidebar-hidden .submenu,
-  body.sidebar-hidden .margin-sidebar { display: none !important; }
+body.sidebar-hidden #quarto-sidebar,
+body.sidebar-hidden .quarto-sidebar,
+body.sidebar-hidden .sidebar {
+display: none !important;
+}
+body.sidebar-hidden .page-columns {
+grid-template-columns: minmax(0, 1fr) !important;
+}
+body.sidebar-hidden .page-columns .content {
+grid-column: 1 / -1 !important;
+max-width: 100% !important;
+}
+body.sidebar-hidden .sidebar-margin,
+body.sidebar-hidden .submenu,
+body.sidebar-hidden .margin-sidebar { display: none !important; }
 
-  /* Avoid logo overlap on desktop */
-  @media (min-width: 992px) {
-    :root { --content-left-offset: 88px; }
+@media (min-width: 992px) {
+:root { --content-left-offset: 88px; }
+body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
+body:not(.sidebar-hidden) main#quarto-document-content,
+body:not(.sidebar-hidden) main.content {
+padding-left: var(--content-left-offset) !important;
+}
+body.sidebar-hidden nav.quarto-page-breadcrumbs,
+body.sidebar-hidden main#quarto-document-content,
+body.sidebar-hidden main.content {
+padding-left: 0 !important;
+}
+}
+.qs-toggle-controls {
+margin-left: .75rem;
+display: inline-flex;
+align-items: center;
+gap: .4rem;
+}
 
-    body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
-    body:not(.sidebar-hidden) main#quarto-document-content,
-    body:not(.sidebar-hidden) main.content {
-      padding-left: var(--content-left-offset) !important;
-    }
-    body.sidebar-hidden nav.quarto-page-breadcrumbs,
-    body.sidebar-hidden main#quarto-document-content,
-    body.sidebar-hidden main.content {
-      padding-left: 0 !important;
-    }
-  }
+.qs-toggle-btn{
+display:inline-flex;
+align-items:center;
+gap:.4rem;
+border:1px solid rgba(0,0,0,.12);
+border-radius:.5rem;
+padding:.25rem .5rem;
+background:var(--quarto-body-bg,#fff);
+box-shadow:0 1px 4px rgba(0,0,0,.08);
+cursor:pointer;
+font-size:.95rem;
+line-height:1;
+}
+.qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
+.qs-language-switch{
+display:inline-flex;
+align-items:center;
+gap:.35rem;
+border:1px solid rgba(0,0,0,.12);
+border-radius:.5rem;
+padding:.2rem .35rem;
+background:var(--quarto-body-bg,#fff);
+box-shadow:0 1px 4px rgba(0,0,0,.08);
+font-size:.9rem;
+}
+.qs-lang-btn{
+border:none;
+border-radius:.35rem;
+background:transparent;
+color:var(--quarto-body-color,#111);
+padding:.2rem .45rem;
+cursor:pointer;
+}
+.qs-lang-btn[aria-pressed="true"]{
+background:rgba(0,0,0,.08);
+font-weight:700;
+}
+.qs-lang-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
+.qs-action-group{
+display:flex;
+align-items:center;
+gap:.35rem;
+}
 
-  .qs-toggle-controls {
-    margin-left: .75rem;
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-  }
-
-  /* Sidebar button styles */
-  .qs-toggle-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:.4rem;
-    border:1px solid rgba(0,0,0,.12);
-    border-radius:.5rem;
-    padding:.25rem .5rem;
-    background:var(--quarto-body-bg,#fff);
-    box-shadow:0 1px 4px rgba(0,0,0,.08);
-    cursor:pointer;
-    font-size:.95rem;
-    line-height:1;
-  }
-  .qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-
-  .qs-language-switch{
-    display:inline-flex;
-    align-items:center;
-    gap:.35rem;
-    border:1px solid rgba(0,0,0,.12);
-    border-radius:.5rem;
-    padding:.2rem .35rem;
-    background:var(--quarto-body-bg,#fff);
-    box-shadow:0 1px 4px rgba(0,0,0,.08);
-    font-size:.9rem;
-  }
-
-  .qs-lang-btn{
-    border:none;
-    border-radius:.35rem;
-    background:transparent;
-    color:var(--quarto-body-color,#111);
-    padding:.2rem .45rem;
-    cursor:pointer;
-  }
-  .qs-lang-btn[aria-pressed="true"]{
-    background:rgba(0,0,0,.08);
-    font-weight:700;
-  }
-  .qs-lang-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-
-  .qs-action-group{
-    display:flex;
-    align-items:center;
-    gap:.35rem;
-  }
-
-  /* Keep controls visible on mobile to ensure language switch is always accessible */
-  @media (max-width: 575.98px){
-    .qs-toggle-host{
-      top: 6px;
-      right: 8px;
-      gap: .3rem;
-      align-items: flex-start;
-    }
-    .qs-language-switch{
-      padding: .15rem .25rem;
-      font-size: .8rem;
-    }
-    .qs-toggle-btn{
-      padding: .15rem .35rem;
-      font-size: .8rem;
-    }
-    .qs-toggle-btn span{
-      display: none;
-    }
-  }
+@media (max-width: 575.98px){
+.qs-toggle-host{
+top: 6px;
+right: 8px;
+gap: .3rem;
+align-items: flex-start;
+}
+.qs-language-switch{
+padding: .15rem .25rem;
+font-size: .8rem;
+}
+.qs-toggle-btn{
+padding: .15rem .35rem;
+font-size: .8rem;
+}
+.qs-toggle-btn span{
+display: none;
+}
+}
 </style>
 
 <script>
@@ -4718,7 +4744,6 @@ font-size: 0.65em;
   obs.observe(document.documentElement, { childList: true, subtree: true });
 })();
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
