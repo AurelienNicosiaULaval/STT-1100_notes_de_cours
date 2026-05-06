@@ -1,0 +1,107 @@
+/* =========================================================
+   Palette officielle — Université Laval
+   ========================================================= */
+:root{
+  --ulaval-red:        #e30513;
+  --ulaval-yellow:     #ffc103;
+  --ulaval-light-grey: #d9d9d9;
+  --ulaval-medium-grey:#7f7f7f;
+  --ulaval-dark-grey:  #515151;
+  --ulaval-black:      #000000;
+}
+
+/* =========================================================
+   Règles globales (polices, couleurs, liens)
+   ========================================================= */
+body{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--ulaval-black);
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: var(--ulaval-red);
+  font-weight: 600;
+}
+
+a{
+  color: var(--ulaval-red);
+}
+
+/* Boutons / call-outs */
+.btn-primary{
+  background-color: var(--ulaval-red) !important;
+  border-color:     var(--ulaval-red) !important;
+}
+.btn-primary:hover{
+  background-color: var(--ulaval-yellow) !important;
+  border-color:     var(--ulaval-yellow) !important;
+  color: var(--ulaval-black) !important;
+}
+
+/* Code blocks */
+pre, code{
+  background: var(--ulaval-light-grey);
+  color:      var(--ulaval-dark-grey);
+}
+
+/* Blockquotes */
+blockquote{
+  border-left: 0.3em solid var(--ulaval-yellow);
+  padding-left: 1em;
+  color: var(--ulaval-dark-grey);
+  background-color: var(--ulaval-light-grey);
+}
+
+/* =========================================================
+   Spécifique RevealJS : typographie + mise à l’échelle globale
+   ========================================================= */
+.reveal{
+  font-size: 30px;            /* ~80 % de la taille par défaut (40px) */
+}
+
+/* Titres hiérarchiques */
+.reveal h1{ font-size: 1.7em; color: var(--ulaval-red); }
+.reveal h2{ font-size: 1.4em; color: var(--ulaval-red); }
+.reveal h3{ font-size: 1.2em; color: var(--ulaval-dark-grey); }
+
+/* Paragraphes et listes compacts */
+.reveal p,
+.reveal li{
+  font-size: 0.7em;
+  line-height: 1.25em;
+}
+
+/* Tables */
+.reveal table{
+  font-size: 0.65em;
+  border-collapse: collapse;
+}
+.reveal table th{
+  background: var(--ulaval-yellow);
+  color: var(--ulaval-black);
+}
+.reveal table td,
+.reveal table th{
+  border: 1px solid var(--ulaval-light-grey);
+  padding: 4px 6px;
+}
+
+/* Code dans RevealJS */
+.reveal pre code{
+  font-size: 0.6em;
+  line-height: 1.3em;
+}
+
+/* =========================================================
+   Logo STT-1100 sur toutes les diapositives (option 2 — scale)
+   ========================================================= */
+.reveal .slides::after{
+  content: url('STT-1100_hex.png');  /* logo fourni dans le dossier */
+  position: fixed;
+  bottom: 2px;                       /* ajustez la marge si besoin */
+  right: 2px;
+  transform: scale(0.15);            /* 15 % de la taille originale */
+  transform-origin: top right;    /* point d’ancrage */
+  opacity: 0.85;                     /* léger filigrane */
+  pointer-events: none;              /* ne gêne pas les clics */
+}

@@ -3,7 +3,7 @@ title: "Adventure 8 - Open data from Quebec"
 subtitle: "STT-1100 Introduction to Data Science"
 author:
   - institute: “Laval University”
-editor:visual
+editor: visual
 editor_options:
   chunk_output_type: console
 format:
@@ -18,6 +18,37 @@ format:
 library(tidyverse)
 library(rvest)
 library(purrr)
+
+fallback_dataset_html <- '
+<html>
+  <body>
+    <div class="dataset-content">
+      <h3 class="dataset-heading"><a>Example public dataset</a></h3>
+      <div class="dqc-org-cat">Organization: Données Québec</div>
+      <div class="dqc-org-cat">Category: Health</div>
+    </div>
+  </body>
+</html>'
+
+safe_read_lines <- function(url, fallback = character()) {
+  tryCatch(
+    readLines(url, warn = FALSE),
+    error = function(error) {
+      message("Unable to download ", url, "; using a local fallback.")
+      fallback
+    }
+  )
+}
+
+safe_read_html <- function(url) {
+  tryCatch(
+    read_html(url),
+    error = function(error) {
+      message("Unable to download ", url, "; using a local HTML fallback.")
+      read_html(fallback_dataset_html)
+    }
+  )
+}
 ```
 
 # 🎬 Scenario: Immerse yourself in the shoes of a freelance consultant
@@ -53,7 +84,14 @@ To answer this question, we will first consult the site's `robots.txt` file. Thi
 
 ```{r exploration-ethics}
 # Show robots.txt
-robots <- readLines("https://www.donneesquebec.ca/robots.txt")
+robots <- safe_read_lines(
+  "https://www.donneesquebec.ca/robots.txt",
+  fallback = c(
+    "User-agent: *",
+    "Disallow: /api/",
+    "Disallow: /dataset/rate/"
+  )
+)
 cat("\nContents of robots.txt file:\n")
 writeLines(robots)
 
@@ -73,7 +111,7 @@ In this section, you will discover the essential functions of the `rvest` packag
 
 ```{r reading-html}
 url <- "https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1"
-page <- read_html(url)
+page <- safe_read_html(url)
 page
 ```
 

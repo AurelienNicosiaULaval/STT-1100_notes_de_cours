@@ -10,7 +10,7 @@ format:
     code-link: true
     theme: flatly
     css: [../css/base_css.css]
-editor:visual
+editor: visual
 editor_options:
   chunk_output_type: console
 ---
@@ -78,13 +78,13 @@ example <- tibble::tibble(
   id = 1:7,
   week = c(1, 1, 2, 2, 2, 3, 3),
   comment = c(
-    “I found the course very clear this week, well done to the teacher!”,
-    “I’m starting to understand better, it’s motivating!”
-    “Too much material to assimilate in a short time, I feel overwhelmed.”,
-    “Not easy this week, I had trouble with the graphics.”,
+    "I found the course very clear this week, well done to the teacher!",
+    "I'm starting to understand better, it's motivating!",
+    "Too much material to assimilate in a short time, I feel overwhelmed.",
+    "Not easy this week, I had trouble with the graphics.",
     "Phew very difficult this week, especially with the graphics.",
-    “The tools are powerful, but I lack practice.”,
-    “The construction of the dashboard is super interesting.”
+    "The tools are powerful, but I lack practice.",
+    "The construction of the dashboard is super interesting."
   )
 )
 ```
@@ -147,12 +147,12 @@ lexicon_fr <- tibble::tibble(
 )
 
 sentiment_fr <- clean_text %>%
-  inner_join(lexique_fr, by = "word") %>%
-  count(week, sentiment) %>%
-  tidyr::pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>%
+  inner_join(lexicon_fr, by = "word") %>%
+  count(week, feeling) %>%
+  tidyr::pivot_wider(names_from = feeling, values_from = n, values_fill = 0) %>%
   mutate(score = positive - negative)
 
-sentiment_en
+sentiment_fr
 ```
 
 ### Viewing scores per week
@@ -217,7 +217,7 @@ tfidf %>%
   mutate(word = fct_reorder(word, tf_idf)) %>%
   ggplot(aes(x = word, y = tf_idf)) +
   geom_col(fill = "darkorange") +
-  coordinate_flip() +
+  coord_flip() +
   labs(title = "Most Distinctive Words — Week 2",
        x = NULL, y = "TF-IDF")
 ```
