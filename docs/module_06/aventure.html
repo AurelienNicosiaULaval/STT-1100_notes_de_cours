@@ -4462,106 +4462,115 @@ font-size: 0.65em;
 
 </main> <!-- /main -->
 <style>
+  /* Sidebar states */
+  body.sidebar-hidden #quarto-sidebar,
+  body.sidebar-hidden .quarto-sidebar,
+  body.sidebar-hidden .sidebar {
+    display: none !important;
+  }
 
-body.sidebar-hidden #quarto-sidebar,
-body.sidebar-hidden .quarto-sidebar,
-body.sidebar-hidden .sidebar {
-display: none !important;
-}
-body.sidebar-hidden .page-columns {
-grid-template-columns: minmax(0, 1fr) !important;
-}
-body.sidebar-hidden .page-columns .content {
-grid-column: 1 / -1 !important;
-max-width: 100% !important;
-}
-body.sidebar-hidden .sidebar-margin,
-body.sidebar-hidden .submenu,
-body.sidebar-hidden .margin-sidebar { display: none !important; }
+  body.sidebar-hidden .page-columns {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  body.sidebar-hidden .page-columns .content {
+    grid-column: 1 / -1 !important;
+    max-width: 100% !important;
+  }
+  body.sidebar-hidden .sidebar-margin,
+  body.sidebar-hidden .submenu,
+  body.sidebar-hidden .margin-sidebar { display: none !important; }
 
-@media (min-width: 992px) {
-:root { --content-left-offset: 88px; }
-body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
-body:not(.sidebar-hidden) main#quarto-document-content,
-body:not(.sidebar-hidden) main.content {
-padding-left: var(--content-left-offset) !important;
-}
-body.sidebar-hidden nav.quarto-page-breadcrumbs,
-body.sidebar-hidden main#quarto-document-content,
-body.sidebar-hidden main.content {
-padding-left: 0 !important;
-}
-}
-.qs-toggle-controls {
-margin-left: .75rem;
-display: inline-flex;
-align-items: center;
-gap: .4rem;
-}
+  /* Avoid logo overlap on desktop */
+  @media (min-width: 992px) {
+    :root { --content-left-offset: 88px; }
 
-.qs-toggle-btn{
-display:inline-flex;
-align-items:center;
-gap:.4rem;
-border:1px solid rgba(0,0,0,.12);
-border-radius:.5rem;
-padding:.25rem .5rem;
-background:var(--quarto-body-bg,#fff);
-box-shadow:0 1px 4px rgba(0,0,0,.08);
-cursor:pointer;
-font-size:.95rem;
-line-height:1;
-}
-.qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-.qs-language-switch{
-display:inline-flex;
-align-items:center;
-gap:.35rem;
-border:1px solid rgba(0,0,0,.12);
-border-radius:.5rem;
-padding:.2rem .35rem;
-background:var(--quarto-body-bg,#fff);
-box-shadow:0 1px 4px rgba(0,0,0,.08);
-font-size:.9rem;
-}
-.qs-lang-btn{
-border:none;
-border-radius:.35rem;
-background:transparent;
-color:var(--quarto-body-color,#111);
-padding:.2rem .45rem;
-cursor:pointer;
-}
-.qs-lang-btn[aria-pressed="true"]{
-background:rgba(0,0,0,.08);
-font-weight:700;
-}
-.qs-lang-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-.qs-action-group{
-display:flex;
-align-items:center;
-gap:.35rem;
-}
+    body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
+    body:not(.sidebar-hidden) main#quarto-document-content,
+    body:not(.sidebar-hidden) main.content {
+      padding-left: var(--content-left-offset) !important;
+    }
+    body.sidebar-hidden nav.quarto-page-breadcrumbs,
+    body.sidebar-hidden main#quarto-document-content,
+    body.sidebar-hidden main.content {
+      padding-left: 0 !important;
+    }
+  }
 
-@media (max-width: 575.98px){
-.qs-toggle-host{
-top: 6px;
-right: 8px;
-gap: .3rem;
-align-items: flex-start;
-}
-.qs-language-switch{
-padding: .15rem .25rem;
-font-size: .8rem;
-}
-.qs-toggle-btn{
-padding: .15rem .35rem;
-font-size: .8rem;
-}
-.qs-toggle-btn span{
-display: none;
-}
-}
+  .qs-toggle-controls {
+    margin-left: .75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+  }
+
+  /* Sidebar button styles */
+  .qs-toggle-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:.5rem;
+    padding:.25rem .5rem;
+    background:var(--quarto-body-bg,#fff);
+    box-shadow:0 1px 4px rgba(0,0,0,.08);
+    cursor:pointer;
+    font-size:.95rem;
+    line-height:1;
+  }
+  .qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
+
+  .qs-language-switch{
+    display:inline-flex;
+    align-items:center;
+    gap:.35rem;
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:.5rem;
+    padding:.2rem .35rem;
+    background:var(--quarto-body-bg,#fff);
+    box-shadow:0 1px 4px rgba(0,0,0,.08);
+    font-size:.9rem;
+  }
+
+  .qs-lang-btn{
+    border:none;
+    border-radius:.35rem;
+    background:transparent;
+    color:var(--quarto-body-color,#111);
+    padding:.2rem .45rem;
+    cursor:pointer;
+  }
+  .qs-lang-btn[aria-pressed="true"]{
+    background:rgba(0,0,0,.08);
+    font-weight:700;
+  }
+  .qs-lang-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
+
+  .qs-action-group{
+    display:flex;
+    align-items:center;
+    gap:.35rem;
+  }
+
+  /* Keep controls visible on mobile to ensure language switch is always accessible */
+  @media (max-width: 575.98px){
+    .qs-toggle-host{
+      top: 6px;
+      right: 8px;
+      gap: .3rem;
+      align-items: flex-start;
+    }
+    .qs-language-switch{
+      padding: .15rem .25rem;
+      font-size: .8rem;
+    }
+    .qs-toggle-btn{
+      padding: .15rem .35rem;
+      font-size: .8rem;
+    }
+    .qs-toggle-btn span{
+      display: none;
+    }
+  }
 </style>
 
 <script>
@@ -4580,16 +4589,46 @@ display: none;
     }
   };
 
+  const CONTENT_ROOTS = new Set([
+    'autre_materiel',
+    'module_01',
+    'module_02',
+    'module_03',
+    'module_04',
+    'module_05',
+    'module_06',
+    'module_07',
+    'module_08',
+    'module_09',
+    'module_10',
+    'projet_session'
+  ]);
+  const ROOT_FILES = new Set(['index.html', 'references.html']);
+
+  function pathSegments(pathname){
+    return pathname.split('/').filter(Boolean);
+  }
+
   function isEnglishPath(pathname){
-    return /(^|\/)en\//.test(pathname);
+    return /(^|\/)en(\/|$)/.test(pathname);
   }
 
-  function removeLeadingSlash(path){
-    return path.replace(/^\//, '');
+  function joinPath(segments, trailingSlash){
+    if (segments.length === 0) return '/';
+    let path = `/${segments.join('/')}`;
+    if (trailingSlash && !path.endsWith('/')) path += '/';
+    return path;
   }
 
-  function withLeadingSlash(path){
-    return path.startsWith('/') ? path : `/${path}`;
+  function splitBaseAndContentSegments(segments){
+    const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
+    if (contentIndex === -1) {
+      return { baseSegments: segments, contentSegments: [] };
+    }
+    return {
+      baseSegments: segments.slice(0, contentIndex),
+      contentSegments: segments.slice(contentIndex)
+    };
   }
 
   function languageTargetUrl(targetLang){
@@ -4597,25 +4636,22 @@ display: none;
     const path = loc.pathname;
     const search = loc.search || '';
     const hash = loc.hash || '';
+    const segments = pathSegments(path);
+    const enIndex = segments.indexOf('en');
 
     if (targetLang === 'en') {
-      if (isEnglishPath(path)) return null;
-      if (path === '/' || path === '') return withLeadingSlash(`en/index.html${search}`) + hash;
-      if (path === '/index.html') return `/en/index.html${search}${hash}`;
-      const noTrail = path.endsWith('/') ? path : path;
-      return withLeadingSlash(`en${noTrail}`) + search + hash;
+      if (enIndex !== -1) return null;
+      const split = splitBaseAndContentSegments(segments);
+      const targetSegments = split.baseSegments.concat('en', split.contentSegments);
+      const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
+      return joinPath(targetSegments, trailingSlash) + search + hash;
     }
 
     if (targetLang === 'fr') {
-      if (!isEnglishPath(path)) return null;
-      if (path === '/en' || path === '/en/' || path === '/en/index.html') return `/${search ? `${search}${hash}` : hash}`;
-      let withoutEn = path;
-      if (/^\/[^/]+\/en\//.test(path)) {
-        withoutEn = path.replace(/^\/([^/]+)\/en\/(.*)$/, '/$1/$2');
-      } else {
-        withoutEn = path.replace(/^\/en\//, '/');
-      }
-      return withoutEn + search + hash;
+      if (enIndex === -1) return null;
+      const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
+      const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
+      return joinPath(targetSegments, trailingSlash) + search + hash;
     }
 
     return null;
@@ -4807,6 +4843,7 @@ display: none;
   obs.observe(document.documentElement, { childList: true, subtree: true });
 })();
 </script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
