@@ -15,7 +15,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# ✈️ Put in context
+# Context
 
 This week, you were **hired as a junior business analyst** by the **Faculty of Science and Engineering at Laval University**. As part of the reform of the baccalaureate in statistics and data science, management wishes to evaluate **the evolution of student feelings throughout the session**.
 
@@ -23,9 +23,9 @@ Each week, students answered a questionnaire about their learning experience in 
 
 You are guided by **Anne-Sophie**, the program director, who supports you in structuring your dashboard and helps you interpret the results.
 
-> “The idea is to have an honest, but constructive portrait. We want to see the underlying trends and draw inspiration from them to continue to improve our program.”
+> "The idea is to have an honest, but constructive portrait. We want to see the underlying trends and draw inspiration from them to continue to improve our program."
 
-# 🎯 Mission
+# Mission
 
 Build an interactive dashboard (with `flexdashboard` and `shiny`) which allows you to:
 
@@ -34,7 +34,7 @@ Build an interactive dashboard (with `flexdashboard` and `shiny`) which allows y
 - explore lexical trends over time,
 - offer dynamic filters to refine the analysis.
 
-# 📁 Data
+# Data
 
 A `sentiments_cours.csv` file contains:
 
@@ -45,26 +45,26 @@ A `sentiments_cours.csv` file contains:
 - `engagement`: engagement level (1 to 5)
 - `pleasure`: pleasure level (1 to 5)
 
-# 🧰 Recommended tools
+# Recommended tools
 
 - `tidytext`, `stringr`, `dplyr`: text cleaning and analysis
 - `ggplot2`, `wordcloud`, `plotly`: visualization
 - `flexdashboard`, `shiny`: interactive interface
 - `lexicon`: `bing`, `afinn`, or `nrc` (for sentiment analysis)
 
-# 🧪 Guided steps
+# Guided steps
 
 ## Step 1 — Text Cleanup
 
-::: {.callout-important title="🧑‍💼 - Question from Anne-Sophie"}
-“Could you show me an example with some comments and how you would clean them step by step? »
+::: {.callout-important title=" - Question from Anne-Sophie"}
+"Could you show me an example with some comments and how you would clean them step by step? »
 :::
 
-::: {.callout-tip title="🧑‍💼 - Little reminder"}
+::: {.callout-tip title=" - Little reminder"}
 Text cleaning is essential before any analysis. You want every word to have a relevant meaning. Try to remove punctuation, common words, and make sure everything is in lowercase.
 :::
 
-::: {.callout-note title="🔎 Key concepts"}
+::: {.callout-note title=" Key concepts"}
 - **Tokenization**: process which consists of cutting the text into basic units (words, n‑grams). Each token becomes a row in your table.
 - **Stopwords**: very frequent words ("the", "of", "and", etc.) which generally do not provide useful semantic information for analysis.
 - **Cleaning**: lowercase, removal of punctuation, numbers and special characters to standardize tokens.
@@ -110,8 +110,8 @@ clean_text <- example %>%
 head(clean_text)
 ```
 
-::: {.callout-important title="🧑‍💼 - Question from Anne-Sophie"}
-“Could you show me an example with some comments and how you would clean them step by step? »
+::: {.callout-important title=" - Question from Anne-Sophie"}
+"Could you show me an example with some comments and how you would clean them step by step? »
 :::
 
 Anne-Sophie asks you to apply a classic cleanse:
@@ -126,7 +126,7 @@ Anne-Sophie asks you to apply a classic cleanse:
 
 We are interested here in the **emotional valence** of the words in the comments. Sentiment analysis allows you to quantify whether a text is rather positive or negative.
 
-::: {.callout-note title="🔎 Key concepts"}
+::: {.callout-note title=" Key concepts"}
 - **Sentiment of a word**: label (positive, negative) or numerical score indicating the emotional valence of the word.
 - **Sentiment score of a text**: sum or difference of the scores/labels of the words it contains, often aggregated by document or, here, by week.
 :::
@@ -135,8 +135,8 @@ We are interested here in the **emotional valence** of the words in the comments
 
 Currently, there **does not exist a lexicon integrated into `tidytext::get_sentiments()` for French** (unlike English, where the lexicons `bing`, `afinn`, and `nrc` are directly accessible). Here is an educational approach: create a small personalized glossary to enrich in class.
 
-::: {.callout-important title="🧑‍💼 - Suggestion from Anne-Sophie"}
-“For this step, I recommend that you build a little homemade lexicon. You can start with words that come up often and rank them subjectively. The goal here is to understand the principle of sentiment analysis, even with simple tools. »
+::: {.callout-important title=" - Suggestion from Anne-Sophie"}
+"For this step, I recommend that you build a little homemade lexicon. You can start with words that come up often and rank them subjectively. The goal here is to understand the principle of sentiment analysis, even with simple tools. »
 :::
 
 ```{r}
@@ -166,25 +166,25 @@ ggplot(sentiment_fr, aes(x = week, y = score)) +
        y = "Net score (positive - negative)", x = "Week")
 ```
 
-::: {.callout-note title="🧑‍💼 - Advice from Anne-Sophie"}
-“As the lexicons integrated into `get_sentiments()` are only available in English, I suggest you build a small homemade lexicon for French. It will be imperfect, but it will help you understand the principle. We can then discuss it together to enrich it. What interests me is that you are able to interpret the evolution of sentiment from one week to the next, even with simple tools. »
+::: {.callout-note title=" - Advice from Anne-Sophie"}
+"As the lexicons integrated into `get_sentiments()` are only available in English, I suggest you build a small homemade lexicon for French. It will be imperfect, but it will help you understand the principle. We can then discuss it together to enrich it. What interests me is that you are able to interpret the evolution of sentiment from one week to the next, even with simple tools. »
 :::
 
-### 🤝 Final collaboration
+### Final collaboration
 
 At the end of the course, an in-class activity will allow each student/team to **share their own lexicon of feelings in French** built during the analysis.
 
-🎓 **The teacher will collect and merge these lexicons**, checking them to obtain a common enriched version. This new version will be shared with the whole class as a collective resource for future projects.
+ **The teacher will collect and merge these lexicons**, checking them to obtain a common enriched version. This new version will be shared with the whole class as a collective resource for future projects.
 
 ## Step 3 — Distinctive words
 
 In this step, we will identify the words that stand out the most each week. To do this, we will use the **TF-IDF** (Term Frequency-Inverse Document Frequency) approach, which allows us to highlight words that are both frequent in a document and rare in all documents.
 
-::: {.callout-tip title="🧑‍💼 - Idea from Anne-Sophie"}
-“A good indicator of how students feel is the words that stand out the most in their comments. You can try a TF-IDF analysis or even create a word cloud. »
+::: {.callout-tip title=" - Idea from Anne-Sophie"}
+"A good indicator of how students feel is the words that stand out the most in their comments. You can try a TF-IDF analysis or even create a word cloud. »
 :::
 
-::: {.callout-note title="🔎 Key concepts"}
+::: {.callout-note title=" Key concepts"}
 - **TF (Term Frequency)**: frequency of appearance of a word in a document.
 - **IDF (Inverse Document Frequency)**: inverse importance of a word in all documents – rare words have a high IDF.
 - **TF‑IDF**: TF × IDF product which highlights words that are both frequent in a document and rare in others ("distinctive" words).
@@ -224,18 +224,18 @@ tfidf %>%
 
 A visualization like this allows you to see which words are most representative of that week's comments. There is also the possibility of creating a **word cloud** for a more visual representation. A word cloud is a graphical representation of the most frequent words, where the size of each word is proportional to its frequency of occurrence.
 
-💡 To create a word cloud in French: - Use the `wordcloud()` function of the `wordcloud` package, or `ggwordcloud` for more customization. - Get inspired by this complete example: <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
+ To create a word cloud in French: - Use the `wordcloud()` function of the `wordcloud` package, or `ggwordcloud` for more customization. - Get inspired by this complete example: <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
 
-::: {.callout-important title="🧑‍💼 - Question from Anne-Sophie"}
-“Can you spot the words that stand out the most each week? You could try a TF-IDF approach and make me a graph or even a word cloud. »
+::: {.callout-important title=" - Question from Anne-Sophie"}
+"Can you spot the words that stand out the most each week? You could try a TF-IDF approach and make me a graph or even a word cloud. »
 :::
 
 ## Step 4 — Creating the dashboard
 
 Now that we've cleaned the data and performed the sentiment and distinguishing words analyses, it's time to create an interactive dashboard. This will allow Anne-Sophie to visualize the results in a clear and dynamic way.
 
-::: {.callout-note title="🧑‍💼 - Reminder of Anne-Sophie"}
-The final dashboard should be **clear, interactive and useful**. A **ready-to-use template (`Modele_Dashboardt.Rmd`)** can be found in the module's GitHub repository. Customize it: plug in your own data, adjust filters, and add at least two visualizations.
+::: {.callout-note title=" - Reminder of Anne-Sophie"}
+The final dashboard should be **clear, interactive and useful**. A **ready-to-use template (`modele_dashboard.Rmd`)** can be found in the module's GitHub repository. Customize it: plug in your own data, adjust filters, and add at least two visualizations.
 :::
 
 ## Step 5 — Recommendations and final analysis
@@ -247,11 +247,11 @@ At the end of the dashboard, write a summary of your **key observations**:
 - recommendations for action to improve the student experience,
 - **analysis of numerical variables** `difficulty`, `engagement`, `pleasure`: average and trend per week, comparison with the sentiment score (e.g. simple correlations or combined graphs).
 
-::: {.callout-important title="🧑‍💼 - Anne-Sophie Challenge"}
-“Don’t forget to explore the numerical scores. How does text sentiment compare to level of perceived enjoyment or difficulty? Present at least one visualization that cross-references this information. »
+::: {.callout-important title=" - Anne-Sophie Challenge"}
+"Don't forget to explore the numerical scores. How does text sentiment compare to level of perceived enjoyment or difficulty? Present at least one visualization that cross-references this information. »
 :::
 
-# 🌟 Bonus — Personalization — Personalization
+# Bonus — Personalization — Personalization
 
 Here are some ideas to go further in customizing your dashboard:
 
@@ -260,9 +260,9 @@ Here are some ideas to go further in customizing your dashboard:
 - Add a discreet **background photo** in the header,
 - Add an inspirational quote or greeting in the sidebar.
 
-💡 You can also integrate a progress bar or visual indicator of overall sentiment per week.
+ You can also integrate a progress bar or visual indicator of overall sentiment per week.
 
-# 📤 Delivery expected
+# Delivery expected
 
 - A GitHub repository containing:
     - the `.Rmd` of the dashboard,
@@ -270,6 +270,6 @@ Here are some ideas to go further in customizing your dashboard:
     - the cleaned data file (if modified).
 - **The dashboard must be deployed (for example via Shinyapp.io or Posit Cloud)** and the final link sent to **Anne-Sophie (the real program director)**.
 
-# 🧠 Advice from Anne-Sophie
+# Advice from Anne-Sophie
 
-> “A good dashboard is like a good pitch: **clear, readable and targeted**. Put yourself in your end user's shoes. »
+> "A good dashboard is like a good pitch: **clear, readable and targeted**. Put yourself in your end user's shoes. »

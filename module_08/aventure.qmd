@@ -20,13 +20,13 @@ library(rvest)
 library(purrr)
 ```
 
-# 🎬 Mise en situation : Plongez dans la peau d’un·e consultant·e freelance
+# Mise en situation : Plongez dans la peau d'un·e consultant·e freelance
 
-Vous travaillez comme **freelancer** en science des données. À la différence d’un poste salarié, vous êtes mandaté·e ponctuellement par des client·e·s pour résoudre des problèmes spécifiques. Vous devez être autonome, rigoureux·se et capable de livrer des solutions efficaces, réutilisables et bien documentées.
+Vous travaillez comme **freelancer** en science des données. À la différence d'un poste salarié, vous êtes mandaté·e ponctuellement par des client·e·s pour résoudre des problèmes spécifiques. Vous devez être autonome, rigoureux·se et capable de livrer des solutions efficaces, réutilisables et bien documentées.
 
-Les consultant·e·s freelance sont souvent appelés pour leur capacité à débloquer des projets rapidement et efficacement. Ils livrent des outils bien documentés, testables, et faciles à maintenir par leurs client·e·s. La clarté du code, le respect des standards et l’éthique sont donc des éléments clés de leur pratique.
+Les consultant·e·s freelance sont souvent appelés pour leur capacité à débloquer des projets rapidement et efficacement. Ils livrent des outils bien documentés, testables, et faciles à maintenir par leurs client·e·s. La clarté du code, le respect des standards et l'éthique sont donc des éléments clés de leur pratique.
 
-Aujourd’hui, vous êtes engagé·e par **Marie-Pier**, directrice de recherche à l’Institut québécois pour les données durables. Elle souhaite explorer le portail [donnéesquebec.ca](https://www.donneesquebec.ca) pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : **concevoir un outil de scraping fiable** pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.
+Aujourd'hui, vous êtes engagé·e par **Marie-Pier**, directrice de recherche à l'Institut québécois pour les données durables. Elle souhaite explorer le portail [donnéesquebec.ça](https://www.donneesquebec.ca) pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : **concevoir un outil de scraping fiable** pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.
 
 ::: callout-note
 **Votre interlocutrice : Marie-Pier**\
@@ -43,13 +43,13 @@ Elle vous accompagne tout au long de cette aventure : elle posera des questions 
 
 ------------------------------------------------------------------------
 
-# 📚 Prérequis
+# Prérequis
 
-::: {.callout-important title="🧑‍💼 - Question de Marie-Pier"}
+::: {.callout-important title=" - Question de Marie-Pier"}
 *« Que peut-on légalement extraire de ce portail ? Le scraping est-il autorisé ici ? »*
 :::
 
-Pour répondre à cette question, nous allons d’abord consulter le fichier `robots.txt` du site. Ce fichier indique les règles que les robots d’indexation (et donc de scraping) doivent suivre.
+Pour répondre à cette question, nous allons d'abord consulter le fichier `robots.txt` du site. Ce fichier indique les règles que les robots d'indexation (et donc de scraping) doivent suivre.
 
 ```{r exploration-ethique}
 # Affichez le robots.txt
@@ -67,7 +67,7 @@ cat("\n\n\u2139\ufe0f Note :\nLes jeux de données publics listés dans les page
 
 ```
 
-# 📚 Comprendre le web scraping avec `rvest`
+# Comprendre le web scraping avec `rvest`
 
 Dans cette section, vous découvrirez les fonctions essentielles du package `rvest`. Votre objectif : apprendre à extraire du contenu HTML structuré depuis un site web.
 
@@ -81,7 +81,7 @@ La fonction `read_html()` télécharge et convertit la page web pour en permettr
 
 Marie-Pier vous demande :
 
-::: {.callout-important title="🧑‍💼 - Question de Marie-Pier"}
+::: {.callout-important title=" - Question de Marie-Pier"}
 *« Peux-tu me montrer à quoi ressemble la structure de cette page ? Est-ce que tu peux repérer un élément intéressant ? »*
 :::
 
@@ -93,19 +93,19 @@ length(blocs)
 blocs[[1]]
 ```
 
-Pour extraire du texte d’un nœud HTML :
+Pour extraire du texte d'un nœud HTML :
 
 ```{r test-text}
 html_text(blocs[[1]])
 ```
 
-Maintenant, testons l’extraction du **titre** :
+Maintenant, testons l'extraction du **titre** :
 
 ```{r test-titre}
 html_nodes(blocs[[1]], ".dataset-heading a") %>% html_text(trim = TRUE)
 ```
 
-Et pour les **producteurs** ? Il faut repérer une sous-structure contenant l’information :
+Et pour les **producteurs** ? Il faut repérer une sous-structure contenant l'information :
 
 ```{r test-producteur}
 orgs <- html_nodes(blocs[[1]], ".dqc-org-cat") %>% html_text(trim = TRUE)
@@ -121,8 +121,8 @@ org_clean
 ```
 
 ::: callout-tip
-💡 **Pourquoi utiliser `map_chr()` ?**\
-`map_chr()` appartient au package **purrr**, qui fait partie du `tidyverse`. Cette fonction permet d’appliquer une fonction à chaque élément d’une liste (ici chaque bloc HTML), et de retourner un vecteur de caractères. C’est parfait lorsqu’on veut une valeur texte par bloc.
+ **Pourquoi utiliser `map_chr()` ?**\
+`map_chr()` appartient au package **purrr**, qui fait partie du `tidyverse`. Cette fonction permet d'appliquer une fonction à chaque élément d'une liste (ici chaque bloc HTML), et de retourner un vecteur de caractères. C'est parfait lorsqu'on veut une valeur texte par bloc.
 
 > Exemple :
 >
@@ -136,12 +136,12 @@ org_clean
 :::
 
 ::: callout-tip
-💡 **À vous de jouer** : À partir de ce même bloc HTML, trouvez comment extraire : - les **catégories** associées à chaque jeu de données
+ **À vous de jouer** : À partir de ce même bloc HTML, trouvez comment extraire : - les **catégories** associées à chaque jeu de données
 :::
 
 ------------------------------------------------------------------------
 
-# ✏️ Création guidée de la fonction `scrape_page()`
+# Création guidée de la fonction `scrape_page()`
 
 Marie-Pier souhaite que vous créiez une fonction réutilisable nommée `scrape_page()` qui prend en argument une URL et retourne un `data.frame` avec les colonnes : `titre`, `producteur`, `categorie`.
 
@@ -179,12 +179,12 @@ scrape_page <- function(url) {
 ```
 
 ::: callout-note
-💡 **Testez votre fonction avec la page 3** : elle devrait retourner les 20 jeux de données de cette page.
+ **Testez votre fonction avec la page 3** : elle devrait retourner les 20 jeux de données de cette page.
 :::
 
 ------------------------------------------------------------------------
 
-# 🔁 Répétition manuelle, puis boucle `for`
+# Répétition manuelle, puis boucle `for`
 
 Testez maintenant l'extraction des **5 premières pages** en appelant plusieurs fois votre fonction :
 
@@ -196,7 +196,7 @@ p2 <- scrape_page("...")
 ```
 
 ::: callout-tip
-💬 **Marie-Pier** : « Est-ce que tu as remarqué ce qui change dans l’URL à chaque fois ? Peux-tu généraliser ce comportement ? »
+ **Marie-Pier** : « Est-ce que tu as remarqué ce qui change dans l'URL à chaque fois ? Peux-tu généraliser ce comportement ? »
 :::
 
 Rappel du **module 1** : une boucle permet d'automatiser un comportement répétitif. Voici un début de boucle `for` à compléter :
@@ -218,11 +218,11 @@ for (i in 1:5) {
 
 ------------------------------------------------------------------------
 
-# 🔍 Exploration guidée par Marie-Pier
+# Exploration guidée par Marie-Pier
 
 Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. Elle attend de vous des résultats précis, illustrés si nécessaire.
 
-::: {.callout-important title="🧑‍💼 - Questions de Marie-Pier"}
+::: {.callout-important title=" - Questions de Marie-Pier"}
 1.  Quelles sont les catégories de jeux de données les plus fréquentes ?
 2.  Quels organismes publient le plus ?
 3.  Observe-t-on une diversité de domaines ou une concentration sur quelques thèmes ?
@@ -230,9 +230,9 @@ Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. E
 
 ------------------------------------------------------------------------
 
-# 🤔 Réflexion éthique
+# Réflexion éthique
 
-::: {.callout-note title="💡 Pour votre rapport"}
+::: {.callout-note title=" Pour votre rapport"}
 Rendez compte brièvement :
 
 -   Le site Données Québec permet-il explicitement le scraping ?
@@ -242,19 +242,19 @@ Rendez compte brièvement :
 
 ------------------------------------------------------------------------
 
-# 🧪 Défi à remettre
+# Défi à remettre
 
 Vous devez remettre un **fichier `IDUL.R`** contenant votre fonction `scrape_page()`.
 
 -   Ce fichier doit être placé dans votre dépôt GitHub à l'endroit indiqué.
 -   Nous testerons automatiquement votre fonction avec plusieurs pages.
 
-🎯 Bonne chance — soyez rigoureux dans la conception de votre fonction !
+ Bonne chance — soyez rigoureux dans la conception de votre fonction !
 
 ------------------------------------------------------------------------
 
-# ✅ Conclusion de l’aventure
+# Conclusion de l'aventure
 
-Vous avez conçu un outil de scraping fonctionnel et automatisé, utilisé une boucle `for`, extrait des métadonnées structurées, et approfondi votre compréhension de l’éthique du scraping.
+Vous avez conçu un outil de scraping fonctionnel et automatisé, utilisé une boucle `for`, extrait des métadonnées structurées, et approfondi votre compréhension de l'éthique du scraping.
 
-Bravo, consultant·e ! 🧠💻
+Bravo, consultant·e !

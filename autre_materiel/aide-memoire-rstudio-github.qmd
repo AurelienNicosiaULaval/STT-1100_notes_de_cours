@@ -1,0 +1,86 @@
+---
+title: "Aide-mémoire - Cloner un projet GitHub dans RStudio"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    theme: cosmo
+    highlight-style: github
+    embed-resources: true
+    code-tools: true
+    page-layout: full
+---
+
+## Préparation
+
+Vous devez avoir installé :
+
+- R
+- RStudio
+- Git, vérifiable avec `git --version` dans le terminal
+- Un compte GitHub
+
+Il est recommandé de lier RStudio à votre compte GitHub avec une clé SSH. N'utilisez jamais votre mot de passe GitHub directement comme méthode d'authentification.
+
+## Trouver le lien du projet GitHub
+
+1. Allez sur la page du dépôt GitHub que vous voulez cloner.
+2. Cliquez sur le bouton vert **`<> Code`**.
+3. Choisissez l'onglet **SSH** ou **HTTPS**, puis copiez le lien affiché.
+
+Exemples :
+
+- SSH : `git@github.com:NomUtilisateur/nom-du-projet.git`
+- HTTPS : `https://github.com/NomUtilisateur/nom-du-projet.git`
+
+## Cloner dans RStudio
+
+1. Ouvrez **RStudio**.
+2. Allez dans **File > New Project**.
+3. Choisissez **Version Control**.
+4. Sélectionnez **Git**.
+5. Collez le lien copié dans le champ **Repository URL**.
+6. Choisissez un dossier local pour enregistrer le projet.
+7. Cliquez sur **Create Project**.
+
+Vous pouvez ensuite commencer à travailler dans votre nouveau projet RStudio.
+
+## Erreur d'authentification GitHub
+
+Si vous obtenez une erreur comme celle-ci :
+
+```text
+fatal: Authentication failed
+remote: Support for password authentication was removed...
+```
+
+Cela signifie généralement que vous avez utilisé HTTPS sans jeton personnel ou sans configuration d'authentification adéquate.
+
+Deux solutions sont possibles :
+
+- Générer un **jeton d'accès personnel** (PAT) sur GitHub, puis l'utiliser comme mot de passe.
+- Configurer **SSH**, ce qui est plus simple et plus robuste à long terme.
+
+## Configurer SSH avec GitHub
+
+```bash
+# 1. Générer une clé SSH si nécessaire
+ssh-keygen -t ed25519 -C "votre-email@example.com"
+
+# 2. Ajouter la clé SSH à l'agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# 3. Copier la clé publique
+cat ~/.ssh/id_ed25519.pub
+```
+
+Collez ensuite cette clé dans **GitHub > Settings > SSH and GPG keys > New SSH key**.
+
+Documentation : <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>
+
+## Ressources utiles
+
+- [Guide GitHub RStudio](https://support.posit.co/hc/en-us/articles/200532077)
+- [Créer un token GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- [Configurer SSH avec GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)

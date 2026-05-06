@@ -1,6 +1,13 @@
 project:
   type: website
   output-dir: ../docs/en
+  render:
+    - "*.qmd"
+    - "module_*/**/*.qmd"
+    - "projet_session/**/*.qmd"
+    - "resources/**/*.qmd"
+  resources:
+    - module_07/data_covid_module7.csv
 
 website:
   title: "STT-1100 Introduction to Data Science"
@@ -19,7 +26,7 @@ website:
                 href: "module_01/aventure.qmd"
               - text: "Challenge"
                 href: "module_01/defi.qmd"
-              - text: "Corrected exercises"
+              - text: "Exercise solutions"
                 href: "module_01/exercices_corriges.qmd"
           - section: "2 - GitHub and data visualization"
             contents:
@@ -85,6 +92,16 @@ website:
                 href: "projet_session/enonce_projet.qmd"
       - text: "Reference material"
         href: references.qmd
+      - section: "Additional resources"
+        contents:
+          - text: "Clone GitHub in RStudio"
+            href: "resources/clone-github-rstudio.qmd"
+          - text: "Find help effectively"
+            href: "resources/help-search/how-to-get-help.qmd"
+          - text: "Course cheat sheet"
+            href: "resources/cheatsheet/stt1100_cheatsheet_mod.qmd"
+          - text: "Data science roles"
+            href: "resources/data-science-roles/roles_presentation_v2.qmd"
 format:
   html:
     include-after-body: ../toggle-sidebar.html
