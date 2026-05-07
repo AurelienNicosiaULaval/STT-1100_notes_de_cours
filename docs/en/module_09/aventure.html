@@ -4381,7 +4381,19 @@ He will accompany you on this adventure: he will ask key questions and await you
 <section id="mission-1-predictive-model-at-school-level" class="level1">
 <h1>Mission 1: Predictive model at school level</h1>
 <p>Michel gives you a <a href="https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c">data file from the Data Québec portal</a>. These data contain information on disadvantage on primary schools in Quebec.</p>
-<p>::: {.callout-important title=” - Michel explains to you”} “I invite you to explore the data. But be careful: the column names are not always intuitive. Start by visiting the documentation page on Data Québec to fully understand their meaning. » :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel explains to you">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel explains to you
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“I invite you to explore the data. But be careful: the column names are not always intuitive. Start by visiting the documentation page on Data Québec to fully understand their meaning. »</p>
+</div>
+</div>
 <section id="step-1-exploration-and-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-exploration-and-cleaning">Step 1: Exploration and cleaning</h2>
 <ul>
@@ -4396,12 +4408,36 @@ He will accompany you on this adventure: he will ask key questions and await you
 </section>
 <section id="step-2-regression-model" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-regression-model">Step 2: Regression Model</h2>
-<p>::: {.callout-important title=” - Michel asks you”} “I would like you to build a linear regression model to predict the <strong>IMSE</strong> (Socio-Economic Environment Index), based on two variables: the proportion of low-income students (<strong>SFR</strong>) and the <strong>total number of students</strong> in the school. » :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel asks you">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel asks you
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“I would like you to build a linear regression model to predict the <strong>IMSE</strong> (Socio-Economic Environment Index), based on two variables: the proportion of low-income students (<strong>SFR</strong>) and the <strong>total number of students</strong> in the school. »</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>( ... , <span class="at">data =</span> ...)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>::: {.callout-important title=” - Michel questions you”} “Once the model is built, can you explain to me, in simple language, what the two coefficients mean? » :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel questions you">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel questions you
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Once the model is built, can you explain to me, in simple language, what the two coefficients mean? »</p>
+</div>
+</div>
 </section>
 <section id="step-3-targeted-predictions" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-targeted-predictions">Step 3: Targeted Predictions</h2>
@@ -4409,15 +4445,39 @@ He will accompany you on this adventure: he will ask key questions and await you
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model, <span class="at">newdata =</span> df_schools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>::: {.callout-important title=” - Michel specifies”} “I would like you to use your template to:”</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel specifies">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel specifies
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“I would like you to use your template to:”</p>
 <p>- predict the IMSE for the <strong>10 largest schools</strong> (in number of students);</p>
 <p>- predict the IMSE for the <strong>10 schools with the highest SFRs</strong>.</p>
-<p>Compare predicted values ​​to actual values. Is your model good? :::</p>
+<p>Compare predicted values ​​to actual values. Is your model good?</p>
+</div>
+</div>
 </section>
 <section id="step-4-missing-school-predictions" class="level2">
 <h2 class="anchored" data-anchor-id="step-4-missing-school-predictions">Step 4: Missing School Predictions</h2>
-<p>::: {.callout-important title=” - Michel adds”} “Last thing: in the data, some schools have the variable <strong>Diffusion</strong> set to”NO”. These schools do not have a measured IMSE — often because they have fewer than 30 students. »</p>
-<p>“Can you use your model to <strong>predict the IMSE of all schools with fewer than 30 students</strong>? Next, I would like to know: what do you think about the validity of these predictions? Can we trust it? » :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel adds">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel adds
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Last thing: in the data, some schools have the variable <strong>Diffusion</strong> set to”NO”. These schools do not have a measured IMSE — often because they have fewer than 30 students. »</p>
+<p>“Can you use your model to <strong>predict the IMSE of all schools with fewer than 30 students</strong>? Next, I would like to know: what do you think about the validity of these predictions? Can we trust it? »</p>
+</div>
+</div>
 <hr>
 </section>
 </section>

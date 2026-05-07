@@ -26,7 +26,7 @@ Votre supérieur, **Michel Dufour**, directeur adjoint du département, vous acc
 
 > « Bienvenue dans l'équipe ! Notre travail est crucial : assurer que chaque enfant ait des chances égales de réussite. Pour cela, nous devons non seulement prédire efficacement certains indicateurs, mais aussi comprendre et éviter les biais dans nos modèles. »
 
-::: callout-note
+::: {.callout-note}
 **Votre interlocuteur : Michel Dufour**\
 Il vous accompagne dans cette aventure : il posera des questions clés et attendra vos résultats et analyses détaillées.
 :::
@@ -44,7 +44,7 @@ Il vous accompagne dans cette aventure : il posera des questions clés et attend
 
 Michel vous remet un [fichier de données issues du portail Données Québec](https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c). Ces données contiennent des informations de défavorisation sur les écoles primaires du Québec.
 
-::: {.callout-important title=" - Michel vous explique"}
+::: {.callout-important title="Michel vous explique"}
 « Je vous invite à explorer les données. Mais attention : les noms des colonnes ne sont pas toujours intuitifs. Commencez par visiter la page de documentation sur Données Québec pour bien comprendre leur signification. »
 :::
 
@@ -61,7 +61,7 @@ glimpse(df_ecoles)
 
 ## Étape 2 : Modèle de régression
 
-::: {.callout-important title=" - Michel vous demande"}
+::: {.callout-important title="Michel vous demande"}
 « J'aimerais que vous construisiez un modèle de régression linéaire pour prédire l'**IMSE** (Indice de Milieu Socio-Économique), à partir de deux variables : la proportion d'élèves à faible revenu (**SFR**) et le **nombre total d'élèves** dans l'école. »
 :::
 
@@ -70,7 +70,7 @@ modele <- lm( ... , data = ...)
 summary(modele)
 ```
 
-::: {.callout-important title=" - Michel vous interroge"}
+::: {.callout-important title="Michel vous interroge"}
 « Une fois le modèle construit, pouvez-vous m'expliquer, en langage simple, ce que signifient les deux coefficients ? »
 :::
 
@@ -82,7 +82,7 @@ Vous utiliserez ensuite la fonction `predict()` pour générer des prédictions 
 predict(modele, newdata = df_ecoles)
 ```
 
-::: {.callout-important title=" - Michel précise"}
+::: {.callout-important title="Michel précise"}
 « J'aimerais que vous utilisiez votre modèle pour : »
 
 \- prédire l'IMSE pour les **10 écoles les plus grandes** (en nombre d'élèves);
@@ -94,7 +94,7 @@ Comparer les valeurs prédites aux valeurs réelles. Votre modèle est-il bon?
 
 ## Étape 4 : Prédictions sur écoles manquantes
 
-::: {.callout-important title=" - Michel ajoute"}
+::: {.callout-important title="Michel ajoute"}
 « Dernière chose : dans les données, certaines écoles ont la variable **Diffusion** à "NON". Ces écoles n'ont pas d'IMSE mesuré — souvent parce qu'elles comptent moins de 30 élèves. »
 
 « Pouvez-vous utiliser votre modèle pour **prédire l'IMSE de toutes les écoles ayant moins de 30 élèves** ? Ensuite, j'aimerais savoir : que pensez-vous de la validité de ces prédictions ? Peut-on s'y fier ? »
@@ -171,8 +171,8 @@ Votre capsule doit inclure :
 
 Votre capsule vidéo devra être déposée sur le dépôt GitHub indiqué.
 
-::: callout-tip
- **Conseils pour réussir votre vidéo :**
+::: {.callout-tip}
+**Conseils pour réussir votre vidéo :**
 
 -   Soyez concis et clair.
 -   Appuyez-vous sur des graphiques lisibles.

@@ -160,7 +160,7 @@ penguins_mission <- read_excel("../../module_02/resources/manchots_donnees.xlsx"
 
 ```
 
-::: {.callout-important title=" Intervention by Jules – Name of the base"}
+::: {.callout-important title="Intervention by Jules – Name of the base"}
 You have just imported the Excel file. Tell me, in which variable did you store the data for the rest of the analysis?\
 1. `penguins`\
 2. `penguins_mission`\
@@ -168,7 +168,7 @@ You have just imported the Excel file. Tell me, in which variable did you store 
 4. `Antarctic_mission`
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 You had to name your base **`penguins_mission`**, as indicated in the import instruction.\
  Warning: the entire rest of the analysis is based on this consistent name!
 :::
@@ -186,7 +186,7 @@ library(tidyverse)
 glimpse(penguins_mission)
 ```
 
-::: {.callout-important title=" Jules – Numerical variables"}
+::: {.callout-important title="Jules – Numerical variables"}
 How many **numeric variables** do you see in the `glimpse()` of `penguins_mission`?\
 - 3\
 - 4\
@@ -194,7 +194,7 @@ How many **numeric variables** do you see in the `glimpse()` of `penguins_missio
 - 6
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 There are generally **4 numeric variables**:\
 `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` and `body_mass_g`.\
  Please note: some versions of the game may vary depending on import!
@@ -216,19 +216,19 @@ This layout makes it easy to quickly review the structure of a table, especially
 
 >  **Good to know**: `glimpse()` is particularly useful for spotting possible type errors (e.g. a numeric variable encoded as text) or for detecting missing values.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 The researcher wishes to obtain an initial report on the available data. To do this, you must complete the following text and integrate it into your Quarto analysis logbook: \> "The dataset contains \*\*\_\_\_\*\* observations and \*\*\_\_\_\*\* variables. The variables are ***,***, \*\*\_\_\_\*\*....etc"
 :::
 
-::: callout-note
- **Reflection question**: What happens if the researcher modifies the database? For example, she forgot a penguin and adds it without telling you, then updates the GitHub repository. When you run your analysis again in your Quarto report (`.qmd`), what will happen?
+::: {.callout-note}
+**Reflection question**: What happens if the researcher modifies the database? For example, she forgot a penguin and adds it without telling you, then updates the GitHub repository. When you run your analysis again in your Quarto report (`.qmd`), what will happen?
 :::
 
 Don't worry if this seems complicated! We will return to this aspect later in the session.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 How many variables are numeric? How many character types? *to-do*: Include your answer in your logbook following the blank text.
@@ -245,13 +245,13 @@ penguins_subset <- penguins_mission %>%
   select(species, island, bill_length_mm, body_mass_g)
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 Do a `glimpse()` of the new `penguins_subset` database. Why did you choose a new name?
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Select all variables except `flipper_length_mm` and `body_mass_g`. Be careful there is a quick way to do this!
@@ -270,13 +270,13 @@ penguins_mission <- penguins_mission %>%
   mutate(body_mass_kg = body_mass_g / 1000)
 ```
 
-::: {.callout-important title=" Jules – Mass in kilograms"}
+::: {.callout-important title="Jules – Mass in kilograms"}
 You transformed the mass into kilograms. The mass of penguin number 21 is smaller than 4 kg, true or false?\
 1. True\
 2. False\
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 When we look at row 21 of the database, we get a number for `body_mass_kg` of 4.01 kg, so the answer is **False**.\
 
 ```{r eval=FALSE}
@@ -286,7 +286,7 @@ penguins_mission[21,"body_mass_kg"]
 
 We will now continue with a new variable in which the researcher is very interested:
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Create a new variable called `bill_ratio` corresponding to the ratio between the length and depth of the bill.
@@ -310,7 +310,7 @@ penguins_biscoe <- penguins_mission %>%
   filter(island == "Biscoe")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Filter the data to only keep penguins of the **Adelie** species from Biscoe Island.
@@ -328,7 +328,7 @@ penguins_summary <- penguins_mission %>%
 
 *Note*: we use the `na.rm=TRUE` option in functions, which is quite practical, because it allows the statistic to be calculated by omitting missing values (`NA`).
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
  **Question from the researcher**: Which island/species combination has the lowest median fin length? I would like you to answer the question in the logbook.
@@ -336,7 +336,7 @@ penguins_summary <- penguins_mission %>%
 
 Thanks to `group_by` we can also, for example, filter by group, which can be very practical!
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
  **Exercise**: Bring out the first penguin from the database for each species and each island. *Hint:* you can use the `slice` function.
@@ -381,13 +381,13 @@ labs(title = "Distribution of penguin beak length",
        y = "Staff")
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 Change the value of `binwidth` in the code above and see how it changes the histogram.
 :::
 
-::: {.callout-important title=" Jules – Observed distribution"}
+::: {.callout-important title="Jules – Observed distribution"}
 When you look at the histogram of `bill_depth_mm`, which word best describes the shape of the distribution?\
 1. Uniform\
 2. Bimodal\
@@ -395,7 +395,7 @@ When you look at the histogram of `bill_depth_mm`, which word best describes the
 4. Symmetric
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 The distribution is generally **symmetric**, even slightly spread out.\
 A good visual reading helps to anticipate central and extreme measurements.
 :::
@@ -408,7 +408,7 @@ To find out the researcher's first request, here is the message she received:
 consulter_taches("histogramme")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Create a histogram for the `flipper_length_mm` variable. You must adjust all the information on the graph while respecting good visualization practices.
@@ -430,19 +430,19 @@ ggplot(penguins_mission, aes(x = species, y = flipper_length_mm, fill = species)
        y = "Fin length (mm)")
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 Add a variable to differentiate between islands and see if some islands have more extreme values.
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Find the row number of the observation that appears to be an outlier in fin length.
 :::
 
-::: {.callout-important title=" Jules – Abnormal observation"}
+::: {.callout-important title="Jules – Abnormal observation"}
 What is the **line number** of the observation that has a **400 mm fin** (outlier added on purpose)?\
 1. 1\
 2. 11\
@@ -450,14 +450,14 @@ What is the **line number** of the observation that has a **400 mm fin** (outlie
 4. 113
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 The outlier is **line 6**.\
 It was added on purpose to test your ability to visually detect anomalies.
 :::
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise (optional)
 
 In the previous graph, the legend title is "species", which is by default the name of the variable. Change it to "Species" in English. You have to figure out for yourself how to do this.
@@ -475,7 +475,7 @@ ggplot(penguins_mission, aes(x = bill_length_mm, y = bill_depth_mm)) +
        y = "Spout depth (mm)")
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 Add a color variable to differentiate between islands and see if some islands have different relationships.
@@ -487,7 +487,7 @@ To find out the researcher's next request, here is the message you just received
 consulter_taches("nuage_de_points")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Modify the scatter plot to display the relationship desired by the researcher. Do you find that one point looks weird? If yes, what is its line number?
@@ -528,7 +528,7 @@ To find out the researcher's first request, she has just sent you this:
 consulter_taches("statistiques_descriptives")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Respond precisely in your logbook to Doctor Adélie's request.
@@ -555,7 +555,7 @@ penguins_mission %>%
 
 - Easily expandable to multiple variables by changing `bill_length_mm` to `c(bill_length_mm, flipper_length_mm)`
 
-::: {.callout-important title=" Jules – Average ratio value"}
+::: {.callout-important title="Jules – Average ratio value"}
 You calculated `bill_ratio` above with the `mutate` function. If the average is 2.94 and your colleague expects 3.5, what can you conclude?\
 1. The colleague is right, 2.94 ≈ 3.5\
 2. More samples are needed\
@@ -563,7 +563,7 @@ You calculated `bill_ratio` above with the `mutate` function. If the average is 
 4. The ratio is not useful
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 An average of **2.94**, much lower than 3.5, contradicts the colleague's hypothesis.\
 This suggests a difference, but you could also compare the distributions, for example with a histogram or a boxplot, to better visualize the variations.
 :::
@@ -577,7 +577,7 @@ We will now create a detailed boxplot which displays:
 - The average
 - Extreme values
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Which of the above statistics is not usually displayed in a boxplot?
@@ -603,7 +603,7 @@ To find out the optional task of the researcher:
 consulter_taches("Visualisation_statistiques_descriptives")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Complete Dr. Adélie's `ggplot2` code to answer her request. Include this in your logbook. Tell us how this advanced chart can help us better understand our data.
@@ -613,7 +613,7 @@ Complete Dr. Adélie's `ggplot2` code to answer her request. Include this in you
 
  Congratulations! You have now completed part 1 of this adventure, you can go and rest a little before the next part of this mission!
 
-::: {.callout-important title=" Jules – When to commit?"}
+::: {.callout-important title="Jules – When to commit?"}
 When should you make a Git commit?\
 1. Once at the very end of the project\
 2. Each time you add a chart\
@@ -621,7 +621,7 @@ When should you make a Git commit?\
 4. Only after a mistake
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 You must make a commit **after each significant step** (import, filter, graph, analysis).\
  This ensures traceability, and will save you stress if you have to go back.
 :::
@@ -649,7 +649,7 @@ His main question:  ​​How do the physical characteristics of penguins vary d
 
 To help him, you will carry out a complete analysis, mobilizing all the skills acquired in this module.
 
-::: callout-tip
+::: {.callout-tip}
 #### Question 1
 
 Are there any notable differences between penguin species?
@@ -673,7 +673,7 @@ Display the results in clear tabular form.
 
  Hint: Use `group_by()` and `summarise()` from `dplyr` to get these statistics.
 
-::: callout-tip
+::: {.callout-tip}
 #### Question 2
 
 Can we identify an indicator of the penguin's "*size*"?
@@ -693,7 +693,7 @@ Can we identify an indicator of the penguin's "*size*"?
 
  Hint: Use `mutate()` to add the variable to your data.frame.
 
-::: callout-tip
+::: {.callout-tip}
 #### Question 3
 
 How are these characteristics distributed among species?

@@ -4342,7 +4342,7 @@ font-size: 0.65em;
 <h1>Mise en situation : Plongez dans la peau d’un·e consultant·e freelance</h1>
 <p>Vous travaillez comme <strong>freelancer</strong> en science des données. À la différence d’un poste salarié, vous êtes mandaté·e ponctuellement par des client·e·s pour résoudre des problèmes spécifiques. Vous devez être autonome, rigoureux·se et capable de livrer des solutions efficaces, réutilisables et bien documentées.</p>
 <p>Les consultant·e·s freelance sont souvent appelés pour leur capacité à débloquer des projets rapidement et efficacement. Ils livrent des outils bien documentés, testables, et faciles à maintenir par leurs client·e·s. La clarté du code, le respect des standards et l’éthique sont donc des éléments clés de leur pratique.</p>
-<p>Aujourd’hui, vous êtes engagé·e par <strong>Marie-Pier</strong>, directrice de recherche à l’Institut québécois pour les données durables. Elle souhaite explorer le portail <a href="https://www.donneesquebec.ca">donnéesquebec.ça</a> pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : <strong>concevoir un outil de scraping fiable</strong> pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.</p>
+<p>Aujourd’hui, vous êtes engagé·e par <strong>Marie-Pier</strong>, directrice de recherche à l’Institut québécois pour les données durables. Elle souhaite explorer le portail <a href="https://www.donneesquebec.ca">donneesquebec.ca</a> pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : <strong>concevoir un outil de scraping fiable</strong> pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4371,53 +4371,63 @@ Elle vous accompagne tout au long de cette aventure : elle posera des questions 
 </section>
 <section id="prérequis" class="level1">
 <h1>Prérequis</h1>
-<p>::: {.callout-important title=” - Question de Marie-Pier”} <em>« Que peut-on légalement extraire de ce portail ? Le scraping est-il autorisé ici ? »</em> :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Question de Marie-Pier">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question de Marie-Pier
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>« Que peut-on légalement extraire de ce portail ? Le scraping est-il autorisé ici ? »</em></p>
+</div>
+</div>
 <p>Pour répondre à cette question, nous allons d’abord consulter le fichier <code>robots.txt</code> du site. Ce fichier indique les règles que les robots d’indexation (et donc de scraping) doivent suivre.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Affichez le robots.txt</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>robots <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">&quot;https://www.donneesquebec.ca/robots.txt&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Contenu du fichier robots.txt :</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>robots <span class="ot">&lt;-</span> <span class="fu">safe_read_lines</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://www.donneesquebec.ca/robots.txt&quot;</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">fallback =</span> <span class="fu">c</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;User-agent: *&quot;</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Disallow: /api/&quot;</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Disallow: /dataset/rate/&quot;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in file(con, &quot;r&quot;): cannot open URL
+&#39;https://www.donneesquebec.ca/robots.txt&#39;: HTTP status was &#39;403 Forbidden&#39;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Impossible de télécharger https://www.donneesquebec.ca/robots.txt; utilisation d&#39;un exemple local.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">Contenu du fichier robots.txt :</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Contenu du fichier robots.txt :</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(robots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(robots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>User-agent: *
-Disallow: /wp-admin/
-Allow: /wp-admin/admin-ajax.php
-Disallow: /recherche/dataset/*?
-Disallow: /recherche/organization/*?
-Disallow: /recherche/group/*?
-Disallow: /recherche/dataset/rate/
-Disallow: /recherche/revision/
-Disallow: /recherche/dataset/*/history
-Disallow: /recherche/api/
 Disallow: /api/
-Crawl-Delay: 10</code></pre>
+Disallow: /dataset/rate/</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyse rapide</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>disinstructions <span class="ot">&lt;-</span> robots[<span class="fu">grepl</span>(<span class="st">&quot;^Disallow&quot;</span>, robots)]</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Chemins interdits aux robots :</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyse rapide</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>disinstructions <span class="ot">&lt;-</span> robots[<span class="fu">grepl</span>(<span class="st">&quot;^Disallow&quot;</span>, robots)]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">Chemins interdits aux robots :</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 
 Chemins interdits aux robots :</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(disinstructions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(disinstructions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Disallow: /wp-admin/
-Disallow: /recherche/dataset/*?
-Disallow: /recherche/organization/*?
-Disallow: /recherche/group/*?
-Disallow: /recherche/dataset/rate/
-Disallow: /recherche/revision/
-Disallow: /recherche/dataset/*/history
-Disallow: /recherche/api/
-Disallow: /api/</code></pre>
+<pre><code>Disallow: /api/
+Disallow: /dataset/rate/</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note éthique</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">\u2139\ufe0f Note :</span><span class="sc">\n</span><span class="st">Les jeux de données publics listés dans les pages de résultat ne sont pas explicitement restreints.</span><span class="sc">\n</span><span class="st">Le scraping des pages principales de recherche est donc permis, tant qu&#39;on évite les chemins /api/, /dataset/rate/, etc.</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note éthique</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">\u2139\ufe0f Note :</span><span class="sc">\n</span><span class="st">Les jeux de données publics listés dans les pages de résultat ne sont pas explicitement restreints.</span><span class="sc">\n</span><span class="st">Le scraping des pages principales de recherche est donc permis, tant qu&#39;on évite les chemins /api/, /dataset/rate/, etc.</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 
@@ -4431,66 +4441,78 @@ Le scraping des pages principales de recherche est donc permis, tant qu&#39;on �
 <h1>Comprendre le web scraping avec <code>rvest</code></h1>
 <p>Dans cette section, vous découvrirez les fonctions essentielles du package <code>rvest</code>. Votre objectif : apprendre à extraire du contenu HTML structuré depuis un site web.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&amp;page=1&quot;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>page</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&amp;page=1&quot;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> <span class="fu">safe_read_html</span>(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Impossible de télécharger https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&amp;page=1; utilisation d&#39;un exemple HTML local.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>page</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_document}
-&lt;html lang=&quot;fr&quot;&gt;
-[1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8 ...
-[2] &lt;body data-site-root=&quot;https://www.donneesquebec.ca/recherche/&quot; data-local ...</code></pre>
+&lt;html&gt;
+[1] &lt;body&gt;\n    &lt;div class=&quot;dataset-content&quot;&gt;\n      &lt;h3 class=&quot;dataset-headi ...</code></pre>
 </div>
 </div>
 <p>La fonction <code>read_html()</code> télécharge et convertit la page web pour en permettre la manipulation.</p>
 <p>Marie-Pier vous demande :</p>
-<p>::: {.callout-important title=” - Question de Marie-Pier”} <em>« Peux-tu me montrer à quoi ressemble la structure de cette page ? Est-ce que tu peux repérer un élément intéressant ? »</em> :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Question de Marie-Pier">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question de Marie-Pier
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>« Peux-tu me montrer à quoi ressemble la structure de cette page ? Est-ce que tu peux repérer un élément intéressant ? »</em></p>
+</div>
+</div>
 <p>On peut maintenant cibler les éléments HTML avec <code>html_nodes()</code> (ou <code>html_elements()</code> dans les versions récentes) :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>blocs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(page, <span class="st">&quot;.dataset-content&quot;</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(blocs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>blocs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(page, <span class="st">&quot;.dataset-content&quot;</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(blocs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 20</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>blocs[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>blocs[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_node}
 &lt;div class=&quot;dataset-content&quot;&gt;
-[1] &lt;h3 class=&quot;dataset-heading short&quot;&gt;\n    \n    \n      \n    \n    \n      ...
-[2] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
-[3] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégorie :\n      \n        &lt;a href=&quot;/recherche ...
-[4] &lt;div class=&quot;dqc-notes&quot;&gt;Des données relatives aux taux de présence des per ...</code></pre>
+[1] &lt;h3 class=&quot;dataset-heading&quot;&gt;&lt;a&gt;Exemple de jeu de données public&lt;/a&gt;&lt;/h3&gt;
+[2] &lt;div class=&quot;dqc-org-cat&quot;&gt;Organisation : Données Québec&lt;/div&gt;
+[3] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégorie : Santé&lt;/div&gt;</code></pre>
 </div>
 </div>
 <p>Pour extraire du texte d’un nœud HTML :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text</span>(blocs[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text</span>(blocs[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;\n        \n  \n    \n    \n      \n    \n    \n      Présence des personnes immigrantes\n    \n    \n      \n      \n\n\n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de l’Immigration, de la Francisation et de l’Intégration\n  \n  Catégorie :\n      \n        Politiques sociales\n  \n    Des données relatives aux taux de présence des personnes immigrantes admises au Québec dans la dernière décennie selon certaines caractéristiques, dont la durée de résidence, la...\n  \n\n      &quot;</code></pre>
+<pre><code>[1] &quot;\n      Exemple de jeu de données public\n      Organisation : Données Québec\n      Catégorie : Santé\n    &quot;</code></pre>
 </div>
 </div>
 <p>Maintenant, testons l’extraction du <strong>titre</strong> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_nodes</span>(blocs[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_nodes</span>(blocs[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Présence des personnes immigrantes&quot;</code></pre>
+<pre><code>[1] &quot;Exemple de jeu de données public&quot;</code></pre>
 </div>
 </div>
 <p>Et pour les <strong>producteurs</strong> ? Il faut repérer une sous-structure contenant l’information :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>orgs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(blocs[[<span class="dv">1</span>]], <span class="st">&quot;.dqc-org-cat&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>orgs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>orgs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(blocs[[<span class="dv">1</span>]], <span class="st">&quot;.dqc-org-cat&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>orgs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Organisation : Ministère de l’Immigration, de la Francisation et de l’Intégration&quot;
-[2] &quot;Catégorie :\n      \n        Politiques sociales&quot;                                 </code></pre>
+<pre><code>[1] &quot;Organisation : Données Québec&quot; &quot;Catégorie : Santé&quot;            </code></pre>
 </div>
 </div>
 <p>On peut filtrer le bon élément avec <code>grepl()</code> puis nettoyer la chaîne avec <code>gsub()</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>org <span class="ot">&lt;-</span> orgs[<span class="fu">grepl</span>(<span class="st">&quot;^Organisation&quot;</span>, orgs)][<span class="dv">1</span>]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>org_clean <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;^Organisation : &quot;</span>, <span class="st">&quot;&quot;</span>, org)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>org_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>org <span class="ot">&lt;-</span> orgs[<span class="fu">grepl</span>(<span class="st">&quot;^Organisation&quot;</span>, orgs)][<span class="dv">1</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>org_clean <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;^Organisation : &quot;</span>, <span class="st">&quot;&quot;</span>, org)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>org_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Ministère de l’Immigration, de la Francisation et de l’Intégration&quot;</code></pre>
+<pre><code>[1] &quot;Données Québec&quot;</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -4507,11 +4529,11 @@ Tip
 <code>map_chr()</code> appartient au package <strong>purrr</strong>, qui fait partie du <code>tidyverse</code>. Cette fonction permet d’appliquer une fonction à chaque élément d’une liste (ici chaque bloc HTML), et de retourner un vecteur de caractères. C’est parfait lorsqu’on veut une valeur texte par bloc.</p>
 <blockquote class="blockquote">
 <p>Exemple :</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>producteurs <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(blocs, <span class="cf">function</span>(bloc) {</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  orgs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(bloc, <span class="st">&quot;.dqc-org-cat&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  org <span class="ot">&lt;-</span> orgs[<span class="fu">grepl</span>(<span class="st">&quot;^Organisation&quot;</span>, orgs)][<span class="dv">1</span>]</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gsub</span>(<span class="st">&quot;^Organisation : &quot;</span>, <span class="st">&quot;&quot;</span>, org)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>producteurs <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(blocs, <span class="cf">function</span>(bloc) {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  orgs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(bloc, <span class="st">&quot;.dqc-org-cat&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  org <span class="ot">&lt;-</span> orgs[<span class="fu">grepl</span>(<span class="st">&quot;^Organisation&quot;</span>, orgs)][<span class="dv">1</span>]</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gsub</span>(<span class="st">&quot;^Organisation : &quot;</span>, <span class="st">&quot;&quot;</span>, org)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </blockquote>
 </div>
 </div>
@@ -4535,34 +4557,34 @@ Tip
 <p>Marie-Pier souhaite que vous créiez une fonction réutilisable nommée <code>scrape_page()</code> qui prend en argument une URL et retourne un <code>data.frame</code> avec les colonnes : <code>titre</code>, <code>producteur</code>, <code>categorie</code>.</p>
 <p>Voici un squelette à compléter :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>scrape_page <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Lire le contenu HTML de la page</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sélectionner les blocs de résultats individuels</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  blocs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(page, <span class="st">&quot;.dataset-content&quot;</span>)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Titre (déjà fait pour vous)</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  titres <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(blocs, <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Producteur (à compléter)</span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  producteurs <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(blocs, <span class="cf">function</span>(bloc) {</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... votre code ici ...</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Catégorie (à compléter)</span></span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  categories <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(blocs, <span class="cf">function</span>(bloc) {</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... votre code ici ...</span></span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Créer un data.frame standard</span></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">titre =</span> titres,</span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">producteur =</span> producteurs,</span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">categorie =</span> categories,</span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>scrape_page <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Lire le contenu HTML de la page</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sélectionner les blocs de résultats individuels</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  blocs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(page, <span class="st">&quot;.dataset-content&quot;</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Titre (déjà fait pour vous)</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  titres <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(blocs, <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Producteur (à compléter)</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  producteurs <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(blocs, <span class="cf">function</span>(bloc) {</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... votre code ici ...</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Catégorie (à compléter)</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>  categories <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(blocs, <span class="cf">function</span>(bloc) {</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... votre code ici ...</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Créer un data.frame standard</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">titre =</span> titres,</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">producteur =</span> producteurs,</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">categorie =</span> categories,</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -4583,10 +4605,10 @@ Note
 <h1>Répétition manuelle, puis boucle <code>for</code></h1>
 <p>Testez maintenant l’extraction des <strong>5 premières pages</strong> en appelant plusieurs fois votre fonction :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple manuel (à compléter)</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">scrape_page</span>(<span class="st">&quot;...&quot;</span>)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">scrape_page</span>(<span class="st">&quot;...&quot;</span>)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple manuel (à compléter)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">scrape_page</span>(<span class="st">&quot;...&quot;</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">scrape_page</span>(<span class="st">&quot;...&quot;</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -4603,35 +4625,63 @@ Tip
 </div>
 <p>Rappel du <strong>module 1</strong> : une boucle permet d’automatiser un comportement répétitif. Voici un début de boucle <code>for</code> à compléter :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>resultats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Construire l&#39;URL ici</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="st">&quot;...&quot;</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Page&quot;</span>, i, <span class="st">&quot;en cours...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  page_data <span class="ot">&lt;-</span> <span class="fu">scrape_page</span>(url)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  resultats <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(resultats, page_data)</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>resultats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Construire l&#39;URL ici</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="st">&quot;...&quot;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Page&quot;</span>, i, <span class="st">&quot;en cours...</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  page_data <span class="ot">&lt;-</span> <span class="fu">scrape_page</span>(url)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  resultats <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(resultats, page_data)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">1</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
 <section id="exploration-guidée-par-marie-pier" class="level1">
 <h1>Exploration guidée par Marie-Pier</h1>
 <p>Utilisez le tableau <code>resultats</code> pour répondre aux questions de votre cliente. Elle attend de vous des résultats précis, illustrés si nécessaire.</p>
-<p>::: {.callout-important title=” - Questions de Marie-Pier”} 1. Quelles sont les catégories de jeux de données les plus fréquentes ? 2. Quels organismes publient le plus ? 3. Observe-t-on une diversité de domaines ou une concentration sur quelques thèmes ? :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Questions de Marie-Pier">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Questions de Marie-Pier
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Quelles sont les catégories de jeux de données les plus fréquentes ?</li>
+<li>Quels organismes publient le plus ?</li>
+<li>Observe-t-on une diversité de domaines ou une concentration sur quelques thèmes ?</li>
+</ol>
+</div>
+</div>
 <hr>
 </section>
 <section id="réflexion-éthique" class="level1">
 <h1>Réflexion éthique</h1>
-<p>::: {.callout-note title=” Pour votre rapport”} Rendez compte brièvement :</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Pour votre rapport">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pour votre rapport
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rendez compte brièvement :</p>
 <ul>
 <li>Le site Données Québec permet-il explicitement le scraping ?</li>
 <li>Quels comportements avez-vous adoptés pour rester respectueux ?</li>
-<li>Choisissez <strong>deux autres sites web</strong> (ex: bonjourquebec.com, ulaval.ca) et vérifiez si le scraping semble autorisé ou non. Appuyez-vous sur les fichiers <code>robots.txt</code> ou les conditions d’utilisation. :::</li>
+<li>Choisissez <strong>deux autres sites web</strong> (ex: bonjourquebec.com, ulaval.ca) et vérifiez si le scraping semble autorisé ou non. Appuyez-vous sur les fichiers <code>robots.txt</code> ou les conditions d’utilisation.</li>
 </ul>
+</div>
+</div>
 <hr>
 </section>
 <section id="défi-à-remettre" class="level1">

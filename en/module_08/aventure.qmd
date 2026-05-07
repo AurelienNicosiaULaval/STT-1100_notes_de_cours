@@ -59,7 +59,7 @@ Freelance consultants are often called upon for their ability to unblock project
 
 Today, you are hired by **Marie-Pier**, research director at the Quebec Institute for Sustainable Data. She wishes to explore the [donneesquebec.ca](https://www.donneesquebec.ca) portal to identify the most recent and relevant datasets for her projects. Your mission: **design a reliable scraping tool** to extract titles, producers and categories from datasets, while respecting good ethical practices.
 
-::: callout-note
+::: {.callout-note}
 **Your contact: Marie-Pier**\
 She accompanies you throughout this adventure: she will ask key questions, check your results, and help you refine your deliverables.
 :::
@@ -76,7 +76,7 @@ She accompanies you throughout this adventure: she will ask key questions, check
 
 # Prerequisites
 
-::: {.callout-important title=" - Question from Marie-Pier"}
+::: {.callout-important title="Question from Marie-Pier"}
 *"What can we legally extract from this portal? Is scraping allowed here? »*
 :::
 
@@ -119,7 +119,7 @@ The `read_html()` function downloads and converts the web page to allow manipula
 
 Marie-Pier asks you:
 
-::: {.callout-important title=" - Question from Marie-Pier"}
+::: {.callout-important title="Question from Marie-Pier"}
 *"Can you show me what the structure of this page looks like? Can you spot anything interesting? »*
 :::
 
@@ -158,8 +158,8 @@ org_clean <- gsub("^Organization: ", "", org)
 org_clean
 ```
 
-::: callout-tip
- **Why use `map_chr()`?**\
+::: {.callout-tip}
+**Why use `map_chr()`?**\
 `map_chr()` belongs to the **purrr** package, which is part of the `tidyverse`. This function allows you to apply a function to each element of a list (here each HTML block), and to return a character vector. This is perfect when you want one text value per block.
 
 > Example:
@@ -173,8 +173,8 @@ org_clean
 > ```
 :::
 
-::: callout-tip
- **It's up to you**: From this same HTML block, find how to extract: - the **categories** associated with each dataset
+::: {.callout-tip}
+**It's up to you**: From this same HTML block, find how to extract: - the **categories** associated with each dataset
 :::
 
 ----------------------------------------------------------------------------------
@@ -216,8 +216,8 @@ scrape_page <- function(url) {
 }
 ```
 
-::: callout-note
- **Test your function with page 3**: it should return the 20 datasets on this page.
+::: {.callout-note}
+**Test your function with page 3**: it should return the 20 datasets on this page.
 :::
 
 ----------------------------------------------------------------------------------
@@ -233,8 +233,8 @@ p2 <- scrape_page("...")
 # etc.
 ```
 
-::: callout-tip
- **Marie-Pier**: "Have you noticed what changes in the URL each time? Can you generalize this behavior? »
+::: {.callout-tip}
+**Marie-Pier**: "Have you noticed what changes in the URL each time? Can you generalize this behavior? »
 :::
 
 Reminder of **module 1**: a loop allows you to automate repetitive behavior. Here is the start of a `for` loop to complete:
@@ -260,7 +260,7 @@ for (i in 1:5) {
 
 Use the `results` table to answer your client's questions. She expects precise results from you, illustrated if necessary.
 
-::: {.callout-important title=" - Questions from Marie-Pier"}
+::: {.callout-important title="Questions from Marie-Pier"}
 1. What are the most common categories of datasets?
 2. Which organizations publish the most?
 3. Are we observing a diversity of fields or a concentration on a few themes?
@@ -270,7 +270,7 @@ Use the `results` table to answer your client's questions. She expects precise r
 
 # Ethical reflection
 
-::: {.callout-note title=" For your report"}
+::: {.callout-note title="For your report"}
 Briefly report:
 
 - Does the Data Québec site explicitly allow scraping?
