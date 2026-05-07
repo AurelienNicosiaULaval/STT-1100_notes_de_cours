@@ -4480,34 +4480,18 @@ Ta mission : aider l’aéroport <strong>JFK</strong> (et, à terme, <strong>EWR
 </section>
 <section id="exercice-1-quelle-est-la-structure-de-la-date" class="level2">
 <h2 class="anchored" data-anchor-id="exercice-1-quelle-est-la-structure-de-la-date">Exercice 1 — Quelle est la structure de la date ?</h2>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Crée une variable <code>date</code> à partir des colonnes <code>year</code>, <code>month</code> et <code>day</code>, puis utilise <code>class()</code> pour vérifier le type de cette nouvelle variable.</em></p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-important callout-titled" title="Question">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Question
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Réponse de Sofia</strong><br>
-Tu peux utiliser :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">make_date</span>(year, month, day))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(flights<span class="sc">$</span>date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Le type attendu est <code>&quot;Date&quot;</code>. Tu peux désormais manipuler cette variable avec toutes les fonctions temporelles !</p>
+<p><strong>Sofia te demande</strong> : <em>Crée une variable <code>date</code> à partir des colonnes <code>year</code>, <code>month</code> et <code>day</code>, puis utilise <code>class()</code> pour vérifier le type de cette nouvelle variable.</em></p>
 </div>
-</div>
-</div>
-</section>
-<section id="exercice-2-jour-de-la-semaine" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2-jour-de-la-semaine">Exercice 2 — Jour de la semaine</h2>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Ajoute une colonne <code>jour_semaine</code> qui donne le jour de la semaine (lundi, mardi, etc.) pour chaque vol. Affiche les 7 premiers résultats.</em></p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -4522,6 +4506,42 @@ Tip
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Réponse de Sofia</strong><br>
+Tu peux utiliser :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">make_date</span>(year, month, day))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(flights<span class="sc">$</span>date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Le type attendu est <code>&quot;Date&quot;</code>. Tu peux désormais manipuler cette variable avec toutes les fonctions temporelles !</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-2-jour-de-la-semaine" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-jour-de-la-semaine">Exercice 2 — Jour de la semaine</h2>
+<div class="callout callout-style-default callout-important callout-titled" title="Question">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Sofia te demande</strong> : <em>Ajoute une colonne <code>jour_semaine</code> qui donne le jour de la semaine (lundi, mardi, etc.) pour chaque vol. Affiche les 7 premiers résultats.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Réponse de Sofia</strong><br>
 Voici une façon de faire :</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jour_semaine =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>))</span>
@@ -4534,11 +4554,21 @@ Voici une façon de faire :</p>
 </section>
 <section id="exercice-3-créneau-horaire" class="level2">
 <h2 class="anchored" data-anchor-id="exercice-3-créneau-horaire">Exercice 3 — Créneau horaire</h2>
-<div class="callout-question">
+<div class="callout callout-style-default callout-important callout-titled" title="Question">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Sofia te demande</strong> : <em>Crée une variable <code>moment_journee</code> qui classe les vols en “nuit”, “matin”, “après-midi” ou “soir” selon l’heure prévue de départ.</em></p>
 </div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4547,7 +4577,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Réponse de Sofia</strong><br>
 Voici une suggestion :</p>
@@ -4565,11 +4595,21 @@ Voici une suggestion :</p>
 </section>
 <section id="exercice-4-est-ce-un-week-end" class="level2">
 <h2 class="anchored" data-anchor-id="exercice-4-est-ce-un-week-end">Exercice 4 — Est-ce un week-end ?</h2>
-<div class="callout-question">
+<div class="callout callout-style-default callout-important callout-titled" title="Question">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Sofia te demande</strong> : <em>Ajoute une variable logique <code>weekend</code> qui vaut <code>TRUE</code> si le vol a lieu un samedi ou un dimanche.</em></p>
 </div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4578,7 +4618,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Réponse de Sofia</strong><br>
 Utilise :</p>
@@ -4627,11 +4667,21 @@ Note
 <p><strong>Contexte</strong> : Le gestionnaire des opérations de JFK a observé que les retards semblent plus fréquents à certaines heures de la journée. Il souhaite valider s’il existe des <strong>créneaux critiques</strong> à éviter pour les départs.</p>
 </div>
 </div>
-<div class="callout-question">
+<div class="callout callout-style-default callout-important callout-titled" title="Question">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Sofia te demande</strong> : <em>Fais une analyse pour identifier les heures de la journée où les retards au départ (<code>dep_delay</code>) sont les plus élevés en moyenne. Visualise cette relation avec un graphique clair.</em></p>
 </div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4640,7 +4690,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Réponse de Sofia</strong><br>
 Tu peux regrouper les vols par heure et calculer la moyenne des retards :</p>
@@ -4672,8 +4722,18 @@ Note
 <p><strong>Contexte</strong> : Certains gestionnaires accusent systématiquement la météo pour les retards. Sofia te propose de tester cette <strong>hypothèse</strong> à l’aide des données météo jointes aux vols.</p>
 </div>
 </div>
-<div class="callout-question">
+<div class="callout callout-style-default callout-important callout-titled" title="Question">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Sofia te demande</strong> : <em>Choisis une ou deux variables météo (ex : <code>wind_gust</code>, <code>visib</code>, <code>precip</code>) et examine leur relation avec les retards (<code>dep_delay</code>).</em></p>
+</div>
 </div>
 <p>Avant de plonger dans les visualisations, un petit détour par un concept clé : la <strong>corrélation</strong>.</p>
 <section id="quest-ce-que-la-corrélation" class="level3">
@@ -4706,7 +4766,7 @@ Note
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Retard au départ (min)&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Le nuage de points te montre la tendance globale, et la ligne rouge correspond à une <strong>régression linéaire</strong> (c’est à dire la “meilleure” droite qui représente le lien linéaire entre les deux variables) qui estime cette relation.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4715,7 +4775,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Réponse de Sofia</strong><br>
 Tu peux aussi tester avec d’autres variables comme <code>visib</code> (visibilité) ou <code>precip</code> (précipitations), et observer si les retards sont plus élevés lorsque la météo est mauvaise.</p>
@@ -4744,11 +4804,21 @@ Note
 <p><strong>Contexte</strong> : L’équipe maintenance s’interroge : les avions les plus âgés sont-ils plus souvent en retard ou annulés ? L’information sur l’année de fabrication est disponible dans <code>plane_year</code>.</p>
 </div>
 </div>
-<div class="callout-question">
+<div class="callout callout-style-default callout-important callout-titled" title="Question">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Sofia te demande</strong> : <em>Analyse la relation entre l’âge de l’avion et les retards ou annulations (<code>is.na(dep_time)</code>).</em></p>
 </div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4757,7 +4827,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Réponse de Sofia</strong><br>
 Tu peux créer une variable <code>age_avion</code> :</p>

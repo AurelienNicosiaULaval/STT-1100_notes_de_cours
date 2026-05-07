@@ -53,7 +53,7 @@ RStudio is made up of four main panels:
 
 - **Graph (*Plots*), files and help**: at the bottom right, this panel allows you to view your graphs, explore the project files, or access the documentation.
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 - **Test the console**: open the console and type the following command:
@@ -81,7 +81,7 @@ RStudio is made up of four main panels:
 
 - **Packages**: the "Packages" tab allows you to easily install and load libraries.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 Install the `dplyr` package using the GUI or via the following command in the console:
@@ -101,7 +101,7 @@ library(dplyr)
 
 To get started efficiently, customize the preferences (`Tools > Global Options`) to adjust the appearance and settings according to your needs.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - **Exploring options**: Access `Tools > Global Options` and explore the different possible configurations. Try changing the interface theme (e.g. dark theme) and see the difference.
@@ -115,7 +115,7 @@ R programming is essential for manipulating, analyzing and visualizing data. Thi
 
 In R, everything is an object. Here are the basics for creating objects and manipulating them:
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - **Create an object**:
@@ -141,7 +141,7 @@ In R, everything is an object. Here are the basics for creating objects and mani
 
 Conditions allow you to make your scripts dynamic.
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 - **Simple condition**:
@@ -156,7 +156,7 @@ Conditions allow you to make your scripts dynamic.
     ```
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - Write a condition that displays whether a number is even or odd.
@@ -181,7 +181,7 @@ When you want help with a function, you can simply type the name of it in the he
 
 R also allows us to define our own functions. We will do this several times in the course. Here is a simple little example.
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 - **Basic calculation**:
@@ -194,7 +194,7 @@ R also allows us to define our own functions. We will do this several times in t
     ```
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - Create a `cube` function that calculates the cube of a number, then test it with the values 2, 3 and 4.
@@ -240,7 +240,7 @@ kable(
 )
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - Identify style errors in code.
@@ -329,7 +329,7 @@ You can easily execute a block of code either by executing (`Ctrl + Enter`) line
 
 Once your report is final, you can generate the report by clicking on the Render button: ![Button to add generate report](resources/bouton_render.png)
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 - **Create a Quarto document**:
@@ -339,7 +339,7 @@ Once your report is final, you can generate the report by clicking on the Render
 - **Generate the document**: Use `Ctrl + Shift + K` (or the render button) to generate the final report.
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 1. Create a Quarto document in HTML format.
@@ -373,7 +373,7 @@ Loading the library will allow us to access all of its contents. You can see the
 help(package = "UlavalSSD")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - Search the contents of the bookstore. What do you notice?
@@ -383,7 +383,7 @@ help(package = "UlavalSSD")
 
 In this adventure, we will work with the dataset called `MeteoQuebec` available in the `UlavalSSD` library. It is important to note that if the library is not loaded (`library(UlavalSSD)`) then you will not be able to access this dataset.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - `MeteoQuebec` is an object name in the environment. Display the database by creating a code block.
@@ -437,7 +437,7 @@ After cleaning, the data becomes:
 
 In the coming weeks we will have a complete module on data cleansing. This is simply to introduce you to the concept of clean data so that you are attentive to this aspect every time you encounter data.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - In the `MeteoQuebec` dataset, check if there is any missing data. You can use the `summary` function for this. When we apply the `summary` function to a dataset, it gives us descriptive statistics (we will come back to this), but above all it gives the number of missing data per column.
@@ -500,7 +500,7 @@ column_mean_temp <- MeteoQuebec$mean_temp
 print(column_mean_temp)
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Example
 
 - In the console, type the name of the database `MeteoQuebec`, add a `$` at the end. What is happening?
@@ -518,7 +518,7 @@ MeteoQuebec$extended_temp <- MeteoQuebec$max_temp -MeteoQuebec$min_temp
 head(MeteoQuebec)
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - Create a new column **mean_temp_F** which corresponds to the average temperature per day in degrees fahrenheit.
@@ -536,7 +536,7 @@ lines_mean_temp_25 <- MeteoQuebec[MeteoQuebec$mean_temp > 25, ]
 print(lines_mean_temp_25)
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercise
 
 - Get the lines where the precipitation total **total_precip** is zero:

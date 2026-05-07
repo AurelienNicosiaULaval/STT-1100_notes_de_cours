@@ -18,6 +18,37 @@ format:
 library(tidyverse)
 library(rvest)
 library(purrr)
+
+fallback_dataset_html <- '
+<html>
+  <body>
+    <div class="dataset-content">
+      <h3 class="dataset-heading"><a>Exemple de jeu de données public</a></h3>
+      <div class="dqc-org-cat">Organisation : Données Québec</div>
+      <div class="dqc-org-cat">Catégorie : Santé</div>
+    </div>
+  </body>
+</html>'
+
+safe_read_lines <- function(url, fallback = character()) {
+  tryCatch(
+    readLines(url, warn = FALSE),
+    error = function(error) {
+      message("Impossible de télécharger ", url, "; utilisation d'un exemple local.")
+      fallback
+    }
+  )
+}
+
+safe_read_html <- function(url) {
+  tryCatch(
+    read_html(url),
+    error = function(error) {
+      message("Impossible de télécharger ", url, "; utilisation d'un exemple HTML local.")
+      read_html(fallback_dataset_html)
+    }
+  )
+}
 ```
 
 # Mise en situation : Plongez dans la peau d'un·e consultant·e freelance
@@ -26,9 +57,9 @@ Vous travaillez comme **freelancer** en science des données. À la différence 
 
 Les consultant·e·s freelance sont souvent appelés pour leur capacité à débloquer des projets rapidement et efficacement. Ils livrent des outils bien documentés, testables, et faciles à maintenir par leurs client·e·s. La clarté du code, le respect des standards et l'éthique sont donc des éléments clés de leur pratique.
 
-Aujourd'hui, vous êtes engagé·e par **Marie-Pier**, directrice de recherche à l'Institut québécois pour les données durables. Elle souhaite explorer le portail [donnéesquebec.ça](https://www.donneesquebec.ca) pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : **concevoir un outil de scraping fiable** pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.
+Aujourd'hui, vous êtes engagé·e par **Marie-Pier**, directrice de recherche à l'Institut québécois pour les données durables. Elle souhaite explorer le portail [donneesquebec.ca](https://www.donneesquebec.ca) pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : **concevoir un outil de scraping fiable** pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.
 
-::: callout-note
+::: {.callout-note}
 **Votre interlocutrice : Marie-Pier**\
 Elle vous accompagne tout au long de cette aventure : elle posera des questions clés, vérifiera vos résultats, et vous aidera à affiner vos livrables.
 :::
@@ -45,7 +76,7 @@ Elle vous accompagne tout au long de cette aventure : elle posera des questions 
 
 # Prérequis
 
-::: {.callout-important title=" - Question de Marie-Pier"}
+::: {.callout-important title="Question de Marie-Pier"}
 *« Que peut-on légalement extraire de ce portail ? Le scraping est-il autorisé ici ? »*
 :::
 
@@ -53,7 +84,14 @@ Pour répondre à cette question, nous allons d'abord consulter le fichier `robo
 
 ```{r exploration-ethique}
 # Affichez le robots.txt
-robots <- readLines("https://www.donneesquebec.ca/robots.txt")
+robots <- safe_read_lines(
+  "https://www.donneesquebec.ca/robots.txt",
+  fallback = c(
+    "User-agent: *",
+    "Disallow: /api/",
+    "Disallow: /dataset/rate/"
+  )
+)
 cat("\nContenu du fichier robots.txt :\n")
 writeLines(robots)
 
@@ -73,7 +111,7 @@ Dans cette section, vous découvrirez les fonctions essentielles du package `rve
 
 ```{r lecture-html}
 url <- "https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1"
-page <- read_html(url)
+page <- safe_read_html(url)
 page
 ```
 
@@ -81,7 +119,7 @@ La fonction `read_html()` télécharge et convertit la page web pour en permettr
 
 Marie-Pier vous demande :
 
-::: {.callout-important title=" - Question de Marie-Pier"}
+::: {.callout-important title="Question de Marie-Pier"}
 *« Peux-tu me montrer à quoi ressemble la structure de cette page ? Est-ce que tu peux repérer un élément intéressant ? »*
 :::
 
@@ -120,8 +158,8 @@ org_clean <- gsub("^Organisation : ", "", org)
 org_clean
 ```
 
-::: callout-tip
- **Pourquoi utiliser `map_chr()` ?**\
+::: {.callout-tip}
+**Pourquoi utiliser `map_chr()` ?**\
 `map_chr()` appartient au package **purrr**, qui fait partie du `tidyverse`. Cette fonction permet d'appliquer une fonction à chaque élément d'une liste (ici chaque bloc HTML), et de retourner un vecteur de caractères. C'est parfait lorsqu'on veut une valeur texte par bloc.
 
 > Exemple :
@@ -135,8 +173,8 @@ org_clean
 > ```
 :::
 
-::: callout-tip
- **À vous de jouer** : À partir de ce même bloc HTML, trouvez comment extraire : - les **catégories** associées à chaque jeu de données
+::: {.callout-tip}
+**À vous de jouer** : À partir de ce même bloc HTML, trouvez comment extraire : - les **catégories** associées à chaque jeu de données
 :::
 
 ------------------------------------------------------------------------
@@ -178,8 +216,8 @@ scrape_page <- function(url) {
 }
 ```
 
-::: callout-note
- **Testez votre fonction avec la page 3** : elle devrait retourner les 20 jeux de données de cette page.
+::: {.callout-note}
+**Testez votre fonction avec la page 3** : elle devrait retourner les 20 jeux de données de cette page.
 :::
 
 ------------------------------------------------------------------------
@@ -195,8 +233,8 @@ p2 <- scrape_page("...")
 # etc.
 ```
 
-::: callout-tip
- **Marie-Pier** : « Est-ce que tu as remarqué ce qui change dans l'URL à chaque fois ? Peux-tu généraliser ce comportement ? »
+::: {.callout-tip}
+**Marie-Pier** : « Est-ce que tu as remarqué ce qui change dans l'URL à chaque fois ? Peux-tu généraliser ce comportement ? »
 :::
 
 Rappel du **module 1** : une boucle permet d'automatiser un comportement répétitif. Voici un début de boucle `for` à compléter :
@@ -222,7 +260,7 @@ for (i in 1:5) {
 
 Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. Elle attend de vous des résultats précis, illustrés si nécessaire.
 
-::: {.callout-important title=" - Questions de Marie-Pier"}
+::: {.callout-important title="Questions de Marie-Pier"}
 1.  Quelles sont les catégories de jeux de données les plus fréquentes ?
 2.  Quels organismes publient le plus ?
 3.  Observe-t-on une diversité de domaines ou une concentration sur quelques thèmes ?
@@ -232,7 +270,7 @@ Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. E
 
 # Réflexion éthique
 
-::: {.callout-note title=" Pour votre rapport"}
+::: {.callout-note title="Pour votre rapport"}
 Rendez compte brièvement :
 
 -   Le site Données Québec permet-il explicitement le scraping ?

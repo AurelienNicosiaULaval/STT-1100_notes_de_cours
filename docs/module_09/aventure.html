@@ -4381,7 +4381,19 @@ Il vous accompagne dans cette aventure : il posera des questions clés et attend
 <section id="mission-1-modèle-prédictif-à-léchelle-des-écoles" class="level1">
 <h1>Mission 1 : Modèle prédictif à l’échelle des écoles</h1>
 <p>Michel vous remet un <a href="https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c">fichier de données issues du portail Données Québec</a>. Ces données contiennent des informations de défavorisation sur les écoles primaires du Québec.</p>
-<p>::: {.callout-important title=” - Michel vous explique”} « Je vous invite à explorer les données. Mais attention : les noms des colonnes ne sont pas toujours intuitifs. Commencez par visiter la page de documentation sur Données Québec pour bien comprendre leur signification. » :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel vous explique">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel vous explique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>« Je vous invite à explorer les données. Mais attention : les noms des colonnes ne sont pas toujours intuitifs. Commencez par visiter la page de documentation sur Données Québec pour bien comprendre leur signification. »</p>
+</div>
+</div>
 <section id="étape-1-exploration-et-nettoyage" class="level2">
 <h2 class="anchored" data-anchor-id="étape-1-exploration-et-nettoyage">Étape 1 : Exploration et nettoyage</h2>
 <ul>
@@ -4396,12 +4408,36 @@ Il vous accompagne dans cette aventure : il posera des questions clés et attend
 </section>
 <section id="étape-2-modèle-de-régression" class="level2">
 <h2 class="anchored" data-anchor-id="étape-2-modèle-de-régression">Étape 2 : Modèle de régression</h2>
-<p>::: {.callout-important title=” - Michel vous demande”} « J’aimerais que vous construisiez un modèle de régression linéaire pour prédire l’<strong>IMSE</strong> (Indice de Milieu Socio-Économique), à partir de deux variables : la proportion d’élèves à faible revenu (<strong>SFR</strong>) et le <strong>nombre total d’élèves</strong> dans l’école. » :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel vous demande">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel vous demande
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>« J’aimerais que vous construisiez un modèle de régression linéaire pour prédire l’<strong>IMSE</strong> (Indice de Milieu Socio-Économique), à partir de deux variables : la proportion d’élèves à faible revenu (<strong>SFR</strong>) et le <strong>nombre total d’élèves</strong> dans l’école. »</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">lm</span>( ... , <span class="at">data =</span> ...)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>::: {.callout-important title=” - Michel vous interroge”} « Une fois le modèle construit, pouvez-vous m’expliquer, en langage simple, ce que signifient les deux coefficients ? » :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel vous interroge">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel vous interroge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>« Une fois le modèle construit, pouvez-vous m’expliquer, en langage simple, ce que signifient les deux coefficients ? »</p>
+</div>
+</div>
 </section>
 <section id="étape-3-prédictions-ciblées" class="level2">
 <h2 class="anchored" data-anchor-id="étape-3-prédictions-ciblées">Étape 3 : Prédictions ciblées</h2>
@@ -4409,15 +4445,39 @@ Il vous accompagne dans cette aventure : il posera des questions clés et attend
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(modele, <span class="at">newdata =</span> df_ecoles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>::: {.callout-important title=” - Michel précise”} « J’aimerais que vous utilisiez votre modèle pour : »</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel précise">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel précise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>« J’aimerais que vous utilisiez votre modèle pour : »</p>
 <p>- prédire l’IMSE pour les <strong>10 écoles les plus grandes</strong> (en nombre d’élèves);</p>
 <p>- prédire l’IMSE pour les <strong>10 écoles ayant les SFR les plus élevés</strong>.</p>
-<p>Comparer les valeurs prédites aux valeurs réelles. Votre modèle est-il bon? :::</p>
+<p>Comparer les valeurs prédites aux valeurs réelles. Votre modèle est-il bon?</p>
+</div>
+</div>
 </section>
 <section id="étape-4-prédictions-sur-écoles-manquantes" class="level2">
 <h2 class="anchored" data-anchor-id="étape-4-prédictions-sur-écoles-manquantes">Étape 4 : Prédictions sur écoles manquantes</h2>
-<p>::: {.callout-important title=” - Michel ajoute”} « Dernière chose : dans les données, certaines écoles ont la variable <strong>Diffusion</strong> à “NON”. Ces écoles n’ont pas d’IMSE mesuré — souvent parce qu’elles comptent moins de 30 élèves. »</p>
-<p>« Pouvez-vous utiliser votre modèle pour <strong>prédire l’IMSE de toutes les écoles ayant moins de 30 élèves</strong> ? Ensuite, j’aimerais savoir : que pensez-vous de la validité de ces prédictions ? Peut-on s’y fier ? » :::</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel ajoute">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Michel ajoute
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>« Dernière chose : dans les données, certaines écoles ont la variable <strong>Diffusion</strong> à “NON”. Ces écoles n’ont pas d’IMSE mesuré — souvent parce qu’elles comptent moins de 30 élèves. »</p>
+<p>« Pouvez-vous utiliser votre modèle pour <strong>prédire l’IMSE de toutes les écoles ayant moins de 30 élèves</strong> ? Ensuite, j’aimerais savoir : que pensez-vous de la validité de ces prédictions ? Peut-on s’y fier ? »</p>
+</div>
+</div>
 <hr>
 </section>
 </section>

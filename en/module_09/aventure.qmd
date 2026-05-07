@@ -26,7 +26,7 @@ Your superior, **Michel Dufour**, deputy director of the department, welcomes yo
 
 > "Welcome to the team!" Our work is crucial: ensuring that every child has equal opportunities to succeed. To do this, we not only need to effectively predict certain indicators, but also understand and avoid biases in our models. »
 
-::: callout-note
+::: {.callout-note}
 **Your contact: Michel Dufour**\
 He will accompany you on this adventure: he will ask key questions and await your results and detailed analyses.
 :::
@@ -44,7 +44,7 @@ He will accompany you on this adventure: he will ask key questions and await you
 
 Michel gives you a [data file from the Data Québec portal](https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c). These data contain information on disadvantage on primary schools in Quebec.
 
-::: {.callout-important title=" - Michel explains to you"}
+::: {.callout-important title="Michel explains to you"}
 "I invite you to explore the data. But be careful: the column names are not always intuitive. Start by visiting the documentation page on Data Québec to fully understand their meaning. »
 :::
 
@@ -61,7 +61,7 @@ glimpse(df_schools)
 
 ## Step 2: Regression Model
 
-::: {.callout-important title=" - Michel asks you"}
+::: {.callout-important title="Michel asks you"}
 "I would like you to build a linear regression model to predict the **IMSE** (Socio-Economic Environment Index), based on two variables: the proportion of low-income students (**SFR**) and the **total number of students** in the school. »
 :::
 
@@ -70,7 +70,7 @@ model <- lm( ... , data = ...)
 summary(model)
 ```
 
-::: {.callout-important title=" - Michel questions you"}
+::: {.callout-important title="Michel questions you"}
 "Once the model is built, can you explain to me, in simple language, what the two coefficients mean? »
 :::
 
@@ -82,7 +82,7 @@ You will then use the `predict()` function to generate IMSE predictions from you
 predict(model, newdata = df_schools)
 ```
 
-::: {.callout-important title=" - Michel specifies"}
+::: {.callout-important title="Michel specifies"}
 "I would like you to use your template to:"
 
 \- predict the IMSE for the **10 largest schools** (in number of students);
@@ -94,7 +94,7 @@ Compare predicted values ​​to actual values. Is your model good?
 
 ## Step 4: Missing School Predictions
 
-::: {.callout-important title=" - Michel adds"}
+::: {.callout-important title="Michel adds"}
 "Last thing: in the data, some schools have the variable **Diffusion** set to "NO". These schools do not have a measured IMSE — often because they have fewer than 30 students. »
 
 "Can you use your model to **predict the IMSE of all schools with fewer than 30 students**? Next, I would like to know: what do you think about the validity of these predictions? Can we trust it? »
@@ -171,8 +171,8 @@ Your capsule must include:
 
 Your video capsule must be uploaded to the indicated GitHub repository.
 
-::: callout-tip
- **Tips for making your video successful:**
+::: {.callout-tip}
+**Tips for making your video successful:**
 
 - Be concise and clear.
 - Rely on readable graphics.

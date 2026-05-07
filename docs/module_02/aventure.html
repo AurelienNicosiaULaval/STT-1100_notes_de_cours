@@ -4471,13 +4471,40 @@ Ajoutez le code exécuté dans la console dans votre fichier <strong>Quarto</str
 <p>Dans chaque rapport d’analyse, vous devriez avoir une première section <strong>Lecture des données,</strong> avec un bloc de code qui contient le code qui permet de lire les données. J’en profite pour vous rappeler les <strong>bonnes pratiques de programmation du tidyverse</strong>, à savoir que dans votre bloc de code, il devrait par exemple y avoir des commentaires.</p>
 <p><strong>Pourquoi est-ce important ?</strong><br>
 Cela garantit que votre analyse est <strong>reproductible</strong> : si un autre chercheur veut la refaire, il pourra exécuter votre code sans avoir à utiliser l’interface graphique.</p>
-<p>::: {.callout-important title=” Intervention de Jules – Nom de la base”} Tu viens d’importer le fichier Excel. Dis-moi, dans quelle variable as-tu stocké les données pour la suite de l’analyse ?<br>
+<div class="callout callout-style-default callout-important callout-titled" title="Intervention de Jules – Nom de la base">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Intervention de Jules – Nom de la base
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tu viens d’importer le fichier Excel. Dis-moi, dans quelle variable as-tu stocké les données pour la suite de l’analyse ?<br>
 1. <code>penguins</code><br>
 2. <code>penguins_mission</code><br>
 3. <code>donnees_manchots</code><br>
-4. <code>mission_antarctique</code> :::</p>
-<p>::: {.callout-caution collapse=“true” title=” Réponse de Jules”} Tu devais nommer ta base <strong><code>penguins_mission</code></strong>, comme indiqué dans l’instruction d’importation.<br>
-Attention : tout le reste de l’analyse repose sur ce nom cohérent ! :::</p>
+4. <code>mission_antarctique</code></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse de Jules">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse de Jules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Tu devais nommer ta base <strong><code>penguins_mission</code></strong>, comme indiqué dans l’instruction d’importation.<br>
+Attention : tout le reste de l’analyse repose sur ce nom cohérent !</p>
+</div>
+</div>
+</div>
 <p><strong>Une fois vos données chargées, vous êtes prêts à les explorer et à les analyser ! Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</strong></p>
 </section>
 <section id="manipulation-de-données" class="level1">
@@ -4489,14 +4516,41 @@ Attention : tout le reste de l’analyse repose sur ce nom cohérent ! :::</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(penguins_mission)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>::: {.callout-important title=” Jules – Variables numériques”} Combien de <strong>variables numériques</strong> vois-tu dans le <code>glimpse()</code> de <code>penguins_mission</code>?<br>
+<div class="callout callout-style-default callout-important callout-titled" title="Jules – Variables numériques">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jules – Variables numériques
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Combien de <strong>variables numériques</strong> vois-tu dans le <code>glimpse()</code> de <code>penguins_mission</code>?<br>
 - 3<br>
 - 4<br>
 - 5<br>
-- 6 :::</p>
-<p>::: {.callout-caution collapse=“true” title=” Réponse de Jules”} Il y a généralement <strong>4 variables numériques</strong> :<br>
+- 6</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse de Jules">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse de Jules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Il y a généralement <strong>4 variables numériques</strong> :<br>
 <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code> et <code>body_mass_g</code>.<br>
-Attention : certaines versions du jeu peuvent varier selon l’importation ! :::</p>
+Attention : certaines versions du jeu peuvent varier selon l’importation !</p>
+</div>
+</div>
+</div>
 <section id="aperçu-rapide-avec-glimpse" class="level4">
 <h4 class="anchored" data-anchor-id="aperçu-rapide-avec-glimpse">Aperçu rapide avec <code>glimpse()</code></h4>
 <p>La fonction <code>glimpse()</code> du package <strong>dplyr</strong> permet d’obtenir <strong>un aperçu rapide et structuré d’un jeu de données</strong>.</p>
@@ -4596,16 +4650,42 @@ Exercice
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins_mission <span class="ot">&lt;-</span> penguins_mission <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">body_mass_kg =</span> body_mass_g <span class="sc">/</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>::: {.callout-important title=” Jules – Masse en kilogrammes”} Tu as transformé la masse en kilogrammes. La masse du penguin numéro 21 est plus petit que 4 kg, vrai ou faux?<br>
+<div class="callout callout-style-default callout-important callout-titled" title="Jules – Masse en kilogrammes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jules – Masse en kilogrammes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tu as transformé la masse en kilogrammes. La masse du penguin numéro 21 est plus petit que 4 kg, vrai ou faux?<br>
 1. Vrai<br>
 2. Faux<br>
-:::</p>
-<p>::: {.callout-caution collapse=“true” title=” Réponse de Jules”} Quand on regarde la ligne 21 de la base de données, on obtiens un nombre pour <code>body_mass_kg</code> de 4.01 kg, donc la réponse est <strong>Faux</strong>.<br>
+</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse de Jules">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse de Jules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Quand on regarde la ligne 21 de la base de données, on obtiens un nombre pour <code>body_mass_kg</code> de 4.01 kg, donc la réponse est <strong>Faux</strong>.<br>
 </p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins_mission[<span class="dv">21</span>,<span class="st">&quot;body_mass_kg&quot;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>:::</p>
+</div>
+</div>
+</div>
 <p>On va maintenant continuer avec une nouvelle variable dont la chercheuse est très intéressée:</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -4733,13 +4813,40 @@ Exemple
 <p>Changez la valeur de <code>binwidth</code> dans le code ci-dessus et observez comment cela modifie l’histogramme.</p>
 </div>
 </div>
-<p>::: {.callout-important title=” Jules – Distribution observée”} Quand tu regardes l’histogramme de <code>bill_depth_mm</code>, quel mot décrit le mieux la forme de la distribution ?<br>
+<div class="callout callout-style-default callout-important callout-titled" title="Jules – Distribution observée">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jules – Distribution observée
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quand tu regardes l’histogramme de <code>bill_depth_mm</code>, quel mot décrit le mieux la forme de la distribution ?<br>
 1. Uniforme<br>
 2. Bimodale<br>
 3. Asymétrique droite<br>
-4. Symétrique :::</p>
-<p>::: {.callout-caution collapse=“true” title=” Réponse de Jules”} La distribution est généralement <strong>symétrique</strong>, voire légèrement étalée.<br>
-Une bonne lecture visuelle aide à anticiper les mesures centrales et extrêmes. :::</p>
+4. Symétrique</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse de Jules">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse de Jules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La distribution est généralement <strong>symétrique</strong>, voire légèrement étalée.<br>
+Une bonne lecture visuelle aide à anticiper les mesures centrales et extrêmes.</p>
+</div>
+</div>
+</div>
 <p>** Instructions laissées par la chercheuse**</p>
 <p>Pour connaître la première demande de la chercheuse, voic son message recu :</p>
 <div class="cell">
@@ -4806,13 +4913,40 @@ Exercice
 <p>Trouvez le numéro de ligne de l’observation qui semble être une valeur aberrante dans la longueur des nageoires.</p>
 </div>
 </div>
-<p>::: {.callout-important title=” Jules – Observation anormale”} Quel est le <strong>numéro de ligne</strong> de l’observation qui a une <strong>nageoire de 400 mm</strong> (valeur aberrante ajoutée exprès) ?<br>
+<div class="callout callout-style-default callout-important callout-titled" title="Jules – Observation anormale">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jules – Observation anormale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quel est le <strong>numéro de ligne</strong> de l’observation qui a une <strong>nageoire de 400 mm</strong> (valeur aberrante ajoutée exprès) ?<br>
 1. 1<br>
 2. 11<br>
 3. 6<br>
-4. 113 :::</p>
-<p>::: {.callout-caution collapse=“true” title=” Réponse de Jules”} L’observation aberrante est <strong>ligne 6</strong>.<br>
-Elle a été ajoutée exprès pour tester ta capacité à détecter visuellement les anomalies. :::</p>
+4. 113</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse de Jules">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse de Jules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>L’observation aberrante est <strong>ligne 6</strong>.<br>
+Elle a été ajoutée exprès pour tester ta capacité à détecter visuellement les anomalies.</p>
+</div>
+</div>
+</div>
 <p><strong>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</strong></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -4938,13 +5072,40 @@ Exercice
 <li><p>Moins de répétition de code</p></li>
 <li><p>Facilement extensible à plusieurs variables en changeant <code>bill_length_mm</code> par <code>c(bill_length_mm, flipper_length_mm)</code></p></li>
 </ul>
-<p>::: {.callout-important title=” Jules – Valeur moyenne du ratio”} Tu as calculé <code>bill_ratio</code> plus haut avec la fonction <code>mutate</code>. Si la moyenne est 2.94 et que ton collègue s’attend à 3.5, que peux-tu conclure ?<br>
+<div class="callout callout-style-default callout-important callout-titled" title="Jules – Valeur moyenne du ratio">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jules – Valeur moyenne du ratio
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tu as calculé <code>bill_ratio</code> plus haut avec la fonction <code>mutate</code>. Si la moyenne est 2.94 et que ton collègue s’attend à 3.5, que peux-tu conclure ?<br>
 1. Le collègue a raison, 2.94 ≈ 3.5<br>
 2. Il faut plus d’échantillons<br>
 3. Tes résultats contredisent son hypothèse<br>
-4. Le ratio n’est pas utile :::</p>
-<p>::: {.callout-caution collapse=“true” title=” Réponse de Jules”} Une moyenne de <strong>2.94</strong>, bien inférieure à 3.5, contredit l’hypothèse du collègue.<br>
-Cela suggère une différence, mais tu pourrais aussi comparer les distributions, par exemple avec un histogramme ou un boxplot, pour mieux visualiser les variations. :::</p>
+4. Le ratio n’est pas utile</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse de Jules">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse de Jules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Une moyenne de <strong>2.94</strong>, bien inférieure à 3.5, contredit l’hypothèse du collègue.<br>
+Cela suggère une différence, mais tu pourrais aussi comparer les distributions, par exemple avec un histogramme ou un boxplot, pour mieux visualiser les variations.</p>
+</div>
+</div>
+</div>
 <section id="visualisation-avancée-et-statistiques-descriptives-optionnel" class="level2">
 <h2 class="anchored" data-anchor-id="visualisation-avancée-et-statistiques-descriptives-optionnel">Visualisation avancée et statistiques descriptives (optionnel)</h2>
 <p>Nous allons maintenant créer un boxplot détaillé qui affiche :</p>
@@ -5006,13 +5167,40 @@ Exercice
 </div>
 <p><strong>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</strong></p>
 <p>Félicitations ! Vous avez maintenant terminer la partie 1 de cette aventure, vous pouvez prendre une pause un peu avant la prochaine partie de cette mission!</p>
-<p>::: {.callout-important title=” Jules – Quand faire un commit ?“} À quel moment devrais-tu faire un commit Git ?<br>
+<div class="callout callout-style-default callout-important callout-titled" title="Jules – Quand faire un commit ?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jules – Quand faire un commit ?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>À quel moment devrais-tu faire un commit Git ?<br>
 1. Une fois à la toute fin du projet<br>
 2. À chaque fois que tu ajoutes un graphique<br>
 3. Régulièrement après chaque étape importante<br>
-4. Seulement après une erreur :::</p>
-<p>::: {.callout-caution collapse=“true” title=” Réponse de Jules”} Tu dois faire un commit <strong>après chaque étape significative</strong> (import, filtre, graphique, analyse).<br>
-Cela assure la traçabilité, et te sauvera du stress si tu dois revenir en arrière. :::</p>
+4. Seulement après une erreur</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse de Jules">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Réponse de Jules
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Tu dois faire un commit <strong>après chaque étape significative</strong> (import, filtre, graphique, analyse).<br>
+Cela assure la traçabilité, et te sauvera du stress si tu dois revenir en arrière.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="le-retour-du-dr-adélie-fortier-2e-partie-de-laventure" class="level1">

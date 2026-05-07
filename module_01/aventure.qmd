@@ -53,7 +53,7 @@ RStudio est composé de quatre panneaux principaux :
 
 -   **Graphique (*Plots*), fichiers et aide** : en bas à droite, ce panneau vous permet de visualiser vos graphiques, d'explorer les fichiers du projet, ou d'accéder à la documentation.
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 -   **Testez la console** : ouvrez la console et tapez la commande suivante :
@@ -81,7 +81,7 @@ RStudio est composé de quatre panneaux principaux :
 
 -   **Packages** : l'onglet "Packages" permet d'installer et de charger facilement des librairies.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Installez le package `dplyr` à l'aide de l'interface graphique ou via la commande suivante dans la console :
@@ -101,7 +101,7 @@ library(dplyr)
 
 Pour démarrer efficacement, personnalisez les préférences (`Tools > Global Options`) pour ajuster l'apparence et les paramètres selon vos besoins.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   **Exploration des options** : Accédez à `Tools > Global Options` et explorez les différentes configurations possibles. Essayez de changer le thème de l'interface (ex. : thème sombre) et observez la différence.
@@ -115,7 +115,7 @@ La programmation en R est essentielle pour manipuler, analyser et visualiser des
 
 En R, tout est un objet. Voici les bases pour créer des objets et les manipuler :
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   **Créer un objet** :
@@ -141,7 +141,7 @@ En R, tout est un objet. Voici les bases pour créer des objets et les manipuler
 
 Les conditions permettent de rendre vos scripts dynamiques.
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 -   **Condition simple** :
@@ -156,7 +156,7 @@ Les conditions permettent de rendre vos scripts dynamiques.
     ```
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   Écrivez une condition qui affiche si un nombre est pair ou impair.
@@ -181,7 +181,7 @@ Lorsque vous souhaitez avoir de l'aide sur une fonction, vous pouvez simplement 
 
 R nous permet aussi de définir nos propres fonctions. Nous le ferons à plusieurs reprises dans le cours. Voici un petit exemple simple.
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 -   **Calcul de base** :
@@ -194,7 +194,7 @@ R nous permet aussi de définir nos propres fonctions. Nous le ferons à plusieu
     ```
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   Créez une fonction `cube` qui calcule le cube d'un nombre, puis testez-la avec les valeurs 2, 3 et 4.
@@ -240,7 +240,7 @@ kable(
 )
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   Identifiez les erreurs de style dans le code.
@@ -329,7 +329,7 @@ Vous pouvez facilement exécuter un bloc de code soit en executant (`Ctrl + Ente
 
 Une fois que votre rapport est final, vous pouvez générer le rapport en cliquant sur le bouton Render: ![Bouton pour ajouter generer le rapport](resources/bouton_render.png)
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 -   **Créez un document Quarto** :
@@ -339,7 +339,7 @@ Une fois que votre rapport est final, vous pouvez générer le rapport en cliqua
 -   **Générez le document** : Utilisez `Ctrl + Shift + K` (ou le bouton render) pour générer le rapport final.
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 1.  Créez un document Quarto au format HTML.
@@ -373,7 +373,7 @@ Le fait de charger la librairie va nous permettre d'accéder à tout son contenu
 help(package = "UlavalSSD")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   Fouillez dans le contenu de la librairie. Que remarquez vous?
@@ -383,7 +383,7 @@ help(package = "UlavalSSD")
 
 Dans cette aventure, nous allons travailler avec le jeu de données appelé `MeteoQuebec` disponible dans la librairie `UlavalSSD`. Il est important de noter que si la libraire n'est pas chargée (`library(UlavalSSD)`) alors vous ne pourrez pas accéder à ce jeu de données.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   `MeteoQuebec` est un nom d'objet dans l'environnement. Affichez la base de données en créant un bloc de code.
@@ -437,7 +437,7 @@ Après nettoyage, les données deviennent :
 
 Dans les prochaines semaines, nous aurons un module complet sur le nettoyage des données. Il s'agit ici de vous introduire simplement au concept de données propres afin que vous soyez attentif à cet aspect à chaque fois que vous rencontrerez des données.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   Dans le jeu de données `MeteoQuebec`, vérifiez s'il y a des données manquantes. Vous pouvez utiliser pour cela la fonction `summary`. Quand on applique la fonction `summary` sur un jeu de données, celle-ci nous donne des statistiques descriptives (nous y reviendrons), mais elle donne surtout le nombre de données manquantes par colonne.
@@ -500,7 +500,7 @@ colonne_mean_temp <- MeteoQuebec$mean_temp
 print(colonne_mean_temp)
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 -   Dans la console, tapez le nom de la base de données `MeteoQuebec`, ajouter un `$` à la fin. Que se passe t-il?
@@ -518,7 +518,7 @@ MeteoQuebec$etendue_temp <- MeteoQuebec$max_temp -MeteoQuebec$min_temp
 head(MeteoQuebec)
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   Créez une nouvelle colonne **mean_temp_F** qui correspond à la temperature moyenne par jour en degrés fahrenheit.
@@ -536,7 +536,7 @@ lignes_mean_temp_25 <- MeteoQuebec[MeteoQuebec$mean_temp > 25, ]
 print(lignes_mean_temp_25)
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 -   Obtenez les lignes où le total de precipitation **total_precip** est nul:

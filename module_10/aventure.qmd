@@ -56,15 +56,15 @@ Un fichier `sentiments_cours.csv` contient :
 
 ## Étape 1 — Nettoyage de texte
 
-::: {.callout-important title=" - Question d'Anne-Sophie"}
+::: {.callout-important title="Question d'Anne-Sophie"}
 « Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »
 :::
 
-::: {.callout-tip title=" - Petit rappel"}
+::: {.callout-tip title="Petit rappel"}
 Le nettoyage de texte est essentiel avant toute analyse. Tu veux que chaque mot ait un sens pertinent. Essaie de retirer la ponctuation, les mots trop courants, et assure-toi que tout est bien en minuscules.
 :::
 
-::: {.callout-note title=" Notions clés"}
+::: {.callout-note title="Notions clés"}
 -   **Tokenisation** : procédé qui consiste à découper le texte en unités de base (mots, n‑grammes). Chaque token devient une ligne dans votre tableau.
 -   **Stopwords** : mots très fréquents ("le", "de", "et", etc.) qui n'apportent généralement pas d'information sémantique utile pour l'analyse.
 -   **Nettoyage** : mise en minuscules, retrait de la ponctuation, chiffres et caractères spéciaux pour normaliser les tokens.
@@ -110,7 +110,7 @@ texte_nettoye <- exemple %>%
 head(texte_nettoye)
 ```
 
-::: {.callout-important title=" - Question d'Anne-Sophie"}
+::: {.callout-important title="Question d'Anne-Sophie"}
 « Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »
 :::
 
@@ -126,7 +126,7 @@ Anne-Sophie vous demande d'appliquer un nettoyage classique :
 
 On s'intéresse ici à la **valence émotionnelle** des mots dans les commentaires. L'analyse de sentiment permet de quantifier si un texte est plutôt positif ou négatif.
 
-::: {.callout-note title=" Notions clés"}
+::: {.callout-note title="Notions clés"}
 -   **Sentiment d'un mot** : étiquette (positive, négative) ou score numérique indiquant la valence émotionnelle du mot.
 -   **Score de sentiment d'un texte** : somme ou différence des scores/étiquettes des mots qu'il contient, souvent agrégé par document ou, ici, par semaine.
 :::
@@ -135,7 +135,7 @@ On s'intéresse ici à la **valence émotionnelle** des mots dans les commentair
 
 Actuellement, il **n'existe pas de lexique intégré à `tidytext::get_sentiments()` pour le français** (contrairement à l'anglais, où les lexiques `bing`, `afinn`, et `nrc` sont directement accessibles). Voici donc une approche pédagogique : créer un petit lexique personnalisé à enrichir en classe.
 
-::: {.callout-important title=" - Suggestion d'Anne-Sophie"}
+::: {.callout-important title="Suggestion d'Anne-Sophie"}
 « Pour cette étape, je vous recommande de construire un petit lexique maison. Vous pouvez commencer par les mots qui reviennent souvent et les classer subjectivement. Le but ici est de comprendre le principe d'une analyse de sentiment, même avec des outils simples. »
 :::
 
@@ -166,7 +166,7 @@ ggplot(sentiment_fr, aes(x = semaine, y = score)) +
        y = "Score net (positif - négatif)", x = "Semaine")
 ```
 
-::: {.callout-note title=" - Conseil d'Anne-Sophie"}
+::: {.callout-note title="Conseil d'Anne-Sophie"}
 « Comme les lexiques intégrés à `get_sentiments()` ne sont disponibles qu'en anglais, je vous propose de construire un petit lexique maison pour le français. Ce sera imparfait, mais cela vous permettra de comprendre le principe. On pourra ensuite en discuter ensemble pour l'enrichir. Ce qui m'intéresse, c'est que vous soyez capables d'interpréter l'évolution du sentiment d'une semaine à l'autre, même avec des outils simples. »
 :::
 
@@ -180,11 +180,11 @@ ggplot(sentiment_fr, aes(x = semaine, y = score)) +
 
 Dans cette étape, nous allons identifier les mots qui ressortent le plus chaque semaine. Pour cela, nous utiliserons l'approche **TF-IDF** (Term Frequency-Inverse Document Frequency), qui permet de mettre en évidence les mots à la fois fréquents dans un document et rares dans l'ensemble des documents.
 
-::: {.callout-tip title=" - Idée d'Anne-Sophie"}
+::: {.callout-tip title="Idée d'Anne-Sophie"}
 « Un bon indicateur de ce que ressentent les étudiant·es, ce sont les mots qui ressortent le plus dans leurs commentaires. Vous pouvez essayer une analyse TF-IDF ou même créer un nuage de mots. »
 :::
 
-::: {.callout-note title=" Notions clés"}
+::: {.callout-note title="Notions clés"}
 -   **TF (Term Frequency)** : fréquence d'apparition d'un mot dans un document.
 -   **IDF (Inverse Document Frequency)** : importance inverse d'un mot dans l'ensemble des documents – les mots rares ont un IDF élevé.
 -   **TF‑IDF** : produit TF × IDF qui met en évidence les mots à la fois fréquents dans un document et rares dans les autres (mots "distinctifs").
@@ -226,7 +226,7 @@ Une visualisation comme celle-ci permet de voir quels mots sont les plus représ
 
  Pour créer un nuage de mots en français : - Utilisez la fonction `wordcloud()` du package `wordcloud`, ou `ggwordcloud` pour plus de personnalisation. - Inspirez-vous de cet exemple complet : <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
 
-::: {.callout-important title=" - Question d'Anne-Sophie"}
+::: {.callout-important title="Question d'Anne-Sophie"}
 « Peux-tu repérer les mots qui ressortent le plus chaque semaine ? Tu pourrais essayer une approche TF-IDF et me faire un graphique ou même un nuage de mots. »
 :::
 
@@ -234,7 +234,7 @@ Une visualisation comme celle-ci permet de voir quels mots sont les plus représ
 
 Maintenant que nous avons nettoyé les données et effectué les analyses de sentiment et de mots distinctifs, il est temps de créer un tableau de bord interactif. Celui-ci permettra à Anne-Sophie de visualiser les résultats de manière claire et dynamique.
 
-::: {.callout-note title=" - Rappel d'Anne-Sophie"}
+::: {.callout-note title="Rappel d'Anne-Sophie"}
 Le tableau de bord final doit être **clair, interactif et utile**. Un **modèle prêt à l'emploi (`modele_dashboard.Rmd`)** se trouve dans le dépôt GitHub du module. Personnalisez‑le : branchez vos propres données, ajustez les filtres, et ajoutez au moins deux visualisations.
 :::
 
@@ -247,7 +247,7 @@ Le tableau de bord final doit être **clair, interactif et utile**. Un **modèle
 -   recommandations d'action pour améliorer l'expérience étudiante,
 -   **analyse des variables numériques** `difficulte`, `engagement`, `plaisir` : moyenne et tendance par semaine, comparaison avec le score de sentiment (ex. corrélations simples ou graphiques combinés).
 
-::: {.callout-important title=" - Défi d'Anne-Sophie"}
+::: {.callout-important title="Défi d'Anne-Sophie"}
 « N'oubliez pas d'explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »
 :::
 

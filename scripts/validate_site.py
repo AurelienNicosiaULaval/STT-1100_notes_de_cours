@@ -47,6 +47,25 @@ class LinkParser(HTMLParser):
             self.links.append(href)
 
 
+class VisibleTextParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.skip_depth = 0
+        self.text: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in {"script", "style"}:
+            self.skip_depth += 1
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"script", "style"} and self.skip_depth:
+            self.skip_depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if not self.skip_depth:
+            self.text.append(data)
+
+
 def fail(message: str, failures: list[str]) -> None:
     failures.append(message)
 
@@ -112,6 +131,40 @@ def check_source_terms(failures: list[str]) -> None:
                 fail(f"Suspicious term in {path.relative_to(ROOT)}:{i}: {line.strip()}", failures)
 
 
+def check_callout_syntax(failures: list[str]) -> None:
+    invalid_shorthand = re.compile(r"^\s*:{3,}\s+(callout-[A-Za-z-]+|note|tip|important|warning|caution|question)\s*$")
+    inline_opening = re.compile(r"^\s*:{3,}\s+\{[^}]+\}\s+\S")
+    inline_closing = re.compile(r"\S\s+:{3,}\s*$")
+    bad_title = re.compile(r'^\s*:{3,}\s+\{[^}]*title="\s|^\s*:{3,}\s+\{[^}]*title="[-–—]')
+    for path in iter_sources():
+        in_code = False
+        for i, line in enumerate(path.read_text(errors="ignore").splitlines(), start=1):
+            if re.match(r"^\s*(```|~~~)", line):
+                in_code = not in_code
+                continue
+            if in_code:
+                continue
+            if invalid_shorthand.search(line):
+                fail(f"Callout uses invalid shorthand in {path.relative_to(ROOT)}:{i}: {line.strip()}", failures)
+            if inline_opening.search(line):
+                fail(f"Callout opening is not alone on its line in {path.relative_to(ROOT)}:{i}: {line.strip()}", failures)
+            if inline_closing.search(line) and not re.match(r"^\s*:{3,}\s*$", line):
+                fail(f"Callout closing is not alone on its line in {path.relative_to(ROOT)}:{i}: {line.strip()}", failures)
+            if bad_title.search(line):
+                fail(f"Callout title starts with unsafe spacing or dash in {path.relative_to(ROOT)}:{i}: {line.strip()}", failures)
+
+
+def check_rendered_callout_literals(failures: list[str]) -> None:
+    for html in DOCS.rglob("*.html"):
+        rel = html.relative_to(DOCS).as_posix()
+        if rel.startswith("site_libs/") or "/site_libs/" in rel:
+            continue
+        parser = VisibleTextParser()
+        parser.feed(html.read_text(errors="ignore"))
+        if ":::" in "".join(parser.text):
+            fail(f"Rendered page still contains literal callout fences: {rel}", failures)
+
+
 def check_fr_en_parity(failures: list[str]) -> None:
     required = [
         "index.qmd",
@@ -133,6 +186,8 @@ def main() -> int:
     check_rendered_paths(failures)
     check_internal_links(failures)
     check_source_terms(failures)
+    check_callout_syntax(failures)
+    check_rendered_callout_literals(failures)
     check_fr_en_parity(failures)
     if failures:
         print("Validation failed:")

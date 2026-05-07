@@ -160,7 +160,7 @@ penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
 
 ```
 
-::: {.callout-important title=" Intervention de Jules – Nom de la base"}
+::: {.callout-important title="Intervention de Jules – Nom de la base"}
 Tu viens d'importer le fichier Excel. Dis-moi, dans quelle variable as-tu stocké les données pour la suite de l'analyse ?\
 1. `penguins`\
 2. `penguins_mission`\
@@ -168,7 +168,7 @@ Tu viens d'importer le fichier Excel. Dis-moi, dans quelle variable as-tu stock�
 4. `mission_antarctique`
 :::
 
-::: {.callout-caution collapse="true" title=" Réponse de Jules"}
+::: {.callout-caution collapse="true" title="Réponse de Jules"}
 Tu devais nommer ta base **`penguins_mission`**, comme indiqué dans l'instruction d'importation.\
  Attention : tout le reste de l'analyse repose sur ce nom cohérent !
 :::
@@ -186,7 +186,7 @@ library(tidyverse)
 glimpse(penguins_mission)
 ```
 
-::: {.callout-important title=" Jules – Variables numériques"}
+::: {.callout-important title="Jules – Variables numériques"}
 Combien de **variables numériques** vois-tu dans le `glimpse()` de `penguins_mission`?\
 - 3\
 - 4\
@@ -194,7 +194,7 @@ Combien de **variables numériques** vois-tu dans le `glimpse()` de `penguins_mi
 - 6
 :::
 
-::: {.callout-caution collapse="true" title=" Réponse de Jules"}
+::: {.callout-caution collapse="true" title="Réponse de Jules"}
 Il y a généralement **4 variables numériques** :\
 `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` et `body_mass_g`.\
  Attention : certaines versions du jeu peuvent varier selon l'importation !
@@ -216,19 +216,19 @@ Cette présentation facilite l'examen rapide de la structure d'un tableau, surto
 
 >  **Bon à savoir** : `glimpse()` est particulièrement utile pour repérer d'éventuelles erreurs de type (ex. une variable numérique encodée comme texte) ou pour déceler des valeurs manquantes.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 La chercheuse souhaite obtenir un premier compte rendu sur les données disponibles. Pour cela, vous devez compléter le texte suivant et l'intégrer dans votre journal de bord d'analyse Quarto : \> "Le jeu de données contient \*\*\_\_\_\*\* observations et \*\*\_\_\_\*\* variables. Les variables sont ***,*** , \*\*\_\_\_\*\*....etc"
 :::
 
-::: callout-note
- **Question de réflexion** : Que se passe-t-il si la chercheuse modifie la base de données ? Par exemple, elle a oublié un manchot et l'ajoute sans vous prévenir, puis met à jour le dépôt GitHub. Lorsque vous réexécutez votre analyse dans votre rapport Quarto (`.qmd`), que va-t-il se passer ?
+::: {.callout-note}
+**Question de réflexion** : Que se passe-t-il si la chercheuse modifie la base de données ? Par exemple, elle a oublié un manchot et l'ajoute sans vous prévenir, puis met à jour le dépôt GitHub. Lorsque vous réexécutez votre analyse dans votre rapport Quarto (`.qmd`), que va-t-il se passer ?
 :::
 
 Ne vous inquiétez pas si cela vous semble complexe ! Nous reviendrons sur cet aspect plus tard dans la session.
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Combien de variables sont de type numérique? Combien de type charactère? *to-do*: Inclure votre réponse dans votre journal de bord à la suite du texte troué.
@@ -245,13 +245,13 @@ penguins_subset <- penguins_mission %>%
   select(species, island, bill_length_mm, body_mass_g)
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 Faite un `glimpse()` de la nouvelle base de données `penguins_subset`. Pourquoi avoir choisi un nouveau nom?
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Sélectionnez toutes les variables sauf `flipper_length_mm` et `body_mass_g`. Attention il y a une façon rapide de le faire!
@@ -270,13 +270,13 @@ penguins_mission <- penguins_mission %>%
   mutate(body_mass_kg = body_mass_g / 1000)
 ```
 
-::: {.callout-important title=" Jules – Masse en kilogrammes"}
+::: {.callout-important title="Jules – Masse en kilogrammes"}
 Tu as transformé la masse en kilogrammes. La masse du penguin numéro 21 est plus petit que 4 kg, vrai ou faux?\
 1. Vrai\
 2. Faux\
 :::
 
-::: {.callout-caution collapse="true" title=" Réponse de Jules"}
+::: {.callout-caution collapse="true" title="Réponse de Jules"}
 Quand on regarde la ligne 21 de la base de données, on obtiens un nombre pour `body_mass_kg` de 4.01 kg, donc la réponse est **Faux**.\
 
 ```{r eval=FALSE}
@@ -286,7 +286,7 @@ penguins_mission[21,"body_mass_kg"]
 
 On va maintenant continuer avec une nouvelle variable dont la chercheuse est très intéressée:
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Créez une nouvelle variable appelée `bill_ratio` correspondant au rapport entre la longueur et la profondeur du bec.
@@ -310,7 +310,7 @@ penguins_biscoe <- penguins_mission %>%
   filter(island == "Biscoe")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Filtrez les données pour ne garder que les manchots de l'espèce **Adelie** de l'île Biscoe.
@@ -328,7 +328,7 @@ penguins_summary <- penguins_mission %>%
 
 *Remarque*: on utilise l'option `na.rm=TRUE` dans les fonctions, ce qui est assez pratique, car cela permet de calculer la statistique en omettant les valeurs manquantes (`NA`).
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
  **Question de la chercheuse** : Quelle est la combinaison île/espèce qui possède la longueur médiane de nageoire la plus faible ? j'aimerai que tu répondes à la question dans le journal de bord.
@@ -336,7 +336,7 @@ penguins_summary <- penguins_mission %>%
 
 Grâce à `group_by` on peut aussi par exemple filter par groupe, ce qui peut être très pratique!
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
  **Exercice** : Faites sortir le premier manchot de la base de données pour chaque espèce et chaque île. *Indice:* on peut utiliser la fonction `slice`.
@@ -381,13 +381,13 @@ ggplot(penguins_mission, aes(x = bill_depth_mm)) +
        y = "Effectif")
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 Changez la valeur de `binwidth` dans le code ci-dessus et observez comment cela modifie l'histogramme.
 :::
 
-::: {.callout-important title=" Jules – Distribution observée"}
+::: {.callout-important title="Jules – Distribution observée"}
 Quand tu regardes l'histogramme de `bill_depth_mm`, quel mot décrit le mieux la forme de la distribution ?\
 1. Uniforme\
 2. Bimodale\
@@ -395,7 +395,7 @@ Quand tu regardes l'histogramme de `bill_depth_mm`, quel mot décrit le mieux la
 4. Symétrique
 :::
 
-::: {.callout-caution collapse="true" title=" Réponse de Jules"}
+::: {.callout-caution collapse="true" title="Réponse de Jules"}
 La distribution est généralement **symétrique**, voire légèrement étalée.\
 Une bonne lecture visuelle aide à anticiper les mesures centrales et extrêmes.
 :::
@@ -408,7 +408,7 @@ Pour connaître la première demande de la chercheuse, voic son message recu :
 consulter_taches("histogramme")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Créez un histogramme pour la variable `flipper_length_mm`. Vous devez ajuster l'ensemble des informations sur le graphique en respectant les bonnes pratiques de visualisation.
@@ -430,19 +430,19 @@ ggplot(penguins_mission, aes(x = species, y = flipper_length_mm, fill = species)
        y = "Longueur des nageoires (mm)")
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 Ajoutez une variable pour différencier les îles et observez si certaines îles présentent des valeurs plus extrêmes.
 :::
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Trouvez le numéro de ligne de l'observation qui semble être une valeur aberrante dans la longueur des nageoires.
 :::
 
-::: {.callout-important title=" Jules – Observation anormale"}
+::: {.callout-important title="Jules – Observation anormale"}
 Quel est le **numéro de ligne** de l'observation qui a une **nageoire de 400 mm** (valeur aberrante ajoutée exprès) ?\
 1. 1\
 2. 11\
@@ -450,14 +450,14 @@ Quel est le **numéro de ligne** de l'observation qui a une **nageoire de 400 mm
 4. 113
 :::
 
-::: {.callout-caution collapse="true" title=" Réponse de Jules"}
+::: {.callout-caution collapse="true" title="Réponse de Jules"}
 L'observation aberrante est **ligne 6**.\
 Elle a été ajoutée exprès pour tester ta capacité à détecter visuellement les anomalies.
 :::
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice (optionnel)
 
 Dans le graphique précédent, le titre de la légende est "species", en anglais, qui est par default le nom de la variable. Changez-le pour "Espèce" en français. Vous devez trouver par vous-même comment faire cela.
@@ -475,7 +475,7 @@ ggplot(penguins_mission, aes(x = bill_length_mm, y = bill_depth_mm)) +
        y = "Profondeur du bec (mm)")
 ```
 
-::: callout-note
+::: {.callout-note}
 #### Exemple
 
 Ajoutez une variable de couleur pour différencier les îles et observez si certaines îles présentent des relations différentes.
@@ -487,7 +487,7 @@ Pour connaître la prochaine demande de la chercheuse, voici le message que vous
 consulter_taches("nuage_de_points")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Modifiez le scatter plot pour afficher la relation souhaitée par la chercheuse. Est-ce que vous trouver qu'un point à l'air bizarre? Si oui, quel est son numéro de ligne?
@@ -528,7 +528,7 @@ Pour connaître la première demande de la chercheuse, elle viens de vous a envo
 consulter_taches("statistiques_descriptives")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Répondez de façon précise dans votre journal de bord à la demande du Docteur Adélie.
@@ -555,7 +555,7 @@ penguins_mission %>%
 
 -   Facilement extensible à plusieurs variables en changeant `bill_length_mm` par `c(bill_length_mm, flipper_length_mm)`
 
-::: {.callout-important title=" Jules – Valeur moyenne du ratio"}
+::: {.callout-important title="Jules – Valeur moyenne du ratio"}
 Tu as calculé `bill_ratio` plus haut avec la fonction `mutate`. Si la moyenne est 2.94 et que ton collègue s'attend à 3.5, que peux-tu conclure ?\
 1. Le collègue a raison, 2.94 ≈ 3.5\
 2. Il faut plus d'échantillons\
@@ -563,7 +563,7 @@ Tu as calculé `bill_ratio` plus haut avec la fonction `mutate`. Si la moyenne e
 4. Le ratio n'est pas utile
 :::
 
-::: {.callout-caution collapse="true" title=" Réponse de Jules"}
+::: {.callout-caution collapse="true" title="Réponse de Jules"}
 Une moyenne de **2.94**, bien inférieure à 3.5, contredit l'hypothèse du collègue.\
 Cela suggère une différence, mais tu pourrais aussi comparer les distributions, par exemple avec un histogramme ou un boxplot, pour mieux visualiser les variations.
 :::
@@ -577,7 +577,7 @@ Nous allons maintenant créer un boxplot détaillé qui affiche :
 -   La moyenne
 -   Les valeurs extrêmes
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Parmis les stastiques précédentes, laquelle n'est habituellement pas affichée dans une boite à moustache?
@@ -603,7 +603,7 @@ Pour connaître la tâche optionnelle de la chercheuse :
 consulter_taches("Visualisation_statistiques_descriptives")
 ```
 
-::: callout-tip
+::: {.callout-tip}
 #### Exercice
 
 Completer le code `ggplot2` du Dr Adélie afin de répondre à sa demande. Inclure cela dans votre journal de bord. Dites en quoi ce graphique avancé peut aider à comprendre mieux nos données.
@@ -613,7 +613,7 @@ Completer le code `ggplot2` du Dr Adélie afin de répondre à sa demande. Inclu
 
  Félicitations ! Vous avez maintenant terminer la partie 1 de cette aventure, vous pouvez prendre une pause un peu avant la prochaine partie de cette mission!
 
-::: {.callout-important title=" Jules – Quand faire un commit ?"}
+::: {.callout-important title="Jules – Quand faire un commit ?"}
 À quel moment devrais-tu faire un commit Git ?\
 1. Une fois à la toute fin du projet\
 2. À chaque fois que tu ajoutes un graphique\
@@ -621,7 +621,7 @@ Completer le code `ggplot2` du Dr Adélie afin de répondre à sa demande. Inclu
 4. Seulement après une erreur
 :::
 
-::: {.callout-caution collapse="true" title=" Réponse de Jules"}
+::: {.callout-caution collapse="true" title="Réponse de Jules"}
 Tu dois faire un commit **après chaque étape significative** (import, filtre, graphique, analyse).\
  Cela assure la traçabilité, et te sauvera du stress si tu dois revenir en arrière.
 :::
@@ -649,7 +649,7 @@ Sa question principale :  Comment les caractéristiques physiques des manchots v
 
 Pour l'aider, vous réaliserez une analyse complète, en mobilisant toutes les compétences acquises dans ce module.
 
-::: callout-tip
+::: {.callout-tip}
 #### Question 1
 
 Existe-t-il des différences notables entre les espèces de manchots ?
@@ -673,7 +673,7 @@ Affichez les résultats sous forme de tableau clair.
 
  Indice : Utilisez `group_by()` et `summarise()` de `dplyr` pour obtenir ces statistiques.
 
-::: callout-tip
+::: {.callout-tip}
 #### Question 2
 
 Peut-on identifier un indicateur de "*grandeur*" du manchot ?
@@ -693,7 +693,7 @@ Peut-on identifier un indicateur de "*grandeur*" du manchot ?
 
  Indice : Utilisez `mutate()` pour ajouter la variable à votre data.frame.
 
-::: callout-tip
+::: {.callout-tip}
 #### Question 3
 
 Comment ces caractéristiques sont-elles réparties entre les espèces ?
