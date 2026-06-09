@@ -196,9 +196,11 @@ In three lines:
 3. return the **5** largest `claim_amount` by `vehicle_type`.
 
 ::: {.callout-note collapse="true"}
-### ✅ Reply\`\`\`r
+### ✅ Reply
 
+``` r
 library(readr); library(dplyr); library(janitor)
 
-read_csv("policies.csv") %\>% clean_names() %\>% slice_max(claim_amount, n = 5, by = vehicle_type) \`\`\`
+read_csv("policies.csv") %>% clean_names() %>% slice_max(claim_amount, n = 5, by = vehicle_type)
+```
 :::

@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.28">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Home – STT-1100 Introduction to Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,10 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -599,16 +602,46 @@ ul.task-list li input[type="checkbox"] {
     }
   };
 
+  const CONTENT_ROOTS = new Set([
+    'autre_materiel',
+    'module_01',
+    'module_02',
+    'module_03',
+    'module_04',
+    'module_05',
+    'module_06',
+    'module_07',
+    'module_08',
+    'module_09',
+    'module_10',
+    'projet_session'
+  ]);
+  const ROOT_FILES = new Set(['index.html', 'references.html']);
+
+  function pathSegments(pathname){
+    return pathname.split('/').filter(Boolean);
+  }
+
   function isEnglishPath(pathname){
-    return /(^|\/)en\//.test(pathname);
+    return /(^|\/)en(\/|$)/.test(pathname);
   }
 
-  function removeLeadingSlash(path){
-    return path.replace(/^\//, '');
+  function joinPath(segments, trailingSlash){
+    if (segments.length === 0) return '/';
+    let path = `/${segments.join('/')}`;
+    if (trailingSlash && !path.endsWith('/')) path += '/';
+    return path;
   }
 
-  function withLeadingSlash(path){
-    return path.startsWith('/') ? path : `/${path}`;
+  function splitBaseAndContentSegments(segments){
+    const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
+    if (contentIndex === -1) {
+      return { baseSegments: segments, contentSegments: [] };
+    }
+    return {
+      baseSegments: segments.slice(0, contentIndex),
+      contentSegments: segments.slice(contentIndex)
+    };
   }
 
   function languageTargetUrl(targetLang){
@@ -616,25 +649,22 @@ ul.task-list li input[type="checkbox"] {
     const path = loc.pathname;
     const search = loc.search || '';
     const hash = loc.hash || '';
+    const segments = pathSegments(path);
+    const enIndex = segments.indexOf('en');
 
     if (targetLang === 'en') {
-      if (isEnglishPath(path)) return null;
-      if (path === '/' || path === '') return withLeadingSlash(`en/index.html${search}`) + hash;
-      if (path === '/index.html') return `/en/index.html${search}${hash}`;
-      const noTrail = path.endsWith('/') ? path : path;
-      return withLeadingSlash(`en${noTrail}`) + search + hash;
+      if (enIndex !== -1) return null;
+      const split = splitBaseAndContentSegments(segments);
+      const targetSegments = split.baseSegments.concat('en', split.contentSegments);
+      const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
+      return joinPath(targetSegments, trailingSlash) + search + hash;
     }
 
     if (targetLang === 'fr') {
-      if (!isEnglishPath(path)) return null;
-      if (path === '/en' || path === '/en/' || path === '/en/index.html') return `/${search ? `${search}${hash}` : hash}`;
-      let withoutEn = path;
-      if (/^\/[^/]+\/en\//.test(path)) {
-        withoutEn = path.replace(/^\/([^/]+)\/en\/(.*)$/, '/$1/$2');
-      } else {
-        withoutEn = path.replace(/^\/en\//, '/');
-      }
-      return withoutEn + search + hash;
+      if (enIndex === -1) return null;
+      const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
+      const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
+      return joinPath(targetSegments, trailingSlash) + search + hash;
     }
 
     return null;
@@ -877,13 +907,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

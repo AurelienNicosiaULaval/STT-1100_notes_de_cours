@@ -88,9 +88,25 @@
     gap:.35rem;
   }
 
-  /* Hide controls only on phones; tablets/desktops keep them visible */
+  /* Keep controls visible on mobile to ensure language switch is always accessible */
   @media (max-width: 575.98px){
-    .qs-toggle-controls{ display:none !important; }
+    .qs-toggle-host{
+      top: 6px;
+      right: 8px;
+      gap: .3rem;
+      align-items: flex-start;
+    }
+    .qs-language-switch{
+      padding: .15rem .25rem;
+      font-size: .8rem;
+    }
+    .qs-toggle-btn{
+      padding: .15rem .35rem;
+      font-size: .8rem;
+    }
+    .qs-toggle-btn span{
+      display: none;
+    }
   }
 </style>
 
@@ -110,16 +126,46 @@
     }
   };
 
+  const CONTENT_ROOTS = new Set([
+    'autre_materiel',
+    'module_01',
+    'module_02',
+    'module_03',
+    'module_04',
+    'module_05',
+    'module_06',
+    'module_07',
+    'module_08',
+    'module_09',
+    'module_10',
+    'projet_session'
+  ]);
+  const ROOT_FILES = new Set(['index.html', 'references.html']);
+
+  function pathSegments(pathname){
+    return pathname.split('/').filter(Boolean);
+  }
+
   function isEnglishPath(pathname){
-    return /(^|\/)en\//.test(pathname);
+    return /(^|\/)en(\/|$)/.test(pathname);
   }
 
-  function removeLeadingSlash(path){
-    return path.replace(/^\//, '');
+  function joinPath(segments, trailingSlash){
+    if (segments.length === 0) return '/';
+    let path = `/${segments.join('/')}`;
+    if (trailingSlash && !path.endsWith('/')) path += '/';
+    return path;
   }
 
-  function withLeadingSlash(path){
-    return path.startsWith('/') ? path : `/${path}`;
+  function splitBaseAndContentSegments(segments){
+    const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
+    if (contentIndex === -1) {
+      return { baseSegments: segments, contentSegments: [] };
+    }
+    return {
+      baseSegments: segments.slice(0, contentIndex),
+      contentSegments: segments.slice(contentIndex)
+    };
   }
 
   function languageTargetUrl(targetLang){
@@ -127,25 +173,22 @@
     const path = loc.pathname;
     const search = loc.search || '';
     const hash = loc.hash || '';
+    const segments = pathSegments(path);
+    const enIndex = segments.indexOf('en');
 
     if (targetLang === 'en') {
-      if (isEnglishPath(path)) return null;
-      if (path === '/' || path === '') return withLeadingSlash(`en/index.html${search}`) + hash;
-      if (path === '/index.html') return `/en/index.html${search}${hash}`;
-      const noTrail = path.endsWith('/') ? path : path;
-      return withLeadingSlash(`en${noTrail}`) + search + hash;
+      if (enIndex !== -1) return null;
+      const split = splitBaseAndContentSegments(segments);
+      const targetSegments = split.baseSegments.concat('en', split.contentSegments);
+      const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
+      return joinPath(targetSegments, trailingSlash) + search + hash;
     }
 
     if (targetLang === 'fr') {
-      if (!isEnglishPath(path)) return null;
-      if (path === '/en' || path === '/en/' || path === '/en/index.html') return `/${search ? `${search}${hash}` : hash}`;
-      let withoutEn = path;
-      if (/^\/[^/]+\/en\//.test(path)) {
-        withoutEn = path.replace(/^\/([^/]+)\/en\/(.*)$/, '/$1/$2');
-      } else {
-        withoutEn = path.replace(/^\/en\//, '/');
-      }
-      return withoutEn + search + hash;
+      if (enIndex === -1) return null;
+      const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
+      const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
+      return joinPath(targetSegments, trailingSlash) + search + hash;
     }
 
     return null;
