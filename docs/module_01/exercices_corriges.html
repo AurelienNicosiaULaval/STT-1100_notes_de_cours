@@ -21,7 +21,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
@@ -80,11 +80,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -108,86 +108,147 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="../css/base_css.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STT-1100 Introduction à la science des données</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page">
+<span class="menu-text">Accueil</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../demarrage.html">
+<span class="menu-text">Démarrage</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../modules.html">
+<span class="menu-text">Modules</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../projet_session/index.html">
+<span class="menu-text">Projet</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../evaluations.html">
+<span class="menu-text">Évaluations</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../ressources.html">
+<span class="menu-text">Ressources</span></a>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../glossaire.html">
+<span class="menu-text">Glossaire</span></a>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_01/plan_apprentissage.html">1 - Plongée en science des données</a></li><li class="breadcrumb-item"><a href="../module_01/exercices_corriges.html">Exercices corrigés</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_01/index.html">1 - Plongée en science des données</a></li><li class="breadcrumb-item"><a href="../module_01/exercices_corriges.html">Exercices corrigés</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../">STT-1100 Introduction à la science des données</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Accueil</span></a>
+ <span class="menu-text">Tableau de bord</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container">
+  <a href="../demarrage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Démarrage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container">
+  <a href="../calendrier.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calendrier</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container">
+  <a href="../evaluations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Évaluations</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Modules</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">1 - Plongée en science des données</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_01/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_01/defi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Défi</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Exercices corrigés</span></a>
   </div>
@@ -195,22 +256,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">2 - GitHub et visualisation de données</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_02/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
@@ -218,22 +285,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">3 - Les catégories sous toutes leurs formes</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_03/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
@@ -241,22 +314,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">4 - Facteurs et nettoyage de données</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_04/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
@@ -264,28 +343,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
  <span class="menu-text">5 - Explorer et comprendre les relations entre les variables</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_05/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_05/exercices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercices</span></a>
   </div>
@@ -293,22 +378,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
  <span class="menu-text">6 - Collaboration et reproductibilité dans GitHub</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_06/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_06/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
@@ -316,28 +407,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
  <span class="menu-text">7 - Visualisation, éthique et sécurisation des données</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_07/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_07/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analyse COVID</span></a>
   </div>
@@ -345,22 +442,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
  <span class="menu-text">8 - Automatisation et exploration du web</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_08/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_08/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
@@ -368,22 +471,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
  <span class="menu-text">9 - Prédiction et biais</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_09/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
@@ -391,49 +500,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
  <span class="menu-text">10 - Au-delà des données : texte et tableau de bord</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../module_10/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plan d’apprentissage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../module_10/aventure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aventure</span></a>
   </div>
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
  <span class="menu-text">Projet de session</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../projet_session/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vue d’ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Énoncé du projet</span></a>
   </div>
 </li>
       </ul>
   </li>
-      </ul>
-  </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
+  <a href="../boite_outils.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Boîte à outils</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container">
+  <a href="../glossaire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossaire</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container">
   <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matériel de référence</span></a>
   </div>
@@ -443,11 +576,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_01/plan_apprentissage.html">1 - Plongée en science des données</a></li><li class="breadcrumb-item"><a href="../module_01/exercices_corriges.html">Exercices corrigés</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_01/index.html">1 - Plongée en science des données</a></li><li class="breadcrumb-item"><a href="../module_01/exercices_corriges.html">Exercices corrigés</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Corrigés exercice module 1 - Plongée en science des données</h1>
 </div>
@@ -462,11 +595,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
              <p>Aurélien Nicosia </p>
           </div>
   </div>
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -533,10 +666,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 
   .qs-toggle-controls {
-    margin-left: .75rem;
+    margin-left: .5rem;
     display: inline-flex;
     align-items: center;
     gap: .4rem;
+    flex-shrink: 0;
   }
 
   /* Sidebar button styles */
@@ -548,11 +682,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     border-radius:.5rem;
     padding:.25rem .5rem;
     background:var(--quarto-body-bg,#fff);
+    color:var(--quarto-body-color,#111);
     box-shadow:0 1px 4px rgba(0,0,0,.08);
     cursor:pointer;
     font-size:.95rem;
     line-height:1;
   }
+  .qs-toggle-btn svg{display:block;color:inherit;}
   .qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
 
   .qs-language-switch{
@@ -639,7 +775,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     'module_10',
     'projet_session'
   ]);
-  const ROOT_FILES = new Set(['index.html', 'references.html']);
+  const ROOT_FILES = new Set([
+    'index.html',
+    'modules.html',
+    'demarrage.html',
+    'calendrier.html',
+    'evaluations.html',
+    'boite_outils.html',
+    'glossaire.html',
+    'ressources.html',
+    'references.html'
+  ]);
 
   function pathSegments(pathname){
     return pathname.split('/').filter(Boolean);
@@ -792,40 +938,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     return box;
   }
 
-  function insertAfter(selector, node, fallback){
-    const host = document.querySelector(selector);
-    if (host) {
-      const isNav = host.matches('.navbar-nav');
-      if (isNav) {
-        const li = document.createElement('li');
-        li.className = 'nav-item qs-toggle-controls';
-        li.appendChild(node);
-        host.appendChild(li);
-      } else {
-        host.appendChild(node);
-      }
-      return true;
-    }
-
-    if (fallback) {
-      fallback.appendChild(node);
-      return true;
-    }
-    return false;
-  }
-
   function insertControls(){
-    const navbar = document.querySelector('.navbar, .quarto-navbar, #quarto-header .navbar');
+    document.querySelectorAll('.qs-toggle-controls').forEach((node) => node.remove());
+
     const actions = buildActions();
-
-    if (navbar) {
-      const rightZone = navbar.querySelector('.navbar-nav.ms-auto') ||
-                        navbar.querySelector('.navbar-collapse .navbar-nav:last-child') ||
-                        navbar.querySelector('.navbar-nav');
-
-      if (rightZone) {
-        return insertAfter('.navbar-nav.ms-auto', actions, null) || insertAfter('.navbar-collapse .navbar-nav:last-child', actions, null) || insertAfter('.navbar-nav', actions, navbar);
-      }
+    const tools = document.querySelector('.quarto-navbar-tools');
+    if (tools) {
+      tools.appendChild(actions);
+      applySidebarStateFromStorage();
+      updateLanguageState();
+      return true;
     }
 
     const header = document.getElementById('quarto-header');
@@ -840,6 +962,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
       host.innerHTML = '';
       host.appendChild(actions);
+      applySidebarStateFromStorage();
+      updateLanguageState();
       return true;
     }
 
@@ -890,7 +1014,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -910,11 +1034,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -991,7 +1115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -1066,7 +1190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -1094,7 +1218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -1118,7 +1242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -1158,7 +1282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");

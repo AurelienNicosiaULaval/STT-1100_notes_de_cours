@@ -20,6 +20,8 @@ run_quarto <- function(args) {
 }
 
 clean_paths <- c(
+  ".quarto",
+  "en/.quarto",
   "docs",
   "en/docs",
   "site_libs",
@@ -40,7 +42,37 @@ remove_paths <- function(paths) {
   }
 }
 
+remove_generated_duplicates <- function() {
+  duplicate_paths <- c(
+    list.files("docs", pattern = " [0-9]+$", full.names = TRUE, recursive = FALSE),
+    list.files(".", pattern = "^site_libs [0-9]+$", full.names = TRUE, recursive = FALSE),
+    list.files("en", pattern = "^site_libs [0-9]+$", full.names = TRUE, recursive = FALSE)
+  )
+  remove_paths(duplicate_paths)
+}
+
+strip_trailing_whitespace <- function(root = "docs") {
+  text_files <- list.files(
+    root,
+    pattern = "\\.(html|css|json|xml|txt)$",
+    recursive = TRUE,
+    full.names = TRUE,
+    no.. = TRUE
+  )
+
+  for (path in text_files) {
+    lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+    stripped <- sub("[ \t]+$", "", lines, perl = TRUE)
+    if (!identical(lines, stripped)) {
+      con <- file(path, open = "w", encoding = "UTF-8")
+      writeLines(stripped, con = con, useBytes = FALSE)
+      close(con)
+    }
+  }
+}
+
 remove_paths(clean_paths)
+remove_generated_duplicates()
 
 module_html <- list.files(
   ".",
@@ -95,5 +127,7 @@ duplicate_outputs <- list.files(
   full.names = TRUE
 )
 remove_paths(duplicate_outputs)
+remove_generated_duplicates()
+strip_trailing_whitespace("docs")
 
 message("Done: rendered French site to docs/ and English site to docs/en/.")

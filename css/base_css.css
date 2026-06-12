@@ -1,106 +1,107 @@
-/* === Palette officielle Université Laval === */
+/* Course portal theme for STT-1100 */
 :root {
-  --ulaval-red:        #e30513;
-  --ulaval-yellow:     #ffc103;
-  --ulaval-light-grey: #d9d9d9;
-  --ulaval-medium-grey:#7f7f7f;
-  --ulaval-dark-grey:  #515151;
-  --ulaval-black:      #000000;
+  --ulaval-red: #e30513;
+  --ulaval-yellow: #ffc103;
+  --ink: #202124;
+  --muted: #5f6368;
+  --line: #d9d9d9;
+  --surface: #ffffff;
+  --soft: #f6f7f9;
+  --teal: #007c89;
+  --blue: #315f8c;
+  --radius: 8px;
 }
 
-/* === Style général pour documents HTML === */
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: var(--ulaval-black);
+  font-family: Helvetica, Arial, sans-serif;
+  color: var(--ink);
   line-height: 1.6;
-  font-size: 16px;
-  padding: 2rem;
-  background: white;
+  background: var(--surface);
 }
 
-h1, h2, h3 {
-  color: var(--ulaval-red);
-  margin-top: 2rem;
+h1, h2, h3 { color: #2f2f2f; letter-spacing: 0; }
+h1 { margin-top: 1rem; }
+h2 { margin-top: 2.2rem; border-bottom: 2px solid var(--line); padding-bottom: .25rem; }
+a { color: var(--ulaval-red); }
+
+.portal-hero {
+  border-left: 6px solid var(--ulaval-red);
+  background: linear-gradient(90deg, #fff7f7 0%, #ffffff 55%, #f7fbfc 100%);
+  padding: 1.4rem 1.6rem;
+  margin: 1rem 0 1.5rem;
+}
+.portal-hero h1 { margin: .2rem 0 .6rem; color: var(--ink); }
+.hero-lead { font-size: 1.12rem; max-width: 70ch; color: var(--muted); margin-bottom: 0; }
+.eyebrow, .card-kicker { text-transform: uppercase; letter-spacing: .08em; color: var(--ulaval-red); font-size: .78rem; margin: 0 0 .35rem; font-weight: 700; }
+
+.quick-panel {
+  background: #fff9e6;
+  border: 1px solid #f1d880;
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+}
+.quick-panel h2 { border-bottom: 0; margin-top: 0; }
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+.module-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.portal-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1rem;
+  min-height: 9rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.portal-card h3 { margin-top: 0; color: var(--ink); }
+.portal-card p:last-child { margin-bottom: 0; }
+
+.portal-button {
+  display: inline-block;
+  background: var(--ulaval-red);
+  color: #ffffff !important;
+  border-radius: 6px;
+  padding: .45rem .7rem;
+  margin: .25rem .35rem .25rem 0;
+  text-decoration: none;
+  font-weight: 700;
+}
+.portal-button.secondary { background: var(--blue); }
+.portal-button:hover { filter: brightness(.95); text-decoration: none; }
+
+.content-badge {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .12rem .45rem;
+  margin: .15rem .2rem .15rem 0;
+  font-size: .78rem;
+  color: var(--muted);
+  background: var(--soft);
 }
 
-a {
-  color: var(--ulaval-red);
-}
+pre, code { border-radius: 4px; }
+blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; color: var(--muted); }
+.callout { border-radius: var(--radius); }
 
-pre, code {
-  background: var(--ulaval-light-grey);
-  padding: 0.25em 0.5em;
-  border-radius: 4px;
-}
+.reveal { font-size: 30px; }
+.reveal h1 { font-size: 1.7em; color: var(--ulaval-red); }
+.reveal h2 { font-size: 1.4em; color: var(--ulaval-red); }
+.reveal h3 { font-size: 1.2em; color: #515151; }
+.reveal p, .reveal li { font-size: 0.7em; line-height: 1.25em; }
+.reveal table { font-size: 0.65em; border-collapse: collapse; }
+.reveal table th { background: var(--ulaval-yellow); color: #000000; }
+.reveal table td, .reveal table th { border: 1px solid var(--line); padding: 4px 6px; }
+.reveal pre code { font-size: 0.6em; line-height: 1.3em; }
+.mermaid { font-size: 0.65em; }
 
-blockquote {
-  border-left: 4px solid var(--ulaval-yellow);
-  padding-left: 1rem;
-  background-color: var(--ulaval-light-grey);
-  color: var(--ulaval-dark-grey);
-}
-
-/* === Typographie RevealJS === */
-.reveal {
-  font-size: 30px;
-}
-
-.reveal h1 {
-  font-size: 1.7em;
-  color: var(--ulaval-red);
-}
-
-.reveal h2 {
-  font-size: 1.4em;
-  color: var(--ulaval-red);
-}
-
-.reveal h3 {
-  font-size: 1.2em;
-  color: var(--ulaval-dark-grey);
-}
-
-.reveal p,
-.reveal li {
-  font-size: 0.7em;
-  line-height: 1.25em;
-}
-
-.reveal table {
-  font-size: 0.65em;
-  border-collapse: collapse;
-}
-
-.reveal table th {
-  background: var(--ulaval-yellow);
-  color: var(--ulaval-black);
-}
-
-.reveal table td,
-.reveal table th {
-  border: 1px solid var(--ulaval-light-grey);
-  padding: 4px 6px;
-}
-
-.reveal pre code {
-  font-size: 0.6em;
-  line-height: 1.3em;
-}
-
-/* === Logo en haut à gauche dans HTML classique === */
-body::before {
-  content: url('STT-1100_hex.png');
-  position: fixed;
-  top: 2px;
-  left: 2px;
-  transform: scale(0.12);
-  transform-origin: top left;
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 10;
-}
-
-/* === Mermaid graph styling (si utilisé) === */
-.mermaid {
-  font-size: 0.65em;
+@media (max-width: 700px) {
+  .portal-hero { padding: 1rem; }
+  .portal-grid, .module-grid { grid-template-columns: 1fr; }
+  .portal-button { display: block; width: fit-content; }
 }
