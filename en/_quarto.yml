@@ -1,9 +1,18 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "module_*/**/*.qmd"
+    - "projet_session/**/*.qmd"
+    - "autre_materiel/**/*.qmd"
+
+lang: en
 
 website:
   title: "STT-1100 Introduction to Data Science"
+  description: "Bilingual STT-1100 course portal with notes, modules, session project, resources and data science workflow tools."
+  llms-txt: true
   search: true
   navbar:
     left:

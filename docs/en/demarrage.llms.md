@@ -1,0 +1,29 @@
+# Getting started
+
+# Getting started
+
+This page gathers the first steps needed to start the course without searching through several instructions.
+
+## Tools to install
+
+- R, from the official R Project website.
+- RStudio Desktop, from Posit.
+- Quarto CLI, from Quarto.
+- Git, from the official Git website.
+- A GitHub account used with the address requested for the course.
+
+> **TIP:**
+>
+> 1.  Open the project in RStudio.
+> 2.  Check that the working directory is correct.
+> 3.  Run code in small sections.
+> 4.  Render the Quarto document.
+> 5.  Commit only useful files.
+
+## Official links
+
+- [R Project](https://www.r-project.org/)
+- [Posit RStudio](https://posit.co/download/rstudio-desktop/)
+- [Quarto](https://quarto.org/docs/get-started/)
+- [Git](https://git-scm.com/)
+- [GitHub Docs](https://docs.github.com/)

@@ -1,0 +1,186 @@
+# Module 1 - Learning plan
+
+STT-1100 Introduction to Data Science
+
+# Module objectives
+
+At the end of this module, you should be able to
+
+- Use RStudio to write and run R code using the console and scripts.
+
+- Install and load libraries.
+
+- Create and manipulate R objects, use conditions, use existing functions, write simple functions.
+
+- Write R code following tidyverse style conventions.
+
+- Check if a dataset is clean.
+
+- Extract a row or column, add a column, filter data using one or more conditions.
+
+- Write a simple report in Quarto, including text, code blocks, section titles.
+
+# Initial readings
+
+## 📘 The reference book
+
+In this course, we will regularly rely on the book **R for Data Science** (*2nd edition*, by Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund).
+
+> Note: we will often abbreviate with **R4DS**
+
+It is an **indispensable reference**, accessible free online and written in clear **English**. You will find complete explanations and concrete examples to learn how to work effectively with `tidyverse`.
+
+**👉 Tip**: If in doubt or stuck, consult the document [How to search and get help](../references.llms.md).
+
+------------------------------------------------------------------------
+
+### To read for this module
+
+- [Book homepage](https://r4ds.hadley.nz/)
+  *An overview of the book, its authors and the themes covered in each part.*
+
+- [Introduction](https://r4ds.hadley.nz/intro.html)
+  *Why learn R for data science, and how to approach your learning in this course.*
+
+- [Workflow: basics](https://r4ds.hadley.nz/workflow-basics.html)
+  *The first steps in RStudio: the environment, scripts and interactive behavior of R.*
+
+- [Workflow: scripts](https://r4ds.hadley.nz/workflow-scripts.html)
+  *Why use scripts to make your work reproducible, clear and well structured.*
+
+# Adventure
+
+This module is designed to provide you with a comprehensive introduction to the fundamental tools and concepts that will support you throughout your data science journey.
+
+[Module 1 Adventure](../module_01/aventure.llms.md)
+
+# Challenge
+
+In this first challenge, in order to get used to the different tools, you must create a Quarto report in HTML format.
+
+[Module 1 challenge](../module_01/defi.llms.md)
+
+## Further reading
+
+### 🧠 Deepen best practices
+
+Once the foundations have been laid, it is essential to adopt **clear, reproducible and consistent work habits** from the start. The resources below will help you improve the readability, structure, and organization of your code.
+
+------------------------------------------------------------------------
+
+### 🔧 R4DS Add-ons
+
+- [Workflow: help](https://r4ds.hadley.nz/workflow-help.html)
+  *Learn to ask the right questions, search documentation effectively, and make relevant requests for help.*
+
+- [Quarto formats](https://r4ds.hadley.nz/quarto-formats.html)
+  *Introduction to the formats available in Quarto and how to customize your reports, articles or presentations.*
+
+- [Workflow:style](https://r4ds.hadley.nz/workflow-style.html)
+  *Why a consistent code style is crucial for collaboration and how to achieve it with tidyverse style.*
+
+------------------------------------------------------------------------
+
+### 📐 Tidyverse Style Guide
+
+- [Chapter 1: Files](https://style.tidyverse.org/files.html)
+  *Tips for organizing your files, structuring your projects and naming your scripts clearly.*
+
+- [Chapter 2: Syntax](https://style.tidyverse.org/syntax.html)
+  *Syntax rules for writing readable code, spacing, indentation and naming conventions.*
+
+# Consolidation exercises
+
+To put the learning from this module into practice, you will find below a series of exercises taken from the manual or adapted for STT-1100.
+
+## Exercise 1 — Why learn R?
+
+In one or two sentences, explain why learning R is useful for someone who wants to work with data.
+
+> **TIP:**
+>
+> R is a powerful language designed for data manipulation, analysis and visualization. It is widely used in data science for its wealth of libraries and its integration with tools like Quarto.
+
+## Exercise 2 — The console vs the script
+
+In RStudio, type `3 + 4` in:
+
+1.  the console
+
+2.  a `.R` script which you then run with `Ctrl + Enter`
+
+What is the difference between the two approaches?
+
+> **TIP:**
+>
+> The console allows code to be executed immediately, but does not keep track. The script allows code to be written and saved, which is essential for reproducibility.
+
+## Exercise 3 — Script structure
+
+Create an `analysis.R` file containing the following elements:
+
+- a header with your name and date
+
+- a library loading (`tidyverse`)
+
+- a simple statement (`mean(c(1, 2, 3, 4))`)
+
+> **TIP:**
+>
+> ``` r
+> # Weather analysis — A. Nicosia
+> # Date: 2025-05-19
+>
+> library(tidyverse)
+>
+> mean(c(1, 2, 3, 4))
+> ```
+
+------------------------------------------------------------------------
+
+## Exercise 4 — Finding help
+
+Use R’s built-in help to understand how to use the `mean` function. Next, briefly explain what the `na.rm` argument is used for.
+
+> **TIP:**
+>
+> You can type `?mean` or `help(mean)` in R to get the documentation.
+>
+> The `na.rm` argument indicates whether to ignore missing values ​​(`NA`) in calculating the average (`TRUE` or `FALSE`).
+
+## Exercise 5 — Rewrite code with style
+
+Fix the following code to follow tidyverse style best practices:
+
+``` r
+x=mean(c(3,NA,5),na.rm=TRUE)
+```
+
+> **TIP:**
+>
+> ``` r
+> x <- mean(c(3, NA, 5), na.rm = TRUE)
+> ```
+
+------------------------------------------------------------------------
+
+## Exercise 6 — Create an HTML report
+
+Create a `rapport.qmd` file containing:
+
+- a YAML header with a title and HTML format
+
+- a block of code that displays the average of a vector
+
+> **TIP:**
+>
+> ``` markdown
+> ---
+> title: "First report"
+> format: html
+> ---
+>
+> mean(c(1, 2, 3, 4, 5))
+> ```
+>
+> \`\`\`

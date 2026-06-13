@@ -1,0 +1,26 @@
+# Ressources
+
+# Ressources
+
+Cette page centralise les ressources utiles pour travailler dans le cours.
+
+## Ressources internes
+
+- [Matériel de référence](references.llms.md)
+- [Aide-mémoire RStudio et GitHub](autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md)
+- [Projet de session](projet_session/index.llms.md)
+- [Boîte à outils](boite_outils.llms.md)
+
+## Version lisible par les outils IA
+
+Le site génère aussi une version Markdown simplifiée des pages avec Quarto 1.9. Cette sortie retire la navigation et garde le contenu principal, ce qui facilite la consultation par des outils d’aide, de recherche ou de résumé.
+
+- [Index `llms.txt`](llms.txt)
+- [Accueil en Markdown simplifié](index.llms.md)
+
+## Ressources officielles
+
+- [Documentation R](https://www.r-project.org/other-docs.html)
+- [Documentation tidyverse](https://www.tidyverse.org/packages/)
+- [Documentation Quarto](https://quarto.org/docs/)
+- [Documentation GitHub](https://docs.github.com/)

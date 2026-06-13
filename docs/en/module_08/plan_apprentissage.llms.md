@@ -1,0 +1,56 @@
+# Module 8 - Learning plan
+
+STT-1100 Introduction to Data Science
+
+# 🎯 Module objectives
+
+At the end of this module, you should be able to:
+
+- Extract text data from a web page using `rvest`.
+- Automate repetitive tasks using loops and functions in R.
+- Identify the ethical aspects linked to the automated collection of online data.
+
+# 📚 Readings
+
+To prepare, check out the following resources:
+
+- 📘 [R for Data Science — Web scraping](https://r4ds.hadley.nz/webscraping.html)
+- 📘 [robots.txt documentation (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
+
+# 🧭 Adventure
+
+You play the role of a **freelance consultant** hired to develop an automated metadata extraction function from the Data Québec portal.
+Link to the adventure:
+👉 [Adventure 8 — Quebec open data](../module_08/aventure.llms.md)
+
+# 💡 Challenge — Scraping function
+
+You will need to design a function `scrape_page(url)` which:
+
+- takes as input a URL from a Data Québec search page;
+- returns a `data.frame` with the columns `title`, `producer`, `category`.
+
+📁 You will put this function in an `IDUL.R` file in your GitHub repository. It will be tested automatically on several pages.
+
+# 🏋️ Consolidation exercises
+
+These exercises use a **different page** of the Data Québec portal, in order to practice in another context.
+Use the archived version of the IMDb Top 250 Movies page: 👉 <https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/>
+
+1.  **Read the HTML page**
+    ➤ Use `read_html()` then `html_nodes()` to observe the sections containing the movie titles.
+
+2.  **Extract movie titles**
+    ➤ Try `html_nodes(..., ".titleColumn a") %>% html_text()`.
+
+3.  **Extract the years**
+    ➤ Use `html_nodes(..., ".titleColumn span")` to extract the years in parentheses.
+
+4.  **Extract notes**
+    ➤ Use `html_nodes(..., ".imdbRating strong")` to get the ratings for each movie.
+
+5.  **Build a table**
+    ➤ Combine the three vectors (`title`, `year`, `note`) into a `data.frame`.
+
+6.  **Ethical reflection**
+    ➤ Check if the IMDb page archive (or IMDb directly) allows scraping by consulting their [robots.txt](https://www.imdb.com/robots.txt).

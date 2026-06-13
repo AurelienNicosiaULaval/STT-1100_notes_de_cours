@@ -1,0 +1,50 @@
+# Défi 1 - Plongée en science des données
+
+STT-1100 Introduction à la science des données
+
+# Présentation du défi
+
+Vous devez créer un rapport Quarto au format HTML. Votre rapport doit inclure :
+
+- une en-tête parlante (titre, date et auteur) ;
+- trois sections : introduction, analyse et conclusion.
+
+Le rapport doit répondre à la question suivante : **“*Suis-je né.e la bonne année ?***”. On pourra répondre à cette question en s’intéressant à la température moyenne observée le jour de votre naissance, en la comparant à celles des années précédentes ou suivantes.
+
+Dans *l’**introduction*** vous devrez nommer l’objectif de votre analyse, la date choisie et la base de données que vous allez utiliser pour y répondre.
+
+Dans la section ***analyse***, vous devrez réaliser une analyse simple de la base de données `MeteoQuebec` de la librairie `UlavalSSD`. Voici les étapes à suivre :
+
+1.  Donnez la température moyenne lors de votre jour de naissance.
+
+2.  Analysez les températures moyenne en comparant votre jour de naissance avec les données de 5 années consécutives avant et 5 années après votre année de naissance. Cela vous permettra de déterminer si la température moyenne de votre jour de naissance était plus favorable.
+
+Dans la section ***conclusion***, vous devez répondre avec du texte à la question du défi.
+
+Remarque importante **:**
+Si les données correspondant à votre jour de naissance contiennent des valeurs manquantes, par exemple pour la température moyenne, vous pouvez choisir une autre date symbolique, comme la date de fête d’un membre de votre famille, d’un ami ou de votre animal de compagnie.
+
+# Livrables attendus
+
+- Un rapport HTML ;
+
+- Votre fichier source `.qmd`.
+
+- Votre rapport `.qmd` doit respecter les bonne pratiques de codage du tidyverse (chapitre 1 et 2)
+
+# Grille d’évaluation
+
+## 📢 Note importante
+
+> Pour ce **premier rendu d’un rapport Quarto**, vous recevrez une **rétroaction formative** de la part de l’enseignant·e.
+> Elle sera basée sur la grille suivante afin de vous aider à progresser et à améliorer vos prochains livrables.
+
+| Critère | Excellent | Satisfaisant | À améliorer |
+|----|----|----|----|
+| **Présentation du rapport** | En-tête complète (titre, auteur, date). Trois sections clairement identifiées. | Quelques éléments manquent ou sections peu claires. | Structure absente ou éléments essentiels manquants. |
+| **Introduction** | Objectif clair, date choisie justifiée, source de données nommée. | Objectif ou date imprécis. Source non mentionnée. | Absence d’introduction ou hors sujet. |
+| **Analyse de la température du jour choisi** | Extraction correcte, valeur interprétée. | Extraction partielle ou commentaire limité. | Donnée absente ou erronée. |
+| **Comparaison sur 11 années (±5)** | Analyse complète, interprétation pertinente, bon usage des graphiques si présent. | Analyse existante mais simpliste ou peu claire. | Analyse absente ou incorrecte. |
+| **Conclusion** | Réponse logique, bien justifiée avec un retour sur la question initiale. | Réponse présente mais peu argumentée. | Réponse absente ou hors sujet. |
+| **Qualité du code (`.qmd`)** | Style clair, indentation cohérente, respect des conventions tidyverse. | Style acceptable avec quelques écarts. | Style désordonné ou peu lisible. |
+| **Reproductibilité (`.html`)** | Rapport rendu complet, HTML fonctionnel. | Rapport partiel ou avec erreurs mineures. | Fichier HTML non fonctionnel ou absent. |

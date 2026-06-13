@@ -1,0 +1,103 @@
+# Module 9 - Plan d’apprentissage
+
+STT-1100 Introduction à la science des données
+
+# 🎯 Objectifs du module
+
+À la fin de ce module, vous devriez être capable de :
+
+- Ajuster et interpréter un modèle de régression linéaire simple.
+- Utiliser un modèle de régression linéaire simple pour obtenir des prédictions.
+- Ajuster et interpréter un modèle de régression linéaire multiple.
+- Reconnaître et discuter des biais potentiels, notamment ceux liés à la discrimination, dans les données ou les modèles.
+
+# 📚 Lectures
+
+Pour vous préparer, consultez les ressources suivantes :
+
+- 📘 [Introduction to Modern Statistics – Chapitre 7 : Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
+
+- 📘 [Introduction to Modern Statistics – Chapitre 8 : Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
+
+- 📘 [Introduction to Modern Statistics – Chapitre 25 : Inference for linear regression with multiple predictors - section 1](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
+
+# 🧭 Aventure
+
+Vous incarnez un·e **scientifique de données** au sein du Ministère de l’Éducation du Québec. Votre mandat est double : construire un modèle prédictif à partir de données d’écoles primaires, puis explorer un jeu de données fictif pour y détecter des biais.
+
+👉 [Aventure 9 — Prédiction et biais algorithmiques](../module_09/aventure.llms.md)
+
+# 💡 Défi — Capsule vidéo
+
+Vous devez réaliser une **capsule vidéo de 180 secondes** dans laquelle vous présentez :
+
+- soit un modèle prédictif construit dans la Mission 1 ;
+- soit une analyse critique d’un biais détecté dans la Mission 2.
+
+🎯 La capsule doit inclure :
+
+- une introduction claire ;
+
+- une méthodologie brève ;
+
+- des résultats visuels (graphiques, tableaux) ;
+
+- une conclusion avec au moins une recommandation.
+
+# 🏋️ Exercices de consolidation
+
+Voici un exercice intégrateur basé sur le jeu de données `penguins` du package `palmerpenguins`. Il combine modélisation, interprétation et réflexion critique.
+
+## 🐧 Étude de la masse corporelle des manchots
+
+Vous travaillez pour une ONG environnementale qui souhaite mieux comprendre les facteurs influençant la masse corporelle des manchots en Antarctique. Vous disposez du jeu de données `penguins`, nettoyé à l’aide de la fonction `drop_na()` pour éviter les valeurs manquantes.
+
+``` r
+library(palmerpenguins)
+library(tidyverse)
+
+df <- penguins %>%
+  drop_na()
+```
+
+### 1. Visualisation et hypothèse
+
+Tracez la relation entre `body_mass_g` et `flipper_length_mm`. Est-ce qu’une relation linéaire vous semble plausible ?
+
+💡 Solution
+
+Utilisez `ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = "lm")`. La relation est clairement linéaire.
+
+### 2. Régression simple
+
+Ajustez un modèle `body_mass_g ~ flipper_length_mm`. Interprétez la pente.
+
+💡 Solution
+
+Chaque mm supplémentaire de longueur de nageoire est associé à une augmentation moyenne de X grammes de masse corporelle (voir valeur exacte dans le modèle).
+
+### 3. Régression multiple
+
+Ajustez maintenant `body_mass_g ~ flipper_length_mm + sex`. Quelle est la variable de référence ? Quelles différences observez-vous ?
+
+💡 Solution
+
+R utilise la première modalité alphabétique comme référence (ici probablement “female”). Le coefficient de `sexmale` représente la différence moyenne de masse entre mâles et femelles, à longueur égale.
+
+### 4. Prédictions ciblées
+
+Prédisez la masse corporelle pour un manchot avec 200 mm de longueur de nageoire, mâle.
+
+💡 Solution
+
+Créer une table `newdata <- tibble(flipper_length_mm = 200, sex = "male")` puis faire `predict(model, newdata)`.
+
+### 5. Réflexion critique
+
+La variable `species` est-elle pertinente à inclure ? Quelle précaution devez-vous prendre si vous l’ajoutez ?
+
+💡 Solution
+
+Oui, `species` est très corrélée avec la masse. Il faut faire attention à la multicolinéarité si elle est fortement liée aux autres prédicteurs.
+
+Bonne exploration !

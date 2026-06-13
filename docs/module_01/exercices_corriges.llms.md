@@ -1,0 +1,25 @@
+# Corrigés exercice module 1 - Plongée en science des données
+
+Auteur·rice
+
+Aurélien Nicosia
+
+## Quarto
+
+Quarto permet de combiner du texte et du code exécutable dans un document final. Pour en savoir plus sur Quarto, consultez <https://quarto.org>.
+
+## Exécuter du code
+
+Quand vous cliquez sur le bouton **Render**, un document est généré qui contient à la fois le texte et la sortie du code embarqué. Vous pouvez inclure du code ainsi :
+
+``` r
+1 + 1
+```
+
+    [1] 2
+
+Vous pouvez ajouter des options à un bloc de code exécutable comme ceci :
+
+    [1] 4
+
+L’option `echo: false` désactive l’affichage du code (seule la sortie est affichée).

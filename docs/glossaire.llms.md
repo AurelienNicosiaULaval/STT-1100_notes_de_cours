@@ -1,0 +1,17 @@
+# Glossaire
+
+# Glossaire
+
+Ce glossaire donne des repères courts. Les définitions détaillées sont développées dans les modules.
+
+| Terme | Repère de cours |
+|----|----|
+| Observation | Une ligne ou une unité analysée dans un tableau de données. |
+| Variable | Une caractéristique mesurée ou décrite pour chaque observation. |
+| Tibble | Tableau de données moderne utilisé dans le tidyverse. |
+| Facteur | Variable catégorielle avec des modalités contrôlées. |
+| Jointure | Opération qui combine des tableaux à partir d’une clé commune. |
+| Visualisation | Représentation graphique utilisée pour explorer ou communiquer une structure dans les données. |
+| Modèle | Représentation simplifiée d’une relation ou d’un mécanisme statistique. |
+| Biais | Distorsion possible entre ce qu’on observe, ce qu’on mesure et ce qu’on conclut. |
+| Reproductibilité | Capacité à refaire une analyse et obtenir les mêmes résultats à partir des mêmes fichiers. |

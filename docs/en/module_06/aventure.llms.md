@@ -1,0 +1,137 @@
+# Adventure 6 — Collaboration and reproducibility in GitHub
+
+STT-1100 • Introduction to Data Science
+
+# ✈️ Put in context
+
+You are a team of data scientists working for JFK Airport. Your mandate is to produce a **collaborative and reproducible analysis** aimed at identifying the sources of flight delays, particularly in relation to the weather.
+
+Each member of your team will need to actively contribute to this analysis, which will be produced using **Quarto** and hosted on **GitHub**.
+
+# 🔧 Part 1 — Collaboration with GitHub: roles, branches, conflicts
+
+## 👥 Team training and roles in the data lifecycle
+
+Work in **teams of 3 to 4 people**. Each member embodies an essential role in the **lifecycle of data and a data science project**. These roles will be maintained for the following steps.
+
+| Role | Technical functions | Link to data lifecycle | To do in this activity |
+|----|----|----|----|
+| **Responsible for the deposit** | Creates and structures the GitHub repository, manages branches and merges | Ensures **versioning**, traceability and documentation | Creates repository, manages *pull requests*, merges branches, resolves conflicts |
+| **Data Analyst** | Prepare data transformation and merging code | Manages the **preparation and transformation** stage | Add a `chunk` to merge `flights`, `airlines`, `weather` into the `.qmd` |
+| **Reproducibility Manager** | Organizes the `.qmd`, ensures compilation and clarity | Guarantor of **reproducibility and documentation** | Sets up sections of `.qmd`, cleans up rendering, checks final HTML rendering |
+| **Viewer** (optional) | Produces graphics, harmonizes style | Plays a key role in **communication and dissemination** | Adds an illustrative ggplot2 `chunk` and adapts titles/captions |
+
+> 🔁 **Recommended role turn** in the adventure to raise awareness at all stages of the cycle.
+
+## 🛠 Steps to follow
+
+Here is a suggested sequence for team members to work **one after the other**, while others observe and learn:
+
+1.  **Repository maintainer**: Clone the starting repository provided by the teacher, create the RStudio project, initialize the branches for each member and make a first commit with an updated `README.md`.
+
+2.  **Responsible for reproducibility**: Create your branch, organize the `.qmd`, add a basic structure with titles and subtitles. Add a comment in the YAML or section to create a small upcoming conflict.
+
+3.  **Data analyst**: Create your branch, add the first lines of code to import the data and merge the tables. Add a `chunk` named `merge_data`.
+
+4.  **Visualizer** (if present): Add a first draft of a simple visualization (`geom_bar()` or `geom_point()`) with clear `labs()`. Push your changes to your branch and open a *pull request*.
+
+5.  **Repository manager**: Merge the *pull requests* one by one. When a conflict arises (e.g. in the intro or YAML), manage it directly with other members who observe and take notes on the process.
+
+6.  Once all the branches have been merged, compile the `.qmd` into HTML and validate the rendering with the team.
+
+## ✅ Part 1 Objectives
+
+One branch per role with at least one commit
+
+All branches merged with conflict management
+
+The `.qmd` compiles to HTML
+
+The team presentation is complete
+
+Everyone thought about their place in the **data lifecycle**
+
+# 🔍 Part 2 — Reproducible analysis with merged data
+
+## 👥 Tasks by role
+
+Each member of the team continues their previously defined role. Here are the expected actions for each, in the same order as Part 1:
+
+### 🗂 Responsible for the repository — Start of analysis
+
+- Creates a specific branch for collaborative analysis.
+- Reviews the organization of the repository and ensures that the necessary files are present.
+- Ensures that all chunks have consistent names, options (`echo`, `message`, etc.).
+- Check that each member has pushed its branch well.
+- Starts the coordination of the analysis step.
+
+### 🧪 Data Analyst
+
+- Creates a new section in `.qmd` titled *Collaborative Analysis*.
+- Check that the necessary libraries (`tidyverse`, `nycflights2`) are loaded in a `setup` chunk.
+- Prepare the following mergers:
+  - `flights` + `airlines` to add the name of the carriers.
+  - `flights` + `weather` to integrate weather conditions.
+- Filter on JFK airport only.
+- Clean data as needed (NA, duplicates, etc.).
+- Add useful statistical summaries (average delays, etc.).
+
+### 🧱 Responsible for reproducibility
+
+- Check that the necessary libraries (`tidyverse`, `nycflights2`) are loaded in a `setup` chunk.
+
+- Ensures that all chunks have consistent names, options (`echo`, `message`, etc.).
+
+- Checks that the document compiles properly.
+
+- Add **a sentence in the main text** using **inline code** (eg: `r nrow(flights)`), to show an example of reproducibility embedded in the text. The sentence must contain at least 3 different inline codes, for example: \> Example: “The dataset contains `r nrow(flights)` flights recorded in 2023.”
+
+- Ensure that everything is reproducible in the report.
+
+### 📊 Visualizer (if present)
+
+- Creates at least two relevant charts from the merged table:
+  - A `geom_col()` showing the average delay per carrier.
+  - A `geom_point()` or `geom_smooth()` exploring the relationship between weather and delays.
+- Customizes the titles, axes, and readability of the graph.
+- Ensures that the graphs are clearly interpretable and aligned with the questions asked.
+
+### 🗂 Responsible for repository — End of analysis
+
+- Revises everyone’s final contributions.
+- Merge clean branches into `main`.
+- Push the final version to GitHub.
+- Document the process in the `README.md` or in a “Production notes” section of the `.qmd`.
+
+# 🔁 Part 3 — Thinking and the data lifecycle
+
+## Logbook
+
+In this section, each team member writes a paragraph about:
+
+- His role in the project
+- Difficulties encountered with GitHub (and how they were resolved)
+- What he/she learned about collaboration and reproducibility
+
+The **project manager** must of course initialize the quarto logbook document and plan the sections for each member. Each member must then add their paragraph in their dedicated section.
+
+## Data lifecycle
+
+Add a section explaining how your project demonstrates the following steps:
+
+1.  Collection
+2.  Transformation
+3.  Analysis
+4.  Sharing
+5.  Reuse and versioning
+
+# ✅ Final verification
+
+- Does the HTML report compile without errors?
+- Are there at least **2 visualizations**?
+- Have all members made **at least 2 commits**?
+- Is the report **clearly written and well structured**?
+
+------------------------------------------------------------------------
+
+Happy collaboration! 🎯

@@ -1,0 +1,179 @@
+# Projet de session — Votre première mission en tant que scientifique de données
+
+STT-1100 Introduction à la science des données
+
+# 🎯 Votre mission
+
+Choisissez un jeu de données, n’importe lequel…
+
+…et faites quelque chose avec.
+
+Voilà, en un mot, votre projet final.
+
+# 📚 Objectif du projet
+
+Le projet final vous permet de démontrer que vous êtes capable de :
+
+- Poser des questions de recherche claire et pertinente.
+- Explorer et analyser un jeu de données à l’aide des outils appris (RStudio, tidyverse, Quarto).
+- Produire des visualisations pertinentes.
+- Rédiger un rapport reproductible.
+- Présenter vos résultats de manière claire et structurée.
+- Collaborer efficacement dans un dépôt GitHub.
+
+Ce projet est volontairement ouvert : vous avez la liberté de choisir vos données, vos angles d’analyse, vos outils, vos méthodes.
+
+# 🗃️ Jeu de données
+
+Choisissez un jeu de données **gérable**, c’est-à-dire :
+
+- Au moins **50 observations**
+- Entre **10 et 20 variables** (des exceptions sont possibles sur approbation)
+- Incluant des variables **numériques continues**, **discrètes** et **catégorielles**
+- Format lisible par R (CSV, RDS, etc.)
+
+⚠️ **Évitez les jeux de données vus en classe.**
+
+Quelques ressources utiles :
+
+- [Québec données](https://www.donneesquebec.ca/)
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+- [NHS Scotland Open Data](https://www.opendata.nhs.scot/) - [Edinburgh Open Data](https://edinburghopendata.info/)
+- [Open access to Scotland’s official statistics](https://statistics.gov.scot/home)
+- [Bikeshare data portal](https://www.bikeshare.com/data/) - [UK Gov Data](https://data.gov.uk/)
+- [Kaggle datasets](https://www.kaggle.com/datasets) - [OpenIntro datasets](http://openintrostat.github.io/openintro/)
+- [Awesome public datasets](https://github.com/awesomedata/awesome-public-datasets)
+- [Youth Risk Behavior Surveillance System (YRBSS)](https://chronicdata.cdc.gov/Youth-Risk-Behaviors/DASH-Youth-Risk-Behavior-Surveillance-System-YRBSS/q6p7-56au)
+- [PRISM Data Archive Project](https://www.icpsr.umich.edu/icpsrweb/content/ICPSR/fenway.html)
+- [Harvard Dataverse](https://dataverse.harvard.edu/)
+- [Google Dataset Search](https://datasetsearch.research.google.com/)
+- [Canadien govt open data](https://open.canada.ca/en/open-data)
+- [Github Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
+
+# 📦 Déroulement du projet
+
+## 1. Proposition — à remettre le **dimanche 9 novembre à 23h59**
+
+Contenu :
+
+- **Section 1 : Introduction**
+  Présentez vos questions de recherche, votre jeu de données, sa provenance, son format, les observations et les variables.
+
+- **Section 2 : Données**
+  Placez vos données dans le dossier `/data`, mettez à jour le `README`, et incluez un `glimpse()` ou `skim()`.
+
+- **Section 3 : Plan d’analyse**
+
+  - Variables réponses et explicatives
+  - Groupes de comparaison (si applicable)
+  - Premiers graphiques ou stats descriptives
+  - Méthodes envisagées
+  - Résultats attendus
+
+  Note: Il s’agit ici seulement d’un plan. Vous allez apprendre dans les prochains modules de nouvelles méthodes pour analyser votre jeu de données.
+
+> 📏 Max. 1 page par section (hors graphiques).
+
+### Barème (15 points)
+
+| Critère                             | Points |
+|-------------------------------------|--------|
+| Données                             | 5      |
+| Contenu de la proposition           | 8      |
+| Qualité du code, structure du dépôt | 2      |
+
+## 2. Présentation — à soumettre le **15 décembre**
+
+Faites une **présentation de 15 minutes maximum**, où chaque membre parle. Utilisez `xaringan` pour créer vos diapositives. La présentation aura lieu en classe le 15 décembre.
+
+**Ce que vous devez présenter :**
+
+- Vos questions et pourquoi elles sont intéressante
+- Vos choix méthodologiques
+- Vos résultats principaux
+- Les limites de votre approche
+
+> Code caché (`echo = FALSE`) sauf si vous voulez en montrer une partie.
+
+### Barème (50 points)
+
+| Critère                                               | Points |
+|-------------------------------------------------------|--------|
+| Gestion du temps                                      | 4      |
+| Clarté de la question et pertinence des données       | 5      |
+| Professionnalisme et qualité de la présentation orale | 5      |
+| Cohérence du travail d’équipe                         | 6      |
+| Qualité méthodologique                                | 10     |
+| Créativité et pensée critique                         | 10     |
+| Qualité visuelle des diapositives                     | 10     |
+
+## 3. Rapport final (`README`) — à soumettre le **15 décembre 2025 à 23h59**
+
+Fournissez un résumé exécutif de votre projet :
+
+- Jeu de données utilisé
+- Objectif et questions de recherche
+- Méthodologie
+- Résultats clés
+
+> 💡 Ce résumé remplace un rapport écrit classique. Il doit être clair, structuré, mais concis.
+
+### Barème
+
+| Critère           | Points |
+|-------------------|--------|
+| Contenu et clarté | 15     |
+
+# 📁 Organisation du dépôt GitHub
+
+Structure attendue :
+
+`/data <- Jeu de données et dictionnaire des données`
+
+`/proposition <- Proposition de projet presentation.Rmd`
+
+`<- Présentation (xaringan) presentation.html`
+
+`<- Présentation HTML README.Rmd + .md`
+
+`<- Résumé final`
+
+Le dépôt doit être propre, bien structuré, et refléter une démarche reproductible.
+
+# 🤝 Travail d’équipe
+
+- Travail en équipe obligatoire
+- Répartition équitable du travail
+- Contribution visible dans l’historique Git
+
+Vous remplirez une **évaluation par les pairs** à la fin du projet. Si une personne est jugée inactive (moins de 10 % de contribution), elle pourra recevoir une note ajustée.
+
+# 🧠 Évaluation finale
+
+| Composante                     | Points  |
+|--------------------------------|---------|
+| Proposition                    | 10      |
+| Présentation                   | 50      |
+| Résumé (README)                | 15      |
+| Reproductibilité, organisation | 10      |
+| Évaluation par les pairs       | 10      |
+| Évaluation par les camarades   | 5       |
+| **Total**                      | **100** |
+
+# ✅ Ce qu’on évalue
+
+- Qualité des questions et des données
+- Pertinence des méthodes statistiques
+- Clarté de la rédaction et des graphiques
+- Créativité et esprit critique
+- Respect des bonnes pratiques (éthique, reproductibilité, style)
+
+# 💡 Conseils pratiques
+
+- Commencez tôt, testez votre accès aux données.
+- Commitez souvent, poussez régulièrement.
+- Ne cachez pas votre code dans le `.qmd`, sauf dans la présentation finale.
+- Planifiez des rencontres d’équipe.
+- Posez des questions !
+
+Bonne aventure scientifique !

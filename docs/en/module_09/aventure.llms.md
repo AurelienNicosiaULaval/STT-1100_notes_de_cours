@@ -1,0 +1,172 @@
+# Adventure 9 - Algorithmic prediction and bias
+
+STT-1100 Introduction to Data Science
+
+# 🎬 Scenario: Quality control in education
+
+You work as a **junior data scientist** in the quality control and equity department at the Quebec Ministry of Education. Your mandate: use real and fictitious data to identify, evaluate and mitigate algorithmic bias in educational decisions.
+
+Your superior, **Michel Dufour**, deputy director of the department, welcomes you with these words:
+
+> “Welcome to the team!” Our work is crucial: ensuring that every child has equal opportunities to succeed. To do this, we not only need to effectively predict certain indicators, but also understand and avoid biases in our models. »
+
+> **NOTE:**
+>
+> **Your contact: Michel Dufour**
+> He will accompany you on this adventure: he will ask key questions and await your results and detailed analyses.
+
+## Adventure Objectives
+
+- Build a clear predictive model from real data.
+- Identify and explain potential biases on fictitious data.
+- Clearly present your analyzes and thoughts on these biases.
+- Propose concrete recommendations to mitigate these biases.
+
+------------------------------------------------------------------------
+
+# 📚 Mission 1: Predictive model at school level
+
+Michel gives you a [data file from the Data Québec portal](https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c). These data contain information on disadvantage on primary schools in Quebec.
+
+> **IMPORTANT:**
+>
+> “I invite you to explore the data. But be careful: the column names are not always intuitive. Start by visiting the documentation page on Data Québec to fully understand their meaning. »
+
+## Step 1: Exploration and cleaning
+
+- Identify relevant variables.
+- Do a summary cleanup if necessary (missing values, data types, etc.).
+- Carry out a complete descriptive analysis of this data (refer to modules 2 to 4).
+
+``` r
+df_schools <- read_csv("ecoles_primaires_qc.csv")
+glimpse(df_schools)
+```
+
+## Step 2: Regression Model
+
+> **IMPORTANT:**
+>
+> “I would like you to build a linear regression model to predict the **IMSE** (Socio-Economic Environment Index), based on two variables: the proportion of low-income students (**SFR**) and the **total number of students** in the school. »
+
+``` r
+model <- lm( ... , data = ...)
+summary(model)
+```
+
+> **IMPORTANT:**
+>
+> “Once the model is built, can you explain to me, in simple language, what the two coefficients mean? »
+
+## Step 3: Targeted Predictions
+
+You will then use the `predict()` function to generate IMSE predictions from your model.
+
+``` r
+predict(model, newdata = df_schools)
+```
+
+> **IMPORTANT:**
+>
+> “I would like you to use your template to:”
+>
+> \- predict the IMSE for the **10 largest schools** (in number of students);
+>
+> \- predict the IMSE for the **10 schools with the highest SFRs**.
+>
+> Compare predicted values ​​to actual values. Is your model good?
+
+## Step 4: Missing School Predictions
+
+> **IMPORTANT:**
+>
+> “Last thing: in the data, some schools have the variable **Diffusion** set to “NO”. These schools do not have a measured IMSE — often because they have fewer than 30 students. »
+>
+> “Can you use your model to **predict the IMSE of all schools with fewer than 30 students**? Next, I would like to know: what do you think about the validity of these predictions? Can we trust it? »
+
+------------------------------------------------------------------------
+
+# 📊 Mission 2: Detection of individual biases
+
+Michel also provides you with a fictitious dataset of 1000 students. At first glance, this game seems neutral. But is this really the case?
+
+Load the data:
+
+``` r
+df_students <- read_csv("students_fictifs.csv")
+glimpse(df_students)
+```
+
+### Step 1: Overall analysis
+
+Start by calculating and visualizing the **overall admission rate**.
+
+``` r
+df_students %>%
+  count(Admission) %>%
+  mutate(pct = n / sum(n))
+```
+
+Discuss what you observe: is it balanced? Surprising?
+
+### Step 2: Analysis by group
+
+Now, explore admission rates **by gender**.
+
+``` r
+# code to modify
+df_students %>%
+  count(Admission) %>%
+  group_by(Sex) %>%
+  mutate(pct = n / sum(n))
+```
+
+Produce a clear graph to illustrate potential differences.
+
+### Step 3: Guided discussion
+
+- Do you see a notable difference between the groups?
+- Is this difference justified? What assumptions can you make?
+- Can we talk about **bias** here? For what ?
+
+### Step 4: Exploring other variables
+
+Then continue with the analysis according to other variables (mother tongue, socio-economic level, access to resources).
+
+You can reproduce the same logic: crosstab + graph + interpretation.
+
+**To be submitted:** a brief summary presenting the bias(es) detected, with clear visual support and recommendations or avenues for improvement.
+
+------------------------------------------------------------------------
+
+# 📹 Challenge to submit
+
+You will have to produce a **video capsule of 180 seconds maximum** in which you present:
+
+- Or your predictive model based on real data (Mission 1).
+- Either your analysis of the bias detected from the fictitious data (Mission 2).
+
+Your capsule must include:
+
+- A short introduction (put into context).
+- Your methodology briefly explained.
+- Your results presented visually (tables, graphs).
+- A clear conclusion with recommendations or avenues for improvement.
+
+Your video capsule must be uploaded to the indicated GitHub repository.
+
+> **TIP:**
+>
+> 🎯 **Tips for making your video successful:**
+>
+> - Be concise and clear.
+> - Rely on readable graphics.
+> - Speak slowly, clearly, and be dynamic!
+
+------------------------------------------------------------------------
+
+# ✅ Conclusion of the adventure
+
+You have built a predictive model useful for decision making and learned to detect critical biases in individual data.
+
+Bravo for your rigor, your sense of observation and your ethical posture! 🎉📊

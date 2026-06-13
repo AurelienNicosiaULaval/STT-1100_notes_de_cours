@@ -10,9 +10,12 @@ script_path <- if (length(file_arg) > 0) {
 repo_root <- normalizePath(file.path(dirname(script_path), ".."), mustWork = TRUE)
 setwd(repo_root)
 
-run_quarto <- function(args) {
+run_quarto <- function(args, wd = getwd()) {
   command <- paste(c("quarto", args), collapse = " ")
   message("Running: ", command)
+  old_wd <- getwd()
+  setwd(wd)
+  on.exit(setwd(old_wd), add = TRUE)
   exit_code <- system2("quarto", args)
   if (!identical(exit_code, 0L)) {
     stop("Command failed: ", command, call. = FALSE)
@@ -32,14 +35,42 @@ clean_paths <- c(
 
 remove_paths <- function(paths) {
   for (path in paths[file.exists(paths)]) {
-    unlink(path, recursive = TRUE, force = TRUE)
-    if (file.exists(path)) {
-      remove_exit <- system2("rm", c("-rf", path))
-      if (!identical(remove_exit, 0L) || file.exists(path)) {
-        stop("Failed to remove generated path: ", path, call. = FALSE)
-      }
+    remove_exit <- system2("rm", c("-rf", path))
+    if (!identical(remove_exit, 0L) || file.exists(path)) {
+      stop("Failed to remove generated path: ", path, call. = FALSE)
     }
   }
+}
+
+sync_source_to_render_root <- function(source_root, render_root) {
+  args <- c(
+    "-a",
+    "--delete",
+    "--exclude=.git/",
+    "--exclude=.quarto*/",
+    "--exclude=docs/",
+    "--exclude=en/docs/",
+    "--exclude=site_libs*/",
+    "--exclude=*_files/",
+    "--exclude=*.rmarkdown",
+    "--exclude=*.llms.md",
+    "--exclude=llms.txt",
+    "--include=toggle-sidebar.html",
+    "--exclude=*.html",
+    paste0(source_root, "/"),
+    paste0(render_root, "/")
+  )
+  sync_exit <- system2("rsync", args)
+  if (!identical(sync_exit, 0L)) {
+    stop("Failed to sync source files to temporary render directory.", call. = FALSE)
+  }
+}
+
+find_quarto_cache_paths <- function() {
+  c(
+    list.files(".", pattern = "^\\.quarto", all.files = TRUE, full.names = TRUE, recursive = FALSE),
+    list.files("en", pattern = "^\\.quarto", all.files = TRUE, full.names = TRUE, recursive = FALSE)
+  )
 }
 
 remove_generated_duplicates <- function() {
@@ -51,10 +82,58 @@ remove_generated_duplicates <- function() {
   remove_paths(duplicate_paths)
 }
 
+find_generated_source_paths <- function(root) {
+  old_wd <- getwd()
+  setwd(root)
+  on.exit(setwd(old_wd), add = TRUE)
+
+  args <- c(
+    ".",
+    "(", "-path", "./.git", "-o", "-path", "./docs", "-o", "-path", "./en/docs", ")",
+    "-prune",
+    "-o",
+    "(",
+    "-type", "d",
+    "(",
+    "-name", ".quarto*",
+    "-o", "-name", "site_libs*",
+    "-o", "-name", "*_files",
+    ")",
+    "-print",
+    "-prune",
+    ")",
+    "-o",
+    "(",
+    "-type", "f",
+    "(",
+    "-name", "*.html",
+    "-o", "-name", "*.llms.md",
+    "-o", "-name", "llms.txt",
+    "-o", "-name", "*.rmarkdown",
+    ")",
+    "-print",
+    ")"
+  )
+
+  paths <- system2("find", shQuote(args), stdout = TRUE)
+  paths <- paths[basename(paths) != "toggle-sidebar.html"]
+  paths
+}
+
+remove_source_artifacts <- function(root) {
+  old_wd <- getwd()
+  setwd(root)
+  on.exit(setwd(old_wd), add = TRUE)
+
+  remove_paths(unique(c(find_quarto_cache_paths(), "site_libs", "en/site_libs", "en/docs")))
+  remove_generated_duplicates()
+  remove_paths(find_generated_source_paths(root))
+}
+
 strip_trailing_whitespace <- function(root = "docs") {
   text_files <- list.files(
     root,
-    pattern = "\\.(html|css|json|xml|txt)$",
+    pattern = "\\.(html|css|json|md|txt|xml)$",
     recursive = TRUE,
     full.names = TRUE,
     no.. = TRUE
@@ -71,33 +150,17 @@ strip_trailing_whitespace <- function(root = "docs") {
   }
 }
 
-remove_paths(clean_paths)
+render_root <- tempfile("stt1100-render-")
+dir.create(render_root, recursive = TRUE, showWarnings = FALSE)
+on.exit(remove_paths(render_root), add = TRUE)
+
+message("Preparing clean temporary render directory: ", render_root)
+sync_source_to_render_root(repo_root, render_root)
+setwd(render_root)
+
+remove_paths(unique(c(clean_paths, find_quarto_cache_paths())))
 remove_generated_duplicates()
-
-module_html <- list.files(
-  ".",
-  pattern = "\\.html$",
-  recursive = TRUE,
-  full.names = TRUE,
-  no.. = TRUE
-)
-module_html <- module_html[!startsWith(module_html, "./docs/")]
-module_html <- module_html[basename(module_html) != "toggle-sidebar.html"]
-if (length(module_html) > 0) {
-  unlink(module_html, force = TRUE)
-}
-
-generated_dirs <- list.files(
-  ".",
-  pattern = "_files$",
-  recursive = TRUE,
-  full.names = TRUE,
-  no.. = TRUE
-)
-generated_dirs <- generated_dirs[!startsWith(generated_dirs, "./docs/")]
-if (length(generated_dirs) > 0) {
-  unlink(generated_dirs, recursive = TRUE, force = TRUE)
-}
+remove_source_artifacts(render_root)
 
 run_quarto(c("render", "."))
 run_quarto(c("render", "en"))
@@ -129,5 +192,14 @@ duplicate_outputs <- list.files(
 remove_paths(duplicate_outputs)
 remove_generated_duplicates()
 strip_trailing_whitespace("docs")
+
+setwd(repo_root)
+remove_paths(file.path(repo_root, "docs"))
+dir.create(file.path(repo_root, "docs"), recursive = TRUE, showWarnings = FALSE)
+copy_exit <- system2("cp", c("-R", file.path(render_root, "docs", "."), file.path(repo_root, "docs")))
+if (!identical(copy_exit, 0L)) {
+  stop("Failed to copy rendered site back to repository docs/.", call. = FALSE)
+}
+strip_trailing_whitespace(file.path(repo_root, "docs"))
 
 message("Done: rendered French site to docs/ and English site to docs/en/.")
