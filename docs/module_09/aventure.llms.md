@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# 🎬 Mise en situation : Contrôle de la qualité en éducation
+# Mise en situation : Contrôle de la qualité en éducation
 
 Vous travaillez comme **scientifique de données junior** au département de contrôle de la qualité et de l’équité au Ministère de l’Éducation du Québec. Votre mandat : utiliser des données réelles et fictives pour identifier, évaluer et atténuer des biais algorithmiques dans les décisions éducatives.
 
@@ -24,7 +24,7 @@ Votre supérieur, **Michel Dufour**, directeur adjoint du département, vous acc
 
 ------------------------------------------------------------------------
 
-# 📚 Mission 1 : Modèle prédictif à l’échelle des écoles
+# Mission 1 : Modèle prédictif à l’échelle des écoles
 
 Michel vous remet un [fichier de données issues du portail Données Québec](https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c). Ces données contiennent des informations de défavorisation sur les écoles primaires du Québec.
 
@@ -86,7 +86,7 @@ predict(modele, newdata = df_ecoles)
 
 ------------------------------------------------------------------------
 
-# 📊 Mission 2 : Détection des biais individuels
+# Mission 2 : Détection des biais individuels
 
 Michel vous fournit également un jeu de données fictif de 1000 élèves. À première vue, ce jeu semble neutre. Mais est-ce vraiment le cas ?
 
@@ -139,7 +139,7 @@ Vous pouvez reproduire la même logique : tableau croisé + graphique + interpr�
 
 ------------------------------------------------------------------------
 
-# 📹 Défi à remettre
+# Défi à remettre
 
 Vous devrez réaliser une **capsule vidéo de 180 secondes maximum** dans laquelle vous présentez :
 
@@ -157,7 +157,7 @@ Votre capsule vidéo devra être déposée sur le dépôt GitHub indiqué.
 
 > **TIP:**
 >
-> 🎯 **Conseils pour réussir votre vidéo :**
+> **Conseils pour réussir votre vidéo :**
 >
 > - Soyez concis et clair.
 > - Appuyez-vous sur des graphiques lisibles.
@@ -165,8 +165,8 @@ Votre capsule vidéo devra être déposée sur le dépôt GitHub indiqué.
 
 ------------------------------------------------------------------------
 
-# ✅ Conclusion de l’aventure
+# Conclusion de l’aventure
 
 Vous avez construit un modèle prédictif utile pour la prise de décision et appris à détecter des biais critiques dans des données individuelles.
 
-Bravo pour votre rigueur, votre sens de l’observation et votre posture éthique ! 🎉📊
+Bravo pour votre rigueur, votre sens de l’observation et votre posture éthique !

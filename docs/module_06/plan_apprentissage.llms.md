@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# 🎯 Objectifs du module
+# Objectifs du module
 
 À la fin de ce module, vous devriez être capable de :
 
@@ -11,7 +11,7 @@ STT-1100 Introduction à la science des données
 - Fusionner et gérer plusieurs jeux de données.
 - Expliquer le cycle de vie des données et les principes de `DataOps`.
 
-# 📚 Lectures
+# Lectures
 
 Dans ce module, nous allons explorer les concepts de base de la collaboration et de la reproductibilité dans GitHub, ainsi que l’utilisation de Quarto pour créer des rapports dynamiques. Voici quelques lectures initiales pour vous préparer :
 
@@ -25,7 +25,7 @@ Dans ce module, nous allons explorer les concepts de base de la collaboration et
 
 [Aventure 6](../module_06/aventure.llms.md)
 
-# 🎯 Défi — Revue croisée des journaux de bord
+# Défi — Revue croisée des journaux de bord
 
 > Chaque équipe doit **partager son journal de bord** avec une autre équipe et fournir une **rétroaction constructive**. Cette étape simule le processus de revue par les pairs et renforce les compétences de communication critique.
 
@@ -72,9 +72,9 @@ Dans ce module, nous allons explorer les concepts de base de la collaboration et
 
 ------------------------------------------------------------------------
 
-> 💡 **Conseil** : concentrez‑vous sur des rétroactions actionnables (ex. proposer un titre plus descriptif, ajouter un graphique supplémentaire, préciser un paramètre YAML) plutôt que des commentaires génériques.
+> **Conseil** : concentrez‑vous sur des rétroactions actionnables (ex. proposer un titre plus descriptif, ajouter un graphique supplémentaire, préciser un paramètre YAML) plutôt que des commentaires génériques.
 
-# 🏋️ Exercices de consolidation
+# Exercices de consolidation
 
 > **Objectif général – Maîtriser les différentes jointures `dplyr` (`inner_join()`, `left_join()`, `right_join()`, `full_join()`, `semi_join()`, `anti_join()`) sur des jeux de données variés.**
 
@@ -149,7 +149,7 @@ Dans ce module, nous allons explorer les concepts de base de la collaboration et
 *Jeux de données :* `Lahman::People`, `Lahman::Batting` (package **Lahman**).
 
 1.  Obtiens la liste des joueurs nés au *Canada* (`birthCountry`).
-2.  Calcule leur moyenne au bâton (`H/AB`) en fusionnant People ↔︎ Batting sur `playerID`.
+2.  Calcule leur moyenne au bâton (`H/AB`) en fusionnant People \<-\> Batting sur `playerID`.
 
 > **TIP:**
 >

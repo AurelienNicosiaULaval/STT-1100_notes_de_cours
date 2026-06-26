@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# 🎯 Module objectives
+# Module objectives
 
 At the end of this module, you should be able to:
 
@@ -11,7 +11,7 @@ At the end of this module, you should be able to:
 - Merge and manage multiple datasets.
 - Explain the data life cycle and the principles of `DataOps`.
 
-# 📚 Readings
+# Readings
 
 In this module, we’ll explore the basic concepts of collaboration and reproducibility in GitHub, as well as using Quarto to create dynamic reports. Here is some initial reading to prepare you:
 
@@ -25,7 +25,7 @@ In this module, we’ll explore the basic concepts of collaboration and reproduc
 
 [Adventure 6](../module_06/aventure.llms.md)
 
-# 🎯 Challenge — Cross-review of logbooks
+# Challenge — Cross-review of logbooks
 
 > Each team must **share their logbook** with another team and provide **constructive feedback**. This step simulates the peer review process and reinforces critical communication skills.
 
@@ -72,9 +72,9 @@ In this module, we’ll explore the basic concepts of collaboration and reproduc
 
 ------------------------------------------------------------------------
 
-> 💡 **Tip**: focus on actionable feedback (e.g. proposing a more descriptive title, adding an additional graphic, specifying a YAML parameter) rather than generic comments.
+> **Tip**: focus on actionable feedback (e.g. proposing a more descriptive title, adding an additional graphic, specifying a YAML parameter) rather than generic comments.
 
-# 🏋️ Consolidation exercises
+# Consolidation exercises
 
 > **General objective – Master the different `dplyr` joins (`inner_join()`, `left_join()`, `right_join()`, `full_join()`, `semi_join()`, `anti_join()`) on various datasets.**
 
@@ -149,7 +149,7 @@ In this module, we’ll explore the basic concepts of collaboration and reproduc
 *Datasets:* `Lahman::People`, `Lahman::Batting` (package **Lahman**).
 
 1.  Obtain the list of players born in *Canada* (`birthCountry`).
-2.  Calculate their batting average (`H/AB`) by merging People ↔︎ Batting on `playerID`.
+2.  Calculate their batting average (`H/AB`) by merging People \<-\> Batting on `playerID`.
 
 > **TIP:**
 >

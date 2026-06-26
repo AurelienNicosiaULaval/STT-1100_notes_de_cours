@@ -2,15 +2,15 @@
 
 STT-1100 • Introduction to Data Science
 
-# ✈️ Put in context
+# Put in context
 
 You are a team of data scientists working for JFK Airport. Your mandate is to produce a **collaborative and reproducible analysis** aimed at identifying the sources of flight delays, particularly in relation to the weather.
 
 Each member of your team will need to actively contribute to this analysis, which will be produced using **Quarto** and hosted on **GitHub**.
 
-# 🔧 Part 1 — Collaboration with GitHub: roles, branches, conflicts
+# Part 1 — Collaboration with GitHub: roles, branches, conflicts
 
-## 👥 Team training and roles in the data lifecycle
+## Team training and roles in the data lifecycle
 
 Work in **teams of 3 to 4 people**. Each member embodies an essential role in the **lifecycle of data and a data science project**. These roles will be maintained for the following steps.
 
@@ -21,9 +21,9 @@ Work in **teams of 3 to 4 people**. Each member embodies an essential role in th
 | **Reproducibility Manager** | Organizes the `.qmd`, ensures compilation and clarity | Guarantor of **reproducibility and documentation** | Sets up sections of `.qmd`, cleans up rendering, checks final HTML rendering |
 | **Viewer** (optional) | Produces graphics, harmonizes style | Plays a key role in **communication and dissemination** | Adds an illustrative ggplot2 `chunk` and adapts titles/captions |
 
-> 🔁 **Recommended role turn** in the adventure to raise awareness at all stages of the cycle.
+> **Recommended role turn** in the adventure to raise awareness at all stages of the cycle.
 
-## 🛠 Steps to follow
+## Steps to follow
 
 Here is a suggested sequence for team members to work **one after the other**, while others observe and learn:
 
@@ -39,7 +39,7 @@ Here is a suggested sequence for team members to work **one after the other**, w
 
 6.  Once all the branches have been merged, compile the `.qmd` into HTML and validate the rendering with the team.
 
-## ✅ Part 1 Objectives
+## Part 1 Objectives
 
 One branch per role with at least one commit
 
@@ -51,13 +51,13 @@ The team presentation is complete
 
 Everyone thought about their place in the **data lifecycle**
 
-# 🔍 Part 2 — Reproducible analysis with merged data
+# Part 2 — Reproducible analysis with merged data
 
-## 👥 Tasks by role
+## Tasks by role
 
 Each member of the team continues their previously defined role. Here are the expected actions for each, in the same order as Part 1:
 
-### 🗂 Responsible for the repository — Start of analysis
+### Responsible for the repository — Start of analysis
 
 - Creates a specific branch for collaborative analysis.
 - Reviews the organization of the repository and ensures that the necessary files are present.
@@ -65,7 +65,7 @@ Each member of the team continues their previously defined role. Here are the ex
 - Check that each member has pushed its branch well.
 - Starts the coordination of the analysis step.
 
-### 🧪 Data Analyst
+### Data Analyst
 
 - Creates a new section in `.qmd` titled *Collaborative Analysis*.
 - Check that the necessary libraries (`tidyverse`, `nycflights2`) are loaded in a `setup` chunk.
@@ -76,7 +76,7 @@ Each member of the team continues their previously defined role. Here are the ex
 - Clean data as needed (NA, duplicates, etc.).
 - Add useful statistical summaries (average delays, etc.).
 
-### 🧱 Responsible for reproducibility
+### Responsible for reproducibility
 
 - Check that the necessary libraries (`tidyverse`, `nycflights2`) are loaded in a `setup` chunk.
 
@@ -88,7 +88,7 @@ Each member of the team continues their previously defined role. Here are the ex
 
 - Ensure that everything is reproducible in the report.
 
-### 📊 Visualizer (if present)
+### Visualizer (if present)
 
 - Creates at least two relevant charts from the merged table:
   - A `geom_col()` showing the average delay per carrier.
@@ -96,14 +96,14 @@ Each member of the team continues their previously defined role. Here are the ex
 - Customizes the titles, axes, and readability of the graph.
 - Ensures that the graphs are clearly interpretable and aligned with the questions asked.
 
-### 🗂 Responsible for repository — End of analysis
+### Responsible for repository — End of analysis
 
 - Revises everyone’s final contributions.
 - Merge clean branches into `main`.
 - Push the final version to GitHub.
 - Document the process in the `README.md` or in a “Production notes” section of the `.qmd`.
 
-# 🔁 Part 3 — Thinking and the data lifecycle
+# Part 3 — Thinking and the data lifecycle
 
 ## Logbook
 
@@ -125,7 +125,7 @@ Add a section explaining how your project demonstrates the following steps:
 4.  Sharing
 5.  Reuse and versioning
 
-# ✅ Final verification
+# Final verification
 
 - Does the HTML report compile without errors?
 - Are there at least **2 visualizations**?
@@ -134,4 +134,4 @@ Add a section explaining how your project demonstrates the following steps:
 
 ------------------------------------------------------------------------
 
-Happy collaboration! 🎯
+Happy collaboration!

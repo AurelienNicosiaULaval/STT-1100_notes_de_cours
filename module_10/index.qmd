@@ -1,61 +1,171 @@
 ---
-title: "Module 10 - Au-delà des données : texte et tableau de bord"
+title: "Au-delà des données: texte et tableau de bord"
 format:
   html:
     toc: true
     embed-resources: true
 ---
 
-::: {.portal-hero .module-hero}
-<p class="eyebrow">Module 10</p>
-# Au-delà des données : texte et tableau de bord
-<p class="hero-lead">Communiquer une analyse avec du texte, des tableaux et des sorties interactives.</p>
+::: {.module-banner}
+<p class="module-banner-number">Module 10</p>
+<p class="module-banner-subtitle">Communiquer une analyse avec du texte, des tableaux et des sorties interactives.</p>
 :::
 
-Cette page sert de porte d'entrée. Elle donne le contexte, les ressources et les traces attendues avant de passer aux notes détaillées.
-
-## Parcours du module
-
-::: {.portal-grid}
-::: {.portal-card .link-card}
-### Plan d'apprentissage
-
-Accéder à la ressource du module.
-
-[Ouvrir](plan_apprentissage.qmd){.portal-button}
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Fil principal</span><span class="fact-value">Texte, sentiments et tableau de bord</span></span>
 :::
 
-::: {.portal-card .link-card}
-### Aventure
-
-Accéder à la ressource du module.
-
-[Ouvrir](aventure.qmd){.portal-button}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Données</span><span class="fact-value">Commentaires et corpus de travail</span></span>
 :::
 
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Défi</span><span class="fact-value">Analyse textuelle ou tableau de bord</span></span>
 :::
+::::
 
-::: {.callout-note}
-## Objectifs
+## Produit fini du module
 
-- Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
-- Trace attendue : une communication de résultats orientée lecteur.
-:::
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Produit final</p>
+  <h3>Un tableau de bord ou une analyse textuelle partageable</h3>
+  <p>Le dernier module assemble exploration de texte, visualisations et communication dans un objet consultable par une autre personne.</p>
+  </div>
+  <div class="product-visual" aria-label="Aperçu visuel du produit fini">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>tableau de bord</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>texte préparé</span><span class="mini-bar" style="--bar-width: 64%;"></span></div><div class="mini-bar-row"><span>graphique</span><span class="mini-bar" style="--bar-width: 82%;"></span></div><div class="mini-bar-row"><span>lecture interactive</span><span class="mini-bar" style="--bar-width: 73%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>texte préparé</span>
+  <span><i class="bi bi-check2"></i>graphique</span>
+  <span><i class="bi bi-check2"></i>lecture interactive</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
 
-## Compétences travaillées
+## Objectifs du module
 
-- préparer du texte analysable
-- résumer des résultats
-- organiser un tableau de bord
+À la fin de ce module, vous devriez être capable de:
+
+-  Nettoyer et analyser des données textuelles.
+-  Construire un lexique de sentiment simple en français.
+-  Visualiser les tendances lexicales et émotionnelles dans le temps.
+-  Utiliser TF-IDF pour repérer les mots distinctifs.
+-  Créer un tableau de bord interactif avec `flexdashboard` et `shiny`.
+
+## Plan d’apprentissage
+
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="lectures-a-faire">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Lectures à faire</span>
+  <span class="path-preview">Préparer texte, tableaux de bord et communication interactive.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="lectures">Lectures</h3>
+<p>Pour vous préparer, consultez les ressources suivantes :</p>
+<ul>
+<li><a href="https://www.tidytextmining.com/">Tidytext Text Mining</a> – Chapitres 1 à 3 - Ce livre vous introduit aux bases du traitement de texte avec R.</li>
+<li><a href="https://rmarkdown.rstudio.com/flexdashboard/">Flexdashboard documentation (RStudio)</a> - ce document vous guide dans la création de tableaux de bord interactifs avec <code>flexdashboard</code>.</li>
+<li><a href="https://rstudio.github.io/flexdashboard/using.html#shiny_interaction">Shiny for dashboards</a> - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec <code>shiny</code>.</li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="aventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Aventure</span>
+  <span class="path-preview">Transformer des textes en résultats visuels partageables.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
+  <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="defi">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Défi</span>
+  <span class="path-preview">Déployer ou présenter un tableau de bord final cohérent.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 class="unnumbered" id="défi-tableau-de-bord-déployé">Défi — Tableau de bord déployé</h3>
+<p>Vous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :</p>
+<ul>
+<li>Afficher un score de sentiment par semaine ;</li>
+<li>Identifier les mots distinctifs (TF-IDF) ou un nuage de mots ;</li>
+<li>Analyser les variables numériques (<code>plaisir</code>, <code>engagement</code>, <code>difficulte</code>) ;</li>
+<li>Être personnalisé (filtrage, couleurs, résumé) ;</li>
+<li>Être déployé et partagé à Anne-Sophie.</li>
+</ul>
+      </div>
+    </div>
+  </details>
+</div>
+```
 
 ## Données et outils
 
-textes et sorties analytiques du module
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Bases de données</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-textes-module-10"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>Commentaires et textes de travail</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>Packages R</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidytext"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidytext</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tibble"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tibble</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#stopwords"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stopwords</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#forcats"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>forcats</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#wordcloud"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>wordcloud</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#wordcloud2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>wordcloud2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggwordcloud"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggwordcloud</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#plotly"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>plotly</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#flexdashboard"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>flexdashboard</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#shiny"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>shiny</span></a>
+  </div>
+  </div>
+</div>
+```
 
-## Je suis capable de
+## Révision et prolongement
 
-- préparer du texte analysable
-- résumer des résultats
-- organiser un tableau de bord
-- relier le travail du module au projet de session
-
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finir le module avec l’IA du cours</h3>
+  <p>Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.</p>
+  <ul>
+  <li>Expliquez le produit fini en trois phrases.</li>
+  <li>Collez un extrait de code ou de sortie et demandez un diagnostic.</li>
+  <li>Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.</li>
+  </ul>
+  </div>
+</div>
+```

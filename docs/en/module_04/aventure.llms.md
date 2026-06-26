@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# 🧠 Scenario
+# Scenario
 
 You have just started an internship as a **junior data engineer** at a large **insurance company**. You work with Alex, an experienced business analyst, who has entrusted you with an important mission.
 
@@ -10,23 +10,23 @@ Alex has provided you with a database taken from an old archive system. This dat
 
 Your role will be to ensure **data quality** to allow Alex to carry out a reliable analysis.
 
-# 🎯 Adventure objectives
+# Adventure objectives
 
 - Import a raw database (`Dataset_pratique.csv`).
 - Identify different types of common errors.
 - Clean and transform data with `dplyr`, `forcats` and `stringr`.
 - Clearly document **all modifications made** to the database.
 
-# ✅ How to succeed in this adventure?
+# How to succeed in this adventure?
 
 At the end of this adventure, you will:
 
 1.  Provide a **clean database** (`own_data.csv`).
 2.  Maintain a **structured R list** called `cleanup_log` in your script.
 
-> 💡 Remember to **document each step of your cleaning**. Your rigor is your best ally!
+> Remember to **document each step of your cleaning**. Your rigor is your best ally!
 
-# 🗃️ Typology of errors and structure of the list
+# Typology of errors and structure of the list
 
 Here is a reference table for the types of errors you may encounter:
 
@@ -121,9 +121,9 @@ Each category (`VM`, `DF`, etc.) contains a **list of fixes**, where each fix is
 
 - `justification`: why this action was chosen
 
-> 🔁 This structure will help you **report your changes** in a clean and professional manner.
+> This structure will help you **report your changes** in a clean and professional manner.
 
-# 🧪 GitHub and rendering
+# GitHub and rendering
 
 As for previous adventures:
 
@@ -134,9 +134,9 @@ As for previous adventures:
   - the `journal_nettoyage` list in a `.Rdata` object;
   - the cleaned database in `.csv` format.
 
-Good luck, and may your data be clean! 🧽📊
+Good luck, and may your data be clean!
 
-# 📥 Data import
+# Data import
 
 Before cleaning a database, you need to know how to import it correctly. For this mission, Alex has sent you the `Dataset_pratique.csv` file. He recommends that you:
 
@@ -159,11 +159,11 @@ head(base)
 glimpse(base)
 ```
 
-> 💬 **Alex**: “This base is a real headache! I need you to make it usable quickly. You should start by spotting what’s wrong with names, formats or values. »
+> **Alex**: “This base is a real headache! I need you to make it usable quickly. You should start by spotting what’s wrong with names, formats or values. »
 
 ------------------------------------------------------------------------
 
-# 🔍 Initial exploration of potential issues
+# Initial exploration of potential issues
 
 ## Format of variables
 
@@ -181,7 +181,7 @@ names(base)
 glimpse(base)
 ```
 
-> 💬 **Alex**: “You’ll see, some types of variables don’t make any sense… Keep track of everything you find weird so that we can decide together what to do with it. »
+> **Alex**: “You’ll see, some types of variables don’t make any sense… Keep track of everything you find weird so that we can decide together what to do with it. »
 
 One of the most useful functions here is `glimpse()` (from the `dplyr` package). It displays a preview of the first values ​​of each variable **as well as their type**: for example `chr` for a character string, `dbl` for a decimal number (double), `int` for an integer, or even `lgl` for a boolean.
 
@@ -209,20 +209,20 @@ To transform a variable, you can use the following functions:
 
 Remember to always check the result of the transformation with `glimpse()` or [`summary()`](https://rdrr.io/r/base/summary.html).
 
-> 💬 Alex: “When we look at the types of variables with glimpse(), we must keep in mind that there are standards in data science. In general, variables containing text should be of type `character` or `factor` if they take a limited number of values ​​(for example, a gender or province column). Variables containing numbers should normally be of type `dbl` (for decimals) or `int` (for integers), as appropriate.
+> Alex: “When we look at the types of variables with glimpse(), we must keep in mind that there are standards in data science. In general, variables containing text should be of type `character` or `factor` if they take a limited number of values ​​(for example, a gender or province column). Variables containing numbers should normally be of type `dbl` (for decimals) or `int` (for integers), as appropriate.
 
-> A common pitfall is identifiers! Even if they appear to be numbers, like a `client_ID` or `contract_number` column, they are not quantities on which we are going to do calculations. These are unique labels. We should therefore convert them to character. This prevents an identifier like 0012 from being transformed into 12 by mistake, or from R thinking that we want to do an average with that… 😅
+> A common pitfall is identifiers! Even if they appear to be numbers, like a `client_ID` or `contract_number` column, they are not quantities on which we are going to do calculations. These are unique labels. We should therefore convert them to character. This prevents an identifier like 0012 from being transformed into 12 by mistake, or from R thinking that we want to do an average with that…
 
 > In short, check each type carefully. Ask yourself: is this variable text? Am I going to calculate on it? Are these categories? »
 
-## 🔁 Checking for duplicates
+## Checking for duplicates
 
 One of the first reflexes to have in any cleaning operation: **check for duplicates**. It could be:
 
 - **complete** duplicates (identical lines on all columns),
 - **partial** duplicates (same identifier, but slightly different values elsewhere).
 
-💡 Start by detecting full duplicates with:
+Start by detecting full duplicates with:
 
 ``` downlit
 duplicated(base) %>% sum()
@@ -248,7 +248,7 @@ basis %>%
   filter(n() > 1)
 ```
 
-> 💬 **Alex**: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the `cleaning_journal`! »
+> **Alex**: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the `cleaning_journal`! »
 
 And of course, if you intervene, don’t forget to indicate it in the `DF` section of your `cleaning_journal`.
 
@@ -264,7 +264,7 @@ cleaning_log$DF <- append(cleaning_log$DF, list(
 ))
 ```
 
-# 🧹 Cleaning factors with `forcats`
+# Cleaning factors with `forcats`
 
 We continue the exploration with a type of variable that is often neglected… but which can derail an entire analysis: **factors**.
 
@@ -281,7 +281,7 @@ Of course, your variable must be of type `factor` for this function to work. If 
 The problem?
 When looking at the levels of a factor, we often notice **disguised duplicates** (“car”`vs`“CAR”`), **aberrant levels** ("ANIMAL"`) or **very rare categories** that may not deserve their own level.
 
-## 🛠 Some useful tools (with `forcats`)
+## Some useful tools (with `forcats`)
 
 To clean this up, here are some key functions of the `forcats` package:
 
@@ -291,7 +291,7 @@ To clean this up, here are some key functions of the `forcats` package:
 - `fct_lump()`: to group rare levels into “Other”
 - `fct_relevel()` or `fct_infreq()`: to reorder the levels
 
-## 👀 Suggested steps
+## Suggested steps
 
 Take the time to:
 
@@ -302,9 +302,9 @@ Take the time to:
     - typos (`"Commute"` vs `"Com.mute"`)
     - aberrant levels (“ANIMAL”`in`VEHICLE_TYPE\`)
 
-> 💬 **Alex**: “Be careful of these strange values. If a value makes no sense in context (e.g. `"ANIMAL"` in a column about vehicle types), don’t guess. Set it to `NA`. We prefer missing data to bad information. »
+> **Alex**: “Be careful of these strange values. If a value makes no sense in context (e.g. `"ANIMAL"` in a column about vehicle types), don’t guess. Set it to `NA`. We prefer missing data to bad information. »
 
-## ✏️ Example to adapt
+## Example to adapt
 
 ``` downlit
 # Harmonize lowercase/uppercase
@@ -336,19 +336,19 @@ cleaning_log$RC <- append(cleaning_log$RC, list(
 ))
 ```
 
-⚠️ *These are just examples. It’s up to you to explore the database and choose what is consistent.*
+*These are just examples. It’s up to you to explore the database and choose what is consistent.*
 
-# 🧼 Cleaning recipe — Deep dive
+# Cleaning recipe — Deep dive
 
 Well done! You’ve already fixed the variable types and cleaned up the most visible factors. Now, we push the cleaning further, by crossing **statistics**, **logical relationships** and **aberrant behaviors**. Here is your **advanced cleaning recipe**.
 
-## 📊 Step 1 – Descriptive statistics on numerical variables
+## Step 1 – Descriptive statistics on numerical variables
 
 Just as we checked the factor levels, we must check if certain **numerical values are aberrant**.
 
 Take each numeric variable and summarize it with [`summary()`](https://rdrr.io/r/base/summary.html) or a boxplot to identify extremes.
 
-💡 **Example: `COMMUTE_DISTANCE`**
+**Example: `COMMUTE_DISTANCE`**
 
 ``` downlit
 summary(base$COMMUTE_DISTANCE)
@@ -362,17 +362,17 @@ Ask yourself: - Is a distance of 3000 km to work plausible? - Are some values �
 
 If you intervene, don’t forget to **justify in `journal_nettoyage`**, using the code `VA` (outliers) or `VM` (missing values).
 
-## 📉 Step 2 – Inconsistent combinations of two factors
+## Step 2 – Inconsistent combinations of two factors
 
 **Logical relationships** can exist between two categorical variables. For example, quarter (`QUARTER`) and season (`SEASON`) should be consistent.
 
-💡 **Example: `QUARTER` and `SEASON`**
+**Example: `QUARTER` and `SEASON`**
 
 ``` downlit
 table(base$QUARTER, base$SEASON)
 ```
 
-> 💬 **Alex**: “If you see `QUARTER = 1` with `SEASON = "Summer"`, you should wince… This kind of inconsistency is worth noting, even if you don’t know what to correct. »
+> **Alex**: “If you see `QUARTER = 1` with `SEASON = "Summer"`, you should wince… This kind of inconsistency is worth noting, even if you don’t know what to correct. »
 
 You can also visualize with a crossbar chart:
 
@@ -383,11 +383,11 @@ ggplot(base, aes(x = QUARTER, fill = SEASON)) +
 
 If you correct, use the code `CI` (inter-variable inconsistencies).
 
-## 👶 Step 3 – Grouped Statistics: Factor + Numeric
+## Step 3 – Grouped Statistics: Factor + Numeric
 
 Another check: are some **numeric values inconsistent for certain groups**?
 
-💡 **Example: `AGE` according to `GENERATION`**
+**Example: `AGE` according to `GENERATION`**
 
 ``` downlit
 basis %>%
@@ -405,11 +405,11 @@ ggplot(base, aes(x = AGE, fill = GENERATION)) +
 
 If there is recoding or grouping to be done, use the code `RC`.
 
-## 🧠 Step 4 – Logical links between two numeric variables
+## Step 4 – Logical links between two numeric variables
 
 Here, we verify that the numerical relationships **make sense**.
 
-💡 **Example: `AGE` vs `YEARS_LICENSED`**
+**Example: `AGE` vs `YEARS_LICENSED`**
 
 ``` downlit
 ggplot(base, aes(x = AGE, y = YEARS_LICENSED)) +
@@ -419,11 +419,11 @@ ggplot(base, aes(x = AGE, y = YEARS_LICENSED)) +
 - Are there points above certain lines? What line are we talking about here?
 - Can you have more years of license than age?
 
-> 💬 **Alex**: “You don’t have to correct it here. On the other hand, **if you notice something strange**, take two minutes to write it down in the `cleaning_journal`. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous. »
+> **Alex**: “You don’t have to correct it here. On the other hand, **if you notice something strange**, take two minutes to write it down in the `cleaning_journal`. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous. »
 
 Use the code `LG` here for a **logical error**.
 
-## 🧪 Step 5 – Advanced checks (optional but professional!)
+## Step 5 – Advanced checks (optional but professional!)
 
 Here are a few other things to keep an eye out for:
 
@@ -433,22 +433,22 @@ Here are a few other things to keep an eye out for:
 - **Hastily merged columns**: strings like `"Smith, John"` in one cell instead of two (`TR`)
 - **Mixed date format**: we have left this aside since the beginning of this course, but know that it is coming, we will have a special module on dates.
 
-🧾 *Throughout your cleaning, document your decisions in the `cleaning_journal` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
+*Throughout your cleaning, document your decisions in the `cleaning_journal` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
 
-# 🎉 Mission accomplished!
+# Mission accomplished!
 
-Well done for making it to the end of this adventure! 🧽
+Well done for making it to the end of this adventure!
 You have now acquired a solid methodology for cleaning data in a rigorous and professional manner. You have:
 
 - identified and corrected format, type and consistency errors;
 - used the `dplyr`, `stringr`, `forcats` and `ggplot2` tools to explore the data from every angle;
 - documented each intervention in a clear and transparent structure with the `cleaning_journal` list.
 
-💾 **Before finishing**, don’t forget to **push to GitHub** the following three items:
+**Before finishing**, don’t forget to **push to GitHub** the following three items:
 
-1.  📄 The `.qmd` script of your adventure (where you carried out your tests, analyzes and cleaning)
-2.  📦 The `journal_nettoyage` list saved in a `.Rdata` object
-3.  📊 The cleaned database in `.csv` format
+1.  The `.qmd` script of your adventure (where you carried out your tests, analyzes and cleaning)
+2.  The `journal_nettoyage` list saved in a `.Rdata` object
+3.  The cleaned database in `.csv` format
 
 To save your list in a `.Rdata` file, simply use this code at the end of your script:
 
@@ -456,4 +456,4 @@ To save your list in a `.Rdata` file, simply use this code at the end of your sc
 save(cleaning_journal, file = "cleaning_journal.Rdata")
 ```
 
-> 💬 **Alex**: “You have just done what few people do well: clean data cleanly, keeping track of your decisions. This is what distinguishes a true professional from someone who is tinkering. Hat ! »
+> **Alex**: “You have just done what few people do well: clean data cleanly, keeping track of your decisions. This is what distinguishes a true professional from someone who is tinkering. Hat ! »

@@ -4,11 +4,11 @@
 
 Contenu à ajouter.
 
-## 🎯 Introduction
+## Introduction
 
 Un bon scientifique des données ne connaît pas tout par cœur… mais sait **où chercher** et **comment demander de l’aide** intelligemment. Ce guide vous accompagne pour apprendre à le faire efficacement et sans stress.
 
-## 🤖 GPT STT-1100 : votre assistant personnalisé
+## GPT STT-1100 : votre assistant personnalisé
 
 Nous avons conçu un **assistant GPT sur mesure pour ce cours** : [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
 
@@ -20,16 +20,16 @@ Nous avons conçu un **assistant GPT sur mesure pour ce cours** : [GPT STT-1100]
 
 **Attention :** il ne remplace pas la réflexion critique ! Mais c’est un outil précieux pour progresser à votre rythme.
 
-## 🧭 Où chercher de l’aide ?
+## Où chercher de l’aide ?
 
-### 📌 Aide intégrée dans RStudio
+### Aide intégrée dans RStudio
 
 - Tapez `?fonction` ou `help(fonction)` dans la console.
 - Utilisez l’onglet **Help** de RStudio pour naviguer la documentation.
 - Tapez `example(fonction)` pour obtenir un exemple prêt à l’emploi.
 - Testez aussi la fonction `args(fonction)` pour voir les arguments attendus.
 
-### 🌍 Recherche sur le Web
+### Recherche sur le Web
 
 Des milliards de réponses vous attendent ! Voici quelques conseils pour bien formuler vos recherches :
 
@@ -49,7 +49,7 @@ Des milliards de réponses vous attendent ! Voici quelques conseils pour bien fo
 
 ------------------------------------------------------------------------
 
-## 📘 Ressources du cours
+## Ressources du cours
 
 ### Livres et guides conseillés
 
@@ -71,15 +71,15 @@ Si l’anglais vous freine :
 
 > Les concepts restent les mêmes d’une langue à l’autre — l’important est de bien comprendre les idées derrière les commandes !
 
-## 👩‍🏫 Demander de l’aide efficacement
+## Demander de l’aide efficacement
 
-### 🤔 Avant de poser votre question
+### Avant de poser votre question
 
 1.  Avez-vous lu le message d’erreur en entier ?
 2.  Avez-vous essayé une recherche avec les mots clés ?
 3.  Pouvez-vous isoler le problème dans un exemple simple ?
 
-### 🗣️ Poser une bonne question (à [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), à un·e assistant·e ou sur le forum)
+### Poser une bonne question (à [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), à un·e assistant·e ou sur le forum)
 
 - Soyez précis : indiquez le code **minimal** qui cause l’erreur.
 - Copiez le **message d’erreur complet**.
@@ -95,21 +95,21 @@ Si l’anglais vous freine :
 > > Mais j’obtiens l’erreur suivante :
 > > `object 'bill_length_mm' not found`
 
-## 🚨 Ne restez pas bloqué·e seul·e !
+## Ne restez pas bloqué·e seul·e !
 
-- 📩 **Écrivez au forum du cours.**
-- 💬 **Travaillez en binôme ou en petits groupes**.
-- 🧑‍🏫 **Venez poser votre question en classe ou à l’assistant·e**.
-- 🤖 **Utilisez GPT STT-1100 intelligemment**, mais vérifiez ce qu’il vous répond.
+- **Écrivez au forum du cours.**
+- **Travaillez en binôme ou en petits groupes**.
+- **Venez poser votre question en classe ou à l’assistant·e**.
+- **Utilisez GPT STT-1100 intelligemment**, mais vérifiez ce qu’il vous répond.
 
-## 🎁 Bonus : les réflexes à adopter
+## Bonus : les réflexes à adopter
 
-✅ Cherchez l’information par vous-même en premier
-✅ Documentez ce que vous apprenez (notes personnelles ou fichier `.qmd`)
-✅ Osez poser des questions !
-✅ Apprenez de vos erreurs (et de celles des autres)
+Cherchez l’information par vous-même en premier
+Documentez ce que vous apprenez (notes personnelles ou fichier `.qmd`)
+Osez poser des questions !
+Apprenez de vos erreurs (et de celles des autres)
 
-> 🧠 *Les meilleurs data scientists ne sont pas ceux qui ont toutes les réponses… mais ceux qui savent poser les bonnes questions.*
+> *Les meilleurs data scientists ne sont pas ceux qui ont toutes les réponses… mais ceux qui savent poser les bonnes questions.*
 
 # Panorama des métiers de la science des données
 
@@ -147,11 +147,11 @@ Inspiré de Hadley Wickham, *R for Data Science* 2e éd. (https://r4ds.hadl
 | Phase du cycle | Rôles clés | Objectif principal |
 |----|----|----|
 | **Programmer** (Infrastructure) | *Data Engineer* | Construire et maintenir les pipelines de données. |
-| **Importer → Ranger** | *Data Owner* | Détenir la donnée, assurer sa qualité, sécurité et gouvernance. |
-| **Comprendre** (Tidy → Transform → Visualize ↔︎ Model) | *Statisticien · Data Scientist · Data Analyst* | Extraire des connaissances par analyses et modèles. |
+| **Importer -\> Ranger** | *Data Owner* | Détenir la donnée, assurer sa qualité, sécurité et gouvernance. |
+| **Comprendre** (Tidy -\> Transform -\> Visualize \<-\> Model) | *Statisticien · Data Scientist · Data Analyst* | Extraire des connaissances par analyses et modèles. |
 | **Communiquer** | *Data Journalist · Freelancer* | Raconter l’histoire des données, vulgariser et livrer de la valeur aux parties‑prenantes. |
 
-## Data Engineer 🛠️
+## Data Engineer
 
 **Mission :** Mettre à disposition des données fiables, accessibles et bien structurées.
 
@@ -160,9 +160,9 @@ Inspiré de Hadley Wickham, *R for Data Science* 2e éd. (https://r4ds.hadl
 - Automatise l’import (`Import`), la mise au propre (`Tidy`) et la diffusion.
 - Collabore étroitement avec le *Data Owner* et prépare le terrain pour les analystes.
 
-**Lien avec le cycle :** Principalement dans la zone « Program » et au début de « Understand » (Import → Tidy).
+**Lien avec le cycle :** Principalement dans la zone « Program » et au début de « Understand » (Import -\> Tidy).
 
-## Data Owner 🔑
+## Data Owner
 
 **Mission :** Garantir la gouvernance, la conformité et la qualité des données.
 
@@ -173,7 +173,7 @@ Inspiré de Hadley Wickham, *R for Data Science* 2e éd. (https://r4ds.hadl
 
 **Lien avec le cycle :** Fournit la *matière première* et valide chaque changement avant diffusion.
 
-## Statisticien 📐
+## Statisticien
 
 **Mission :** Modéliser les phénomènes et quantifier l’incertitude.
 
@@ -184,7 +184,7 @@ Inspiré de Hadley Wickham, *R for Data Science* 2e éd. (https://r4ds.hadl
 
 **Lien avec le cycle :** Au cœur de `Model`, avec une forte boucle vers `Visualize` pour diagnostiquer et expliquer.
 
-## Data Scientist 🔬
+## Data Scientist
 
 **Mission :** Transformer les données en produits et recommandations à haute valeur ajoutée.
 
@@ -193,7 +193,7 @@ Inspiré de Hadley Wickham, *R for Data Science* 2e éd. (https://r4ds.hadl
 - Itère rapidement entre `Transform`, `Visualize` et `Model`.
 - Met en production des solutions.
 
-## Data Analyst 📊
+## Data Analyst
 
 **Mission :** Fournir des insights opérationnels et soutenir la prise de décision au jour le jour.
 
@@ -204,7 +204,7 @@ Inspiré de Hadley Wickham, *R for Data Science* 2e éd. (https://r4ds.hadl
 
 **Lien avec le cycle :** Exploite surtout `Transform` et `Visualize`, communique dans la phase finale.
 
-## Data Journalist 📰
+## Data Journalist
 
 **Mission :** Raconter des histoires engageantes basées sur des données vérifiables.
 
@@ -215,7 +215,7 @@ Inspiré de Hadley Wickham, *R for Data Science* 2e éd. (https://r4ds.hadl
 
 **Lien avec le cycle :** Met l’accent sur `Communicate`, s’appuie sur le travail des autres rôles pour la partie technique.
 
-## Freelancer 💼
+## Freelancer
 
 **Mission :** Offrir une expertise ponctuelle et adaptable sur tout ou partie du cycle.
 

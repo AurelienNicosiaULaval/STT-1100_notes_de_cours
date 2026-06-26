@@ -1,61 +1,267 @@
 ---
-title: "Module 06 - Collaboration et reproductibilité dans GitHub"
+title: "Collaboration et reproductibilité dans GitHub"
 format:
   html:
     toc: true
     embed-resources: true
 ---
 
-::: {.portal-hero .module-hero}
-<p class="eyebrow">Module 06</p>
-# Collaboration et reproductibilité dans GitHub
-<p class="hero-lead">Passer d'un travail individuel à un flux collaboratif reproductible.</p>
+::: {.module-banner}
+<p class="module-banner-number">Module 06</p>
+<p class="module-banner-subtitle">Passer d'un travail individuel à un flux collaboratif reproductible.</p>
 :::
 
-Cette page sert de porte d'entrée. Elle donne le contexte, les ressources et les traces attendues avant de passer aux notes détaillées.
-
-## Parcours du module
-
-::: {.portal-grid}
-::: {.portal-card .link-card}
-### Plan d'apprentissage
-
-Accéder à la ressource du module.
-
-[Ouvrir](plan_apprentissage.qmd){.portal-button}
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Fil principal</span><span class="fact-value">GitHub, jointures et reproductibilité</span></span>
 :::
 
-::: {.portal-card .link-card}
-### Aventure
-
-Accéder à la ressource du module.
-
-[Ouvrir](aventure.qmd){.portal-button}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Données</span><span class="fact-value">Tables reliées et données multiples</span></span>
 :::
 
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Défi</span><span class="fact-value">Flux reproductible avec données fusionnées</span></span>
 :::
+::::
 
-::: {.callout-note}
-## Objectifs
+## Produit fini du module
 
-- Passer d'un travail individuel à un flux collaboratif reproductible.
-- Trace attendue : un dépôt organisé pour un travail d'équipe.
-:::
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Produit final</p>
+  <h3>Un journal de collaboration reproductible</h3>
+  <p>Le module mène à une trace de travail structurée dans GitHub, enrichie par des données jointes et des choix de collaboration explicites.</p>
+  </div>
+  <div class="product-visual" aria-label="Aperçu visuel du produit fini">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>collaboration</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>jointures</span><span class="mini-bar" style="--bar-width: 59%;"></span></div><div class="mini-bar-row"><span>issues</span><span class="mini-bar" style="--bar-width: 82%;"></span></div><div class="mini-bar-row"><span>revue croisée</span><span class="mini-bar" style="--bar-width: 64%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>jointures</span>
+  <span><i class="bi bi-check2"></i>issues</span>
+  <span><i class="bi bi-check2"></i>revue croisée</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
 
-## Compétences travaillées
+## Objectifs du module
 
-- synchroniser un dépôt
-- documenter les étapes
-- collaborer sans casser l'historique
+À la fin de ce module, vous devriez être capable de:
+
+-  Collaborer efficacement sur des projets de science des données en utilisant `GitHub`.
+-  Assurer la reproductibilité des analyses avec `Quarto`.
+-  Fusionner et gérer plusieurs jeux de données.
+-  Expliquer le cycle de vie des données et les principes de `DataOps`.
+
+## Plan d’apprentissage
+
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="lectures-a-faire">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Lectures à faire</span>
+  <span class="path-preview">Préparer collaboration GitHub, jointures et données relationnelles.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="lectures">Lectures</h3>
+<p>Dans ce module, nous allons explorer les concepts de base de la collaboration et de la reproductibilité dans GitHub, ainsi que l’utilisation de Quarto pour créer des rapports dynamiques. Voici quelques lectures initiales pour vous préparer :</p>
+<ul>
+<li><a href="https://docs.github.com/en/get-started/quickstart/hello-world">GitHub Docs – Hello World</a> Premier projet complet : dépôt, branche, pull request puis merge.</li>
+<li><a href="https://docs.github.com/en/pull-requests">GitHub Docs – About pull requests</a> Tout savoir sur la revue de code, les commentaires et la résolution de conflits.</li>
+<li><a href="https://quarto.org/docs/computations/inline-code.html">Quarto Docs – Inline Code</a> Insérer du code R directement dans le texte pour afficher dynamiquement des valeurs.</li>
+<li><a href="https://datakitchen.io/what-is-dataops/">What is DataOps? (DataKitchen)</a> Principes fondamentaux de DataOps : automatisation, qualité et collaboration.<br />
+</li>
+<li><a href="https://r4ds.hadley.nz/joins.html">R for Data Science (2ᵉ éd.) – Chapitre 26 : Joins</a> Apprendre à combiner des données de différentes sources avec <code>dplyr</code>.</li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="aventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Aventure</span>
+  <span class="path-preview">Relier plusieurs tables et documenter les décisions d’équipe.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
+  <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="defi">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Défi</span>
+  <span class="path-preview">Produire une revue croisée utile des journaux de bord.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 class="unnumbered" id="défi-revue-croisée-des-journaux-de-bord">Défi — Revue croisée des journaux de bord</h3>
+<blockquote>
+<p>Chaque équipe doit <strong>partager son journal de bord</strong> avec une autre équipe et fournir une <strong>rétroaction constructive</strong>. Cette étape simule le processus de revue par les pairs et renforce les compétences de communication critique.</p>
+</blockquote>
+<h4 id="étapes-à-réaliser">Étapes à réaliser</h4>
+<ol type="1">
+<li><p><strong>Attribution des paires</strong> : l’enseignant·e publiera un tableau listant pour chaque équipe le journal de bord à examiner.</p></li>
+<li><p><strong>Partage du document</strong> :</p>
+<ul>
+<li>Le·la responsable du dépôt ajoute l’équipe destinataire comme <em>Collaborator</em> en lecture/écriture sur GitHub.</li>
+<li>L’URL du journal de bord HTML est communiqué.</li>
+</ul></li>
+<li><p><strong>Revue par les pairs</strong> :</p>
+<ul>
+<li><p>Chaque membre de l’équipe examinatrice ouvre une <em>Issue</em> dans le dépôt de l’équipe revue et dépose au moins <strong>un commentaire détaillé</strong> portant sur :</p>
+<ol type="1">
+<li><strong>Clarté</strong> du contenu (structure, titres, lisibilité)</li>
+<li><strong>Rigueur</strong> de la méthodologie (description des rôles, reproductibilité du code)</li>
+<li><strong>Pertinence</strong> des réflexions (cycle de vie des données, leçons apprises)</li>
+</ol></li>
+<li><p>Les commentaires doivent contenir :</p>
+<ul>
+<li>Un énoncé d’aspect positif (« ce qui est réussi »)</li>
+<li>Une suggestion d’amélioration spécifique (« ce qui pourrait être clarifié »)</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Accusé de réception &amp; révision</strong> :</p>
+<ul>
+<li>L’équipe réceptrice répond à chaque <em>Issue</em> et, si jugé nécessaire, pousse une mise à jour de son journal de bord.</li>
+</ul></li>
+</ol>
+<h4 id="livrables">Livrables</h4>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 55%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Équipe</th>
+<th>Livrable</th>
+<th>Où le déposer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Équipe examinatrice</strong></td>
+<td>≥ 3 <em>Issues</em> (une par membre) contenant une rétroaction complète</td>
+<td>Dépôt GitHub de l’équipe revue</td>
+</tr>
+<tr>
+<td><strong>Équipe révisée</strong></td>
+<td>Journal de bord mis à jour (si modifications nécessaires) + réponses aux <em>Issues</em></td>
+<td>Même dépôt GitHub</td>
+</tr>
+</tbody>
+</table>
+<h4 id="barème-20-pts">Barème (20 pts)</h4>
+<table>
+<colgroup>
+<col style="width: 84%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Pts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qualité des commentaires (clarté, constructivité, exemples)</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Pertinence des suggestions vis‑à‑vis de la reproductibilité &amp; collaboration</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Suivi et réponses de l’équipe révisée</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>Conseil</strong> : concentrez‑vous sur des rétroactions actionnables (ex. proposer un titre plus descriptif, ajouter un graphique supplémentaire, préciser un paramètre YAML) plutôt que des commentaires génériques.</p>
+</blockquote>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercices">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercices</span>
+  <span class="path-preview">Reprendre jointures, issues et lecture de projets partagés.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
+  <p><span class="step-label">Pourquoi</span> Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.</p>
+  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
+  </div>
+  </details>
+</div>
+```
 
 ## Données et outils
 
-fichiers de projet et traces GitHub
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Bases de données</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-gapminder"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>gapminder::gapminder</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-starwars"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>dplyr::starwars</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-lahman"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>Lahman::People</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-weathercan"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>weathercan</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>Packages R</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#gapminder"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>gapminder</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#countrycode"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>countrycode</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tibble"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tibble</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#lahman"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>lahman</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#babynames"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>babynames</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#weathercan"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>weathercan</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#fivethirtyeight"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>fivethirtyeight</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#unvotes"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>unvotes</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2movies"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2movies</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#fires"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>fires</span></a>
+  </div>
+  </div>
+</div>
+```
 
-## Je suis capable de
+## Révision et prolongement
 
-- synchroniser un dépôt
-- documenter les étapes
-- collaborer sans casser l'historique
-- relier le travail du module au projet de session
-
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finir le module avec l’IA du cours</h3>
+  <p>Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.</p>
+  <ul>
+  <li>Expliquez le produit fini en trois phrases.</li>
+  <li>Collez un extrait de code ou de sortie et demandez un diagnostic.</li>
+  <li>Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.</li>
+  </ul>
+  </div>
+</div>
+```

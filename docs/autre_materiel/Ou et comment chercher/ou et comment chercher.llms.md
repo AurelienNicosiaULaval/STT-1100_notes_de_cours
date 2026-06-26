@@ -2,13 +2,13 @@
 
 STT-1100 — Introduction à la science des données
 
-# 🎯 Introduction
+# Introduction
 
 Un bon scientifique des données ne connaît pas tout par cœur… mais sait **où chercher** et **comment demander de l’aide** intelligemment. Ce guide vous accompagne pour apprendre à le faire efficacement et sans stress.
 
 ------------------------------------------------------------------------
 
-# 📝 La *cheat sheet* du cours
+# La *cheat sheet* du cours
 
 Un **aide-mémoire synthétique** est disponible pour vous accompagner tout au long du cours. Cette *cheat sheet* rassemble :
 
@@ -20,7 +20,7 @@ Un **aide-mémoire synthétique** est disponible pour vous accompagner tout au l
 
 ------------------------------------------------------------------------
 
-# 🤖 GPT STT-1100 : votre assistant personnalisé
+# GPT STT-1100 : votre assistant personnalisé
 
 Nous avons conçu un **assistant GPT sur mesure pour ce cours** : [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
 
@@ -34,16 +34,16 @@ Nous avons conçu un **assistant GPT sur mesure pour ce cours** : [GPT STT-1100]
 
 ------------------------------------------------------------------------
 
-# 🧭 Où chercher de l’aide ?
+# Où chercher de l’aide ?
 
-## 📌 Aide intégrée dans RStudio
+## Aide intégrée dans RStudio
 
 - Tapez `?fonction` ou `help(fonction)` dans la console.
 - Utilisez l’onglet **Help** de RStudio pour naviguer la documentation.
 - Tapez `example(fonction)` pour obtenir un exemple prêt à l’emploi.
 - Testez aussi la fonction `args(fonction)` pour voir les arguments attendus.
 
-## 🌍 Recherche sur le Web
+## Recherche sur le Web
 
 Des milliards de réponses vous attendent ! Voici quelques conseils pour bien formuler vos recherches :
 
@@ -63,7 +63,7 @@ Des milliards de réponses vous attendent ! Voici quelques conseils pour bien fo
 
 ------------------------------------------------------------------------
 
-# 📘 Ressources du cours
+# Ressources du cours
 
 ## Livres et guides conseillés
 
@@ -87,15 +87,15 @@ Si l’anglais vous freine :
 
 ------------------------------------------------------------------------
 
-# 👩‍🏫 Demander de l’aide efficacement
+# Demander de l’aide efficacement
 
-## 🤔 Avant de poser votre question
+## Avant de poser votre question
 
 1.  Avez-vous lu le message d’erreur en entier ?
 2.  Avez-vous essayé une recherche avec les mots clés ?
 3.  Pouvez-vous isoler le problème dans un exemple simple ?
 
-## 🗣️ Poser une bonne question (à [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), à un·e assistant·e ou sur le forum)
+## Poser une bonne question (à [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), à un·e assistant·e ou sur le forum)
 
 - Soyez précis : indiquez le code **minimal** qui cause l’erreur.
 - Copiez le **message d’erreur complet**.
@@ -113,22 +113,22 @@ Si l’anglais vous freine :
 
 ------------------------------------------------------------------------
 
-# 🚨 Ne restez pas bloqué·e seul·e !
+# Ne restez pas bloqué·e seul·e !
 
-- 📩 **Écrivez au forum du cours.**
-- 💬 **Travaillez en binôme ou en petits groupes**.
-- 🧑‍🏫 **Venez poser votre question en classe ou à l’assistant·e**.
-- 🤖 **Utilisez GPT STT-1100 intelligemment**, mais vérifiez ce qu’il vous répond.
-
-------------------------------------------------------------------------
-
-# 🎁 Bonus : les réflexes à adopter
-
-✅ Cherchez l’information par vous-même en premier
-✅ Documentez ce que vous apprenez (notes personnelles ou fichier `.qmd`)
-✅ Osez poser des questions !
-✅ Apprenez de vos erreurs (et de celles des autres)
+- **Écrivez au forum du cours.**
+- **Travaillez en binôme ou en petits groupes**.
+- **Venez poser votre question en classe ou à l’assistant·e**.
+- **Utilisez GPT STT-1100 intelligemment**, mais vérifiez ce qu’il vous répond.
 
 ------------------------------------------------------------------------
 
-> 🧠 *Les meilleurs data scientists ne sont pas ceux qui ont toutes les réponses… mais ceux qui savent poser les bonnes questions.*
+# Bonus : les réflexes à adopter
+
+Cherchez l’information par vous-même en premier
+Documentez ce que vous apprenez (notes personnelles ou fichier `.qmd`)
+Osez poser des questions !
+Apprenez de vos erreurs (et de celles des autres)
+
+------------------------------------------------------------------------
+
+> *Les meilleurs data scientists ne sont pas ceux qui ont toutes les réponses… mais ceux qui savent poser les bonnes questions.*

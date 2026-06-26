@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# 🕹️ Scenario — Adventure 5
+# Scenario — Adventure 5
 
 You put on the shoes (and secure badge!) of an **airport operations statistician** newly recruited by the **Port Authority Data Lab (PADL)**, the analytics team of the **Port Authority of New York & New Jersey**.
 Your mission: to help **JFK** airport (and, ultimately, **EWR** and **LGA**) to streamline departures and reduce **time lost on the ground**.
@@ -11,14 +11,14 @@ Your mission: to help **JFK** airport (and, ultimately, **EWR** and **LGA**) to 
 - **The dataset**: **Alex Chen**, data engineer at PADL, has prepared a file **`flights_merged_2023.rds`** for you which brings together in a single exhaustive table the 2023 flights, the weather at departure time, plane information, the full names of the companies and the geolocation of the origin and destination airports.
 - **Concrete context**: the Operations Board wants to know *when* and *why* delays explode, how the weather affects connections, and which companies should review their flight plans. Your deliverables (Quarto reports + visualizations) will guide budgetary decisions for summer 2026.
 
-> 📝 **Brief from Sofia**
+> **Brief from Sofia**
 > 1. Which time slots systematically display the highest delays?
 > 2. How much of the delays is attributable to the weather compared to other factors?
 > 3. Are older planes (\> 20 years old) more prone to cancellations?
 >
 > It’s up to you!
 
-# 🎯 Adventure objectives
+# Adventure objectives
 
 - Use `lubridate` functions to manipulate and enrich temporal data.
 - Carry out an exploratory data analysis (EDA) to better understand their structure and identify interesting patterns.
@@ -26,7 +26,7 @@ Your mission: to help **JFK** airport (and, ultimately, **EWR** and **LGA**) to 
 - Interpret simple statistical results, such as correlation.
 - Answer concrete questions related to real issues (delays, weather, aircraft fleet).
 
-# ✅ How to succeed in this adventure?
+# How to succeed in this adventure?
 
 Here are some tips from Sofia to succeed in your mission:
 
@@ -41,7 +41,7 @@ Here are some tips from Sofia to succeed in your mission:
 
 And above all… **ask yourself questions**! The important thing is to develop your analytical reasoning.
 
-# 🧪 GitHub and rendering
+# GitHub and rendering
 
 As for previous adventures:
 
@@ -68,16 +68,16 @@ As for previous adventures:
 - The depot must remain **clean and well organized**:
 
   - do not keep unnecessary files;
-  - avoid file names like `Untitled1.Rmd` or `copy report final.qmd` 😊 ;
+  - avoid file names like `Untitled1.Rmd` or `copy report final.qmd` ;
   - comment on your commits with clear and descriptive messages.
 
-> 📌 **Reminder**: The `.qmd` is your main document. It should allow any member of the team (or Sofia!) to understand what you did and why.
+> **Reminder**: The `.qmd` is your main document. It should allow any member of the team (or Sofia!) to understand what you did and why.
 
-# 📅 Understand and manipulate dates with `lubridate`
+# Understand and manipulate dates with `lubridate`
 
 Before diving into delay and performance analyses, Sofia wants to make sure that you are familiar with managing **dates and times** in R. The `lubridate` package is an essential tool for this.
 
-## 🧰 Essential Features
+## Essential Features
 
 Here are the main functions you will use:
 
@@ -100,7 +100,7 @@ Here are the main functions you will use:
   )
 ```
 
-## ❓ Exercise 1 — What is the structure of the date?
+## Exercise 1 — What is the structure of the date?
 
 **Sofia asks you**: *Create a `date` variable from the `year`, `month` and `day` columns, then use `class()` to check the type of this new variable.*
 
@@ -116,7 +116,7 @@ Here are the main functions you will use:
 >
 > The expected type is `"Date"`. You can now manipulate this variable with all time functions!
 
-## ❓ Exercise 2 — Day of the week
+## Exercise 2 — Day of the week
 
 **Sofia asks you**: *Add a `day_week` column which gives the day of the week (Monday, Tuesday, etc.) for each flight. Shows first 7 results.*
 
@@ -134,7 +134,7 @@ Here are the main functions you will use:
 >
 > This uses `label=TRUE` to get the full name (not a number).
 
-## ❓ Exercise 3 — Time slot
+## Exercise 3 — Time slot
 
 **Sofia asks you**: *Create a variable `moment_journee` which classifies flights as “night”, “morning”, “afternoon” or “evening” depending on the scheduled departure time.*
 
@@ -155,7 +155,7 @@ Here are the main functions you will use:
 >
 > You can then explore the delays according to these time slots.
 
-## ❓ Exercise 4 — Is it a weekend?
+## Exercise 4 — Is it a weekend?
 
 **Sofia asks you**: *Add a logical variable `weekend` which is `TRUE` if the flight takes place on a Saturday or a Sunday.*
 
@@ -171,13 +171,13 @@ Here are the main functions you will use:
 >
 > Don’t forget that `day_week` is a factor variable with labels.
 
-# 🔍 Explore and understand relationships between data
+# Explore and understand relationships between data
 
 Now that you are comfortable with dates and times, Sofia wants to introduce you to a key step in any data science project: **exploratory data analysis**, often abbreviated to **EDA** (*Exploratory Data Analysis*).
 
 The objective is simple: **understand the structure of the data, spot patterns, anomalies, or interesting correlations between variables**.
 
-## 🛠️ Tools at your disposal
+## Tools at your disposal
 
 You can rely on:
 
@@ -194,7 +194,7 @@ Sofia now invites you to examine **concrete questions** related to flight perfor
 
 ------------------------------------------------------------------------
 
-## ❓ Analysis 1 — What time should you avoid leaving?
+## Analysis 1 — What time should you avoid leaving?
 
 > **NOTE:**
 >
@@ -220,7 +220,7 @@ Sofia now invites you to examine **concrete questions** related to flight perfor
 >
 > Warning: don’t get trapped by late hours with few flights!
 
-## ❓ Analysis 2 — Is the weather really the culprit?
+## Analysis 2 — Is the weather really the culprit?
 
 > **NOTE:**
 >
@@ -230,7 +230,7 @@ Sofia now invites you to examine **concrete questions** related to flight perfor
 
 Before diving into the visualizations, a quick detour through a key concept: **correlation**.
 
-### 📈 What is correlation?
+### What is correlation?
 
 Correlation measures the **strength and direction of a linear relationship** between two numerical variables. Its value is between:
 
@@ -238,11 +238,11 @@ Correlation measures the **strength and direction of a linear relationship** bet
 - **0**: **no linear relationship** detected,
 - **+1**: perfectly **positive** correlation (the two variables increase together).
 
-💡 For example, if wind gusts (`wind_gust`) increase and delays also increase, we should observe a **positive correlation**.
+For example, if wind gusts (`wind_gust`) increase and delays also increase, we should observe a **positive correlation**.
 
 ------------------------------------------------------------------------
 
-### 🧪 Step 1 — Calculate the correlation
+### Step 1 — Calculate the correlation
 
 ``` r
 flights %>%
@@ -253,7 +253,7 @@ flights %>%
 
 This table gives you a quick overview of the strength of the relationship between delays (`dep_delay`) and certain weather variables.
 
-### 🧪 Step 2 — Visualize a relationship
+### Step 2 — Visualize a relationship
 
 A scatter chart allows you to **see** the trend between two variables. For example, you can test:
 
@@ -279,7 +279,7 @@ The scatter plot shows you the overall trend, and the red line corresponds to a 
 >
 > - Some weather delays are **indirect** (e.g. from another airport).
 
-## ❓ Analysis 3 — Are old planes less reliable?
+## Analysis 3 — Are old planes less reliable?
 
 > **NOTE:**
 >

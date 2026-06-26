@@ -8,7 +8,7 @@ At the end of this module, you should be able to
 
 # Initial readings
 
-## 📘 Readings to do before the adventure
+## Readings to do before the adventure
 
 In this module, we will explore the basic concepts of data import and data cleansing. Here is some initial reading to prepare you:
 
@@ -20,7 +20,7 @@ In this module, we will explore the basic concepts of data import and data clean
 
 - [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html)
   This chapter introduces you to **factors** in R, which are categorical variables.
-  \> 📝 **Note**: Although this chapter is more widely used in module 4, some useful functions like `factor()` or `fct_reorder()` can already help you manipulate categorical variables (module 3).
+  \> **Note**: Although this chapter is more widely used in module 4, some useful functions like `factor()` or `fct_reorder()` can already help you manipulate categorical variables (module 3).
 
 - [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html)
   This chapter introduces you to importing data from Excel files.
@@ -42,7 +42,7 @@ At the end of the adventure, you should be able to have placed the following ele
 
 - the cleaned database in `.csv.` format
 
-# 📝 Consolidation exercises
+# Consolidation exercises
 
 ### Exercise 1 – Controlled reading of a CSV (Data import, § readr)
 
@@ -80,7 +80,7 @@ Re-import the file by converting it to `NA`.
 > policies <- read_csv("policies.csv", na = "missing")
 > ```
 
-### Exercise 3 – Long ↔︎ wide passage (Data tidy, § pivot)
+### Exercise 3 – Long \<-\> wide passage (Data tidy, § pivot)
 
 The `q1_claims:q4_claims` columns represent the number of claims per quarter.
 

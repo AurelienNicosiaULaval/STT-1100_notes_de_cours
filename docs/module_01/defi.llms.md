@@ -34,7 +34,7 @@ Si les données correspondant à votre jour de naissance contiennent des valeurs
 
 # Grille d’évaluation
 
-## 📢 Note importante
+## Note importante
 
 > Pour ce **premier rendu d’un rapport Quarto**, vous recevrez une **rétroaction formative** de la part de l’enseignant·e.
 > Elle sera basée sur la grille suivante afin de vous aider à progresser et à améliorer vos prochains livrables.

@@ -38,11 +38,11 @@ On commence par quelques chapitres dans le fameux R4DS de Hadley Wickham et Garr
 - [Tidy data (spreadsheets)](https://r4ds.hadley.nz/spreadsheets.html)
   *Découvrez comment organiser vos données pour les rendre exploitables. Ce chapitre aborde le concept de “données propres” et vous montre comment reconnaître les structures de table communes dans des fichiers Excel ou CSV.*
 
-### 📐 Guide de style du tidyverse
+### Guide de style du tidyverse
 
 - [Bonnes pratiques de visualisation avec ggplot2 (Tidyverse Style Guide)](https://style.tidyverse.org/ggplot2.html)
 
-### 📗 Un nouveau livre de référence
+### Un nouveau livre de référence
 
 Dans ce module, nous introduisons un second ouvrage de référence : **Introduction to Modern Statistics** (*par Mine Çetinkaya-Rundel et Johanna Hardin*).
 
@@ -86,7 +86,7 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 | `fl` | facteur | Type de carburant : *c* (CNG), *d* (diesel), *e* (éthanol), *p* (premium), *r* (régulier). |
 | `class` | facteur | Catégorie de véhicule : *compact*, *suv*, *minivan*, etc. |
 
-> ℹ️ Source : base *Fuel Economy* de l’EPA, incluse dans **ggplot2** et documentée avec `?mpg`.
+> Source : base *Fuel Economy* de l’EPA, incluse dans **ggplot2** et documentée avec `?mpg`.
 
 ------------------------------------------------------------------------
 

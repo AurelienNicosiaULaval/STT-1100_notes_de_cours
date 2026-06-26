@@ -5,6 +5,7 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
+  english,
   8pt,
   letterpaper,
   DIV=11,
@@ -37,10 +38,10 @@
 \makeatletter
 \@ifundefined{KOMAClassName}{% if non-KOMA class
   \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
+  \usepackage{parskip}
   }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{6pt plus 2pt minus 1pt}}
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
@@ -49,9 +50,9 @@
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
   \renewcommand{\paragraph}{
-    \@ifstar
-      \xxxParagraphStar
-      \xxxParagraphNoStar
+  \@ifstar
+  \xxxParagraphStar
+  \xxxParagraphNoStar
   }
   \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
   \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
@@ -59,9 +60,9 @@
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}{
-    \@ifstar
-      \xxxSubParagraphStar
-      \xxxSubParagraphNoStar
+  \@ifstar
+  \xxxSubParagraphStar
+  \xxxSubParagraphNoStar
   }
   \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
   \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
@@ -138,6 +139,18 @@
 
 
 
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[]{Arial}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
 
 
 \setlength{\emergencystretch}{3em} % prevent overfull lines
@@ -147,7 +160,7 @@
 
 
 
- 
+
 
 
 \KOMAoption{captions}{tableheading}
@@ -198,6 +211,7 @@
 \hypersetup{
   pdftitle={STT-1100 --- Checklist sheet},
   pdfauthor={Laval University},
+  pdflang={en},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -219,7 +233,7 @@
 \end{Highlighting}
 \end{Shaded}
 
-\section{🧰 WORK ENVIRONMENT}\label{work-environment}
+\section{ WORK ENVIRONMENT}\label{work-environment}
 
 \subsection{RStudio}\label{rstudio}
 
@@ -249,7 +263,7 @@ Chunk R:
 
 \SpecialCharTok{:::}\NormalTok{ \{.cell\}}
 
-\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}\AttributeTok{\{.r .cell{-}code\}}
+\StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}\AttributeTok{\{.r.cell{-}code\}}
 \AttributeTok{summary(df)}
 \StringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 \SpecialCharTok{:::}
@@ -269,8 +283,8 @@ Chunk R:
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{\texorpdfstring{📊 MANIPULATE DATA ---
-\texttt{dplyr}}{📊 MANIPULATE DATA --- dplyr}}\label{manipulate-data-dplyr}
+\section{\texorpdfstring{ MANIPULATE DATA ---
+\texttt{dplyr}}{ MANIPULATE DATA --- dplyr}}\label{manipulate-data-dplyr}
 
 \subsection{Basic}\label{basic}
 
@@ -301,8 +315,8 @@ Chunk R:
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{\texorpdfstring{📈 VISUALIZATION ---
-\texttt{ggplot2}}{📈 VISUALIZATION --- ggplot2}}\label{visualization-ggplot2}
+\section{\texorpdfstring{ VISUALIZATION ---
+\texttt{ggplot2}}{ VISUALIZATION --- ggplot2}}\label{visualization-ggplot2}
 
 \subsection{Digital}\label{digital}
 
@@ -322,11 +336,11 @@ Chunk R:
 \end{Highlighting}
 \end{Shaded}
 
-🧠 Use \texttt{facet\_wrap()} to compare multiple groups
+ Use \texttt{facet\_wrap()} to compare multiple groups
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{📋 DESCRIPTIVE ANALYSIS}\label{descriptive-analysis}
+\section{ DESCRIPTIVE ANALYSIS}\label{descriptive-analysis}
 
 \subsection{Digital statistics}\label{digital-statistics}
 
@@ -358,7 +372,7 @@ Chunk R:
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{🧠 GOOD PRACTICE TIPS}\label{good-practice-tips}
+\section{ GOOD PRACTICE TIPS}\label{good-practice-tips}
 
 \begin{itemize}
 \tightlist

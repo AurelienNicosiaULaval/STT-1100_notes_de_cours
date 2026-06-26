@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Aventure 4 - Nettoyer pour mieux assurer – STT-1100 Introduction à la science des données</title>
 <style>
@@ -4054,6 +4054,30 @@ margin: 1rem 0 1.5rem;
 .portal-hero h1 { margin: .2rem 0 .6rem; color: var(--ink); }
 .hero-lead { font-size: 1.12rem; max-width: 70ch; color: var(--muted); margin-bottom: 0; }
 .eyebrow, .card-kicker { text-transform: uppercase; letter-spacing: .08em; color: var(--ulaval-red); font-size: .78rem; margin: 0 0 .35rem; font-weight: 700; }
+.module-banner {
+display: grid;
+gap: .25rem;
+border-left: 6px solid var(--ulaval-red);
+background: linear-gradient(90deg, #fff7f7 0%, #ffffff 60%, #f7fbfc 100%);
+color: var(--ink);
+border-radius: var(--radius);
+padding: 1rem 1.2rem;
+margin: .75rem 0 1.2rem;
+}
+.module-banner-number {
+margin: 0;
+color: var(--ulaval-red);
+font-size: .86rem;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+}
+.module-banner-subtitle {
+margin: 0;
+color: var(--muted);
+font-size: 1.02rem;
+line-height: 1.35;
+}
 .quick-panel {
 background: #fff9e6;
 border: 1px solid #f1d880;
@@ -4101,6 +4125,849 @@ font-size: .78rem;
 color: var(--muted);
 background: var(--soft);
 }
+.resource-link-grid,
+.catalog-grid,
+.package-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 1rem;
+margin: 1rem 0 1.5rem;
+}
+.catalog-grid > p,
+.package-grid > p {
+display: contents;
+}
+.resource-link-card,
+.dataset-row,
+.dataset-card,
+.package-card {
+display: grid;
+grid-template-columns: 48px minmax(0, 1fr);
+gap: .85rem;
+align-items: center;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+color: var(--ink);
+padding: 1rem;
+min-height: 7.25rem;
+text-decoration: none;
+box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.resource-link-card:hover,
+.resource-link-card:focus,
+.dataset-row:hover,
+.dataset-row:focus,
+.dataset-card:hover,
+.dataset-card:focus,
+.package-card:hover,
+.package-card:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+transform: translateY(-1px);
+}
+.dataset-card,
+.package-card {
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.dataset-card {
+align-items: start;
+min-height: 8.25rem;
+}
+.resource-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 44px;
+height: 44px;
+border-radius: 8px;
+background: #fff3d4;
+color: var(--ulaval-red);
+font-size: 1.35rem;
+}
+.resource-title,
+.package-name {
+display: block;
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.dataset-module {
+display: block;
+margin-bottom: .2rem;
+color: var(--muted);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.resource-text,
+.package-role {
+display: block;
+color: var(--muted);
+font-size: .92rem;
+line-height: 1.35;
+margin-top: .2rem;
+}
+.package-source {
+display: block;
+margin-top: .45rem;
+color: var(--blue);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.dataset-download-wrap {
+margin: .75rem 0 1rem;
+}
+.dataset-download {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 2.35rem;
+padding: .5rem .75rem;
+border: 1px solid var(--ulaval-red);
+border-radius: 7px;
+background: var(--ulaval-red);
+color: #ffffff !important;
+font-weight: 700;
+line-height: 1.1;
+text-decoration: none;
+}
+.dataset-download:hover,
+.dataset-download:focus {
+filter: brightness(.95);
+text-decoration: none;
+}
+.tag-list {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+margin: .75rem 0 1.25rem;
+}
+.tag-list p {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+margin: 0;
+}
+.tag-list a {
+display: inline-block;
+border: 1px solid var(--line);
+border-radius: 999px;
+padding: .24rem .58rem;
+background: var(--soft);
+color: var(--ink);
+text-decoration: none;
+font-size: .88rem;
+}
+.tag-list a:hover,
+.tag-list a:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.module-quick-facts {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+gap: .8rem;
+margin: 1.1rem 0 1.6rem;
+}
+.module-quick-facts.three-facts {
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.module-fact {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .75rem;
+align-items: center;
+min-height: 5rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: .85rem;
+}
+.fact-label,
+.fact-value {
+display: block;
+line-height: 1.25;
+}
+.fact-label {
+color: var(--muted);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.fact-value {
+margin-top: .2rem;
+color: var(--ink);
+font-weight: 700;
+}
+.module-product-showcase {
+display: grid;
+grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+gap: 1rem;
+align-items: stretch;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+margin: 1rem 0 1.6rem;
+overflow: hidden;
+}
+.product-copy {
+padding: 1rem 1.15rem;
+}
+.showcase-kicker {
+margin: 0 0 .35rem;
+color: var(--ulaval-red);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+}
+.product-copy h3 {
+margin: 0 0 .55rem;
+color: var(--ink);
+}
+.product-copy p:last-child {
+margin-bottom: 0;
+}
+.product-visual {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 13rem;
+background:
+linear-gradient(135deg, rgba(255, 193, 3, .18), rgba(0, 124, 137, .1)),
+#f8fafb;
+padding: 1rem;
+}
+.mini-product-board {
+width: min(100%, 23rem);
+border: 1px solid #cfd8dc;
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 12px 26px rgba(32, 33, 36, .10);
+overflow: hidden;
+}
+.mini-product-toolbar {
+display: grid;
+grid-template-columns: .55rem .55rem .55rem minmax(0, 1fr);
+gap: .35rem;
+align-items: center;
+min-height: 2.35rem;
+padding: .55rem .7rem;
+background: #f1f4f6;
+border-bottom: 1px solid #dde4e8;
+}
+.mini-product-toolbar span {
+width: .55rem;
+height: .55rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+}
+.mini-product-toolbar span:nth-child(2) { background: var(--ulaval-yellow); }
+.mini-product-toolbar span:nth-child(3) { background: var(--teal); }
+.mini-product-toolbar strong {
+min-width: 0;
+color: var(--ink);
+font-size: .82rem;
+line-height: 1.15;
+overflow-wrap: anywhere;
+}
+.mini-product-bars {
+display: grid;
+gap: .55rem;
+padding: .85rem .8rem .35rem;
+}
+.mini-bar-row {
+display: grid;
+grid-template-columns: minmax(6.5rem, .9fr) minmax(5rem, 1.1fr);
+gap: .7rem;
+align-items: center;
+color: var(--muted);
+font-size: .78rem;
+line-height: 1.2;
+}
+.mini-bar {
+display: block;
+height: .55rem;
+border-radius: 999px;
+background: #e6ebef;
+overflow: hidden;
+}
+.mini-bar::after {
+content: "";
+display: block;
+width: var(--bar-width);
+height: 100%;
+border-radius: inherit;
+background: var(--blue);
+}
+.mini-product-checks {
+display: flex;
+flex-wrap: wrap;
+gap: .4rem;
+padding: .75rem .8rem .9rem;
+}
+.mini-product-checks span {
+display: inline-flex;
+align-items: center;
+gap: .25rem;
+border: 1px solid #dce7dc;
+border-radius: 999px;
+padding: .2rem .5rem;
+background: #f2f8f1;
+color: var(--ink);
+font-size: .76rem;
+line-height: 1.15;
+}
+.mini-product-checks i {
+color: #31784a;
+}
+.path-grid {
+display: grid;
+gap: .85rem;
+margin: 1rem 0 1.6rem;
+}
+.interactive-path {
+grid-template-columns: 1fr;
+}
+.path-card {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 1px 2px rgba(0,0,0,.04);
+overflow: hidden;
+}
+.path-card[open] {
+border-color: #b8cbd9;
+box-shadow: 0 10px 24px rgba(49, 95, 140, .08);
+}
+.path-card summary {
+display: grid;
+grid-template-columns: 2.15rem minmax(10rem, 1.1fr) minmax(12rem, 2fr) minmax(8rem, auto) minmax(5.5rem, auto);
+gap: .7rem;
+align-items: center;
+padding: .85rem 1rem;
+cursor: pointer;
+list-style: none;
+}
+.path-card summary::-webkit-details-marker {
+display: none;
+}
+.path-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2rem;
+height: 2rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+line-height: 1;
+}
+.path-title {
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.path-preview {
+color: var(--muted);
+font-size: .92rem;
+line-height: 1.3;
+}
+.path-resource {
+display: flex;
+flex-wrap: wrap;
+gap: .35rem;
+justify-content: flex-end;
+}
+.path-toggle {
+color: var(--blue);
+font-size: .82rem;
+font-weight: 700;
+text-align: right;
+}
+.path-card[open] .closed-label,
+.path-card:not([open]) .open-label {
+display: none;
+}
+.summary-resource-link,
+.path-note {
+display: inline-flex;
+align-items: center;
+min-height: 1.75rem;
+border: 1px solid var(--line);
+border-radius: 999px;
+padding: .2rem .55rem;
+background: var(--soft);
+color: var(--ink);
+font-size: .8rem;
+font-weight: 700;
+line-height: 1.1;
+text-decoration: none;
+white-space: nowrap;
+}
+.summary-resource-link:hover,
+.summary-resource-link:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.plan-link { background: #fff3d4; }
+.adventure-link { background: #e9f4f6; }
+.exercise-link { background: #eef5ec; }
+.challenge-link { background: #fff0ee; }
+.data-link { background: #edf3fb; }
+.package-link { background: #fff0ee; }
+.step-detail {
+border-top: 1px solid var(--line);
+background: #fbfcfd;
+padding: .9rem 1rem 1rem 4rem;
+}
+.step-detail p {
+margin: .35rem 0;
+}
+.plan-section-detail {
+padding: 1rem 1.1rem 1.1rem 4rem;
+}
+.plan-section-copy {
+display: grid;
+gap: .55rem;
+max-width: 78ch;
+}
+.plan-section-copy h3,
+.plan-section-copy h4,
+.plan-section-copy h5 {
+margin: .15rem 0 .25rem;
+border-bottom: 0;
+padding-bottom: 0;
+color: var(--ink);
+}
+.plan-section-copy h3 {
+font-size: 1.05rem;
+}
+.plan-section-copy h4 {
+font-size: .98rem;
+}
+.plan-section-copy p,
+.plan-section-copy ul,
+.plan-section-copy ol {
+margin-top: 0;
+margin-bottom: .45rem;
+}
+.plan-section-copy li > p {
+margin-bottom: .25rem;
+}
+.plan-section-copy code {
+overflow-wrap: anywhere;
+}
+.plan-section-copy blockquote {
+margin: .35rem 0;
+background: #fff9e6;
+border-left: 4px solid var(--ulaval-yellow);
+border-radius: 0 var(--radius) var(--radius) 0;
+padding: .65rem .8rem;
+}
+.step-label {
+display: inline-block;
+min-width: 5.5rem;
+color: var(--muted);
+font-size: .8rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.ae-box,
+.challenge-box {
+border-left: 4px solid var(--ulaval-yellow);
+background: #fff9e6;
+border-radius: 0 var(--radius) var(--radius) 0;
+padding: .75rem .9rem;
+margin-top: .8rem;
+}
+.ae-title {
+margin: 0;
+color: var(--ink);
+font-weight: 700;
+}
+.resource-list {
+display: grid;
+gap: .7rem;
+margin: 1rem 0 1.6rem;
+}
+.resource-row {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .75rem;
+align-items: center;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+color: var(--ink);
+padding: .8rem;
+text-decoration: none;
+}
+.resource-row:hover,
+.resource-row:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+transform: translateY(-1px);
+}
+.resource-row-title,
+.resource-row-text {
+display: block;
+}
+.resource-row-title {
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.resource-row-text {
+margin-top: .15rem;
+color: var(--muted);
+font-size: .9rem;
+line-height: 1.35;
+}
+.module-resource-panel {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1rem 0 1.6rem;
+}
+.module-resource-section {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: 1rem;
+}
+.module-resource-section h3 {
+margin: 0 0 .75rem;
+color: var(--ink);
+}
+.module-chip-list {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+}
+.module-resource-chip {
+display: inline-flex;
+align-items: center;
+gap: .4rem;
+min-height: 2rem;
+max-width: 100%;
+border: 1px solid var(--line);
+border-radius: 999px;
+background: var(--soft);
+color: var(--ink);
+padding: .28rem .58rem .28rem .36rem;
+font-size: .88rem;
+font-weight: 700;
+line-height: 1.15;
+text-decoration: none;
+}
+.module-resource-chip:hover,
+.module-resource-chip:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.module-resource-chip span:last-child {
+min-width: 0;
+overflow-wrap: anywhere;
+}
+.chip-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex: 0 0 auto;
+width: 1.45rem;
+height: 1.45rem;
+border-radius: 50%;
+background: #ffffff;
+color: var(--ulaval-red);
+font-size: .86rem;
+}
+.closing-panel {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .9rem;
+align-items: start;
+border: 1px solid #dce7dc;
+border-radius: var(--radius);
+background: #f7fbf5;
+padding: 1rem;
+margin: 1rem 0 1.6rem;
+}
+.closing-panel h3 {
+margin: 0 0 .45rem;
+color: var(--ink);
+}
+.closing-panel p {
+margin-top: 0;
+}
+.closing-panel ul {
+margin-bottom: 0;
+}
+.resource-page {
+display: grid;
+gap: 2rem;
+}
+body.page-resource #title-block-header {
+display: none !important;
+}
+.resource-hero {
+display: grid;
+grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
+gap: 1.25rem;
+align-items: stretch;
+border-left: 6px solid var(--ulaval-red);
+border-radius: var(--radius);
+background: linear-gradient(90deg, #fff7f7 0%, #ffffff 58%, #f7fbfc 100%);
+padding: 1.35rem;
+margin: 1rem 0 .2rem;
+}
+.resource-hero h1 {
+margin: .15rem 0 .55rem;
+color: var(--ink);
+}
+.resource-hero p {
+max-width: 76ch;
+}
+.resource-actions {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+margin-top: 1rem;
+}
+.home-action {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 2.35rem;
+border: 1px solid var(--line);
+border-radius: 7px;
+background: #ffffff;
+color: var(--ink);
+padding: .45rem .75rem;
+font-weight: 700;
+line-height: 1.1;
+text-decoration: none;
+}
+.home-action:hover,
+.home-action:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.home-action--primary {
+border-color: var(--ulaval-red);
+background: var(--ulaval-red);
+color: #ffffff !important;
+}
+.home-action--primary:hover,
+.home-action--primary:focus {
+color: #ffffff !important;
+filter: brightness(.95);
+}
+.resource-panel {
+display: grid;
+gap: .65rem;
+align-content: center;
+border: 1px solid rgba(49, 95, 140, .18);
+border-radius: var(--radius);
+background: rgba(255, 255, 255, .72);
+padding: .85rem;
+}
+.resource-panel div {
+display: grid;
+grid-template-columns: 2.4rem minmax(0, 1fr);
+gap: .55rem;
+align-items: center;
+}
+.resource-panel span {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-width: 2.25rem;
+height: 2.25rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+}
+.resource-panel p {
+margin: 0;
+color: var(--ink);
+font-weight: 700;
+line-height: 1.25;
+}
+.resource-section {
+display: grid;
+gap: .95rem;
+}
+.resource-section__header h2 {
+margin-top: 0;
+}
+.resource-section__header p {
+max-width: 76ch;
+margin-bottom: 0;
+color: var(--muted);
+}
+.resource-hub-grid,
+.principle-grid,
+.course-flow,
+.role-grid,
+.reading-map,
+.dataset-showcase-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+gap: 1rem;
+}
+.resource-hub-card,
+.principle-card,
+.flow-card,
+.role-card,
+.resource-compact,
+.reading-map article {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: 1rem;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.resource-hub-card h3,
+.principle-card h3,
+.flow-card h3,
+.role-card h3,
+.resource-compact h3,
+.reading-map h3 {
+margin: 0 0 .45rem;
+color: var(--ink);
+}
+.resource-hub-card p,
+.principle-card p,
+.flow-card p,
+.role-card p,
+.resource-compact p,
+.reading-map p {
+margin-top: 0;
+color: var(--muted);
+}
+.resource-hub-card p:last-child,
+.principle-card p:last-child,
+.flow-card p:last-child,
+.role-card p:last-child,
+.resource-compact p:last-child,
+.reading-map p:last-child {
+margin-bottom: 0;
+}
+.resource-link-list {
+display: grid;
+gap: .55rem;
+margin-top: .85rem;
+}
+.resource-link-list a {
+display: grid;
+gap: .1rem;
+border: 1px solid var(--line);
+border-radius: 7px;
+background: var(--soft);
+color: var(--ink);
+padding: .65rem .7rem;
+text-decoration: none;
+}
+.resource-link-list a:hover,
+.resource-link-list a:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+}
+.resource-link-list span:first-child {
+font-weight: 700;
+}
+.resource-link-list span:last-child {
+color: var(--muted);
+font-size: .88rem;
+line-height: 1.3;
+}
+.resource-split {
+grid-template-columns: minmax(0, 1fr) minmax(260px, .85fr);
+align-items: start;
+}
+.resource-compact-list {
+display: grid;
+gap: .85rem;
+}
+.book-list {
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.resource-compact a {
+font-weight: 700;
+}
+.flow-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2rem;
+height: 2rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+margin-bottom: .65rem;
+}
+.clean-steps {
+margin-bottom: 0;
+}
+.compact-hub {
+grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.path-note {
+color: var(--blue);
+}
+.dataset-card h2,
+.package-card h2 {
+margin: 0 0 .4rem;
+border-bottom: 0;
+padding-bottom: 0;
+font-size: 1.05rem;
+}
+.dataset-meta,
+.dataset-actions,
+.package-actions {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+align-items: center;
+margin-top: .7rem;
+}
+.dataset-meta span,
+.package-actions span {
+display: inline-flex;
+border: 1px solid var(--line);
+border-radius: 999px;
+background: var(--soft);
+color: var(--muted);
+padding: .18rem .5rem;
+font-size: .78rem;
+font-weight: 700;
+line-height: 1.1;
+}
+.dataset-card .dataset-download,
+.package-card .dataset-download {
+margin-top: .4rem;
+}
+.dt-container,
+.dataTables_wrapper {
+margin: .8rem 0 1rem;
+}
 pre, code { border-radius: 4px; }
 blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; color: var(--muted); }
 .callout { border-radius: var(--radius); }
@@ -4116,12 +4983,52 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 .mermaid { font-size: 0.65em; }
 @media (max-width: 700px) {
 .portal-hero { padding: 1rem; }
-.portal-grid, .module-grid { grid-template-columns: 1fr; }
+.portal-grid,
+.module-grid,
+.resource-link-grid,
+.catalog-grid,
+.package-grid,
+.resource-hero,
+.resource-split,
+.resource-hub-grid,
+.principle-grid,
+.course-flow,
+.role-grid,
+.reading-map,
+.book-list,
+.module-product-showcase,
+.module-resource-panel,
+.module-quick-facts {
+grid-template-columns: 1fr;
+}
+.path-card summary {
+grid-template-columns: 2.15rem minmax(0, 1fr);
+}
+.module-quick-facts.three-facts {
+grid-template-columns: 1fr;
+}
+.path-preview,
+.path-resource,
+.path-toggle {
+grid-column: 2;
+justify-content: flex-start;
+text-align: left;
+}
+.step-detail {
+padding-left: 1rem;
+}
+.plan-section-detail {
+padding: 1rem;
+}
+.step-label {
+display: block;
+margin-bottom: .05rem;
+}
 .portal-button { display: block; width: fit-content; }
 }
 </style>
 </head>
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
@@ -4137,25 +5044,87 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page">
+    <a class="nav-link" href="../index.html">
 <span class="menu-text">Accueil</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../demarrage.html">
 <span class="menu-text">Démarrage</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../modules.html">
-<span class="menu-text">Modules</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Modules</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
+<li>
+    <a class="dropdown-item" href="../modules.html">
+ <span class="dropdown-text">Vue d’ensemble</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../projet_session/index.html">
-<span class="menu-text">Projet</span></a>
+        <li>
+    <a class="dropdown-item" href="../module_01/index.html">
+ <span class="dropdown-text">Module 01 - Plongée en science des données</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../evaluations.html">
-<span class="menu-text">Évaluations</span></a>
+        <li>
+    <a class="dropdown-item" href="../module_02/index.html">
+ <span class="dropdown-text">Module 02 - GitHub et visualisation de données</span></a>
   </li>
+        <li>
+    <a class="dropdown-item" href="../module_03/index.html">
+ <span class="dropdown-text">Module 03 - Les catégories sous toutes leurs formes</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_04/index.html">
+ <span class="dropdown-text">Module 04 - Facteurs et nettoyage de données</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_05/index.html">
+ <span class="dropdown-text">Module 05 - Explorer et comprendre les relations entre les variables</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_06/index.html">
+ <span class="dropdown-text">Module 06 - Collaboration et reproductibilité dans GitHub</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_07/index.html">
+ <span class="dropdown-text">Module 07 - Visualisation, éthique et sécurisation des données</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_08/index.html">
+ <span class="dropdown-text">Module 08 - Automatisation et exploration du web</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_09/index.html">
+ <span class="dropdown-text">Module 09 - Prédiction et biais</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_10/index.html">
+ <span class="dropdown-text">Module 10 - Au-delà des données: texte et tableau de bord</span></a>
+  </li>
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-valuations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Évaluations</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-valuations">
+<li>
+    <a class="dropdown-item" href="../evaluations.html">
+ <span class="dropdown-text">Vue d’ensemble</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../examen.html">
+ <span class="dropdown-text">Examen</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../defis.html">
+ <span class="dropdown-text">Défis</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../projet_session/index.html">
+ <span class="dropdown-text">Projet de session</span></a>
+  </li>
+    </ul>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../ressources.html">
 <span class="menu-text">Ressources</span></a>
@@ -4171,452 +5140,49 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_04/index.html">4 - Facteurs et nettoyage de données</a></li><li class="breadcrumb-item"><a href="../module_04/aventure.html">Aventure</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        </a>
-    </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container">
-    <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tableau de bord</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../demarrage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Démarrage</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../calendrier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Calendrier</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../evaluations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Évaluations</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">1 - Plongée en science des données</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/defi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Défi</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercices corrigés</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">2 - GitHub et visualisation de données</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">3 - Les catégories sous toutes leurs formes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">4 - Facteurs et nettoyage de données</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/aventure.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
- <span class="menu-text">5 - Explorer et comprendre les relations entre les variables</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/exercices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercices</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">6 - Collaboration et reproductibilité dans GitHub</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
- <span class="menu-text">7 - Visualisation, éthique et sécurisation des données</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyse COVID</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
- <span class="menu-text">8 - Automatisation et exploration du web</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
- <span class="menu-text">9 - Prédiction et biais</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">10 - Au-delà des données : texte et tableau de bord</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Projet de session</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../projet_session/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Énoncé du projet</span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../boite_outils.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Boîte à outils</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../glossaire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Glossaire</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Matériel de référence</span></a>
-  </div>
-</li>
-    </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Plan de l’aventure</h2>
 
   <ul>
-<li><a href="#mise-en-situation" id="toc-mise-en-situation" class="nav-link active" data-scroll-target="#mise-en-situation">🧠 Mise en situation</a></li>
-  <li><a href="#objectifs-de-laventure" id="toc-objectifs-de-laventure" class="nav-link" data-scroll-target="#objectifs-de-laventure">🎯 Objectifs de l’aventure</a></li>
-  <li><a href="#comment-r%C3%A9ussir-cette-aventure" id="toc-comment-réussir-cette-aventure" class="nav-link" data-scroll-target="#comment-r%C3%A9ussir-cette-aventure">✅ Comment réussir cette aventure ?</a></li>
-  <li><a href="#typologie-des-erreurs-et-structure-de-la-liste" id="toc-typologie-des-erreurs-et-structure-de-la-liste" class="nav-link" data-scroll-target="#typologie-des-erreurs-et-structure-de-la-liste">🗃️ Typologie des erreurs et structure de la liste</a></li>
-  <li><a href="#github-et-rendu" id="toc-github-et-rendu" class="nav-link" data-scroll-target="#github-et-rendu">🧪 GitHub et rendu</a></li>
-  <li><a href="#importation-des-donn%C3%A9es" id="toc-importation-des-données" class="nav-link" data-scroll-target="#importation-des-donn%C3%A9es">📥 Importation des données</a></li>
+<li><a href="#mise-en-situation" id="toc-mise-en-situation" class="nav-link active" data-scroll-target="#mise-en-situation">Mise en situation</a></li>
+  <li><a href="#objectifs-de-laventure" id="toc-objectifs-de-laventure" class="nav-link" data-scroll-target="#objectifs-de-laventure">Objectifs de l’aventure</a></li>
+  <li><a href="#comment-r%C3%A9ussir-cette-aventure" id="toc-comment-réussir-cette-aventure" class="nav-link" data-scroll-target="#comment-r%C3%A9ussir-cette-aventure">Comment réussir cette aventure ?</a></li>
+  <li><a href="#typologie-des-erreurs-et-structure-de-la-liste" id="toc-typologie-des-erreurs-et-structure-de-la-liste" class="nav-link" data-scroll-target="#typologie-des-erreurs-et-structure-de-la-liste">Typologie des erreurs et structure de la liste</a></li>
+  <li><a href="#github-et-rendu" id="toc-github-et-rendu" class="nav-link" data-scroll-target="#github-et-rendu">GitHub et rendu</a></li>
+  <li><a href="#importation-des-donn%C3%A9es" id="toc-importation-des-données" class="nav-link" data-scroll-target="#importation-des-donn%C3%A9es">Importation des données</a></li>
   <li>
-<a href="#exploration-initiale-des-probl%C3%A8mes-potentiels" id="toc-exploration-initiale-des-problèmes-potentiels" class="nav-link" data-scroll-target="#exploration-initiale-des-probl%C3%A8mes-potentiels">🔍 Exploration initiale des problèmes potentiels</a>
+<a href="#exploration-initiale-des-probl%C3%A8mes-potentiels" id="toc-exploration-initiale-des-problèmes-potentiels" class="nav-link" data-scroll-target="#exploration-initiale-des-probl%C3%A8mes-potentiels">Exploration initiale des problèmes potentiels</a>
   <ul class="collapse">
 <li><a href="#format-des-variables" id="toc-format-des-variables" class="nav-link" data-scroll-target="#format-des-variables">Format des variables</a></li>
-  <li><a href="#v%C3%A9rification-des-doublons" id="toc-vérification-des-doublons" class="nav-link" data-scroll-target="#v%C3%A9rification-des-doublons">🔁 Vérification des doublons</a></li>
+  <li><a href="#v%C3%A9rification-des-doublons" id="toc-vérification-des-doublons" class="nav-link" data-scroll-target="#v%C3%A9rification-des-doublons">Vérification des doublons</a></li>
   </ul>
 </li>
   <li>
-<a href="#nettoyage-des-facteurs-avec-forcats" id="toc-nettoyage-des-facteurs-avec-forcats" class="nav-link" data-scroll-target="#nettoyage-des-facteurs-avec-forcats">🧹 Nettoyage des facteurs avec <code>forcats</code></a>
+<a href="#nettoyage-des-facteurs-avec-forcats" id="toc-nettoyage-des-facteurs-avec-forcats" class="nav-link" data-scroll-target="#nettoyage-des-facteurs-avec-forcats">Nettoyage des facteurs avec <code>forcats</code></a>
   <ul class="collapse">
-<li><a href="#quelques-outils-utiles-avec-forcats" id="toc-quelques-outils-utiles-avec-forcats" class="nav-link" data-scroll-target="#quelques-outils-utiles-avec-forcats">🛠 Quelques outils utiles (avec <code>forcats</code>)</a></li>
-  <li><a href="#%C3%A9tapes-propos%C3%A9es" id="toc-étapes-proposées" class="nav-link" data-scroll-target="#%C3%A9tapes-propos%C3%A9es">👀 Étapes proposées</a></li>
-  <li><a href="#exemple-%C3%A0-adapter" id="toc-exemple-à-adapter" class="nav-link" data-scroll-target="#exemple-%C3%A0-adapter">✏️ Exemple à adapter</a></li>
+<li><a href="#quelques-outils-utiles-avec-forcats" id="toc-quelques-outils-utiles-avec-forcats" class="nav-link" data-scroll-target="#quelques-outils-utiles-avec-forcats">Quelques outils utiles (avec <code>forcats</code>)</a></li>
+  <li><a href="#%C3%A9tapes-propos%C3%A9es" id="toc-étapes-proposées" class="nav-link" data-scroll-target="#%C3%A9tapes-propos%C3%A9es">Étapes proposées</a></li>
+  <li><a href="#exemple-%C3%A0-adapter" id="toc-exemple-à-adapter" class="nav-link" data-scroll-target="#exemple-%C3%A0-adapter">Exemple à adapter</a></li>
   </ul>
 </li>
   <li>
-<a href="#recette-de-nettoyage-approfondissement" id="toc-recette-de-nettoyage-approfondissement" class="nav-link" data-scroll-target="#recette-de-nettoyage-approfondissement">🧼 Recette de nettoyage — Approfondissement</a>
+<a href="#recette-de-nettoyage-approfondissement" id="toc-recette-de-nettoyage-approfondissement" class="nav-link" data-scroll-target="#recette-de-nettoyage-approfondissement">Recette de nettoyage — Approfondissement</a>
   <ul class="collapse">
-<li><a href="#%C3%A9tape-1-statistiques-descriptives-sur-les-variables-num%C3%A9riques" id="toc-étape-1-statistiques-descriptives-sur-les-variables-numériques" class="nav-link" data-scroll-target="#%C3%A9tape-1-statistiques-descriptives-sur-les-variables-num%C3%A9riques">📊 Étape 1 – Statistiques descriptives sur les variables numériques</a></li>
-  <li><a href="#%C3%A9tape-2-combinaisons-incoh%C3%A9rentes-de-deux-facteurs" id="toc-étape-2-combinaisons-incohérentes-de-deux-facteurs" class="nav-link" data-scroll-target="#%C3%A9tape-2-combinaisons-incoh%C3%A9rentes-de-deux-facteurs">📉 Étape 2 – Combinaisons incohérentes de deux facteurs</a></li>
-  <li><a href="#%C3%A9tape-3-statistiques-group%C3%A9es-facteur-num%C3%A9rique" id="toc-étape-3-statistiques-groupées-facteur-numérique" class="nav-link" data-scroll-target="#%C3%A9tape-3-statistiques-group%C3%A9es-facteur-num%C3%A9rique">👶 Étape 3 – Statistiques groupées : facteur + numérique</a></li>
-  <li><a href="#%C3%A9tape-4-liens-logiques-entre-deux-variables-num%C3%A9riques" id="toc-étape-4-liens-logiques-entre-deux-variables-numériques" class="nav-link" data-scroll-target="#%C3%A9tape-4-liens-logiques-entre-deux-variables-num%C3%A9riques">🧠 Étape 4 – Liens logiques entre deux variables numériques</a></li>
-  <li><a href="#%C3%A9tape-5-v%C3%A9rifications-avanc%C3%A9es-facultatives-mais-pros" id="toc-étape-5-vérifications-avancées-facultatives-mais-pros" class="nav-link" data-scroll-target="#%C3%A9tape-5-v%C3%A9rifications-avanc%C3%A9es-facultatives-mais-pros">🧪 Étape 5 – Vérifications avancées (facultatives mais pros !)</a></li>
+<li><a href="#%C3%A9tape-1-statistiques-descriptives-sur-les-variables-num%C3%A9riques" id="toc-étape-1-statistiques-descriptives-sur-les-variables-numériques" class="nav-link" data-scroll-target="#%C3%A9tape-1-statistiques-descriptives-sur-les-variables-num%C3%A9riques">Étape 1 – Statistiques descriptives sur les variables numériques</a></li>
+  <li><a href="#%C3%A9tape-2-combinaisons-incoh%C3%A9rentes-de-deux-facteurs" id="toc-étape-2-combinaisons-incohérentes-de-deux-facteurs" class="nav-link" data-scroll-target="#%C3%A9tape-2-combinaisons-incoh%C3%A9rentes-de-deux-facteurs">Étape 2 – Combinaisons incohérentes de deux facteurs</a></li>
+  <li><a href="#%C3%A9tape-3-statistiques-group%C3%A9es-facteur-num%C3%A9rique" id="toc-étape-3-statistiques-groupées-facteur-numérique" class="nav-link" data-scroll-target="#%C3%A9tape-3-statistiques-group%C3%A9es-facteur-num%C3%A9rique">Étape 3 – Statistiques groupées : facteur + numérique</a></li>
+  <li><a href="#%C3%A9tape-4-liens-logiques-entre-deux-variables-num%C3%A9riques" id="toc-étape-4-liens-logiques-entre-deux-variables-numériques" class="nav-link" data-scroll-target="#%C3%A9tape-4-liens-logiques-entre-deux-variables-num%C3%A9riques">Étape 4 – Liens logiques entre deux variables numériques</a></li>
+  <li><a href="#%C3%A9tape-5-v%C3%A9rifications-avanc%C3%A9es-facultatives-mais-pros" id="toc-étape-5-vérifications-avancées-facultatives-mais-pros" class="nav-link" data-scroll-target="#%C3%A9tape-5-v%C3%A9rifications-avanc%C3%A9es-facultatives-mais-pros">Étape 5 – Vérifications avancées (facultatives mais pros !)</a></li>
   </ul>
 </li>
-  <li><a href="#mission-accomplie" id="toc-mission-accomplie" class="nav-link" data-scroll-target="#mission-accomplie">🎉 Mission accomplie !</a></li>
+  <li><a href="#mission-accomplie" id="toc-mission-accomplie" class="nav-link" data-scroll-target="#mission-accomplie">Mission accomplie !</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_04/index.html">4 - Facteurs et nettoyage de données</a></li><li class="breadcrumb-item"><a href="../module_04/aventure.html">Aventure</a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Aventure 4 - Nettoyer pour mieux assurer</h1>
 <p class="subtitle lead">STT-1100 Introduction à la science des données</p>
 </div>
@@ -4632,26 +5198,26 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 
 
 
-</header><section id="mise-en-situation" class="level1"><h1>🧠 Mise en situation</h1>
+</header><section id="mise-en-situation" class="level1"><h1>Mise en situation</h1>
 <p>Vous venez tout juste de commencer un stage comme <strong>ingénieur·e de données junior</strong> dans une grande <strong>compagnie d’assurance</strong>. Vous travaillez avec Alex, un·e analyste d’affaires expérimenté·e, qui vous a confié une mission importante.</p>
 <p>Alex vous a fourni une base de données extraite d’un ancien système d’archives. Cette base contient des informations clés sur les clients, les polices d’assurance et les réclamations. Malheureusement, la base est <strong>truffée d’erreurs</strong> : doublons, valeurs manquantes, incohérences, erreurs de format, fautes de frappe…</p>
 <p>Votre rôle sera d’assurer la <strong>qualité des données</strong> pour permettre à Alex de faire une analyse fiable.</p>
-</section><section id="objectifs-de-laventure" class="level1"><h1>🎯 Objectifs de l’aventure</h1>
+</section><section id="objectifs-de-laventure" class="level1"><h1>Objectifs de l’aventure</h1>
 <ul>
 <li>Importer une base de données brute (<code>Dataset_pratique.csv</code>).</li>
 <li>Identifier différents types d’erreurs courantes.</li>
 <li>Nettoyer et transformer les données avec <code>dplyr</code>, <code>forcats</code> et <code>stringr</code>.</li>
 <li>Documenter de façon claire <strong>toutes les modifications apportées</strong> à la base.</li>
-</ul></section><section id="comment-réussir-cette-aventure" class="level1"><h1>✅ Comment réussir cette aventure ?</h1>
+</ul></section><section id="comment-réussir-cette-aventure" class="level1"><h1>Comment réussir cette aventure ?</h1>
 <p>À la fin de cette aventure, vous devrez :</p>
 <ol type="1">
 <li>Fournir une <strong>base de données propre</strong> (<code>donnees_propres.csv</code>).</li>
 <li>Maintenir une <strong>liste R structurée</strong> appelée <code>journal_nettoyage</code> dans votre script.</li>
 </ol>
 <blockquote class="blockquote">
-<p>💡 Pensez à <strong>documenter chaque étape de votre nettoyage</strong>. Votre rigueur est votre meilleure alliée !</p>
+<p>Pensez à <strong>documenter chaque étape de votre nettoyage</strong>. Votre rigueur est votre meilleure alliée !</p>
 </blockquote>
-</section><section id="typologie-des-erreurs-et-structure-de-la-liste" class="level1"><h1>🗃️ Typologie des erreurs et structure de la liste</h1>
+</section><section id="typologie-des-erreurs-et-structure-de-la-liste" class="level1"><h1>Typologie des erreurs et structure de la liste</h1>
 <p>Voici un tableau de référence pour les types d’erreurs que vous pouvez rencontrer :</p>
 <table class="caption-top table">
 <colgroup>
@@ -4817,9 +5383,9 @@ $DF[[1]]$justification
 <li><p><code>justification</code> : pourquoi cette action a été choisie</p></li>
 </ul>
 <blockquote class="blockquote">
-<p>🔁 Cette structure vous aidera à <strong>rendre compte de vos modifications</strong> de façon propre et professionnelle.</p>
+<p>Cette structure vous aidera à <strong>rendre compte de vos modifications</strong> de façon propre et professionnelle.</p>
 </blockquote>
-</section><section id="github-et-rendu" class="level1"><h1>🧪 GitHub et rendu</h1>
+</section><section id="github-et-rendu" class="level1"><h1>GitHub et rendu</h1>
 <p>Comme pour les aventures précédentes :</p>
 <ul>
 <li>
@@ -4833,8 +5399,8 @@ $DF[[1]]$justification
 </ul>
 </li>
 </ul>
-<p>Bonne chance, et que vos données soient propres ! 🧽📊</p>
-</section><section id="importation-des-données" class="level1"><h1>📥 Importation des données</h1>
+<p>Bonne chance, et que vos données soient propres !</p>
+</section><section id="importation-des-données" class="level1"><h1>Importation des données</h1>
 <p>Avant de nettoyer une base de données, il faut savoir l’importer correctement. Pour cette mission, Alex vous a transmis le fichier <code>Dataset_pratique.csv</code>. Il vous recommande de :</p>
 <ul>
 <li>charger les données dans R avec la fonction <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> du package <code>readr</code>,</li>
@@ -4854,9 +5420,9 @@ $DF[[1]]$justification
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span></span>
 <span><span class="fu">glimpse</span><span class="op">(</span><span class="va">base</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p>💬 <strong>Alex</strong> : « Cette base est un vrai casse-tête ! J’ai besoin que tu la rendes exploitable rapidement. Tu devrais commencer par repérer ce qui cloche dans les noms, les formats ou les valeurs. »</p>
+<p><strong>Alex</strong> : « Cette base est un vrai casse-tête ! J’ai besoin que tu la rendes exploitable rapidement. Tu devrais commencer par repérer ce qui cloche dans les noms, les formats ou les valeurs. »</p>
 </blockquote>
-<hr></section><section id="exploration-initiale-des-problèmes-potentiels" class="level1"><h1>🔍 Exploration initiale des problèmes potentiels</h1>
+<hr></section><section id="exploration-initiale-des-problèmes-potentiels" class="level1"><h1>Exploration initiale des problèmes potentiels</h1>
 <section id="format-des-variables" class="level2"><h2 class="anchored" data-anchor-id="format-des-variables">Format des variables</h2>
 <p>Maintenant que vous avez importé la base, il est temps de faire une première exploration pour identifier les erreurs potentielles. Voici quelques étapes clés à suivre :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Dimensions de la base</span></span>
@@ -4869,7 +5435,7 @@ $DF[[1]]$justification
 <span><span class="co"># type des variables</span></span>
 <span><span class="fu">glimpse</span><span class="op">(</span><span class="va">base</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p>💬 <strong>Alex</strong> : « Tu verras, certains types des variables ne font aucun sens… Garde une trace de tout ce que tu trouves bizarre pour qu’on décide ensemble quoi en faire. »</p>
+<p><strong>Alex</strong> : « Tu verras, certains types des variables ne font aucun sens… Garde une trace de tout ce que tu trouves bizarre pour qu’on décide ensemble quoi en faire. »</p>
 </blockquote>
 <p>L’une des fonctions les plus utiles ici est <code>glimpse()</code> (du package <code>dplyr</code>). Elle affiche un aperçu des premières valeurs de chaque variable <strong>ainsi que leur type</strong> : par exemple <code>chr</code> pour une chaîne de caractères (character), <code>dbl</code> pour un nombre décimal (double), <code>int</code> pour un entier, ou encore <code>lgl</code> pour un booléen.</p>
 <p>Voici un rappel des principaux types de données en R :</p>
@@ -4889,32 +5455,32 @@ as.logical(base$colonne)
 as.factor(base$colonne)</code></pre>
 <p>Pensez à toujours vérifier le résultat de la transformation avec <code>glimpse()</code> ou <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</p>
 <blockquote class="blockquote">
-<p>💬 Alex : « Quand on regarde les types de variables avec glimpse(), il faut garder en tête qu’il y a des standards en science des données. En général, les variables contenant du texte devraient être de type <code>character</code> ou <code>factor</code> si elles prennent un nombre limité de valeurs (par exemple, une colonne sexe ou province). Les variables contenant des nombres devraient normalement être de type <code>dbl</code> (pour les décimaux) ou <code>int</code> (pour les entiers), selon le cas.</p>
+<p>Alex : « Quand on regarde les types de variables avec glimpse(), il faut garder en tête qu’il y a des standards en science des données. En général, les variables contenant du texte devraient être de type <code>character</code> ou <code>factor</code> si elles prennent un nombre limité de valeurs (par exemple, une colonne sexe ou province). Les variables contenant des nombres devraient normalement être de type <code>dbl</code> (pour les décimaux) ou <code>int</code> (pour les entiers), selon le cas.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>Un piège courant, c’est les identifiants ! Même s’ils ont l’air d’être des nombres, comme une colonne <code>ID_client</code> ou <code>numero_contrat</code>, ce ne sont pas des quantités sur lesquelles on va faire des calculs. Ce sont des étiquettes uniques. On devrait donc les convertir en character. Ça évite qu’un identifiant comme 0012 soit transformé en 12 par erreur, ou que R pense qu’on veut faire une moyenne avec ça… 😅</p>
+<p>Un piège courant, c’est les identifiants ! Même s’ils ont l’air d’être des nombres, comme une colonne <code>ID_client</code> ou <code>numero_contrat</code>, ce ne sont pas des quantités sur lesquelles on va faire des calculs. Ce sont des étiquettes uniques. On devrait donc les convertir en character. Ça évite qu’un identifiant comme 0012 soit transformé en 12 par erreur, ou que R pense qu’on veut faire une moyenne avec ça…</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>Bref, vérifiez bien chaque type. Posez-vous la question : est-ce que cette variable est du texte ? Est-ce que je vais calculer dessus ? Est-ce que ce sont des catégories ? »</p>
 </blockquote>
-</section><section id="vérification-des-doublons" class="level2"><h2 class="anchored" data-anchor-id="vérification-des-doublons">🔁 Vérification des doublons</h2>
+</section><section id="vérification-des-doublons" class="level2"><h2 class="anchored" data-anchor-id="vérification-des-doublons">Vérification des doublons</h2>
 <p>Un des premiers réflexes à avoir dans toute opération de nettoyage : <strong>vérifier les doublons</strong>. Il peut s’agir :</p>
 <ul>
 <li>de doublons <strong>complets</strong> (lignes identiques sur toutes les colonnes),</li>
 <li>de doublons <strong>partiels</strong> (même identifiant, mais des valeurs légèrement différentes ailleurs).</li>
 </ul>
-<p>💡 Commencez par détecter les doublons complets avec :</p>
+<p>Commencez par détecter les doublons complets avec :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Et pour les identifier :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Vous pouvez ensuite les retirer :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op">&lt;-</span> <span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">distinct</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si vous voulez repérer les doublons sur une ou plusieurs colonnes clés (ex. : <code>ID_Variable</code>), utilisez :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">ID_Variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">ID_Variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">n</span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p>💬 <strong>Alex</strong> : « Deux clients avec le même numéro, c’est louche. Regarde ce qui se passe. Supprimer aveuglément n’est pas toujours la bonne solution. Note bien ce que tu fais dans le <code>journal_nettoyage</code> ! »</p>
+<p><strong>Alex</strong> : « Deux clients avec le même numéro, c’est louche. Regarde ce qui se passe. Supprimer aveuglément n’est pas toujours la bonne solution. Note bien ce que tu fais dans le <code>journal_nettoyage</code> ! »</p>
 </blockquote>
 <p>Et bien sûr, si vous intervenez, n’oubliez pas de l’indiquer dans la section <code>DF</code> de votre <code>journal_nettoyage</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">DF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">DF</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
@@ -4926,7 +5492,7 @@ as.factor(base$colonne)</code></pre>
 <span>    justification <span class="op">=</span> <span class="st">&quot;Doublons exacts détectés automatiquement&quot;</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</section></section><section id="nettoyage-des-facteurs-avec-forcats" class="level1"><h1>🧹 Nettoyage des facteurs avec <code>forcats</code>
+</section></section><section id="nettoyage-des-facteurs-avec-forcats" class="level1"><h1>Nettoyage des facteurs avec <code>forcats</code>
 </h1>
 <p>On continue l’exploration avec un type de variable souvent négligé… mais qui peut faire dérailler toute une analyse : les <strong>facteurs</strong>.</p>
 <p>En R, les facteurs sont utilisés pour représenter des <strong>catégories</strong>. Par exemple, dans la colonne <code>VEHICLE_TYPE</code>, chaque valeur correspond à un type de véhicule : <code>&quot;car&quot;</code>, <code>&quot;truck&quot;</code>, <code>&quot;CAR&quot;</code>, <code>&quot;ANIMAL&quot;</code>, etc.</p>
@@ -4937,7 +5503,7 @@ as.factor(base$colonne)</code></pre>
 <p>Bien sur, il faut que ta variable soit de type <code>factor</code> pour que cette fonction fonctionne. Si ce n’est pas le cas, vous pouvez la convertir avec <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code> (voir section précédente).</p>
 <p>Le problème ?<br>
 Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>doublons déguisés</strong> (<code>&quot;car&quot;</code> vs <code>&quot;CAR&quot;</code>), des <strong>niveaux aberrants</strong> (<code>&quot;ANIMAL&quot;</code>) ou des <strong>catégories très rares</strong> qui ne méritent peut-être pas leur propre niveau.</p>
-<section id="quelques-outils-utiles-avec-forcats" class="level2"><h2 class="anchored" data-anchor-id="quelques-outils-utiles-avec-forcats">🛠 Quelques outils utiles (avec <code>forcats</code>)</h2>
+<section id="quelques-outils-utiles-avec-forcats" class="level2"><h2 class="anchored" data-anchor-id="quelques-outils-utiles-avec-forcats">Quelques outils utiles (avec <code>forcats</code>)</h2>
 <p>Pour nettoyer tout ça, voici quelques fonctions clés du package <code>forcats</code> :</p>
 <ul>
 <li>
@@ -4950,7 +5516,7 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <code>fct_lump()</code> : pour regrouper les niveaux rares en “Autre”</li>
 <li>
 <code>fct_relevel()</code> ou <code>fct_infreq()</code> : pour réordonner les niveaux</li>
-</ul></section><section id="étapes-proposées" class="level2"><h2 class="anchored" data-anchor-id="étapes-proposées">👀 Étapes proposées</h2>
+</ul></section><section id="étapes-proposées" class="level2"><h2 class="anchored" data-anchor-id="étapes-proposées">Étapes proposées</h2>
 <p>Prenez le temps de :</p>
 <ol type="1">
 <li>
@@ -4967,11 +5533,11 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 </li>
 </ol>
 <blockquote class="blockquote">
-<p>💬 <strong>Alex</strong> : « Faites attention à ces valeurs étranges. Si une valeur n’a aucun sens dans le contexte (par exemple <code>&quot;ANIMAL&quot;</code> dans une colonne sur les types de véhicules), ne cherchez pas à deviner. Mettez-la à <code>NA</code>. On préfère une donnée manquante qu’une mauvaise information. »</p>
+<p><strong>Alex</strong> : « Faites attention à ces valeurs étranges. Si une valeur n’a aucun sens dans le contexte (par exemple <code>&quot;ANIMAL&quot;</code> dans une colonne sur les types de véhicules), ne cherchez pas à deviner. Mettez-la à <code>NA</code>. On préfère une donnée manquante qu’une mauvaise information. »</p>
 </blockquote>
-</section><section id="exemple-à-adapter" class="level2"><h2 class="anchored" data-anchor-id="exemple-à-adapter">✏️ Exemple à adapter</h2>
+</section><section id="exemple-à-adapter" class="level2"><h2 class="anchored" data-anchor-id="exemple-à-adapter">Exemple à adapter</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Harmoniser les minuscules/majuscules</span></span>
-<span><span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_TYPE</span> <span class="op">&lt;-</span> <span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_TYPE</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span><span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_TYPE</span> <span class="op">&lt;-</span> <span class="va">base</span><span class="op">$</span><span class="va">VEHICLE_TYPE</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">str_to_title</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                     <span class="co"># &quot;car&quot; -&gt; &quot;Car&quot;, &quot;TRUCK&quot; -&gt; &quot;Truck&quot;</span></span>
 <span>  <span class="fu">as_factor</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
@@ -4995,13 +5561,13 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>⚠️ <em>Ce ne sont que des exemples. À vous d’explorer la base de données et de choisir ce qui est cohérent.</em></p>
-</section></section><section id="recette-de-nettoyage-approfondissement" class="level1"><h1>🧼 Recette de nettoyage — Approfondissement</h1>
+<p><em>Ce ne sont que des exemples. À vous d’explorer la base de données et de choisir ce qui est cohérent.</em></p>
+</section></section><section id="recette-de-nettoyage-approfondissement" class="level1"><h1>Recette de nettoyage — Approfondissement</h1>
 <p>Bravo ! Vous avez déjà corrigé les types de variables et nettoyé les facteurs les plus visibles. Maintenant, on pousse le nettoyage plus loin, en croisant <strong>statistiques</strong>, <strong>relations logiques</strong> et <strong>comportements aberrants</strong>. Voici votre <strong>recette de nettoyage avancé</strong>.</p>
-<section id="étape-1-statistiques-descriptives-sur-les-variables-numériques" class="level2"><h2 class="anchored" data-anchor-id="étape-1-statistiques-descriptives-sur-les-variables-numériques">📊 Étape 1 – Statistiques descriptives sur les variables numériques</h2>
+<section id="étape-1-statistiques-descriptives-sur-les-variables-numériques" class="level2"><h2 class="anchored" data-anchor-id="étape-1-statistiques-descriptives-sur-les-variables-numériques">Étape 1 – Statistiques descriptives sur les variables numériques</h2>
 <p>Tout comme on a vérifié les niveaux des facteurs, on doit vérifier si certaines <strong>valeurs numériques sont aberrantes</strong>.</p>
 <p>Prenez chaque variable numérique et résumez-la avec <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> ou un boxplot pour identifier les extrêmes.</p>
-<p>💡 <strong>Exemple : <code>COMMUTE_DISTANCE</code></strong></p>
+<p><strong>Exemple : <code>COMMUTE_DISTANCE</code></strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">COMMUTE_DISTANCE</span><span class="op">)</span></span>
 <span><span class="fu">ggplot</span><span class="op">(</span><span class="va">base</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">COMMUTE_DISTANCE</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">50</span>, fill <span class="op">=</span> <span class="st">&quot;blue&quot;</span>, alpha <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span></span>
@@ -5009,22 +5575,22 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <span>       x <span class="op">=</span> <span class="st">&quot;Distance (km)&quot;</span>, y <span class="op">=</span> <span class="st">&quot;Fréquence&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Posez-vous la question : - Une distance de 3000 km pour se rendre au travail, c’est plausible ? - Est-ce que certaines valeurs sont manquantes ou négatives ?</p>
 <p>Si vous intervenez, n’oubliez pas de <strong>justifier dans <code>journal_nettoyage</code></strong>, en utilisant le code <code>VA</code> (valeurs aberrantes) ou <code>VM</code> (valeurs manquantes).</p>
-</section><section id="étape-2-combinaisons-incohérentes-de-deux-facteurs" class="level2"><h2 class="anchored" data-anchor-id="étape-2-combinaisons-incohérentes-de-deux-facteurs">📉 Étape 2 – Combinaisons incohérentes de deux facteurs</h2>
+</section><section id="étape-2-combinaisons-incohérentes-de-deux-facteurs" class="level2"><h2 class="anchored" data-anchor-id="étape-2-combinaisons-incohérentes-de-deux-facteurs">Étape 2 – Combinaisons incohérentes de deux facteurs</h2>
 <p>Il peut exister des <strong>relations logiques</strong> entre deux variables catégoriques. Par exemple, le trimestre (<code>QUARTER</code>) et la saison (<code>SEASON</code>) devraient être cohérents.</p>
-<p>💡 <strong>Exemple : <code>QUARTER</code> et <code>SEASON</code></strong></p>
+<p><strong>Exemple : <code>QUARTER</code> et <code>SEASON</code></strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">QUARTER</span>, <span class="va">base</span><span class="op">$</span><span class="va">SEASON</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p>💬 <strong>Alex</strong> : « Si tu vois <code>QUARTER = 1</code> avec <code>SEASON = &quot;Summer&quot;</code>, tu devrais tiquer… Ce genre d’incohérence mérite d’être noté, même si tu ne sais pas quoi corriger. »</p>
+<p><strong>Alex</strong> : « Si tu vois <code>QUARTER = 1</code> avec <code>SEASON = &quot;Summer&quot;</code>, tu devrais tiquer… Ce genre d’incohérence mérite d’être noté, même si tu ne sais pas quoi corriger. »</p>
 </blockquote>
 <p>Vous pouvez aussi visualiser avec un graphique à barres croisé :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">base</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">QUARTER</span>, fill <span class="op">=</span> <span class="va">SEASON</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="st">&quot;fill&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si vous corrigez, utilisez le code <code>CI</code> (incohérences inter-variables).</p>
-</section><section id="étape-3-statistiques-groupées-facteur-numérique" class="level2"><h2 class="anchored" data-anchor-id="étape-3-statistiques-groupées-facteur-numérique">👶 Étape 3 – Statistiques groupées : facteur + numérique</h2>
+</section><section id="étape-3-statistiques-groupées-facteur-numérique" class="level2"><h2 class="anchored" data-anchor-id="étape-3-statistiques-groupées-facteur-numérique">Étape 3 – Statistiques groupées : facteur + numérique</h2>
 <p>Autre vérification : est-ce que certaines <strong>valeurs numériques sont incohérentes pour certains groupes</strong> ?</p>
-<p>💡 <strong>Exemple : <code>AGE</code> selon <code>GENERATION</code></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">GENERATION</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<p><strong>Exemple : <code>AGE</code> selon <code>GENERATION</code></strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">GENERATION</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span>min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">AGE</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>            max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">AGE</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>            mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">AGE</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
@@ -5036,20 +5602,20 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <li>Une personne de 122 ans est-elle bien classée ?</li>
 </ul>
 <p>S’il y a recodage ou regroupement à faire, utilisez le code <code>RC</code>.</p>
-</section><section id="étape-4-liens-logiques-entre-deux-variables-numériques" class="level2"><h2 class="anchored" data-anchor-id="étape-4-liens-logiques-entre-deux-variables-numériques">🧠 Étape 4 – Liens logiques entre deux variables numériques</h2>
+</section><section id="étape-4-liens-logiques-entre-deux-variables-numériques" class="level2"><h2 class="anchored" data-anchor-id="étape-4-liens-logiques-entre-deux-variables-numériques">Étape 4 – Liens logiques entre deux variables numériques</h2>
 <p>Ici, on vérifie que les relations numériques <strong>ont du sens</strong>.</p>
-<p>💡 <strong>Exemple : <code>AGE</code> vs <code>YEARS_LICENSED</code></strong></p>
+<p><strong>Exemple : <code>AGE</code> vs <code>YEARS_LICENSED</code></strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">base</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">AGE</span>, y <span class="op">=</span> <span class="va">YEARS_LICENSED</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Est-ce qu’il y a des points au-dessus d’une certaines lignes ? De quelle ligne parle t-on ici?</li>
 <li>Peut-on avoir plus d’années de permis que d’âge ?</li>
 </ul>
 <blockquote class="blockquote">
-<p>💬 <strong>Alex</strong> : « Tu n’es pas obligé de corriger ici. Par contre, <strong>si tu remarques quelque chose d’étrange</strong>, prends deux minutes pour l’écrire dans le <code>journal_nettoyage</code>. Juste pour montrer que tu l’as vu, réfléchi, et que tu as pris une décision. C’est ça être rigoureux. »</p>
+<p><strong>Alex</strong> : « Tu n’es pas obligé de corriger ici. Par contre, <strong>si tu remarques quelque chose d’étrange</strong>, prends deux minutes pour l’écrire dans le <code>journal_nettoyage</code>. Juste pour montrer que tu l’as vu, réfléchi, et que tu as pris une décision. C’est ça être rigoureux. »</p>
 </blockquote>
 <p>Utilisez ici le code <code>LG</code> pour une <strong>erreur logique</strong>.</p>
-</section><section id="étape-5-vérifications-avancées-facultatives-mais-pros" class="level2"><h2 class="anchored" data-anchor-id="étape-5-vérifications-avancées-facultatives-mais-pros">🧪 Étape 5 – Vérifications avancées (facultatives mais pros !)</h2>
+</section><section id="étape-5-vérifications-avancées-facultatives-mais-pros" class="level2"><h2 class="anchored" data-anchor-id="étape-5-vérifications-avancées-facultatives-mais-pros">Étape 5 – Vérifications avancées (facultatives mais pros !)</h2>
 <p>Voici quelques autres choses à garder à l’œil :</p>
 <ul>
 <li>
@@ -5063,390 +5629,265 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <li>
 <strong>Format de dates mélangés</strong> : on a laissé cela de côté depuis le début de ce cours, mais sachez que ca s’en vient, nous aurons un module spécial sur les dates.</li>
 </ul>
-<p>🧾 <em>Tout au long de votre nettoyage, documentez vos décisions dans la liste <code>journal_nettoyage</code>. Le but n’est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.</em></p>
-</section></section><section id="mission-accomplie" class="level1"><h1>🎉 Mission accomplie !</h1>
-<p>Bravo d’être allé·e jusqu’au bout de cette aventure ! 🧽<br>
+<p><em>Tout au long de votre nettoyage, documentez vos décisions dans la liste <code>journal_nettoyage</code>. Le but n’est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.</em></p>
+</section></section><section id="mission-accomplie" class="level1"><h1>Mission accomplie !</h1>
+<p>Bravo d’être allé·e jusqu’au bout de cette aventure !<br>
 Vous avez maintenant acquis une solide méthodologie pour nettoyer des données de manière rigoureuse et professionnelle. Vous avez :</p>
 <ul>
 <li>identifié et corrigé des erreurs de format, de type et de cohérence ;</li>
 <li>utilisé les outils de <code>dplyr</code>, <code>stringr</code>, <code>forcats</code> et <code>ggplot2</code> pour explorer les données sous toutes leurs coutures ;</li>
 <li>documenté chaque intervention dans une structure claire et transparente avec la liste <code>journal_nettoyage</code>.</li>
 </ul>
-<p>💾 <strong>Avant de terminer</strong>, n’oubliez pas de <strong>pousser sur GitHub</strong> les trois éléments suivants :</p>
+<p><strong>Avant de terminer</strong>, n’oubliez pas de <strong>pousser sur GitHub</strong> les trois éléments suivants :</p>
 <ol type="1">
-<li>📄 Le script <code>.qmd</code> de votre aventure (là où vous avez effectué vos tests, analyses et nettoyage)<br>
+<li>Le script <code>.qmd</code> de votre aventure (là où vous avez effectué vos tests, analyses et nettoyage)<br>
 </li>
-<li>📦 La liste <code>journal_nettoyage</code> enregistrée dans un objet <code>.Rdata</code><br>
+<li>La liste <code>journal_nettoyage</code> enregistrée dans un objet <code>.Rdata</code><br>
 </li>
-<li>📊 La base de données nettoyée au format <code>.csv</code>
+<li>La base de données nettoyée au format <code>.csv</code>
 </li>
 </ol>
 <p>Pour sauvegarder votre liste dans un fichier <code>.Rdata</code>, utilisez simplement ce code à la fin de votre script :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">journal_nettoyage</span>, file <span class="op">=</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p>💬 <strong>Alex</strong> : « Vous venez de faire ce que peu de gens font bien : nettoyer des données proprement, en gardant une trace de vos décisions. C’est ce qui distingue un·e vrai·e professionnel·le de quelqu’un qui bidouille. Chapeau ! »</p>
+<p><strong>Alex</strong> : « Vous venez de faire ce que peu de gens font bien : nettoyer des données proprement, en gardant une trace de vos décisions. C’est ce qui distingue un·e vrai·e professionnel·le de quelqu’un qui bidouille. Chapeau ! »</p>
 </blockquote>
 
 
 </section></main><!-- /main --><style>
-
-body.sidebar-hidden #quarto-sidebar,
-body.sidebar-hidden .quarto-sidebar,
-body.sidebar-hidden .sidebar {
-display: none !important;
-}
-body.sidebar-hidden .page-columns {
-grid-template-columns: minmax(0, 1fr) !important;
-}
-body.sidebar-hidden .page-columns .content {
-grid-column: 1 / -1 !important;
-max-width: 100% !important;
-}
-body.sidebar-hidden .sidebar-margin,
-body.sidebar-hidden .submenu,
-body.sidebar-hidden .margin-sidebar { display: none !important; }
-
-@media (min-width: 992px) {
-:root { --content-left-offset: 88px; }
-body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
-body:not(.sidebar-hidden) main#quarto-document-content,
-body:not(.sidebar-hidden) main.content {
-padding-left: var(--content-left-offset) !important;
-}
-body.sidebar-hidden nav.quarto-page-breadcrumbs,
-body.sidebar-hidden main#quarto-document-content,
-body.sidebar-hidden main.content {
-padding-left: 0 !important;
-}
-}
-.qs-toggle-controls {
-margin-left: .5rem;
+.qs-language-controls {
+margin-left:.5rem;
 display: inline-flex;
 align-items: center;
-gap: .4rem;
 flex-shrink: 0;
 }
-
-.qs-toggle-btn{
-display:inline-flex;
-align-items:center;
-gap:.4rem;
-border:1px solid rgba(0,0,0,.12);
-border-radius:.5rem;
-padding:.25rem .5rem;
-background:var(--quarto-body-bg,#fff);
-color:var(--quarto-body-color,#111);
-box-shadow:0 1px 4px rgba(0,0,0,.08);
-cursor:pointer;
-font-size:.95rem;
-line-height:1;
-}
-.qs-toggle-btn svg{display:block;color:inherit;}
-.qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-.qs-language-switch{
-display:inline-flex;
-align-items:center;
+.qs-language-switch {
+display: inline-flex;
+align-items: center;
 gap:.35rem;
-border:1px solid rgba(0,0,0,.12);
+border: 1px solid rgba(0, 0, 0,.12);
 border-radius:.5rem;
-padding:.2rem .35rem;
-background:var(--quarto-body-bg,#fff);
-box-shadow:0 1px 4px rgba(0,0,0,.08);
+padding:.2rem.35rem;
+background: var(--quarto-body-bg, #fff);
+box-shadow: 0 1px 4px rgba(0, 0, 0,.08);
 font-size:.9rem;
 }
-.qs-lang-btn{
-border:none;
+.qs-lang-btn {
+border: none;
 border-radius:.35rem;
-background:transparent;
-color:var(--quarto-body-color,#111);
-padding:.2rem .45rem;
-cursor:pointer;
+background: transparent;
+color: var(--quarto-body-color, #111);
+padding:.2rem.45rem;
+cursor: pointer;
 }
-.qs-lang-btn[aria-pressed="true"]{
-background:rgba(0,0,0,.08);
-font-weight:700;
+.qs-lang-btn[aria-pressed="true"] {
+background: rgba(0, 0, 0,.08);
+font-weight: 700;
 }
-.qs-lang-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-.qs-action-group{
-display:flex;
-align-items:center;
-gap:.35rem;
+.qs-lang-btn:focus {
+outline: 2px solid rgba(0, 0, 0,.2);
+outline-offset: 2px;
 }
-
-@media (max-width: 575.98px){
-.qs-toggle-host{
+@media (max-width: 575.98px) {
+.qs-language-host {
 top: 6px;
 right: 8px;
-gap: .3rem;
-align-items: flex-start;
 }
-.qs-language-switch{
-padding: .15rem .25rem;
-font-size: .8rem;
-}
-.qs-toggle-btn{
-padding: .15rem .35rem;
-font-size: .8rem;
-}
-.qs-toggle-btn span{
-display: none;
+.qs-language-switch {
+padding:.15rem.25rem;
+font-size:.8rem;
 }
 }
 </style>
 <script>
 (function(){
-  const SIDEBAR_KEY = 'quarto-sidebar-hidden';
   const UI_LABELS = {
-    en: {
-      sidebarTooltip: 'Show/hide left sidebar',
-      sidebarAria: 'Toggle left sidebar',
-      languageAria: 'Language selection'
-    },
-    fr: {
-      sidebarTooltip: 'Masquer/Afficher la barre latérale',
-      sidebarAria: 'Basculer la barre latérale',
-      languageAria: 'Choix de langue'
-    }
+  en: { languageAria: 'Language selection' },
+  fr: { languageAria: 'Choix de langue' }
   };
 
   const CONTENT_ROOTS = new Set([
-    'autre_materiel',
-    'module_01',
-    'module_02',
-    'module_03',
-    'module_04',
-    'module_05',
-    'module_06',
-    'module_07',
-    'module_08',
-    'module_09',
-    'module_10',
-    'projet_session'
+  'autre_materiel',
+  'module_01',
+  'module_02',
+  'module_03',
+  'module_04',
+  'module_05',
+  'module_06',
+  'module_07',
+  'module_08',
+  'module_09',
+  'module_10',
+  'projet_session'
   ]);
+
   const ROOT_FILES = new Set([
-    'index.html',
-    'modules.html',
-    'demarrage.html',
-    'calendrier.html',
-    'evaluations.html',
-    'boite_outils.html',
-    'glossaire.html',
-    'ressources.html',
-    'references.html'
+  'index.html',
+  'modules.html',
+  'demarrage.html',
+  'calendrier.html',
+  'evaluations.html',
+  'examen.html',
+  'defis.html',
+  'boite_outils.html',
+  'glossaire.html',
+  'ressources.html',
+  'references.html'
   ]);
 
   function pathSegments(pathname){
-    return pathname.split('/').filter(Boolean);
+  return pathname.split('/').filter(Boolean);
   }
 
   function isEnglishPath(pathname){
-    return /(^|\/)en(\/|$)/.test(pathname);
+  return /(^|\/)en(\/|$)/.test(pathname);
   }
 
   function joinPath(segments, trailingSlash){
-    if (segments.length === 0) return '/';
-    let path = `/${segments.join('/')}`;
-    if (trailingSlash && !path.endsWith('/')) path += '/';
-    return path;
+  if (segments.length === 0) return '/';
+  let path = `/${segments.join('/')}`;
+  if (trailingSlash && !path.endsWith('/')) path += '/';
+  return path;
   }
 
   function splitBaseAndContentSegments(segments){
-    const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
-    if (contentIndex === -1) {
-      return { baseSegments: segments, contentSegments: [] };
-    }
-    return {
-      baseSegments: segments.slice(0, contentIndex),
-      contentSegments: segments.slice(contentIndex)
-    };
+  const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
+  if (contentIndex === -1) {
+  return { baseSegments: segments, contentSegments: [] };
+  }
+  return {
+  baseSegments: segments.slice(0, contentIndex),
+  contentSegments: segments.slice(contentIndex)
+  };
   }
 
   function languageTargetUrl(targetLang){
-    const loc = window.location;
-    const path = loc.pathname;
-    const search = loc.search || '';
-    const hash = loc.hash || '';
-    const segments = pathSegments(path);
-    const enIndex = segments.indexOf('en');
+  const loc = window.location;
+  const path = loc.pathname;
+  const search = loc.search || '';
+  const hash = loc.hash || '';
+  const segments = pathSegments(path);
+  const enIndex = segments.indexOf('en');
 
-    if (targetLang === 'en') {
-      if (enIndex !== -1) return null;
-      const split = splitBaseAndContentSegments(segments);
-      const targetSegments = split.baseSegments.concat('en', split.contentSegments);
-      const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
-      return joinPath(targetSegments, trailingSlash) + search + hash;
-    }
+  if (targetLang === 'en') {
+  if (enIndex !== -1) return null;
+  const split = splitBaseAndContentSegments(segments);
+  const targetSegments = split.baseSegments.concat('en', split.contentSegments);
+  const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
 
-    if (targetLang === 'fr') {
-      if (enIndex === -1) return null;
-      const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
-      const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
-      return joinPath(targetSegments, trailingSlash) + search + hash;
-    }
+  if (targetLang === 'fr') {
+  if (enIndex === -1) return null;
+  const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
+  const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
 
-    return null;
+  return null;
   }
 
   function uiForPage(){
-    return isEnglishPath(window.location.pathname) ? UI_LABELS.en : UI_LABELS.fr;
-  }
-
-  function applySidebarStateFromStorage(){
-    const hidden = localStorage.getItem(SIDEBAR_KEY) === '1';
-    document.body.classList.toggle('sidebar-hidden', hidden);
-    const btn = document.getElementById('qs-toggle-btn');
-    if (btn) btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+  return isEnglishPath(window.location.pathname) ? UI_LABELS.en: UI_LABELS.fr;
   }
 
   function updateLanguageState(){
-    const isEn = isEnglishPath(window.location.pathname);
-    const fr = document.getElementById('qs-lang-fr');
-    const en = document.getElementById('qs-lang-en');
-    if (fr) fr.setAttribute('aria-pressed', isEn ? 'false' : 'true');
-    if (en) en.setAttribute('aria-pressed', isEn ? 'true' : 'false');
+  const isEn = isEnglishPath(window.location.pathname);
+  const fr = document.getElementById('qs-lang-fr');
+  const en = document.getElementById('qs-lang-en');
+  if (fr) fr.setAttribute('aria-pressed', isEn ? 'false': 'true');
+  if (en) en.setAttribute('aria-pressed', isEn ? 'true': 'false');
   }
 
   function onLanguageClick(targetLang){
-    return (event) => {
-      event.preventDefault();
-      const url = languageTargetUrl(targetLang);
-      if (!url) {
-        updateLanguageState();
-        return;
-      }
-      window.location.href = url;
-    };
+  return (event) => {
+  event.preventDefault();
+  const url = languageTargetUrl(targetLang);
+  if (!url) {
+  updateLanguageState();
+  return;
   }
-
-  function buildSidebarButton(){
-    const btn = document.createElement('button');
-    const labels = uiForPage();
-    btn.id = 'qs-toggle-btn';
-    btn.className = 'qs-toggle-btn';
-    btn.type = 'button';
-    btn.title = labels.sidebarTooltip;
-    btn.setAttribute('aria-label', labels.sidebarAria);
-    btn.setAttribute('aria-pressed', 'false');
-    btn.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span>Menu</span>
-    `;
-
-    btn.addEventListener('click', () => {
-      document.body.classList.toggle('sidebar-hidden');
-      const hidden = document.body.classList.contains('sidebar-hidden');
-      btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
-      try {
-        localStorage.setItem(SIDEBAR_KEY, hidden ? '1' : '0');
-      } catch (e) {
-        // ignore
-      }
-    });
-
-    return btn;
+  window.location.href = url;
+  };
   }
 
   function buildLanguageSwitch(){
-    const labels = uiForPage();
-    const wrapper = document.createElement('div');
-    wrapper.className = 'qs-language-switch';
-    wrapper.setAttribute('role', 'group');
-    wrapper.setAttribute('aria-label', labels.languageAria);
+  const labels = uiForPage();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'qs-language-switch';
+  wrapper.setAttribute('role', 'group');
+  wrapper.setAttribute('aria-label', labels.languageAria);
 
-    const fr = document.createElement('button');
-    fr.type = 'button';
-    fr.id = 'qs-lang-fr';
-    fr.className = 'qs-lang-btn';
-    fr.setAttribute('aria-pressed', 'false');
-    fr.setAttribute('aria-label', 'French version');
-    fr.textContent = 'FR';
-    fr.addEventListener('click', onLanguageClick('fr'));
+  const fr = document.createElement('button');
+  fr.type = 'button';
+  fr.id = 'qs-lang-fr';
+  fr.className = 'qs-lang-btn';
+  fr.setAttribute('aria-pressed', 'false');
+  fr.setAttribute('aria-label', 'French version');
+  fr.textContent = 'FR';
+  fr.addEventListener('click', onLanguageClick('fr'));
 
-    const en = document.createElement('button');
-    en.type = 'button';
-    en.id = 'qs-lang-en';
-    en.className = 'qs-lang-btn';
-    en.setAttribute('aria-pressed', 'false');
-    en.setAttribute('aria-label', 'English version');
-    en.textContent = 'EN';
-    en.addEventListener('click', onLanguageClick('en'));
+  const en = document.createElement('button');
+  en.type = 'button';
+  en.id = 'qs-lang-en';
+  en.className = 'qs-lang-btn';
+  en.setAttribute('aria-pressed', 'false');
+  en.setAttribute('aria-label', 'English version');
+  en.textContent = 'EN';
+  en.addEventListener('click', onLanguageClick('en'));
 
-    wrapper.appendChild(fr);
-    wrapper.appendChild(en);
-    return wrapper;
+  wrapper.appendChild(fr);
+  wrapper.appendChild(en);
+  return wrapper;
   }
 
-  function buildActions(){
-    const box = document.createElement('div');
-    box.className = 'qs-toggle-controls';
-    box.appendChild(buildLanguageSwitch());
-    box.appendChild(buildSidebarButton());
-    return box;
+  function buildControls(){
+  const box = document.createElement('div');
+  box.className = 'qs-language-controls';
+  box.appendChild(buildLanguageSwitch());
+  return box;
   }
 
   function insertControls(){
-    document.querySelectorAll('.qs-toggle-controls').forEach((node) => node.remove());
+  document.querySelectorAll('.qs-language-controls').forEach((node) => node.remove());
 
-    const actions = buildActions();
-    const tools = document.querySelector('.quarto-navbar-tools');
-    if (tools) {
-      tools.appendChild(actions);
-      applySidebarStateFromStorage();
-      updateLanguageState();
-      return true;
-    }
-
-    const header = document.getElementById('quarto-header');
-    if (header) {
-      let host = header.querySelector('.qs-toggle-host');
-      if (!host) {
-        host = document.createElement('div');
-        host.className = 'qs-toggle-host';
-        host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex; gap:.4rem;';
-        header.style.position = header.style.position || 'relative';
-        header.appendChild(host);
-      }
-      host.innerHTML = '';
-      host.appendChild(actions);
-      applySidebarStateFromStorage();
-      updateLanguageState();
-      return true;
-    }
-
-    return false;
+  const controls = buildControls();
+  const tools = document.querySelector('.quarto-navbar-tools');
+  if (tools) {
+  tools.appendChild(controls);
+  updateLanguageState();
+  return true;
   }
 
-  function setupResponsiveGuard(){
-    const mq = window.matchMedia('(max-width: 575.98px)');
-    const handle = () => {
-      if (mq.matches) {
-        document.body.classList.remove('sidebar-hidden');
-      } else {
-        applySidebarStateFromStorage();
-      }
-    };
-    if (mq.addEventListener) {
-      mq.addEventListener('change', handle);
-    } else {
-      mq.addListener(handle);
-    }
-    handle();
+  const header = document.getElementById('quarto-header');
+  if (header) {
+  let host = header.querySelector('.qs-language-host');
+  if (!host) {
+  host = document.createElement('div');
+  host.className = 'qs-language-host';
+  host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex;';
+  header.style.position = header.style.position || 'relative';
+  header.appendChild(host);
+  }
+  host.innerHTML = '';
+  host.appendChild(controls);
+  updateLanguageState();
+  return true;
+  }
+
+  return false;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    applySidebarStateFromStorage();
-    updateLanguageState();
-    insertControls();
-    setupResponsiveGuard();
+  insertControls();
+  updateLanguageState();
   });
 
   const obs = new MutationObserver(() => {
-    if (document.getElementById('qs-toggle-btn') && document.getElementById('qs-lang-fr')) return;
-    if (document.querySelector('.navbar, .quarto-navbar, #quarto-header .navbar, #quarto-header')) {
-      insertControls();
-    }
+  if (document.getElementById('qs-lang-fr') && document.getElementById('qs-lang-en')) return;
+  if (document.querySelector('.navbar,.quarto-navbar, #quarto-header.navbar, #quarto-header')) {
+  insertControls();
+  }
   });
   obs.observe(document.documentElement, { childList: true, subtree: true });
 })();

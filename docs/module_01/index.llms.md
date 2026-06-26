@@ -1,57 +1,158 @@
-# Module 01 - Plongée en science des données
+# Plongée en science des données
 
 Module 01
 
-# Plongée en science des données
+Découvrir le rôle d’une analyse reproductible et les premiers gestes dans RStudio, R et Quarto.
 
-Découvrir le rôle d’une analyse reproductible et les premiers gestes dans RStudio.
+Fil principalPremiers gestes R et Quarto
 
-Cette page sert de porte d’entrée. Elle donne le contexte, les ressources et les traces attendues avant de passer aux notes détaillées.
+DonnéesMeteoQuebec et premiers tableaux
 
-## Parcours du module
+DéfiMini-rapport Quarto reproductible
 
-### Plan d’apprentissage
+## Produit fini du module
 
-Accéder à la ressource du module.
+Produit final
 
-[Ouvrir](../module_01/plan_apprentissage.llms.md)
+### Un mini-rapport Quarto reproductible
 
-### Aventure
+Le chapitre mène vers un premier document HTML qui importe des données, affiche des résultats et peut être rendu de nouveau sans bricolage.
 
-Accéder à la ressource du module.
+**rapport.html**
 
-[Ouvrir](../module_01/aventure.llms.md)
+données chargées
+
+résumés clairs
+
+rendu reproductible
+
+données chargées résumés clairs rendu reproductible
+
+## Objectifs du module
+
+À la fin de ce module, vous devriez être capable de
+
+- Utiliser RStudio pour rédiger et exécuter du code R à l’aide de la console et de scripts.
+
+- Installer et charger des libraries.
+
+- Créer et manipuler des objets R, utiliser des conditions, utiliser des fonctions existantes, écrire des fonctions simples.
+
+- Rédiger le code R en suivant les conventions de style du tidyverse.
+
+- Vérifier si un jeu de données est propre.
+
+- Extraire une ligne ou une colonne, ajouter une colonne, filtrer des données en utilisant une ou plusieurs conditions.
+
+- Rédiger un rapport simple dans Quarto, incluant du texte, des blocs de code, des titres de sections.
+
+## Plan d’apprentissage
+
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+
+1 Lectures à faire Installer les repères R, RStudio, Quarto et reproductibilité. Dans la carte Ouvrir la carteRéduire
+
+### Lectures initiales
+
+#### Le livre de référence
+
+Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage **R for Data Science** (*2e édition*, par Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund).
+
+> Note: on abrègera souvent par **R4DS**
+
+C’est une **référence incontournable**, accessible gratuitement en ligne et rédigée en **anglais** clair. Vous y trouverez des explications complètes et des exemples concrets pour apprendre à travailler efficacement avec `tidyverse`.
+
+\*\* Astuce\*\* : en cas de doute ou de blocage, consultez le document [Comment rechercher et obtenir de l’aide](../references.llms.md).
+
+------------------------------------------------------------------------
+
+##### À lire pour ce module
+
+- [Page d’accueil du livre](https://r4ds.hadley.nz/)
+  *Une vue d’ensemble du livre, de ses auteurs et des thématiques abordées dans chaque partie.*
+
+- [Introduction](https://r4ds.hadley.nz/intro.html)
+  *Pourquoi apprendre R pour la science des données, et comment aborder votre apprentissage dans ce cours.*
+
+- [Workflow: basics](https://r4ds.hadley.nz/workflow-basics.html)
+  *Les premiers pas dans RStudio : l’environnement, les scripts et le comportement interactif de R.*
+
+- [Workflow: scripts](https://r4ds.hadley.nz/workflow-scripts.html)
+  *Pourquoi utiliser des scripts pour rendre votre travail reproductible, clair et bien structuré.*
+
+2 Aventure Créer un premier rapport à partir des données météo. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
+
+Objectif Passer de la lecture à la pratique guidée.
+
+Ressource [Page Aventure](aventure.llms.md)
+
+Action Suivre les consignes, exécuter le code et garder les sorties importantes.
+
+Résultat Un premier objet de travail que vous pouvez expliquer.
+
+Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
+
+3 Défi Rendre un mini-rapport HTML clair et reproductible. Dans la carte Ouvrir la carteRéduire
 
 ### Défi
 
-Accéder à la ressource du module.
+Dans ce premier défi, afin de vous faire la main avec les différents outils, vous devez créer un rapport Quarto au format HTML.
 
-[Ouvrir](../module_01/defi.llms.md)
+[Défi du module 1](defi.llms.md)
 
-### Exercices corrigés
+#### Lectures additionnelles
 
-Accéder à la ressource du module.
+##### Approfondir les bonnes pratiques
 
-[Ouvrir](../module_01/exercices_corriges.llms.md)
+Une fois les bases posées, il est essentiel d’adopter dès le départ des **habitudes de travail claires, reproductibles et cohérentes**. Les ressources ci-dessous vous aideront à améliorer la lisibilité, la structure et l’organisation de votre code.
 
-> **NOTE:**
->
-> - Découvrir le rôle d’une analyse reproductible et les premiers gestes dans RStudio.
-> - Trace attendue : une première trace de travail reproductible.
+------------------------------------------------------------------------
 
-## Compétences travaillées
+##### Compléments R4DS
 
-- ouvrir et exécuter du code R
-- produire une première trace Quarto
-- décrire un jeu de données simplement
+- [Workflow: help](https://r4ds.hadley.nz/workflow-help.html)
+  *Apprendre à poser les bonnes questions, à chercher efficacement dans la documentation et à formuler des demandes d’aide pertinentes.*
+
+- [Quarto formats](https://r4ds.hadley.nz/quarto-formats.html)
+  *Présentation des formats disponibles dans Quarto et comment personnaliser vos rapports, articles ou présentations.*
+
+- [Workflow: style](https://r4ds.hadley.nz/workflow-style.html)
+  *Pourquoi un style de code cohérent est crucial pour la collaboration et comment y parvenir avec le style tidyverse.*
+
+------------------------------------------------------------------------
+
+##### Guide de style du tidyverse
+
+- [Chapitre 1: Files](https://style.tidyverse.org/files.html)
+  *Conseils pour organiser vos fichiers, structurer vos projets et nommer vos scripts de façon claire.*
+
+- [Chapitre 2: Syntax](https://style.tidyverse.org/syntax.html)
+  *Règles de syntaxe pour écrire du code lisible, espacement, indentation et conventions de nommage.*
+
+4 Exercices Reprendre console, scripts, aide et rendu Quarto. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+
+Ressource [Page Exercices](exercices.llms.md)
+
+Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+
+Refaites au moins un passage sans regarder la solution immédiatement.
 
 ## Données et outils
 
-jeux de données d’initiation et exemples fournis dans le module
+### Bases de données
 
-## Je suis capable de
+[UlavalSSD::MeteoQuebec](../donnees.llms.md#dataset-card-meteo-quebec)
 
-- ouvrir et exécuter du code R
-- produire une première trace Quarto
-- décrire un jeu de données simplement
-- relier le travail du module au projet de session
+### Packages R
+
+[tidyverse](../packages.llms.md#tidyverse) [dplyr](../packages.llms.md#dplyr) [knitr](../packages.llms.md#knitr) [remotes](../packages.llms.md#remotes) [ulavalssd](../packages.llms.md#ulavalssd)
+
+## Révision et prolongement
+
+### Finir le module avec l’IA du cours
+
+Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.
+
+- Expliquez le produit fini en trois phrases.
+- Collez un extrait de code ou de sortie et demandez un diagnostic.
+- Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.

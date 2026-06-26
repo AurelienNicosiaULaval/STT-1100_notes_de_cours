@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -4062,6 +4062,30 @@ margin: 1rem 0 1.5rem;
 .portal-hero h1 { margin: .2rem 0 .6rem; color: var(--ink); }
 .hero-lead { font-size: 1.12rem; max-width: 70ch; color: var(--muted); margin-bottom: 0; }
 .eyebrow, .card-kicker { text-transform: uppercase; letter-spacing: .08em; color: var(--ulaval-red); font-size: .78rem; margin: 0 0 .35rem; font-weight: 700; }
+.module-banner {
+display: grid;
+gap: .25rem;
+border-left: 6px solid var(--ulaval-red);
+background: linear-gradient(90deg, #fff7f7 0%, #ffffff 60%, #f7fbfc 100%);
+color: var(--ink);
+border-radius: var(--radius);
+padding: 1rem 1.2rem;
+margin: .75rem 0 1.2rem;
+}
+.module-banner-number {
+margin: 0;
+color: var(--ulaval-red);
+font-size: .86rem;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+}
+.module-banner-subtitle {
+margin: 0;
+color: var(--muted);
+font-size: 1.02rem;
+line-height: 1.35;
+}
 .quick-panel {
 background: #fff9e6;
 border: 1px solid #f1d880;
@@ -4109,6 +4133,849 @@ font-size: .78rem;
 color: var(--muted);
 background: var(--soft);
 }
+.resource-link-grid,
+.catalog-grid,
+.package-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 1rem;
+margin: 1rem 0 1.5rem;
+}
+.catalog-grid > p,
+.package-grid > p {
+display: contents;
+}
+.resource-link-card,
+.dataset-row,
+.dataset-card,
+.package-card {
+display: grid;
+grid-template-columns: 48px minmax(0, 1fr);
+gap: .85rem;
+align-items: center;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+color: var(--ink);
+padding: 1rem;
+min-height: 7.25rem;
+text-decoration: none;
+box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.resource-link-card:hover,
+.resource-link-card:focus,
+.dataset-row:hover,
+.dataset-row:focus,
+.dataset-card:hover,
+.dataset-card:focus,
+.package-card:hover,
+.package-card:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+transform: translateY(-1px);
+}
+.dataset-card,
+.package-card {
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.dataset-card {
+align-items: start;
+min-height: 8.25rem;
+}
+.resource-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 44px;
+height: 44px;
+border-radius: 8px;
+background: #fff3d4;
+color: var(--ulaval-red);
+font-size: 1.35rem;
+}
+.resource-title,
+.package-name {
+display: block;
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.dataset-module {
+display: block;
+margin-bottom: .2rem;
+color: var(--muted);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.resource-text,
+.package-role {
+display: block;
+color: var(--muted);
+font-size: .92rem;
+line-height: 1.35;
+margin-top: .2rem;
+}
+.package-source {
+display: block;
+margin-top: .45rem;
+color: var(--blue);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.dataset-download-wrap {
+margin: .75rem 0 1rem;
+}
+.dataset-download {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 2.35rem;
+padding: .5rem .75rem;
+border: 1px solid var(--ulaval-red);
+border-radius: 7px;
+background: var(--ulaval-red);
+color: #ffffff !important;
+font-weight: 700;
+line-height: 1.1;
+text-decoration: none;
+}
+.dataset-download:hover,
+.dataset-download:focus {
+filter: brightness(.95);
+text-decoration: none;
+}
+.tag-list {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+margin: .75rem 0 1.25rem;
+}
+.tag-list p {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+margin: 0;
+}
+.tag-list a {
+display: inline-block;
+border: 1px solid var(--line);
+border-radius: 999px;
+padding: .24rem .58rem;
+background: var(--soft);
+color: var(--ink);
+text-decoration: none;
+font-size: .88rem;
+}
+.tag-list a:hover,
+.tag-list a:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.module-quick-facts {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+gap: .8rem;
+margin: 1.1rem 0 1.6rem;
+}
+.module-quick-facts.three-facts {
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.module-fact {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .75rem;
+align-items: center;
+min-height: 5rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: .85rem;
+}
+.fact-label,
+.fact-value {
+display: block;
+line-height: 1.25;
+}
+.fact-label {
+color: var(--muted);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.fact-value {
+margin-top: .2rem;
+color: var(--ink);
+font-weight: 700;
+}
+.module-product-showcase {
+display: grid;
+grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+gap: 1rem;
+align-items: stretch;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+margin: 1rem 0 1.6rem;
+overflow: hidden;
+}
+.product-copy {
+padding: 1rem 1.15rem;
+}
+.showcase-kicker {
+margin: 0 0 .35rem;
+color: var(--ulaval-red);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+}
+.product-copy h3 {
+margin: 0 0 .55rem;
+color: var(--ink);
+}
+.product-copy p:last-child {
+margin-bottom: 0;
+}
+.product-visual {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 13rem;
+background:
+linear-gradient(135deg, rgba(255, 193, 3, .18), rgba(0, 124, 137, .1)),
+#f8fafb;
+padding: 1rem;
+}
+.mini-product-board {
+width: min(100%, 23rem);
+border: 1px solid #cfd8dc;
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 12px 26px rgba(32, 33, 36, .10);
+overflow: hidden;
+}
+.mini-product-toolbar {
+display: grid;
+grid-template-columns: .55rem .55rem .55rem minmax(0, 1fr);
+gap: .35rem;
+align-items: center;
+min-height: 2.35rem;
+padding: .55rem .7rem;
+background: #f1f4f6;
+border-bottom: 1px solid #dde4e8;
+}
+.mini-product-toolbar span {
+width: .55rem;
+height: .55rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+}
+.mini-product-toolbar span:nth-child(2) { background: var(--ulaval-yellow); }
+.mini-product-toolbar span:nth-child(3) { background: var(--teal); }
+.mini-product-toolbar strong {
+min-width: 0;
+color: var(--ink);
+font-size: .82rem;
+line-height: 1.15;
+overflow-wrap: anywhere;
+}
+.mini-product-bars {
+display: grid;
+gap: .55rem;
+padding: .85rem .8rem .35rem;
+}
+.mini-bar-row {
+display: grid;
+grid-template-columns: minmax(6.5rem, .9fr) minmax(5rem, 1.1fr);
+gap: .7rem;
+align-items: center;
+color: var(--muted);
+font-size: .78rem;
+line-height: 1.2;
+}
+.mini-bar {
+display: block;
+height: .55rem;
+border-radius: 999px;
+background: #e6ebef;
+overflow: hidden;
+}
+.mini-bar::after {
+content: "";
+display: block;
+width: var(--bar-width);
+height: 100%;
+border-radius: inherit;
+background: var(--blue);
+}
+.mini-product-checks {
+display: flex;
+flex-wrap: wrap;
+gap: .4rem;
+padding: .75rem .8rem .9rem;
+}
+.mini-product-checks span {
+display: inline-flex;
+align-items: center;
+gap: .25rem;
+border: 1px solid #dce7dc;
+border-radius: 999px;
+padding: .2rem .5rem;
+background: #f2f8f1;
+color: var(--ink);
+font-size: .76rem;
+line-height: 1.15;
+}
+.mini-product-checks i {
+color: #31784a;
+}
+.path-grid {
+display: grid;
+gap: .85rem;
+margin: 1rem 0 1.6rem;
+}
+.interactive-path {
+grid-template-columns: 1fr;
+}
+.path-card {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 1px 2px rgba(0,0,0,.04);
+overflow: hidden;
+}
+.path-card[open] {
+border-color: #b8cbd9;
+box-shadow: 0 10px 24px rgba(49, 95, 140, .08);
+}
+.path-card summary {
+display: grid;
+grid-template-columns: 2.15rem minmax(10rem, 1.1fr) minmax(12rem, 2fr) minmax(8rem, auto) minmax(5.5rem, auto);
+gap: .7rem;
+align-items: center;
+padding: .85rem 1rem;
+cursor: pointer;
+list-style: none;
+}
+.path-card summary::-webkit-details-marker {
+display: none;
+}
+.path-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2rem;
+height: 2rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+line-height: 1;
+}
+.path-title {
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.path-preview {
+color: var(--muted);
+font-size: .92rem;
+line-height: 1.3;
+}
+.path-resource {
+display: flex;
+flex-wrap: wrap;
+gap: .35rem;
+justify-content: flex-end;
+}
+.path-toggle {
+color: var(--blue);
+font-size: .82rem;
+font-weight: 700;
+text-align: right;
+}
+.path-card[open] .closed-label,
+.path-card:not([open]) .open-label {
+display: none;
+}
+.summary-resource-link,
+.path-note {
+display: inline-flex;
+align-items: center;
+min-height: 1.75rem;
+border: 1px solid var(--line);
+border-radius: 999px;
+padding: .2rem .55rem;
+background: var(--soft);
+color: var(--ink);
+font-size: .8rem;
+font-weight: 700;
+line-height: 1.1;
+text-decoration: none;
+white-space: nowrap;
+}
+.summary-resource-link:hover,
+.summary-resource-link:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.plan-link { background: #fff3d4; }
+.adventure-link { background: #e9f4f6; }
+.exercise-link { background: #eef5ec; }
+.challenge-link { background: #fff0ee; }
+.data-link { background: #edf3fb; }
+.package-link { background: #fff0ee; }
+.step-detail {
+border-top: 1px solid var(--line);
+background: #fbfcfd;
+padding: .9rem 1rem 1rem 4rem;
+}
+.step-detail p {
+margin: .35rem 0;
+}
+.plan-section-detail {
+padding: 1rem 1.1rem 1.1rem 4rem;
+}
+.plan-section-copy {
+display: grid;
+gap: .55rem;
+max-width: 78ch;
+}
+.plan-section-copy h3,
+.plan-section-copy h4,
+.plan-section-copy h5 {
+margin: .15rem 0 .25rem;
+border-bottom: 0;
+padding-bottom: 0;
+color: var(--ink);
+}
+.plan-section-copy h3 {
+font-size: 1.05rem;
+}
+.plan-section-copy h4 {
+font-size: .98rem;
+}
+.plan-section-copy p,
+.plan-section-copy ul,
+.plan-section-copy ol {
+margin-top: 0;
+margin-bottom: .45rem;
+}
+.plan-section-copy li > p {
+margin-bottom: .25rem;
+}
+.plan-section-copy code {
+overflow-wrap: anywhere;
+}
+.plan-section-copy blockquote {
+margin: .35rem 0;
+background: #fff9e6;
+border-left: 4px solid var(--ulaval-yellow);
+border-radius: 0 var(--radius) var(--radius) 0;
+padding: .65rem .8rem;
+}
+.step-label {
+display: inline-block;
+min-width: 5.5rem;
+color: var(--muted);
+font-size: .8rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.ae-box,
+.challenge-box {
+border-left: 4px solid var(--ulaval-yellow);
+background: #fff9e6;
+border-radius: 0 var(--radius) var(--radius) 0;
+padding: .75rem .9rem;
+margin-top: .8rem;
+}
+.ae-title {
+margin: 0;
+color: var(--ink);
+font-weight: 700;
+}
+.resource-list {
+display: grid;
+gap: .7rem;
+margin: 1rem 0 1.6rem;
+}
+.resource-row {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .75rem;
+align-items: center;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+color: var(--ink);
+padding: .8rem;
+text-decoration: none;
+}
+.resource-row:hover,
+.resource-row:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+transform: translateY(-1px);
+}
+.resource-row-title,
+.resource-row-text {
+display: block;
+}
+.resource-row-title {
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.resource-row-text {
+margin-top: .15rem;
+color: var(--muted);
+font-size: .9rem;
+line-height: 1.35;
+}
+.module-resource-panel {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1rem 0 1.6rem;
+}
+.module-resource-section {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: 1rem;
+}
+.module-resource-section h3 {
+margin: 0 0 .75rem;
+color: var(--ink);
+}
+.module-chip-list {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+}
+.module-resource-chip {
+display: inline-flex;
+align-items: center;
+gap: .4rem;
+min-height: 2rem;
+max-width: 100%;
+border: 1px solid var(--line);
+border-radius: 999px;
+background: var(--soft);
+color: var(--ink);
+padding: .28rem .58rem .28rem .36rem;
+font-size: .88rem;
+font-weight: 700;
+line-height: 1.15;
+text-decoration: none;
+}
+.module-resource-chip:hover,
+.module-resource-chip:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.module-resource-chip span:last-child {
+min-width: 0;
+overflow-wrap: anywhere;
+}
+.chip-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex: 0 0 auto;
+width: 1.45rem;
+height: 1.45rem;
+border-radius: 50%;
+background: #ffffff;
+color: var(--ulaval-red);
+font-size: .86rem;
+}
+.closing-panel {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .9rem;
+align-items: start;
+border: 1px solid #dce7dc;
+border-radius: var(--radius);
+background: #f7fbf5;
+padding: 1rem;
+margin: 1rem 0 1.6rem;
+}
+.closing-panel h3 {
+margin: 0 0 .45rem;
+color: var(--ink);
+}
+.closing-panel p {
+margin-top: 0;
+}
+.closing-panel ul {
+margin-bottom: 0;
+}
+.resource-page {
+display: grid;
+gap: 2rem;
+}
+body.page-resource #title-block-header {
+display: none !important;
+}
+.resource-hero {
+display: grid;
+grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
+gap: 1.25rem;
+align-items: stretch;
+border-left: 6px solid var(--ulaval-red);
+border-radius: var(--radius);
+background: linear-gradient(90deg, #fff7f7 0%, #ffffff 58%, #f7fbfc 100%);
+padding: 1.35rem;
+margin: 1rem 0 .2rem;
+}
+.resource-hero h1 {
+margin: .15rem 0 .55rem;
+color: var(--ink);
+}
+.resource-hero p {
+max-width: 76ch;
+}
+.resource-actions {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+margin-top: 1rem;
+}
+.home-action {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 2.35rem;
+border: 1px solid var(--line);
+border-radius: 7px;
+background: #ffffff;
+color: var(--ink);
+padding: .45rem .75rem;
+font-weight: 700;
+line-height: 1.1;
+text-decoration: none;
+}
+.home-action:hover,
+.home-action:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.home-action--primary {
+border-color: var(--ulaval-red);
+background: var(--ulaval-red);
+color: #ffffff !important;
+}
+.home-action--primary:hover,
+.home-action--primary:focus {
+color: #ffffff !important;
+filter: brightness(.95);
+}
+.resource-panel {
+display: grid;
+gap: .65rem;
+align-content: center;
+border: 1px solid rgba(49, 95, 140, .18);
+border-radius: var(--radius);
+background: rgba(255, 255, 255, .72);
+padding: .85rem;
+}
+.resource-panel div {
+display: grid;
+grid-template-columns: 2.4rem minmax(0, 1fr);
+gap: .55rem;
+align-items: center;
+}
+.resource-panel span {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-width: 2.25rem;
+height: 2.25rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+}
+.resource-panel p {
+margin: 0;
+color: var(--ink);
+font-weight: 700;
+line-height: 1.25;
+}
+.resource-section {
+display: grid;
+gap: .95rem;
+}
+.resource-section__header h2 {
+margin-top: 0;
+}
+.resource-section__header p {
+max-width: 76ch;
+margin-bottom: 0;
+color: var(--muted);
+}
+.resource-hub-grid,
+.principle-grid,
+.course-flow,
+.role-grid,
+.reading-map,
+.dataset-showcase-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+gap: 1rem;
+}
+.resource-hub-card,
+.principle-card,
+.flow-card,
+.role-card,
+.resource-compact,
+.reading-map article {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: 1rem;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.resource-hub-card h3,
+.principle-card h3,
+.flow-card h3,
+.role-card h3,
+.resource-compact h3,
+.reading-map h3 {
+margin: 0 0 .45rem;
+color: var(--ink);
+}
+.resource-hub-card p,
+.principle-card p,
+.flow-card p,
+.role-card p,
+.resource-compact p,
+.reading-map p {
+margin-top: 0;
+color: var(--muted);
+}
+.resource-hub-card p:last-child,
+.principle-card p:last-child,
+.flow-card p:last-child,
+.role-card p:last-child,
+.resource-compact p:last-child,
+.reading-map p:last-child {
+margin-bottom: 0;
+}
+.resource-link-list {
+display: grid;
+gap: .55rem;
+margin-top: .85rem;
+}
+.resource-link-list a {
+display: grid;
+gap: .1rem;
+border: 1px solid var(--line);
+border-radius: 7px;
+background: var(--soft);
+color: var(--ink);
+padding: .65rem .7rem;
+text-decoration: none;
+}
+.resource-link-list a:hover,
+.resource-link-list a:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+}
+.resource-link-list span:first-child {
+font-weight: 700;
+}
+.resource-link-list span:last-child {
+color: var(--muted);
+font-size: .88rem;
+line-height: 1.3;
+}
+.resource-split {
+grid-template-columns: minmax(0, 1fr) minmax(260px, .85fr);
+align-items: start;
+}
+.resource-compact-list {
+display: grid;
+gap: .85rem;
+}
+.book-list {
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.resource-compact a {
+font-weight: 700;
+}
+.flow-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2rem;
+height: 2rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+margin-bottom: .65rem;
+}
+.clean-steps {
+margin-bottom: 0;
+}
+.compact-hub {
+grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.path-note {
+color: var(--blue);
+}
+.dataset-card h2,
+.package-card h2 {
+margin: 0 0 .4rem;
+border-bottom: 0;
+padding-bottom: 0;
+font-size: 1.05rem;
+}
+.dataset-meta,
+.dataset-actions,
+.package-actions {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+align-items: center;
+margin-top: .7rem;
+}
+.dataset-meta span,
+.package-actions span {
+display: inline-flex;
+border: 1px solid var(--line);
+border-radius: 999px;
+background: var(--soft);
+color: var(--muted);
+padding: .18rem .5rem;
+font-size: .78rem;
+font-weight: 700;
+line-height: 1.1;
+}
+.dataset-card .dataset-download,
+.package-card .dataset-download {
+margin-top: .4rem;
+}
+.dt-container,
+.dataTables_wrapper {
+margin: .8rem 0 1rem;
+}
 pre, code { border-radius: 4px; }
 blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; color: var(--muted); }
 .callout { border-radius: var(--radius); }
@@ -4124,13 +4991,53 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 .mermaid { font-size: 0.65em; }
 @media (max-width: 700px) {
 .portal-hero { padding: 1rem; }
-.portal-grid, .module-grid { grid-template-columns: 1fr; }
+.portal-grid,
+.module-grid,
+.resource-link-grid,
+.catalog-grid,
+.package-grid,
+.resource-hero,
+.resource-split,
+.resource-hub-grid,
+.principle-grid,
+.course-flow,
+.role-grid,
+.reading-map,
+.book-list,
+.module-product-showcase,
+.module-resource-panel,
+.module-quick-facts {
+grid-template-columns: 1fr;
+}
+.path-card summary {
+grid-template-columns: 2.15rem minmax(0, 1fr);
+}
+.module-quick-facts.three-facts {
+grid-template-columns: 1fr;
+}
+.path-preview,
+.path-resource,
+.path-toggle {
+grid-column: 2;
+justify-content: flex-start;
+text-align: left;
+}
+.step-detail {
+padding-left: 1rem;
+}
+.plan-section-detail {
+padding: 1rem;
+}
+.step-label {
+display: block;
+margin-bottom: .05rem;
+}
 .portal-button { display: block; width: fit-content; }
 }
 </style>
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -4148,24 +5055,86 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page">
+    <a class="nav-link" href="../index.html">
 <span class="menu-text">Accueil</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../demarrage.html">
 <span class="menu-text">Démarrage</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../modules.html">
-<span class="menu-text">Modules</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Modules</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
+        <li>
+    <a class="dropdown-item" href="../modules.html">
+ <span class="dropdown-text">Vue d’ensemble</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../projet_session/index.html">
-<span class="menu-text">Projet</span></a>
+        <li>
+    <a class="dropdown-item" href="../module_01/index.html">
+ <span class="dropdown-text">Module 01 - Plongée en science des données</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../evaluations.html">
-<span class="menu-text">Évaluations</span></a>
+        <li>
+    <a class="dropdown-item" href="../module_02/index.html">
+ <span class="dropdown-text">Module 02 - GitHub et visualisation de données</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_03/index.html">
+ <span class="dropdown-text">Module 03 - Les catégories sous toutes leurs formes</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_04/index.html">
+ <span class="dropdown-text">Module 04 - Facteurs et nettoyage de données</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_05/index.html">
+ <span class="dropdown-text">Module 05 - Explorer et comprendre les relations entre les variables</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_06/index.html">
+ <span class="dropdown-text">Module 06 - Collaboration et reproductibilité dans GitHub</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_07/index.html">
+ <span class="dropdown-text">Module 07 - Visualisation, éthique et sécurisation des données</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_08/index.html">
+ <span class="dropdown-text">Module 08 - Automatisation et exploration du web</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_09/index.html">
+ <span class="dropdown-text">Module 09 - Prédiction et biais</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_10/index.html">
+ <span class="dropdown-text">Module 10 - Au-delà des données: texte et tableau de bord</span></a>
+  </li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-valuations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Évaluations</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-valuations">
+        <li>
+    <a class="dropdown-item" href="../evaluations.html">
+ <span class="dropdown-text">Vue d’ensemble</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../examen.html">
+ <span class="dropdown-text">Examen</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../defis.html">
+ <span class="dropdown-text">Défis</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../projet_session/index.html">
+ <span class="dropdown-text">Projet de session</span></a>
+  </li>
+    </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../ressources.html">
@@ -4183,433 +5152,26 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_03/index.html">3 - Les catégories sous toutes leurs formes</a></li><li class="breadcrumb-item"><a href="../module_03/aventure.html">Aventure</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container">
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tableau de bord</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../demarrage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Démarrage</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../calendrier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Calendrier</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../evaluations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Évaluations</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">1 - Plongée en science des données</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/defi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Défi</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercices corrigés</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">2 - GitHub et visualisation de données</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">3 - Les catégories sous toutes leurs formes</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/aventure.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">4 - Facteurs et nettoyage de données</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
- <span class="menu-text">5 - Explorer et comprendre les relations entre les variables</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/exercices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercices</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">6 - Collaboration et reproductibilité dans GitHub</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
- <span class="menu-text">7 - Visualisation, éthique et sécurisation des données</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyse COVID</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
- <span class="menu-text">8 - Automatisation et exploration du web</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
- <span class="menu-text">9 - Prédiction et biais</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">10 - Au-delà des données : texte et tableau de bord</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan d’apprentissage</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Projet de session</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../projet_session/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vue d’ensemble</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Énoncé du projet</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../boite_outils.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Boîte à outils</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../glossaire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Glossaire</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Matériel de référence</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Plan</h2>
 
   <ul>
-  <li><a href="#mise-en-situation-devenez-data-journalist" id="toc-mise-en-situation-devenez-data-journalist" class="nav-link active" data-scroll-target="#mise-en-situation-devenez-data-journalist">🎬 Mise en situation : Devenez <em>data journalist</em></a>
+  <li><a href="#mise-en-situation-devenez-data-journalist" id="toc-mise-en-situation-devenez-data-journalist" class="nav-link active" data-scroll-target="#mise-en-situation-devenez-data-journalist">Mise en situation : Devenez <em>data journalist</em></a>
   <ul class="collapse">
   <li><a href="#objectifs-de-laventure" id="toc-objectifs-de-laventure" class="nav-link" data-scroll-target="#objectifs-de-laventure">Objectifs de l’aventure</a></li>
   </ul></li>
-  <li><a href="#comment-réussir-laventure" id="toc-comment-réussir-laventure" class="nav-link" data-scroll-target="#comment-réussir-laventure">🎯 Comment réussir l’aventure</a></li>
-  <li><a href="#travail-sur-github" id="toc-travail-sur-github" class="nav-link" data-scroll-target="#travail-sur-github">🚀 Travail sur Github</a></li>
-  <li><a href="#variables-catégoriques-les-bases-en-r-avec-stringr" id="toc-variables-catégoriques-les-bases-en-r-avec-stringr" class="nav-link" data-scroll-target="#variables-catégoriques-les-bases-en-r-avec-stringr">🏷️ Variables catégoriques : les bases en R avec <code>stringr</code></a>
+  <li><a href="#comment-réussir-laventure" id="toc-comment-réussir-laventure" class="nav-link" data-scroll-target="#comment-réussir-laventure">Comment réussir l’aventure</a></li>
+  <li><a href="#travail-sur-github" id="toc-travail-sur-github" class="nav-link" data-scroll-target="#travail-sur-github">Travail sur Github</a></li>
+  <li><a href="#variables-catégoriques-les-bases-en-r-avec-stringr" id="toc-variables-catégoriques-les-bases-en-r-avec-stringr" class="nav-link" data-scroll-target="#variables-catégoriques-les-bases-en-r-avec-stringr">Variables catégoriques : les bases en R avec <code>stringr</code></a>
   <ul class="collapse">
-  <li><a href="#explications" id="toc-explications" class="nav-link" data-scroll-target="#explications">✨ Explications</a></li>
-  <li><a href="#démonstration" id="toc-démonstration" class="nav-link" data-scroll-target="#démonstration">🚀 Démonstration</a>
+  <li><a href="#explications" id="toc-explications" class="nav-link" data-scroll-target="#explications">Explications</a></li>
+  <li><a href="#démonstration" id="toc-démonstration" class="nav-link" data-scroll-target="#démonstration">Démonstration</a>
   <ul class="collapse">
   <li><a href="#détection-de-motifs-str_detect" id="toc-détection-de-motifs-str_detect" class="nav-link" data-scroll-target="#détection-de-motifs-str_detect">Détection de motifs (<code>str_detect()</code>)</a></li>
   <li><a href="#remplacement-str_replace-et-str_replace_all" id="toc-remplacement-str_replace-et-str_replace_all" class="nav-link" data-scroll-target="#remplacement-str_replace-et-str_replace_all">Remplacement (<code>str_replace()</code> et <code>str_replace_all()</code>)</a></li>
@@ -4618,20 +5180,20 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
   <li><a href="#suppression-despaces-multiples-str_squish" id="toc-suppression-despaces-multiples-str_squish" class="nav-link" data-scroll-target="#suppression-despaces-multiples-str_squish">Suppression d’espaces multiples (<code>str_squish()</code>)</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#statistiques-descriptives-pour-variables-catégoriques" id="toc-statistiques-descriptives-pour-variables-catégoriques" class="nav-link" data-scroll-target="#statistiques-descriptives-pour-variables-catégoriques">🏗 Statistiques descriptives pour variables catégoriques</a>
+  <li><a href="#statistiques-descriptives-pour-variables-catégoriques" id="toc-statistiques-descriptives-pour-variables-catégoriques" class="nav-link" data-scroll-target="#statistiques-descriptives-pour-variables-catégoriques">Statistiques descriptives pour variables catégoriques</a>
   <ul class="collapse">
-  <li><a href="#explications-1" id="toc-explications-1" class="nav-link" data-scroll-target="#explications-1">✨ Explications</a></li>
-  <li><a href="#démonstration-1" id="toc-démonstration-1" class="nav-link" data-scroll-target="#démonstration-1">🚀 Démonstration</a></li>
+  <li><a href="#explications-1" id="toc-explications-1" class="nav-link" data-scroll-target="#explications-1">Explications</a></li>
+  <li><a href="#démonstration-1" id="toc-démonstration-1" class="nav-link" data-scroll-target="#démonstration-1">Démonstration</a></li>
   </ul></li>
-  <li><a href="#visualisation-de-données-catégoriques" id="toc-visualisation-de-données-catégoriques" class="nav-link" data-scroll-target="#visualisation-de-données-catégoriques">📈 Visualisation de données catégoriques</a>
+  <li><a href="#visualisation-de-données-catégoriques" id="toc-visualisation-de-données-catégoriques" class="nav-link" data-scroll-target="#visualisation-de-données-catégoriques">Visualisation de données catégoriques</a>
   <ul class="collapse">
-  <li><a href="#explications-2" id="toc-explications-2" class="nav-link" data-scroll-target="#explications-2">✨ Explications</a></li>
-  <li><a href="#démonstration-2" id="toc-démonstration-2" class="nav-link" data-scroll-target="#démonstration-2">🚀 Démonstration</a></li>
+  <li><a href="#explications-2" id="toc-explications-2" class="nav-link" data-scroll-target="#explications-2">Explications</a></li>
+  <li><a href="#démonstration-2" id="toc-démonstration-2" class="nav-link" data-scroll-target="#démonstration-2">Démonstration</a></li>
   </ul></li>
-  <li><a href="#aller-plus-loin-cartographier-les-amendes-optionnel" id="toc-aller-plus-loin-cartographier-les-amendes-optionnel" class="nav-link" data-scroll-target="#aller-plus-loin-cartographier-les-amendes-optionnel">🚀 5. Aller plus loin : cartographier les amendes (optionnel)</a></li>
-  <li><a href="#conclusion-de-laventure" id="toc-conclusion-de-laventure" class="nav-link" data-scroll-target="#conclusion-de-laventure">🔚 Conclusion de l’aventure</a>
+  <li><a href="#aller-plus-loin-cartographier-les-amendes-optionnel" id="toc-aller-plus-loin-cartographier-les-amendes-optionnel" class="nav-link" data-scroll-target="#aller-plus-loin-cartographier-les-amendes-optionnel">5. Aller plus loin : cartographier les amendes (optionnel)</a></li>
+  <li><a href="#conclusion-de-laventure" id="toc-conclusion-de-laventure" class="nav-link" data-scroll-target="#conclusion-de-laventure">Conclusion de l’aventure</a>
   <ul class="collapse">
-  <li><a href="#prochaine-étape-rédigez-votre-article" id="toc-prochaine-étape-rédigez-votre-article" class="nav-link" data-scroll-target="#prochaine-étape-rédigez-votre-article">✍️ Prochaine étape : rédigez votre article</a></li>
+  <li><a href="#prochaine-étape-rédigez-votre-article" id="toc-prochaine-étape-rédigez-votre-article" class="nav-link" data-scroll-target="#prochaine-étape-rédigez-votre-article">Prochaine étape : rédigez votre article</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -4639,7 +5201,7 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_03/index.html">3 - Les catégories sous toutes leurs formes</a></li><li class="breadcrumb-item"><a href="../module_03/aventure.html">Aventure</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Aventure 3 - Infractions dans les restaurants de Montréal</h1>
 <p class="subtitle lead">STT-1100 Introduction à la science des données</p>
@@ -4660,7 +5222,7 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 
 
 <section id="mise-en-situation-devenez-data-journalist" class="level1">
-<h1>🎬 Mise en situation : Devenez <em>data journalist</em></h1>
+<h1>Mise en situation : Devenez <em>data journalist</em></h1>
 <p>Vous êtes engagés comme <strong>journaliste de données</strong> par <em>Le Courrier Gourmand</em>, un média local fictif qui publie des enquêtes interactives sur l’alimentation à Montréal. Votre rédactrice en chef souhaite un article éclairant le public sur <strong>les infractions alimentaires commises dans les restaurants montréalais</strong> . Elle vous donne quelques pistes de reflexion:</p>
 <ul>
 <li><p>Quelle est la proportion des établissements provenant de la ville de Montréal?</p></li>
@@ -4691,7 +5253,7 @@ Voici <strong>Alexandre</strong>, conseiller municipal chargé de l’hygiène a
 <li>Rédiger un court billet journalistique reproductible dans Quarto.</li>
 </ul>
 <div class="note">
-<p>💡 <strong>Note pour le rapport</strong><br>
+<p><strong>Note pour le rapport</strong><br>
 Tout au long de l’analyse, vous devrez garder en tête ces questions et y répondre de manière argumentée dans votre rapport <code>qmd</code></p>
 </div>
 <p>Dans ce module, vous explorerez un <strong>jeu de données</strong> qui décrit diverses infractions, leurs amendes et le type d’établissements concernés. Votre mission : <strong>analyser les données pour répondre à l’objectif d’identifier les infractions dans les restaurants à Montréal</strong>.</p>
@@ -4699,7 +5261,7 @@ Tout au long de l’analyse, vous devrez garder en tête ces questions et y rép
 </section>
 </section>
 <section id="comment-réussir-laventure" class="level1">
-<h1>🎯 Comment réussir l’aventure</h1>
+<h1>Comment réussir l’aventure</h1>
 <ol type="1">
 <li><strong>Charger les données</strong> : Vous pouvez soit :
 <ul>
@@ -4711,19 +5273,23 @@ Tout au long de l’analyse, vous devrez garder en tête ces questions et y rép
 <hr>
 </section>
 <section id="travail-sur-github" class="level1">
-<h1>🚀 Travail sur Github</h1>
+<h1>Travail sur Github</h1>
 <p>Avant de commencer l’analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.</p>
-<p>1️⃣ Clonez le dépôt “Aventure-3-IDENTIFIANT_GITHUB”, pour cela créez un nouveau projet Rstudio et copier coller le lien HTTPS de votre repo Github (voir feuille aide mémoire).</p>
-<p>💡 Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier <code>.Rproj</code> dans votre explorateur de fichiers.</p>
-<p>2️⃣ Ajuster le fichier Quarto: Le modèle de l’article de journal est présent dans le dépôt. Allez inscrire votre nom.</p>
-<p>3️⃣ Premier commit et push vers GitHub: Une fois votre fichier <code>.qmd</code> ajusté et enregistré, commitez et poussez vos modifications sur GitHub :</p>
+<ol type="1">
+<li>Clonez le dépôt “Aventure-3-IDENTIFIANT_GITHUB”, pour cela créez un nouveau projet Rstudio et copier coller le lien HTTPS de votre repo Github (voir feuille aide mémoire).</li>
+</ol>
+<p>Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier <code>.Rproj</code> dans votre explorateur de fichiers.</p>
+<ol start="2" type="1">
+<li><p>Ajuster le fichier Quarto: Le modèle de l’article de journal est présent dans le dépôt. Allez inscrire votre nom.</p></li>
+<li><p>Premier commit et push vers GitHub: Une fois votre fichier <code>.qmd</code> ajusté et enregistré, commitez et poussez vos modifications sur GitHub :</p></li>
+</ol>
 <p>Attention: on se rappelle que les messages de commit doivent être parlant. Par exemple “Ajout de mon nom dans l’article”</p>
-<p>🎯 Félicitations ! Vous êtes maintenant prêt à débuter l’analyse ! 🚀</p>
+<p>Félicitations ! Vous êtes maintenant prêt à débuter l’analyse !</p>
 </section>
 <section id="variables-catégoriques-les-bases-en-r-avec-stringr" class="level1">
-<h1>🏷️ Variables catégoriques : les bases en R avec <code>stringr</code></h1>
+<h1>Variables catégoriques : les bases en R avec <code>stringr</code></h1>
 <section id="explications" class="level2">
-<h2 class="anchored" data-anchor-id="explications">✨ Explications</h2>
+<h2 class="anchored" data-anchor-id="explications">Explications</h2>
 <p>En R, une variable catégorique est souvent représentée par :</p>
 <ul>
 <li><p>Un <strong>facteur</strong> (<code>factor</code>) qui contient un ensemble de niveaux définis.</p></li>
@@ -4734,7 +5300,7 @@ Tout au long de l’analyse, vous devrez garder en tête ces questions et y rép
 <p>Voici des exemples démontrant comment utiliser <code>stringr</code> (partie du <code>Tidyverse</code>) pour manipuler des variables de type character dans un jeu de données comme <code>listecondamnation</code>. Les exemples ci‑dessous ciblent des cas fréquents : détection de motifs, extraction, remplacement, et nettoyage de chaînes.</p>
 </section>
 <section id="démonstration" class="level2">
-<h2 class="anchored" data-anchor-id="démonstration">🚀 Démonstration</h2>
+<h2 class="anchored" data-anchor-id="démonstration">Démonstration</h2>
 <p>On va utiliser le jeu de données <code>listecondamnation</code> de la librarie <code>UlavalSSD</code> qui contient les condamnations des établissements alimentaires au Québec.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
@@ -4777,26 +5343,26 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <blockquote class="blockquote">
 <p>Cette information sera pertiennete pour le nettoyage de la variable <code>Amende</code> dans la section suivante, vous pourrez ainsi le documenter dans la section Méthodologie de l’article.</p>
 </blockquote>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Question d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Question d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Question d’Alexandre
+<span class="screen-reader-only">Important</span>Question d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><em>« Combien de constats d’infraction apparaissent dans le fichier brut ? »</em></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution callout-titled" title="✅ Réponse d&#39;Alexandre">
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse d&#39;Alexandre">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Mise en garde</span>✅ Réponse d’Alexandre
+<span class="screen-reader-only">Mise en garde</span>Réponse d’Alexandre
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -4849,13 +5415,13 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <p>Quelle est la proportion du nombre d’adresse contenant le mot <strong>MONTREAL</strong>?</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Message d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Message d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Message d’Alexandre
+<span class="screen-reader-only">Important</span>Message d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -4867,16 +5433,16 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <h3 class="anchored" data-anchor-id="remplacement-str_replace-et-str_replace_all">Remplacement (<code>str_replace()</code> et <code>str_replace_all()</code>)</h3>
 <p>Pour nettoyer la colonne <code>Amende</code>, on peut enlever le symbole <code>$</code> ou remplacer des virgules par des points, etc.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str_replace() remplace la 1re occurrence ; str_replace_all() toutes les occurrences  </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="ot">&lt;-</span> listecondamnation <span class="sc">%&gt;%</span>   <span class="fu">mutate</span>( </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Exemple : retirer le $ si présent </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Amende_clean =</span> <span class="fu">str_replace_all</span>(Amende, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>, <span class="st">&quot;&quot;</span>), </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remplacer éventuelles virgules par un point   </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Amende_clean =</span> <span class="fu">str_replace_all</span>(Amende_clean, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>)   )  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str_replace() remplace la 1re occurrence ; str_replace_all() toutes les occurrences</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="ot">&lt;-</span> listecondamnation <span class="sc">%&gt;%</span>   <span class="fu">mutate</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Exemple : retirer le $ si présent</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Amende_clean =</span> <span class="fu">str_replace_all</span>(Amende, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>, <span class="st">&quot;&quot;</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remplacer éventuelles virgules par un point</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Amende_clean =</span> <span class="fu">str_replace_all</span>(Amende_clean, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>)   )</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifions </span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="sc">%&gt;%</span>  </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Amende, Amende_clean) <span class="sc">%&gt;%</span>  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Vérifions</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Amende, Amende_clean) <span class="sc">%&gt;%</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
@@ -4912,13 +5478,13 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <p>Quelle est le type de la variable <code>Amende_clean</code>? Est-ce un problème?</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Message d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Message d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Message d’Alexandre
+<span class="screen-reader-only">Important</span>Message d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -4930,11 +5496,11 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <h3 class="anchored" data-anchor-id="extraction-de-motifs-str_extract">Extraction de motifs (<code>str_extract()</code>)</h3>
 <p>Pour extraire un élément précis. Par exemple, si <code>Adresse_lieu_infraction</code> contient un code postal de la forme <code>H2X 3E4</code>, on peut tenter :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="ot">&lt;-</span> listecondamnation <span class="sc">%&gt;%</span>   </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(     </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">code_postal =</span> <span class="fu">str_extract</span>(Adresse_lieu_infraction, <span class="st">&quot;[A-Z][0-9][A-Z]</span><span class="sc">\\</span><span class="st">s*[0-9][A-Z][0-9]&quot;</span>)   )  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="ot">&lt;-</span> listecondamnation <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">code_postal =</span> <span class="fu">str_extract</span>(Adresse_lieu_infraction, <span class="st">&quot;[A-Z][0-9][A-Z]</span><span class="sc">\\</span><span class="st">s*[0-9][A-Z][0-9]&quot;</span>)   )</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="sc">%&gt;%</span>  </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="sc">%&gt;%</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Adresse_lieu_infraction, code_postal) <span class="sc">%&gt;%</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -4968,13 +5534,13 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <p>Combien d’établissements du quartie de Ville-Marie ont recu une comdannation?</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Message d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Message d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Message d’Alexandre
+<span class="screen-reader-only">Important</span>Message d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -4987,10 +5553,10 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <h3 class="anchored" data-anchor-id="mise-en-forme-str_to_lower-str_to_upper-etc.">Mise en forme (<code>str_to_lower()</code>, <code>str_to_upper()</code>, etc.)</h3>
 <p>Parfois, il est utile d’harmoniser la casse (<code>MONTREAL</code>, <code>Montréal</code>, etc.) :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="ot">&lt;-</span> listecondamnation <span class="sc">%&gt;%</span>  </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(     <span class="at">Adresse_lower =</span> <span class="fu">str_to_lower</span>(Adresse_lieu_infraction),    </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="co"># ou str_to_upper, str_to_title ...   </span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="co"># trim pour enlever espaces en trop    </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="ot">&lt;-</span> listecondamnation <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(     <span class="at">Adresse_lower =</span> <span class="fu">str_to_lower</span>(Adresse_lieu_infraction),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="co"># ou str_to_upper, str_to_title ...</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="co"># trim pour enlever espaces en trop</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">Adresse_trim =</span> <span class="fu">str_trim</span>(Adresse_lieu_infraction)   )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -4998,9 +5564,9 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <h3 class="anchored" data-anchor-id="suppression-despaces-multiples-str_squish">Suppression d’espaces multiples (<code>str_squish()</code>)</h3>
 <p>Si les données contiennent des espaces superflus :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="ot">&lt;-</span> listecondamnation <span class="sc">%&gt;%</span>   </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(     </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Adresse_squish =</span> <span class="fu">str_squish</span>(Adresse_lieu_infraction)  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>listecondamnation <span class="ot">&lt;-</span> listecondamnation <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Adresse_squish =</span> <span class="fu">str_squish</span>(Adresse_lieu_infraction)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>str_squish()</code> réduit tous les espaces répétés à un seul et supprime ceux en début/fin de chaîne.</p>
@@ -5037,13 +5603,13 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Question d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Question d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Question d’Alexandre
+<span class="screen-reader-only">Important</span>Question d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -5058,13 +5624,13 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution callout-titled" title="✅ Réponse d&#39;Alexandre">
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse d&#39;Alexandre">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Mise en garde</span>✅ Réponse d’Alexandre
+<span class="screen-reader-only">Mise en garde</span>Réponse d’Alexandre
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -5088,19 +5654,19 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </div>
 </div>
 </div>
-<p>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀</p>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Remarque d’Alexandre">
+<p>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Remarque d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Remarque d’Alexandre
+<span class="screen-reader-only">Important</span>Remarque d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>On a travailler sur les infractions reliées à la température, mais il y a d’autres types d’infraction. Est-ce que vous pouvez en trouver une qui vous inquiète? Par exemple, les insectes, les rongeurs ou l’insalubrité!</p>
-<p>Je crois que ca peut faire un bel ajout de résultat clé à mettre dans ton article 😉</p>
+<p>Je crois que ca peut faire un bel ajout de résultat clé à mettre dans ton article</p>
 </div>
 </div>
 <hr>
@@ -5108,14 +5674,14 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </section>
 </section>
 <section id="statistiques-descriptives-pour-variables-catégoriques" class="level1">
-<h1>🏗 Statistiques descriptives pour variables catégoriques</h1>
+<h1>Statistiques descriptives pour variables catégoriques</h1>
 <p>Dans cette section, nous allons découvrir comment résumer l’information contenue dans les variables qualitatives, appelées aussi catégorielles. Nous verrons comment compter les occurrences de chaque catégorie (tableaux de fréquences), calculer des proportions (ou pourcentages) afin de mieux visualiser la répartition, et associer plusieurs variables pour mieux comprendre leurs interactions (tableaux de contingence). L’objectif est de disposer d’un portrait clair de la distribution des catégories pour en tirer des conclusions rapides sur les tendances ou anomalies présentes dans les données.</p>
 <section id="explications-1" class="level2">
-<h2 class="anchored" data-anchor-id="explications-1">✨ Explications</h2>
+<h2 class="anchored" data-anchor-id="explications-1">Explications</h2>
 <p>Les <strong>tableaux de fréquences</strong> et les <strong>mesures de tendance</strong> (nombre d’observations, pourcentages) sont un bon point de départ pour résumer des variables catégoriques.</p>
 </section>
 <section id="démonstration-1" class="level2">
-<h2 class="anchored" data-anchor-id="démonstration-1">🚀 Démonstration</h2>
+<h2 class="anchored" data-anchor-id="démonstration-1">Démonstration</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre d&#39;infractions par type d’établissement</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -5152,13 +5718,13 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </ol>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Remarque d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Remarque d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Remarque d’Alexandre
+<span class="screen-reader-only">Important</span>Remarque d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -5172,26 +5738,26 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  listecondamnation<span class="sc">$</span>SOC_NOM_ARTCL_INFRC</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Question d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Question d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Question d’Alexandre
+<span class="screen-reader-only">Important</span>Question d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Y a-t-il plus de restaurants qui ont eu une amende pour <code>INSECTES RONGEURS EXCREMENTS</code> ou de Rest. service rapide qui ont eu une amende pour <code>INSALUBRITE</code>?</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution callout-titled" title="✅ Réponse d&#39;Alexandre">
+<div class="callout callout-style-default callout-caution callout-titled" title="Réponse d&#39;Alexandre">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Mise en garde</span>✅ Réponse d’Alexandre
+<span class="screen-reader-only">Mise en garde</span>Réponse d’Alexandre
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -5234,14 +5800,14 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </ol>
 </div>
 </div>
-<p>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀</p>
+<p>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</p>
 <hr>
 </section>
 </section>
 <section id="visualisation-de-données-catégoriques" class="level1">
-<h1>📈 Visualisation de données catégoriques</h1>
+<h1>Visualisation de données catégoriques</h1>
 <section id="explications-2" class="level2">
-<h2 class="anchored" data-anchor-id="explications-2">✨ Explications</h2>
+<h2 class="anchored" data-anchor-id="explications-2">Explications</h2>
 <p>Pour représenter visuellement des variables catégoriques, on utilise souvent :</p>
 <ul>
 <li><p><strong>Diagrammes en barres</strong> (<code>geom_bar()</code> ou <code>geom_col()</code>),</p></li>
@@ -5250,7 +5816,7 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </ul>
 </section>
 <section id="démonstration-2" class="level2">
-<h2 class="anchored" data-anchor-id="démonstration-2">🚀 Démonstration</h2>
+<h2 class="anchored" data-anchor-id="démonstration-2">Démonstration</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -5293,13 +5859,13 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </ol>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Remarque d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Remarque d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Remarque d’Alexandre
+<span class="screen-reader-only">Important</span>Remarque d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -5324,13 +5890,13 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </ol>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="🧑‍💼 - Remarque d’Alexandre">
+<div class="callout callout-style-default callout-important callout-titled" title="Remarque d’Alexandre">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>🧑‍💼 - Remarque d’Alexandre
+<span class="screen-reader-only">Important</span>Remarque d’Alexandre
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -5341,7 +5907,7 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </section>
 </section>
 <section id="aller-plus-loin-cartographier-les-amendes-optionnel" class="level1">
-<h1>🚀 5. Aller plus loin : cartographier les amendes (optionnel)</h1>
+<h1>5. Aller plus loin : cartographier les amendes (optionnel)</h1>
 <p>Pour clore l’enquête, <strong>Alexandre</strong> a mis la main sur un bout de code R rédigé par une collègue de la Ville ; ce script géocode automatiquement les codes postaux et fournit une latitude/longitude pour chaque établissement. Vous allez l’utiliser pour dresser <strong>une carte de la répartition des amendes</strong>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ────────────────────────────────────────────────────────────</span></span>
@@ -5407,7 +5973,7 @@ Important
 <hr>
 </section>
 <section id="conclusion-de-laventure" class="level1">
-<h1>🔚 Conclusion de l’aventure</h1>
+<h1>Conclusion de l’aventure</h1>
 <p>Cette troisième aventure vous a permis de <strong>passer du rôle d’analyste à celui de journaliste de données</strong> : vous avez nettoyé un jeu réel d’inspections alimentaires, quantifié les infractions majeures, comparé les profils d’établissements et visualisé la géographie des amendes.</p>
 <p>Vous disposez maintenant :</p>
 <ul>
@@ -5416,9 +5982,9 @@ Important
 <li>d’<strong>observations qualitatives</strong> fournies par Alexandre, qui orientent le récit vers les enjeux d’hygiène et de transparence citoyenne.</li>
 </ul>
 <section id="prochaine-étape-rédigez-votre-article" class="level2">
-<h2 class="anchored" data-anchor-id="prochaine-étape-rédigez-votre-article">✍️ Prochaine étape : rédigez votre article</h2>
+<h2 class="anchored" data-anchor-id="prochaine-étape-rédigez-votre-article">Prochaine étape : rédigez votre article</h2>
 <ol type="1">
-<li><strong>Structurez votre article Quarto</strong> : chapeau accrocheur ➜ contexte ➜ méthodologie ➜ résultats clés ➜ recommandations.<br>
+<li><strong>Structurez votre article Quarto</strong> : chapeau accrocheur -&gt; contexte -&gt; méthodologie -&gt; résultats clés -&gt; recommandations.<br>
 </li>
 <li><strong>Intégrez au moins deux visuels</strong> parmi ceux produits (un graphique de catégories et la carte des amendes).<br>
 </li>
@@ -5429,9 +5995,9 @@ Important
 <blockquote class="blockquote">
 <p><strong>Livrable attendu</strong> : un fichier HTML autonome exporté depuis votre <code>.qmd</code>, commité sur votre dépôt GitHub avant la date limite.</p>
 </blockquote>
-<p>Bonne rédaction ! Faites parler les données et mettez‑vous dans la peau du journaliste qui informe, nuance et propose. 🚀</p>
+<p>Bonne rédaction ! Faites parler les données et mettez‑vous dans la peau du journaliste qui informe, nuance et propose.</p>
 <blockquote class="blockquote">
-<p>🎯 <strong>Félicitations</strong> ! Vous avez mis en pratique les concepts de variables catégoriques, de statistiques descriptives et de visualisation pour des données catégoriques réelles. Continuez ainsi, le prochain module vous attend.</p>
+<p><strong>Félicitations</strong> ! Vous avez mis en pratique les concepts de variables catégoriques, de statistiques descriptives et de visualisation pour des données catégoriques réelles. Continuez ainsi, le prochain module vous attend.</p>
 </blockquote>
 
 
@@ -5440,365 +6006,240 @@ Important
 
 </main> <!-- /main -->
 <style>
-
-body.sidebar-hidden #quarto-sidebar,
-body.sidebar-hidden .quarto-sidebar,
-body.sidebar-hidden .sidebar {
-display: none !important;
-}
-body.sidebar-hidden .page-columns {
-grid-template-columns: minmax(0, 1fr) !important;
-}
-body.sidebar-hidden .page-columns .content {
-grid-column: 1 / -1 !important;
-max-width: 100% !important;
-}
-body.sidebar-hidden .sidebar-margin,
-body.sidebar-hidden .submenu,
-body.sidebar-hidden .margin-sidebar { display: none !important; }
-
-@media (min-width: 992px) {
-:root { --content-left-offset: 88px; }
-body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
-body:not(.sidebar-hidden) main#quarto-document-content,
-body:not(.sidebar-hidden) main.content {
-padding-left: var(--content-left-offset) !important;
-}
-body.sidebar-hidden nav.quarto-page-breadcrumbs,
-body.sidebar-hidden main#quarto-document-content,
-body.sidebar-hidden main.content {
-padding-left: 0 !important;
-}
-}
-.qs-toggle-controls {
-margin-left: .5rem;
+.qs-language-controls {
+margin-left:.5rem;
 display: inline-flex;
 align-items: center;
-gap: .4rem;
 flex-shrink: 0;
 }
-
-.qs-toggle-btn{
-display:inline-flex;
-align-items:center;
-gap:.4rem;
-border:1px solid rgba(0,0,0,.12);
-border-radius:.5rem;
-padding:.25rem .5rem;
-background:var(--quarto-body-bg,#fff);
-color:var(--quarto-body-color,#111);
-box-shadow:0 1px 4px rgba(0,0,0,.08);
-cursor:pointer;
-font-size:.95rem;
-line-height:1;
-}
-.qs-toggle-btn svg{display:block;color:inherit;}
-.qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-.qs-language-switch{
-display:inline-flex;
-align-items:center;
+.qs-language-switch {
+display: inline-flex;
+align-items: center;
 gap:.35rem;
-border:1px solid rgba(0,0,0,.12);
+border: 1px solid rgba(0, 0, 0,.12);
 border-radius:.5rem;
-padding:.2rem .35rem;
-background:var(--quarto-body-bg,#fff);
-box-shadow:0 1px 4px rgba(0,0,0,.08);
+padding:.2rem.35rem;
+background: var(--quarto-body-bg, #fff);
+box-shadow: 0 1px 4px rgba(0, 0, 0,.08);
 font-size:.9rem;
 }
-.qs-lang-btn{
-border:none;
+.qs-lang-btn {
+border: none;
 border-radius:.35rem;
-background:transparent;
-color:var(--quarto-body-color,#111);
-padding:.2rem .45rem;
-cursor:pointer;
+background: transparent;
+color: var(--quarto-body-color, #111);
+padding:.2rem.45rem;
+cursor: pointer;
 }
-.qs-lang-btn[aria-pressed="true"]{
-background:rgba(0,0,0,.08);
-font-weight:700;
+.qs-lang-btn[aria-pressed="true"] {
+background: rgba(0, 0, 0,.08);
+font-weight: 700;
 }
-.qs-lang-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-.qs-action-group{
-display:flex;
-align-items:center;
-gap:.35rem;
+.qs-lang-btn:focus {
+outline: 2px solid rgba(0, 0, 0,.2);
+outline-offset: 2px;
 }
-
-@media (max-width: 575.98px){
-.qs-toggle-host{
+@media (max-width: 575.98px) {
+.qs-language-host {
 top: 6px;
 right: 8px;
-gap: .3rem;
-align-items: flex-start;
 }
-.qs-language-switch{
-padding: .15rem .25rem;
-font-size: .8rem;
-}
-.qs-toggle-btn{
-padding: .15rem .35rem;
-font-size: .8rem;
-}
-.qs-toggle-btn span{
-display: none;
+.qs-language-switch {
+padding:.15rem.25rem;
+font-size:.8rem;
 }
 }
 </style>
 
 <script>
 (function(){
-  const SIDEBAR_KEY = 'quarto-sidebar-hidden';
   const UI_LABELS = {
-    en: {
-      sidebarTooltip: 'Show/hide left sidebar',
-      sidebarAria: 'Toggle left sidebar',
-      languageAria: 'Language selection'
-    },
-    fr: {
-      sidebarTooltip: 'Masquer/Afficher la barre latérale',
-      sidebarAria: 'Basculer la barre latérale',
-      languageAria: 'Choix de langue'
-    }
+  en: { languageAria: 'Language selection' },
+  fr: { languageAria: 'Choix de langue' }
   };
 
   const CONTENT_ROOTS = new Set([
-    'autre_materiel',
-    'module_01',
-    'module_02',
-    'module_03',
-    'module_04',
-    'module_05',
-    'module_06',
-    'module_07',
-    'module_08',
-    'module_09',
-    'module_10',
-    'projet_session'
+  'autre_materiel',
+  'module_01',
+  'module_02',
+  'module_03',
+  'module_04',
+  'module_05',
+  'module_06',
+  'module_07',
+  'module_08',
+  'module_09',
+  'module_10',
+  'projet_session'
   ]);
+
   const ROOT_FILES = new Set([
-    'index.html',
-    'modules.html',
-    'demarrage.html',
-    'calendrier.html',
-    'evaluations.html',
-    'boite_outils.html',
-    'glossaire.html',
-    'ressources.html',
-    'references.html'
+  'index.html',
+  'modules.html',
+  'demarrage.html',
+  'calendrier.html',
+  'evaluations.html',
+  'examen.html',
+  'defis.html',
+  'boite_outils.html',
+  'glossaire.html',
+  'ressources.html',
+  'references.html'
   ]);
 
   function pathSegments(pathname){
-    return pathname.split('/').filter(Boolean);
+  return pathname.split('/').filter(Boolean);
   }
 
   function isEnglishPath(pathname){
-    return /(^|\/)en(\/|$)/.test(pathname);
+  return /(^|\/)en(\/|$)/.test(pathname);
   }
 
   function joinPath(segments, trailingSlash){
-    if (segments.length === 0) return '/';
-    let path = `/${segments.join('/')}`;
-    if (trailingSlash && !path.endsWith('/')) path += '/';
-    return path;
+  if (segments.length === 0) return '/';
+  let path = `/${segments.join('/')}`;
+  if (trailingSlash && !path.endsWith('/')) path += '/';
+  return path;
   }
 
   function splitBaseAndContentSegments(segments){
-    const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
-    if (contentIndex === -1) {
-      return { baseSegments: segments, contentSegments: [] };
-    }
-    return {
-      baseSegments: segments.slice(0, contentIndex),
-      contentSegments: segments.slice(contentIndex)
-    };
+  const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
+  if (contentIndex === -1) {
+  return { baseSegments: segments, contentSegments: [] };
+  }
+  return {
+  baseSegments: segments.slice(0, contentIndex),
+  contentSegments: segments.slice(contentIndex)
+  };
   }
 
   function languageTargetUrl(targetLang){
-    const loc = window.location;
-    const path = loc.pathname;
-    const search = loc.search || '';
-    const hash = loc.hash || '';
-    const segments = pathSegments(path);
-    const enIndex = segments.indexOf('en');
+  const loc = window.location;
+  const path = loc.pathname;
+  const search = loc.search || '';
+  const hash = loc.hash || '';
+  const segments = pathSegments(path);
+  const enIndex = segments.indexOf('en');
 
-    if (targetLang === 'en') {
-      if (enIndex !== -1) return null;
-      const split = splitBaseAndContentSegments(segments);
-      const targetSegments = split.baseSegments.concat('en', split.contentSegments);
-      const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
-      return joinPath(targetSegments, trailingSlash) + search + hash;
-    }
+  if (targetLang === 'en') {
+  if (enIndex !== -1) return null;
+  const split = splitBaseAndContentSegments(segments);
+  const targetSegments = split.baseSegments.concat('en', split.contentSegments);
+  const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
 
-    if (targetLang === 'fr') {
-      if (enIndex === -1) return null;
-      const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
-      const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
-      return joinPath(targetSegments, trailingSlash) + search + hash;
-    }
+  if (targetLang === 'fr') {
+  if (enIndex === -1) return null;
+  const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
+  const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
 
-    return null;
+  return null;
   }
 
   function uiForPage(){
-    return isEnglishPath(window.location.pathname) ? UI_LABELS.en : UI_LABELS.fr;
-  }
-
-  function applySidebarStateFromStorage(){
-    const hidden = localStorage.getItem(SIDEBAR_KEY) === '1';
-    document.body.classList.toggle('sidebar-hidden', hidden);
-    const btn = document.getElementById('qs-toggle-btn');
-    if (btn) btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+  return isEnglishPath(window.location.pathname) ? UI_LABELS.en: UI_LABELS.fr;
   }
 
   function updateLanguageState(){
-    const isEn = isEnglishPath(window.location.pathname);
-    const fr = document.getElementById('qs-lang-fr');
-    const en = document.getElementById('qs-lang-en');
-    if (fr) fr.setAttribute('aria-pressed', isEn ? 'false' : 'true');
-    if (en) en.setAttribute('aria-pressed', isEn ? 'true' : 'false');
+  const isEn = isEnglishPath(window.location.pathname);
+  const fr = document.getElementById('qs-lang-fr');
+  const en = document.getElementById('qs-lang-en');
+  if (fr) fr.setAttribute('aria-pressed', isEn ? 'false': 'true');
+  if (en) en.setAttribute('aria-pressed', isEn ? 'true': 'false');
   }
 
   function onLanguageClick(targetLang){
-    return (event) => {
-      event.preventDefault();
-      const url = languageTargetUrl(targetLang);
-      if (!url) {
-        updateLanguageState();
-        return;
-      }
-      window.location.href = url;
-    };
+  return (event) => {
+  event.preventDefault();
+  const url = languageTargetUrl(targetLang);
+  if (!url) {
+  updateLanguageState();
+  return;
   }
-
-  function buildSidebarButton(){
-    const btn = document.createElement('button');
-    const labels = uiForPage();
-    btn.id = 'qs-toggle-btn';
-    btn.className = 'qs-toggle-btn';
-    btn.type = 'button';
-    btn.title = labels.sidebarTooltip;
-    btn.setAttribute('aria-label', labels.sidebarAria);
-    btn.setAttribute('aria-pressed', 'false');
-    btn.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span>Menu</span>
-    `;
-
-    btn.addEventListener('click', () => {
-      document.body.classList.toggle('sidebar-hidden');
-      const hidden = document.body.classList.contains('sidebar-hidden');
-      btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
-      try {
-        localStorage.setItem(SIDEBAR_KEY, hidden ? '1' : '0');
-      } catch (e) {
-        // ignore
-      }
-    });
-
-    return btn;
+  window.location.href = url;
+  };
   }
 
   function buildLanguageSwitch(){
-    const labels = uiForPage();
-    const wrapper = document.createElement('div');
-    wrapper.className = 'qs-language-switch';
-    wrapper.setAttribute('role', 'group');
-    wrapper.setAttribute('aria-label', labels.languageAria);
+  const labels = uiForPage();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'qs-language-switch';
+  wrapper.setAttribute('role', 'group');
+  wrapper.setAttribute('aria-label', labels.languageAria);
 
-    const fr = document.createElement('button');
-    fr.type = 'button';
-    fr.id = 'qs-lang-fr';
-    fr.className = 'qs-lang-btn';
-    fr.setAttribute('aria-pressed', 'false');
-    fr.setAttribute('aria-label', 'French version');
-    fr.textContent = 'FR';
-    fr.addEventListener('click', onLanguageClick('fr'));
+  const fr = document.createElement('button');
+  fr.type = 'button';
+  fr.id = 'qs-lang-fr';
+  fr.className = 'qs-lang-btn';
+  fr.setAttribute('aria-pressed', 'false');
+  fr.setAttribute('aria-label', 'French version');
+  fr.textContent = 'FR';
+  fr.addEventListener('click', onLanguageClick('fr'));
 
-    const en = document.createElement('button');
-    en.type = 'button';
-    en.id = 'qs-lang-en';
-    en.className = 'qs-lang-btn';
-    en.setAttribute('aria-pressed', 'false');
-    en.setAttribute('aria-label', 'English version');
-    en.textContent = 'EN';
-    en.addEventListener('click', onLanguageClick('en'));
+  const en = document.createElement('button');
+  en.type = 'button';
+  en.id = 'qs-lang-en';
+  en.className = 'qs-lang-btn';
+  en.setAttribute('aria-pressed', 'false');
+  en.setAttribute('aria-label', 'English version');
+  en.textContent = 'EN';
+  en.addEventListener('click', onLanguageClick('en'));
 
-    wrapper.appendChild(fr);
-    wrapper.appendChild(en);
-    return wrapper;
+  wrapper.appendChild(fr);
+  wrapper.appendChild(en);
+  return wrapper;
   }
 
-  function buildActions(){
-    const box = document.createElement('div');
-    box.className = 'qs-toggle-controls';
-    box.appendChild(buildLanguageSwitch());
-    box.appendChild(buildSidebarButton());
-    return box;
+  function buildControls(){
+  const box = document.createElement('div');
+  box.className = 'qs-language-controls';
+  box.appendChild(buildLanguageSwitch());
+  return box;
   }
 
   function insertControls(){
-    document.querySelectorAll('.qs-toggle-controls').forEach((node) => node.remove());
+  document.querySelectorAll('.qs-language-controls').forEach((node) => node.remove());
 
-    const actions = buildActions();
-    const tools = document.querySelector('.quarto-navbar-tools');
-    if (tools) {
-      tools.appendChild(actions);
-      applySidebarStateFromStorage();
-      updateLanguageState();
-      return true;
-    }
-
-    const header = document.getElementById('quarto-header');
-    if (header) {
-      let host = header.querySelector('.qs-toggle-host');
-      if (!host) {
-        host = document.createElement('div');
-        host.className = 'qs-toggle-host';
-        host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex; gap:.4rem;';
-        header.style.position = header.style.position || 'relative';
-        header.appendChild(host);
-      }
-      host.innerHTML = '';
-      host.appendChild(actions);
-      applySidebarStateFromStorage();
-      updateLanguageState();
-      return true;
-    }
-
-    return false;
+  const controls = buildControls();
+  const tools = document.querySelector('.quarto-navbar-tools');
+  if (tools) {
+  tools.appendChild(controls);
+  updateLanguageState();
+  return true;
   }
 
-  function setupResponsiveGuard(){
-    const mq = window.matchMedia('(max-width: 575.98px)');
-    const handle = () => {
-      if (mq.matches) {
-        document.body.classList.remove('sidebar-hidden');
-      } else {
-        applySidebarStateFromStorage();
-      }
-    };
-    if (mq.addEventListener) {
-      mq.addEventListener('change', handle);
-    } else {
-      mq.addListener(handle);
-    }
-    handle();
+  const header = document.getElementById('quarto-header');
+  if (header) {
+  let host = header.querySelector('.qs-language-host');
+  if (!host) {
+  host = document.createElement('div');
+  host.className = 'qs-language-host';
+  host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex;';
+  header.style.position = header.style.position || 'relative';
+  header.appendChild(host);
+  }
+  host.innerHTML = '';
+  host.appendChild(controls);
+  updateLanguageState();
+  return true;
+  }
+
+  return false;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    applySidebarStateFromStorage();
-    updateLanguageState();
-    insertControls();
-    setupResponsiveGuard();
+  insertControls();
+  updateLanguageState();
   });
 
   const obs = new MutationObserver(() => {
-    if (document.getElementById('qs-toggle-btn') && document.getElementById('qs-lang-fr')) return;
-    if (document.querySelector('.navbar, .quarto-navbar, #quarto-header .navbar, #quarto-header')) {
-      insertControls();
-    }
+  if (document.getElementById('qs-lang-fr') && document.getElementById('qs-lang-en')) return;
+  if (document.querySelector('.navbar,.quarto-navbar, #quarto-header.navbar, #quarto-header')) {
+  insertControls();
+  }
   });
   obs.observe(document.documentElement, { childList: true, subtree: true });
 })();

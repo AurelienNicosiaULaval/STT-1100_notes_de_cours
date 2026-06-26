@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# 🎯 Objectifs du module
+# Objectifs du module
 
 À la fin de ce module, vous devriez être capable de :
 
@@ -11,7 +11,7 @@ STT-1100 Introduction à la science des données
 - Calculer et interpréter la corrélation entre deux variables numériques.
 - Rédiger un rapport d’analyse exploratoire des données (EDA) mettant en évidence des tendances et des motifs dans les données.
 
-# 📚 Lectures
+# Lectures
 
 Dans ce module, nous allons explorer les concepts de base de l’analyse exploratoire des données (EDA) et de la manipulation des dates et heures. Voici quelques lectures initiales pour vous préparer :
 
@@ -35,11 +35,11 @@ Dans le libre **IMS**:
 
 [Aventure 5](../module_05/aventure.llms.md)
 
-# 🎯 Défi — Analyser les retards pour soutenir les décisions
+# Défi — Analyser les retards pour soutenir les décisions
 
 Dans ce défi, vous devez remettre un **rapport professionnel** destiné à votre superviseure, **Dr Sofia Martínez**, afin de répondre aux trois grandes questions stratégiques posées dans l’aventure. Votre rôle est de fournir une analyse claire, appuyée sur des visualisations pertinentes et des interprétations rigoureuses.
 
-## 📌 Ce que vous devez faire
+## Ce que vous devez faire
 
 À partir des données fusionnées fournies (`flights_merged_2023.rds`), vous devez :
 
@@ -53,7 +53,7 @@ Dans ce défi, vous devez remettre un **rapport professionnel** destiné à votr
     - produisez **au moins une visualisation claire** ;
     - rédigez une **interprétation concise** de vos résultats.
 
-## ✏️ Ce que le rapport doit contenir
+## Ce que le rapport doit contenir
 
 Votre fichier **`rapport.qmd`** doit inclure :
 
@@ -63,17 +63,17 @@ Votre fichier **`rapport.qmd`** doit inclure :
 - Vos **interprétations** pour faire ressortir les constats clés.
 - Une **courte conclusion** qui résume les réponses apportées aux gestionnaires.
 
-## 🚀 Mise en ligne et rendu
+## Mise en ligne et rendu
 
 - Publiez le rapport sur votre dépôt GitHub dans l’organisation du cours.
 - Assurez-vous que le fichier `.html` est bien généré et lisible.
 - Faites une dernière relecture pour vérifier la **clarté, la structure et la présentation**.
 
-> 🧠 Astuce : Mettez-vous dans la peau d’un·e analyste professionnel·le — ce rapport pourrait être présenté au comité exécutif de l’aéroport !
+> Astuce : Mettez-vous dans la peau d’un·e analyste professionnel·le — ce rapport pourrait être présenté au comité exécutif de l’aéroport !
 
 ------------------------------------------------------------------------
 
-## 🧾 Grille d’évaluation (10 points)
+## Grille d’évaluation (10 points)
 
 | Critère | Description | Points |
 |----|----|----|
@@ -83,13 +83,13 @@ Votre fichier **`rapport.qmd`** doit inclure :
 | **Analyse des avions anciens** | Construction de `age_avion`, analyse correcte des retards ou annulations, interprétation pertinente. | 2 |
 | **Structure et présentation du rapport** | Rapport clair, bien structuré, visuellement lisible ; visualisations bien annotées ; code commenté. | 2 |
 
-> 💡 **Bonus** possible (max +1) pour une analyse complémentaire originale (ex. : analyse par compagnie ou distance).
+> **Bonus** possible (max +1) pour une analyse complémentaire originale (ex. : analyse par compagnie ou distance).
 
-# 🧠 Exercices de consolidation
+# Exercices de consolidation
 
 Ces exercices vous permettront de consolider les compétences du module 5 : exploration, corrélation, visualisation, analyse bivariée. Tous les jeux de données utilisés sont intégrés à R.
 
-## 🚗 1. Jeu de données : mtcars
+## 1. Jeu de données : mtcars
 
 Quelle est la force de la relation linéaire entre la consommation (mpg) et le poids (wt) des voitures ?
 
@@ -97,10 +97,10 @@ Quelle est la force de la relation linéaire entre la consommation (mpg) et le p
 >
 > ``` r
 > cor(mtcars$mpg, mtcars$wt)
-> # ≈ -0.87 → forte corrélation négative : les voitures plus lourdes consomment plus.
+> # ≈ -0.87 -> forte corrélation négative : les voitures plus lourdes consomment plus.
 > ```
 
-## 🌡️ 2. Jeu de données : airquality
+## 2. Jeu de données : airquality
 
 Créez un graphique illustrant la relation entre la température (Temp) et le taux d’ozone (Ozone), avec une ligne de tendance.
 
@@ -112,7 +112,7 @@ Créez un graphique illustrant la relation entre la température (Temp) et le ta
 >   geom_smooth(method = "lm")
 > ```
 
-## 📆 3. Jeu de données : airquality
+## 3. Jeu de données : airquality
 
 Créez une variable date à partir de Month et Day (en supposant l’année 1973), puis ajoutez une colonne indiquant le jour de la semaine.
 
@@ -126,7 +126,7 @@ Créez une variable date à partir de Month et Day (en supposant l’année 1973
 >          jour_semaine = wday(date, label = TRUE))
 > ```
 
-## 🦷 4. Jeu de données : ToothGrowth
+## 4. Jeu de données : ToothGrowth
 
 Comparez la longueur des dents (len) selon le type de supplément (supp) à l’aide d’un boxplot.
 
@@ -137,7 +137,7 @@ Comparez la longueur des dents (len) selon le type de supplément (supp) à l’
 >   geom_boxplot()
 > ```
 
-## 💊 5. Jeu de données : ToothGrowth
+## 5. Jeu de données : ToothGrowth
 
 Calculez la moyenne de longueur des dents pour chaque combinaison de supplément (supp) et de dose (dose).
 
@@ -149,7 +149,7 @@ Calculez la moyenne de longueur des dents pour chaque combinaison de supplément
 >   summarise(moyenne = mean(len), .groups = "drop")
 > ```
 
-## 🌸 6. Jeu de données : iris
+## 6. Jeu de données : iris
 
 Calculez la matrice de corrélation entre les variables numériques.
 
@@ -162,7 +162,7 @@ Calculez la matrice de corrélation entre les variables numériques.
 >   round(2)
 > ```
 
-## 🐣 7. Jeu de données : ChickWeight
+## 7. Jeu de données : ChickWeight
 
 Tracez l’évolution du poids (weight) dans le temps (Time) pour un seul poussin (par exemple Chick 1).
 
@@ -173,7 +173,7 @@ Tracez l’évolution du poids (weight) dans le temps (Time) pour un seul poussi
 >   geom_line()
 > ```
 
-## 🐥 8. Jeu de données : ChickWeight
+## 8. Jeu de données : ChickWeight
 
 Quel est le poids moyen des poussins à la fin de l’expérience (Time = 21) pour chaque type de régime alimentaire (Diet) ?
 
@@ -186,7 +186,7 @@ Quel est le poids moyen des poussins à la fin de l’expérience (Time = 21) po
 >   summarise(moyenne = mean(weight))
 > ```
 
-## 🌿 9. Jeu de données : iris
+## 9. Jeu de données : iris
 
 Visualisez la distribution de Petal.Length à l’aide d’un histogramme avec courbe de densité superposée.
 
@@ -198,7 +198,7 @@ Visualisez la distribution de Petal.Length à l’aide d’un histogramme avec c
 >   geom_density(color = "blue")
 > ```
 
-## ⚙️ 10. Jeu de données : mtcars
+## 10. Jeu de données : mtcars
 
 Combien y a-t-il de voitures pour chaque combinaison de nombre de cylindres (cyl) et de type de transmission (am) ?
 
@@ -209,7 +209,7 @@ Combien y a-t-il de voitures pour chaque combinaison de nombre de cylindres (cyl
 >   count(cyl, am)
 > ```
 
-## 🔍 Problème 1 — EDA météo et ozone (jeu de données : airquality)
+## Problème 1 — EDA météo et ozone (jeu de données : airquality)
 
 1.  Visualisez la relation entre la vitesse du vent (`Wind`) et le taux d’ozone (`Ozone`).
 2.  Calculez leur corrélation.
@@ -232,7 +232,7 @@ Combien y a-t-il de voitures pour chaque combinaison de nombre de cylindres (cyl
 >   geom_boxplot()
 > ```
 
-## 🔍 Problème 2 — EDA florale (jeu de données : iris)
+## Problème 2 — EDA florale (jeu de données : iris)
 
 1.  Est-ce que la variable `Sepal.Length` permet de distinguer les espèces (`Species`) ?
 2.  Affichez un boxplot de `Sepal.Length` par espèce.

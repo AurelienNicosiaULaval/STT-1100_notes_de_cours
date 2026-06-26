@@ -22,7 +22,7 @@ STT-1100 Introduction à la science des données
 
 # Lectures initiales
 
-## 📘 Le livre de référence
+## Le livre de référence
 
 Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage **R for Data Science** (*2e édition*, par Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund).
 
@@ -30,7 +30,7 @@ Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage **R for Data
 
 C’est une **référence incontournable**, accessible gratuitement en ligne et rédigée en **anglais** clair. Vous y trouverez des explications complètes et des exemples concrets pour apprendre à travailler efficacement avec `tidyverse`.
 
-**👉 Astuce** : en cas de doute ou de blocage, consultez le document [Comment rechercher et obtenir de l’aide](../references.llms.md).
+\*\* Astuce\*\* : en cas de doute ou de blocage, consultez le document [Comment rechercher et obtenir de l’aide](../references.llms.md).
 
 ------------------------------------------------------------------------
 
@@ -62,13 +62,13 @@ Dans ce premier défi, afin de vous faire la main avec les différents outils, v
 
 ## Lectures additionnelles
 
-### 🧠 Approfondir les bonnes pratiques
+### Approfondir les bonnes pratiques
 
 Une fois les bases posées, il est essentiel d’adopter dès le départ des **habitudes de travail claires, reproductibles et cohérentes**. Les ressources ci-dessous vous aideront à améliorer la lisibilité, la structure et l’organisation de votre code.
 
 ------------------------------------------------------------------------
 
-### 🔧 Compléments R4DS
+### Compléments R4DS
 
 - [Workflow: help](https://r4ds.hadley.nz/workflow-help.html)
   *Apprendre à poser les bonnes questions, à chercher efficacement dans la documentation et à formuler des demandes d’aide pertinentes.*
@@ -81,7 +81,7 @@ Une fois les bases posées, il est essentiel d’adopter dès le départ des **h
 
 ------------------------------------------------------------------------
 
-### 📐 Guide de style du tidyverse
+### Guide de style du tidyverse
 
 - [Chapitre 1: Files](https://style.tidyverse.org/files.html)
   *Conseils pour organiser vos fichiers, structurer vos projets et nommer vos scripts de façon claire.*

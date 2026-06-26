@@ -1,8 +1,8 @@
-# Projet de session — Votre première mission en tant que scientifique de données
+# Projet de session - Votre première mission en tant que scientifique de données
 
 STT-1100 Introduction à la science des données
 
-# 🎯 Votre mission
+# Votre mission
 
 Choisissez un jeu de données, n’importe lequel…
 
@@ -10,7 +10,7 @@ Choisissez un jeu de données, n’importe lequel…
 
 Voilà, en un mot, votre projet final.
 
-# 📚 Objectif du projet
+# Objectif du projet
 
 Le projet final vous permet de démontrer que vous êtes capable de :
 
@@ -23,7 +23,7 @@ Le projet final vous permet de démontrer que vous êtes capable de :
 
 Ce projet est volontairement ouvert : vous avez la liberté de choisir vos données, vos angles d’analyse, vos outils, vos méthodes.
 
-# 🗃️ Jeu de données
+# Jeu de données
 
 Choisissez un jeu de données **gérable**, c’est-à-dire :
 
@@ -32,7 +32,7 @@ Choisissez un jeu de données **gérable**, c’est-à-dire :
 - Incluant des variables **numériques continues**, **discrètes** et **catégorielles**
 - Format lisible par R (CSV, RDS, etc.)
 
-⚠️ **Évitez les jeux de données vus en classe.**
+**Évitez les jeux de données vus en classe.**
 
 Quelques ressources utiles :
 
@@ -50,9 +50,11 @@ Quelques ressources utiles :
 - [Canadien govt open data](https://open.canada.ca/en/open-data)
 - [Github Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
 
-# 📦 Déroulement du projet
+# Déroulement du projet
 
-## 1. Proposition — à remettre le **dimanche 9 novembre à 23h59**
+## 1. Proposition
+
+À remettre selon l’échéancier officiel indiqué dans MonPortail.
 
 Contenu :
 
@@ -72,7 +74,7 @@ Contenu :
 
   Note: Il s’agit ici seulement d’un plan. Vous allez apprendre dans les prochains modules de nouvelles méthodes pour analyser votre jeu de données.
 
-> 📏 Max. 1 page par section (hors graphiques).
+> Max. 1 page par section (hors graphiques).
 
 ### Barème (15 points)
 
@@ -82,9 +84,9 @@ Contenu :
 | Contenu de la proposition           | 8      |
 | Qualité du code, structure du dépôt | 2      |
 
-## 2. Présentation — à soumettre le **15 décembre**
+## 2. Présentation
 
-Faites une **présentation de 15 minutes maximum**, où chaque membre parle. Utilisez `xaringan` pour créer vos diapositives. La présentation aura lieu en classe le 15 décembre.
+Faites une **présentation de 15 minutes maximum**, où chaque membre parle. Utilisez `xaringan` pour créer vos diapositives. La présentation se déroule selon les modalités précisées dans MonPortail.
 
 **Ce que vous devez présenter :**
 
@@ -107,7 +109,9 @@ Faites une **présentation de 15 minutes maximum**, où chaque membre parle. Uti
 | Créativité et pensée critique                         | 10     |
 | Qualité visuelle des diapositives                     | 10     |
 
-## 3. Rapport final (`README`) — à soumettre le **15 décembre 2025 à 23h59**
+## 3. Rapport final (`README`)
+
+À remettre selon l’échéancier officiel indiqué dans MonPortail.
 
 Fournissez un résumé exécutif de votre projet :
 
@@ -116,7 +120,7 @@ Fournissez un résumé exécutif de votre projet :
 - Méthodologie
 - Résultats clés
 
-> 💡 Ce résumé remplace un rapport écrit classique. Il doit être clair, structuré, mais concis.
+> Ce résumé remplace un rapport écrit classique. Il doit être clair, structuré, mais concis.
 
 ### Barème
 
@@ -124,7 +128,7 @@ Fournissez un résumé exécutif de votre projet :
 |-------------------|--------|
 | Contenu et clarté | 15     |
 
-# 📁 Organisation du dépôt GitHub
+# Organisation du dépôt GitHub
 
 Structure attendue :
 
@@ -140,7 +144,7 @@ Structure attendue :
 
 Le dépôt doit être propre, bien structuré, et refléter une démarche reproductible.
 
-# 🤝 Travail d’équipe
+# Travail d’équipe
 
 - Travail en équipe obligatoire
 - Répartition équitable du travail
@@ -148,7 +152,7 @@ Le dépôt doit être propre, bien structuré, et refléter une démarche reprod
 
 Vous remplirez une **évaluation par les pairs** à la fin du projet. Si une personne est jugée inactive (moins de 10 % de contribution), elle pourra recevoir une note ajustée.
 
-# 🧠 Évaluation finale
+# Évaluation finale
 
 | Composante                     | Points  |
 |--------------------------------|---------|
@@ -160,7 +164,7 @@ Vous remplirez une **évaluation par les pairs** à la fin du projet. Si une per
 | Évaluation par les camarades   | 5       |
 | **Total**                      | **100** |
 
-# ✅ Ce qu’on évalue
+# Ce qu’on évalue
 
 - Qualité des questions et des données
 - Pertinence des méthodes statistiques
@@ -168,7 +172,7 @@ Vous remplirez une **évaluation par les pairs** à la fin du projet. Si une per
 - Créativité et esprit critique
 - Respect des bonnes pratiques (éthique, reproductibilité, style)
 
-# 💡 Conseils pratiques
+# Conseils pratiques
 
 - Commencez tôt, testez votre accès aux données.
 - Commitez souvent, poussez régulièrement.

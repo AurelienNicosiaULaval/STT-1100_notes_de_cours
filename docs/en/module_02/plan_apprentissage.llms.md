@@ -38,11 +38,11 @@ We start with a few chapters in the famous R4DS by Hadley Wickham and Garrett Gr
 - [Tidy data (spreadsheets)](https://r4ds.hadley.nz/spreadsheets.html)
   *Find out how to organize your data to make it actionable. This chapter discusses the concept of “clean data” and shows you how to recognize common table structures in Excel or CSV files.*
 
-### 📐 Tidyverse Style Guide
+### Tidyverse Style Guide
 
 - [Best practices for visualization with ggplot2 (Tidyverse Style Guide)](https://style.tidyverse.org/ggplot2.html)
 
-### 📗 A new reference book
+### A new reference book
 
 In this module, we introduce a second reference work: **Introduction to Modern Statistics** (*by Mine Çetinkaya-Rundel and Johanna Hardin*).
 
@@ -86,7 +86,7 @@ We will mainly use the **`mpg`** dataset from the `ggplot2` library (performance
 | `fl` | character | Fuel type: *c* (CNG), *d* (diesel), *e* (ethanol), *p* (premium), *r* (regular). |
 | `class` | character | Vehicle category: *compact*, *suv*, *minivan*, etc. |
 
-> ℹ️ Source: EPA *Fuel Economy* database, included in **ggplot2** and documented with `?mpg`.
+> Source: EPA *Fuel Economy* database, included in **ggplot2** and documented with `?mpg`.
 
 ------------------------------------------------------------------------
 

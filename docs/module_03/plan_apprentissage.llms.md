@@ -14,13 +14,13 @@ STT-1100 Introduction à la science des données
 
 # Lectures initiales
 
-## 📘 Lectures à faire avant l’aventure
+## Lectures à faire avant l’aventure
 
 Dans ce module, nous allons explorer les variables **catégoriques** et la **visualisation adaptée** à ce type de données. Deux lectures sont proposées pour vous préparer :
 
 - [**R for Data Science – Strings**](https://r4ds.hadley.nz/strings.html)
   Ce chapitre vous introduit à la manipulation des chaînes de caractères avec le package `stringr`.
-  \> 📝 **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `str_detect()` ou `str_to_lower()` peuvent déjà vous aider pour nettoyer ou préparer des variables catégoriques.
+  \> **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `str_detect()` ou `str_to_lower()` peuvent déjà vous aider pour nettoyer ou préparer des variables catégoriques.
 
 - [**Introduction to Modern Statistics – Chapitre 6 : Explore categorical data**](https://openintro-ims.netlify.app/explore-categorical)
   Ce chapitre de **IMS** présente les concepts statistiques associés aux données catégoriques. On y parle notamment de tableaux de fréquence, de proportions et des façons de représenter visuellement ce type de variables.
@@ -39,33 +39,33 @@ Votre mission :
 1.  **Explorer et nettoyer** le jeu `listecondamnation` (infractions alimentaires au Québec).
 2.  **Extraire des faits marquants** (top infractions, montants d’amendes, comparaison Montréal / hors-Montréal).
 3.  **Illustrer vos analyses** par au moins **deux visuels** (un graphique de catégories + la carte des amendes).
-4.  **Rédiger un article Quarto (HTML)** clair et accrocheur : chapeau ➜ contexte ➜ méthodologie ➜ résultats ➜ recommandations.
+4.  **Rédiger un article Quarto (HTML)** clair et accrocheur : chapeau -\> contexte -\> méthodologie -\> résultats -\> recommandations.
 5.  **Citer deux chiffres narratifs** et **intégrer une courte citation d’Alexandre** pour humaniser la conclusion.
 
 > **À remettre** : le fichier `.qmd` et le HTML généré, livrés via votre dépôt GitHub avant la date limite.
 
-## 📝 Grille d’évaluation
+## Grille d’évaluation
 
 Votre article sera évalué selon les critères suivants. Assurez-vous de bien respecter le canevas fourni et les consignes données.
 
 | Critère | Excellent (3) | Satisfaisant (2) | À améliorer (1) | Commentaire |
 |----|----|----|----|----|
-| **📰 Chapeau introductif** | Accroche percutante, angle clair, chiffres clés bien choisis | Présent mais peu engageant ou peu clair | Absent ou très vague |  |
-| **📊 Contexte & présentation des données** | Source bien identifiée, pertinence expliquée, limites évoquées | Contexte partiel ou explication sommaire | Source absente ou non justifiée |  |
-| **🧪 Méthodologie (section sans code)** | Démarche bien résumée, claire et logique | Présente mais confuse ou trop technique | Absente ou très floue |  |
-| **📈 Résultat clé \#1 (graphique + interprétation)** | Visuel clair, bonne interprétation, apport analytique évident | Visuel ou commentaire peu approfondi | Visuel ou analyse absente |  |
-| **📊 Résultat clé \#2 (graphique + interprétation)** | Visuel pertinent, insight bien formulé | Visuel correct mais analyse faible | Résultat peu exploité ou manquant |  |
-| **📉 Résultat clé \#3 (graphique + interprétation)** | Résultat original ou complémentaire, bien expliqué | Présent mais peu développé | Manquant ou superficiel |  |
-| **🧠 Discussion (section 4)** | Réflexion critique, mise en perspective des résultats | Discussion partielle ou descriptive | Discussion absente ou sans valeur ajoutée |  |
-| **✅ Conclusion & recommandations** | Messages d’action clairs, utiles, bien formulés | Messages présents mais peu convaincants | Peu clairs ou hors sujet |  |
-| **🗣️ Chiffres narratifs + citation d’Alexandre** | Deux chiffres bien choisis + citation bien intégrée | Un des éléments présent seulement | Aucun ou mal intégré |  |
-| **📂 Qualité du rendu (Quarto + dépôt GitHub)** | `.qmd` fonctionnel, HTML lisible, dépôt propre et complet | Quelques problèmes techniques ou dépôt désorganisé | Exécution impossible ou rendu partiel/absent |  |
+| \*\* Chapeau introductif\*\* | Accroche percutante, angle clair, chiffres clés bien choisis | Présent mais peu engageant ou peu clair | Absent ou très vague |  |
+| \*\* Contexte & présentation des données\*\* | Source bien identifiée, pertinence expliquée, limites évoquées | Contexte partiel ou explication sommaire | Source absente ou non justifiée |  |
+| \*\* Méthodologie (section sans code)\*\* | Démarche bien résumée, claire et logique | Présente mais confuse ou trop technique | Absente ou très floue |  |
+| \*\* Résultat clé \#1 (graphique + interprétation)\*\* | Visuel clair, bonne interprétation, apport analytique évident | Visuel ou commentaire peu approfondi | Visuel ou analyse absente |  |
+| \*\* Résultat clé \#2 (graphique + interprétation)\*\* | Visuel pertinent, insight bien formulé | Visuel correct mais analyse faible | Résultat peu exploité ou manquant |  |
+| \*\* Résultat clé \#3 (graphique + interprétation)\*\* | Résultat original ou complémentaire, bien expliqué | Présent mais peu développé | Manquant ou superficiel |  |
+| \*\* Discussion (section 4)\*\* | Réflexion critique, mise en perspective des résultats | Discussion partielle ou descriptive | Discussion absente ou sans valeur ajoutée |  |
+| \*\* Conclusion & recommandations\*\* | Messages d’action clairs, utiles, bien formulés | Messages présents mais peu convaincants | Peu clairs ou hors sujet |  |
+| \*\* Chiffres narratifs + citation d’Alexandre\*\* | Deux chiffres bien choisis + citation bien intégrée | Un des éléments présent seulement | Aucun ou mal intégré |  |
+| \*\* Qualité du rendu (Quarto + dépôt GitHub)\*\* | `.qmd` fonctionnel, HTML lisible, dépôt propre et complet | Quelques problèmes techniques ou dépôt désorganisé | Exécution impossible ou rendu partiel/absent |  |
 
 ------------------------------------------------------------------------
 
-🧮 **Total sur 30 points** : `XX / 30`
+**Total sur 30 points** : `XX / 30`
 
-> ✍️ *N’oubliez pas de relire la checklist en fin de template avant de publier votre article.*
+> *N’oubliez pas de relire la checklist en fin de template avant de publier votre article.*
 
 # Exercices de consolidation
 
@@ -77,7 +77,7 @@ library(stringr)
 
 ------------------------------------------------------------------------
 
-### ❓ Exercice 1 – Identifier les variables catégoriques
+### Exercice 1 – Identifier les variables catégoriques
 
 Voici un petit jeu de données :
 
@@ -97,7 +97,7 @@ data <- tibble::tibble(
 
 ------------------------------------------------------------------------
 
-### ❓ Exercice 2 – Tableau de fréquence
+### Exercice 2 – Tableau de fréquence
 
 Crée un tableau de fréquence pour la variable `sexe`.
 
@@ -119,7 +119,7 @@ Crée un tableau de fréquence pour la variable `sexe`.
 
 ------------------------------------------------------------------------
 
-### ❓ Exercice 3 – Proportions
+### Exercice 3 – Proportions
 
 Calcule les pourcentages pour chaque modalité de la variable `région`.
 
@@ -143,7 +143,7 @@ Calcule les pourcentages pour chaque modalité de la variable `région`.
 
 ------------------------------------------------------------------------
 
-### ❓ Exercice 4 – Barplot d’une variable catégorielle
+### Exercice 4 – Barplot d’une variable catégorielle
 
 Fais un barplot représentant la variable `région`.
 
@@ -161,7 +161,7 @@ Fais un barplot représentant la variable `région`.
 
 ------------------------------------------------------------------------
 
-### ❓ Exercice 5 – Comparaison de deux variables catégorielles
+### Exercice 5 – Comparaison de deux variables catégorielles
 
 Ajoute une couleur par `sexe` dans le graphique précédent.
 
@@ -175,7 +175,7 @@ Ajoute une couleur par `sexe` dans le graphique précédent.
 
 ------------------------------------------------------------------------
 
-### ❓ Exercice 6 – Nettoyer une variable catégorielle
+### Exercice 6 – Nettoyer une variable catégorielle
 
 Voici une variable catégorielle incohérente :
 
@@ -195,7 +195,7 @@ Nettoie cette variable pour que toutes les réponses soient en minuscules **et s
 
 ------------------------------------------------------------------------
 
-### ❓ Exercice 7 – Tableau croisé
+### Exercice 7 – Tableau croisé
 
 Voici un autre jeu de données :
 
@@ -222,7 +222,7 @@ Crée un tableau croisé (contingence) entre les deux variables.
 
 ------------------------------------------------------------------------
 
-### ❓ Exercice 8 – Pour aller plus loin : Mosaic plot
+### Exercice 8 – Pour aller plus loin : Mosaic plot
 
 Utilise le package `ggplot2` (ou `ggmosaic` si disponible) pour représenter visuellement la relation entre `fumeur` et `sport`.
 
@@ -239,9 +239,9 @@ Utilise le package `ggplot2` (ou `ggmosaic` si disponible) pour représenter vis
 
 ------------------------------------------------------------------------
 
-## 📦 Problèmes
+## Problèmes
 
-### 🐧 Exercice 9 – Palmer Penguins
+### Exercice 9 – Palmer Penguins
 
 On utilise le jeu de données `penguins` du package `palmerpenguins`.
 
@@ -288,7 +288,7 @@ Questions : 1. Crée un tableau de fréquence pour `species` 2. Visualise la dis
 
 ------------------------------------------------------------------------
 
-### 🚌 Exercice 10 – Données Titanic
+### Exercice 10 – Données Titanic
 
 Utilise `titanic::titanic_train`
 

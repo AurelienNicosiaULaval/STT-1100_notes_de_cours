@@ -48,15 +48,15 @@ We start with a few chapters in the famous R4DS by Hadley Wickham and Garrett Gr
 - [Tidy data (spreadsheets)](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}\
     *Find out how to organize your data to make it actionable. This chapter discusses the concept of "clean data" and shows you how to recognize common table structures in Excel or CSV files.*
 
-### 📐 Tidyverse Style Guide
+### Tidyverse Style Guide
 
 - [Best practices for visualization with ggplot2 (Tidyverse Style Guide)](https://style.tidyverse.org/ggplot2.html){target="_blank"}\
 
-### 📗 A new reference book
+### A new reference book
 
 In this module, we introduce a second reference work: **Introduction to Modern Statistics** (*by Mine Çetinkaya-Rundel and Johanna Hardin*).
 
-> Note: we will often abbreviate with **IMS**
+>  Note: we will often abbreviate with **IMS**
 
 This book, also available free online, offers a **modern and applied approach to statistics**. It emphasizes visualization, statistical intuition and best practices in data science. It constitutes an excellent complement to R4DS, in particular for deepening the statistical aspects of exploratory analyses.
 
@@ -96,7 +96,7 @@ We will mainly use the **`mpg`** dataset from the `ggplot2` library (performance
 | `fl` | character | Fuel type: *c* (CNG), *d* (diesel), *e* (ethanol), *p* (premium), *r* (regular). |
 | `class` | character | Vehicle category: *compact*, *suv*, *minivan*, etc. |
 
-> ℹ️ Source: EPA *Fuel Economy* database, included in **ggplot2** and documented with `?mpg`.
+>   Source: EPA *Fuel Economy* database, included in **ggplot2** and documented with `?mpg`.
 
 ----------------------------------------------------------------------------------
 
@@ -108,7 +108,7 @@ We will mainly use the **`mpg`** dataset from the `ggplot2` library (performance
 ``` r
 library(tidyverse)
 
-mpg %>% 
+mpg %>%
   ggplot(aes(displ, hwy)) +
   geom_point() +
   labs(
@@ -127,7 +127,7 @@ mpg %>%
 
 ::: {.callout-tip collapse="true"}
 ``` r
-mpg %>% 
+mpg %>%
   ggplot(aes(displ, hwy, color = class)) +
   geom_point(alpha = 0.8, size = 2) +
   theme_minimal() +
@@ -146,8 +146,8 @@ mpg %>%
 
 ::: {.callout-tip collapse="true"}
 ``` r
-toyota <- mpg %>% 
-  filter(manufacturer == "toyota") %>% 
+toyota <- mpg %>%
+  filter(manufacturer == "toyota") %>%
   select(model, displ, hwy)
 
 toyota
@@ -162,9 +162,9 @@ toyota
 
 ::: {.callout-tip collapse="true"}
 ``` r
-mpg %>% 
-  mutate(efficiency = hwy / cty) %>% 
-  group_by(class) %>% 
+mpg %>%
+  mutate(efficiency = hwy / cty) %>%
+  group_by(class) %>%
   summarize(
     eff_mean = mean(efficiency, na.rm = TRUE),
     eff_sd = sd(efficiency, na.rm = TRUE)
@@ -180,7 +180,7 @@ mpg %>%
 
 ::: {.callout-tip collapse="true"}
 ``` r
-mpg %>% 
+mpg %>%
   ggplot(aes(displ)) +
   geom_histogram(binwidth = 0.5, fill = "steelblue", color = "white") +
   geom_density(aes(y = ..count.. * 0.5), linewidth = 1) +
@@ -196,8 +196,8 @@ mpg %>%
 
 ::: {.callout-tip collapse="true"}
 ``` r
-mpg %>% 
-  filter(hwy == max(hwy)) %>% 
+mpg %>%
+  filter(hwy == max(hwy)) %>%
   select(manufacturer, model, year, hwy)
 ```
 :::
@@ -218,7 +218,7 @@ plot(mpg$displ,mpg$hwy,col=as.factor(mpg$drv));title("plot")
 
 ::: {.callout-tip collapse="true"}
 ``` r
-mpg %>% 
+mpg %>%
   ggplot(aes(displ, hwy, color = drv)) +
   geom_point() +
   labs(
@@ -249,8 +249,8 @@ mpg %>%
 
 library(tidyverse)
 
-mean_hwy <- mpg %>% 
-  group_by(class) %>% 
+mean_hwy <- mpg %>%
+  group_by(class) %>%
   summarize(mean_hwy = mean(hwy, na.rm = TRUE))
 ```
 :::
@@ -271,7 +271,7 @@ dirty <- tibble(
 
 ::: {.callout-tip collapse="true"}
 ``` r
-sales_long <- dirty %>% 
+sales_long <- dirty %>%
   pivot_longer(
     cols = starts_with("sales_"),
     names_to = "year",
@@ -305,7 +305,7 @@ summary(mpg$cty)
 
 ::: {.callout-tip collapse="true"}
 ``` r
-mpg %>% 
+mpg %>%
   ggplot(aes(x = reorder(class, hwy, median, na.rm = TRUE), y = hwy)) +
   geom_boxplot(fill = "orange") +
   coordinate_flip() +
@@ -324,7 +324,7 @@ mpg %>%
 
 ::: {.callout-tip collapse="true"}
 ``` r
-mpg %>% 
+mpg %>%
   ggplot(aes(displ)) +
   geom_histogram(binwidth = 0.5, fill = "darkseagreen") +
   facet_wrap(~ drv, nrow = 1) +
@@ -346,7 +346,7 @@ mpg %>%
 ::: {.callout-tip collapse="true"}
 ``` r
 #1. Statistics
-mpg %>% 
+mpg %>%
   summarize(
     n = n(),
     mean_hwy = mean(hwy),
@@ -358,13 +358,13 @@ mpg %>%
 #2‑3. Histogram + boxplot
 library(patchwork) # for assembly (optional)
 
-p1 <- mpg %>% 
+p1 <- mpg %>%
   ggplot(aes(hwy)) +
   geom_histogram(binwidth = 2, fill = "steelblue", color = "white") +
   geom_density(aes(y = ..count.. * 2), linewidth = 1) +
   labs(title = "Highway MPG Distribution")
 
-p2 <- mpg %>% 
+p2 <- mpg %>%
   ggplot(aes(y = hwy)) +
   geom_boxplot(fill = "orange", width = 0.4) +
   theme_void()

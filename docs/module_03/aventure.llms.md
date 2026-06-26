@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# 🎬 Mise en situation : Devenez *data journalist*
+# Mise en situation : Devenez *data journalist*
 
 Vous êtes engagés comme **journaliste de données** par *Le Courrier Gourmand*, un média local fictif qui publie des enquêtes interactives sur l’alimentation à Montréal. Votre rédactrice en chef souhaite un article éclairant le public sur **les infractions alimentaires commises dans les restaurants montréalais** . Elle vous donne quelques pistes de reflexion:
 
@@ -27,14 +27,14 @@ Vous êtes engagés comme **journaliste de données** par *Le Courrier Gourmand*
 - Construire des tableaux de fréquence, des statistiques descriptives et des visualitions
 - Rédiger un court billet journalistique reproductible dans Quarto.
 
-💡 **Note pour le rapport**
+**Note pour le rapport**
 Tout au long de l’analyse, vous devrez garder en tête ces questions et y répondre de manière argumentée dans votre rapport `qmd`
 
 Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infractions, leurs amendes et le type d’établissements concernés. Votre mission : **analyser les données pour répondre à l’objectif d’identifier les infractions dans les restaurants à Montréal**.
 
 ------------------------------------------------------------------------
 
-# 🎯 Comment réussir l’aventure
+# Comment réussir l’aventure
 
 1.  **Charger les données** : Vous pouvez soit :
     - Charger le package `UlavalSSD` et appeler `data(listecondamnation)`.
@@ -43,25 +43,25 @@ Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infr
 
 ------------------------------------------------------------------------
 
-# 🚀 Travail sur Github
+# Travail sur Github
 
 Avant de commencer l’analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.
 
-1️⃣ Clonez le dépôt “Aventure-3-IDENTIFIANT_GITHUB”, pour cela créez un nouveau projet Rstudio et copier coller le lien HTTPS de votre repo Github (voir feuille aide mémoire).
+1.  Clonez le dépôt “Aventure-3-IDENTIFIANT_GITHUB”, pour cela créez un nouveau projet Rstudio et copier coller le lien HTTPS de votre repo Github (voir feuille aide mémoire).
 
-💡 Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier `.Rproj` dans votre explorateur de fichiers.
+Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier `.Rproj` dans votre explorateur de fichiers.
 
-2️⃣ Ajuster le fichier Quarto: Le modèle de l’article de journal est présent dans le dépôt. Allez inscrire votre nom.
+2.  Ajuster le fichier Quarto: Le modèle de l’article de journal est présent dans le dépôt. Allez inscrire votre nom.
 
-3️⃣ Premier commit et push vers GitHub: Une fois votre fichier `.qmd` ajusté et enregistré, commitez et poussez vos modifications sur GitHub :
+3.  Premier commit et push vers GitHub: Une fois votre fichier `.qmd` ajusté et enregistré, commitez et poussez vos modifications sur GitHub :
 
 Attention: on se rappelle que les messages de commit doivent être parlant. Par exemple “Ajout de mon nom dans l’article”
 
-🎯 Félicitations ! Vous êtes maintenant prêt à débuter l’analyse ! 🚀
+Félicitations ! Vous êtes maintenant prêt à débuter l’analyse !
 
-# 🏷️ Variables catégoriques : les bases en R avec `stringr`
+# Variables catégoriques : les bases en R avec `stringr`
 
-## ✨ Explications
+## Explications
 
 En R, une variable catégorique est souvent représentée par :
 
@@ -75,7 +75,7 @@ Pour le module 3, nous nous concentrerons sur les variables catégorique de type
 
 Voici des exemples démontrant comment utiliser `stringr` (partie du `Tidyverse`) pour manipuler des variables de type character dans un jeu de données comme `listecondamnation`. Les exemples ci‑dessous ciblent des cas fréquents : détection de motifs, extraction, remplacement, et nettoyage de chaînes.
 
-## 🚀 Démonstration
+## Démonstration
 
 On va utiliser le jeu de données `listecondamnation` de la librarie `UlavalSSD` qui contient les condamnations des établissements alimentaires au Québec.
 
@@ -323,25 +323,25 @@ listecondamnation <- listecondamnation %>%
 >     4 TEMPERATURE ALIMENTS PERISSABLES
 >     5 TEMPERATURE EAU CHAUDE 60?C
 
-Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀
+Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !
 
 > **IMPORTANT:**
 >
 > On a travailler sur les infractions reliées à la température, mais il y a d’autres types d’infraction. Est-ce que vous pouvez en trouver une qui vous inquiète? Par exemple, les insectes, les rongeurs ou l’insalubrité!
 >
-> Je crois que ca peut faire un bel ajout de résultat clé à mettre dans ton article 😉
+> Je crois que ca peut faire un bel ajout de résultat clé à mettre dans ton article
 
 ------------------------------------------------------------------------
 
-# 🏗 Statistiques descriptives pour variables catégoriques
+# Statistiques descriptives pour variables catégoriques
 
 Dans cette section, nous allons découvrir comment résumer l’information contenue dans les variables qualitatives, appelées aussi catégorielles. Nous verrons comment compter les occurrences de chaque catégorie (tableaux de fréquences), calculer des proportions (ou pourcentages) afin de mieux visualiser la répartition, et associer plusieurs variables pour mieux comprendre leurs interactions (tableaux de contingence). L’objectif est de disposer d’un portrait clair de la distribution des catégories pour en tirer des conclusions rapides sur les tendances ou anomalies présentes dans les données.
 
-## ✨ Explications
+## Explications
 
 Les **tableaux de fréquences** et les **mesures de tendance** (nombre d’observations, pourcentages) sont un bon point de départ pour résumer des variables catégoriques.
 
-## 🚀 Démonstration
+## Démonstration
 
 ``` r
 # Nombre d'infractions par type d’établissement
@@ -417,13 +417,13 @@ On va terminer cette section avec un exercice qui vous permettra de vous familia
 >
 > 3.  **Catégories rares** : Déterminez si l’une des variables catégoriques (`SOC_NOM_ARTCL_INFRC` et `Type_etablissement`) a des catégories rare ou quasi inexploitée. Devrait-on la regrouper ?
 
-Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀
+Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !
 
 ------------------------------------------------------------------------
 
-# 📈 Visualisation de données catégoriques
+# Visualisation de données catégoriques
 
-## ✨ Explications
+## Explications
 
 Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
@@ -433,7 +433,7 @@ Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
 - **Graphique de mosaique (Mosaic plots)** si on veut comparer plusieurs catégories croisées.
 
-## 🚀 Démonstration
+## Démonstration
 
 ``` r
 library(ggplot2)
@@ -480,7 +480,7 @@ Le **montant des amendes** est un indicateur concret qui attire souvent l’atte
 
 ------------------------------------------------------------------------
 
-# 🚀 5. Aller plus loin : cartographier les amendes (optionnel)
+# 5. Aller plus loin : cartographier les amendes (optionnel)
 
 Pour clore l’enquête, **Alexandre** a mis la main sur un bout de code R rédigé par une collègue de la Ville ; ce script géocode automatiquement les codes postaux et fournit une latitude/longitude pour chaque établissement. Vous allez l’utiliser pour dresser **une carte de la répartition des amendes**.
 
@@ -524,7 +524,7 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 
 ------------------------------------------------------------------------
 
-# 🔚 Conclusion de l’aventure
+# Conclusion de l’aventure
 
 Cette troisième aventure vous a permis de **passer du rôle d’analyste à celui de journaliste de données** : vous avez nettoyé un jeu réel d’inspections alimentaires, quantifié les infractions majeures, comparé les profils d’établissements et visualisé la géographie des amendes.
 
@@ -534,15 +534,15 @@ Vous disposez maintenant :
 - de **graphiques percutants** (diagrammes en barres, boîtes à moustaches, carte) pour étayer vos arguments ;
 - d’**observations qualitatives** fournies par Alexandre, qui orientent le récit vers les enjeux d’hygiène et de transparence citoyenne.
 
-## ✍️ Prochaine étape : rédigez votre article
+## Prochaine étape : rédigez votre article
 
-1.  **Structurez votre article Quarto** : chapeau accrocheur ➜ contexte ➜ méthodologie ➜ résultats clés ➜ recommandations.
+1.  **Structurez votre article Quarto** : chapeau accrocheur -\> contexte -\> méthodologie -\> résultats clés -\> recommandations.
 2.  **Intégrez au moins deux visuels** parmi ceux produits (un graphique de catégories et la carte des amendes).
 3.  **Citez deux chiffres narratifs** (ex. « 5 catégories couvrent 62 % des infractions », « 180 000 \$ d’amendes dans un rayon de 2 km ») pour captiver le lecteur.
 4.  **Ajoutez une citation synthétique d’Alexandre** pour humaniser votre conclusion.
 
 > **Livrable attendu** : un fichier HTML autonome exporté depuis votre `.qmd`, commité sur votre dépôt GitHub avant la date limite.
 
-Bonne rédaction ! Faites parler les données et mettez‑vous dans la peau du journaliste qui informe, nuance et propose. 🚀
+Bonne rédaction ! Faites parler les données et mettez‑vous dans la peau du journaliste qui informe, nuance et propose.
 
-> 🎯 **Félicitations** ! Vous avez mis en pratique les concepts de variables catégoriques, de statistiques descriptives et de visualisation pour des données catégoriques réelles. Continuez ainsi, le prochain module vous attend.
+> **Félicitations** ! Vous avez mis en pratique les concepts de variables catégoriques, de statistiques descriptives et de visualisation pour des données catégoriques réelles. Continuez ainsi, le prochain module vous attend.

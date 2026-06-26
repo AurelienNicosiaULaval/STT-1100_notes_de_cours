@@ -22,7 +22,7 @@ At the end of this module, you should be able to
 
 # Initial readings
 
-## 📘 The reference book
+## The reference book
 
 In this course, we will regularly rely on the book **R for Data Science** (*2nd edition*, by Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund).
 
@@ -30,7 +30,7 @@ In this course, we will regularly rely on the book **R for Data Science** (*2nd 
 
 It is an **indispensable reference**, accessible free online and written in clear **English**. You will find complete explanations and concrete examples to learn how to work effectively with `tidyverse`.
 
-**👉 Tip**: If in doubt or stuck, consult the document [How to search and get help](../references.llms.md).
+\*\* Tip\*\*: If in doubt or stuck, consult the document [How to search and get help](../references.llms.md).
 
 ------------------------------------------------------------------------
 
@@ -62,13 +62,13 @@ In this first challenge, in order to get used to the different tools, you must c
 
 ## Further reading
 
-### 🧠 Deepen best practices
+### Deepen best practices
 
 Once the foundations have been laid, it is essential to adopt **clear, reproducible and consistent work habits** from the start. The resources below will help you improve the readability, structure, and organization of your code.
 
 ------------------------------------------------------------------------
 
-### 🔧 R4DS Add-ons
+### R4DS Add-ons
 
 - [Workflow: help](https://r4ds.hadley.nz/workflow-help.html)
   *Learn to ask the right questions, search documentation effectively, and make relevant requests for help.*
@@ -81,7 +81,7 @@ Once the foundations have been laid, it is essential to adopt **clear, reproduci
 
 ------------------------------------------------------------------------
 
-### 📐 Tidyverse Style Guide
+### Tidyverse Style Guide
 
 - [Chapter 1: Files](https://style.tidyverse.org/files.html)
   *Tips for organizing your files, structuring your projects and naming your scripts clearly.*

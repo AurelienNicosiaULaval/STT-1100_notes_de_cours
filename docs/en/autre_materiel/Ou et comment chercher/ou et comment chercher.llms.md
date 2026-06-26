@@ -2,13 +2,13 @@
 
 STT-1100 — Introduction to Data Science
 
-# 🎯 Introduction
+# Introduction
 
 A good data scientist doesn’t know everything by heart… but knows **where to look** and **how to ask for help** intelligently. This guide will help you learn how to do it effectively and stress-free.
 
 ------------------------------------------------------------------------
 
-# 📝 The *cheat sheet* of the course
+# The *cheat sheet* of the course
 
 A **summary cheat sheet** is available to support you throughout the course. This *cheat sheet* brings together:
 
@@ -20,7 +20,7 @@ A **summary cheat sheet** is available to support you throughout the course. Thi
 
 ------------------------------------------------------------------------
 
-# 🤖 GPT STT-1100: your personalized assistant
+# GPT STT-1100: your personalized assistant
 
 We have designed a **tailor-made GPT wizard for this course**: [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
 
@@ -34,16 +34,16 @@ We have designed a **tailor-made GPT wizard for this course**: [GPT STT-1100](ht
 
 ------------------------------------------------------------------------
 
-# 🧭 Where to look for help?
+# Where to look for help?
 
-## 📌 Integrated help in RStudio
+## Integrated help in RStudio
 
 - Type `?function` or `help(function)` in the console.
 - Use RStudio’s **Help** tab to navigate the documentation.
 - Type `example(function)` to get a ready-made example.
 - Also test the `args(function)` function to see the expected arguments.
 
-## 🌍 Search the web
+## Search the web
 
 Billions of answers await you! Here are some tips for properly formulating your research:
 
@@ -63,7 +63,7 @@ Billions of answers await you! Here are some tips for properly formulating your 
 
 ------------------------------------------------------------------------
 
-# 📘 Course Resources
+# Course Resources
 
 ## Recommended books and guides
 
@@ -87,15 +87,15 @@ If English slows you down:
 
 ------------------------------------------------------------------------
 
-# 👩‍🏫 Ask for help effectively
+# Ask for help effectively
 
-## 🤔 Before asking your question
+## Before asking your question
 
 1.  Have you read the entire error message?
 2.  Have you tried searching with keywords?
 3.  Can you isolate the problem in a simple example?
 
-## 🗣️ Ask a good question (to [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), to an assistant or on the forum)
+## Ask a good question (to [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), to an assistant or on the forum)
 
 - Be specific: indicate the **minimal** code that causes the error.
 - Copy the **full error message**.
@@ -113,22 +113,22 @@ If English slows you down:
 
 ------------------------------------------------------------------------
 
-# 🚨 Don’t get stuck alone!
+# Don’t get stuck alone!
 
-- 📩 **Write to the course forum.**
-- 💬 **Work in pairs or small groups**.
-- 🧑‍🏫 **Come and ask your question in class or to the assistant**.
-- 🤖 **Use GPT STT-1100 wisely**, but check what it responds to you.
-
-------------------------------------------------------------------------
-
-# 🎁 Bonus: reflexes to adopt
-
-✅ Find the information for yourself first
-✅ Document what you learn (personal notes or `.qmd` file)
-✅ Dare to ask questions!
-✅ Learn from your mistakes (and those of others)
+- **Write to the course forum.**
+- **Work in pairs or small groups**.
+- **Come and ask your question in class or to the assistant**.
+- **Use GPT STT-1100 wisely**, but check what it responds to you.
 
 ------------------------------------------------------------------------
 
-> 🧠 *The best data scientists are not those who have all the answers… but those who know how to ask the right questions.*
+# Bonus: reflexes to adopt
+
+Find the information for yourself first
+Document what you learn (personal notes or `.qmd` file)
+Dare to ask questions!
+Learn from your mistakes (and those of others)
+
+------------------------------------------------------------------------
+
+> *The best data scientists are not those who have all the answers… but those who know how to ask the right questions.*

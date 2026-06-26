@@ -7,7 +7,7 @@ format:
     toc-title: Plan
     self-contained: true
     link-external-newwindow: true
-#    number-sections: true
+# number-sections: true
     css: [../css/base_css.css]
 editor: visual
 ---
@@ -23,7 +23,7 @@ editor: visual
 
 # Lectures initiales
 
-## 📘 Lectures à faire avant l’aventure
+## Lectures à faire avant l’aventure
 
 Dans ce module, nous allons explorer les concepts de base de l'importation et du nettoyage de données. Voici quelques lectures initiales pour vous préparer :
 
@@ -35,7 +35,7 @@ Dans ce module, nous allons explorer les concepts de base de l'importation et du
 
 -   [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html){target="_blank"}\
     Ce chapitre vous introduit aux **facteurs** en R, qui sont des variables catégoriques.\
-    \> 📝 **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `factor()` ou `fct_reorder()` peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).
+    \>  **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `factor()` ou `fct_reorder()` peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).
 
 -   [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}\
     Ce chapitre vous introduit à l’importation de données à partir de fichiers Excel.\
@@ -57,7 +57,7 @@ A la fin de l'aventure, vous devez être en mesure d'avoir déposer dans votre d
 
 -   la base de données nettoyée au format `.csv.`
 
-# 📝 Exercices de consolidation
+# Exercices de consolidation
 
 ### Exercice 1 – Lecture contrôlée d’un CSV (Data import, § readr)
 
@@ -70,7 +70,7 @@ Importez `policies.csv` en :
 puis affichez la structure de l’objet.
 
 ::: {.callout-note collapse="true"}
-### ✅ Réponse
+### Réponse
 
 ``` r
 library(readr)
@@ -92,14 +92,14 @@ Le fichier contient la chaîne `"missing"` pour indiquer une absence dans `vehic
 Ré-importez le fichier en la convertissant en `NA`.
 
 ::: {.callout-note collapse="true"}
-### ✅ Réponse
+### Réponse
 
 ``` r
 policies <- read_csv("policies.csv", na = "missing")
 ```
 :::
 
-### Exercice 3 – Passage long ↔ large (Data tidy, § pivot)
+### Exercice 3 – Passage long <-> large (Data tidy, § pivot)
 
 Les colonnes `q1_claims:q4_claims` représentent le nombre de réclamations par trimestre.
 
@@ -108,20 +108,20 @@ Les colonnes `q1_claims:q4_claims` représentent le nombre de réclamations par 
 2.  Revenez ensuite en *wide*.
 
 ::: {.callout-note collapse="true"}
-### ✅ Réponse
+### Réponse
 
 ``` r
 library(tidyr)
 library(dplyr)
 
-pol_long <- policies %>% 
+pol_long <- policies %>%
   pivot_longer(
     cols = q1_claims:q4_claims,
     names_to  = "quarter",
     values_to = "claims"
   )
 
-pol_wide <- pol_long %>% 
+pol_wide <- pol_long %>%
   pivot_wider(names_from = quarter, values_from = claims)
 ```
 :::
@@ -132,7 +132,7 @@ Le classeur `quotes_2024.xlsx` possède une feuille « Q3 » où les libellés c
 Importez-la et vérifiez les types.
 
 ::: {.callout-note collapse="true"}
-### ✅ Réponse
+### Réponse
 
 ``` r
 library(readxl)
@@ -152,7 +152,7 @@ La colonne `euro_premium` contient « 1 234,56 » (virgule décimale, espace 000
 Parsez-la correctement en `double`.
 
 ::: {.callout-note collapse="true"}
-### ✅ Réponse
+### Réponse
 
 ``` r
 library(readr)
@@ -170,7 +170,7 @@ Vous disposez d’une liste `lst <- jsonlite::read_json("coverage.json")`.
 2.  Transformez `lst` en tibble rectangulaire.
 
 ::: {.callout-note collapse="true"}
-### ✅ Réponse
+### Réponse
 
 ``` r
 library(jsonlite)
@@ -180,7 +180,7 @@ library(dplyr)
 lst   <- read_json("coverage.json")
 limit <- lst$collision$limit
 
-tbl <- tibble(row = lst) %>% 
+tbl <- tibble(row = lst) %>%
   unnest_wider(row)
 ```
 :::
@@ -196,7 +196,7 @@ En trois lignes :
 3.  renvoyez les **5** plus grosses `claim_amount` par `vehicle_type`.
 
 ::: {.callout-note collapse="true"}
-### ✅ Réponse
+### Réponse
 
 ``` r
 library(readr); library(dplyr); library(janitor)

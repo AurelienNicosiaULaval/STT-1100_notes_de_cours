@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# 🎯 Module objectives
+# Module objectives
 
 At the end of this module, you should be able to:
 
@@ -11,30 +11,30 @@ At the end of this module, you should be able to:
 - Fit and interpret a multiple linear regression model.
 - Recognize and discuss potential biases, particularly those related to discrimination, in data or models.
 
-# 📚 Readings
+# Readings
 
 To prepare, check out the following resources:
 
-- 📘 [Introduction to Modern Statistics – Chapter 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
+- [Introduction to Modern Statistics – Chapter 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
 
-- 📘 [Introduction to Modern Statistics – Chapter 8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
+- [Introduction to Modern Statistics – Chapter 8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
 
-- 📘 [Introduction to Modern Statistics – Chapter 25: Inference for linear regression with multiple predictors - section 1](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
+- [Introduction to Modern Statistics – Chapter 25: Inference for linear regression with multiple predictors - section 1](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
 
-# 🧭 Adventure
+# Adventure
 
 You play the role of a **data scientist** within the Quebec Ministry of Education. Your mandate is twofold: build a predictive model from primary school data, then explore a fictitious dataset to detect bias.
 
-👉 [Adventure 9 — Algorithmic prediction and bias](../module_09/aventure.llms.md)
+[Adventure 9 — Algorithmic prediction and bias](../module_09/aventure.llms.md)
 
-# 💡 Challenge — Video capsule
+# Challenge — Video capsule
 
 You must produce a **180-second video capsule** in which you present:
 
 - either a predictive model built in Mission 1;
 - or a critical analysis of a bias detected in Mission 2.
 
-🎯 The capsule must include:
+The capsule must include:
 
 - a clear introduction;
 
@@ -44,11 +44,11 @@ You must produce a **180-second video capsule** in which you present:
 
 - a conclusion with at least one recommendation.
 
-# 🏋️ Consolidation exercises
+# Consolidation exercises
 
 Here is an integrative exercise based on the `penguins` dataset from the `palmerpenguins` package. It combines modeling, interpretation and critical thinking.
 
-## 🐧 Study of penguin body mass
+## Study of penguin body mass
 
 You work for an environmental NGO that wants to better understand the factors influencing the body mass of penguins in Antarctica. You have the `penguins` dataset, cleaned using the `drop_na()` function to avoid missing values.
 
@@ -64,7 +64,7 @@ df <- penguins %>%
 
 Trace the relationship between `body_mass_g` and `flipper_length_mm`. Does a linear relationship seem plausible to you?
 
-💡 Solution
+Solution
 
 Use `ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = "lm")`. The relationship is clearly linear.
 
@@ -72,7 +72,7 @@ Use `ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + ge
 
 Fit a `body_mass_g~flipper_length_mm` model. Interpret the slope.
 
-💡 Solution
+Solution
 
 Each additional mm of fin length is associated with an average increase of X grams of body mass (see exact value in the model).
 
@@ -80,7 +80,7 @@ Each additional mm of fin length is associated with an average increase of X gra
 
 Now adjust `body_mass_g ~ flipper_length_mm + sex`. What is the reference variable? What differences do you observe?
 
-💡 Solution
+Solution
 
 R uses the first alphabetical modality as a reference (here probably “female”). The `sexmale` coefficient represents the average difference in mass between males and females, at equal length.
 
@@ -88,7 +88,7 @@ R uses the first alphabetical modality as a reference (here probably “female�
 
 Predict the body mass for a penguin with 200 mm fin length, male.
 
-💡 Solution
+Solution
 
 Create a table `newdata <- tibble(flipper_length_mm = 200, sex = "male")` then do `predict(model, newdata)`.
 
@@ -96,7 +96,7 @@ Create a table `newdata <- tibble(flipper_length_mm = 200, sex = "male")` then d
 
 Is the `species` variable relevant to include? What precaution should you take if you add it?
 
-💡 Solution
+Solution
 
 Yes, `species` is highly correlated with mass. Attention should be paid to multicollinearity if it is strongly related to other predictors.
 

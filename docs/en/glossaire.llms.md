@@ -1,7 +1,5 @@
 # Glossary
 
-# Glossary
-
 This glossary gives short landmarks. Detailed definitions are developed in the modules.
 
 | Term | Course landmark |

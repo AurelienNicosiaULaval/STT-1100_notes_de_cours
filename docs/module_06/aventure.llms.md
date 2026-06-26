@@ -2,15 +2,15 @@
 
 STT-1100 • Introduction à la science des données
 
-# ✈️ Mise en contexte
+# Mise en contexte
 
 Vous êtes une équipe de scientifiques de données travaillant pour l’aéroport JFK. Votre mandat est de produire une **analyse collaborative et reproductible** visant à identifier les sources de retard des vols, en particulier en lien avec la météo.
 
 Chaque membre de votre équipe devra contribuer activement à cette analyse, qui sera produite à l’aide de **Quarto** et hébergée sur **GitHub**.
 
-# 🔧 Partie 1 — Collaboration avec GitHub : rôles, branches, conflits
+# Partie 1 — Collaboration avec GitHub : rôles, branches, conflits
 
-## 👥 Formation des équipes et rôles dans le cycle de vie des données
+## Formation des équipes et rôles dans le cycle de vie des données
 
 Travaillez en **équipes de 3 à 4 personnes**. Chaque membre incarne un rôle essentiel dans le **cycle de vie des données et d’un projet en science des données**. Ces rôles seront maintenus pour les étapes suivantes.
 
@@ -21,9 +21,9 @@ Travaillez en **équipes de 3 à 4 personnes**. Chaque membre incarne un rôle e
 | **Chargé·e de la reproductibilité** | Organise le `.qmd`, assure la compilation et la clarté | Garant·e de la **reproductibilité et documentation** | Met en place les sections du `.qmd`, nettoie le rendu, vérifie le rendu HTML final |
 | **Visualiseur·se** (optionnel) | Produit les graphiques, harmonise le style | Joue un rôle clé dans la **communication et diffusion** | Ajoute un `chunk` ggplot2 illustratif et adapte les titres/légendes |
 
-> 🔁 **Tour de rôle recommandé** dans l’aventure pour sensibiliser à toutes les étapes du cycle.
+> **Tour de rôle recommandé** dans l’aventure pour sensibiliser à toutes les étapes du cycle.
 
-## 🛠 Étapes à suivre
+## Étapes à suivre
 
 Voici une séquence suggérée pour que les membres de l’équipe travaillent **l’un après l’autre**, pendant que les autres observent et apprennent :
 
@@ -39,7 +39,7 @@ Voici une séquence suggérée pour que les membres de l’équipe travaillent *
 
 6.  Une fois toutes les branches fusionnées, compiler le `.qmd` en HTML et valider le rendu avec l’équipe.
 
-## ✅ Objectifs de la Partie 1
+## Objectifs de la Partie 1
 
 Une branche par rôle avec au moins un commit
 
@@ -51,13 +51,13 @@ La présentation de l’équipe est complète
 
 Chacun a réfléchi à sa place dans le **cycle de vie des données**
 
-# 🔍 Partie 2 — Analyse reproductible avec données fusionnées
+# Partie 2 — Analyse reproductible avec données fusionnées
 
-## 👥 Tâches par rôle
+## Tâches par rôle
 
 Chaque membre de l’équipe poursuit son rôle défini précédemment. Voici les actions attendues pour chacun, dans le même ordre que la Partie 1 :
 
-### 🗂 Responsable du dépôt — Début de l’analyse
+### Responsable du dépôt — Début de l’analyse
 
 - Crée une branche spécifique à l’analyse collaborative.
 - Revoit l’organisation du dépôt et s’assure que les fichiers nécessaires sont présents.
@@ -65,7 +65,7 @@ Chaque membre de l’équipe poursuit son rôle défini précédemment. Voici le
 - Vérifie que chaque membre a bien poussé sa branche.
 - Lance la coordination de l’étape d’analyse.
 
-### 🧪 Analyste des données
+### Analyste des données
 
 - Crée une nouvelle section dans le `.qmd` intitulée *Analyse collaborative*.
 - Vérifie que les librairies nécessaires (`tidyverse`, `nycflights23`) sont bien chargées dans un chunk `setup`.
@@ -76,7 +76,7 @@ Chaque membre de l’équipe poursuit son rôle défini précédemment. Voici le
 - Nettoyer les données au besoin (NA, doublons, etc.).
 - Ajouter les résumés statistiques utiles (moyenne des retards, etc.).
 
-### 🧱 Chargé·e de la reproductibilité
+### Chargé·e de la reproductibilité
 
 - Vérifie que les librairies nécessaires (`tidyverse`, `nycflights23`) sont bien chargées dans un chunk `setup`.
 
@@ -88,7 +88,7 @@ Chaque membre de l’équipe poursuit son rôle défini précédemment. Voici le
 
 - S’assurer que tout soit reproductible dans le rapport.
 
-### 📊 Visualiseur·se (si présent·e)
+### Visualiseur·se (si présent·e)
 
 - Crée au moins deux graphiques pertinents à partir du tableau fusionné :
   - Un `geom_col()` montrant le retard moyen par transporteur.
@@ -96,14 +96,14 @@ Chaque membre de l’équipe poursuit son rôle défini précédemment. Voici le
 - Personnalise les titres, les axes, et la lisibilité du graphique.
 - S’assure que les graphiques sont bien interprétables et alignés avec les questions posées.
 
-### 🗂 Responsable du dépôt — Fin de l’analyse
+### Responsable du dépôt — Fin de l’analyse
 
 - Révise les contributions finales de chacun.
 - Fusionne les branches propres dans `main`.
 - Pousse la version finale sur GitHub.
 - Documente la démarche dans le `README.md` ou dans une section « Notes de production » du `.qmd`.
 
-# 🔁 Partie 3 — Réflexion et cycle de vie des données
+# Partie 3 — Réflexion et cycle de vie des données
 
 ## Journal de bord
 
@@ -125,7 +125,7 @@ Ajoutez une section expliquant comment votre projet illustre les étapes suivant
 4.  Partage
 5.  Réutilisation et versionnage
 
-# ✅ Vérification finale
+# Vérification finale
 
 - Le rapport HTML se compile-t-il sans erreur?
 - Y a-t-il au moins **2 visualisations**?
@@ -134,4 +134,4 @@ Ajoutez une section expliquant comment votre projet illustre les étapes suivant
 
 ------------------------------------------------------------------------
 
-Bonne collaboration! 🎯
+Bonne collaboration!

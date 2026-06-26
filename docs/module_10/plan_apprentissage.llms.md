@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# 🎯 Objectifs du module
+# Objectifs du module
 
 À la fin de ce module, vous devriez être capable de :
 
@@ -12,21 +12,21 @@ STT-1100 Introduction à la science des données
 - Utiliser TF-IDF pour repérer les mots distinctifs.
 - Créer un tableau de bord interactif avec `flexdashboard` et `shiny`.
 
-# 📚 Lectures
+# Lectures
 
 Pour vous préparer, consultez les ressources suivantes :
 
-- 📘 [Tidytext Text Mining](https://www.tidytextmining.com/) – Chapitres 1 à 3 - Ce livre vous introduit aux bases du traitement de texte avec R.
-- 📘 [Flexdashboard documentation (RStudio)](https://rmarkdown.rstudio.com/flexdashboard/) - ce document vous guide dans la création de tableaux de bord interactifs avec `flexdashboard`.
-- 📘 [Shiny for dashboards](https://rstudio.github.io/flexdashboard/using.html#shiny_interaction) - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec `shiny`.
+- [Tidytext Text Mining](https://www.tidytextmining.com/) – Chapitres 1 à 3 - Ce livre vous introduit aux bases du traitement de texte avec R.
+- [Flexdashboard documentation (RStudio)](https://rmarkdown.rstudio.com/flexdashboard/) - ce document vous guide dans la création de tableaux de bord interactifs avec `flexdashboard`.
+- [Shiny for dashboards](https://rstudio.github.io/flexdashboard/using.html#shiny_interaction) - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec `shiny`.
 
-# 🧭 Aventure
+# Aventure
 
 Vous êtes analyste d’affaires junior engagé par la Faculté des sciences et de génie de l’Université Laval. Votre mandat : analyser les commentaires anonymes des étudiant·es sur le cours STT-1100 et produire un tableau de bord interactif pour la direction du programme.
 
-👉 [Aventure 10 — Au-delà des données : texte et tableau de bord](../module_10/aventure.llms.md)
+[Aventure 10 — Au-delà des données : texte et tableau de bord](../module_10/aventure.llms.md)
 
-# 💡 Défi — Tableau de bord déployé
+# Défi — Tableau de bord déployé
 
 Vous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :
 
@@ -36,7 +36,7 @@ Vous devez construire un tableau de bord interactif à partir du modèle fourni.
 - Être personnalisé (filtrage, couleurs, résumé) ;
 - Être déployé et partagé à Anne-Sophie.
 
-# 📊 Grille d’évaluation
+# Grille d’évaluation
 
 Chaque équipe doit remettre un tableau de bord interactif basé sur les commentaires des étudiant·es du cours. Voici la grille utilisée pour l’évaluation :
 

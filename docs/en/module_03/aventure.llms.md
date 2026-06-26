@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# 🎬 Scenario: Become a *data journalist*
+# Scenario: Become a *data journalist*
 
 You are hired as a **data journalist** by *Le Courrier Gourmand*, a fictional local media outlet that publishes interactive surveys on food in Montreal. Your editor-in-chief wants an article enlightening the public on **food offenses committed in Montreal restaurants**. She gives you some food for thought:
 
@@ -27,14 +27,14 @@ At the end of the adventure, you will have to submit **a Quarto article** (HTML)
 - Build frequency tables, descriptive statistics and visualizations
 - Write a short journalistic post reproducible in Quarto.
 
-💡 **Note for report**
+**Note for report**
 Throughout the analysis, you must keep these questions in mind and answer them in an argumentative manner in your `qmd` report.
 
 In this module, you will explore a **dataset** that describes various violations, their fines, and the type of establishments involved. Your mission: **analyze data to meet the objective of identifying offenses in restaurants in Montreal**.
 
 ------------------------------------------------------------------------
 
-# 🎯 How to succeed in the adventure
+# How to succeed in the adventure
 
 1.  **Load data**: You can either:
     - Load the `UlavalSSD` package and call `data(listecondamnation)`.
@@ -43,25 +43,25 @@ In this module, you will explore a **dataset** that describes various violations
 
 ------------------------------------------------------------------------
 
-# 🚀 Working on Github
+# Working on Github
 
 Before you start analyzing the data, you need to grab the GitHub repository containing the necessary files.
 
-1️⃣ Clone the “Adventure-3-IDENTIFIANT_GITHUB” repository, to do this create a new Rstudio project and copy paste the HTTPS link of your Github repo (see help sheet).
+1.  Clone the “Adventure-3-IDENTIFIANT_GITHUB” repository, to do this create a new Rstudio project and copy paste the HTTPS link of your Github repo (see help sheet).
 
-💡 Tip: If you want to come back to this project later, you can open the project directly by double-clicking the `.Rproj` file in your file explorer.
+Tip: If you want to come back to this project later, you can open the project directly by double-clicking the `.Rproj` file in your file explorer.
 
-2️⃣ Adjust the Quarto file: The journal article template is present in the repository. Go write your name.
+2.  Adjust the Quarto file: The journal article template is present in the repository. Go write your name.
 
-3️⃣ First commit and push to GitHub: Once your `.qmd` file is adjusted and saved, commit and push your changes to GitHub:
+3.  First commit and push to GitHub: Once your `.qmd` file is adjusted and saved, commit and push your changes to GitHub:
 
 Warning: remember that commit messages must be meaningful. For example “Added my name to the article”
 
-🎯 Congratulations! You are now ready to start analyzing! 🚀
+Congratulations! You are now ready to start analyzing!
 
-# 🏷️ Categorical variables: the basics in R with `stringr`
+# Categorical variables: the basics in R with `stringr`
 
-## ✨ Explanations
+## Explanations
 
 In R, a categorical variable is often represented by:
 
@@ -75,7 +75,7 @@ For module 3, we will focus on categorical variables of type **character**. In M
 
 Here are examples demonstrating how to use `stringr` (part of the `Tidyverse`) to manipulate character variables in a dataset like `listecondamnation`. The examples below target common cases: pattern detection, extraction, replacement, and string cleaning.
 
-## 🚀 Demonstration
+## Demonstration
 
 We will use the `listecondemnation` dataset from the `UlavalSSD` library which contains the convictions of food establishments in Quebec.
 
@@ -323,25 +323,25 @@ listecondamnation <- listecondamnation %>%
 >     4 TEMPERATURE ALIMENTS PERISSABLES
 >     5 TEMPERATURE EAU CHAUDE 60?C
 
-Remember to generate your report, commit your changes and push to GitHub to keep track of your work! 🚀
+Remember to generate your report, commit your changes and push to GitHub to keep track of your work!
 
 > **IMPORTANT:**
 >
 > We worked on temperature-related infractions, but there are other types of infractions. Can you find one that worries you? For example, insects, rodents or unsanitary conditions!
 >
-> I think it could make a nice addition of key results to put in your article 😉
+> I think it could make a nice addition of key results to put in your article
 
 ------------------------------------------------------------------------
 
-# 🏗 Descriptive statistics for categorical variables
+# Descriptive statistics for categorical variables
 
 In this section, we will discover how to summarize the information contained in qualitative variables, also called categorical. We will see how to count the occurrences of each category (frequency tables), calculate proportions (or percentages) in order to better visualize the distribution, and associate several variables to better understand their interactions (contingency tables). The objective is to have a clear portrait of the distribution of categories to draw quick conclusions on trends or anomalies present in the data.
 
-## ✨ Explanations
+## Explanations
 
 **Frequency tables** and **trend measures** (number of observations, percentages) are a good starting point for summarizing categorical variables.
 
-## 🚀 Demonstration
+## Demonstration
 
 ``` r
 # Number of offenses by type of establishment
@@ -417,13 +417,13 @@ We will end this section with an exercise that will allow you to familiarize you
 >
 > 3.  **Rare categories**: Determine if any of the categorical variables (`SOC_NOM_ARTCL_INFRC` and `Type_establishment`) have rare or almost unexploited categories. Should we group it together?
 
-Remember to generate your report, commit your changes and push to GitHub to keep track of your work! 🚀
+Remember to generate your report, commit your changes and push to GitHub to keep track of your work!
 
 ------------------------------------------------------------------------
 
-# 📈 Categorical data visualization
+# Categorical data visualization
 
-## ✨ Explanations
+## Explanations
 
 To visually represent categorical variables, we often use:
 
@@ -433,7 +433,7 @@ To visually represent categorical variables, we often use:
 
 - **Mosaic plots** if you want to compare several crossed categories.
 
-## 🚀 Demonstration
+## Demonstration
 
 ``` r
 library(ggplot2)
@@ -480,7 +480,7 @@ The **amount of fines** is a concrete indicator that often attracts the attentio
 
 ------------------------------------------------------------------------
 
-# 🚀 5. Go further: map fines (optional)
+# 5. Go further: map fines (optional)
 
 To close the investigation, **Alexandre** got his hands on a piece of R code written by a colleague from the City; This script automatically geocodes zip codes and provides a latitude/longitude for each establishment. You will use it to draw up **a map of the distribution of fines**.
 
@@ -524,7 +524,7 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 
 ------------------------------------------------------------------------
 
-# 🔚 Conclusion of the adventure
+# Conclusion of the adventure
 
 This third adventure allowed you to **move from the role of analyst to that of data journalist**: you cleaned a real set of food inspections, quantified major infractions, compared establishment profiles and visualized the geography of fines.
 
@@ -534,15 +534,15 @@ You now have:
 - **impactful graphs** (bar charts, boxplots, map) to support your arguments;
 - **qualitative observations** provided by Alexandre, which direct the story towards the issues of hygiene and citizen transparency.
 
-## ✍️ Next step: write your article
+## Next step: write your article
 
-1.  **Structure your Quarto article**: catchy hat ➜ context ➜ methodology ➜ key results ➜ recommendations.
+1.  **Structure your Quarto article**: catchy hat -\> context -\> methodology -\> key results -\> recommendations.
 2.  **Integrate at least two visuals** among those produced (a category graph and the fines map).
 3.  **Cite two narrative figures** (e.g. “5 categories cover 62% of offenses”, “180,000\$ fines within a 2km radius”) to captivate the reader.
 4.  **Add a summary quote from Alexander** to humanize your conclusion.
 
 > **Expected deliverable**: a standalone HTML file exported from your `.qmd`, committed to your GitHub repository before the deadline.
 
-Happy writing! Let the data speak and put yourself in the shoes of the journalist who informs, nuances and proposes. 🚀
+Happy writing! Let the data speak and put yourself in the shoes of the journalist who informs, nuances and proposes.
 
-> 🎯 **Congratulations**! You have practiced the concepts of categorical variables, descriptive statistics, and visualization for real categorical data. Continue like this, the next module awaits you.
+> **Congratulations**! You have practiced the concepts of categorical variables, descriptive statistics, and visualization for real categorical data. Continue like this, the next module awaits you.

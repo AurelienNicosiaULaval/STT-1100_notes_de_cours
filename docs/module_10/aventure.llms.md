@@ -2,7 +2,7 @@
 
 STT-1100 • Introduction à la science des données
 
-# ✈️ Mise en contexte
+# Mise en contexte
 
 Cette semaine, vous avez été **engagé·e comme analyste d’affaires junior** par la **Faculté des sciences et de génie de l’Université Laval**. Dans le cadre de la réforme du baccalauréat en statistique et science des données, la direction souhaite évaluer **l’évolution du ressenti étudiant tout au long de la session**.
 
@@ -12,7 +12,7 @@ Vous êtes guidé·e par **Anne-Sophie**, la directrice du programme, qui vous a
 
 > “L’idée, c’est d’avoir un portrait honnête, mais constructif. On veut voir les tendances de fond et s’en inspirer pour continuer d’améliorer notre programme.”
 
-# 🎯 Mission
+# Mission
 
 Construire un tableau de bord interactif (avec `flexdashboard` et `shiny`) qui permet de :
 
@@ -21,7 +21,7 @@ Construire un tableau de bord interactif (avec `flexdashboard` et `shiny`) qui p
 - explorer les tendances lexicales dans le temps,
 - offrir des filtres dynamiques pour affiner l’analyse.
 
-# 📁 Données
+# Données
 
 Un fichier `sentiments_cours.csv` contient :
 
@@ -32,14 +32,14 @@ Un fichier `sentiments_cours.csv` contient :
 - `engagement`: niveau d’engagement (1 à 5)
 - `plaisir`: niveau de plaisir (1 à 5)
 
-# 🧰 Outils recommandés
+# Outils recommandés
 
 - `tidytext`, `stringr`, `dplyr` : nettoyage et analyse du texte
 - `ggplot2`, `wordcloud`, `plotly` : visualisation
 - `flexdashboard`, `shiny` : interface interactive
 - `lexique` : `bing`, `afinn`, ou `nrc` (pour l’analyse de sentiment)
 
-# 🧪 Étapes guidées
+# Étapes guidées
 
 ## Étape 1 — Nettoyage de texte
 
@@ -190,11 +190,11 @@ ggplot(sentiment_fr, aes(x = semaine, y = score)) +
 >
 > « Comme les lexiques intégrés à [`get_sentiments()`](https://juliasilge.github.io/tidytext/reference/get_sentiments.html) ne sont disponibles qu’en anglais, je vous propose de construire un petit lexique maison pour le français. Ce sera imparfait, mais cela vous permettra de comprendre le principe. On pourra ensuite en discuter ensemble pour l’enrichir. Ce qui m’intéresse, c’est que vous soyez capables d’interpréter l’évolution du sentiment d’une semaine à l’autre, même avec des outils simples. »
 
-### 🤝 Collaboration finale
+### Collaboration finale
 
 À la fin du cours, une activité en classe permettra à chaque étudiants/équipes de **partager son propre lexique de sentiments en français** construit durant l’analyse.
 
-🎓 **L’enseignant collectera et fusionnera ces lexiques**, en les vérifiant pour en retirer une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.
+**L’enseignant collectera et fusionnera ces lexiques**, en les vérifiant pour en retirer une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.
 
 ## Étape 3 — Mots distinctifs
 
@@ -256,7 +256,7 @@ tfidf %>%
 
 Une visualisation comme celle-ci permet de voir quels mots sont les plus représentatifs des commentaires de cette semaine-là. Il existe aussi la possibilité de créer un **nuage de mots** pour une représentation plus visuelle. Un nuage de mot est une représentation graphique des mots les plus fréquents, où la taille de chaque mot est proportionnelle à sa fréquence d’apparition.
 
-💡 Pour créer un nuage de mots en français : - Utilisez la fonction `wordcloud()` du package `wordcloud`, ou `ggwordcloud` pour plus de personnalisation. - Inspirez-vous de cet exemple complet : <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
+Pour créer un nuage de mots en français : - Utilisez la fonction `wordcloud()` du package `wordcloud`, ou `ggwordcloud` pour plus de personnalisation. - Inspirez-vous de cet exemple complet : <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
 
 > **IMPORTANT:**
 >
@@ -283,7 +283,7 @@ Maintenant que nous avons nettoyé les données et effectué les analyses de sen
 >
 > « N’oubliez pas d’explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »
 
-# 🌟 Bonus — Personnalisation — Personnalisation
+# Bonus — Personnalisation — Personnalisation
 
 Voici quelques idées pour aller plus loin dans la personnalisation de votre tableau de bord :
 
@@ -292,9 +292,9 @@ Voici quelques idées pour aller plus loin dans la personnalisation de votre tab
 - Ajouter une **photo de fond** discrète dans l’en-tête,
 - Ajouter une citation inspirante ou un message d’accueil dans la barre latérale.
 
-💡 Vous pouvez également intégrer une barre de progression ou un indicateur visuel du sentiment général par semaine.
+Vous pouvez également intégrer une barre de progression ou un indicateur visuel du sentiment général par semaine.
 
-# 📤 Livraison attendue
+# Livraison attendue
 
 - Un dépôt GitHub contenant :
   - le `.Rmd` du tableau de bord,
@@ -302,6 +302,6 @@ Voici quelques idées pour aller plus loin dans la personnalisation de votre tab
   - le fichier de données nettoyé (si modifié).
 - **Le tableau de bord doit être déployé (par exemple via Shinyapp.io ou Posit Cloud)** et le lien final envoyé à **Anne-Sophie (la véritable directrice du programme)**.
 
-# 🧠 Conseils d’Anne-Sophie
+# Conseils d’Anne-Sophie
 
 > « Un bon tableau de bord, c’est comme un bon pitch : **clair, lisible et ciblé**. Mettez-vous à la place de votre utilisateur final. »

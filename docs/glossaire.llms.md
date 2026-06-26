@@ -1,7 +1,5 @@
 # Glossaire
 
-# Glossaire
-
 Ce glossaire donne des repères courts. Les définitions détaillées sont développées dans les modules.
 
 | Terme | Repère de cours |

@@ -1,61 +1,171 @@
 ---
-title: "Module 10 - Beyond data: text and dashboard"
+title: "Beyond data: text and dashboard"
 format:
   html:
     toc: true
     embed-resources: true
 ---
 
-::: {.portal-hero .module-hero}
-<p class="eyebrow">Module 10</p>
-# Beyond data: text and dashboard
-<p class="hero-lead">Communicate an analysis with text, tables and reader-oriented outputs.</p>
+::: {.module-banner}
+<p class="module-banner-number">Module 10</p>
+<p class="module-banner-subtitle">Communicate an analysis with text, tables and reader-oriented outputs.</p>
 :::
 
-This page is the entry point. It gives the context, resources and expected traces before moving into the detailed notes.
-
-## Module path
-
-::: {.portal-grid}
-::: {.portal-card .link-card}
-### Learning plan
-
-Open the module resource.
-
-[Open](plan_apprentissage.qmd){.portal-button}
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Main thread</span><span class="fact-value">Text, sentiment and dashboard</span></span>
 :::
 
-::: {.portal-card .link-card}
-### Adventure
-
-Open the module resource.
-
-[Open](aventure.qmd){.portal-button}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Data</span><span class="fact-value">Comments and working corpora</span></span>
 :::
 
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Challenge</span><span class="fact-value">Text analysis or dashboard</span></span>
 :::
+::::
 
-::: {.callout-note}
-## Objectives
+## Finished Product
 
-- Communicate an analysis with text, tables and reader-oriented outputs.
-- Expected trace : a reader-oriented communication of results.
-:::
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Final product</p>
+  <h3>A shareable dashboard or text analysis</h3>
+  <p>The final module combines text exploration, visualizations and communication in an object another person can consult.</p>
+  </div>
+  <div class="product-visual" aria-label="Visual preview of the finished product">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>dashboard</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>text prepared</span><span class="mini-bar" style="--bar-width: 64%;"></span></div><div class="mini-bar-row"><span>chart</span><span class="mini-bar" style="--bar-width: 82%;"></span></div><div class="mini-bar-row"><span>interactive reading</span><span class="mini-bar" style="--bar-width: 73%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>text prepared</span>
+  <span><i class="bi bi-check2"></i>chart</span>
+  <span><i class="bi bi-check2"></i>interactive reading</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
 
-## Skills practiced
+## Module Objectives
 
-- prepare analyzable text
-- summarize results
-- organize a dashboard
+At the end of this module, you should be able to:
 
-## Data and tools
+- Clean and analyze textual data.
+- Build a simple sentiment lexicon in French.
+- Visualize lexical and emotional trends over time.
+- Use TF-IDF to identify distinctive words.
+- Create an interactive dashboard with `flexdashboard` and `shiny`.
 
-texts and analytical outputs from the module
+## Learning Plan
 
-## I can
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
 
-- prepare analyzable text
-- summarize results
-- organize a dashboard
-- connect the module work to the session project
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="readings">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Readings</span>
+  <span class="path-preview">Prepare text, dashboards and interactive communication.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="readings">Readings</h3>
+<p>To prepare, check out the following resources:</p>
+<ul>
+<li><a href="https://www.tidytextmining.com/">Tidytext Text Mining</a> – Chapters 1 to 3 - This book introduces you to the basics of word processing with R.</li>
+<li><a href="https://rmarkdown.rstudio.com/flexdashboard/">Flexdashboard documentation (RStudio)</a> - this document guides you in creating interactive dashboards with <code>flexdashboard</code>.</li>
+<li><a href="https://rstudio.github.io/flexdashboard/using.html#shiny_interaction">Shiny for dashboards</a> - This guide shows you how to integrate interactive elements into your dashboards with <code>shiny</code>.</li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="adventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Adventure</span>
+  <span class="path-preview">Turn texts into shareable visual results.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
+  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="challenge">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Challenge</span>
+  <span class="path-preview">Deploy or present a coherent final dashboard.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 class="unnumbered" id="challenge-deployed-dashboard">Challenge — Deployed Dashboard</h3>
+<p>You need to build an interactive dashboard from the template provided. This dashboard must:</p>
+<ul>
+<li>Display a sentiment score per week;</li>
+<li>Identify distinctive words (TF-IDF) or a word cloud;</li>
+<li>Analyze numerical variables (<code>pleasure</code>, <code>commitment</code>, <code>difficulty</code>);</li>
+<li>Be personalized (filtering, colors, summary);</li>
+<li>Be deployed and shared with Anne-Sophie.</li>
+</ul>
+      </div>
+    </div>
+  </details>
+</div>
+```
 
+## Data and Tools
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Datasets</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-texts-module-10"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>Working comments and texts</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>R packages</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidytext"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidytext</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tibble"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tibble</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#stopwords"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stopwords</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#forcats"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>forcats</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#wordcloud"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>wordcloud</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#wordcloud2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>wordcloud2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggwordcloud"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggwordcloud</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#plotly"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>plotly</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#flexdashboard"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>flexdashboard</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#shiny"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>shiny</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Review and Extension
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finish the module with the course AI assistant</h3>
+  <p>Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.</p>
+  <ul>
+  <li>Explain the finished product in three sentences.</li>
+  <li>Paste a code or output excerpt and ask for a diagnosis.</li>
+  <li>Ask for a more ambitious variant, then choose what remains reasonable.</li>
+  </ul>
+  </div>
+</div>
+```

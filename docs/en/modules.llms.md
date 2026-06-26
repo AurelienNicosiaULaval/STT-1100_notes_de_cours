@@ -1,7 +1,5 @@
 # Modules
 
-# Modules
-
 Each module now has an entry page. Use it to understand the context, available resources and expected trace before opening the detailed notes.
 
 Module 01

@@ -34,7 +34,7 @@ If the data for your day of birth contains missing values, for example for avera
 
 # Evaluation grid
 
-## 📢 Important note
+## Important note
 
 > For this **first rendering of a Quarto report**, you will receive **formative feedback** from the teacher.
 > It will be based on the following grid in order to help you progress and improve your next deliverables.

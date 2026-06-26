@@ -2,7 +2,7 @@
 
 STT-1100 • Introduction to Data Science
 
-# ✈️ Put in context
+# Put in context
 
 You are an **invited expert** in a data science ethics committee. An organization submits a report to you containing visualization and statistics from a simulated COVID-19 dataset. Your role: assess the compliance of this report with good visual communication practices, ethics and the protection of sensitive data.
 

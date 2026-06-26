@@ -1,51 +1,106 @@
-# Module 07 - Visualisation, éthique et sécurisation des données
+# Visualisation, éthique et sécurisation des données
 
 Module 07
 
-# Visualisation, éthique et sécurisation des données
-
 Relier visualisation, responsabilité et protection des données.
 
-Cette page sert de porte d’entrée. Elle donne le contexte, les ressources et les traces attendues avant de passer aux notes détaillées.
+Fil principalVisualisation responsable et confidentialité
 
-## Parcours du module
+DonnéesDonnées COVID et cas éthiques
 
-### Plan d’apprentissage
+DéfiVisualisation commentée et note éthique
 
-Accéder à la ressource du module.
+## Produit fini du module
 
-[Ouvrir](../module_07/plan_apprentissage.llms.md)
+Produit final
 
-### Aventure
+### Une visualisation responsable accompagnée d’une note éthique
 
-Accéder à la ressource du module.
+Le résultat attendu montre des données sensibles avec retenue et explicite les choix de protection, de lecture et de communication.
 
-[Ouvrir](../module_07/aventure.llms.md)
+**visualisation éthique**
 
-### Analyse COVID
+message clair
 
-Accéder à la ressource du module.
+risques notés
 
-[Ouvrir](../module_07/analyse_covid.llms.md)
+données protégées
 
-> **NOTE:**
->
-> - Relier visualisation, responsabilité et protection des données.
-> - Trace attendue : une analyse initiale accompagnée d’une réflexion éthique.
+message clair risques notés données protégées
 
-## Compétences travaillées
+## Objectifs du module
 
-- diagnostiquer une visualisation
-- discuter des risques éthiques
-- sécuriser les données sensibles
+À la fin de ce module, vous devriez être capable de:
+
+- Identifier des problèmes éthiques dans une visualisation.
+- Anonymiser correctement des données.
+- Appliquer les bonnes pratiques de visualisation pour représenter les données de manière claire et honnête.
+- Identifier et éviter les biais de présentation des données.
+- Comprendre les enjeux éthiques et de confidentialité liés à la science des données.
+- Mettre en place des mesures de protection et de sécurisation des données sensibles.
+- Expliquer les principes CRAP.
+- Expliquer les principes FAIR.
+
+## Plan d’apprentissage
+
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+
+1 Lectures à faire Préparer visualisation responsable, confidentialité et éthique. Dans la carte Ouvrir la carteRéduire
+
+### Lectures
+
+Pour vous préparer, consultez les ressources suivantes :
+
+- [R for Data Science — Communication](https://r4ds.hadley.nz/communication.html)
+- [Guide de bonnes pratiques à l’usage des data scientists (gouvernement du Luxembourg)](https://mindigital.gouvernement.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
+
+2 Aventure Transformer des données sensibles en message visuel prudent. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
+
+Objectif Passer de la lecture à la pratique guidée.
+
+Ressource [Page Aventure](aventure.llms.md)
+
+Action Suivre les consignes, exécuter le code et garder les sorties importantes.
+
+Résultat Un premier objet de travail que vous pouvez expliquer.
+
+Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
+
+3 Défi Analyser une visualisation avec une note éthique argumentée. Dans la carte Ouvrir la carteRéduire
+
+### Défi — Analyse éthique et visualisation responsable
+
+Vous recevrez un jeu de données COVID simulé. Votre tâche sera de produire une analyse responsable :
+
+- Évaluer les aspects éthiques liés à la visualisation fournie.
+- Anonymiser correctement les données.
+- Créer une nouvelle visualisation fidèle et informative.
+- Rédiger une réflexion critique sur les enjeux rencontrés.
+
+4 Exercices Vérifier choix graphiques, limites et risques de communication. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+
+Ressource [Page Exercices](exercices.llms.md)
+
+Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+
+Refaites au moins un passage sans regarder la solution immédiatement.
 
 ## Données et outils
 
-donnees_covid_module7.csv et exemples du module
+### Bases de données
 
-## Je suis capable de
+[donnees_covid_module7.csv](../donnees.llms.md#dataset-card-covid-module-07)
 
-- diagnostiquer une visualisation
-- discuter des risques éthiques
-- sécuriser les données sensibles
-- relier le travail du module au projet de session
+### Packages R
+
+[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2)
+
+## Révision et prolongement
+
+### Finir le module avec l’IA du cours
+
+Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.
+
+- Expliquez le produit fini en trois phrases.
+- Collez un extrait de code ou de sortie et demandez un diagnostic.
+- Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# 🎯 Module objectives
+# Module objectives
 
 At the end of this module, you should be able to:
 
@@ -11,7 +11,7 @@ At the end of this module, you should be able to:
 - Calculate and interpret the correlation between two numerical variables.
 - Write an exploratory data analysis (EDA) report highlighting trends and patterns in the data.
 
-# 📚 Readings
+# Readings
 
 In this module, we will explore the basic concepts of exploratory data analysis (EDA) and date and time manipulation. Here is some initial reading to prepare you:
 
@@ -35,11 +35,11 @@ In the free **IMS**:
 
 [Adventure 5](../module_05/aventure.llms.md)
 
-# 🎯 Challenge — Analyze delays to support decisions
+# Challenge — Analyze delays to support decisions
 
 In this challenge, you must submit a **professional report** intended for your supervisor, **Dr Sofia Martínez**, in order to answer the three major strategic questions posed in the adventure. Your role is to provide clear analysis, supported by relevant visualizations and rigorous interpretations.
 
-## 📌 What you should do
+## What you should do
 
 From the merged data provided (`flights_merged_2023.rds`), you must:
 
@@ -53,7 +53,7 @@ From the merged data provided (`flights_merged_2023.rds`), you must:
     - produce **at least one clear visualization**;
     - write a **concise interpretation** of your results.
 
-## ✏️ What the report should contain
+## What the report should contain
 
 Your **`rapport.qmd`** file must include:
 
@@ -63,17 +63,17 @@ Your **`rapport.qmd`** file must include:
 - Your **interpretations** to highlight the key findings.
 - A **short conclusion** which summarizes the answers given to managers.
 
-## 🚀 Upload and rendering
+## Upload and rendering
 
 - Publish the report to your GitHub repository in the course organization.
 - Make sure that the `.html` file is properly generated and readable.
 - Do a final proofread to check **clarity, structure and presentation**.
 
-> 🧠 Tip: Put yourself in the shoes of a professional analyst — this report could be presented to the airport executive committee!
+> Tip: Put yourself in the shoes of a professional analyst — this report could be presented to the airport executive committee!
 
 ------------------------------------------------------------------------
 
-## 🧾 Evaluation grid (10 points)
+## Evaluation grid (10 points)
 
 | Criterion | Description | Points |
 |----|----|----|
@@ -83,13 +83,13 @@ Your **`rapport.qmd`** file must include:
 | **Analysis of old planes** | Construction of `age_avion`, correct analysis of delays or cancellations, relevant interpretation. | 2 |
 | **Structure and presentation of the report** | Clear, well-structured, visually readable report; well-annotated visualizations; commented code. | 2 |
 
-> 💡 **Bonus** possible (max +1) for an original additional analysis (e.g.: analysis by company or distance).
+> **Bonus** possible (max +1) for an original additional analysis (e.g.: analysis by company or distance).
 
-# 🧠 Consolidation exercises
+# Consolidation exercises
 
 These exercises will allow you to consolidate the skills of module 5: exploration, correlation, visualization, bivariate analysis. All datasets used are integrated into R.
 
-## 🚗 1. Dataset: mtcars
+## 1. Dataset: mtcars
 
 How strong is the linear relationship between fuel consumption (mpg) and weight (wt) of cars?
 
@@ -97,10 +97,10 @@ How strong is the linear relationship between fuel consumption (mpg) and weight 
 >
 > ``` r
 > cor(mtcars$mpg, mtcars$wt)
-> # ≈ -0.87 → strong negative correlation: heavier cars consume more.
+> # ≈ -0.87 -> strong negative correlation: heavier cars consume more.
 > ```
 
-## 🌡️ 2. Dataset: airquality
+## 2. Dataset: airquality
 
 Create a graph showing the relationship between temperature (Temp) and ozone level (Ozone), with a trend line.
 
@@ -112,7 +112,7 @@ Create a graph showing the relationship between temperature (Temp) and ozone lev
 >   geom_smooth(method = "lm")
 > ```
 
-## 📆 3. Dataset: airquality
+## 3. Dataset: airquality
 
 Create a date variable from Month and Day (assuming the year 1973), then add a column indicating the day of the week.
 
@@ -126,7 +126,7 @@ Create a date variable from Month and Day (assuming the year 1973), then add a c
 >          weekday = wday(date, label = TRUE))
 > ```
 
-## 🦷 4. Dataset: ToothGrowth
+## 4. Dataset: ToothGrowth
 
 Compare the length of teeth (len) according to the type of supplement (supp) using a boxplot.
 
@@ -137,7 +137,7 @@ Compare the length of teeth (len) according to the type of supplement (supp) usi
 >   geom_boxplot()
 > ```
 
-## 💊 5. Dataset: ToothGrowth
+## 5. Dataset: ToothGrowth
 
 Calculate the average tooth length for each combination of supplement (supp) and dose (dose).
 
@@ -149,7 +149,7 @@ Calculate the average tooth length for each combination of supplement (supp) and
 >   summarise(mean = mean(len), .groups = "drop")
 > ```
 
-## 🌸 6. Dataset: iris
+## 6. Dataset: iris
 
 Calculate the correlation matrix between the numerical variables.
 
@@ -162,7 +162,7 @@ Calculate the correlation matrix between the numerical variables.
 >   round(2)
 > ```
 
-## 🐣 7. Dataset: ChickWeight
+## 7. Dataset: ChickWeight
 
 Plot the change in weight over time for a single chick (e.g. Chick 1).
 
@@ -173,7 +173,7 @@ Plot the change in weight over time for a single chick (e.g. Chick 1).
 >   geom_line()
 > ```
 
-## 🐥 8. Dataset: ChickWeight
+## 8. Dataset: ChickWeight
 
 What is the average weight of the chicks at the end of the experiment (Time = 21) for each type of diet (Diet)?
 
@@ -186,7 +186,7 @@ What is the average weight of the chicks at the end of the experiment (Time = 21
 >   summarise(mean = mean(weight))
 > ```
 
-## 🌿 9. Dataset: iris
+## 9. Dataset: iris
 
 Visualize the distribution of Petal.Length using a histogram with superimposed density curve.
 
@@ -198,7 +198,7 @@ Visualize the distribution of Petal.Length using a histogram with superimposed d
 >   geom_density(color = "blue")
 > ```
 
-## ⚙️ 10. Dataset: mtcars
+## 10. Dataset: mtcars
 
 How many cars are there for each combination of number of cylinders (cyl) and transmission type (am)?
 
@@ -209,7 +209,7 @@ How many cars are there for each combination of number of cylinders (cyl) and tr
 >   count(cyl, am)
 > ```
 
-## 🔍 Problem 1 — Weather and ozone EDA (dataset: airquality)
+## Problem 1 — Weather and ozone EDA (dataset: airquality)
 
 1.  Visualize the relationship between wind speed (`Wind`) and ozone level (`Ozone`).
 2.  Calculate their correlation.
@@ -232,7 +232,7 @@ How many cars are there for each combination of number of cylinders (cyl) and tr
 >   geom_boxplot()
 > ```
 
-## 🔍 Problem 2 — Floral EDA (dataset: iris)
+## Problem 2 — Floral EDA (dataset: iris)
 
 1.  Does the `Sepal.Length` variable allow us to distinguish between species (`Species`)?
 2.  Display a boxplot of `Sepal.Length` by species.

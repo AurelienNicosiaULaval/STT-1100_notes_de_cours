@@ -1,61 +1,167 @@
 ---
-title: "Module 08 - Automation and web exploration"
+title: "Automation and web exploration"
 format:
   html:
     toc: true
     embed-resources: true
 ---
 
-::: {.portal-hero .module-hero}
-<p class="eyebrow">Module 08</p>
-# Automation and web exploration
-<p class="hero-lead">Automate repetitive tasks and extract information from web pages.</p>
+::: {.module-banner}
+<p class="module-banner-number">Module 08</p>
+<p class="module-banner-subtitle">Automate repetitive tasks and extract information from web pages.</p>
 :::
 
-This page is the entry point. It gives the context, resources and expected traces before moving into the detailed notes.
-
-## Module path
-
-::: {.portal-grid}
-::: {.portal-card .link-card}
-### Learning plan
-
-Open the module resource.
-
-[Open](plan_apprentissage.qmd){.portal-button}
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Main thread</span><span class="fact-value">Loops, functions and web scraping</span></span>
 :::
 
-::: {.portal-card .link-card}
-### Adventure
-
-Open the module resource.
-
-[Open](aventure.qmd){.portal-button}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Data</span><span class="fact-value">Web pages and extracted texts</span></span>
 :::
 
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Challenge</span><span class="fact-value">Reproducible extraction or automation</span></span>
 :::
+::::
 
-::: {.callout-note}
-## Objectives
+## Finished Product
 
-- Automate repetitive tasks and extract information from web pages.
-- Expected trace : a reproducible extraction script.
-:::
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Final product</p>
+  <h3>A reproducible scraping function</h3>
+  <p>The chapter leads to web extraction organized in a function, with controlled outputs and logic that can be rerun.</p>
+  </div>
+  <div class="product-visual" aria-label="Visual preview of the finished product">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>scraping</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>selectors</span><span class="mini-bar" style="--bar-width: 47%;"></span></div><div class="mini-bar-row"><span>function</span><span class="mini-bar" style="--bar-width: 78%;"></span></div><div class="mini-bar-row"><span>final table</span><span class="mini-bar" style="--bar-width: 66%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>selectors</span>
+  <span><i class="bi bi-check2"></i>function</span>
+  <span><i class="bi bi-check2"></i>final table</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
 
-## Skills practiced
+## Module Objectives
 
-- read an HTML page
-- extract useful elements
-- test a result automatically
+At the end of this module, you should be able to:
 
-## Data and tools
+- Extract text data from a web page using `rvest`.
+- Automate repetitive tasks using loops and functions in R.
+- Identify the ethical aspects linked to the automated collection of online data.
 
-web pages and structured content from the module
+## Learning Plan
 
-## I can
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
 
-- read an HTML page
-- extract useful elements
-- test a result automatically
-- connect the module work to the session project
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="readings">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Readings</span>
+  <span class="path-preview">Prepare HTML, CSS selectors, functions and automation.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="readings">Readings</h3>
+<p>To prepare, check out the following resources:</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/webscraping.html">R for Data Science — Web scraping</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt">robots.txt documentation (MDN)</a></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="adventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Adventure</span>
+  <span class="path-preview">Extract a web page and turn the result into a table.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
+  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="challenge">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Challenge</span>
+  <span class="path-preview">Build a clear and reusable scraping function.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 class="unnumbered" id="challenge-scraping-function">Challenge — Scraping function</h3>
+<p>You will need to design a function <code>scrape_page(url)</code> which:</p>
+<ul>
+<li>takes as input a URL from a Data Québec search page;</li>
+<li>returns a <code>data.frame</code> with the columns <code>title</code>, <code>producer</code>, <code>category</code>.</li>
+</ul>
+<p>You will put this function in an <code>IDUL.R</code> file in your GitHub repository. It will be tested automatically on several pages.</p>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercises">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercises</span>
+  <span class="path-preview">Revisit selectors, loops and web text cleaning.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercises</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Resource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Exercises page</a></p>
+  <p><span class="step-label">Why</span> Exercises stay on a separate page because they take more space.</p>
+  <div class="ae-box"><p class="ae-title">Redo at least one passage without looking at the solution immediately.</p></div>
+  </div>
+  </details>
+</div>
+```
 
+## Data and Tools
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Datasets</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-web-pages-module-08"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>Web pages analyzed with rvest</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>R packages</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#rvest"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>rvest</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#purrr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>purrr</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Review and Extension
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finish the module with the course AI assistant</h3>
+  <p>Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.</p>
+  <ul>
+  <li>Explain the finished product in three sentences.</li>
+  <li>Paste a code or output excerpt and ask for a diagnosis.</li>
+  <li>Ask for a more ambitious variant, then choose what remains reasonable.</li>
+  </ul>
+  </div>
+</div>
+```

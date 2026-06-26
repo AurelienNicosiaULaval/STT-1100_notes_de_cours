@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# 🎬 Scenario: Immerse yourself in the shoes of a freelance consultant
+# Scenario: Immerse yourself in the shoes of a freelance consultant
 
 You work as a **freelancer** in data science. Unlike a salaried position, you are mandated from time to time by clients to resolve specific problems. You must be autonomous, rigorous and capable of delivering effective, reusable and well-documented solutions.
 
@@ -25,7 +25,7 @@ Today, you are hired by **Marie-Pier**, research director at the Quebec Institut
 
 ------------------------------------------------------------------------
 
-# 📚 Prerequisites
+# Prerequisites
 
 > **IMPORTANT:**
 >
@@ -90,16 +90,16 @@ writeLines(disinstructions)
 
 ``` r
 # Ethics note
-cat("\n\n\u2139\ufe0f Note:\nPublic datasets listed in the result pages are not explicitly restricted.\nScraping of main search pages is therefore permitted, as long as we avoid the paths /api/, /dataset/rate/, etc.\n")
+cat("\n\nNote:\nPublic datasets listed in the result pages are not explicitly restricted.\nScraping of main search pages is therefore permitted, as long as we avoid the paths /api/, /dataset/rate/, etc.\n")
 ```
 
 
 
-    ℹ️ Note:
+    Note:
     Public datasets listed in the result pages are not explicitly restricted.
     Scraping of main search pages is therefore permitted, as long as we avoid the paths /api/, /dataset/rate/, etc.
 
-# 📚 Understanding web scraping with `rvest`
+# Understanding web scraping with `rvest`
 
 In this section, you will discover the essential functions of the `rvest` package. Your goal: learn how to extract structured HTML content from a website.
 
@@ -138,9 +138,10 @@ blocks[[1]]
     {html_node}
     <div class="dataset-content">
     [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
-    [2] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [3] <div class="dqc-org-cat">Catégorie :\n      \n        <a href="/recherche ...
-    [4] <div class="dqc-notes"> Le fichier horaire des données de la situation à  ...
+    [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
+    [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
+    [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
+    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
 
 To extract text from an HTML node:
 
@@ -148,7 +149,7 @@ To extract text from an HTML node:
 html_text(blocks[[1]])
 ```
 
-    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Fichier horaire des données de la situation à l'urgence\n    \n    \n      \n      \n\n\n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Santé et des services sociaux\n  \n  Catégorie :\n      \n        Santé\n  \n     Le fichier horaire des données de la situation à l'urgence présente le nombre de patients sur civière, le nombre de patients sur civière plus de 24 heures et le nombre de... \n  \n\n      "
+    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Stations débit/niveau - Grand public\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Sécurité intérieure\n  \n  Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique\n  \n     Mesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les... \n  \n\n      "
 
 Now, let’s test the extraction of the **title**:
 
@@ -156,7 +157,7 @@ Now, let’s test the extraction of the **title**:
 html_nodes(blocks[[1]], ".dataset-heading a") %>% html_text(trim = TRUE)
 ```
 
-    [1] "Fichier horaire des données de la situation à l'urgence"
+    [1] "Stations débit/niveau - Grand public"
 
 And for the **producers**? It is necessary to identify a substructure containing the information:
 
@@ -165,8 +166,8 @@ orgs <- html_nodes(blocks[[1]], ".dqc-org-cat") %>% html_text(trim = TRUE)
 orgs
 ```
 
-    [1] "Organisation : Ministère de la Santé et des services sociaux"
-    [2] "Catégorie :\n      \n        Santé"
+    [1] "Organisation : Ministère de la Sécurité intérieure"
+    [2] "Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique"
 
 We can filter the good element with `grepl()` then clean the string with `gsub()`:
 
@@ -180,7 +181,7 @@ org_clean
 
 > **TIP:**
 >
-> 💡 **Why use `map_chr()`?**
+> **Why use `map_chr()`?**
 > `map_chr()` belongs to the **purrr** package, which is part of the `tidyverse`. This function allows you to apply a function to each element of a list (here each HTML block), and to return a character vector. This is perfect when you want one text value per block.
 >
 > > Example:
@@ -195,11 +196,11 @@ org_clean
 
 > **TIP:**
 >
-> 💡 **It’s up to you**: From this same HTML block, find how to extract: - the **categories** associated with each dataset
+> **It’s up to you**: From this same HTML block, find how to extract: - the **categories** associated with each dataset
 
 ------------------------------------------------------------------------
 
-# ✏️ Guided creation of the `scrape_page()` function
+# Guided creation of the `scrape_page()` function
 
 Marie-Pier wants you to create a reusable function named `scrape_page()` which takes a URL as an argument and returns a `data.frame` with the columns: `title`, `producer`, `category`.
 
@@ -238,11 +239,11 @@ scrape_page <- function(url) {
 
 > **NOTE:**
 >
-> 💡 **Test your function with page 3**: it should return the 20 datasets on this page.
+> **Test your function with page 3**: it should return the 20 datasets on this page.
 
 ------------------------------------------------------------------------
 
-# 🔁 Manual repeat, then `for` loop
+# Manual repeat, then `for` loop
 
 Now test the extraction of the **first 5 pages** by calling your function several times:
 
@@ -255,7 +256,7 @@ p2 <- scrape_page("...")
 
 > **TIP:**
 >
-> 💬 **Marie-Pier**: “Have you noticed what changes in the URL each time? Can you generalize this behavior? »
+> **Marie-Pier**: “Have you noticed what changes in the URL each time? Can you generalize this behavior? »
 
 Reminder of **module 1**: a loop allows you to automate repetitive behavior. Here is the start of a `for` loop to complete:
 
@@ -276,7 +277,7 @@ for (i in 1:5) {
 
 ------------------------------------------------------------------------
 
-# 🔍 Exploration guided by Marie-Pier
+# Exploration guided by Marie-Pier
 
 Use the `results` table to answer your client’s questions. She expects precise results from you, illustrated if necessary.
 
@@ -288,7 +289,7 @@ Use the `results` table to answer your client’s questions. She expects precise
 
 ------------------------------------------------------------------------
 
-# 🤔 Ethical reflection
+# Ethical reflection
 
 > **NOTE:**
 >
@@ -300,19 +301,19 @@ Use the `results` table to answer your client’s questions. She expects precise
 
 ------------------------------------------------------------------------
 
-# 🧪 Challenge to submit
+# Challenge to submit
 
 You must submit a **file `IDUL.R`** containing your `scrape_page()` function.
 
 - This file should be placed in your GitHub repository in the location indicated.
 - We will automatically test your function with multiple pages.
 
-🎯 Good luck — be rigorous in your function design!
+Good luck — be rigorous in your function design!
 
 ------------------------------------------------------------------------
 
-# ✅ Conclusion of the adventure
+# Conclusion of the adventure
 
 You’ve designed a functional, automated scraping tool, used a `for` loop, extracted structured metadata, and deepened your understanding of the ethics of scraping.
 
-Well done, consultant! 🧠💻
+Well done, consultant!

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# 🎬 Scenario: Quality control in education
+# Scenario: Quality control in education
 
 You work as a **junior data scientist** in the quality control and equity department at the Quebec Ministry of Education. Your mandate: use real and fictitious data to identify, evaluate and mitigate algorithmic bias in educational decisions.
 
@@ -24,7 +24,7 @@ Your superior, **Michel Dufour**, deputy director of the department, welcomes yo
 
 ------------------------------------------------------------------------
 
-# 📚 Mission 1: Predictive model at school level
+# Mission 1: Predictive model at school level
 
 Michel gives you a [data file from the Data Québec portal](https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c). These data contain information on disadvantage on primary schools in Quebec.
 
@@ -86,7 +86,7 @@ predict(model, newdata = df_schools)
 
 ------------------------------------------------------------------------
 
-# 📊 Mission 2: Detection of individual biases
+# Mission 2: Detection of individual biases
 
 Michel also provides you with a fictitious dataset of 1000 students. At first glance, this game seems neutral. But is this really the case?
 
@@ -139,7 +139,7 @@ You can reproduce the same logic: crosstab + graph + interpretation.
 
 ------------------------------------------------------------------------
 
-# 📹 Challenge to submit
+# Challenge to submit
 
 You will have to produce a **video capsule of 180 seconds maximum** in which you present:
 
@@ -157,7 +157,7 @@ Your video capsule must be uploaded to the indicated GitHub repository.
 
 > **TIP:**
 >
-> 🎯 **Tips for making your video successful:**
+> **Tips for making your video successful:**
 >
 > - Be concise and clear.
 > - Rely on readable graphics.
@@ -165,8 +165,8 @@ Your video capsule must be uploaded to the indicated GitHub repository.
 
 ------------------------------------------------------------------------
 
-# ✅ Conclusion of the adventure
+# Conclusion of the adventure
 
 You have built a predictive model useful for decision making and learned to detect critical biases in individual data.
 
-Bravo for your rigor, your sense of observation and your ethical posture! 🎉📊
+Bravo for your rigor, your sense of observation and your ethical posture!

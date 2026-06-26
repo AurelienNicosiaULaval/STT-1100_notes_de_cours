@@ -47,6 +47,10 @@ sync_source_to_render_root <- function(source_root, render_root) {
     "-a",
     "--delete",
     "--exclude=.git/",
+    "--exclude=.Rhistory",
+    "--exclude=.RData",
+    "--exclude=.Rproj.user/",
+    "--exclude=.DS_Store",
     "--exclude=.quarto*/",
     "--exclude=docs/",
     "--exclude=en/docs/",
@@ -55,7 +59,7 @@ sync_source_to_render_root <- function(source_root, render_root) {
     "--exclude=*.rmarkdown",
     "--exclude=*.llms.md",
     "--exclude=llms.txt",
-    "--include=toggle-sidebar.html",
+    "--include=language-switch.html",
     "--exclude=*.html",
     paste0(source_root, "/"),
     paste0(render_root, "/")
@@ -116,7 +120,7 @@ find_generated_source_paths <- function(root) {
   )
 
   paths <- system2("find", shQuote(args), stdout = TRUE)
-  paths <- paths[basename(paths) != "toggle-sidebar.html"]
+  paths <- paths[basename(paths) != "language-switch.html"]
   paths
 }
 
@@ -194,11 +198,13 @@ remove_generated_duplicates()
 strip_trailing_whitespace("docs")
 
 setwd(repo_root)
-remove_paths(file.path(repo_root, "docs"))
 dir.create(file.path(repo_root, "docs"), recursive = TRUE, showWarnings = FALSE)
-copy_exit <- system2("cp", c("-R", file.path(render_root, "docs", "."), file.path(repo_root, "docs")))
-if (!identical(copy_exit, 0L)) {
-  stop("Failed to copy rendered site back to repository docs/.", call. = FALSE)
+sync_exit <- system2(
+  "rsync",
+  c("-a", "--delete", paste0(file.path(render_root, "docs"), "/"), paste0(file.path(repo_root, "docs"), "/"))
+)
+if (!identical(sync_exit, 0L)) {
+  stop("Failed to sync rendered site back to repository docs/.", call. = FALSE)
 }
 strip_trailing_whitespace(file.path(repo_root, "docs"))
 

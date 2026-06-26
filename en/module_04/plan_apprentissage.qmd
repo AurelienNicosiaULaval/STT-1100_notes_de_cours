@@ -23,7 +23,7 @@ At the end of this module, you should be able to
 
 # Initial readings
 
-## 📘 Readings to do before the adventure
+## Readings to do before the adventure
 
 In this module, we will explore the basic concepts of data import and data cleansing. Here is some initial reading to prepare you:
 
@@ -35,7 +35,7 @@ In this module, we will explore the basic concepts of data import and data clean
 
 - [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html){target="_blank"}\
     This chapter introduces you to **factors** in R, which are categorical variables.\
-    \> 📝 **Note**: Although this chapter is more widely used in module 4, some useful functions like `factor()` or `fct_reorder()` can already help you manipulate categorical variables (module 3).
+    \>  **Note**: Although this chapter is more widely used in module 4, some useful functions like `factor()` or `fct_reorder()` can already help you manipulate categorical variables (module 3).
 
 - [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}\
     This chapter introduces you to importing data from Excel files.\
@@ -57,7 +57,7 @@ At the end of the adventure, you should be able to have placed the following ele
 
 - the cleaned database in `.csv.` format
 
-# 📝 Consolidation exercises
+# Consolidation exercises
 
 ### Exercise 1 – Controlled reading of a CSV (Data import, § readr)
 
@@ -70,7 +70,7 @@ Import `policies.csv` as:
 then display the structure of the object.
 
 ::: {.callout-note collapse="true"}
-### ✅ Reply
+### Reply
 
 ``` r
 library(readr)
@@ -92,14 +92,14 @@ The file contains the string `"missing"` to indicate an absence in `vehicle_type
 Re-import the file by converting it to `NA`.
 
 ::: {.callout-note collapse="true"}
-### ✅ Reply
+### Reply
 
 ``` r
 policies <- read_csv("policies.csv", na = "missing")
 ```
 :::
 
-### Exercise 3 – Long ↔ wide passage (Data tidy, § pivot)
+### Exercise 3 – Long <-> wide passage (Data tidy, § pivot)
 
 The `q1_claims:q4_claims` columns represent the number of claims per quarter.
 
@@ -108,20 +108,20 @@ The `q1_claims:q4_claims` columns represent the number of claims per quarter.
 2. Then return to *wide*.
 
 ::: {.callout-note collapse="true"}
-### ✅ Reply
+### Reply
 
 ``` r
 library(tidyr)
 library(dplyr)
 
-pol_long <- policies %>% 
+pol_long <- policies %>%
   pivot_longer(
     cols = q1_claims:q4_claims,
     names_to = "quarter",
     values_to = "claims"
   )
 
-pol_wide <- pol_long %>% 
+pol_wide <- pol_long %>%
   pivot_wider(names_from = quarter, values_from = claims)
 ```
 :::
@@ -132,7 +132,7 @@ The workbook `quotes_2024.xlsx` has a sheet “Q3” where the labels start on t
 Import it and check the types.
 
 ::: {.callout-note collapse="true"}
-### ✅ Reply
+### Reply
 
 ``` r
 library(readxl)
@@ -152,7 +152,7 @@ The `euro_premium` column contains “1,234.56” (decimal point, space 000).\
 Parse it correctly as a `double`.
 
 ::: {.callout-note collapse="true"}
-### ✅ Reply
+### Reply
 
 ``` r
 library(readr)
@@ -170,7 +170,7 @@ You have a list `lst <- jsonlite::read_json("coverage.json")`.
 2. Transform `lst` into a rectangular tibble.
 
 ::: {.callout-note collapse="true"}
-### ✅ Reply
+### Reply
 
 ``` r
 library(jsonlite)
@@ -180,7 +180,7 @@ library(dplyr)
 lst <- read_json("coverage.json")
 limit <- lst$collision$limit
 
-tbl <- tibble(row = lst) %>% 
+tbl <- tibble(row = lst) %>%
   unnest_wider(row)
 ```
 :::
@@ -196,7 +196,7 @@ In three lines:
 3. return the **5** largest `claim_amount` by `vehicle_type`.
 
 ::: {.callout-note collapse="true"}
-### ✅ Reply
+### Reply
 
 ``` r
 library(readr); library(dplyr); library(janitor)

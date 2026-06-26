@@ -1,7 +1,5 @@
 # Modules
 
-# Modules
-
 Chaque module a maintenant une page d’entrée. Utilise-la pour comprendre le contexte, les ressources disponibles et la trace attendue avant d’ouvrir les notes détaillées.
 
 Module 01
@@ -78,7 +76,7 @@ Aventure Plan
 
 Module 10
 
-### [Au-delà des données : texte et tableau de bord](module_10/index.llms.md)
+### [Au-delà des données: texte et tableau de bord](module_10/index.llms.md)
 
 Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
 

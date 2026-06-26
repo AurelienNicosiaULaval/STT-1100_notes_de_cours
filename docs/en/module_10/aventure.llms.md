@@ -2,7 +2,7 @@
 
 STT-1100 • Introduction to Data Science
 
-# ✈️ Put in context
+# Put in context
 
 This week, you were **hired as a junior business analyst** by the **Faculty of Science and Engineering at Laval University**. As part of the reform of the baccalaureate in statistics and data science, management wishes to evaluate **the evolution of student feelings throughout the session**.
 
@@ -12,7 +12,7 @@ You are guided by **Anne-Sophie**, the program director, who supports you in str
 
 > “The idea is to have an honest, but constructive portrait. We want to see the underlying trends and draw inspiration from them to continue to improve our program.”
 
-# 🎯 Mission
+# Mission
 
 Build an interactive dashboard (with `flexdashboard` and `shiny`) which allows you to:
 
@@ -21,7 +21,7 @@ Build an interactive dashboard (with `flexdashboard` and `shiny`) which allows y
 - explore lexical trends over time,
 - offer dynamic filters to refine the analysis.
 
-# 📁 Data
+# Data
 
 A `sentiments_cours.csv` file contains:
 
@@ -32,14 +32,14 @@ A `sentiments_cours.csv` file contains:
 - `engagement`: engagement level (1 to 5)
 - `pleasure`: pleasure level (1 to 5)
 
-# 🧰 Recommended tools
+# Recommended tools
 
 - `tidytext`, `stringr`, `dplyr`: text cleaning and analysis
 - `ggplot2`, `wordcloud`, `plotly`: visualization
 - `flexdashboard`, `shiny`: interactive interface
 - `lexicon`: `bing`, `afinn`, or `nrc` (for sentiment analysis)
 
-# 🧪 Guided steps
+# Guided steps
 
 ## Step 1 — Text Cleanup
 
@@ -176,11 +176,11 @@ ggplot(sentiment_fr, aes(x = week, y = score)) +
 >
 > “As the lexicons integrated into [`get_sentiments()`](https://juliasilge.github.io/tidytext/reference/get_sentiments.html) are only available in English, I suggest you build a small homemade lexicon for French. It will be imperfect, but it will help you understand the principle. We can then discuss it together to enrich it. What interests me is that you are able to interpret the evolution of sentiment from one week to the next, even with simple tools. »
 
-### 🤝 Final collaboration
+### Final collaboration
 
 At the end of the course, an in-class activity will allow each student/team to **share their own lexicon of feelings in French** built during the analysis.
 
-🎓 **The teacher will collect and merge these lexicons**, checking them to obtain a common enriched version. This new version will be shared with the whole class as a collective resource for future projects.
+**The teacher will collect and merge these lexicons**, checking them to obtain a common enriched version. This new version will be shared with the whole class as a collective resource for future projects.
 
 ## Step 3 — Distinctive words
 
@@ -242,7 +242,7 @@ tfidf %>%
 
 A visualization like this allows you to see which words are most representative of that week’s comments. There is also the possibility of creating a **word cloud** for a more visual representation. A word cloud is a graphical representation of the most frequent words, where the size of each word is proportional to its frequency of occurrence.
 
-💡 To create a word cloud in French: - Use the `wordcloud()` function of the `wordcloud` package, or `ggwordcloud` for more customization. - Get inspired by this complete example: <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
+To create a word cloud in French: - Use the `wordcloud()` function of the `wordcloud` package, or `ggwordcloud` for more customization. - Get inspired by this complete example: <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
 
 > **IMPORTANT:**
 >
@@ -269,7 +269,7 @@ At the end of the dashboard, write a summary of your **key observations**:
 >
 > “Don’t forget to explore the numerical scores. How does text sentiment compare to level of perceived enjoyment or difficulty? Present at least one visualization that cross-references this information. »
 
-# 🌟 Bonus — Personalization — Personalization
+# Bonus — Personalization — Personalization
 
 Here are some ideas to go further in customizing your dashboard:
 
@@ -278,9 +278,9 @@ Here are some ideas to go further in customizing your dashboard:
 - Add a discreet **background photo** in the header,
 - Add an inspirational quote or greeting in the sidebar.
 
-💡 You can also integrate a progress bar or visual indicator of overall sentiment per week.
+You can also integrate a progress bar or visual indicator of overall sentiment per week.
 
-# 📤 Delivery expected
+# Delivery expected
 
 - A GitHub repository containing:
   - the `.Rmd` of the dashboard,
@@ -288,6 +288,6 @@ Here are some ideas to go further in customizing your dashboard:
   - the cleaned data file (if modified).
 - **The dashboard must be deployed (for example via Shinyapp.io or Posit Cloud)** and the final link sent to **Anne-Sophie (the real program director)**.
 
-# 🧠 Advice from Anne-Sophie
+# Advice from Anne-Sophie
 
 > “A good dashboard is like a good pitch: **clear, readable and targeted**. Put yourself in your end user’s shoes. »

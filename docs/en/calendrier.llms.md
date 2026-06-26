@@ -1,7 +1,5 @@
 # Calendar
 
-# Calendar
-
 The calendar is a navigation map. Official dates and class announcements remain those communicated in class or on MonPortail.
 
 | Sequence | Module | Main work |

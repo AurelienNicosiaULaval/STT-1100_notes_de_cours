@@ -13,7 +13,7 @@ STT-1100 Introduction à la science des données
 
 # Lectures initiales
 
-## 📘 Lectures à faire avant l’aventure
+## Lectures à faire avant l’aventure
 
 Dans ce module, nous allons explorer les concepts de base de l’importation et du nettoyage de données. Voici quelques lectures initiales pour vous préparer :
 
@@ -25,7 +25,7 @@ Dans ce module, nous allons explorer les concepts de base de l’importation et 
 
 - [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html)
   Ce chapitre vous introduit aux **facteurs** en R, qui sont des variables catégoriques.
-  \> 📝 **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `factor()` ou `fct_reorder()` peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).
+  \> **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `factor()` ou `fct_reorder()` peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).
 
 - [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html)
   Ce chapitre vous introduit à l’importation de données à partir de fichiers Excel.
@@ -47,7 +47,7 @@ A la fin de l’aventure, vous devez être en mesure d’avoir déposer dans vot
 
 - la base de données nettoyée au format `.csv.`
 
-# 📝 Exercices de consolidation
+# Exercices de consolidation
 
 ### Exercice 1 – Lecture contrôlée d’un CSV (Data import, § readr)
 
@@ -85,7 +85,7 @@ Ré-importez le fichier en la convertissant en `NA`.
 > policies <- read_csv("policies.csv", na = "missing")
 > ```
 
-### Exercice 3 – Passage long ↔︎ large (Data tidy, § pivot)
+### Exercice 3 – Passage long \<-\> large (Data tidy, § pivot)
 
 Les colonnes `q1_claims:q4_claims` représentent le nombre de réclamations par trimestre.
 

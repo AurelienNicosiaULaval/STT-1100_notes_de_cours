@@ -1,61 +1,288 @@
 ---
-title: "Module 03 - Les catégories sous toutes leurs formes"
+title: "Les catégories sous toutes leurs formes"
 format:
   html:
     toc: true
     embed-resources: true
 ---
 
-::: {.portal-hero .module-hero}
-<p class="eyebrow">Module 03</p>
-# Les catégories sous toutes leurs formes
-<p class="hero-lead">Comprendre, recoder et visualiser des variables catégorielles.</p>
+::: {.module-banner}
+<p class="module-banner-number">Module 03</p>
+<p class="module-banner-subtitle">Comprendre, recoder et visualiser des variables catégorielles.</p>
 :::
 
-Cette page sert de porte d'entrée. Elle donne le contexte, les ressources et les traces attendues avant de passer aux notes détaillées.
-
-## Parcours du module
-
-::: {.portal-grid}
-::: {.portal-card .link-card}
-### Plan d'apprentissage
-
-Accéder à la ressource du module.
-
-[Ouvrir](plan_apprentissage.qmd){.portal-button}
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Fil principal</span><span class="fact-value">Catégories, chaînes et graphiques</span></span>
 :::
 
-::: {.portal-card .link-card}
-### Aventure
-
-Accéder à la ressource du module.
-
-[Ouvrir](aventure.qmd){.portal-button}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Données</span><span class="fact-value">Manchots, Titanic et catégories</span></span>
 :::
 
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Défi</span><span class="fact-value">Recodage documenté et graphique interprété</span></span>
 :::
+::::
 
-::: {.callout-note}
-## Objectifs
+## Produit fini du module
 
-- Comprendre, recoder et visualiser des variables catégorielles.
-- Trace attendue : une analyse courte de variables catégorielles.
-:::
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Produit final</p>
+  <h3>Une variable catégorielle prête pour l’analyse</h3>
+  <p>Le module produit un recodage documenté, une vérification des modalités et un graphique qui respecte la nature des catégories.</p>
+  </div>
+  <div class="product-visual" aria-label="Aperçu visuel du produit fini">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>catégories</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>modalités vérifiées</span><span class="mini-bar" style="--bar-width: 52%;"></span></div><div class="mini-bar-row"><span>recodage justifié</span><span class="mini-bar" style="--bar-width: 76%;"></span></div><div class="mini-bar-row"><span>graphique interprété</span><span class="mini-bar" style="--bar-width: 91%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>modalités vérifiées</span>
+  <span><i class="bi bi-check2"></i>recodage justifié</span>
+  <span><i class="bi bi-check2"></i>graphique interprété</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
 
-## Compétences travaillées
+## Objectifs du module
 
-- manipuler des catégories
-- résumer des effectifs
-- produire des graphiques adaptés aux catégories
+À la fin de ce module, vous devriez être capable de
+
+-  Manipuler des chaînes de caractères avec `stringr`.
+-  Reconnaitre des motifs avec des expressions régulières.
+-  Utiliser les expressions régulières pour sélectionner, manipuler et modifier des chaînes de caractères.
+-  Calculer et interpréter des statistiques descriptives pour des variables catégoriques (tableaux de fréquences, proportions, incluant par groupes, tableau croisé).
+-  Produire et interpréter des visualisations de variables catégoriques avec `ggplot2` (diagramme à bandes, en bâtons empilés, en bâtons empilés standardisé, en bâtons empilés groupés, en mosaïque, en secteurs et en gaufre).
+
+## Plan d’apprentissage
+
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="lectures-a-faire">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Lectures à faire</span>
+  <span class="path-preview">Revoir catégories, facteurs et représentations adaptées.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="lectures-initiales">Lectures initiales</h3>
+<h4 id="lectures-à-faire-avant-laventure">Lectures à faire avant l’aventure</h4>
+<p>Dans ce module, nous allons explorer les variables <strong>catégoriques</strong> et la <strong>visualisation adaptée</strong> à ce type de données. Deux lectures sont proposées pour vous préparer :</p>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/strings.html" target="_blank"><strong>R for Data Science – Strings</strong></a><br />
+Ce chapitre vous introduit à la manipulation des chaînes de caractères avec le package <code>stringr</code>.<br />
+&gt; <strong>Note</strong> : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme <code>str_detect()</code> ou <code>str_to_lower()</code> peuvent déjà vous aider pour nettoyer ou préparer des variables catégoriques.</p></li>
+<li><p><a href="https://openintro-ims.netlify.app/explore-categorical" target="_blank"><strong>Introduction to Modern Statistics – Chapitre 6 : Explore categorical data</strong></a><br />
+Ce chapitre de <strong>IMS</strong> présente les concepts statistiques associés aux données catégoriques. On y parle notamment de tableaux de fréquence, de proportions et des façons de représenter visuellement ce type de variables.</p></li>
+</ul>
+<p>Prenez le temps de parcourir ces deux ressources. Elles vous seront utiles pour comprendre comment traiter les <strong>données qualitatives</strong>, tant du point de vue <strong>statistique</strong> que <strong>pratique</strong>.</p>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="aventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Aventure</span>
+  <span class="path-preview">Recoder des modalités et comparer des groupes sans les déformer.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
+  <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="defi">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Défi</span>
+  <span class="path-preview">Documenter un recodage et défendre le choix du graphique.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="défi">Défi</h3>
+<p>Au terme de ce module, <strong>vous endosserez le rôle de journaliste de données</strong> pour <em>Le Courrier Gourmand</em>.<br />
+Votre mission :</p>
+<ol type="1">
+<li><strong>Explorer et nettoyer</strong> le jeu <code>listecondamnation</code> (infractions alimentaires au Québec).<br />
+</li>
+<li><strong>Extraire des faits marquants</strong> (top infractions, montants d’amendes, comparaison Montréal / hors-Montréal).<br />
+</li>
+<li><strong>Illustrer vos analyses</strong> par au moins <strong>deux visuels</strong> (un graphique de catégories + la carte des amendes).<br />
+</li>
+<li><strong>Rédiger un article Quarto (HTML)</strong> clair et accrocheur : chapeau -&gt; contexte -&gt; méthodologie -&gt; résultats -&gt; recommandations.<br />
+</li>
+<li><strong>Citer deux chiffres narratifs</strong> et <strong>intégrer une courte citation d’Alexandre</strong> pour humaniser la conclusion.</li>
+</ol>
+<blockquote>
+<p><strong>À remettre</strong> : le fichier <code>.qmd</code> et le HTML généré, livrés via votre dépôt GitHub avant la date limite.</p>
+</blockquote>
+<h4 id="grille-dévaluation">Grille d’évaluation</h4>
+<p>Votre article sera évalué selon les critères suivants. Assurez-vous de bien respecter le canevas fourni et les consignes données.</p>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Excellent (3)</th>
+<th>Satisfaisant (2)</th>
+<th>À améliorer (1)</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>** Chapeau introductif**</td>
+<td>Accroche percutante, angle clair, chiffres clés bien choisis</td>
+<td>Présent mais peu engageant ou peu clair</td>
+<td>Absent ou très vague</td>
+<td></td>
+</tr>
+<tr>
+<td>** Contexte &amp; présentation des données**</td>
+<td>Source bien identifiée, pertinence expliquée, limites évoquées</td>
+<td>Contexte partiel ou explication sommaire</td>
+<td>Source absente ou non justifiée</td>
+<td></td>
+</tr>
+<tr>
+<td>** Méthodologie (section sans code)**</td>
+<td>Démarche bien résumée, claire et logique</td>
+<td>Présente mais confuse ou trop technique</td>
+<td>Absente ou très floue</td>
+<td></td>
+</tr>
+<tr>
+<td>** Résultat clé #1 (graphique + interprétation)**</td>
+<td>Visuel clair, bonne interprétation, apport analytique évident</td>
+<td>Visuel ou commentaire peu approfondi</td>
+<td>Visuel ou analyse absente</td>
+<td></td>
+</tr>
+<tr>
+<td>** Résultat clé #2 (graphique + interprétation)**</td>
+<td>Visuel pertinent, insight bien formulé</td>
+<td>Visuel correct mais analyse faible</td>
+<td>Résultat peu exploité ou manquant</td>
+<td></td>
+</tr>
+<tr>
+<td>** Résultat clé #3 (graphique + interprétation)**</td>
+<td>Résultat original ou complémentaire, bien expliqué</td>
+<td>Présent mais peu développé</td>
+<td>Manquant ou superficiel</td>
+<td></td>
+</tr>
+<tr>
+<td>** Discussion (section 4)**</td>
+<td>Réflexion critique, mise en perspective des résultats</td>
+<td>Discussion partielle ou descriptive</td>
+<td>Discussion absente ou sans valeur ajoutée</td>
+<td></td>
+</tr>
+<tr>
+<td>** Conclusion &amp; recommandations**</td>
+<td>Messages d’action clairs, utiles, bien formulés</td>
+<td>Messages présents mais peu convaincants</td>
+<td>Peu clairs ou hors sujet</td>
+<td></td>
+</tr>
+<tr>
+<td>** Chiffres narratifs + citation d’Alexandre**</td>
+<td>Deux chiffres bien choisis + citation bien intégrée</td>
+<td>Un des éléments présent seulement</td>
+<td>Aucun ou mal intégré</td>
+<td></td>
+</tr>
+<tr>
+<td>** Qualité du rendu (Quarto + dépôt GitHub)**</td>
+<td><code>.qmd</code> fonctionnel, HTML lisible, dépôt propre et complet</td>
+<td>Quelques problèmes techniques ou dépôt désorganisé</td>
+<td>Exécution impossible ou rendu partiel/absent</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Total sur 30 points</strong> : <code>XX / 30</code></p>
+<blockquote>
+<p><em>N’oubliez pas de relire la checklist en fin de template avant de publier votre article.</em></p>
+</blockquote>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercices">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercices</span>
+  <span class="path-preview">Stabiliser tableaux de fréquences, facteurs et regroupements.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
+  <p><span class="step-label">Pourquoi</span> Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.</p>
+  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
+  </div>
+  </details>
+</div>
+```
 
 ## Données et outils
 
-données catégorielles et exemples de recodage
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Bases de données</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-penguins-raw"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>palmerpenguins::penguins_raw</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-titanic-train"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>titanic::titanic_train</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>Packages R</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#titanic"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>titanic</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tidygeocoder"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidygeocoder</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#viridis"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>viridis</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#scales"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>scales</span></a>
+  </div>
+  </div>
+</div>
+```
 
-## Je suis capable de
+## Révision et prolongement
 
-- manipuler des catégories
-- résumer des effectifs
-- produire des graphiques adaptés aux catégories
-- relier le travail du module au projet de session
-
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finir le module avec l’IA du cours</h3>
+  <p>Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.</p>
+  <ul>
+  <li>Expliquez le produit fini en trois phrases.</li>
+  <li>Collez un extrait de code ou de sortie et demandez un diagnostic.</li>
+  <li>Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.</li>
+  </ul>
+  </div>
+</div>
+```

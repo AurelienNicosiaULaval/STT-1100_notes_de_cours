@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -4027,6 +4027,30 @@ margin: 1rem 0 1.5rem;
 .portal-hero h1 { margin: .2rem 0 .6rem; color: var(--ink); }
 .hero-lead { font-size: 1.12rem; max-width: 70ch; color: var(--muted); margin-bottom: 0; }
 .eyebrow, .card-kicker { text-transform: uppercase; letter-spacing: .08em; color: var(--ulaval-red); font-size: .78rem; margin: 0 0 .35rem; font-weight: 700; }
+.module-banner {
+display: grid;
+gap: .25rem;
+border-left: 6px solid var(--ulaval-red);
+background: linear-gradient(90deg, #fff7f7 0%, #ffffff 60%, #f7fbfc 100%);
+color: var(--ink);
+border-radius: var(--radius);
+padding: 1rem 1.2rem;
+margin: .75rem 0 1.2rem;
+}
+.module-banner-number {
+margin: 0;
+color: var(--ulaval-red);
+font-size: .86rem;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+}
+.module-banner-subtitle {
+margin: 0;
+color: var(--muted);
+font-size: 1.02rem;
+line-height: 1.35;
+}
 .quick-panel {
 background: #fff9e6;
 border: 1px solid #f1d880;
@@ -4074,6 +4098,596 @@ font-size: .78rem;
 color: var(--muted);
 background: var(--soft);
 }
+.resource-link-grid,
+.catalog-grid,
+.package-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 1rem;
+margin: 1rem 0 1.5rem;
+}
+.catalog-grid > p,
+.package-grid > p {
+display: contents;
+}
+.resource-link-card,
+.dataset-row,
+.dataset-card,
+.package-card {
+display: grid;
+grid-template-columns: 48px minmax(0, 1fr);
+gap: .85rem;
+align-items: center;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+color: var(--ink);
+padding: 1rem;
+min-height: 7.25rem;
+text-decoration: none;
+box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.resource-link-card:hover,
+.resource-link-card:focus,
+.dataset-row:hover,
+.dataset-row:focus,
+.dataset-card:hover,
+.dataset-card:focus,
+.package-card:hover,
+.package-card:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+transform: translateY(-1px);
+}
+.dataset-card,
+.package-card {
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.dataset-card {
+align-items: start;
+min-height: 8.25rem;
+}
+.resource-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 44px;
+height: 44px;
+border-radius: 8px;
+background: #fff3d4;
+color: var(--ulaval-red);
+font-size: 1.35rem;
+}
+.resource-title,
+.package-name {
+display: block;
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.dataset-module {
+display: block;
+margin-bottom: .2rem;
+color: var(--muted);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.resource-text,
+.package-role {
+display: block;
+color: var(--muted);
+font-size: .92rem;
+line-height: 1.35;
+margin-top: .2rem;
+}
+.package-source {
+display: block;
+margin-top: .45rem;
+color: var(--blue);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.dataset-download-wrap {
+margin: .75rem 0 1rem;
+}
+.dataset-download {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 2.35rem;
+padding: .5rem .75rem;
+border: 1px solid var(--ulaval-red);
+border-radius: 7px;
+background: var(--ulaval-red);
+color: #ffffff !important;
+font-weight: 700;
+line-height: 1.1;
+text-decoration: none;
+}
+.dataset-download:hover,
+.dataset-download:focus {
+filter: brightness(.95);
+text-decoration: none;
+}
+.tag-list {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+margin: .75rem 0 1.25rem;
+}
+.tag-list p {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+margin: 0;
+}
+.tag-list a {
+display: inline-block;
+border: 1px solid var(--line);
+border-radius: 999px;
+padding: .24rem .58rem;
+background: var(--soft);
+color: var(--ink);
+text-decoration: none;
+font-size: .88rem;
+}
+.tag-list a:hover,
+.tag-list a:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.module-quick-facts {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+gap: .8rem;
+margin: 1.1rem 0 1.6rem;
+}
+.module-quick-facts.three-facts {
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.module-fact {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .75rem;
+align-items: center;
+min-height: 5rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: .85rem;
+}
+.fact-label,
+.fact-value {
+display: block;
+line-height: 1.25;
+}
+.fact-label {
+color: var(--muted);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.fact-value {
+margin-top: .2rem;
+color: var(--ink);
+font-weight: 700;
+}
+.module-product-showcase {
+display: grid;
+grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+gap: 1rem;
+align-items: stretch;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+margin: 1rem 0 1.6rem;
+overflow: hidden;
+}
+.product-copy {
+padding: 1rem 1.15rem;
+}
+.showcase-kicker {
+margin: 0 0 .35rem;
+color: var(--ulaval-red);
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+}
+.product-copy h3 {
+margin: 0 0 .55rem;
+color: var(--ink);
+}
+.product-copy p:last-child {
+margin-bottom: 0;
+}
+.product-visual {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 13rem;
+background:
+linear-gradient(135deg, rgba(255, 193, 3, .18), rgba(0, 124, 137, .1)),
+#f8fafb;
+padding: 1rem;
+}
+.mini-product-board {
+width: min(100%, 23rem);
+border: 1px solid #cfd8dc;
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 12px 26px rgba(32, 33, 36, .10);
+overflow: hidden;
+}
+.mini-product-toolbar {
+display: grid;
+grid-template-columns: .55rem .55rem .55rem minmax(0, 1fr);
+gap: .35rem;
+align-items: center;
+min-height: 2.35rem;
+padding: .55rem .7rem;
+background: #f1f4f6;
+border-bottom: 1px solid #dde4e8;
+}
+.mini-product-toolbar span {
+width: .55rem;
+height: .55rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+}
+.mini-product-toolbar span:nth-child(2) { background: var(--ulaval-yellow); }
+.mini-product-toolbar span:nth-child(3) { background: var(--teal); }
+.mini-product-toolbar strong {
+min-width: 0;
+color: var(--ink);
+font-size: .82rem;
+line-height: 1.15;
+overflow-wrap: anywhere;
+}
+.mini-product-bars {
+display: grid;
+gap: .55rem;
+padding: .85rem .8rem .35rem;
+}
+.mini-bar-row {
+display: grid;
+grid-template-columns: minmax(6.5rem, .9fr) minmax(5rem, 1.1fr);
+gap: .7rem;
+align-items: center;
+color: var(--muted);
+font-size: .78rem;
+line-height: 1.2;
+}
+.mini-bar {
+display: block;
+height: .55rem;
+border-radius: 999px;
+background: #e6ebef;
+overflow: hidden;
+}
+.mini-bar::after {
+content: "";
+display: block;
+width: var(--bar-width);
+height: 100%;
+border-radius: inherit;
+background: var(--blue);
+}
+.mini-product-checks {
+display: flex;
+flex-wrap: wrap;
+gap: .4rem;
+padding: .75rem .8rem .9rem;
+}
+.mini-product-checks span {
+display: inline-flex;
+align-items: center;
+gap: .25rem;
+border: 1px solid #dce7dc;
+border-radius: 999px;
+padding: .2rem .5rem;
+background: #f2f8f1;
+color: var(--ink);
+font-size: .76rem;
+line-height: 1.15;
+}
+.mini-product-checks i {
+color: #31784a;
+}
+.path-grid {
+display: grid;
+gap: .85rem;
+margin: 1rem 0 1.6rem;
+}
+.interactive-path {
+grid-template-columns: 1fr;
+}
+.path-card {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 1px 2px rgba(0,0,0,.04);
+overflow: hidden;
+}
+.path-card[open] {
+border-color: #b8cbd9;
+box-shadow: 0 10px 24px rgba(49, 95, 140, .08);
+}
+.path-card summary {
+display: grid;
+grid-template-columns: 2.15rem minmax(10rem, 1.1fr) minmax(12rem, 2fr) minmax(8rem, auto) minmax(5.5rem, auto);
+gap: .7rem;
+align-items: center;
+padding: .85rem 1rem;
+cursor: pointer;
+list-style: none;
+}
+.path-card summary::-webkit-details-marker {
+display: none;
+}
+.path-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2rem;
+height: 2rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+line-height: 1;
+}
+.path-title {
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.path-preview {
+color: var(--muted);
+font-size: .92rem;
+line-height: 1.3;
+}
+.path-resource {
+display: flex;
+flex-wrap: wrap;
+gap: .35rem;
+justify-content: flex-end;
+}
+.path-toggle {
+color: var(--blue);
+font-size: .82rem;
+font-weight: 700;
+text-align: right;
+}
+.path-card[open] .closed-label,
+.path-card:not([open]) .open-label {
+display: none;
+}
+.summary-resource-link,
+.path-note {
+display: inline-flex;
+align-items: center;
+min-height: 1.75rem;
+border: 1px solid var(--line);
+border-radius: 999px;
+padding: .2rem .55rem;
+background: var(--soft);
+color: var(--ink);
+font-size: .8rem;
+font-weight: 700;
+line-height: 1.1;
+text-decoration: none;
+white-space: nowrap;
+}
+.summary-resource-link:hover,
+.summary-resource-link:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.plan-link { background: #fff3d4; }
+.adventure-link { background: #e9f4f6; }
+.exercise-link { background: #eef5ec; }
+.challenge-link { background: #fff0ee; }
+.data-link { background: #edf3fb; }
+.package-link { background: #fff0ee; }
+.step-detail {
+border-top: 1px solid var(--line);
+background: #fbfcfd;
+padding: .9rem 1rem 1rem 4rem;
+}
+.step-detail p {
+margin: .35rem 0;
+}
+.plan-section-detail {
+padding: 1rem 1.1rem 1.1rem 4rem;
+}
+.plan-section-copy {
+display: grid;
+gap: .55rem;
+max-width: 78ch;
+}
+.plan-section-copy h3,
+.plan-section-copy h4,
+.plan-section-copy h5 {
+margin: .15rem 0 .25rem;
+border-bottom: 0;
+padding-bottom: 0;
+color: var(--ink);
+}
+.plan-section-copy h3 {
+font-size: 1.05rem;
+}
+.plan-section-copy h4 {
+font-size: .98rem;
+}
+.plan-section-copy p,
+.plan-section-copy ul,
+.plan-section-copy ol {
+margin-top: 0;
+margin-bottom: .45rem;
+}
+.plan-section-copy li > p {
+margin-bottom: .25rem;
+}
+.plan-section-copy code {
+overflow-wrap: anywhere;
+}
+.plan-section-copy blockquote {
+margin: .35rem 0;
+background: #fff9e6;
+border-left: 4px solid var(--ulaval-yellow);
+border-radius: 0 var(--radius) var(--radius) 0;
+padding: .65rem .8rem;
+}
+.step-label {
+display: inline-block;
+min-width: 5.5rem;
+color: var(--muted);
+font-size: .8rem;
+font-weight: 700;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.ae-box,
+.challenge-box {
+border-left: 4px solid var(--ulaval-yellow);
+background: #fff9e6;
+border-radius: 0 var(--radius) var(--radius) 0;
+padding: .75rem .9rem;
+margin-top: .8rem;
+}
+.ae-title {
+margin: 0;
+color: var(--ink);
+font-weight: 700;
+}
+.resource-list {
+display: grid;
+gap: .7rem;
+margin: 1rem 0 1.6rem;
+}
+.resource-row {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .75rem;
+align-items: center;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+color: var(--ink);
+padding: .8rem;
+text-decoration: none;
+}
+.resource-row:hover,
+.resource-row:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+transform: translateY(-1px);
+}
+.resource-row-title,
+.resource-row-text {
+display: block;
+}
+.resource-row-title {
+color: var(--ink);
+font-weight: 700;
+line-height: 1.2;
+}
+.resource-row-text {
+margin-top: .15rem;
+color: var(--muted);
+font-size: .9rem;
+line-height: 1.35;
+}
+.module-resource-panel {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1rem 0 1.6rem;
+}
+.module-resource-section {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: 1rem;
+}
+.module-resource-section h3 {
+margin: 0 0 .75rem;
+color: var(--ink);
+}
+.module-chip-list {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+}
+.module-resource-chip {
+display: inline-flex;
+align-items: center;
+gap: .4rem;
+min-height: 2rem;
+max-width: 100%;
+border: 1px solid var(--line);
+border-radius: 999px;
+background: var(--soft);
+color: var(--ink);
+padding: .28rem .58rem .28rem .36rem;
+font-size: .88rem;
+font-weight: 700;
+line-height: 1.15;
+text-decoration: none;
+}
+.module-resource-chip:hover,
+.module-resource-chip:focus {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.module-resource-chip span:last-child {
+min-width: 0;
+overflow-wrap: anywhere;
+}
+.chip-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex: 0 0 auto;
+width: 1.45rem;
+height: 1.45rem;
+border-radius: 50%;
+background: #ffffff;
+color: var(--ulaval-red);
+font-size: .86rem;
+}
+.closing-panel {
+display: grid;
+grid-template-columns: 44px minmax(0, 1fr);
+gap: .9rem;
+align-items: start;
+border: 1px solid #dce7dc;
+border-radius: var(--radius);
+background: #f7fbf5;
+padding: 1rem;
+margin: 1rem 0 1.6rem;
+}
+.closing-panel h3 {
+margin: 0 0 .45rem;
+color: var(--ink);
+}
+.closing-panel p {
+margin-top: 0;
+}
+.closing-panel ul {
+margin-bottom: 0;
+}
 pre, code { border-radius: 4px; }
 blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; color: var(--muted); }
 .callout { border-radius: var(--radius); }
@@ -4089,13 +4703,45 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 .mermaid { font-size: 0.65em; }
 @media (max-width: 700px) {
 .portal-hero { padding: 1rem; }
-.portal-grid, .module-grid { grid-template-columns: 1fr; }
+.portal-grid,
+.module-grid,
+.resource-link-grid,
+.catalog-grid,
+.package-grid,
+.module-product-showcase,
+.module-resource-panel,
+.module-quick-facts {
+grid-template-columns: 1fr;
+}
+.path-card summary {
+grid-template-columns: 2.15rem minmax(0, 1fr);
+}
+.module-quick-facts.three-facts {
+grid-template-columns: 1fr;
+}
+.path-preview,
+.path-resource,
+.path-toggle {
+grid-column: 2;
+justify-content: flex-start;
+text-align: left;
+}
+.step-detail {
+padding-left: 1rem;
+}
+.plan-section-detail {
+padding: 1rem;
+}
+.step-label {
+display: block;
+margin-bottom: .05rem;
+}
 .portal-button { display: block; width: fit-content; }
 }
 </style>
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -4113,24 +4759,86 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page">
+    <a class="nav-link" href="../index.html">
 <span class="menu-text">Home</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../demarrage.html">
 <span class="menu-text">Start</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../modules.html">
-<span class="menu-text">Modules</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Modules</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
+        <li>
+    <a class="dropdown-item" href="../modules.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../projet_session/index.html">
-<span class="menu-text">Project</span></a>
+        <li>
+    <a class="dropdown-item" href="../module_01/index.html">
+ <span class="dropdown-text">Module 01 - Data science dive</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../evaluations.html">
-<span class="menu-text">Assessments</span></a>
+        <li>
+    <a class="dropdown-item" href="../module_02/index.html">
+ <span class="dropdown-text">Module 02 - GitHub and data visualization</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_03/index.html">
+ <span class="dropdown-text">Module 03 - Categories in all their forms</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_04/index.html">
+ <span class="dropdown-text">Module 04 - Factors and data cleaning</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_05/index.html">
+ <span class="dropdown-text">Module 05 - Explore and understand relationships between variables</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_06/index.html">
+ <span class="dropdown-text">Module 06 - Collaboration and reproducibility in GitHub</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_07/index.html">
+ <span class="dropdown-text">Module 07 - Visualization, ethics and data security</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_08/index.html">
+ <span class="dropdown-text">Module 08 - Automation and web exploration</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_09/index.html">
+ <span class="dropdown-text">Module 09 - Prediction and bias</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../module_10/index.html">
+ <span class="dropdown-text">Module 10 - Beyond data: text and dashboard</span></a>
+  </li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assessments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Assessments</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assessments">
+        <li>
+    <a class="dropdown-item" href="../evaluations.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../examen.html">
+ <span class="dropdown-text">Exam</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../defis.html">
+ <span class="dropdown-text">Challenges</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../projet_session/index.html">
+ <span class="dropdown-text">Session project</span></a>
+  </li>
+    </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../ressources.html">
@@ -4148,424 +4856,17 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_07/index.html">7 - Visualization, ethics and data security</a></li><li class="breadcrumb-item"><a href="../module_07/aventure.html">Adventure</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container">
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dashboard</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../demarrage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting started</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../calendrier.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Calendar</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../evaluations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assessments</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">1 - Data science dive</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/defi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Challenge</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Corrected exercises</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">2 - GitHub and data visualization</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_02/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">3 - Categories in all their forms</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_03/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">4 - Factors and data cleaning</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_04/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
- <span class="menu-text">5 - Explore and understand relationships between variables</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_05/exercices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">6 - Collaboration and reproducibility in GitHub</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_06/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">7 - Visualization, ethics and data security</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/aventure.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Initial COVID-19 analysis</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
- <span class="menu-text">8 - Automation and web exploration</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_08/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
- <span class="menu-text">9 - Prediction and bias</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_09/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">10 - Beyond data: text and dashboard</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../module_10/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Session project</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a>
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../projet_session/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Project statement</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../boite_outils.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Toolkit</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../glossaire.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Glossary</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container">
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reference material</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Adventure plan</h2>
 
   <ul>
-  <li><a href="#put-in-context" id="toc-put-in-context" class="nav-link active" data-scroll-target="#put-in-context">✈️ Put in context</a></li>
+  <li><a href="#put-in-context" id="toc-put-in-context" class="nav-link active" data-scroll-target="#put-in-context">Put in context</a></li>
   <li><a href="#adventure-objectives" id="toc-adventure-objectives" class="nav-link" data-scroll-target="#adventure-objectives">Adventure objectives</a>
   <ul class="collapse">
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
@@ -4580,7 +4881,7 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_07/index.html">7 - Visualization, ethics and data security</a></li><li class="breadcrumb-item"><a href="../module_07/aventure.html">Adventure</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Adventure 7 — Visualization, ethics and data security</h1>
 <p class="subtitle lead">STT-1100 • Introduction to Data Science</p>
@@ -4601,7 +4902,7 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 
 
 <section id="put-in-context" class="level1">
-<h1>✈️ Put in context</h1>
+<h1>Put in context</h1>
 <p>You are an <strong>invited expert</strong> in a data science ethics committee. An organization submits a report to you containing visualization and statistics from a simulated COVID-19 dataset. Your role: assess the compliance of this report with good visual communication practices, ethics and the protection of sensitive data.</p>
 </section>
 <section id="adventure-objectives" class="level1">
@@ -4672,365 +4973,240 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 
 </main> <!-- /main -->
 <style>
-
-body.sidebar-hidden #quarto-sidebar,
-body.sidebar-hidden .quarto-sidebar,
-body.sidebar-hidden .sidebar {
-display: none !important;
-}
-body.sidebar-hidden .page-columns {
-grid-template-columns: minmax(0, 1fr) !important;
-}
-body.sidebar-hidden .page-columns .content {
-grid-column: 1 / -1 !important;
-max-width: 100% !important;
-}
-body.sidebar-hidden .sidebar-margin,
-body.sidebar-hidden .submenu,
-body.sidebar-hidden .margin-sidebar { display: none !important; }
-
-@media (min-width: 992px) {
-:root { --content-left-offset: 88px; }
-body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
-body:not(.sidebar-hidden) main#quarto-document-content,
-body:not(.sidebar-hidden) main.content {
-padding-left: var(--content-left-offset) !important;
-}
-body.sidebar-hidden nav.quarto-page-breadcrumbs,
-body.sidebar-hidden main#quarto-document-content,
-body.sidebar-hidden main.content {
-padding-left: 0 !important;
-}
-}
-.qs-toggle-controls {
-margin-left: .5rem;
+.qs-language-controls {
+margin-left:.5rem;
 display: inline-flex;
 align-items: center;
-gap: .4rem;
 flex-shrink: 0;
 }
-
-.qs-toggle-btn{
-display:inline-flex;
-align-items:center;
-gap:.4rem;
-border:1px solid rgba(0,0,0,.12);
-border-radius:.5rem;
-padding:.25rem .5rem;
-background:var(--quarto-body-bg,#fff);
-color:var(--quarto-body-color,#111);
-box-shadow:0 1px 4px rgba(0,0,0,.08);
-cursor:pointer;
-font-size:.95rem;
-line-height:1;
-}
-.qs-toggle-btn svg{display:block;color:inherit;}
-.qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-.qs-language-switch{
-display:inline-flex;
-align-items:center;
+.qs-language-switch {
+display: inline-flex;
+align-items: center;
 gap:.35rem;
-border:1px solid rgba(0,0,0,.12);
+border: 1px solid rgba(0, 0, 0,.12);
 border-radius:.5rem;
-padding:.2rem .35rem;
-background:var(--quarto-body-bg,#fff);
-box-shadow:0 1px 4px rgba(0,0,0,.08);
+padding:.2rem.35rem;
+background: var(--quarto-body-bg, #fff);
+box-shadow: 0 1px 4px rgba(0, 0, 0,.08);
 font-size:.9rem;
 }
-.qs-lang-btn{
-border:none;
+.qs-lang-btn {
+border: none;
 border-radius:.35rem;
-background:transparent;
-color:var(--quarto-body-color,#111);
-padding:.2rem .45rem;
-cursor:pointer;
+background: transparent;
+color: var(--quarto-body-color, #111);
+padding:.2rem.45rem;
+cursor: pointer;
 }
-.qs-lang-btn[aria-pressed="true"]{
-background:rgba(0,0,0,.08);
-font-weight:700;
+.qs-lang-btn[aria-pressed="true"] {
+background: rgba(0, 0, 0,.08);
+font-weight: 700;
 }
-.qs-lang-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-.qs-action-group{
-display:flex;
-align-items:center;
-gap:.35rem;
+.qs-lang-btn:focus {
+outline: 2px solid rgba(0, 0, 0,.2);
+outline-offset: 2px;
 }
-
-@media (max-width: 575.98px){
-.qs-toggle-host{
+@media (max-width: 575.98px) {
+.qs-language-host {
 top: 6px;
 right: 8px;
-gap: .3rem;
-align-items: flex-start;
 }
-.qs-language-switch{
-padding: .15rem .25rem;
-font-size: .8rem;
-}
-.qs-toggle-btn{
-padding: .15rem .35rem;
-font-size: .8rem;
-}
-.qs-toggle-btn span{
-display: none;
+.qs-language-switch {
+padding:.15rem.25rem;
+font-size:.8rem;
 }
 }
 </style>
 
 <script>
 (function(){
-  const SIDEBAR_KEY = 'quarto-sidebar-hidden';
   const UI_LABELS = {
-    en: {
-      sidebarTooltip: 'Show/hide left sidebar',
-      sidebarAria: 'Toggle left sidebar',
-      languageAria: 'Language selection'
-    },
-    fr: {
-      sidebarTooltip: 'Masquer/Afficher la barre latérale',
-      sidebarAria: 'Basculer la barre latérale',
-      languageAria: 'Choix de langue'
-    }
+  en: { languageAria: 'Language selection' },
+  fr: { languageAria: 'Choix de langue' }
   };
 
   const CONTENT_ROOTS = new Set([
-    'autre_materiel',
-    'module_01',
-    'module_02',
-    'module_03',
-    'module_04',
-    'module_05',
-    'module_06',
-    'module_07',
-    'module_08',
-    'module_09',
-    'module_10',
-    'projet_session'
+  'autre_materiel',
+  'module_01',
+  'module_02',
+  'module_03',
+  'module_04',
+  'module_05',
+  'module_06',
+  'module_07',
+  'module_08',
+  'module_09',
+  'module_10',
+  'projet_session'
   ]);
+
   const ROOT_FILES = new Set([
-    'index.html',
-    'modules.html',
-    'demarrage.html',
-    'calendrier.html',
-    'evaluations.html',
-    'boite_outils.html',
-    'glossaire.html',
-    'ressources.html',
-    'references.html'
+  'index.html',
+  'modules.html',
+  'demarrage.html',
+  'calendrier.html',
+  'evaluations.html',
+  'examen.html',
+  'defis.html',
+  'boite_outils.html',
+  'glossaire.html',
+  'ressources.html',
+  'references.html'
   ]);
 
   function pathSegments(pathname){
-    return pathname.split('/').filter(Boolean);
+  return pathname.split('/').filter(Boolean);
   }
 
   function isEnglishPath(pathname){
-    return /(^|\/)en(\/|$)/.test(pathname);
+  return /(^|\/)en(\/|$)/.test(pathname);
   }
 
   function joinPath(segments, trailingSlash){
-    if (segments.length === 0) return '/';
-    let path = `/${segments.join('/')}`;
-    if (trailingSlash && !path.endsWith('/')) path += '/';
-    return path;
+  if (segments.length === 0) return '/';
+  let path = `/${segments.join('/')}`;
+  if (trailingSlash && !path.endsWith('/')) path += '/';
+  return path;
   }
 
   function splitBaseAndContentSegments(segments){
-    const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
-    if (contentIndex === -1) {
-      return { baseSegments: segments, contentSegments: [] };
-    }
-    return {
-      baseSegments: segments.slice(0, contentIndex),
-      contentSegments: segments.slice(contentIndex)
-    };
+  const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
+  if (contentIndex === -1) {
+  return { baseSegments: segments, contentSegments: [] };
+  }
+  return {
+  baseSegments: segments.slice(0, contentIndex),
+  contentSegments: segments.slice(contentIndex)
+  };
   }
 
   function languageTargetUrl(targetLang){
-    const loc = window.location;
-    const path = loc.pathname;
-    const search = loc.search || '';
-    const hash = loc.hash || '';
-    const segments = pathSegments(path);
-    const enIndex = segments.indexOf('en');
+  const loc = window.location;
+  const path = loc.pathname;
+  const search = loc.search || '';
+  const hash = loc.hash || '';
+  const segments = pathSegments(path);
+  const enIndex = segments.indexOf('en');
 
-    if (targetLang === 'en') {
-      if (enIndex !== -1) return null;
-      const split = splitBaseAndContentSegments(segments);
-      const targetSegments = split.baseSegments.concat('en', split.contentSegments);
-      const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
-      return joinPath(targetSegments, trailingSlash) + search + hash;
-    }
+  if (targetLang === 'en') {
+  if (enIndex !== -1) return null;
+  const split = splitBaseAndContentSegments(segments);
+  const targetSegments = split.baseSegments.concat('en', split.contentSegments);
+  const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
 
-    if (targetLang === 'fr') {
-      if (enIndex === -1) return null;
-      const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
-      const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
-      return joinPath(targetSegments, trailingSlash) + search + hash;
-    }
+  if (targetLang === 'fr') {
+  if (enIndex === -1) return null;
+  const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
+  const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
 
-    return null;
+  return null;
   }
 
   function uiForPage(){
-    return isEnglishPath(window.location.pathname) ? UI_LABELS.en : UI_LABELS.fr;
-  }
-
-  function applySidebarStateFromStorage(){
-    const hidden = localStorage.getItem(SIDEBAR_KEY) === '1';
-    document.body.classList.toggle('sidebar-hidden', hidden);
-    const btn = document.getElementById('qs-toggle-btn');
-    if (btn) btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+  return isEnglishPath(window.location.pathname) ? UI_LABELS.en: UI_LABELS.fr;
   }
 
   function updateLanguageState(){
-    const isEn = isEnglishPath(window.location.pathname);
-    const fr = document.getElementById('qs-lang-fr');
-    const en = document.getElementById('qs-lang-en');
-    if (fr) fr.setAttribute('aria-pressed', isEn ? 'false' : 'true');
-    if (en) en.setAttribute('aria-pressed', isEn ? 'true' : 'false');
+  const isEn = isEnglishPath(window.location.pathname);
+  const fr = document.getElementById('qs-lang-fr');
+  const en = document.getElementById('qs-lang-en');
+  if (fr) fr.setAttribute('aria-pressed', isEn ? 'false': 'true');
+  if (en) en.setAttribute('aria-pressed', isEn ? 'true': 'false');
   }
 
   function onLanguageClick(targetLang){
-    return (event) => {
-      event.preventDefault();
-      const url = languageTargetUrl(targetLang);
-      if (!url) {
-        updateLanguageState();
-        return;
-      }
-      window.location.href = url;
-    };
+  return (event) => {
+  event.preventDefault();
+  const url = languageTargetUrl(targetLang);
+  if (!url) {
+  updateLanguageState();
+  return;
   }
-
-  function buildSidebarButton(){
-    const btn = document.createElement('button');
-    const labels = uiForPage();
-    btn.id = 'qs-toggle-btn';
-    btn.className = 'qs-toggle-btn';
-    btn.type = 'button';
-    btn.title = labels.sidebarTooltip;
-    btn.setAttribute('aria-label', labels.sidebarAria);
-    btn.setAttribute('aria-pressed', 'false');
-    btn.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span>Menu</span>
-    `;
-
-    btn.addEventListener('click', () => {
-      document.body.classList.toggle('sidebar-hidden');
-      const hidden = document.body.classList.contains('sidebar-hidden');
-      btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
-      try {
-        localStorage.setItem(SIDEBAR_KEY, hidden ? '1' : '0');
-      } catch (e) {
-        // ignore
-      }
-    });
-
-    return btn;
+  window.location.href = url;
+  };
   }
 
   function buildLanguageSwitch(){
-    const labels = uiForPage();
-    const wrapper = document.createElement('div');
-    wrapper.className = 'qs-language-switch';
-    wrapper.setAttribute('role', 'group');
-    wrapper.setAttribute('aria-label', labels.languageAria);
+  const labels = uiForPage();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'qs-language-switch';
+  wrapper.setAttribute('role', 'group');
+  wrapper.setAttribute('aria-label', labels.languageAria);
 
-    const fr = document.createElement('button');
-    fr.type = 'button';
-    fr.id = 'qs-lang-fr';
-    fr.className = 'qs-lang-btn';
-    fr.setAttribute('aria-pressed', 'false');
-    fr.setAttribute('aria-label', 'French version');
-    fr.textContent = 'FR';
-    fr.addEventListener('click', onLanguageClick('fr'));
+  const fr = document.createElement('button');
+  fr.type = 'button';
+  fr.id = 'qs-lang-fr';
+  fr.className = 'qs-lang-btn';
+  fr.setAttribute('aria-pressed', 'false');
+  fr.setAttribute('aria-label', 'French version');
+  fr.textContent = 'FR';
+  fr.addEventListener('click', onLanguageClick('fr'));
 
-    const en = document.createElement('button');
-    en.type = 'button';
-    en.id = 'qs-lang-en';
-    en.className = 'qs-lang-btn';
-    en.setAttribute('aria-pressed', 'false');
-    en.setAttribute('aria-label', 'English version');
-    en.textContent = 'EN';
-    en.addEventListener('click', onLanguageClick('en'));
+  const en = document.createElement('button');
+  en.type = 'button';
+  en.id = 'qs-lang-en';
+  en.className = 'qs-lang-btn';
+  en.setAttribute('aria-pressed', 'false');
+  en.setAttribute('aria-label', 'English version');
+  en.textContent = 'EN';
+  en.addEventListener('click', onLanguageClick('en'));
 
-    wrapper.appendChild(fr);
-    wrapper.appendChild(en);
-    return wrapper;
+  wrapper.appendChild(fr);
+  wrapper.appendChild(en);
+  return wrapper;
   }
 
-  function buildActions(){
-    const box = document.createElement('div');
-    box.className = 'qs-toggle-controls';
-    box.appendChild(buildLanguageSwitch());
-    box.appendChild(buildSidebarButton());
-    return box;
+  function buildControls(){
+  const box = document.createElement('div');
+  box.className = 'qs-language-controls';
+  box.appendChild(buildLanguageSwitch());
+  return box;
   }
 
   function insertControls(){
-    document.querySelectorAll('.qs-toggle-controls').forEach((node) => node.remove());
+  document.querySelectorAll('.qs-language-controls').forEach((node) => node.remove());
 
-    const actions = buildActions();
-    const tools = document.querySelector('.quarto-navbar-tools');
-    if (tools) {
-      tools.appendChild(actions);
-      applySidebarStateFromStorage();
-      updateLanguageState();
-      return true;
-    }
-
-    const header = document.getElementById('quarto-header');
-    if (header) {
-      let host = header.querySelector('.qs-toggle-host');
-      if (!host) {
-        host = document.createElement('div');
-        host.className = 'qs-toggle-host';
-        host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex; gap:.4rem;';
-        header.style.position = header.style.position || 'relative';
-        header.appendChild(host);
-      }
-      host.innerHTML = '';
-      host.appendChild(actions);
-      applySidebarStateFromStorage();
-      updateLanguageState();
-      return true;
-    }
-
-    return false;
+  const controls = buildControls();
+  const tools = document.querySelector('.quarto-navbar-tools');
+  if (tools) {
+  tools.appendChild(controls);
+  updateLanguageState();
+  return true;
   }
 
-  function setupResponsiveGuard(){
-    const mq = window.matchMedia('(max-width: 575.98px)');
-    const handle = () => {
-      if (mq.matches) {
-        document.body.classList.remove('sidebar-hidden');
-      } else {
-        applySidebarStateFromStorage();
-      }
-    };
-    if (mq.addEventListener) {
-      mq.addEventListener('change', handle);
-    } else {
-      mq.addListener(handle);
-    }
-    handle();
+  const header = document.getElementById('quarto-header');
+  if (header) {
+  let host = header.querySelector('.qs-language-host');
+  if (!host) {
+  host = document.createElement('div');
+  host.className = 'qs-language-host';
+  host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex;';
+  header.style.position = header.style.position || 'relative';
+  header.appendChild(host);
+  }
+  host.innerHTML = '';
+  host.appendChild(controls);
+  updateLanguageState();
+  return true;
+  }
+
+  return false;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    applySidebarStateFromStorage();
-    updateLanguageState();
-    insertControls();
-    setupResponsiveGuard();
+  insertControls();
+  updateLanguageState();
   });
 
   const obs = new MutationObserver(() => {
-    if (document.getElementById('qs-toggle-btn') && document.getElementById('qs-lang-fr')) return;
-    if (document.querySelector('.navbar, .quarto-navbar, #quarto-header .navbar, #quarto-header')) {
-      insertControls();
-    }
+  if (document.getElementById('qs-lang-fr') && document.getElementById('qs-lang-en')) return;
+  if (document.querySelector('.navbar,.quarto-navbar, #quarto-header.navbar, #quarto-header')) {
+  insertControls();
+  }
   });
   obs.observe(document.documentElement, { childList: true, subtree: true });
 })();

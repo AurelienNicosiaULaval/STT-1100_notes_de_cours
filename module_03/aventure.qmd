@@ -1,10 +1,10 @@
 ---
 title: "Aventure 3 - Infractions dans les restaurants de Montréal"
 subtitle: "STT-1100 Introduction à la science des données"
-author: 
+author:
   - institute: "Université Laval"
 editor: visual
-editor_options: 
+editor_options:
   chunk_output_type: console
 format:
   html:
@@ -12,7 +12,7 @@ format:
     toc-title: Plan
     css: [../css/base_css.css]
     self-contained: true
-#    number-sections: true
+# number-sections: true
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
@@ -20,7 +20,7 @@ library(tidyverse)
 library(UlavalSSD)
 ```
 
-# 🎬 Mise en situation : Devenez *data journalist*
+# Mise en situation : Devenez *data journalist*
 
 Vous êtes engagés comme **journaliste de données** par *Le Courrier Gourmand*, un média local fictif qui publie des enquêtes interactives sur l’alimentation à Montréal. Votre rédactrice en chef souhaite un article éclairant le public sur **les infractions alimentaires commises dans les restaurants montréalais** . Elle vous donne quelques pistes de reflexion:
 
@@ -46,7 +46,7 @@ Voici **Alexandre**, conseiller municipal chargé de l’hygiène alimentaire à
 -   Rédiger un court billet journalistique reproductible dans Quarto.
 
 ::: note
-💡 **Note pour le rapport**\
+ **Note pour le rapport**\
 Tout au long de l'analyse, vous devrez garder en tête ces questions et y répondre de manière argumentée dans votre rapport `qmd`
 :::
 
@@ -54,7 +54,7 @@ Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infr
 
 ------------------------------------------------------------------------
 
-# 🎯 Comment réussir l'aventure
+# Comment réussir l'aventure
 
 1.  **Charger les données** : Vous pouvez soit :
     -   Charger le package `UlavalSSD` et appeler `data(listecondamnation)`.
@@ -63,25 +63,25 @@ Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infr
 
 ------------------------------------------------------------------------
 
-# 🚀 Travail sur Github
+# Travail sur Github
 
 Avant de commencer l'analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.
 
-1️⃣ Clonez le dépôt "Aventure-3-IDENTIFIANT_GITHUB", pour cela créez un nouveau projet Rstudio et copier coller le lien HTTPS de votre repo Github (voir feuille aide mémoire).
+1. Clonez le dépôt "Aventure-3-IDENTIFIANT_GITHUB", pour cela créez un nouveau projet Rstudio et copier coller le lien HTTPS de votre repo Github (voir feuille aide mémoire).
 
-💡 Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier `.Rproj` dans votre explorateur de fichiers.
+ Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier `.Rproj` dans votre explorateur de fichiers.
 
-2️⃣ Ajuster le fichier Quarto: Le modèle de l'article de journal est présent dans le dépôt. Allez inscrire votre nom.
+2. Ajuster le fichier Quarto: Le modèle de l'article de journal est présent dans le dépôt. Allez inscrire votre nom.
 
-3️⃣ Premier commit et push vers GitHub: Une fois votre fichier `.qmd` ajusté et enregistré, commitez et poussez vos modifications sur GitHub :
+3. Premier commit et push vers GitHub: Une fois votre fichier `.qmd` ajusté et enregistré, commitez et poussez vos modifications sur GitHub :
 
 Attention: on se rappelle que les messages de commit doivent être parlant. Par exemple "Ajout de mon nom dans l'article"
 
-🎯 Félicitations ! Vous êtes maintenant prêt à débuter l’analyse ! 🚀
+ Félicitations ! Vous êtes maintenant prêt à débuter l’analyse !
 
-# 🏷️ Variables catégoriques : les bases en R avec `stringr`
+# Variables catégoriques : les bases en R avec `stringr`
 
-## ✨ Explications
+## Explications
 
 En R, une variable catégorique est souvent représentée par :
 
@@ -95,7 +95,7 @@ Pour le module 3, nous nous concentrerons sur les variables catégorique de type
 
 Voici des exemples démontrant comment utiliser `stringr` (partie du `Tidyverse`) pour manipuler des variables de type character dans un jeu de données comme `listecondamnation`. Les exemples ci‑dessous ciblent des cas fréquents : détection de motifs, extraction, remplacement, et nettoyage de chaînes.
 
-## 🚀 Démonstration
+## Démonstration
 
 On va utiliser le jeu de données `listecondamnation` de la librarie `UlavalSSD` qui contient les condamnations des établissements alimentaires au Québec.
 
@@ -105,9 +105,9 @@ library(tidyverse)
 glimpse(listecondamnation)
 ```
 
-> **Remarque** : Lancer `glimpse()` sur vos données vous permettra de repérer quelles colonnes sont en `chr` (character) et lesquelles sont en `factor` ou encore en `numeric`.
+>  **Remarque** : Lancer `glimpse()` sur vos données vous permettra de repérer quelles colonnes sont en `chr` (character) et lesquelles sont en `factor` ou encore en `numeric`.
 
-> **Remarque 2** : Trois colonnes sont au format date, pour l'instant, nous n'en tiendrons pas compte, nous reviendrons dans un module plus tard sur le format date.
+>  **Remarque 2** : Trois colonnes sont au format date, pour l'instant, nous n'en tiendrons pas compte, nous reviendrons dans un module plus tard sur le format date.
 
 ::: callout-tip
 #### Exercice
@@ -115,13 +115,13 @@ glimpse(listecondamnation)
 Quel est le type de la variable `Amende`? Est-ce que cela vous semble problématique?
 :::
 
-> Cette information sera pertiennete pour le nettoyage de la variable `Amende` dans la section suivante, vous pourrez ainsi le documenter dans la section Méthodologie de l'article.
+>  Cette information sera pertiennete pour le nettoyage de la variable `Amende` dans la section suivante, vous pourrez ainsi le documenter dans la section Méthodologie de l'article.
 
-::: {.callout-important title="🧑‍💼 - Question d’Alexandre"}
+::: {.callout-important title="Question d’Alexandre"}
 *« Combien de constats d’infraction apparaissent dans le fichier brut ? »*
 :::
 
-::: {.callout-caution collapse="true" title="✅ Réponse d'Alexandre"}
+::: {.callout-caution collapse="true" title="Réponse d'Alexandre"}
 **Réponse possible** : Utilisez `nrow(listecondamnation)` après l’import ; on obtient par exemple **1 712** lignes.
 
 Alexandre vous rappelle que `?listecondamnation` vous donne la documentation du jeu de données.
@@ -151,7 +151,7 @@ Vous obtenez `TRUE/FALSE` selon la présence du mot **MONTREAL** dans la chaîne
 Quelle est la proportion du nombre d'adresse contenant le mot **MONTREAL**?
 :::
 
-::: {.callout-important title="🧑‍💼 - Message d’Alexandre"}
+::: {.callout-important title="Message d’Alexandre"}
 **Message d’Alexandre** : *« C'est un fait très intéressant à mettre dans ton article!»*
 :::
 
@@ -161,16 +161,16 @@ Pour nettoyer la colonne `Amende`, on peut enlever le symbole `$` ou remplacer d
 
 ```{r}
 
-# str_replace() remplace la 1re occurrence ; str_replace_all() toutes les occurrences  
-listecondamnation <- listecondamnation %>%   mutate( 
-  # Exemple : retirer le $ si présent 
-  Amende_clean = str_replace_all(Amende, "\\$", ""), 
-  # remplacer éventuelles virgules par un point   
-  Amende_clean = str_replace_all(Amende_clean, ",", ".")   )  
+# str_replace() remplace la 1re occurrence ; str_replace_all() toutes les occurrences
+listecondamnation <- listecondamnation %>%   mutate(
+  # Exemple : retirer le $ si présent
+  Amende_clean = str_replace_all(Amende, "\\$", ""),
+  # remplacer éventuelles virgules par un point
+  Amende_clean = str_replace_all(Amende_clean, ",", ".")   )
 
-# Vérifions 
-listecondamnation %>%  
-  select(Amende, Amende_clean) %>%  
+# Vérifions
+listecondamnation %>%
+  select(Amende, Amende_clean) %>%
   head(10)
 ```
 
@@ -186,7 +186,7 @@ Ici, les motifs sont des **expressions régulières**.
 Quelle est le type de la variable `Amende_clean`? Est-ce un problème?
 :::
 
-::: {.callout-important title="🧑‍💼 - Message d’Alexandre"}
+::: {.callout-important title="Message d’Alexandre"}
 *« Pas si simple d'avoir la colonne Amende en numérique!»*
 :::
 
@@ -196,11 +196,11 @@ Pour extraire un élément précis. Par exemple, si `Adresse_lieu_infraction` co
 
 ```{r}
 
-listecondamnation <- listecondamnation %>%   
-  mutate(     
-    code_postal = str_extract(Adresse_lieu_infraction, "[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]")   )  
+listecondamnation <- listecondamnation %>%
+  mutate(
+    code_postal = str_extract(Adresse_lieu_infraction, "[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]")   )
 
-listecondamnation %>%  
+listecondamnation %>%
   select(Adresse_lieu_infraction, code_postal) %>%
   head(10)
 ```
@@ -215,7 +215,7 @@ Tous les codes postaux qui commencent par H2X correspondent à des adresses dans
 Combien d'établissements du quartie de Ville-Marie ont recu une comdannation?
 :::
 
-::: {.callout-important title="🧑‍💼 - Message d’Alexandre"}
+::: {.callout-important title="Message d’Alexandre"}
 *« Nous avons toujours mentionné que moins de 1% des établissements en infractions de Montréal proviennent de Ville-Marie! Est-ce vraiment vrai?»*
 
 Un bel ajout à ton article!
@@ -226,10 +226,10 @@ Un bel ajout à ton article!
 Parfois, il est utile d’harmoniser la casse (`MONTREAL`, `Montréal`, etc.) :
 
 ```{r}
-listecondamnation <- listecondamnation %>%  
-  mutate(     Adresse_lower = str_to_lower(Adresse_lieu_infraction),    
-              # ou str_to_upper, str_to_title ...   
-              # trim pour enlever espaces en trop    
+listecondamnation <- listecondamnation %>%
+  mutate(     Adresse_lower = str_to_lower(Adresse_lieu_infraction),
+              # ou str_to_upper, str_to_title ...
+              # trim pour enlever espaces en trop
               Adresse_trim = str_trim(Adresse_lieu_infraction)   )
 ```
 
@@ -238,9 +238,9 @@ listecondamnation <- listecondamnation %>%
 Si les données contiennent des espaces superflus :
 
 ```{r}
-listecondamnation <- listecondamnation %>%   
-  mutate(     
-    Adresse_squish = str_squish(Adresse_lieu_infraction)  
+listecondamnation <- listecondamnation %>%
+  mutate(
+    Adresse_squish = str_squish(Adresse_lieu_infraction)
     )
 ```
 
@@ -251,7 +251,7 @@ listecondamnation <- listecondamnation %>%
 
 1.  **Filtrer Montréal** : Créez un nouveau data frame `condamnation_mtl` ne contenant **que** les restaurants provenant de Montréal. On va utiliser ici le code postal, en effet, tous les codes postaux de Montréal commence par la lettre H.
 
-> **Indication** : Vous pouvez utiliser `str_sub()` pour extraire la premiere lettre (ou caractère) d'une chaîne de caractères.
+>  **Indication** : Vous pouvez utiliser `str_sub()` pour extraire la premiere lettre (ou caractère) d'une chaîne de caractères.
 
 2.  **Recherche de mots-clés** :
 
@@ -268,7 +268,7 @@ listecondamnation <- listecondamnation %>%
 -   Quel est le montant d'amende moyen pour les infractions reliées à la température?
 :::
 
-::: {.callout-important title="🧑‍💼 - Question d’Alexandre"}
+::: {.callout-important title="Question d’Alexandre"}
 *« La colonne `SOC_NOM_ARTCL_INFRC` donne la classification de l'infraction. Combien de type d'infractions différentes avons nous en lien avec la température »*
 
 -   1
@@ -284,7 +284,7 @@ listecondamnation <- listecondamnation %>%
 -   6
 :::
 
-::: {.callout-caution collapse="true" title="✅ Réponse d'Alexandre"}
+::: {.callout-caution collapse="true" title="Réponse d'Alexandre"}
 **Réponse possible** : Utilisez `unique()` pour compter le nombre de types d’infractions. Par exemple, `length(unique(listecondamnation$SOC_NOM_ARTCL_INFRC))` vous donnera le nombre total de types d’infractions.
 
 Maintenant on peut faire la même chose mais pour les infractions reliées à la température avec `listecondamnation %>% filter(est_temp == TRUE) %>% unique()`
@@ -292,33 +292,33 @@ Maintenant on peut faire la même chose mais pour les infractions reliées à la
 Et on en compte 5:
 
 ```{r echo=FALSE}
-listecondamnation %>% 
+listecondamnation %>%
   mutate(est_temp = str_detect(SOC_NOM_ARTCL_INFRC, "TEMPERATURE")) %>%
   filter(est_temp == TRUE) %>%
-  select(SOC_NOM_ARTCL_INFRC) %>% 
-  unique() 
+  select(SOC_NOM_ARTCL_INFRC) %>%
+  unique()
 ```
 :::
 
-Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀
+Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !
 
-::: {.callout-important title="🧑‍💼 - Remarque d’Alexandre"}
+::: {.callout-important title="Remarque d’Alexandre"}
 On a travailler sur les infractions reliées à la température, mais il y a d'autres types d'infraction. Est-ce que vous pouvez en trouver une qui vous inquiète? Par exemple, les insectes, les rongeurs ou l'insalubrité!
 
-Je crois que ca peut faire un bel ajout de résultat clé à mettre dans ton article 😉
+Je crois que ca peut faire un bel ajout de résultat clé à mettre dans ton article
 :::
 
 ------------------------------------------------------------------------
 
-# 🏗 Statistiques descriptives pour variables catégoriques
+# Statistiques descriptives pour variables catégoriques
 
 Dans cette section, nous allons découvrir comment résumer l’information contenue dans les variables qualitatives, appelées aussi catégorielles. Nous verrons comment compter les occurrences de chaque catégorie (tableaux de fréquences), calculer des proportions (ou pourcentages) afin de mieux visualiser la répartition, et associer plusieurs variables pour mieux comprendre leurs interactions (tableaux de contingence). L’objectif est de disposer d’un portrait clair de la distribution des catégories pour en tirer des conclusions rapides sur les tendances ou anomalies présentes dans les données.
 
-## ✨ Explications
+## Explications
 
 Les **tableaux de fréquences** et les **mesures de tendance** (nombre d’observations, pourcentages) sont un bon point de départ pour résumer des variables catégoriques.
 
-## 🚀 Démonstration
+## Démonstration
 
 ```{r}
 # Nombre d'infractions par type d’établissement
@@ -328,7 +328,7 @@ listecondamnation %>%
   arrange(desc(n))
 ```
 
-> **Astuce** : `count()` + `arrange(desc(n))` vous permet de classer les catégories par ordre d’occurrence.
+>  **Astuce** : `count()` + `arrange(desc(n))` vous permet de classer les catégories par ordre d’occurrence.
 
 ::: callout-tip
 #### Exercice
@@ -340,7 +340,7 @@ listecondamnation %>%
 3.  **Infractions sur l’ensemble du Québec** : Comparez la distribution entre “Montréal” (filtrée précédemment) et le reste. Quelle catégorie d’établissements semble la plus concernée ?
 :::
 
-::: {.callout-important title="🧑‍💼 - Remarque d’Alexandre"}
+::: {.callout-important title="Remarque d’Alexandre"}
 On a toujours pensé que Montréal n'était pas le pire endroit pour les infractions alimentaires peut importe le type de restaurant. Est-ce que vous pouvez le prouver avec vos résultats?
 :::
 
@@ -354,11 +354,11 @@ table(
 
 ```
 
-::: {.callout-important title="🧑‍💼 - Question d’Alexandre"}
+::: {.callout-important title="Question d’Alexandre"}
 Y a-t-il plus de restaurants qui ont eu une amende pour `INSECTES RONGEURS EXCREMENTS` ou de Rest. service rapide qui ont eu une amende pour `INSALUBRITE`?
 :::
 
-::: {.callout-caution collapse="true" title="✅ Réponse d'Alexandre"}
+::: {.callout-caution collapse="true" title="Réponse d'Alexandre"}
 On peut facile trouver l'information en allant la chercher directemement dans le tableau croisé:
 
 ```{r}
@@ -385,13 +385,13 @@ On va terminer cette section avec un exercice qui vous permettra de vous familia
 3.  **Catégories rares** : Déterminez si l’une des variables catégoriques (`SOC_NOM_ARTCL_INFRC` et `Type_etablissement`) a des catégories rare ou quasi inexploitée. Devrait-on la regrouper ?
 :::
 
-Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! 🚀
+Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !
 
 ------------------------------------------------------------------------
 
-# 📈 Visualisation de données catégoriques
+# Visualisation de données catégoriques
 
-## ✨ Explications
+## Explications
 
 Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
@@ -401,7 +401,7 @@ Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
 -   **Graphique de mosaique (Mosaic plots)** si on veut comparer plusieurs catégories croisées.
 
-## 🚀 Démonstration
+## Démonstration
 
 ```{r }
 library(ggplot2)
@@ -418,7 +418,7 @@ listecondamnation %>%
   )
 ```
 
-> **Idée** : Appliquez un `coord_flip()` si les noms sont trop longs!
+>  **Idée** : Appliquez un `coord_flip()` si les noms sont trop longs!
 
 Interrogeons‑nous sur **la nature même des infractions**. Connaître les catégories dominantes et leur distribution dans les différents types d’établissements aidera à formuler un message clair pour le grand public.
 
@@ -430,7 +430,7 @@ Interrogeons‑nous sur **la nature même des infractions**. Connaître les cat�
 3.  **Bonnes pratiques de visualisation** : Ajoutez un titre, des couleurs, modifiez le thème ou l’orientation de l’axe pour un rendu plus clair.
 :::
 
-::: {.callout-important title="🧑‍💼 - Remarque d’Alexandre"}
+::: {.callout-important title="Remarque d’Alexandre"}
 *« Ce graphique doit parler au lecteur en un clin d’œil. Assure‑toi d’indiquer que 5 catégories couvrent déjà X % des infractions ; c’est un message fort pour l’introduction de ton article. »*
 :::
 
@@ -444,13 +444,13 @@ Le **montant des amendes** est un indicateur concret qui attire souvent l’atte
 3.  **Traitement de données manquantes** : Que faites-vous si `Amende` est manquante dans un sous-ensemble ? Explorez quelques pistes.
 :::
 
-::: {.callout-important title="🧑‍💼 - Remarque d’Alexandre"}
+::: {.callout-important title="Remarque d’Alexandre"}
 *« Pense à citer un ou deux chiffres marquants dans ton texte : par exemple, la médiane des amendes montréalaises versus hors Montréal. Ça rendra tes conclusions plus percutantes. »*
 :::
 
 ------------------------------------------------------------------------
 
-# 🚀 5. Aller plus loin : cartographier les amendes (optionnel)
+# 5. Aller plus loin : cartographier les amendes (optionnel)
 
 Pour clore l’enquête, **Alexandre** a mis la main sur un bout de code R rédigé par une collègue de la Ville ; ce script géocode automatiquement les codes postaux et fournit une latitude/longitude pour chaque établissement. Vous allez l’utiliser pour dresser **une carte de la répartition des amendes**.
 
@@ -480,7 +480,7 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 # ────────────────────────────────────────────────────────────
 ```
 
-> **Remarque** : Vous devez installer le package `tidygeocoder` pour utiliser cette fonction. Vous pouvez le faire avec `install.packages("tidygeocoder")`.
+>  **Remarque** : Vous devez installer le package `tidygeocoder` pour utiliser cette fonction. Vous pouvez le faire avec `install.packages("tidygeocoder")`.
 
 ::: callout-tip
 #### Exercice – Carte des amendes
@@ -524,7 +524,7 @@ ggplot(carte_pts, aes(lon, lat)) +
 
 ------------------------------------------------------------------------
 
-# 🔚 Conclusion de l’aventure
+# Conclusion de l’aventure
 
 Cette troisième aventure vous a permis de **passer du rôle d’analyste à celui de journaliste de données** : vous avez nettoyé un jeu réel d’inspections alimentaires, quantifié les infractions majeures, comparé les profils d’établissements et visualisé la géographie des amendes.
 
@@ -534,15 +534,15 @@ Vous disposez maintenant :
 -   de **graphiques percutants** (diagrammes en barres, boîtes à moustaches, carte) pour étayer vos arguments ;
 -   d’**observations qualitatives** fournies par Alexandre, qui orientent le récit vers les enjeux d’hygiène et de transparence citoyenne.
 
-## ✍️ Prochaine étape : rédigez votre article
+## Prochaine étape : rédigez votre article
 
-1.  **Structurez votre article Quarto** : chapeau accrocheur ➜ contexte ➜ méthodologie ➜ résultats clés ➜ recommandations.\
+1.  **Structurez votre article Quarto** : chapeau accrocheur -> contexte -> méthodologie -> résultats clés -> recommandations.\
 2.  **Intégrez au moins deux visuels** parmi ceux produits (un graphique de catégories et la carte des amendes).\
 3.  **Citez deux chiffres narratifs** (ex. « 5 catégories couvrent 62 % des infractions », « 180 000 \$ d’amendes dans un rayon de 2 km ») pour captiver le lecteur.\
 4.  **Ajoutez une citation synthétique d’Alexandre** pour humaniser votre conclusion.
 
-> **Livrable attendu** : un fichier HTML autonome exporté depuis votre `.qmd`, commité sur votre dépôt GitHub avant la date limite.
+>  **Livrable attendu** : un fichier HTML autonome exporté depuis votre `.qmd`, commité sur votre dépôt GitHub avant la date limite.
 
-Bonne rédaction ! Faites parler les données et mettez‑vous dans la peau du journaliste qui informe, nuance et propose. 🚀
+Bonne rédaction ! Faites parler les données et mettez‑vous dans la peau du journaliste qui informe, nuance et propose.
 
-> 🎯 **Félicitations** ! Vous avez mis en pratique les concepts de variables catégoriques, de statistiques descriptives et de visualisation pour des données catégoriques réelles. Continuez ainsi, le prochain module vous attend.
+>   **Félicitations** ! Vous avez mis en pratique les concepts de variables catégoriques, de statistiques descriptives et de visualisation pour des données catégoriques réelles. Continuez ainsi, le prochain module vous attend.

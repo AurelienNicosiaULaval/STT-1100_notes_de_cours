@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# 🎬 Mise en situation : Plongez dans la peau d’un·e consultant·e freelance
+# Mise en situation : Plongez dans la peau d’un·e consultant·e freelance
 
 Vous travaillez comme **freelancer** en science des données. À la différence d’un poste salarié, vous êtes mandaté·e ponctuellement par des client·e·s pour résoudre des problèmes spécifiques. Vous devez être autonome, rigoureux·se et capable de livrer des solutions efficaces, réutilisables et bien documentées.
 
@@ -25,7 +25,7 @@ Aujourd’hui, vous êtes engagé·e par **Marie-Pier**, directrice de recherche
 
 ------------------------------------------------------------------------
 
-# 📚 Prérequis
+# Prérequis
 
 > **IMPORTANT:**
 >
@@ -92,16 +92,16 @@ writeLines(disinstructions)
 
 ``` r
 # Note éthique
-cat("\n\n\u2139\ufe0f Note :\nLes jeux de données publics listés dans les pages de résultat ne sont pas explicitement restreints.\nLe scraping des pages principales de recherche est donc permis, tant qu'on évite les chemins /api/, /dataset/rate/, etc.\n")
+cat("\n\nNote :\nLes jeux de données publics listés dans les pages de résultat ne sont pas explicitement restreints.\nLe scraping des pages principales de recherche est donc permis, tant qu'on évite les chemins /api/, /dataset/rate/, etc.\n")
 ```
 
 
 
-    ℹ️ Note :
+    Note :
     Les jeux de données publics listés dans les pages de résultat ne sont pas explicitement restreints.
     Le scraping des pages principales de recherche est donc permis, tant qu'on évite les chemins /api/, /dataset/rate/, etc.
 
-# 📚 Comprendre le web scraping avec `rvest`
+# Comprendre le web scraping avec `rvest`
 
 Dans cette section, vous découvrirez les fonctions essentielles du package `rvest`. Votre objectif : apprendre à extraire du contenu HTML structuré depuis un site web.
 
@@ -140,9 +140,10 @@ blocs[[1]]
     {html_node}
     <div class="dataset-content">
     [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
-    [2] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [3] <div class="dqc-org-cat">Catégorie :\n      \n        <a href="/recherche ...
-    [4] <div class="dqc-notes"> Le fichier horaire des données de la situation à  ...
+    [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
+    [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
+    [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
+    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
 
 Pour extraire du texte d’un nœud HTML :
 
@@ -150,7 +151,7 @@ Pour extraire du texte d’un nœud HTML :
 html_text(blocs[[1]])
 ```
 
-    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Fichier horaire des données de la situation à l'urgence\n    \n    \n      \n      \n\n\n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Santé et des services sociaux\n  \n  Catégorie :\n      \n        Santé\n  \n     Le fichier horaire des données de la situation à l'urgence présente le nombre de patients sur civière, le nombre de patients sur civière plus de 24 heures et le nombre de... \n  \n\n      "
+    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Stations débit/niveau - Grand public\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Sécurité intérieure\n  \n  Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique\n  \n     Mesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les... \n  \n\n      "
 
 Maintenant, testons l’extraction du **titre** :
 
@@ -158,7 +159,7 @@ Maintenant, testons l’extraction du **titre** :
 html_nodes(blocs[[1]], ".dataset-heading a") %>% html_text(trim = TRUE)
 ```
 
-    [1] "Fichier horaire des données de la situation à l'urgence"
+    [1] "Stations débit/niveau - Grand public"
 
 Et pour les **producteurs** ? Il faut repérer une sous-structure contenant l’information :
 
@@ -167,8 +168,8 @@ orgs <- html_nodes(blocs[[1]], ".dqc-org-cat") %>% html_text(trim = TRUE)
 orgs
 ```
 
-    [1] "Organisation : Ministère de la Santé et des services sociaux"
-    [2] "Catégorie :\n      \n        Santé"
+    [1] "Organisation : Ministère de la Sécurité intérieure"
+    [2] "Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique"
 
 On peut filtrer le bon élément avec `grepl()` puis nettoyer la chaîne avec `gsub()` :
 
@@ -178,11 +179,11 @@ org_clean <- gsub("^Organisation : ", "", org)
 org_clean
 ```
 
-    [1] "Ministère de la Santé et des services sociaux"
+    [1] "Ministère de la Sécurité intérieure"
 
 > **TIP:**
 >
-> 💡 **Pourquoi utiliser `map_chr()` ?**
+> **Pourquoi utiliser `map_chr()` ?**
 > `map_chr()` appartient au package **purrr**, qui fait partie du `tidyverse`. Cette fonction permet d’appliquer une fonction à chaque élément d’une liste (ici chaque bloc HTML), et de retourner un vecteur de caractères. C’est parfait lorsqu’on veut une valeur texte par bloc.
 >
 > > Exemple :
@@ -197,11 +198,11 @@ org_clean
 
 > **TIP:**
 >
-> 💡 **À vous de jouer** : À partir de ce même bloc HTML, trouvez comment extraire : - les **catégories** associées à chaque jeu de données
+> **À vous de jouer** : À partir de ce même bloc HTML, trouvez comment extraire : - les **catégories** associées à chaque jeu de données
 
 ------------------------------------------------------------------------
 
-# ✏️ Création guidée de la fonction `scrape_page()`
+# Création guidée de la fonction `scrape_page()`
 
 Marie-Pier souhaite que vous créiez une fonction réutilisable nommée `scrape_page()` qui prend en argument une URL et retourne un `data.frame` avec les colonnes : `titre`, `producteur`, `categorie`.
 
@@ -240,11 +241,11 @@ scrape_page <- function(url) {
 
 > **NOTE:**
 >
-> 💡 **Testez votre fonction avec la page 3** : elle devrait retourner les 20 jeux de données de cette page.
+> **Testez votre fonction avec la page 3** : elle devrait retourner les 20 jeux de données de cette page.
 
 ------------------------------------------------------------------------
 
-# 🔁 Répétition manuelle, puis boucle `for`
+# Répétition manuelle, puis boucle `for`
 
 Testez maintenant l’extraction des **5 premières pages** en appelant plusieurs fois votre fonction :
 
@@ -257,7 +258,7 @@ p2 <- scrape_page("...")
 
 > **TIP:**
 >
-> 💬 **Marie-Pier** : « Est-ce que tu as remarqué ce qui change dans l’URL à chaque fois ? Peux-tu généraliser ce comportement ? »
+> **Marie-Pier** : « Est-ce que tu as remarqué ce qui change dans l’URL à chaque fois ? Peux-tu généraliser ce comportement ? »
 
 Rappel du **module 1** : une boucle permet d’automatiser un comportement répétitif. Voici un début de boucle `for` à compléter :
 
@@ -278,7 +279,7 @@ for (i in 1:5) {
 
 ------------------------------------------------------------------------
 
-# 🔍 Exploration guidée par Marie-Pier
+# Exploration guidée par Marie-Pier
 
 Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. Elle attend de vous des résultats précis, illustrés si nécessaire.
 
@@ -290,7 +291,7 @@ Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. E
 
 ------------------------------------------------------------------------
 
-# 🤔 Réflexion éthique
+# Réflexion éthique
 
 > **NOTE:**
 >
@@ -302,19 +303,19 @@ Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. E
 
 ------------------------------------------------------------------------
 
-# 🧪 Défi à remettre
+# Défi à remettre
 
 Vous devez remettre un **fichier `IDUL.R`** contenant votre fonction `scrape_page()`.
 
 - Ce fichier doit être placé dans votre dépôt GitHub à l’endroit indiqué.
 - Nous testerons automatiquement votre fonction avec plusieurs pages.
 
-🎯 Bonne chance — soyez rigoureux dans la conception de votre fonction !
+Bonne chance — soyez rigoureux dans la conception de votre fonction !
 
 ------------------------------------------------------------------------
 
-# ✅ Conclusion de l’aventure
+# Conclusion de l’aventure
 
 Vous avez conçu un outil de scraping fonctionnel et automatisé, utilisé une boucle `for`, extrait des métadonnées structurées, et approfondi votre compréhension de l’éthique du scraping.
 
-Bravo, consultant·e ! 🧠💻
+Bravo, consultant·e !

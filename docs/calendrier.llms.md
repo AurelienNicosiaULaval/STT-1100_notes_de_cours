@@ -1,7 +1,5 @@
 # Calendrier
 
-# Calendrier
-
 Le calendrier sert de carte de navigation. Les dates officielles et les annonces de séance restent celles communiquées en classe ou sur MonPortail.
 
 | Séquence | Module | Travail principal |
@@ -15,7 +13,7 @@ Le calendrier sert de carte de navigation. Les dates officielles et les annonces
 | 7 | [Module 07 - Visualisation, éthique et sécurisation des données](module_07/index.llms.md) | Aventure, trace reproductible et préparation du projet |
 | 8 | [Module 08 - Automatisation et exploration du web](module_08/index.llms.md) | Aventure, trace reproductible et préparation du projet |
 | 9 | [Module 09 - Prédiction et biais](module_09/index.llms.md) | Aventure, trace reproductible et préparation du projet |
-| 10 | [Module 10 - Au-delà des données : texte et tableau de bord](module_10/index.llms.md) | Aventure, trace reproductible et préparation du projet |
+| 10 | [Module 10 - Au-delà des données: texte et tableau de bord](module_10/index.llms.md) | Aventure, trace reproductible et préparation du projet |
 
 ## Jalons
 
