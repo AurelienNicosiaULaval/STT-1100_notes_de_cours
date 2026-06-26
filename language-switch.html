@@ -1,0 +1,245 @@
+<style>
+.qs-language-controls {
+  margin-left:.5rem;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  }
+
+.qs-language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap:.35rem;
+  border: 1px solid rgba(0, 0, 0,.12);
+  border-radius:.5rem;
+  padding:.2rem.35rem;
+  background: var(--quarto-body-bg, #fff);
+  box-shadow: 0 1px 4px rgba(0, 0, 0,.08);
+  font-size:.9rem;
+  }
+
+.qs-lang-btn {
+  border: none;
+  border-radius:.35rem;
+  background: transparent;
+  color: var(--quarto-body-color, #111);
+  padding:.2rem.45rem;
+  cursor: pointer;
+  }
+
+.qs-lang-btn[aria-pressed="true"] {
+  background: rgba(0, 0, 0,.08);
+  font-weight: 700;
+  }
+
+.qs-lang-btn:focus {
+  outline: 2px solid rgba(0, 0, 0,.2);
+  outline-offset: 2px;
+  }
+
+  @media (max-width: 575.98px) {
+.qs-language-host {
+  top: 6px;
+  right: 8px;
+  }
+
+.qs-language-switch {
+  padding:.15rem.25rem;
+  font-size:.8rem;
+  }
+  }
+</style>
+
+<script>
+(function(){
+  const UI_LABELS = {
+  en: { languageAria: 'Language selection' },
+  fr: { languageAria: 'Choix de langue' }
+  };
+
+  const CONTENT_ROOTS = new Set([
+  'autre_materiel',
+  'module_01',
+  'module_02',
+  'module_03',
+  'module_04',
+  'module_05',
+  'module_06',
+  'module_07',
+  'module_08',
+  'module_09',
+  'module_10',
+  'projet_session'
+  ]);
+
+  const ROOT_FILES = new Set([
+  'index.html',
+  'modules.html',
+  'demarrage.html',
+  'calendrier.html',
+  'evaluations.html',
+  'examen.html',
+  'defis.html',
+  'boite_outils.html',
+  'glossaire.html',
+  'ressources.html',
+  'references.html'
+  ]);
+
+  function pathSegments(pathname){
+  return pathname.split('/').filter(Boolean);
+  }
+
+  function isEnglishPath(pathname){
+  return /(^|\/)en(\/|$)/.test(pathname);
+  }
+
+  function joinPath(segments, trailingSlash){
+  if (segments.length === 0) return '/';
+  let path = `/${segments.join('/')}`;
+  if (trailingSlash && !path.endsWith('/')) path += '/';
+  return path;
+  }
+
+  function splitBaseAndContentSegments(segments){
+  const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
+  if (contentIndex === -1) {
+  return { baseSegments: segments, contentSegments: [] };
+  }
+  return {
+  baseSegments: segments.slice(0, contentIndex),
+  contentSegments: segments.slice(contentIndex)
+  };
+  }
+
+  function languageTargetUrl(targetLang){
+  const loc = window.location;
+  const path = loc.pathname;
+  const search = loc.search || '';
+  const hash = loc.hash || '';
+  const segments = pathSegments(path);
+  const enIndex = segments.indexOf('en');
+
+  if (targetLang === 'en') {
+  if (enIndex !== -1) return null;
+  const split = splitBaseAndContentSegments(segments);
+  const targetSegments = split.baseSegments.concat('en', split.contentSegments);
+  const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
+
+  if (targetLang === 'fr') {
+  if (enIndex === -1) return null;
+  const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
+  const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
+
+  return null;
+  }
+
+  function uiForPage(){
+  return isEnglishPath(window.location.pathname) ? UI_LABELS.en: UI_LABELS.fr;
+  }
+
+  function updateLanguageState(){
+  const isEn = isEnglishPath(window.location.pathname);
+  const fr = document.getElementById('qs-lang-fr');
+  const en = document.getElementById('qs-lang-en');
+  if (fr) fr.setAttribute('aria-pressed', isEn ? 'false': 'true');
+  if (en) en.setAttribute('aria-pressed', isEn ? 'true': 'false');
+  }
+
+  function onLanguageClick(targetLang){
+  return (event) => {
+  event.preventDefault();
+  const url = languageTargetUrl(targetLang);
+  if (!url) {
+  updateLanguageState();
+  return;
+  }
+  window.location.href = url;
+  };
+  }
+
+  function buildLanguageSwitch(){
+  const labels = uiForPage();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'qs-language-switch';
+  wrapper.setAttribute('role', 'group');
+  wrapper.setAttribute('aria-label', labels.languageAria);
+
+  const fr = document.createElement('button');
+  fr.type = 'button';
+  fr.id = 'qs-lang-fr';
+  fr.className = 'qs-lang-btn';
+  fr.setAttribute('aria-pressed', 'false');
+  fr.setAttribute('aria-label', 'French version');
+  fr.textContent = 'FR';
+  fr.addEventListener('click', onLanguageClick('fr'));
+
+  const en = document.createElement('button');
+  en.type = 'button';
+  en.id = 'qs-lang-en';
+  en.className = 'qs-lang-btn';
+  en.setAttribute('aria-pressed', 'false');
+  en.setAttribute('aria-label', 'English version');
+  en.textContent = 'EN';
+  en.addEventListener('click', onLanguageClick('en'));
+
+  wrapper.appendChild(fr);
+  wrapper.appendChild(en);
+  return wrapper;
+  }
+
+  function buildControls(){
+  const box = document.createElement('div');
+  box.className = 'qs-language-controls';
+  box.appendChild(buildLanguageSwitch());
+  return box;
+  }
+
+  function insertControls(){
+  document.querySelectorAll('.qs-language-controls').forEach((node) => node.remove());
+
+  const controls = buildControls();
+  const tools = document.querySelector('.quarto-navbar-tools');
+  if (tools) {
+  tools.appendChild(controls);
+  updateLanguageState();
+  return true;
+  }
+
+  const header = document.getElementById('quarto-header');
+  if (header) {
+  let host = header.querySelector('.qs-language-host');
+  if (!host) {
+  host = document.createElement('div');
+  host.className = 'qs-language-host';
+  host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex;';
+  header.style.position = header.style.position || 'relative';
+  header.appendChild(host);
+  }
+  host.innerHTML = '';
+  host.appendChild(controls);
+  updateLanguageState();
+  return true;
+  }
+
+  return false;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+  insertControls();
+  updateLanguageState();
+  });
+
+  const obs = new MutationObserver(() => {
+  if (document.getElementById('qs-lang-fr') && document.getElementById('qs-lang-en')) return;
+  if (document.querySelector('.navbar,.quarto-navbar, #quarto-header.navbar, #quarto-header')) {
+  insertControls();
+  }
+  });
+  obs.observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>

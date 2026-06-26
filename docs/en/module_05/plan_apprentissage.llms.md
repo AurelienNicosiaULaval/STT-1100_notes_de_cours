@@ -1,0 +1,259 @@
+# Module 5 - Learning plan
+
+STT-1100 Introduction to Data Science
+
+# Module objectives
+
+At the end of this module, you should be able to:
+
+- Manage and analyze temporal variables using `lubridate`.
+- Study the relationship between two variables using graphs and descriptive statistics, particularly using the correlation coefficient.
+- Calculate and interpret the correlation between two numerical variables.
+- Write an exploratory data analysis (EDA) report highlighting trends and patterns in the data.
+
+# Readings
+
+In this module, we will explore the basic concepts of exploratory data analysis (EDA) and date and time manipulation. Here is some initial reading to prepare you:
+
+- [**R for Data Science – EDA**](https://r4ds.hadley.nz/EDA.html)
+  This chapter introduces you to exploratory data analysis (EDA) with the `ggplot2` package.
+
+- [**R for Data Science – Dates and Times**](https://r4ds.hadley.nz/datetimes.html)
+  This chapter introduces you to the manipulation of dates and times with the `lubridate` package.
+
+You can also review the following chapter:
+
+- [**R for Data Science – Tidy Data**](https://r4ds.hadley.nz/data-tidy.html)
+  This chapter reminds you of the principles of the “tidy” data structure and how to apply them with `tidyr`.
+
+In the free **IMS**:
+
+- [**Introduction to modern statistics – Applications: Explore**](https://openintro-ims.netlify.app/explore-applications)
+  This chapter introduces you to best practices for exploratory data modeling.
+
+# Adventure
+
+[Adventure 5](../module_05/aventure.llms.md)
+
+# Challenge — Analyze delays to support decisions
+
+In this challenge, you must submit a **professional report** intended for your supervisor, **Dr Sofia Martínez**, in order to answer the three major strategic questions posed in the adventure. Your role is to provide clear analysis, supported by relevant visualizations and rigorous interpretations.
+
+## What you should do
+
+From the merged data provided (`flights_merged_2023.rds`), you must:
+
+1.  **Explore temporal variables** (`date`, `day_week`, `moment_day`, etc.) and prepare them if necessary.
+2.  **Answer Sofia’s three big questions**:
+    - What time slots should you avoid to reduce delays?
+    - To what extent is the weather responsible for the delays?
+    - Are older planes more often delayed or canceled?
+3.  For each question:
+    - carry out a relevant **exploratory analysis**;
+    - produce **at least one clear visualization**;
+    - write a **concise interpretation** of your results.
+
+## What the report should contain
+
+Your **`rapport.qmd`** file must include:
+
+- A short **introduction** which recalls the context (work at JFK, role with Sofia, etc.).
+- A section for each **question** of the brief.
+- Your **analyses** (reproducible R code, tables or graphs, comments).
+- Your **interpretations** to highlight the key findings.
+- A **short conclusion** which summarizes the answers given to managers.
+
+## Upload and rendering
+
+- Publish the report to your GitHub repository in the course organization.
+- Make sure that the `.html` file is properly generated and readable.
+- Do a final proofread to check **clarity, structure and presentation**.
+
+> Tip: Put yourself in the shoes of a professional analyst — this report could be presented to the airport executive committee!
+
+------------------------------------------------------------------------
+
+## Evaluation grid (10 points)
+
+| Criterion | Description | Points |
+|----|----|----|
+| **Time exploration (`lubridate`)** | Creation of `date`, `day_week`, `moment_day` variables; good use of `lubridate`. | 2 |
+| **Time slot analysis** | Relevance of the analysis, quality of visualization and interpretation. | 2 |
+| **Weather analysis** | Judicious choice of weather variables, test of relationship with delays, correct interpretation. | 2 |
+| **Analysis of old planes** | Construction of `age_avion`, correct analysis of delays or cancellations, relevant interpretation. | 2 |
+| **Structure and presentation of the report** | Clear, well-structured, visually readable report; well-annotated visualizations; commented code. | 2 |
+
+> **Bonus** possible (max +1) for an original additional analysis (e.g.: analysis by company or distance).
+
+# Consolidation exercises
+
+These exercises will allow you to consolidate the skills of module 5: exploration, correlation, visualization, bivariate analysis. All datasets used are integrated into R.
+
+## 1. Dataset: mtcars
+
+How strong is the linear relationship between fuel consumption (mpg) and weight (wt) of cars?
+
+> **TIP:**
+>
+> ``` r
+> cor(mtcars$mpg, mtcars$wt)
+> # ≈ -0.87 -> strong negative correlation: heavier cars consume more.
+> ```
+
+## 2. Dataset: airquality
+
+Create a graph showing the relationship between temperature (Temp) and ozone level (Ozone), with a trend line.
+
+> **TIP:**
+>
+> ``` r
+> ggplot(airquality, aes(x = Temp, y = Ozone)) +
+>   geom_point() +
+>   geom_smooth(method = "lm")
+> ```
+
+## 3. Dataset: airquality
+
+Create a date variable from Month and Day (assuming the year 1973), then add a column indicating the day of the week.
+
+> **TIP:**
+>
+> ``` r
+> library(lubridate)
+>
+> airquality <- airquality %>%
+>   mutate(date = make_date(1973, Month, Day),
+>          weekday = wday(date, label = TRUE))
+> ```
+
+## 4. Dataset: ToothGrowth
+
+Compare the length of teeth (len) according to the type of supplement (supp) using a boxplot.
+
+> **TIP:**
+>
+> ``` r
+> ggplot(ToothGrowth, aes(x = supp, y = len)) +
+>   geom_boxplot()
+> ```
+
+## 5. Dataset: ToothGrowth
+
+Calculate the average tooth length for each combination of supplement (supp) and dose (dose).
+
+> **TIP:**
+>
+> ``` r
+> ToothGrowth %>%
+>   group_by(supp, dose) %>%
+>   summarise(mean = mean(len), .groups = "drop")
+> ```
+
+## 6. Dataset: iris
+
+Calculate the correlation matrix between the numerical variables.
+
+> **TIP:**
+>
+> ``` r
+> iris %>%
+>   select(where(is.numeric)) %>%
+>   cor() %>%
+>   round(2)
+> ```
+
+## 7. Dataset: ChickWeight
+
+Plot the change in weight over time for a single chick (e.g. Chick 1).
+
+> **TIP:**
+>
+> ``` r
+> ggplot(filter(ChickWeight, Chick == 1), aes(x = Time, y = weight)) +
+>   geom_line()
+> ```
+
+## 8. Dataset: ChickWeight
+
+What is the average weight of the chicks at the end of the experiment (Time = 21) for each type of diet (Diet)?
+
+> **TIP:**
+>
+> ``` r
+> ChickWeight %>%
+>   filter(Time == 21) %>%
+>   group_by(Diet) %>%
+>   summarise(mean = mean(weight))
+> ```
+
+## 9. Dataset: iris
+
+Visualize the distribution of Petal.Length using a histogram with superimposed density curve.
+
+> **TIP:**
+>
+> ``` r
+> ggplot(iris, aes(x = Petal.Length)) +
+>   geom_histogram(aes(y = ..density..), bins = 20, fill = "lightblue") +
+>   geom_density(color = "blue")
+> ```
+
+## 10. Dataset: mtcars
+
+How many cars are there for each combination of number of cylinders (cyl) and transmission type (am)?
+
+> **TIP:**
+>
+> ``` r
+> mtcars %>%
+>   count(cyl, am)
+> ```
+
+## Problem 1 — Weather and ozone EDA (dataset: airquality)
+
+1.  Visualize the relationship between wind speed (`Wind`) and ozone level (`Ozone`).
+2.  Calculate their correlation.
+3.  Add a logical variable `hot_day` which is `TRUE` if the temperature is above 85°F.
+4.  Compare the ozone levels according to `hot_day` with a boxplot.
+
+> **TIP:**
+>
+> ``` r
+> ggplot(airquality, aes(x = Wind, y = Ozone)) +
+>   geom_point() +
+>   geom_smooth(method = "lm")
+>
+> cor(airquality$Wind, airquality$Ozone, use = "complete.obs")
+>
+> airquality <- airquality %>%
+>   mutate(hot_day = Temp > 85)
+>
+> ggplot(airquality, aes(x = hot_day, y = Ozone)) +
+>   geom_boxplot()
+> ```
+
+## Problem 2 — Floral EDA (dataset: iris)
+
+1.  Does the `Sepal.Length` variable allow us to distinguish between species (`Species`)?
+2.  Display a boxplot of `Sepal.Length` by species.
+3.  Calculate the mean and standard deviation of `Sepal.Length` per species.
+4.  Calculate the correlation between `Sepal.Length` and `Petal.Length`.
+5.  Visualize their relationship with a scatter plot and trend line.
+
+> **TIP:**
+>
+> ``` r
+> ggplot(iris, aes(x = Species, y = Sepal.Length)) +
+>   geom_boxplot()
+>
+> iris %>%
+>   group_by(Species) %>%
+>   summarise(mean = mean(Sepal.Length),
+>             deviation = sd(Sepal.Length))
+>
+> cor(iris$Sepal.Length, iris$Petal.Length)
+>
+> ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
+>   geom_point() +
+>   geom_smooth(method = "lm")
+> ```

@@ -2,14 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.28">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Aurélien Nicosia">
 
-<title>Exercise solutions for Module 1 - Dive into data science – STT-1100 Introduction to Data Science</title>
+<title>Answers exercise module 1 - Dive into data science – STT-1100 Introduction to Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -18,7 +21,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
@@ -72,16 +75,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -105,383 +108,136 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="../css/base_css.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_01/plan_apprentissage.html">1 - Data science dive</a></li><li class="breadcrumb-item"><a href="../module_01/exercices_corriges.html">Exercise solutions</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../">STT-1100 Introduction to Data Science</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STT-1100 Introduction to Data Science</span>
+    </a>
   </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">1 - Data science dive</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_01/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_01/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_01/defi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Challenge</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_01/exercices_corriges.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exercise solutions</span></a>
-  </div>
-</li>
-      </ul>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+<span class="menu-text">Home</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">2 - GitHub and data visualization</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_02/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_02/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
+  <li class="nav-item">
+    <a class="nav-link" href="../demarrage.html">
+<span class="menu-text">Start</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">3 - Categories in all their forms</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_03/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_03/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Modules</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
+        <li>
+    <a class="dropdown-item" href="../modules.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">4 - Factors and data cleaning</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_04/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_04/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_01/index.html">
+ <span class="dropdown-text">Module 01 - Data science dive</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
- <span class="menu-text">5 - Explore and understand relationships between variables</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_05/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_05/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_05/exercices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_02/index.html">
+ <span class="dropdown-text">Module 02 - GitHub and data visualization</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
- <span class="menu-text">6 - Collaboration and reproducibility in GitHub</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_06/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_06/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_03/index.html">
+ <span class="dropdown-text">Module 03 - Categories in all their forms</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
- <span class="menu-text">7 - Visualization, ethics and data security</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_07/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_07/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_07/analyse_covid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Initial COVID-19 analysis</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_04/index.html">
+ <span class="dropdown-text">Module 04 - Factors and data cleaning</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
- <span class="menu-text">8 - Automation and web exploration</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_08/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_08/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_05/index.html">
+ <span class="dropdown-text">Module 05 - Explore and understand relationships between variables</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
- <span class="menu-text">9 - Prediction and bias</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_09/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_09/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_06/index.html">
+ <span class="dropdown-text">Module 06 - Collaboration and reproducibility in GitHub</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
- <span class="menu-text">10 - Beyond data: text and dashboard</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_10/plan_apprentissage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Learning plan</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../module_10/aventure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adventure</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_07/index.html">
+ <span class="dropdown-text">Module 07 - Visualization, ethics and data security</span></a>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Session project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../projet_session/enonce_projet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Project statement</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_08/index.html">
+ <span class="dropdown-text">Module 08 - Automation and web exploration</span></a>
   </li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_09/index.html">
+ <span class="dropdown-text">Module 09 - Prediction and bias</span></a>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reference material</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Additional resources</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../resources/clone-github-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clone GitHub in RStudio</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../resources/help-search/how-to-get-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Find help effectively</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../resources/cheatsheet/stt1100_cheatsheet_mod.pdf" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Course cheat sheet</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../resources/data-science-roles/roles_presentation_v2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data science roles</span></a>
-  </div>
-</li>
-      </ul>
+        <li>
+    <a class="dropdown-item" href="../module_10/index.html">
+ <span class="dropdown-text">Module 10 - Beyond data: text and dashboard</span></a>
   </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assessments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Assessments</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assessments">
+        <li>
+    <a class="dropdown-item" href="../evaluations.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../examen.html">
+ <span class="dropdown-text">Exam</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../defis.html">
+ <span class="dropdown-text">Challenges</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../projet_session/index.html">
+ <span class="dropdown-text">Session project</span></a>
+  </li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../ressources.html">
+<span class="menu-text">Resources</span></a>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../glossaire.html">
+<span class="menu-text">Glossary</span></a>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
 <!-- margin-sidebar -->
-    
+
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modules</li><li class="breadcrumb-item"><a href="../module_01/plan_apprentissage.html">1 - Data science dive</a></li><li class="breadcrumb-item"><a href="../module_01/exercices_corriges.html">Exercise solutions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercise solutions for Module 1 - Dive into data science</h1>
+<h1 class="title">Answers exercise module 1 - Dive into data science</h1>
 </div>
 
 
@@ -494,11 +250,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
              <p>Aurélien Nicosia </p>
           </div>
   </div>
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -512,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
 <p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
@@ -530,383 +286,246 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </main> <!-- /main -->
 <style>
-  /* Sidebar states */
-  body.sidebar-hidden #quarto-sidebar,
-  body.sidebar-hidden .quarto-sidebar,
-  body.sidebar-hidden .sidebar {
-    display: none !important;
+.qs-language-controls {
+  margin-left:.5rem;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
   }
 
-  body.sidebar-hidden .page-columns {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-  body.sidebar-hidden .page-columns .content {
-    grid-column: 1 / -1 !important;
-    max-width: 100% !important;
-  }
-  body.sidebar-hidden .sidebar-margin,
-  body.sidebar-hidden .submenu,
-  body.sidebar-hidden .margin-sidebar { display: none !important; }
-
-  /* Avoid logo overlap on desktop */
-  @media (min-width: 992px) {
-    :root { --content-left-offset: 88px; }
-
-    body:not(.sidebar-hidden) nav.quarto-page-breadcrumbs,
-    body:not(.sidebar-hidden) main#quarto-document-content,
-    body:not(.sidebar-hidden) main.content {
-      padding-left: var(--content-left-offset) !important;
-    }
-    body.sidebar-hidden nav.quarto-page-breadcrumbs,
-    body.sidebar-hidden main#quarto-document-content,
-    body.sidebar-hidden main.content {
-      padding-left: 0 !important;
-    }
+.qs-language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap:.35rem;
+  border: 1px solid rgba(0, 0, 0,.12);
+  border-radius:.5rem;
+  padding:.2rem.35rem;
+  background: var(--quarto-body-bg, #fff);
+  box-shadow: 0 1px 4px rgba(0, 0, 0,.08);
+  font-size:.9rem;
   }
 
-  .qs-toggle-controls {
-    margin-left: .75rem;
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
+.qs-lang-btn {
+  border: none;
+  border-radius:.35rem;
+  background: transparent;
+  color: var(--quarto-body-color, #111);
+  padding:.2rem.45rem;
+  cursor: pointer;
   }
 
-  /* Sidebar button styles */
-  .qs-toggle-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:.4rem;
-    border:1px solid rgba(0,0,0,.12);
-    border-radius:.5rem;
-    padding:.25rem .5rem;
-    background:var(--quarto-body-bg,#fff);
-    box-shadow:0 1px 4px rgba(0,0,0,.08);
-    cursor:pointer;
-    font-size:.95rem;
-    line-height:1;
-  }
-  .qs-toggle-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-
-  .qs-language-switch{
-    display:inline-flex;
-    align-items:center;
-    gap:.35rem;
-    border:1px solid rgba(0,0,0,.12);
-    border-radius:.5rem;
-    padding:.2rem .35rem;
-    background:var(--quarto-body-bg,#fff);
-    box-shadow:0 1px 4px rgba(0,0,0,.08);
-    font-size:.9rem;
+.qs-lang-btn[aria-pressed="true"] {
+  background: rgba(0, 0, 0,.08);
+  font-weight: 700;
   }
 
-  .qs-lang-btn{
-    border:none;
-    border-radius:.35rem;
-    background:transparent;
-    color:var(--quarto-body-color,#111);
-    padding:.2rem .45rem;
-    cursor:pointer;
-  }
-  .qs-lang-btn[aria-pressed="true"]{
-    background:rgba(0,0,0,.08);
-    font-weight:700;
-  }
-  .qs-lang-btn:focus{outline:2px solid rgba(0,0,0,.2);outline-offset:2px;}
-
-  .qs-action-group{
-    display:flex;
-    align-items:center;
-    gap:.35rem;
+.qs-lang-btn:focus {
+  outline: 2px solid rgba(0, 0, 0,.2);
+  outline-offset: 2px;
   }
 
-  /* Keep controls visible on mobile to ensure language switch is always accessible */
-  @media (max-width: 575.98px){
-    .qs-toggle-host{
-      top: 6px;
-      right: 8px;
-      gap: .3rem;
-      align-items: flex-start;
-    }
-    .qs-language-switch{
-      padding: .15rem .25rem;
-      font-size: .8rem;
-    }
-    .qs-toggle-btn{
-      padding: .15rem .35rem;
-      font-size: .8rem;
-    }
-    .qs-toggle-btn span{
-      display: none;
-    }
+  @media (max-width: 575.98px) {
+.qs-language-host {
+  top: 6px;
+  right: 8px;
+  }
+
+.qs-language-switch {
+  padding:.15rem.25rem;
+  font-size:.8rem;
+  }
   }
 </style>
 
 <script>
 (function(){
-  const SIDEBAR_KEY = 'quarto-sidebar-hidden';
   const UI_LABELS = {
-    en: {
-      sidebarTooltip: 'Show/hide left sidebar',
-      sidebarAria: 'Toggle left sidebar',
-      languageAria: 'Language selection'
-    },
-    fr: {
-      sidebarTooltip: 'Masquer/Afficher la barre latérale',
-      sidebarAria: 'Basculer la barre latérale',
-      languageAria: 'Choix de langue'
-    }
+  en: { languageAria: 'Language selection' },
+  fr: { languageAria: 'Choix de langue' }
   };
 
   const CONTENT_ROOTS = new Set([
-    'autre_materiel',
-    'module_01',
-    'module_02',
-    'module_03',
-    'module_04',
-    'module_05',
-    'module_06',
-    'module_07',
-    'module_08',
-    'module_09',
-    'module_10',
-    'projet_session'
+  'autre_materiel',
+  'module_01',
+  'module_02',
+  'module_03',
+  'module_04',
+  'module_05',
+  'module_06',
+  'module_07',
+  'module_08',
+  'module_09',
+  'module_10',
+  'projet_session'
   ]);
-  const ROOT_FILES = new Set(['index.html', 'references.html']);
+
+  const ROOT_FILES = new Set([
+  'index.html',
+  'modules.html',
+  'demarrage.html',
+  'calendrier.html',
+  'evaluations.html',
+  'examen.html',
+  'defis.html',
+  'boite_outils.html',
+  'glossaire.html',
+  'ressources.html',
+  'references.html'
+  ]);
 
   function pathSegments(pathname){
-    return pathname.split('/').filter(Boolean);
+  return pathname.split('/').filter(Boolean);
   }
 
   function isEnglishPath(pathname){
-    return /(^|\/)en(\/|$)/.test(pathname);
+  return /(^|\/)en(\/|$)/.test(pathname);
   }
 
   function joinPath(segments, trailingSlash){
-    if (segments.length === 0) return '/';
-    let path = `/${segments.join('/')}`;
-    if (trailingSlash && !path.endsWith('/')) path += '/';
-    return path;
+  if (segments.length === 0) return '/';
+  let path = `/${segments.join('/')}`;
+  if (trailingSlash && !path.endsWith('/')) path += '/';
+  return path;
   }
 
   function splitBaseAndContentSegments(segments){
-    const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
-    if (contentIndex === -1) {
-      return { baseSegments: segments, contentSegments: [] };
-    }
-    return {
-      baseSegments: segments.slice(0, contentIndex),
-      contentSegments: segments.slice(contentIndex)
-    };
+  const contentIndex = segments.findIndex((segment) => CONTENT_ROOTS.has(segment) || ROOT_FILES.has(segment));
+  if (contentIndex === -1) {
+  return { baseSegments: segments, contentSegments: [] };
+  }
+  return {
+  baseSegments: segments.slice(0, contentIndex),
+  contentSegments: segments.slice(contentIndex)
+  };
   }
 
   function languageTargetUrl(targetLang){
-    const loc = window.location;
-    const path = loc.pathname;
-    const search = loc.search || '';
-    const hash = loc.hash || '';
-    const segments = pathSegments(path);
-    const enIndex = segments.indexOf('en');
+  const loc = window.location;
+  const path = loc.pathname;
+  const search = loc.search || '';
+  const hash = loc.hash || '';
+  const segments = pathSegments(path);
+  const enIndex = segments.indexOf('en');
 
-    if (targetLang === 'en') {
-      if (enIndex !== -1) return null;
-      const split = splitBaseAndContentSegments(segments);
-      const targetSegments = split.baseSegments.concat('en', split.contentSegments);
-      const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
-      return joinPath(targetSegments, trailingSlash) + search + hash;
-    }
+  if (targetLang === 'en') {
+  if (enIndex !== -1) return null;
+  const split = splitBaseAndContentSegments(segments);
+  const targetSegments = split.baseSegments.concat('en', split.contentSegments);
+  const trailingSlash = split.contentSegments.length === 0 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
 
-    if (targetLang === 'fr') {
-      if (enIndex === -1) return null;
-      const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
-      const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
-      return joinPath(targetSegments, trailingSlash) + search + hash;
-    }
+  if (targetLang === 'fr') {
+  if (enIndex === -1) return null;
+  const targetSegments = segments.slice(0, enIndex).concat(segments.slice(enIndex + 1));
+  const trailingSlash = segments.length === enIndex + 1 || path.endsWith('/');
+  return joinPath(targetSegments, trailingSlash) + search + hash;
+  }
 
-    return null;
+  return null;
   }
 
   function uiForPage(){
-    return isEnglishPath(window.location.pathname) ? UI_LABELS.en : UI_LABELS.fr;
-  }
-
-  function applySidebarStateFromStorage(){
-    const hidden = localStorage.getItem(SIDEBAR_KEY) === '1';
-    document.body.classList.toggle('sidebar-hidden', hidden);
-    const btn = document.getElementById('qs-toggle-btn');
-    if (btn) btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+  return isEnglishPath(window.location.pathname) ? UI_LABELS.en: UI_LABELS.fr;
   }
 
   function updateLanguageState(){
-    const isEn = isEnglishPath(window.location.pathname);
-    const fr = document.getElementById('qs-lang-fr');
-    const en = document.getElementById('qs-lang-en');
-    if (fr) fr.setAttribute('aria-pressed', isEn ? 'false' : 'true');
-    if (en) en.setAttribute('aria-pressed', isEn ? 'true' : 'false');
+  const isEn = isEnglishPath(window.location.pathname);
+  const fr = document.getElementById('qs-lang-fr');
+  const en = document.getElementById('qs-lang-en');
+  if (fr) fr.setAttribute('aria-pressed', isEn ? 'false': 'true');
+  if (en) en.setAttribute('aria-pressed', isEn ? 'true': 'false');
   }
 
   function onLanguageClick(targetLang){
-    return (event) => {
-      event.preventDefault();
-      const url = languageTargetUrl(targetLang);
-      if (!url) {
-        updateLanguageState();
-        return;
-      }
-      window.location.href = url;
-    };
+  return (event) => {
+  event.preventDefault();
+  const url = languageTargetUrl(targetLang);
+  if (!url) {
+  updateLanguageState();
+  return;
   }
-
-  function buildSidebarButton(){
-    const btn = document.createElement('button');
-    const labels = uiForPage();
-    btn.id = 'qs-toggle-btn';
-    btn.className = 'qs-toggle-btn';
-    btn.type = 'button';
-    btn.title = labels.sidebarTooltip;
-    btn.setAttribute('aria-label', labels.sidebarAria);
-    btn.setAttribute('aria-pressed', 'false');
-    btn.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span>Menu</span>
-    `;
-
-    btn.addEventListener('click', () => {
-      document.body.classList.toggle('sidebar-hidden');
-      const hidden = document.body.classList.contains('sidebar-hidden');
-      btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
-      try {
-        localStorage.setItem(SIDEBAR_KEY, hidden ? '1' : '0');
-      } catch (e) {
-        // ignore
-      }
-    });
-
-    return btn;
+  window.location.href = url;
+  };
   }
 
   function buildLanguageSwitch(){
-    const labels = uiForPage();
-    const wrapper = document.createElement('div');
-    wrapper.className = 'qs-language-switch';
-    wrapper.setAttribute('role', 'group');
-    wrapper.setAttribute('aria-label', labels.languageAria);
+  const labels = uiForPage();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'qs-language-switch';
+  wrapper.setAttribute('role', 'group');
+  wrapper.setAttribute('aria-label', labels.languageAria);
 
-    const fr = document.createElement('button');
-    fr.type = 'button';
-    fr.id = 'qs-lang-fr';
-    fr.className = 'qs-lang-btn';
-    fr.setAttribute('aria-pressed', 'false');
-    fr.setAttribute('aria-label', 'French version');
-    fr.textContent = 'FR';
-    fr.addEventListener('click', onLanguageClick('fr'));
+  const fr = document.createElement('button');
+  fr.type = 'button';
+  fr.id = 'qs-lang-fr';
+  fr.className = 'qs-lang-btn';
+  fr.setAttribute('aria-pressed', 'false');
+  fr.setAttribute('aria-label', 'French version');
+  fr.textContent = 'FR';
+  fr.addEventListener('click', onLanguageClick('fr'));
 
-    const en = document.createElement('button');
-    en.type = 'button';
-    en.id = 'qs-lang-en';
-    en.className = 'qs-lang-btn';
-    en.setAttribute('aria-pressed', 'false');
-    en.setAttribute('aria-label', 'English version');
-    en.textContent = 'EN';
-    en.addEventListener('click', onLanguageClick('en'));
+  const en = document.createElement('button');
+  en.type = 'button';
+  en.id = 'qs-lang-en';
+  en.className = 'qs-lang-btn';
+  en.setAttribute('aria-pressed', 'false');
+  en.setAttribute('aria-label', 'English version');
+  en.textContent = 'EN';
+  en.addEventListener('click', onLanguageClick('en'));
 
-    wrapper.appendChild(fr);
-    wrapper.appendChild(en);
-    return wrapper;
+  wrapper.appendChild(fr);
+  wrapper.appendChild(en);
+  return wrapper;
   }
 
-  function buildActions(){
-    const box = document.createElement('div');
-    box.className = 'qs-toggle-controls';
-    box.appendChild(buildLanguageSwitch());
-    box.appendChild(buildSidebarButton());
-    return box;
-  }
-
-  function insertAfter(selector, node, fallback){
-    const host = document.querySelector(selector);
-    if (host) {
-      const isNav = host.matches('.navbar-nav');
-      if (isNav) {
-        const li = document.createElement('li');
-        li.className = 'nav-item qs-toggle-controls';
-        li.appendChild(node);
-        host.appendChild(li);
-      } else {
-        host.appendChild(node);
-      }
-      return true;
-    }
-
-    if (fallback) {
-      fallback.appendChild(node);
-      return true;
-    }
-    return false;
+  function buildControls(){
+  const box = document.createElement('div');
+  box.className = 'qs-language-controls';
+  box.appendChild(buildLanguageSwitch());
+  return box;
   }
 
   function insertControls(){
-    const navbar = document.querySelector('.navbar, .quarto-navbar, #quarto-header .navbar');
-    const actions = buildActions();
+  document.querySelectorAll('.qs-language-controls').forEach((node) => node.remove());
 
-    if (navbar) {
-      const rightZone = navbar.querySelector('.navbar-nav.ms-auto') ||
-                        navbar.querySelector('.navbar-collapse .navbar-nav:last-child') ||
-                        navbar.querySelector('.navbar-nav');
-
-      if (rightZone) {
-        return insertAfter('.navbar-nav.ms-auto', actions, null) || insertAfter('.navbar-collapse .navbar-nav:last-child', actions, null) || insertAfter('.navbar-nav', actions, navbar);
-      }
-    }
-
-    const header = document.getElementById('quarto-header');
-    if (header) {
-      let host = header.querySelector('.qs-toggle-host');
-      if (!host) {
-        host = document.createElement('div');
-        host.className = 'qs-toggle-host';
-        host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex; gap:.4rem;';
-        header.style.position = header.style.position || 'relative';
-        header.appendChild(host);
-      }
-      host.innerHTML = '';
-      host.appendChild(actions);
-      return true;
-    }
-
-    return false;
+  const controls = buildControls();
+  const tools = document.querySelector('.quarto-navbar-tools');
+  if (tools) {
+  tools.appendChild(controls);
+  updateLanguageState();
+  return true;
   }
 
-  function setupResponsiveGuard(){
-    const mq = window.matchMedia('(max-width: 575.98px)');
-    const handle = () => {
-      if (mq.matches) {
-        document.body.classList.remove('sidebar-hidden');
-      } else {
-        applySidebarStateFromStorage();
-      }
-    };
-    if (mq.addEventListener) {
-      mq.addEventListener('change', handle);
-    } else {
-      mq.addListener(handle);
-    }
-    handle();
+  const header = document.getElementById('quarto-header');
+  if (header) {
+  let host = header.querySelector('.qs-language-host');
+  if (!host) {
+  host = document.createElement('div');
+  host.className = 'qs-language-host';
+  host.style.cssText = 'position:absolute; right:12px; top:10px; z-index:1000; display:flex;';
+  header.style.position = header.style.position || 'relative';
+  header.appendChild(host);
+  }
+  host.innerHTML = '';
+  host.appendChild(controls);
+  updateLanguageState();
+  return true;
+  }
+
+  return false;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    applySidebarStateFromStorage();
-    updateLanguageState();
-    insertControls();
-    setupResponsiveGuard();
+  insertControls();
+  updateLanguageState();
   });
 
   const obs = new MutationObserver(() => {
-    if (document.getElementById('qs-toggle-btn') && document.getElementById('qs-lang-fr')) return;
-    if (document.querySelector('.navbar, .quarto-navbar, #quarto-header .navbar, #quarto-header')) {
-      insertControls();
-    }
+  if (document.getElementById('qs-lang-fr') && document.getElementById('qs-lang-en')) return;
+  if (document.querySelector('.navbar,.quarto-navbar, #quarto-header.navbar, #quarto-header')) {
+  insertControls();
+  }
   });
   obs.observe(document.documentElement, { childList: true, subtree: true });
 })();
@@ -922,7 +541,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -942,11 +561,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -962,13 +581,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1022,7 +642,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -1097,7 +717,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -1125,7 +745,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -1149,7 +769,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -1189,7 +809,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");

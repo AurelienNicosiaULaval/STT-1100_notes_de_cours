@@ -4,7 +4,7 @@ subtitle: "STT-1100 • Introduction à la science des données"
 format:
   html:
     toc: true
-    toc-title: "Plan de l'aventure"
+    toc-title: "Plan de l’aventure"
     embed-resources: true
     link-external-newwindow: true
     code-link: true
@@ -17,9 +17,9 @@ editor_options:
 
 # Mise en contexte
 
-Vous êtes une équipe de scientifiques de données travaillant pour l'aéroport JFK. Votre mandat est de produire une **analyse collaborative et reproductible** visant à identifier les sources de retard des vols, en particulier en lien avec la météo.
+Vous êtes une équipe de scientifiques de données travaillant pour l’aéroport JFK. Votre mandat est de produire une **analyse collaborative et reproductible** visant à identifier les sources de retard des vols, en particulier en lien avec la météo.
 
-Chaque membre de votre équipe devra contribuer activement à cette analyse, qui sera produite à l'aide de **Quarto** et hébergée sur **GitHub**.
+Chaque membre de votre équipe devra contribuer activement à cette analyse, qui sera produite à l’aide de **Quarto** et hébergée sur **GitHub**.
 
 # Partie 1 — Collaboration avec GitHub : rôles, branches, conflits
 
@@ -34,13 +34,13 @@ Travaillez en **équipes de 3 à 4 personnes**. Chaque membre incarne un rôle e
 | **Chargé·e de la reproductibilité** | Organise le `.qmd`, assure la compilation et la clarté | Garant·e de la **reproductibilité et documentation** | Met en place les sections du `.qmd`, nettoie le rendu, vérifie le rendu HTML final |
 | **Visualiseur·se** (optionnel) | Produit les graphiques, harmonise le style | Joue un rôle clé dans la **communication et diffusion** | Ajoute un `chunk` ggplot2 illustratif et adapte les titres/légendes |
 
->  **Tour de rôle recommandé** dans l'aventure pour sensibiliser à toutes les étapes du cycle.
+>   **Tour de rôle recommandé** dans l'aventure pour sensibiliser à toutes les étapes du cycle.
 
 ## Étapes à suivre
 
-Voici une séquence suggérée pour que les membres de l'équipe travaillent **l'un après l'autre**, pendant que les autres observent et apprennent :
+Voici une séquence suggérée pour que les membres de l’équipe travaillent **l’un après l’autre**, pendant que les autres observent et apprennent :
 
-1.  **Responsable du dépôt** : Cloner le dépôt de départ fourni par l'enseignant, créer le projet RStudio, initialiser les branches pour chaque membre et faire un premier commit avec un `README.md` mis à jour.
+1.  **Responsable du dépôt** : Cloner le dépôt de départ fourni par l’enseignant, créer le projet RStudio, initialiser les branches pour chaque membre et faire un premier commit avec un `README.md` mis à jour.
 
 2.  **Chargé·e de la reproductibilité** : Créer sa branche, organiser le `.qmd`, ajouter une structure de base avec titres et sous-titres. Ajouter un commentaire dans le YAML ou une section pour créer un petit conflit à venir.
 
@@ -48,31 +48,31 @@ Voici une séquence suggérée pour que les membres de l'équipe travaillent **l
 
 4.  **Visualiseur·se** (si présent·e) : Ajouter une première ébauche de visualisation simple (`geom_bar()` ou `geom_point()`) avec des `labs()` clairs. Pousser ses modifications sur sa branche et ouvrir une *pull request*.
 
-5.  **Responsable du dépôt** : Fusionner les *pull requests* une par une. Lorsqu'un conflit survient (ex. dans l'intro ou le YAML), le gérer en direct avec les autres membres qui observent et prennent des notes sur le processus.
+5.  **Responsable du dépôt** : Fusionner les *pull requests* une par une. Lorsqu’un conflit survient (ex. dans l’intro ou le YAML), le gérer en direct avec les autres membres qui observent et prennent des notes sur le processus.
 
-6.  Une fois toutes les branches fusionnées, compiler le `.qmd` en HTML et valider le rendu avec l'équipe.
+6.  Une fois toutes les branches fusionnées, compiler le `.qmd` en HTML et valider le rendu avec l’équipe.
 
 ## Objectifs de la Partie 1
 
 -   [ ] Une branche par rôle avec au moins un commit
 -   [ ] Toutes les branches fusionnées avec gestion de conflits
 -   [ ] Le `.qmd` compile en HTML
--   [ ] La présentation de l'équipe est complète
+-   [ ] La présentation de l’équipe est complète
 -   [ ] Chacun a réfléchi à sa place dans le **cycle de vie des données**
 
 # Partie 2 — Analyse reproductible avec données fusionnées
 
 ## Tâches par rôle
 
-Chaque membre de l'équipe poursuit son rôle défini précédemment. Voici les actions attendues pour chacun, dans le même ordre que la Partie 1 :
+Chaque membre de l’équipe poursuit son rôle défini précédemment. Voici les actions attendues pour chacun, dans le même ordre que la Partie 1 :
 
 ### Responsable du dépôt — Début de l'analyse
 
 -   Crée une branche spécifique à l'analyse collaborative.
--   Revoit l'organisation du dépôt et s'assure que les fichiers nécessaires sont présents.
--   S'assure que tous les chunks ont des noms, options (`echo`, `message`, etc.) cohérents.
+-   Revoit l’organisation du dépôt et s’assure que les fichiers nécessaires sont présents.
+-   S’assure que tous les chunks ont des noms, options (`echo`, `message`, etc.) cohérents.
 -   Vérifie que chaque membre a bien poussé sa branche.
--   Lance la coordination de l'étape d'analyse.
+-   Lance la coordination de l’étape d’analyse.
 
 ### Analyste des données
 
@@ -89,7 +89,7 @@ Chaque membre de l'équipe poursuit son rôle défini précédemment. Voici les 
 
 -   Vérifie que les librairies nécessaires (`tidyverse`, `nycflights23`) sont bien chargées dans un chunk `setup`.
 
--   S'assure que tous les chunks ont des noms, options (`echo`, `message`, etc.) cohérents.
+-   S’assure que tous les chunks ont des noms, options (`echo`, `message`, etc.) cohérents.
 
 -   Vérifie que le document se compile proprement.
 
@@ -103,7 +103,7 @@ Chaque membre de l'équipe poursuit son rôle défini précédemment. Voici les 
     -   Un `geom_col()` montrant le retard moyen par transporteur.
     -   Un `geom_point()` ou `geom_smooth()` explorant la relation entre météo et retards.
 -   Personnalise les titres, les axes, et la lisibilité du graphique.
--   S'assure que les graphiques sont bien interprétables et alignés avec les questions posées.
+-   S’assure que les graphiques sont bien interprétables et alignés avec les questions posées.
 
 ### Responsable du dépôt — Fin de l'analyse
 
@@ -116,13 +116,13 @@ Chaque membre de l'équipe poursuit son rôle défini précédemment. Voici les 
 
 ## Journal de bord
 
-Dans cette section, chaque membre de l'équipe écrit un paragraphe sur :
+Dans cette section, chaque membre de l’équipe écrit un paragraphe sur :
 
 -   Son rôle dans le projet
 -   Les difficultés rencontrées avec GitHub (et comment elles ont été résolues)
--   Ce qu'il/elle a appris sur la collaboration et la reproductibilité
+-   Ce qu’il/elle a appris sur la collaboration et la reproductibilité
 
-Le **responsable du projet** doit bien sûr initialisé le document Quarto de journal de bord et planifié les sections pour chaque membre. Chaque membre doit ensuite ajouter son paragraphe dans sa section dédiée.
+Le **responsable du projet** doit bien sûr initialisé le document quarto de journal de bord et planifié les sections pour chaque membre. Chaque membre doit ensuite ajouter son paragraphe dans sa section dédiée.
 
 ## Cycle de vie des données
 

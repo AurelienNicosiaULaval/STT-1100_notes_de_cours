@@ -1,8 +1,8 @@
 ---
-title: "Adventure 2 - GitHub and data visualization"
+title: "Adventure 2 - Github and digital data visualization"
 subtitle: "STT-1100 Introduction to Data Science"
 author:
-  - institute: "Laval University"
+  - institute: “Laval University”
 editor: visual
 editor_options:
   chunk_output_type: console
@@ -36,7 +36,7 @@ Welcome to your new scientific mission! You are now a **data scientist** in the 
 
 Your job is to **manipulate, transform and visualize** data rigorously, in order to extract useful and reproducible information. In particular, you will need to produce convincing visualizations, calculate descriptive statistics and document your approach in a clear report.
 
->  The dataset, which contains physical measurements of several species of penguins, will serve as a field of investigation.
+>   The dataset, which contains physical measurements of several species of penguins, will serve as a field of investigation.
 
 ----------------------------------------------------------------------------------
 
@@ -66,7 +66,7 @@ A **structured and complete report** responding to its new specific requests, in
 
 ----------------------------------------------------------------------------------
 
->  **Field note**: During your mission, a more experienced colleague (Jules Tremblay) will come see you from time to time to check that everything is going well. He or she will ask you a few **quick questions** to test your understanding. Answer them seriously, these checks will help you consolidate your learning!
+>   **Field note**: During your mission, a more experienced colleague (Jules Tremblay) will come see you from time to time to check that everything is going well. He or she will ask you a few **quick questions** to test your understanding. Answer them seriously, these checks will help you consolidate your learning!
 
 # How to succeed in this adventure {.unnumbered}
 
@@ -82,13 +82,13 @@ To succeed in this adventure, here are some essential tips:
 
 This adventure will allow you to develop your skills in data manipulation, visualization and analysis with `dplyr` and `ggplot2`. These are essential skills for a data scientist. Take the time to explore the different steps and have fun learning!
 
-# Working on GitHub
+# Working on Github
 
 The researcher has prepared a repository on GitHub where she wants you to save all your work. For her part, she submitted the database she collected as well as a detailed description of the variables. In particular, she would like you to complete a model logbook in Quarto format.
 
 Before you start analyzing the data, you need to grab the GitHub repository containing the necessary files.
 
-1. Clone the "Adventure-2-IDENTIFIANT_GITHUB" repository, to do this create a new RStudio project and copy paste the HTTPS link of your GitHub repo (see help sheet).
+1. Clone the "Adventure-2-IDENTIFIANT_GITHUB" repository, to do this create a new Rstudio project and copy paste the HTTPS link of your Github repo (see help sheet).
 
  Tip: If you want to come back to this project later, you can open the project directly by double-clicking the `.Rproj` file in your file explorer.
 
@@ -100,7 +100,7 @@ Warning: remember that commit messages must be meaningful. For example "Initiali
 
  Congratulations! You are now ready to begin scientific analysis of penguins!
 
->  Tip: Use the logbook template to complete all the analyzes of the first part of this adventure. So take a few minutes to look at the structure of the document.
+>   Tip: Use the logbook template to complete all the analyzes of the first part of this adventure. So take a few minutes to look at the structure of the document.
 
 # Reading data
 
@@ -147,7 +147,7 @@ The researcher has provided you with an Excel file containing the penguin data s
 A good practice in data science is to always **document** how you imported the data, even if you used a GUI.\
 Add the code executed in the console in your **Quarto** log file **(`.qmd`)** to the appropriate section.
 
-In each analysis report, you should have a first section **Reading data,** with a code block that contains the code to read the data. I would like to take this opportunity to remind you of **good tidyverse programming practices**, namely that in your block of code, there should for example be comments.
+In each analysis report, you should have a first section **Reading data,** with a code block that contains the code to read the data. I would like to take this opportunity to remind you of **good Tidyverse programming practices**, namely that in your block of code, there should for example be comments.
 
  **Why is this important?**\
 This ensures that your analysis is **reproducible**: if another researcher wants to do it again, they will be able to run your code without having to use the GUI.
@@ -160,7 +160,7 @@ penguins_mission <- read_excel("../../module_02/resources/manchots_donnees.xlsx"
 
 ```
 
-::: {.callout-important title=" Intervention by Jules – Name of the base"}
+::: {.callout-important title="Intervention by Jules – Name of the base"}
 You have just imported the Excel file. Tell me, in which variable did you store the data for the rest of the analysis?\
 1. `penguins`\
 2. `penguins_mission`\
@@ -168,12 +168,12 @@ You have just imported the Excel file. Tell me, in which variable did you store 
 4. `Antarctic_mission`
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 You had to name your base **`penguins_mission`**, as indicated in the import instruction.\
  Warning: the entire rest of the analysis is based on this consistent name!
 :::
 
-** Once your data is loaded, you are ready to explore and analyze it ! Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
+** Once your data is loaded, you are ready to explore and analyze it ! Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
 # Data manipulation
 
@@ -186,7 +186,7 @@ library(tidyverse)
 glimpse(penguins_mission)
 ```
 
-::: {.callout-important title=" Jules – Numerical variables"}
+::: {.callout-important title="Jules – Numerical variables"}
 How many **numeric variables** do you see in the `glimpse()` of `penguins_mission`?\
 - 3\
 - 4\
@@ -194,7 +194,7 @@ How many **numeric variables** do you see in the `glimpse()` of `penguins_missio
 - 6
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 There are generally **4 numeric variables**:\
 `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` and `body_mass_g`.\
  Please note: some versions of the game may vary depending on import!
@@ -214,7 +214,7 @@ Rather than displaying all lines or a tree structure like `str()`, `glimpse()` p
 
 This layout makes it easy to quickly review the structure of a table, especially when it has **many columns**.
 
->  **Good to know**: `glimpse()` is particularly useful for spotting possible type errors (e.g. a numeric variable encoded as text) or for detecting missing values.
+>   **Good to know**: `glimpse()` is particularly useful for spotting possible type errors (e.g. a numeric variable encoded as text) or for detecting missing values.
 
 ::: callout-tip
 #### Exercise
@@ -234,7 +234,7 @@ Don't worry if this seems complicated! We will return to this aspect later in th
 How many variables are numeric? How many character types? *to-do*: Include your answer in your logbook following the blank text.
 :::
 
-**Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
+**Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
 ## Select variables with `select()`
 
@@ -270,13 +270,13 @@ penguins_mission <- penguins_mission %>%
   mutate(body_mass_kg = body_mass_g / 1000)
 ```
 
-::: {.callout-important title=" Jules – Mass in kilograms"}
+::: {.callout-important title="Jules – Mass in kilograms"}
 You transformed the mass into kilograms. The mass of penguin number 21 is smaller than 4 kg, true or false?\
 1. True\
 2. False\
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 When we look at row 21 of the database, we get a number for `body_mass_kg` of 4.01 kg, so the answer is **False**.\
 
 ```{r eval=FALSE}
@@ -291,7 +291,7 @@ We will now continue with a new variable in which the researcher is very interes
 
 Create a new variable called `bill_ratio` corresponding to the ratio between the length and depth of the bill.
 
- **Question from the researcher**: one of my colleagues in Antarctiça assures me that the **average** ratio between the length and depth of the beak is greater than 3. For my part, I find this strange, because it does not respect what we can read in the literature. Can you help me with this? I would like you to answer the question in the logbook.
+ **Question from the researcher**: one of my colleagues in Antarctica assures me that the **average** ratio between the length and depth of the beak is greater than 3. For my part, I find this strange, because it does not respect what we can read in the literature. Can you help me with this? I would like you to answer the question in the logbook.
 :::
 
 ```{r echo=FALSE}
@@ -299,7 +299,7 @@ penguins_mission <- penguins_mission %>%
   mutate(ratio = bill_length_mm/bill_depth_mm)
 ```
 
-**Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
+**Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
 ## Filter data with `filter()`
 
@@ -342,15 +342,15 @@ Thanks to `group_by` we can also, for example, filter by group, which can be ver
  **Exercise**: Bring out the first penguin from the database for each species and each island. *Hint:* you can use the `slice` function.
 :::
 
-**Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
+**Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
 # An emergency call from Antarctica
 
-While you are making good progress in your data analysis, you receive an urgent message from the researcher. She had to rush to Antarctiça for an emergency mission: to help a colony of penguins facing extreme weather conditions.
+While you are making good progress in your data analysis, you receive an urgent message from the researcher. She had to rush to Antarctica for an emergency mission: to help a colony of penguins facing extreme weather conditions.
 
 Before her departure, she took care to leave you a list of essential tasks to complete. She is counting on you to continue her analysis! However, the connection is unstable there, and the only way to communicate with her is through Teams, she will send you messages but you wouldn't be able to communicate with her.
 
-> **Note:** here you are still in part 1 of the adventure, but the researcher has left you a list of tasks to complete before she leaves. So you need to continue working on the `penguins_mission` dataset that you created previously. You must therefore continue to complete the logbook.
+>  **Note:** here you are still in part 1 of the adventure, but the researcher has left you a list of tasks to complete before she leaves. So you need to continue working on the `penguins_mission` dataset that you created previously. You must therefore continue to complete the logbook.
 
 # Data visualization
 
@@ -387,7 +387,7 @@ labs(title = "Distribution of penguin beak length",
 Change the value of `binwidth` in the code above and see how it changes the histogram.
 :::
 
-::: {.callout-important title=" Jules – Observed distribution"}
+::: {.callout-important title="Jules – Observed distribution"}
 When you look at the histogram of `bill_depth_mm`, which word best describes the shape of the distribution?\
 1. Uniform\
 2. Bimodal\
@@ -395,7 +395,7 @@ When you look at the histogram of `bill_depth_mm`, which word best describes the
 4. Symmetric
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 The distribution is generally **symmetric**, even slightly spread out.\
 A good visual reading helps to anticipate central and extreme measurements.
 :::
@@ -442,7 +442,7 @@ Add a variable to differentiate between islands and see if some islands have mor
 Find the row number of the observation that appears to be an outlier in fin length.
 :::
 
-::: {.callout-important title=" Jules – Abnormal observation"}
+::: {.callout-important title="Jules – Abnormal observation"}
 What is the **line number** of the observation that has a **400 mm fin** (outlier added on purpose)?\
 1. 1\
 2. 11\
@@ -450,17 +450,17 @@ What is the **line number** of the observation that has a **400 mm fin** (outlie
 4. 113
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 The outlier is **line 6**.\
 It was added on purpose to test your ability to visually detect anomalies.
 :::
 
-**Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
+**Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
 ::: callout-tip
 #### Exercise (optional)
 
-In the previous graph, the legend title is "species", which is by default the name of the variable. Change it to "Species" in English. You have to figure out for yourself how to do this.
+In the previous graph, the legend title is "species", which is by default the name of the variable. Change it to “Species” in English. You have to figure out for yourself how to do this.
 :::
 
 ## Scatter plots
@@ -493,7 +493,7 @@ consulter_taches("nuage_de_points")
 Modify the scatter plot to display the relationship desired by the researcher. Do you find that one point looks weird? If yes, what is its line number?
 :::
 
-**Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
+**Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
 # Descriptive statistics
 
@@ -531,7 +531,7 @@ consulter_taches("statistiques_descriptives")
 ::: callout-tip
 #### Exercise
 
-Respond precisely in your logbook to Doctor Adélie's request.
+Respond precisely in your logbook to Doctor Adélie’s request.
 :::
 
  Quick method with `across()` and `dplyr`
@@ -555,7 +555,7 @@ penguins_mission %>%
 
 - Easily expandable to multiple variables by changing `bill_length_mm` to `c(bill_length_mm, flipper_length_mm)`
 
-::: {.callout-important title=" Jules – Average ratio value"}
+::: {.callout-important title="Jules – Average ratio value"}
 You calculated `bill_ratio` above with the `mutate` function. If the average is 2.94 and your colleague expects 3.5, what can you conclude?\
 1. The colleague is right, 2.94 ≈ 3.5\
 2. More samples are needed\
@@ -563,7 +563,7 @@ You calculated `bill_ratio` above with the `mutate` function. If the average is 
 4. The ratio is not useful
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 An average of **2.94**, much lower than 3.5, contradicts the colleague's hypothesis.\
 This suggests a difference, but you could also compare the distributions, for example with a histogram or a boxplot, to better visualize the variations.
 :::
@@ -609,11 +609,11 @@ consulter_taches("Visualisation_statistiques_descriptives")
 Complete Dr. Adélie's `ggplot2` code to answer her request. Include this in your logbook. Tell us how this advanced chart can help us better understand our data.
 :::
 
-**Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
+**Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
  Congratulations! You have now completed part 1 of this adventure, you can go and rest a little before the next part of this mission!
 
-::: {.callout-important title=" Jules – When to commit?"}
+::: {.callout-important title="Jules – When to commit?"}
 When should you make a Git commit?\
 1. Once at the very end of the project\
 2. Each time you add a chart\
@@ -621,14 +621,14 @@ When should you make a Git commit?\
 4. Only after a mistake
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Jules"}
+::: {.callout-caution collapse="true" title="Response from Jules"}
 You must make a commit **after each significant step** (import, filter, graph, analysis).\
  This ensures traceability, and will save you stress if you have to go back.
 :::
 
 # The return of Dr Adélie Fortier! (2nd part of the adventure)
 
- After several weeks in Antarctiça observing penguins, our researcher is back with lots of new questions in mind. She noticed that some species seemed to have very distinct characteristics, but she would like a more in-depth analysis which will help her obtain a new grant for her research project.
+ After several weeks in Antarctica observing penguins, our researcher is back with lots of new questions in mind. She noticed that some species seemed to have very distinct characteristics, but she would like a more in-depth analysis which will help her obtain a new grant for her research project.
 
  **Reminder of the deliverables of the second part**:\
 A **structured and complete report** responding to its new specific requests, including:
@@ -643,7 +643,7 @@ A **structured and complete report** responding to its new specific requests, in
 
 - It will give you a list of clear and precise tasks to complete.
 
-> **Note**: you must create your Quarto report yourself to help them with their grant application. Start by creating a new QMD report.
+>  **Note**: you must create your quarto report yourself to help them with their grant application. Start by creating a new QMD report.
 
 His main question:  ​​How do the physical characteristics of penguins vary depending on the species?
 
@@ -715,7 +715,7 @@ Be careful, don't forget your good visualization practices.
 
 - What are the most striking differences between species?
 
-**Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
+**Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
 ----------------------------------------------------------------------------------
 

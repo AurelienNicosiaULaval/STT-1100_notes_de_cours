@@ -1,0 +1,199 @@
+---
+title: "GitHub and data visualization"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+::: {.module-banner}
+<p class="module-banner-number">Module 02</p>
+<p class="module-banner-subtitle">Organize data work and produce readable visualizations.</p>
+:::
+
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Main thread</span><span class="fact-value">GitHub, import and charts</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Data</span><span class="fact-value">Penguins and Excel tables</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Challenge</span><span class="fact-value">GitHub repository and commented charts</span></span>
+:::
+::::
+
+## Finished Product
+
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Final product</p>
+  <h3>A readable GitHub repository with commented charts</h3>
+  <p>The expected product combines an organized project, a few charts and version-control messages that document the work.</p>
+  </div>
+  <div class="product-visual" aria-label="Visual preview of the finished product">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>GitHub repo</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>clean commit</span><span class="mini-bar" style="--bar-width: 68%;"></span></div><div class="mini-bar-row"><span>annotated chart</span><span class="mini-bar" style="--bar-width: 84%;"></span></div><div class="mini-bar-row"><span>shared project</span><span class="mini-bar" style="--bar-width: 58%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>clean commit</span>
+  <span><i class="bi bi-check2"></i>annotated chart</span>
+  <span><i class="bi bi-check2"></i>shared project</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
+
+## Module Objectives
+
+At the end of this module, you should be able to
+
+- Use GitHub via RStudio to clone a repository and make commits and pushes.
+
+- Read an `xls` file in RStudio.
+
+- Manage and transform digital data using `dplyr` (`glimpse`, `select`, `mutate`, `filter`).
+
+- Calculate and interpret descriptive statistics for numerical variables (`mean`, `median`, `standard deviation`, `variance`, `range`, `quantiles`), including for subgroups of data.
+
+- Visualize numerical variables with `ggplot2` (`histogram`, `box plot`, `scatter plot`) and interpret the resulting graphs.
+
+- Produce and interpret graphs comparing the distribution of continuous variables between groups (`superimposed histograms`, `juxtaposed box plots`, `stacked densities (ridge plots)`, `facet visualization`).
+
+- Use `ggplot2` options to improve the quality of graphs (titles, legends, readable axes, graphic consistency, `facets`).
+
+## Learning Plan
+
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="readings">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Readings</span>
+  <span class="path-preview">Prepare GitHub, RStudio projects and the grammar of graphics.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="initial-readings">Initial readings</h3>
+<p>As module 2 is spread over 2 weeks, there is a little more reading, to prepare yourself for the first part of the module you can skim the readings and come back to them in more detail in preparation for part 2.</p>
+<p>We start with a few chapters in the famous R4DS by Hadley Wickham and Garrett Grolemund:</p>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/data-visualize.html" target="_blank">Data visualization</a><br />
+<em>Learn how to use <code>ggplot2</code> to create your first graphs. This introduction to data visualization shows you how to effectively represent numerical variables and how to customize your charts.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/data-transform.html" target="_blank">Data transformation</a><br />
+<em>Learn how to transform your datasets with <code>dplyr</code>: filter, sort, create new columns and summarize information. This chapter lays the foundation for tidyverse-style data manipulation.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/EDA.html" target="_blank">Exploratory Data Analysis (EDA)</a><br />
+<em>Explore your data to identify trends, detect extreme values and formulate hypotheses. This chapter presents simple but powerful techniques for visual and statistical analysis.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank">Tidy data (spreadsheets)</a><br />
+<em>Find out how to organize your data to make it actionable. This chapter discusses the concept of “clean data” and shows you how to recognize common table structures in Excel or CSV files.</em></p></li>
+</ul>
+<h5 id="tidyverse-style-guide">Tidyverse Style Guide</h5>
+<ul>
+<li><a href="https://style.tidyverse.org/ggplot2.html" target="_blank">Best practices for visualization with ggplot2 (Tidyverse Style Guide)</a><br />
+</li>
+</ul>
+<h5 id="a-new-reference-book">A new reference book</h5>
+<p>In this module, we introduce a second reference work: <strong>Introduction to Modern Statistics</strong> (<em>by Mine Çetinkaya-Rundel and Johanna Hardin</em>).</p>
+<blockquote>
+<p>Note: we will often abbreviate with <strong>IMS</strong></p>
+</blockquote>
+<p>This book, also available free online, offers a <strong>modern and applied approach to statistics</strong>. It emphasizes visualization, statistical intuition and best practices in data science. It constitutes an excellent complement to R4DS, in particular for deepening the statistical aspects of exploratory analyses.</p>
+<ul>
+<li><a href="https://openintro-ims.netlify.app/explore-numerical" target="_blank">Introduction to Modern Statistics – Chapter 5: Exploring numerical data</a><br />
+<em>In this chapter, you will learn how to explore numerical data using statistical tools like numerical summaries, histograms, and boxplots. It offers a clear and rigorous vision of data distribution.</em></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="adventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Adventure</span>
+  <span class="path-preview">Build charts and track project versions.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
+  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="challenge">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Challenge</span>
+  <span class="path-preview">Share a repository with commented charts and readable history.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="challenge">Challenge</h3>
+<p>Here is the challenge you will have to complete for <strong>module 2</strong>. It is divided into two parts:</p>
+<p><strong>Part 1</strong>: Complete your logbook and submit it to GitHub. Ten (10) logbooks will be selected at random and will be subject to a <strong>summative evaluation</strong>.</p>
+<p><strong>Part 2</strong>: Submit the <strong>data analysis report</strong> on GitHub that Dr. Adélie can use as part of her grant application.</p>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercises">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercises</span>
+  <span class="path-preview">Practise charts, commits and short interpretations.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercises</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Resource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Exercises page</a></p>
+  <p><span class="step-label">Why</span> Exercises stay on a separate page because they take more space.</p>
+  <div class="ae-box"><p class="ae-title">Redo at least one passage without looking at the solution immediately.</p></div>
+  </div>
+  </details>
+</div>
+```
+
+## Data and Tools
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Datasets</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-penguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>palmerpenguins::penguins</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>R packages</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#readxl"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readxl</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#patchwork"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>patchwork</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Review and Extension
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finish the module with the course AI assistant</h3>
+  <p>Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.</p>
+  <ul>
+  <li>Explain the finished product in three sentences.</li>
+  <li>Paste a code or output excerpt and ask for a diagnosis.</li>
+  <li>Ask for a more ambitious variant, then choose what remains reasonable.</li>
+  </ul>
+  </div>
+</div>
+```

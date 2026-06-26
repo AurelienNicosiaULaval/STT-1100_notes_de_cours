@@ -1,0 +1,54 @@
+# Module 10 - Learning plan
+
+STT-1100 Introduction to Data Science
+
+# Module objectives
+
+At the end of this module, you should be able to:
+
+- Clean and analyze textual data.
+- Build a simple sentiment lexicon in French.
+- Visualize lexical and emotional trends over time.
+- Use TF-IDF to identify distinctive words.
+- Create an interactive dashboard with `flexdashboard` and `shiny`.
+
+# Readings
+
+To prepare, check out the following resources:
+
+- [Tidytext Text Mining](https://www.tidytextmining.com/) – Chapters 1 to 3 - This book introduces you to the basics of word processing with R.
+- [Flexdashboard documentation (RStudio)](https://rmarkdown.rstudio.com/flexdashboard/) - this document guides you in creating interactive dashboards with `flexdashboard`.
+- [Shiny for dashboards](https://rstudio.github.io/flexdashboard/using.html#shiny_interaction) - This guide shows you how to integrate interactive elements into your dashboards with `shiny`.
+
+# Adventure
+
+You are a junior business analyst hired by the Faculty of Science and Engineering at Laval University. Your mandate: analyze anonymous student comments on the STT-1100 course and produce an interactive dashboard for program management.
+
+[Adventure 10 — Beyond data: text and dashboard](../module_10/aventure.llms.md)
+
+# Challenge — Deployed Dashboard
+
+You need to build an interactive dashboard from the template provided. This dashboard must:
+
+- Display a sentiment score per week;
+- Identify distinctive words (TF-IDF) or a word cloud;
+- Analyze numerical variables (`pleasure`, `commitment`, `difficulty`);
+- Be personalized (filtering, colors, summary);
+- Be deployed and shared with Anne-Sophie.
+
+# Evaluation grid
+
+Each team must submit an interactive dashboard based on feedback from students in the course. Here is the grid used for the evaluation:
+
+| Criterion | Description | Points |
+|----|----|----|
+| **Text cleaning** | Text well transformed, tokenized, stopwords removed | /10 |
+| **Lexicon and sentiment score** | Clear construction of the FR lexicon, correct application per week | /15 |
+| **TF-IDF or word cloud** | Clear and well-illustrated analysis of distinctive words | /15 |
+| **Analysis of numerical variables** | Averages or trends well explored (`pleasure`, `difficulty`, etc.) | /15 |
+| **Visualizations** | Readable, relevant, aesthetic graphics | /15 |
+| **Interactive Dashboard (Shiny)** | Effective use of dynamic filters and components | /15 |
+| **Personalization / creative effort** | Adaptation of the model provided, visual and editorial effort | /10 |
+| **Deployment and accessibility** | Functional dashboard, valid link shared on time | /5 |
+
+**Total: /100**

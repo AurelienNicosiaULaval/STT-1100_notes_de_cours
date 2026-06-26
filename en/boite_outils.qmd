@@ -1,0 +1,123 @@
+---
+title: "Toolkit"
+body-classes: page-resource
+format:
+  html:
+    toc: false
+    embed-resources: true
+---
+
+```{=html}
+<div class="resource-page">
+  <section class="resource-hero" aria-labelledby="toolbox-title">
+  <div>
+  <p class="eyebrow">Working in the course</p>
+  <h1 id="toolbox-title">STT-1100 Toolkit</h1>
+  <p>This page gathers the practical moves reused across modules: starting a project, importing data, transforming a table, visualizing, rendering a Quarto report, using GitHub and asking for help effectively.</p>
+  <div class="resource-actions" aria-label="Quick links">
+  <a class="home-action home-action--primary" href="#class-supports">Class supports</a>
+  <a class="home-action" href="#r-routines">R routines</a>
+  <a class="home-action" href="#quarto-github">Quarto and GitHub</a>
+  <a class="home-action" href="#troubleshooting">Troubleshooting</a>
+  </div>
+  </div>
+  <div class="resource-panel" aria-label="Work areas">
+  <div><span>R</span><p>Import, transform, visualize</p></div>
+  <div><span>Q</span><p>Write and render a report</p></div>
+  <div><span>Git</span><p>Track project versions</p></div>
+  <div><span>?</span><p>Search and ask for help</p></div>
+  </div>
+  </section>
+
+  <section class="resource-section" id="class-supports" aria-labelledby="supports-title">
+  <div class="resource-section__header">
+  <h2 id="supports-title">Class supports</h2>
+  <p>These documents complement the modules. They help with challenge review, project preparation and procedures presented in class.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article class="resource-hub-card">
+  <h3>STT-1100 cheat sheet</h3>
+  <p>A compact reference for R commands, Quarto moves and core course habits.</p>
+  <div class="resource-link-list">
+  <a href="../autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf"><span>PDF cheat sheet</span><span>Short support to print or keep nearby while practising.</span></a>
+  </div>
+  </article>
+  <article class="resource-hub-card">
+  <h3>RStudio and GitHub</h3>
+  <p>Steps for cloning a repository, working in an RStudio project and understanding GitHub authentication.</p>
+  <div class="resource-link-list">
+  <a href="autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.html"><span>RStudio and GitHub memo</span><span>Step-by-step guide for cloning a project and configuring GitHub.</span></a>
+  <a href="../autre_materiel/Github/Pre%CC%81sentation%20Github.pdf"><span>GitHub presentation</span><span>French class support about repositories, commits and versioned work.</span></a>
+  </div>
+  </article>
+  <article class="resource-hub-card">
+  <h3>Search and get help</h3>
+  <p>A method for phrasing a question, reading an error message and using the right help channels.</p>
+  <div class="resource-link-list">
+  <a href="autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.html"><span>How to search</span><span>Guide for using RStudio help, documentation, the Web and GPT STT-1100.</span></a>
+  <a href="references.html"><span>Reference material</span><span>Useful links for help, search and frequent questions.</span></a>
+  </div>
+  </article>
+  <article class="resource-hub-card">
+  <h3>Data science roles</h3>
+  <p>A presentation that connects the course to a real project cycle: import, cleaning, transformation, visualization, modeling and communication.</p>
+  <div class="resource-link-list">
+  <a href="autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.html"><span>Career panorama</span><span>Module 1 support about roles and the complete data project cycle.</span></a>
+  </div>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="r-routines" aria-labelledby="routines-title">
+  <div class="resource-section__header">
+  <h2 id="routines-title">Frequent R routines</h2>
+  <p>The cards below summarize what to use depending on the task. For details by package, use the package page.</p>
+  </div>
+  <div class="reading-map">
+  <article><h3>Import</h3><p><code>readr::read_csv()</code>, <code>readxl::read_excel()</code>, <code>haven::read_sav()</code>. Always check with <code>glimpse()</code>, <code>names()</code> and <code>skimr::skim()</code>.</p></article>
+  <article><h3>Select and filter</h3><p><code>dplyr::select()</code> keeps columns, <code>dplyr::filter()</code> keeps rows, <code>dplyr::arrange()</code> orders the table.</p></article>
+  <article><h3>Create and summarize</h3><p><code>dplyr::mutate()</code> creates variables, <code>dplyr::group_by()</code> defines groups, <code>dplyr::summarise()</code> computes summaries.</p></article>
+  <article><h3>Reshape</h3><p><code>tidyr::pivot_longer()</code> creates long data, <code>tidyr::pivot_wider()</code> widens a table, <code>tidyr::separate()</code> splits a column.</p></article>
+  <article><h3>Clean text and categories</h3><p><code>stringr</code> helps detect, replace and extract text. <code>forcats</code> recodes and reorders factors.</p></article>
+  <article><h3>Visualize</h3><p>Start with <code>ggplot()</code>, define variables with <code>aes()</code>, choose a <code>geom_*</code>, then polish titles, axes and facets.</p></article>
+  </div>
+  <div class="resource-actions">
+  <a class="home-action home-action--primary" href="packages.html">View course packages</a>
+  <a class="home-action" href="donnees.html">View datasets</a>
+  </div>
+  </section>
+
+  <section class="resource-section resource-split" id="quarto-github" aria-labelledby="workflow-title">
+  <div>
+  <h2 id="workflow-title">Minimal workflow</h2>
+  <p>In STT-1100, reproducible work follows the same logic: open the right project, load packages, import data, write code in a Quarto document, render the document, then save important steps with GitHub when the module asks for it.</p>
+  <div class="resource-actions">
+  <a class="home-action home-action--primary" href="demarrage.html">Review the start page</a>
+  <a class="home-action" href="autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.html">Clone with RStudio</a>
+  </div>
+  </div>
+  <div class="resource-compact-list" aria-label="Work steps">
+  <article class="resource-compact"><h3>Project</h3><p>One folder, one Quarto file, data in the right place and explicit file names.</p></article>
+  <article class="resource-compact"><h3>Report</h3><p>A clear title, readable code blocks and results interpreted in short sentences.</p></article>
+  <article class="resource-compact"><h3>Version</h3><p>Small and understandable commits when the work is ready to save.</p></article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="troubleshooting" aria-labelledby="help-title">
+  <div class="resource-section__header">
+  <h2 id="help-title">Troubleshooting and help</h2>
+  <p>Before asking for help, make the problem observable. This is also what makes the course AI useful.</p>
+  </div>
+  <div class="resource-hub-grid compact-hub">
+  <article class="resource-compact"><h3>Read the error</h3><p>Copy the full message. Identify the function, object or file mentioned.</p></article>
+  <article class="resource-compact"><h3>Reduce</h3><p>Rerun only the block that fails. Check that packages are loaded and data exist.</p></article>
+  <article class="resource-compact"><h3>Compare</h3><p>Compare with a module example, the cheat sheet or the official documentation.</p></article>
+  <article class="resource-compact"><h3>Phrase</h3><p>State the goal, minimal code, error message and expected result.</p></article>
+  </div>
+  <div class="resource-actions">
+  <a class="home-action home-action--primary" href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100" target="_blank" rel="noopener">Open GPT STT-1100</a>
+  <a class="home-action" href="autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.html">Search guide</a>
+  </div>
+  </section>
+</div>
+```

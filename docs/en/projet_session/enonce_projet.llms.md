@@ -1,0 +1,183 @@
+# Session project - Your first assignment as a data scientist
+
+STT-1100 Introduction to Data Science
+
+# Your mission
+
+Choose a dataset, any…
+
+…and do something with it.
+
+This, in a nutshell, is your final project.
+
+# Objective of the project
+
+The final project allows you to demonstrate that you are capable of:
+
+- Ask clear and relevant research questions.
+- Explore and analyze a dataset using the tools learned (RStudio, tidyverse, Quarto).
+- Produce relevant visualizations.
+- Write a reproducible report.
+- Present your results in a clear and structured manner.
+- Collaborate effectively in a GitHub repository.
+
+This project is deliberately open: you have the freedom to choose your data, your angles of analysis, your tools, your methods.
+
+# Dataset
+
+Choose a **manageable** dataset, i.e.:
+
+- At least **50 observations**
+- Between **10 and 20 variables** (exceptions are possible upon approval)
+- Including **continuous numeric**, **discrete** and **categorical** variables
+- Format readable by R (CSV, RDS, etc.)
+
+**Avoid datasets seen in class.**
+
+Some useful resources:
+
+- [Quebec data](https://www.donneesquebec.ca/)
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+- [NHS Scotland Open Data](https://www.opendata.nhs.scot/) - [Edinburgh Open Data](https://edinburghopendata.info/)
+- [Open access to Scotland’s official statistics](https://statistics.gov.scot/home)
+- [Bikeshare data portal](https://www.bikeshare.com/data/) - [UK Gov Data](https://data.gov.uk/)
+- [Kaggle datasets](https://www.kaggle.com/datasets) - [OpenIntro datasets](http://openintrostat.github.io/openintro/)
+- [Awesome public datasets](https://github.com/awesomedata/awesome-public-datasets)
+- [Youth Risk Behavior Surveillance System (YRBSS)](https://chronicdata.cdc.gov/Youth-Risk-Behaviors/DASH-Youth-Risk-Behavior-Surveillance-System-YRBSS/q6p7-56au)
+- [PRISM Data Archive Project](https://www.icpsr.umich.edu/icpsrweb/content/ICPSR/fenway.html)
+- [Harvard Dataverse](https://dataverse.harvard.edu/)
+- [Google Dataset Search](https://datasetsearch.research.google.com/)
+- [Canadian govt open data](https://open.canada.ca/en/open-data)
+- [Github Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
+
+# Project progress
+
+## 1. Proposal
+
+Submit according to the official schedule indicated in MonPortail.
+
+Content:
+
+- **Section 1: Introduction**
+  Present your research questions, your dataset, its provenance, its format, observations and variables.
+
+- **Section 2: Data**
+  Place your data in the `/data` folder, update the `README`, and include a `glimpse()` or `skim()`.
+
+- **Section 3: Analysis plan**
+
+  - Response and explanatory variables
+  - Comparison groups (if applicable)
+  - First graphs or descriptive stats
+  - Methods considered
+  - Expected results
+
+  Note: This is only a plan. In the next few modules you will learn new methods to analyze your dataset.
+
+> Max. 1 page per section (excluding graphics).
+
+### Scale (15 points)
+
+| Criterion                          | Points |
+|------------------------------------|--------|
+| Data                               | 5      |
+| Content of the proposal            | 8      |
+| Code quality, repository structure | 2      |
+
+## 2. Presentation
+
+Make a **presentation of 15 minutes maximum**, where each member speaks. Use `xaringan` to create your slides. The presentation follows the format specified in MonPortail.
+
+**What you must present:**
+
+- Your questions and why they are interesting
+- Your methodological choices
+- Your main results
+- The limits of your approach
+
+> Hidden code (`echo = FALSE`) unless you want to show part of it.
+
+### Scale (50 points)
+
+| Criterion                                            | Points |
+|------------------------------------------------------|--------|
+| Time management                                      | 4      |
+| Clarity of the question and relevance of the data    | 5      |
+| Professionalism and quality of the oral presentation | 5      |
+| Coherence of teamwork                                | 6      |
+| Methodological quality                               | 10     |
+| Creativity and critical thinking                     | 10     |
+| Visual quality of slides                             | 10     |
+
+## 3. Final report (`README`)
+
+Submit according to the official schedule indicated in MonPortail.
+
+Provide an executive summary of your project:
+
+- Data set used
+- Objective and research questions
+- Methodology
+- Key results
+
+> This summary replaces a traditional written report. It must be clear, structured, but concise.
+
+### Scale
+
+| Criterion           | Points |
+|---------------------|--------|
+| Content and clarity | 15     |
+
+# Organization of the GitHub repository
+
+Expected structure:
+
+`/data <- Dataset and data dictionary`
+
+`/proposal <- Project proposal presentation.Rmd`
+
+`<- Presentation (xaringan) presentation.html`
+
+`<- HTML Presentation README.Rmd + .md`
+
+`<- Final summary`
+
+The deposit must be clean, well structured, and reflect a reproducible approach.
+
+# Teamwork
+
+- Mandatory teamwork
+- Fair distribution of work
+- Contribution visible in Git history
+
+You will complete a **peer review** at the end of the project. If a person is deemed inactive (less than 10% contribution), they may receive an adjusted score.
+
+# Final evaluation
+
+| Component                     | Points  |
+|-------------------------------|---------|
+| Proposal                      | 10      |
+| Presentation                  | 50      |
+| Summary (README)              | 15      |
+| Reproducibility, organization | 10      |
+| Peer review                   | 10      |
+| Peer Review                   | 5       |
+| **Total**                     | **100** |
+
+# What we evaluate
+
+- Quality of questions and data
+- Relevance of statistical methods
+- Clarity of writing and graphics
+- Creativity and critical thinking
+- Respect for good practices (ethics, reproducibility, style)
+
+# Practical advice
+
+- Start early, test your data access.
+- Commit often, push regularly.
+- Do not hide your code in the `.qmd`, except in the final presentation.
+- Schedule team meetings.
+- Ask questions!
+
+Happy scientific adventure!

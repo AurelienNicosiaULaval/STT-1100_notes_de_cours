@@ -1,0 +1,175 @@
+---
+title: "Prédiction et biais"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+::: {.module-banner}
+<p class="module-banner-number">Module 09</p>
+<p class="module-banner-subtitle">Construire une première prédiction et discuter les biais possibles.</p>
+:::
+
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Fil principal</span><span class="fact-value">Régression, prédiction et biais</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Données</span><span class="fact-value">Élèves fictifs et écoles primaires</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Défi</span><span class="fact-value">Modèle prédictif avec discussion des biais</span></span>
+:::
+::::
+
+## Produit fini du module
+
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Produit final</p>
+  <h3>Une capsule qui explique une prédiction et ses biais</h3>
+  <p>Le produit fini raconte ce que le modèle apprend, ce qu’il ignore et comment les biais peuvent entrer dans une décision automatisée.</p>
+  </div>
+  <div class="product-visual" aria-label="Aperçu visuel du produit fini">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>capsule prédiction</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>modèle simple</span><span class="mini-bar" style="--bar-width: 74%;"></span></div><div class="mini-bar-row"><span>limites</span><span class="mini-bar" style="--bar-width: 54%;"></span></div><div class="mini-bar-row"><span>biais discutés</span><span class="mini-bar" style="--bar-width: 86%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>modèle simple</span>
+  <span><i class="bi bi-check2"></i>limites</span>
+  <span><i class="bi bi-check2"></i>biais discutés</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
+
+## Objectifs du module
+
+À la fin de ce module, vous devriez être capable de:
+
+-  Ajuster et interpréter un modèle de régression linéaire simple.
+-  Utiliser un modèle de régression linéaire simple pour obtenir des prédictions.
+-  Ajuster et interpréter un modèle de régression linéaire multiple.
+-  Reconnaître et discuter des biais potentiels, notamment ceux liés à la discrimination, dans les données ou les modèles.
+
+## Plan d’apprentissage
+
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="lectures-a-faire">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Lectures à faire</span>
+  <span class="path-preview">Préparer prédiction, validation et biais algorithmiques.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="lectures">Lectures</h3>
+<p>Pour vous préparer, consultez les ressources suivantes :</p>
+<ul>
+<li><p><a href="https://openintro-ims.netlify.app/model-slr">Introduction to Modern Statistics – Chapitre 7 : Linear regression with a single predictor</a></p></li>
+<li><p><a href="https://openintro-ims.netlify.app/model-mlr">Introduction to Modern Statistics – Chapitre 8 : Linear regression with multiple predictors</a></p></li>
+<li><p><a href="https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft">Introduction to Modern Statistics – Chapitre 25 : Inference for linear regression with multiple predictors - section 1</a></p></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="aventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Aventure</span>
+  <span class="path-preview">Construire un modèle simple et lire ses erreurs.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
+  <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="defi">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Défi</span>
+  <span class="path-preview">Expliquer en capsule ce que le modèle apprend et rate.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 class="unnumbered" id="défi-capsule-vidéo">Défi — Capsule vidéo</h3>
+<p>Vous devez réaliser une <strong>capsule vidéo de 180 secondes</strong> dans laquelle vous présentez :</p>
+<ul>
+<li>soit un modèle prédictif construit dans la Mission 1 ;</li>
+<li>soit une analyse critique d’un biais détecté dans la Mission 2.</li>
+</ul>
+<p>La capsule doit inclure :</p>
+<ul>
+<li><p>une introduction claire ;</p></li>
+<li><p>une méthodologie brève ;</p></li>
+<li><p>des résultats visuels (graphiques, tableaux) ;</p></li>
+<li><p>une conclusion avec au moins une recommandation.</p></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercices">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercices</span>
+  <span class="path-preview">Reprendre variables, prédictions et limites du modèle.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
+  <p><span class="step-label">Pourquoi</span> Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.</p>
+  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
+  </div>
+  </details>
+</div>
+```
+
+## Données et outils
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Bases de données</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-eleves-fictifs"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>eleves_fictifs.csv</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-ecoles-primaires-qc"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>ecoles_primaires_qc.csv</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>Packages R</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Révision et prolongement
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finir le module avec l’IA du cours</h3>
+  <p>Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.</p>
+  <ul>
+  <li>Expliquez le produit fini en trois phrases.</li>
+  <li>Collez un extrait de code ou de sortie et demandez un diagnostic.</li>
+  <li>Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.</li>
+  </ul>
+  </div>
+</div>
+```

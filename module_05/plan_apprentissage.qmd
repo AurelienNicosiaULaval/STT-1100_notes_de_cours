@@ -16,10 +16,10 @@ editor: visual
 
 À la fin de ce module, vous devriez être capable de :
 
--   Gérer et analyser des variables temporelles à l'aide de `lubridate`.
--   Étudier la relation entre deux variables à l'aide de graphiques et de statistiques descriptives, notamment à l'aide du coefficient de corrélation.
+-   Gérer et analyser des variables temporelles à l’aide de `lubridate`.
+-   Étudier la relation entre deux variables à l’aide de graphiques et de statistiques descriptives, notamment à l’aide du coefficient de corrélation.
 -   Calculer et interpréter la corrélation entre deux variables numériques.
--   Rédiger un rapport d'analyse exploratoire des données (EDA) mettant en évidence des tendances et des motifs dans les données.
+-   Rédiger un rapport d’analyse exploratoire des données (EDA) mettant en évidence des tendances et des motifs dans les données.
 
 # Lectures
 
@@ -33,7 +33,7 @@ Dans ce module, nous allons explorer les concepts de base de l'analyse explorato
 
 Vous pouvez aussi aller réviser le chapitre suivant:
 
--   [**R for Data Science – Tidy Data**](https://r4ds.hadley.nz/tidy-data.html){target="_blank"}\
+-   [**R for Data Science – Tidy Data**](https://r4ds.hadley.nz/data-tidy.html){target="_blank"}\
     Ce chapitre vous rappelle les principes de la structure des données « tidy » et comment les appliquer avec `tidyr`.\
 
 Dans le libre **IMS**:
@@ -47,7 +47,7 @@ Dans le libre **IMS**:
 
 # Défi — Analyser les retards pour soutenir les décisions
 
-Dans ce défi, vous devez remettre un **rapport professionnel** destiné à votre superviseure, **Dr Sofia Martínez**, afin de répondre aux trois grandes questions stratégiques posées dans l'aventure. Votre rôle est de fournir une analyse claire, appuyée sur des visualisations pertinentes et des interprétations rigoureuses.
+Dans ce défi, vous devez remettre un **rapport professionnel** destiné à votre superviseure, **Dr Sofia Martínez**, afin de répondre aux trois grandes questions stratégiques posées dans l’aventure. Votre rôle est de fournir une analyse claire, appuyée sur des visualisations pertinentes et des interprétations rigoureuses.
 
 ## Ce que vous devez faire
 
@@ -75,25 +75,25 @@ Votre fichier **`rapport.qmd`** doit inclure :
 
 ## Mise en ligne et rendu
 
--   Publiez le rapport sur votre dépôt GitHub dans l'organisation du cours.
+-   Publiez le rapport sur votre dépôt GitHub dans l’organisation du cours.
 -   Assurez-vous que le fichier `.html` est bien généré et lisible.
 -   Faites une dernière relecture pour vérifier la **clarté, la structure et la présentation**.
 
->  Astuce : Mettez-vous dans la peau d'un·e analyste professionnel·le — ce rapport pourrait être présenté au comité exécutif de l'aéroport !
+>   Astuce : Mettez-vous dans la peau d’un·e analyste professionnel·le — ce rapport pourrait être présenté au comité exécutif de l’aéroport !
 
 ------------------------------------------------------------------------
 
-## Grille d'évaluation (10 points)
+## Grille d’évaluation (10 points)
 
 | Critère | Description | Points |
 |--------------------|--------------------------------|--------------------|
 | **Exploration temporelle (`lubridate`)** | Création de variables `date`, `jour_semaine`, `moment_journee` ; bonne utilisation de `lubridate`. | 2 |
-| **Analyse des créneaux horaires** | Pertinence de l'analyse, qualité de la visualisation et interprétation. | 2 |
+| **Analyse des créneaux horaires** | Pertinence de l’analyse, qualité de la visualisation et interprétation. | 2 |
 | **Analyse de la météo** | Choix judicieux des variables météo, test de relation avec les retards, interprétation correcte. | 2 |
 | **Analyse des avions anciens** | Construction de `age_avion`, analyse correcte des retards ou annulations, interprétation pertinente. | 2 |
 | **Structure et présentation du rapport** | Rapport clair, bien structuré, visuellement lisible ; visualisations bien annotées ; code commenté. | 2 |
 
->  **Bonus** possible (max +1) pour une analyse complémentaire originale (ex. : analyse par compagnie ou distance).
+>   **Bonus** possible (max +1) pour une analyse complémentaire originale (ex. : analyse par compagnie ou distance).
 
 # Exercices de consolidation
 
@@ -106,13 +106,13 @@ Quelle est la force de la relation linéaire entre la consommation (mpg) et le p
 ::: {.callout-tip collapse="true"}
 ``` r
 cor(mtcars$mpg, mtcars$wt)
-# ≈ -0.87 → forte corrélation négative : les voitures plus lourdes consomment plus.
+# ≈ -0.87 -> forte corrélation négative : les voitures plus lourdes consomment plus.
 ```
 :::
 
 ## 2. Jeu de données : airquality
 
-Créez un graphique illustrant la relation entre la température (Temp) et le taux d'ozone (Ozone), avec une ligne de tendance.
+Créez un graphique illustrant la relation entre la température (Temp) et le taux d’ozone (Ozone), avec une ligne de tendance.
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -124,7 +124,7 @@ ggplot(airquality, aes(x = Temp, y = Ozone)) +
 
 ## 3. Jeu de données : airquality
 
-Créez une variable date à partir de Month et Day (en supposant l'année 1973), puis ajoutez une colonne indiquant le jour de la semaine.
+Créez une variable date à partir de Month et Day (en supposant l’année 1973), puis ajoutez une colonne indiquant le jour de la semaine.
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -138,7 +138,7 @@ airquality <- airquality %>%
 
 ## 4. Jeu de données : ToothGrowth
 
-Comparez la longueur des dents (len) selon le type de supplément (supp) à l'aide d'un boxplot.
+Comparez la longueur des dents (len) selon le type de supplément (supp) à l’aide d’un boxplot.
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -174,7 +174,7 @@ iris %>%
 
 ## 7. Jeu de données : ChickWeight
 
-Tracez l'évolution du poids (weight) dans le temps (Time) pour un seul poussin (par exemple Chick 1).
+Tracez l’évolution du poids (weight) dans le temps (Time) pour un seul poussin (par exemple Chick 1).
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -185,7 +185,7 @@ ggplot(filter(ChickWeight, Chick == 1), aes(x = Time, y = weight)) +
 
 ## 8. Jeu de données : ChickWeight
 
-Quel est le poids moyen des poussins à la fin de l'expérience (Time = 21) pour chaque type de régime alimentaire (Diet) ?
+Quel est le poids moyen des poussins à la fin de l’expérience (Time = 21) pour chaque type de régime alimentaire (Diet) ?
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -198,7 +198,7 @@ ChickWeight %>%
 
 ## 9. Jeu de données : iris
 
-Visualisez la distribution de Petal.Length à l'aide d'un histogramme avec courbe de densité superposée.
+Visualisez la distribution de Petal.Length à l’aide d’un histogramme avec courbe de densité superposée.
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -221,10 +221,10 @@ mtcars %>%
 
 ## Problème 1 — EDA météo et ozone (jeu de données : airquality)
 
-1.  Visualisez la relation entre la vitesse du vent (`Wind`) et le taux d'ozone (`Ozone`).
+1.  Visualisez la relation entre la vitesse du vent (`Wind`) et le taux d’ozone (`Ozone`).
 2.  Calculez leur corrélation.
 3.  Ajoutez une variable logique `jour_chaud` qui vaut `TRUE` si la température est supérieure à 85°F.
-4.  Comparez les taux d'ozone selon `jour_chaud` avec un boxplot.
+4.  Comparez les taux d’ozone selon `jour_chaud` avec un boxplot.
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -246,7 +246,7 @@ ggplot(airquality, aes(x = jour_chaud, y = Ozone)) +
 
 1.  Est-ce que la variable `Sepal.Length` permet de distinguer les espèces (`Species`) ?
 2.  Affichez un boxplot de `Sepal.Length` par espèce.
-3.  Calculez la moyenne et l'écart-type de `Sepal.Length` par espèce.
+3.  Calculez la moyenne et l’écart-type de `Sepal.Length` par espèce.
 4.  Calculez la corrélation entre `Sepal.Length` et `Petal.Length`.
 5.  Visualisez leur relation avec un nuage de points et une ligne de tendance.
 

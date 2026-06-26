@@ -1,0 +1,134 @@
+# How to find and get help effectively?
+
+STT-1100 — Introduction to Data Science
+
+# Introduction
+
+A good data scientist doesn’t know everything by heart… but knows **where to look** and **how to ask for help** intelligently. This guide will help you learn how to do it effectively and stress-free.
+
+------------------------------------------------------------------------
+
+# The *cheat sheet* of the course
+
+A **summary cheat sheet** is available to support you throughout the course. This *cheat sheet* brings together:
+
+- The main functions and commands in R and tidyverse,
+- Practical examples for RStudio, GitHub and Quarto,
+- Useful reminders for cleaning, visualizing and modeling data.
+
+> You will find it on the MonPortail course site, updated regularly. Feel free to print it out or have it in front of you during your adventures.
+
+------------------------------------------------------------------------
+
+# GPT STT-1100: your personalized assistant
+
+We have designed a **tailor-made GPT wizard for this course**: [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
+
+> He knows the objectives of the course, the modules, the challenges and the libraries used (like `UlavalSSD`). You can ask specific questions related to the course, such as:
+>
+> - *“How to import a `.csv` file with `readr`?”*
+> - *“How to make a graph with `ggplot2` for a numeric variable?”*
+> - *“What are the best practices for writing a reproducible report with Quarto?”*
+
+**Please note:** it does not replace critical thinking! But it is a valuable tool for progressing at your own pace.
+
+------------------------------------------------------------------------
+
+# Where to look for help?
+
+## Integrated help in RStudio
+
+- Type `?function` or `help(function)` in the console.
+- Use RStudio’s **Help** tab to navigate the documentation.
+- Type `example(function)` to get a ready-made example.
+- Also test the `args(function)` function to see the expected arguments.
+
+## Search the web
+
+Billions of answers await you! Here are some tips for properly formulating your research:
+
+> **TIP:**
+>
+> **Formulate your questions like a pro:**
+>
+> - Bad: `it doesn't work with ggplot`
+> - Best: `ggplot2 how to add color by group in scatterplot`
+>
+> **Recommended sites:**
+>
+> - [Stack Overflow](https://stackoverflow.com)
+> - [Posit Community (formerly RStudio Community)](https://community.rstudio.com/)
+> - [GitHub](https://github.com/search?q=your+error+message)
+> - [Google](https://www.google.com) — type “r ggplot histogram group by color”
+
+------------------------------------------------------------------------
+
+# Course Resources
+
+## Recommended books and guides
+
+- [**R for Data Science** (2nd ed.)](https://r4ds.hadley.nz/)
+  - Complete guide to understand everything about tidyverse, scripts, graphics, etc.
+- [**The Tidyverse Style Guide**](https://style.tidyverse.org/)
+  - To write clear, clean and understandable code.
+- [**Introduction to Modern Statistics**](https://openintro-ims.netlify.app/)
+  - A complementary reference that emphasizes visualization, modeling, and modern statistics. This book is also free, clear and perfectly suited to beginners.
+- The **Quarto adventures (.qmd)** are there to help you progress step by step — don’t hesitate to come back to them if you get stuck.
+
+## Translate and understand key concepts
+
+If English slows you down:
+
+- Use [**DeepL**](https://www.deepl.com/translator) to translate explanations or error messages.
+- The **Google Chrome** browser offers **automatic translation of pages**.
+- Do not hesitate to **ask GPT STT-1100 to rephrase or translate** passages.
+
+> The concepts remain the same from one language to another — the important thing is to understand the ideas behind the commands!
+
+------------------------------------------------------------------------
+
+# Ask for help effectively
+
+## Before asking your question
+
+1.  Have you read the entire error message?
+2.  Have you tried searching with keywords?
+3.  Can you isolate the problem in a simple example?
+
+## Ask a good question (to [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), to an assistant or on the forum)
+
+- Be specific: indicate the **minimal** code that causes the error.
+- Copy the **full error message**.
+- Describe what you wanted to do and what is happening.
+
+> **NOTE:**
+>
+> **Example:**
+>
+> > I wanted to filter the data for penguins with a beak longer than 40mm.
+> > Here is the code:
+> > `penguins %>% filter(bill_length_mm > 40)`
+> > But I get the following error:
+> > `object 'bill_length_mm' not found`
+
+------------------------------------------------------------------------
+
+# Don’t get stuck alone!
+
+- **Write to the course forum.**
+- **Work in pairs or small groups**.
+- **Come and ask your question in class or to the assistant**.
+- **Use GPT STT-1100 wisely**, but check what it responds to you.
+
+------------------------------------------------------------------------
+
+# Bonus: reflexes to adopt
+
+Find the information for yourself first
+Document what you learn (personal notes or `.qmd` file)
+Dare to ask questions!
+Learn from your mistakes (and those of others)
+
+------------------------------------------------------------------------
+
+> *The best data scientists are not those who have all the answers… but those who know how to ask the right questions.*

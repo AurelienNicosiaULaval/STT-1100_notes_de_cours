@@ -1,0 +1,24 @@
+# Consolidation Exercises
+
+# Consolidation exercises
+
+These exercises use a **different page** of the Data Québec portal, in order to practice in another context.
+Use the archived version of the IMDb Top 250 Movies page: <https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/>
+
+1.  **Read the HTML page**
+    Use `read_html()` then `html_nodes()` to observe the sections containing the movie titles.
+
+2.  **Extract movie titles**
+    Try `html_nodes(..., ".titleColumn a") %>% html_text()`.
+
+3.  **Extract the years**
+    Use `html_nodes(..., ".titleColumn span")` to extract the years in parentheses.
+
+4.  **Extract notes**
+    Use `html_nodes(..., ".imdbRating strong")` to get the ratings for each movie.
+
+5.  **Build a table**
+    Combine the three vectors (`title`, `year`, `note`) into a `data.frame`.
+
+6.  **Ethical reflection**
+    Check if the IMDb page archive (or IMDb directly) allows scraping by consulting their [robots.txt](https://www.imdb.com/robots.txt).

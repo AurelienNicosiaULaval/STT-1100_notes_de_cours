@@ -2,7 +2,7 @@
 title: "Adventure 9 - Algorithmic prediction and bias"
 subtitle: "STT-1100 Introduction to Data Science"
 author:
-  - institute: "Laval University"
+  - institute: “Laval University”
 editor: visual
 editor_options:
   chunk_output_type: console
@@ -24,7 +24,7 @@ You work as a **junior data scientist** in the quality control and equity depart
 
 Your superior, **Michel Dufour**, deputy director of the department, welcomes you with these words:
 
-> "Welcome to the team!" Our work is crucial: ensuring that every child has equal opportunities to succeed. To do this, we not only need to effectively predict certain indicators, but also understand and avoid biases in our models. »
+>  “Welcome to the team!” Our work is crucial: ensuring that every child has equal opportunities to succeed. To do this, we not only need to effectively predict certain indicators, but also understand and avoid biases in our models. »
 
 ::: callout-note
 **Your contact: Michel Dufour**\
@@ -44,8 +44,8 @@ He will accompany you on this adventure: he will ask key questions and await you
 
 Michel gives you a [data file from the Data Québec portal](https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c). These data contain information on disadvantage on primary schools in Quebec.
 
-::: {.callout-important title=" - Michel explains to you"}
-"I invite you to explore the data. But be careful: the column names are not always intuitive. Start by visiting the documentation page on Data Québec to fully understand their meaning. »
+::: {.callout-important title="Michel explains to you"}
+“I invite you to explore the data. But be careful: the column names are not always intuitive. Start by visiting the documentation page on Data Québec to fully understand their meaning. »
 :::
 
 ## Step 1: Exploration and cleaning
@@ -55,14 +55,14 @@ Michel gives you a [data file from the Data Québec portal](https://www.donneesq
 - Carry out a complete descriptive analysis of this data (refer to modules 2 to 4).
 
 ```{r data-load, eval=FALSE}
-# df_ecoles <- read_csv("ecoles_primaires_qc.csv") # File missing
+df_schools <- read_csv("ecoles_primaires_qc.csv")
 glimpse(df_schools)
 ```
 
 ## Step 2: Regression Model
 
-::: {.callout-important title=" - Michel asks you"}
-"I would like you to build a linear regression model to predict the **IMSE** (Socio-Economic Environment Index), based on two variables: the proportion of low-income students (**SFR**) and the **total number of students** in the school. »
+::: {.callout-important title="Michel asks you"}
+“I would like you to build a linear regression model to predict the **IMSE** (Socio-Economic Environment Index), based on two variables: the proportion of low-income students (**SFR**) and the **total number of students** in the school. »
 :::
 
 ```{r regression, eval=FALSE}
@@ -70,8 +70,8 @@ model <- lm( ... , data = ...)
 summary(model)
 ```
 
-::: {.callout-important title=" - Michel questions you"}
-"Once the model is built, can you explain to me, in simple language, what the two coefficients mean? »
+::: {.callout-important title="Michel questions you"}
+“Once the model is built, can you explain to me, in simple language, what the two coefficients mean? »
 :::
 
 ## Step 3: Targeted Predictions
@@ -82,8 +82,8 @@ You will then use the `predict()` function to generate IMSE predictions from you
 predict(model, newdata = df_schools)
 ```
 
-::: {.callout-important title=" - Michel specifies"}
-"I would like you to use your template to:"
+::: {.callout-important title="Michel specifies"}
+“I would like you to use your template to:”
 
 \- predict the IMSE for the **10 largest schools** (in number of students);
 
@@ -94,10 +94,10 @@ Compare predicted values ​​to actual values. Is your model good?
 
 ## Step 4: Missing School Predictions
 
-::: {.callout-important title=" - Michel adds"}
-"Last thing: in the data, some schools have the variable **Diffusion** set to "NO". These schools do not have a measured IMSE — often because they have fewer than 30 students. »
+::: {.callout-important title="Michel adds"}
+“Last thing: in the data, some schools have the variable **Diffusion** set to “NO”. These schools do not have a measured IMSE — often because they have fewer than 30 students. »
 
-"Can you use your model to **predict the IMSE of all schools with fewer than 30 students**? Next, I would like to know: what do you think about the validity of these predictions? Can we trust it? »
+“Can you use your model to **predict the IMSE of all schools with fewer than 30 students**? Next, I would like to know: what do you think about the validity of these predictions? Can we trust it? »
 :::
 
 ----------------------------------------------------------------------------------

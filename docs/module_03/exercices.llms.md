@@ -1,0 +1,270 @@
+# Exercices de consolidation
+
+# Exercices de consolidation
+
+``` r
+# Charger les librairies nécessaires
+library(tidyverse)
+library(stringr)
+```
+
+------------------------------------------------------------------------
+
+### Exercice 1 – Identifier les variables catégoriques
+
+Voici un petit jeu de données :
+
+``` r
+data <- tibble::tibble(
+  sexe = c("Homme", "Femme", "Femme", "Homme", "Homme"),
+  age = c(25, 32, 29, 40, 23),
+  région = c("Est", "Ouest", "Est", "Nord", "Sud")
+)
+```
+
+> Parmi les trois variables ci-dessus, lesquelles sont catégorielles ?
+
+> **NOTE:**
+>
+> Les variables `sexe` et `région` sont **catégorielles**. `age` est **numérique**.
+
+------------------------------------------------------------------------
+
+### Exercice 2 – Tableau de fréquence
+
+Crée un tableau de fréquence pour la variable `sexe`.
+
+> **TIP:**
+>
+> Utilise `count()` du package `dplyr`.
+
+> **NOTE:**
+>
+> ``` r
+> data %>% count(sexe)
+> ```
+>
+>     # A tibble: 2 × 2
+>       sexe      n
+>       <chr> <int>
+>     1 Femme     2
+>     2 Homme     3
+
+------------------------------------------------------------------------
+
+### Exercice 3 – Proportions
+
+Calcule les pourcentages pour chaque modalité de la variable `région`.
+
+> **TIP:**
+>
+> Ajoute une colonne avec `mutate(n / sum(n))`.
+
+> **NOTE:**
+>
+> ``` r
+> data %>% count(région) %>% mutate(pourcentage = n / sum(n) * 100)
+> ```
+>
+>     # A tibble: 4 × 3
+>       région     n pourcentage
+>       <chr>  <int>       <dbl>
+>     1 Est        2          40
+>     2 Nord       1          20
+>     3 Ouest      1          20
+>     4 Sud        1          20
+
+------------------------------------------------------------------------
+
+### Exercice 4 – Barplot d’une variable catégorielle
+
+Fais un barplot représentant la variable `région`.
+
+> **TIP:**
+>
+> Utilise `geom_bar()` avec `aes(x = région)`.
+
+> **NOTE:**
+>
+> ``` r
+> ggplot(data, aes(x = région)) + geom_bar()
+> ```
+>
+> ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
+
+------------------------------------------------------------------------
+
+### Exercice 5 – Comparaison de deux variables catégorielles
+
+Ajoute une couleur par `sexe` dans le graphique précédent.
+
+> **NOTE:**
+>
+> ``` r
+> ggplot(data, aes(x = région, fill = sexe)) + geom_bar(position = "dodge")
+> ```
+>
+> ![](exercices_files/figure-html/unnamed-chunk-6-1.png)
+
+------------------------------------------------------------------------
+
+### Exercice 6 – Nettoyer une variable catégorielle
+
+Voici une variable catégorielle incohérente :
+
+``` r
+reponses <- c("Oui", "oui", "Non", "non", "OUI", "NON")
+```
+
+Nettoie cette variable pour que toutes les réponses soient en minuscules **et sans doublons**.
+
+> **NOTE:**
+>
+> ``` r
+> unique(str_to_lower(reponses))
+> ```
+>
+>     [1] "oui" "non"
+
+------------------------------------------------------------------------
+
+### Exercice 7 – Tableau croisé
+
+Voici un autre jeu de données :
+
+``` r
+data2 <- tibble(
+  fumeur = c("Oui", "Non", "Non", "Oui", "Oui", "Non", "Non"),
+  sport = c("Oui", "Oui", "Non", "Non", "Oui", "Non", "Non")
+)
+```
+
+Crée un tableau croisé (contingence) entre les deux variables.
+
+> **NOTE:**
+>
+> ``` r
+> data2 %>% count(fumeur, sport) %>% pivot_wider(names_from = sport, values_from = n, values_fill = 0)
+> ```
+>
+>     # A tibble: 2 × 3
+>       fumeur   Non   Oui
+>       <chr>  <int> <int>
+>     1 Non        3     1
+>     2 Oui        1     2
+
+------------------------------------------------------------------------
+
+### Exercice 8 – Pour aller plus loin : Mosaic plot
+
+Utilise le package `ggplot2` (ou `ggmosaic` si disponible) pour représenter visuellement la relation entre `fumeur` et `sport`.
+
+> **NOTE:**
+>
+> ``` r
+> # En regroupant en barres groupées pour une approximation
+> ggplot(data2, aes(x = fumeur, fill = sport)) +
+>   geom_bar(position = "fill") +
+>   ylab("Proportion")
+> ```
+>
+> ![](exercices_files/figure-html/unnamed-chunk-11-1.png)
+
+------------------------------------------------------------------------
+
+## Problèmes
+
+### Exercice 9 – Palmer Penguins
+
+On utilise le jeu de données `penguins` du package `palmerpenguins`.
+
+- Variable catégorielle : `species`, `island`, `sex`
+- Variable numérique : `flipper_length_mm`, `body_mass_g`
+
+Questions : 1. Crée un tableau de fréquence pour `species` 2. Visualise la distribution des espèces par île 3. Compare les sexes pour chaque espèce
+
+> **NOTE:**
+>
+> ``` r
+> library(palmerpenguins)
+> ```
+>
+>
+>     Attaching package: 'palmerpenguins'
+>
+>     The following objects are masked from 'package:datasets':
+>
+>         penguins, penguins_raw
+>
+> ``` r
+> penguins %>% count(species)
+> ```
+>
+>     # A tibble: 3 × 2
+>       species       n
+>       <fct>     <int>
+>     1 Adelie      152
+>     2 Chinstrap    68
+>     3 Gentoo      124
+>
+> ``` r
+> ggplot(penguins, aes(x = island, fill = species)) + geom_bar(position = "dodge")
+> ```
+>
+> ![](exercices_files/figure-html/unnamed-chunk-12-1.png)
+>
+> ``` r
+> ggplot(penguins, aes(x = species, fill = sex)) + geom_bar(position = "fill")
+> ```
+>
+> ![](exercices_files/figure-html/unnamed-chunk-12-2.png)
+
+------------------------------------------------------------------------
+
+### Exercice 10 – Données Titanic
+
+Utilise `titanic::titanic_train`
+
+Variables catégoriques : `Sex`, `Embarked`, `Survived`
+
+Questions : 1. Tableau croisé entre `Sex` et `Survived` 2. Proportion de survie par port d’embarquement (`Embarked`) 3. Représentation graphique croisée `Sex` × `Embarked` × `Survived`
+
+> **NOTE:**
+>
+> ``` r
+> library(titanic)
+> titanic_train <- titanic::titanic_train
+>
+> titanic_train %>% count(Sex, Survived)
+> ```
+>
+>          Sex Survived   n
+>     1 female        0  81
+>     2 female        1 233
+>     3   male        0 468
+>     4   male        1 109
+>
+> ``` r
+> titanic_train %>% count(Embarked, Survived) %>%
+>   group_by(Embarked) %>% mutate(p = n / sum(n))
+> ```
+>
+>     # A tibble: 7 × 4
+>     # Groups:   Embarked [4]
+>       Embarked Survived     n     p
+>       <chr>       <int> <int> <dbl>
+>     1 ""              1     2 1
+>     2 "C"             0    75 0.446
+>     3 "C"             1    93 0.554
+>     4 "Q"             0    47 0.610
+>     5 "Q"             1    30 0.390
+>     6 "S"             0   427 0.663
+>     7 "S"             1   217 0.337
+>
+> ``` r
+> ggplot(titanic_train, aes(x = Embarked, fill = factor(Survived))) +
+>   geom_bar(position = "fill") +
+>   facet_wrap(~Sex)
+> ```
+>
+> ![](exercices_files/figure-html/unnamed-chunk-13-1.png)

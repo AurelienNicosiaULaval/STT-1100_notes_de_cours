@@ -1,0 +1,186 @@
+# Module 1 - Plan d’apprentissage
+
+STT-1100 Introduction à la science des données
+
+# Objectifs du module
+
+À la fin de ce module, vous devriez être capable de
+
+- Utiliser RStudio pour rédiger et exécuter du code R à l’aide de la console et de scripts.
+
+- Installer et charger des libraries.
+
+- Créer et manipuler des objets R, utiliser des conditions, utiliser des fonctions existantes, écrire des fonctions simples.
+
+- Rédiger le code R en suivant les conventions de style du tidyverse.
+
+- Vérifier si un jeu de données est propre.
+
+- Extraire une ligne ou une colonne, ajouter une colonne, filtrer des données en utilisant une ou plusieurs conditions.
+
+- Rédiger un rapport simple dans Quarto, incluant du texte, des blocs de code, des titres de sections.
+
+# Lectures initiales
+
+## Le livre de référence
+
+Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage **R for Data Science** (*2e édition*, par Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund).
+
+> Note: on abrègera souvent par **R4DS**
+
+C’est une **référence incontournable**, accessible gratuitement en ligne et rédigée en **anglais** clair. Vous y trouverez des explications complètes et des exemples concrets pour apprendre à travailler efficacement avec `tidyverse`.
+
+\*\* Astuce\*\* : en cas de doute ou de blocage, consultez le document [Comment rechercher et obtenir de l’aide](../references.llms.md).
+
+------------------------------------------------------------------------
+
+### À lire pour ce module
+
+- [Page d’accueil du livre](https://r4ds.hadley.nz/)
+  *Une vue d’ensemble du livre, de ses auteurs et des thématiques abordées dans chaque partie.*
+
+- [Introduction](https://r4ds.hadley.nz/intro.html)
+  *Pourquoi apprendre R pour la science des données, et comment aborder votre apprentissage dans ce cours.*
+
+- [Workflow: basics](https://r4ds.hadley.nz/workflow-basics.html)
+  *Les premiers pas dans RStudio : l’environnement, les scripts et le comportement interactif de R.*
+
+- [Workflow: scripts](https://r4ds.hadley.nz/workflow-scripts.html)
+  *Pourquoi utiliser des scripts pour rendre votre travail reproductible, clair et bien structuré.*
+
+# Aventure
+
+Ce module est conçu pour vous offrir une introduction complète aux outils et concepts fondamentaux qui vous accompagneront tout au long de votre parcours en science des données.
+
+[Aventure du module 1](../module_01/aventure.llms.md)
+
+# Défi
+
+Dans ce premier défi, afin de vous faire la main avec les différents outils, vous devez créer un rapport Quarto au format HTML.
+
+[Défi du module 1](../module_01/defi.llms.md)
+
+## Lectures additionnelles
+
+### Approfondir les bonnes pratiques
+
+Une fois les bases posées, il est essentiel d’adopter dès le départ des **habitudes de travail claires, reproductibles et cohérentes**. Les ressources ci-dessous vous aideront à améliorer la lisibilité, la structure et l’organisation de votre code.
+
+------------------------------------------------------------------------
+
+### Compléments R4DS
+
+- [Workflow: help](https://r4ds.hadley.nz/workflow-help.html)
+  *Apprendre à poser les bonnes questions, à chercher efficacement dans la documentation et à formuler des demandes d’aide pertinentes.*
+
+- [Quarto formats](https://r4ds.hadley.nz/quarto-formats.html)
+  *Présentation des formats disponibles dans Quarto et comment personnaliser vos rapports, articles ou présentations.*
+
+- [Workflow: style](https://r4ds.hadley.nz/workflow-style.html)
+  *Pourquoi un style de code cohérent est crucial pour la collaboration et comment y parvenir avec le style tidyverse.*
+
+------------------------------------------------------------------------
+
+### Guide de style du tidyverse
+
+- [Chapitre 1: Files](https://style.tidyverse.org/files.html)
+  *Conseils pour organiser vos fichiers, structurer vos projets et nommer vos scripts de façon claire.*
+
+- [Chapitre 2: Syntax](https://style.tidyverse.org/syntax.html)
+  *Règles de syntaxe pour écrire du code lisible, espacement, indentation et conventions de nommage.*
+
+# Exercices de consolidation
+
+Pour mettre en pratique les apprentissages de ce module, vous trouverez ci-dessous une série d’exercices extraits du manuel ou adaptés pour STT-1100.
+
+## Exercice 1 — Pourquoi apprendre R ?
+
+En une ou deux phrases, explique pourquoi apprendre R est utile pour une personne qui souhaite travailler avec des données.
+
+> **TIP:**
+>
+> R est un langage puissant conçu pour la manipulation, l’analyse et la visualisation de données. Il est très utilisé en science des données pour sa richesse en librairies et son intégration avec des outils comme Quarto.
+
+## Exercice 2 — La console vs le script
+
+Dans RStudio, tapez `3 + 4` dans :
+
+1.  la console
+
+2.  un script `.R` que vous exécutez ensuite avec `Ctrl + Enter`
+
+Quelle est la différence entre les deux approches ?
+
+> **TIP:**
+>
+> La console permet d’exécuter du code immédiatement, mais ne garde pas de trace. Le script permet d’écrire et de sauvegarder le code, ce qui est essentiel pour la reproductibilité.
+
+## Exercice 3 — Structure de script
+
+Créez un fichier `analyse.R` contenant les éléments suivants :
+
+- un en-tête avec votre nom et la date
+
+- un chargement de librairie (`tidyverse`)
+
+- une instruction simple (`mean(c(1, 2, 3, 4))`)
+
+> **TIP:**
+>
+> ``` r
+> # Analyse météo — A. Nicosia
+> # Date : 2025-05-19
+>
+> library(tidyverse)
+>
+> mean(c(1, 2, 3, 4))
+> ```
+
+------------------------------------------------------------------------
+
+## Exercice 4 — Trouver de l’aide
+
+Utilisez l’aide intégrée de R pour comprendre comment utiliser la fonction `mean`. Ensuite, expliquez brièvement à quoi sert l’argument `na.rm`.
+
+> **TIP:**
+>
+> On peut taper `?mean` ou `help(mean)` dans R pour obtenir la documentation.
+>
+> L’argument `na.rm` indique s’il faut ignorer les valeurs manquantes (`NA`) dans le calcul de la moyenne (`TRUE` ou `FALSE`).
+
+## Exercice 5 — Réécrire du code avec style
+
+Corrigez le code suivant pour qu’il respecte les bonnes pratiques du style tidyverse :
+
+``` r
+x=mean(c(3,NA,5),na.rm=TRUE)
+```
+
+> **TIP:**
+>
+> ``` r
+> x <- mean(c(3, NA, 5), na.rm = TRUE)
+> ```
+
+------------------------------------------------------------------------
+
+## Exercice 6 — Créer un rapport HTML
+
+Créez un fichier `rapport.qmd` contenant :
+
+- un en-tête YAML avec un titre et un format HTML
+
+- un bloc de code qui affiche la moyenne d’un vecteur
+
+> **TIP:**
+>
+> ``` markdown
+> ---
+> title: "Premier rapport"
+> format: html
+> ---
+>
+> mean(c(1, 2, 3, 4, 5))
+> ```
+>
+> \`\`\`

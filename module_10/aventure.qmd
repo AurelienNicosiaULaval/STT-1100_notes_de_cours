@@ -4,7 +4,7 @@ subtitle: "STT-1100 • Introduction à la science des données"
 format:
   html:
     toc: true
-    toc-title: "Plan de l'aventure"
+    toc-title: "Plan de l’aventure"
     embed-resources: true
     link-external-newwindow: true
     code-link: true
@@ -17,13 +17,13 @@ editor_options:
 
 # Mise en contexte
 
-Cette semaine, vous avez été **engagé·e comme analyste d'affaires junior** par la **Faculté des sciences et de génie de l'Université Laval**. Dans le cadre de la réforme du baccalauréat en statistique et science des données, la direction souhaite évaluer **l'évolution du ressenti étudiant tout au long de la session**.
+Cette semaine, vous avez été **engagé·e comme analyste d'affaires junior** par la **Faculté des sciences et de génie de l'Université Laval**. Dans le cadre de la réforme du baccalauréat en statistique et science des données, la direction souhaite évaluer **l’évolution du ressenti étudiant tout au long de la session**.
 
-Chaque semaine, les étudiant·es ont répondu à un questionnaire sur leur expérience d'apprentissage dans le cours STT-1100. Vos analyses seront essentielles pour documenter les points forts et les pistes d'amélioration du nouveau programme.
+Chaque semaine, les étudiant·es ont répondu à un questionnaire sur leur expérience d’apprentissage dans le cours STT-1100. Vos analyses seront essentielles pour documenter les points forts et les pistes d’amélioration du nouveau programme.
 
 Vous êtes guidé·e par **Anne-Sophie**, la directrice du programme, qui vous accompagne dans la structuration de votre tableau de bord et vous aide à interpréter les résultats.
 
-> "L'idée, c'est d'avoir un portrait honnête, mais constructif. On veut voir les tendances de fond et s'en inspirer pour continuer d'améliorer notre programme."
+>  "L’idée, c’est d’avoir un portrait honnête, mais constructif. On veut voir les tendances de fond et s’en inspirer pour continuer d’améliorer notre programme."
 
 # Mission
 
@@ -32,7 +32,7 @@ Construire un tableau de bord interactif (avec `flexdashboard` et `shiny`) qui p
 -   visualiser les sentiments exprimés par semaine,
 -   identifier les mots les plus fréquents et distinctifs,
 -   explorer les tendances lexicales dans le temps,
--   offrir des filtres dynamiques pour affiner l'analyse.
+-   offrir des filtres dynamiques pour affiner l’analyse.
 
 # Données
 
@@ -42,7 +42,7 @@ Un fichier `sentiments_cours.csv` contient :
 -   `semaine`: numéro de semaine
 -   `commentaire`: texte libre sur leur ressenti face au cours cette semaine
 -   `difficulte`: niveau de difficulté perçu (1 à 5)
--   `engagement`: niveau d'engagement (1 à 5)
+-   `engagement`: niveau d’engagement (1 à 5)
 -   `plaisir`: niveau de plaisir (1 à 5)
 
 # Outils recommandés
@@ -50,21 +50,21 @@ Un fichier `sentiments_cours.csv` contient :
 -   `tidytext`, `stringr`, `dplyr` : nettoyage et analyse du texte
 -   `ggplot2`, `wordcloud`, `plotly` : visualisation
 -   `flexdashboard`, `shiny` : interface interactive
--   `lexique` : `bing`, `afinn`, ou `nrc` (pour l'analyse de sentiment)
+-   `lexique` : `bing`, `afinn`, ou `nrc` (pour l’analyse de sentiment)
 
 # Étapes guidées
 
 ## Étape 1 — Nettoyage de texte
 
-::: {.callout-important title=" - Question d'Anne-Sophie"}
+::: {.callout-important title="Question d’Anne-Sophie"}
 « Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »
 :::
 
-::: {.callout-tip title=" - Petit rappel"}
+::: {.callout-tip title="Petit rappel"}
 Le nettoyage de texte est essentiel avant toute analyse. Tu veux que chaque mot ait un sens pertinent. Essaie de retirer la ponctuation, les mots trop courants, et assure-toi que tout est bien en minuscules.
 :::
 
-::: {.callout-note title=" Notions clés"}
+::: {.callout-note title="Notions clés"}
 -   **Tokenisation** : procédé qui consiste à découper le texte en unités de base (mots, n‑grammes). Chaque token devient une ligne dans votre tableau.
 -   **Stopwords** : mots très fréquents ("le", "de", "et", etc.) qui n'apportent généralement pas d'information sémantique utile pour l'analyse.
 -   **Nettoyage** : mise en minuscules, retrait de la ponctuation, chiffres et caractères spéciaux pour normaliser les tokens.
@@ -81,7 +81,7 @@ exemple <- tibble::tibble(
     "J'ai trouvé le cours très clair cette semaine, bravo au prof !",
     "Je commence à mieux comprendre, c'est motivant !",
     "Trop de matière à assimiler en peu de temps, je me sens dépassé.",
-    "Pas facile cette semaine, j'ai eu du mal avec les graphiques.",
+    "Pas facile cette semaine, j’ai eu du mal avec les graphiques.",
     "Ouf très difficile cette semaine, particulièrement avec les graphiques.",
     "Les outils sont puissants, mais je manque de pratique.",
     "La construction du dashboard est super intéressante."
@@ -110,7 +110,7 @@ texte_nettoye <- exemple %>%
 head(texte_nettoye)
 ```
 
-::: {.callout-important title=" - Question d'Anne-Sophie"}
+::: {.callout-important title="Question d’Anne-Sophie"}
 « Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »
 :::
 
@@ -126,16 +126,16 @@ Anne-Sophie vous demande d'appliquer un nettoyage classique :
 
 On s'intéresse ici à la **valence émotionnelle** des mots dans les commentaires. L'analyse de sentiment permet de quantifier si un texte est plutôt positif ou négatif.
 
-::: {.callout-note title=" Notions clés"}
--   **Sentiment d'un mot** : étiquette (positive, négative) ou score numérique indiquant la valence émotionnelle du mot.
--   **Score de sentiment d'un texte** : somme ou différence des scores/étiquettes des mots qu'il contient, souvent agrégé par document ou, ici, par semaine.
+::: {.callout-note title="Notions clés"}
+-   **Sentiment d’un mot** : étiquette (positive, négative) ou score numérique indiquant la valence émotionnelle du mot.
+-   **Score de sentiment d’un texte** : somme ou différence des scores/étiquettes des mots qu'il contient, souvent agrégé par document ou, ici, par semaine.
 :::
 
 ### Analyse de sentiment en français
 
 Actuellement, il **n'existe pas de lexique intégré à `tidytext::get_sentiments()` pour le français** (contrairement à l'anglais, où les lexiques `bing`, `afinn`, et `nrc` sont directement accessibles). Voici donc une approche pédagogique : créer un petit lexique personnalisé à enrichir en classe.
 
-::: {.callout-important title=" - Suggestion d'Anne-Sophie"}
+::: {.callout-important title="Suggestion d’Anne-Sophie"}
 « Pour cette étape, je vous recommande de construire un petit lexique maison. Vous pouvez commencer par les mots qui reviennent souvent et les classer subjectivement. Le but ici est de comprendre le principe d'une analyse de sentiment, même avec des outils simples. »
 :::
 
@@ -166,27 +166,27 @@ ggplot(sentiment_fr, aes(x = semaine, y = score)) +
        y = "Score net (positif - négatif)", x = "Semaine")
 ```
 
-::: {.callout-note title=" - Conseil d'Anne-Sophie"}
-« Comme les lexiques intégrés à `get_sentiments()` ne sont disponibles qu'en anglais, je vous propose de construire un petit lexique maison pour le français. Ce sera imparfait, mais cela vous permettra de comprendre le principe. On pourra ensuite en discuter ensemble pour l'enrichir. Ce qui m'intéresse, c'est que vous soyez capables d'interpréter l'évolution du sentiment d'une semaine à l'autre, même avec des outils simples. »
+::: {.callout-note title="Conseil d’Anne-Sophie"}
+« Comme les lexiques intégrés à `get_sentiments()` ne sont disponibles qu’en anglais, je vous propose de construire un petit lexique maison pour le français. Ce sera imparfait, mais cela vous permettra de comprendre le principe. On pourra ensuite en discuter ensemble pour l’enrichir. Ce qui m'intéresse, c’est que vous soyez capables d’interpréter l’évolution du sentiment d'une semaine à l’autre, même avec des outils simples. »
 :::
 
 ### Collaboration finale
 
-À la fin du cours, une activité en classe permettra à chaque étudiants/équipes de **partager son propre lexique de sentiments en français** construit durant l'analyse.
+À la fin du cours, une activité en classe permettra à chaque étudiants/équipes de **partager son propre lexique de sentiments en français** construit durant l’analyse.
 
- **L'enseignant collectera et fusionnera ces lexiques**, en les vérifiant pour en retirer une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.
+ **L’enseignant collectera et fusionnera ces lexiques**, en les vérifiant pour en retirer une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.
 
 ## Étape 3 — Mots distinctifs
 
 Dans cette étape, nous allons identifier les mots qui ressortent le plus chaque semaine. Pour cela, nous utiliserons l'approche **TF-IDF** (Term Frequency-Inverse Document Frequency), qui permet de mettre en évidence les mots à la fois fréquents dans un document et rares dans l'ensemble des documents.
 
-::: {.callout-tip title=" - Idée d'Anne-Sophie"}
+::: {.callout-tip title="Idée d’Anne-Sophie"}
 « Un bon indicateur de ce que ressentent les étudiant·es, ce sont les mots qui ressortent le plus dans leurs commentaires. Vous pouvez essayer une analyse TF-IDF ou même créer un nuage de mots. »
 :::
 
-::: {.callout-note title=" Notions clés"}
--   **TF (Term Frequency)** : fréquence d'apparition d'un mot dans un document.
--   **IDF (Inverse Document Frequency)** : importance inverse d'un mot dans l'ensemble des documents – les mots rares ont un IDF élevé.
+::: {.callout-note title="Notions clés"}
+-   **TF (Term Frequency)** : fréquence d’apparition d’un mot dans un document.
+-   **IDF (Inverse Document Frequency)** : importance inverse d’un mot dans l’ensemble des documents – les mots rares ont un IDF élevé.
 -   **TF‑IDF** : produit TF × IDF qui met en évidence les mots à la fois fréquents dans un document et rares dans les autres (mots "distinctifs").
 :::
 
@@ -226,7 +226,7 @@ Une visualisation comme celle-ci permet de voir quels mots sont les plus représ
 
  Pour créer un nuage de mots en français : - Utilisez la fonction `wordcloud()` du package `wordcloud`, ou `ggwordcloud` pour plus de personnalisation. - Inspirez-vous de cet exemple complet : <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
 
-::: {.callout-important title=" - Question d'Anne-Sophie"}
+::: {.callout-important title="Question d’Anne-Sophie"}
 « Peux-tu repérer les mots qui ressortent le plus chaque semaine ? Tu pourrais essayer une approche TF-IDF et me faire un graphique ou même un nuage de mots. »
 :::
 
@@ -234,8 +234,8 @@ Une visualisation comme celle-ci permet de voir quels mots sont les plus représ
 
 Maintenant que nous avons nettoyé les données et effectué les analyses de sentiment et de mots distinctifs, il est temps de créer un tableau de bord interactif. Celui-ci permettra à Anne-Sophie de visualiser les résultats de manière claire et dynamique.
 
-::: {.callout-note title=" - Rappel d'Anne-Sophie"}
-Le tableau de bord final doit être **clair, interactif et utile**. Un **modèle prêt à l'emploi (`modele_dashboard.Rmd`)** se trouve dans le dépôt GitHub du module. Personnalisez‑le : branchez vos propres données, ajustez les filtres, et ajoutez au moins deux visualisations.
+::: {.callout-note title="Rappel d’Anne-Sophie"}
+Le tableau de bord final doit être **clair, interactif et utile**. Un **modèle prêt à l’emploi (`Modele_Dashboardt.Rmd`)** se trouve dans le dépôt GitHub du module. Personnalisez‑le : branchez vos propres données, ajustez les filtres, et ajoutez au moins deux visualisations.
 :::
 
 ## Étape 5 — Recommandations et analyse finale
@@ -244,20 +244,20 @@ Le tableau de bord final doit être **clair, interactif et utile**. Un **modèle
 
 -   évolution du score de sentiment,
 -   semaines critiques,
--   recommandations d'action pour améliorer l'expérience étudiante,
+-   recommandations d’action pour améliorer l’expérience étudiante,
 -   **analyse des variables numériques** `difficulte`, `engagement`, `plaisir` : moyenne et tendance par semaine, comparaison avec le score de sentiment (ex. corrélations simples ou graphiques combinés).
 
-::: {.callout-important title=" - Défi d'Anne-Sophie"}
-« N'oubliez pas d'explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »
+::: {.callout-important title="Défi d’Anne-Sophie"}
+« N’oubliez pas d’explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »
 :::
 
 # Bonus — Personnalisation — Personnalisation
 
 Voici quelques idées pour aller plus loin dans la personnalisation de votre tableau de bord :
 
--   Ajouter le **logo de la Faculté des sciences et de génie** ou de l'Université Laval,
--   Personnaliser la **palette de couleurs** pour qu'elle soit cohérente avec l'identité visuelle ULaval,
--   Ajouter une **photo de fond** discrète dans l'en-tête,
+-   Ajouter le **logo de la Faculté des sciences et de génie** ou de l’Université Laval,
+-   Personnaliser la **palette de couleurs** pour qu’elle soit cohérente avec l’identité visuelle ULaval,
+-   Ajouter une **photo de fond** discrète dans l’en-tête,
 -   Ajouter une citation inspirante ou un message d'accueil dans la barre latérale.
 
  Vous pouvez également intégrer une barre de progression ou un indicateur visuel du sentiment général par semaine.
@@ -270,6 +270,6 @@ Voici quelques idées pour aller plus loin dans la personnalisation de votre tab
     -   le fichier de données nettoyé (si modifié).
 -   **Le tableau de bord doit être déployé (par exemple via Shinyapp.io ou Posit Cloud)** et le lien final envoyé à **Anne-Sophie (la véritable directrice du programme)**.
 
-# Conseils d'Anne-Sophie
+# Conseils d’Anne-Sophie
 
-> « Un bon tableau de bord, c'est comme un bon pitch : **clair, lisible et ciblé**. Mettez-vous à la place de votre utilisateur final. »
+>  « Un bon tableau de bord, c’est comme un bon pitch : **clair, lisible et ciblé**. Mettez-vous à la place de votre utilisateur final. »

@@ -2,7 +2,7 @@
 title: "Adventure 3 - Violations in Montreal restaurants"
 subtitle: "STT-1100 Introduction to Data Science"
 author:
-  - institute: "Laval University"
+  - institute: “Laval University”
 editor: visual
 editor_options:
   chunk_output_type: console
@@ -63,11 +63,11 @@ In this module, you will explore a **dataset** that describes various violations
 
 ----------------------------------------------------------------------------------
 
-# Working on GitHub
+# Working on Github
 
 Before you start analyzing the data, you need to grab the GitHub repository containing the necessary files.
 
-1. Clone the "Adventure-3-IDENTIFIANT_GITHUB" repository, to do this create a new RStudio project and copy paste the HTTPS link of your GitHub repo (see help sheet).
+1. Clone the "Adventure-3-IDENTIFIANT_GITHUB" repository, to do this create a new Rstudio project and copy paste the HTTPS link of your Github repo (see help sheet).
 
  Tip: If you want to come back to this project later, you can open the project directly by double-clicking the `.Rproj` file in your file explorer.
 
@@ -89,11 +89,11 @@ In R, a categorical variable is often represented by:
 
 - Or a simple **character** for character strings.
 
-**In the tidyverse**, we often manipulate character strings via the **stringr** package; for conversion to factor, we can use `as.factor()` or the **forcats** package.
+**In the Tidyverse**, we often manipulate character strings via the **stringr** package; for conversion to factor, we can use `as.factor()` or the **forcats** package.
 
 For module 3, we will focus on categorical variables of type **character**. In Module 4, we will look at the factors in more detail.
 
-Here are examples demonstrating how to use `stringr` (part of the `tidyverse`) to manipulate character variables in a dataset like `listecondamnation`. The examples below target common cases: pattern detection, extraction, replacement, and string cleaning.
+Here are examples demonstrating how to use `stringr` (part of the `Tidyverse`) to manipulate character variables in a dataset like `listecondamnation`. The examples below target common cases: pattern detection, extraction, replacement, and string cleaning.
 
 ## Demonstration
 
@@ -105,9 +105,9 @@ library(tidyverse)
 glimpse(listecondamnation)
 ```
 
-> **Note**: Running `glimpse()` on your data will allow you to identify which columns are in `chr` (character) and which are in `factor` or even in `numeric`.
+>  **Note**: Running `glimpse()` on your data will allow you to identify which columns are in `chr` (character) and which are in `factor` or even in `numeric`.
 
-> **Note 2**: Three columns are in date format, for the moment, we will not take this into account, we will come back to the date format in a module later.
+>  **Note 2**: Three columns are in date format, for the moment, we will not take this into account, we will come back to the date format in a module later.
 
 ::: callout-tip
 #### Exercise
@@ -115,13 +115,13 @@ glimpse(listecondamnation)
 What is the type of the `Fine` variable? Does this seem problematic to you?
 :::
 
-> This information will be relevant for cleaning the `Fine` variable in the following section, so you can document it in the Methodology section of the article.
+>  This information will be relevant for cleaning the `Fine` variable in the following section, so you can document it in the Methodology section of the article.
 
-::: {.callout-important title=" - Question from Alexandre"}
-*"How many offense reports appear in the raw file? »*
+::: {.callout-important title="Question from Alexandre"}
+*“How many offense reports appear in the raw file? »*
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Alexandre"}
+::: {.callout-caution collapse="true" title="Response from Alexandre"}
 **Possible answer**: Use `nrow(listecondemnation)` after import; for example we obtain **1,712** lines.
 
 Alexandre reminds you that `?listecondemnation` gives you the documentation of the dataset.
@@ -151,8 +151,8 @@ You get `TRUE/FALSE` depending on the presence of the word **MONTREAL** in the s
 What is the proportion of the number of addresses containing the word **MONTREAL**?
 :::
 
-::: {.callout-important title=" - Message from Alexandre"}
-**Message from Alexandre**: *"This is a very interesting fact to put in your article!"*
+::: {.callout-important title="Message from Alexandre"}
+**Message from Alexandre**: *“This is a very interesting fact to put in your article!”*
 :::
 
 ### Replacement (`str_replace()` and `str_replace_all()`)
@@ -186,8 +186,8 @@ Here, the patterns are **regular expressions**.
 What is the type of the `Amende_clean` variable? Is this a problem?
 :::
 
-::: {.callout-important title=" - Message from Alexandre"}
-*"Not so easy to have the Fine column in digital!"*
+::: {.callout-important title="Message from Alexandre"}
+*“Not so easy to have the Fine column in digital!”*
 :::
 
 ### Pattern extraction (`str_extract()`)
@@ -215,8 +215,8 @@ All postal codes that start with H2X correspond to addresses in the Ville-Marie 
 How many establishments in the Ville-Marie district have received a commission?
 :::
 
-::: {.callout-important title=" - Message from Alexandre"}
-*"We have always mentioned that less than 1% of establishments in violation in Montreal come from Ville-Marie! Is this really true?"*
+::: {.callout-important title="Message from Alexandre"}
+*“We have always mentioned that less than 1% of establishments in violation in Montreal come from Ville-Marie! Is this really true?”*
 
 A nice addition to your article!
 :::
@@ -251,11 +251,11 @@ listecondamnation <- listecondamnation %>%
 
 1. **Filter Montreal**: Create a new data frame `condamnation_mtl` containing **only** restaurants from Montreal. We will use the postal code here, in fact, all postal codes in Montreal start with the letter H.
 
-> **Hint**: You can use `str_sub()` to extract the first letter (or character) of a character string.
+>  **Hint**: You can use `str_sub()` to extract the first letter (or character) of a character string.
 
 2. **Keyword research**:
 
-- Detect the keyword ("TEMPERATURE") in `SOC_NOM_ARTCL_INFRC`. Create a Boolean variable `est_temp`. This will allow us to see which infractions are related to temperature.
+- Detect the keyword (“TEMPERATURE”) in `SOC_NOM_ARTCL_INFRC`. Create a Boolean variable `est_temp`. This will allow us to see which infractions are related to temperature.
 
 - What is the proportion of violations related to temperature in the subset of Montreal?
 
@@ -268,8 +268,8 @@ listecondamnation <- listecondamnation %>%
 - What is the average fine amount for temperature-related violations?
 :::
 
-::: {.callout-important title=" - Question from Alexandre"}
-*"The `SOC_NOM_ARTCL_INFRC` column gives the classification of the offense. How many different types of violations do we have related to temperature"*
+::: {.callout-important title="Question from Alexandre"}
+*“The `SOC_NOM_ARTCL_INFRC` column gives the classification of the offense. How many different types of violations do we have related to temperature”*
 
 - 1
 
@@ -284,7 +284,7 @@ listecondamnation <- listecondamnation %>%
 - 6
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Alexandre"}
+::: {.callout-caution collapse="true" title="Response from Alexandre"}
 **Possible answer**: Use `unique()` to count the number of offense types. For example, `length(unique(listecondamnation$SOC_NOM_ARTCL_INFRC))` will give you the total number of offense types.
 
 Now we can do the same thing but for offenses related to temperature with `listecondemnation %>% filter(est_temp == TRUE) %>% unique()`
@@ -302,7 +302,7 @@ listecondamnation %>%
 
 Remember to generate your report, commit your changes and push to GitHub to keep track of your work!
 
-::: {.callout-important title=" - Note from Alexandre"}
+::: {.callout-important title="Note from Alexandre"}
 We worked on temperature-related infractions, but there are other types of infractions. Can you find one that worries you? For example, insects, rodents or unsanitary conditions!
 
 I think it could make a nice addition of key results to put in your article
@@ -328,7 +328,7 @@ listecondamnation %>%
   arrange(desc(n))
 ```
 
-> **Tip**: `count()` + `arrange(desc(n))` allows you to sort the categories in order of occurrence.
+>  **Tip**: `count()` + `arrange(desc(n))` allows you to sort the categories in order of occurrence.
 
 ::: callout-tip
 #### Exercise
@@ -337,10 +337,10 @@ listecondamnation %>%
 
 2. **Average fine**: After extracting the numerical value from the `Fine` column from the exercise in the previous section, group by `Type_establishment` and calculate the average of the fine (`mean(Amende_num)`).
 
-3. **Infringements throughout Quebec**: Compare the distribution between "Montreal" (previously filtered) and the rest. Which category of establishments seems most affected?
+3. **Infringements throughout Quebec**: Compare the distribution between “Montreal” (previously filtered) and the rest. Which category of establishments seems most affected?
 :::
 
-::: {.callout-important title=" - Note from Alexandre"}
+::: {.callout-important title="Note from Alexandre"}
 We always thought that Montreal was not the worst place for food offenses regardless of the type of restaurant. Can you prove it with your results?
 :::
 
@@ -354,11 +354,11 @@ table(
 
 ```
 
-::: {.callout-important title=" - Question from Alexandre"}
+::: {.callout-important title="Question from Alexandre"}
 Are there more restaurants that have been fined for `INSECT RODENT EXCREEMENT` or Rest. fast service who were fined for `UNSALUBRITY`?
 :::
 
-::: {.callout-caution collapse="true" title=" Response from Alexandre"}
+::: {.callout-caution collapse="true" title="Response from Alexandre"}
 You can easily find the information by looking for it directly in the crosstab:
 
 ```{r}
@@ -418,7 +418,7 @@ listecondamnation %>%
   )
 ```
 
-> **Idea**: Apply a `coord_flip()` if the names are too long!
+>  **Idea**: Apply a `coord_flip()` if the names are too long!
 
 Let us question **the very nature of the offenses**. Knowing the dominant categories and their distribution across different types of establishments will help formulate a clear message for the general public.
 
@@ -430,8 +430,8 @@ Let us question **the very nature of the offenses**. Knowing the dominant catego
 3. **Good visualization practices**: Add a title, colors, modify the theme or the orientation of the axis for a clearer rendering.
 :::
 
-::: {.callout-important title=" - Note from Alexandre"}
-*"This graphic should speak to the reader in the blink of an eye. Make sure to indicate that 5 categories already cover X% of offenses; This is a strong message for the introduction to your article. »*
+::: {.callout-important title="Note from Alexandre"}
+*“This graphic should speak to the reader in the blink of an eye. Make sure to indicate that 5 categories already cover X% of offenses; This is a strong message for the introduction to your article. »*
 :::
 
 The **amount of fines** is a concrete indicator that often attracts the attention of the public and the media. Comparing these amounts between Montreal and the rest of Quebec, and between types of establishments, will support your conclusion.
@@ -444,8 +444,8 @@ The **amount of fines** is a concrete indicator that often attracts the attentio
 3. **Handling missing data**: What do you do if `Amende` is missing in a subset? Explore some trails.
 :::
 
-::: {.callout-important title=" - Note from Alexandre"}
-*"Remember to cite one or two significant figures in your text: for example, the median fines in Montreal versus outside Montreal. It will make your conclusions more impactful. »*
+::: {.callout-important title="Note from Alexandre"}
+*“Remember to cite one or two significant figures in your text: for example, the median fines in Montreal versus outside Montreal. It will make your conclusions more impactful. »*
 :::
 
 ----------------------------------------------------------------------------------
@@ -480,7 +480,7 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 # ────────────────────────────── ──────────────────────────────
 ```
 
-> **Note**: You must install the `tidygeocoder` package to use this function. You can do this with `install.packages("tidygeocoder")`.
+>  **Note**: You must install the `tidygeocoder` package to use this function. You can do this with `install.packages("tidygeocoder")`.
 
 ::: callout-tip
 #### Exercise – Fines map
@@ -519,7 +519,7 @@ ggplot(carte_pts, aes(lon, lat)) +
 ```
 
 ::: callout-important
-**Advice from Alexandre**: *"A visual is worth a thousand words. Choose a **zoom in on the city center** where the density of fines is highest, and cite a key figure (e.g. $180,000 in fines within a 2km radius). Your article will gain in impact. »*
+**Advice from Alexandre**: *“A visual is worth a thousand words. Choose a **zoom in on the city center** where the density of fines is highest, and cite a key figure (e.g. $180,000 in fines within a 2km radius). Your article will gain in impact. »*
 :::
 
 ----------------------------------------------------------------------------------
@@ -536,13 +536,13 @@ You now have:
 
 ## Next step: write your article
 
-1. **Structure your Quarto article**: catchy hat  context  methodology  key results  recommendations.\
+1. **Structure your Quarto article**: catchy hat -> context -> methodology -> key results -> recommendations.\
 2. **Integrate at least two visuals** among those produced (a category graph and the fines map).\
-3. **Cite two narrative figures** (e.g. "5 categories cover 62% of offenses", "180,000\$ fines within a 2km radius") to captivate the reader.\
+3. **Cite two narrative figures** (e.g. “5 categories cover 62% of offenses”, “180,000\$ fines within a 2km radius”) to captivate the reader.\
 4. **Add a summary quote from Alexander** to humanize your conclusion.
 
-> **Expected deliverable**: a standalone HTML file exported from your `.qmd`, committed to your GitHub repository before the deadline.
+>  **Expected deliverable**: a standalone HTML file exported from your `.qmd`, committed to your GitHub repository before the deadline.
 
 Happy writing! Let the data speak and put yourself in the shoes of the journalist who informs, nuances and proposes.
 
->  **Congratulations**! You have practiced the concepts of categorical variables, descriptive statistics, and visualization for real categorical data. Continue like this, the next module awaits you.
+>   **Congratulations**! You have practiced the concepts of categorical variables, descriptive statistics, and visualization for real categorical data. Continue like this, the next module awaits you.

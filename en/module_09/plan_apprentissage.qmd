@@ -75,7 +75,7 @@ Trace the relationship between `body_mass_g` and `flipper_length_mm`. Does a lin
 
 <details>
 
-<summary> Solution</summary>
+<summary>Solution</summary>
 
 Use `ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = "lm")`. The relationship is clearly linear.
 
@@ -87,7 +87,7 @@ Fit a `body_mass_g~flipper_length_mm` model. Interpret the slope.
 
 <details>
 
-<summary> Solution</summary>
+<summary>Solution</summary>
 
 Each additional mm of fin length is associated with an average increase of X grams of body mass (see exact value in the model).
 
@@ -99,7 +99,7 @@ Now adjust `body_mass_g ~ flipper_length_mm + sex`. What is the reference variab
 
 <details>
 
-<summary> Solution</summary>
+<summary>Solution</summary>
 
 R uses the first alphabetical modality as a reference (here probably "female"). The `sexmale` coefficient represents the average difference in mass between males and females, at equal length.
 
@@ -111,7 +111,7 @@ Predict the body mass for a penguin with 200 mm fin length, male.
 
 <details>
 
-<summary> Solution</summary>
+<summary>Solution</summary>
 
 Create a table `newdata <- tibble(flipper_length_mm = 200, sex = "male")` then do `predict(model, newdata)`.
 
@@ -123,7 +123,7 @@ Is the `species` variable relevant to include? What precaution should you take i
 
 <details>
 
-<summary> Solution</summary>
+<summary>Solution</summary>
 
 Yes, `species` is highly correlated with mass. Attention should be paid to multicollinearity if it is strongly related to other predictors.
 

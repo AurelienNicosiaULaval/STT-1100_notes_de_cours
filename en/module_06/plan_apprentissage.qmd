@@ -28,7 +28,7 @@ In this module, we'll explore the basic concepts of collaboration and reproducib
 - [GitHub Docs – Hello World](https://docs.github.com/en/get-started/quickstart/hello-world) First complete project: repository, branch, pull request then merge.
 - [GitHub Docs – About pull requests](https://docs.github.com/en/pull-requests) Learn everything about code review, comments and conflict resolution.
 - [Quarto Docs – Inline Code](https://quarto.org/docs/computations/inline-code.html) Insert R code directly into text to dynamically display values.
-- [What is DataOps? (DataKitchen)](https://datakitchen.io/what-is-dataops/) DataOps fundamentals: automation, quality, and collaboration. :contentReference[oaicite:0]{index="0"}\
+- [What is DataOps? (DataKitchen)](https://datakitchen.io/what-is-dataops/) DataOps fundamentals: automation, quality, and collaboration.\
 - [R for Data Science (2nd ed.) – Chapter 26: Joins](https://r4ds.hadley.nz/joins.html) Learn to combine data from different sources with `dplyr`.
 
 # Adventure
@@ -37,7 +37,7 @@ In this module, we'll explore the basic concepts of collaboration and reproducib
 
 # Challenge — Cross-review of logbooks {.unnumbered}
 
-> Each team must **share their logbook** with another team and provide **constructive feedback**. This step simulates the peer review process and reinforces critical communication skills.
+>  Each team must **share their logbook** with another team and provide **constructive feedback**. This step simulates the peer review process and reinforces critical communication skills.
 
 ## Steps to take
 
@@ -58,8 +58,8 @@ In this module, we'll explore the basic concepts of collaboration and reproducib
 
     - Comments must contain:
 
-        - A positive aspect statement ("what is successful")
-        - A specific suggestion for improvement ("what could be clarified")
+        - A positive aspect statement (“what is successful”)
+        - A specific suggestion for improvement (“what could be clarified”)
 
 4. **Acknowledgement of receipt & review**:
 
@@ -82,11 +82,11 @@ In this module, we'll explore the basic concepts of collaboration and reproducib
 
 ----------------------------------------------------------------------------------
 
->  **Tip**: focus on actionable feedback (e.g. proposing a more descriptive title, adding an additional graphic, specifying a YAML parameter) rather than generic comments.
+>   **Tip**: focus on actionable feedback (e.g. proposing a more descriptive title, adding an additional graphic, specifying a YAML parameter) rather than generic comments.
 
 # Consolidation exercises {.unnumbered}
 
-> **General objective – Master the different `dplyr` joins (`inner_join()`, `left_join()`, `right_join()`, `full_join()`, `semi_join()`, `anti_join()`) on various datasets.**
+>  **General objective – Master the different `dplyr` joins (`inner_join()`, `left_join()`, `right_join()`, `full_join()`, `semi_join()`, `anti_join()`) on various datasets.**
 
 ----------------------------------------------------------------------------------
 
@@ -139,7 +139,7 @@ library(dplyr)
 
 species_class <- tibble::tribble(
   ~species, ~classification,
-  "Human", "mammal",
+  “Human”, “mammal”,
   "Droid", "artificial",
   "Gungan", "amphibian",
   "Wookiee", "mammal"
@@ -159,7 +159,7 @@ starwars_cls <- starwars |>
 *Datasets:* `Lahman::People`, `Lahman::Batting` (package **Lahman**).
 
 1. Obtain the list of players born in *Canada* (`birthCountry`).
-2. Calculate their batting average (`H/AB`) by merging People ↔ Batting on `playerID`.
+2. Calculate their batting average (`H/AB`) by merging People <-> Batting on `playerID`.
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -182,7 +182,7 @@ can_stats <- can_players |>
 
 ## 5. First names & First letter
 
-*Dataset:* `babynames::babynames` (package **babynames**). Creates an `alphabet` tibble with the first letter (`initial`) and its category ("A‑M", "N‑Z"). Adds the category to `babynames`, then counts births by category in 2010.
+*Dataset:* `babynames::babynames` (package **babynames**). Creates an `alphabet` tibble with the first letter (`initial`) and its category (“A‑M”, “N‑Z”). Adds the category to `babynames`, then counts births by category in 2010.
 
 ::: {.callout-tip collapse="true"}
 ``` r
@@ -280,7 +280,7 @@ oscars <- tibble::tribble(
   "The Hurt Locker", 2010,
   "Argo", 2013,
   "Parasite", 2020,
-  "Nomadland", 2021
+  “Nomadland”, 2021
 )
 
 movies_oscar <- full_join(

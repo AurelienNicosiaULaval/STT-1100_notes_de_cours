@@ -1,0 +1,288 @@
+---
+title: "Categories in all their forms"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+::: {.module-banner}
+<p class="module-banner-number">Module 03</p>
+<p class="module-banner-subtitle">Understand, recode and visualize categorical variables.</p>
+:::
+
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Main thread</span><span class="fact-value">Categories, strings and charts</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Data</span><span class="fact-value">Penguins, Titanic and categories</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Challenge</span><span class="fact-value">Documented recoding and interpreted chart</span></span>
+:::
+::::
+
+## Finished Product
+
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Final product</p>
+  <h3>A categorical variable ready for analysis</h3>
+  <p>The module produces documented recoding, a check of levels and a chart that respects the categorical structure.</p>
+  </div>
+  <div class="product-visual" aria-label="Visual preview of the finished product">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>categories</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>levels checked</span><span class="mini-bar" style="--bar-width: 52%;"></span></div><div class="mini-bar-row"><span>recoding justified</span><span class="mini-bar" style="--bar-width: 76%;"></span></div><div class="mini-bar-row"><span>chart interpreted</span><span class="mini-bar" style="--bar-width: 91%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>levels checked</span>
+  <span><i class="bi bi-check2"></i>recoding justified</span>
+  <span><i class="bi bi-check2"></i>chart interpreted</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
+
+## Module Objectives
+
+At the end of this module, you should be able to
+
+- Handle character strings with `stringr`.
+- Recognize patterns with regular expressions.
+- Use regular expressions to select, manipulate and modify character strings.
+- Calculate and interpret descriptive statistics for categorical variables (frequency tables, proportions, including by groups, cross-tabulation).
+- Produce and interpret visualizations of categorical variables with `ggplot2` (bar, stacked bar, standardized stacked bar, grouped stacked bar, mosaic, pie and waffle plots).
+
+## Learning Plan
+
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="readings">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Readings</span>
+  <span class="path-preview">Review categories, factors and suitable representations.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="initial-readings">Initial readings</h3>
+<h4 id="readings-to-do-before-the-adventure">Readings to do before the adventure</h4>
+<p>In this module, we will explore <strong>categorical</strong> variables and <strong>visualization adapted</strong> to this type of data. Two readings are suggested to prepare you:</p>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/strings.html" target="_blank"><strong>R for Data Science – Strings</strong></a><br />
+This chapter introduces you to the manipulation of character strings with the <code>stringr</code> package.<br />
+&gt; <strong>Note</strong>: Although this chapter is most widely used in module 4, some useful functions like <code>str_detect()</code> or <code>str_to_lower()</code> can already help you clean or prepare categorical variables.</p></li>
+<li><p><a href="https://openintro-ims.netlify.app/explore-categorical" target="_blank"><strong>Introduction to Modern Statistics – Chapter 6: Explore categorical data</strong></a><br />
+This chapter of <strong>IMS</strong> introduces statistical concepts associated with categorical data. We talk in particular about frequency tables, proportions and ways to visually represent this type of variable.</p></li>
+</ul>
+<p>Take the time to browse these two resources. They will be useful for you to understand how to process <strong>qualitative data</strong>, both from a <strong>statistical</strong> and <strong>practical</strong> point of view.</p>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="adventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Adventure</span>
+  <span class="path-preview">Recode levels and compare groups without distorting them.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
+  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="challenge">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Challenge</span>
+  <span class="path-preview">Document a recoding and defend the chart choice.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="challenge">Challenge</h3>
+<p>At the end of this module, <strong>you will take on the role of data journalist</strong> for <em>Le Courrier Gourmand</em>.<br />
+Your mission:</p>
+<ol type="1">
+<li><strong>Explore and clean</strong> the <code>listecondemnation</code> game (food offenses in Quebec).<br />
+</li>
+<li><strong>Extract key facts</strong> (top offenses, fine amounts, Montreal/non-Montreal comparison).<br />
+</li>
+<li><strong>Illustrate your analyses</strong> with at least <strong>two visuals</strong> (a category graph + the fines map).<br />
+</li>
+<li><strong>Write a Quarto article (HTML)</strong> clear and eye-catching: hat -&gt; context -&gt; methodology -&gt; results -&gt; recommendations.<br />
+</li>
+<li><strong>Cite two narrative figures</strong> and <strong>integrate a short quote from Alexander</strong> to humanize the conclusion.</li>
+</ol>
+<blockquote>
+<p><strong>To be submitted</strong>: the <code>.qmd</code> file and the generated HTML, delivered via your GitHub repository before the deadline.</p>
+</blockquote>
+<h4 id="evaluation-grid">Evaluation grid</h4>
+<p>Your article will be evaluated according to the following criteria. Make sure you follow the template provided and the instructions given.</p>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Excellent (3)</th>
+<th>Satisfactory (2)</th>
+<th>To improve (1)</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>** Introductory hat**</td>
+<td>Punchy hook, clear angle, well-chosen key figures</td>
+<td>Present but not very engaging or unclear</td>
+<td>Absent or very vague</td>
+<td></td>
+</tr>
+<tr>
+<td>** Context &amp; presentation of data**</td>
+<td>Well identified source, relevance explained, limitations mentioned</td>
+<td>Partial context or summary explanation</td>
+<td>Source absent or not justified</td>
+<td></td>
+</tr>
+<tr>
+<td>** Methodology (section without code)**</td>
+<td>Well summarized, clear and logical approach</td>
+<td>Present but confusing or too technical</td>
+<td>Absent or very unclear</td>
+<td></td>
+</tr>
+<tr>
+<td>** Key result #1 (graph + interpretation)**</td>
+<td>Clear visual, good interpretation, obvious analytical contribution</td>
+<td>Visual or in-depth commentary</td>
+<td>Visual or analysis absent</td>
+<td></td>
+</tr>
+<tr>
+<td>** Key result #2 (graph + interpretation)**</td>
+<td>Relevant visual, well-formulated insight</td>
+<td>Correct visual but weak analysis</td>
+<td>Result little exploited or missing</td>
+<td></td>
+</tr>
+<tr>
+<td>** Key result #3 (graph + interpretation)**</td>
+<td>Original or complementary result, well explained</td>
+<td>Present but underdeveloped</td>
+<td>Lacking or superficial</td>
+<td></td>
+</tr>
+<tr>
+<td>** Discussion (section 4)**</td>
+<td>Critical reflection, putting results into perspective</td>
+<td>Partial or descriptive discussion</td>
+<td>Discussion absent or without added value</td>
+<td></td>
+</tr>
+<tr>
+<td>** Conclusion &amp; recommendations**</td>
+<td>Clear, useful, well-formulated action messages</td>
+<td>Messages present but not convincing</td>
+<td>Unclear or off-topic</td>
+<td></td>
+</tr>
+<tr>
+<td>** Narrative figures + quote from Alexandre**</td>
+<td>Two well-chosen figures + well-integrated quote</td>
+<td>One of the elements present only</td>
+<td>None or poorly integrated</td>
+<td></td>
+</tr>
+<tr>
+<td>** Render quality (Quarto + GitHub repository)**</td>
+<td><code>.qmd</code> functional, readable HTML, clean and complete repository</td>
+<td>Some technical problems or disorganized filing</td>
+<td>Unable to execute or rendered partial/absent</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Total out of 30 points</strong>: <code>XX / 30</code></p>
+<blockquote>
+<p><em>Don’t forget to reread the checklist at the end of the template before publishing your article.</em></p>
+</blockquote>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercises">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercises</span>
+  <span class="path-preview">Stabilize frequency tables, factors and groupings.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercises</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Resource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Exercises page</a></p>
+  <p><span class="step-label">Why</span> Exercises stay on a separate page because they take more space.</p>
+  <div class="ae-box"><p class="ae-title">Redo at least one passage without looking at the solution immediately.</p></div>
+  </div>
+  </details>
+</div>
+```
+
+## Data and Tools
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Datasets</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-penguins-raw"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>palmerpenguins::penguins_raw</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-titanic-train"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>titanic::titanic_train</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>R packages</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#titanic"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>titanic</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tidygeocoder"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidygeocoder</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#viridis"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>viridis</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#scales"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>scales</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Review and Extension
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finish the module with the course AI assistant</h3>
+  <p>Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.</p>
+  <ul>
+  <li>Explain the finished product in three sentences.</li>
+  <li>Paste a code or output excerpt and ask for a diagnosis.</li>
+  <li>Ask for a more ambitious variant, then choose what remains reasonable.</li>
+  </ul>
+  </div>
+</div>
+```

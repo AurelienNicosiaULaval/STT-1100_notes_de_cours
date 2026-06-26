@@ -1,0 +1,226 @@
+---
+title: "Exercices de consolidation"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+# Exercices de consolidation
+
+```{r warning=FALSE, message=FALSE}
+# Charger les librairies nécessaires
+library(tidyverse)
+library(stringr)
+```
+
+------------------------------------------------------------------------
+
+### Exercice 1 – Identifier les variables catégoriques
+
+Voici un petit jeu de données :
+
+```{r}
+data <- tibble::tibble(
+  sexe = c("Homme", "Femme", "Femme", "Homme", "Homme"),
+  age = c(25, 32, 29, 40, 23),
+  région = c("Est", "Ouest", "Est", "Nord", "Sud")
+)
+```
+
+>  Parmi les trois variables ci-dessus, lesquelles sont catégorielles ?
+
+::: {.callout-note collapse="true"}
+### Réponse
+
+Les variables `sexe` et `région` sont **catégorielles**. `age` est **numérique**.
+:::
+
+------------------------------------------------------------------------
+
+### Exercice 2 – Tableau de fréquence
+
+Crée un tableau de fréquence pour la variable `sexe`.
+
+::: {.callout-tip collapse="true"}
+### Piste
+
+Utilise `count()` du package `dplyr`.
+:::
+
+::: {.callout-note collapse="true"}
+### Solution
+
+```{r}
+data %>% count(sexe)
+```
+:::
+
+------------------------------------------------------------------------
+
+### Exercice 3 – Proportions
+
+Calcule les pourcentages pour chaque modalité de la variable `région`.
+
+::: {.callout-tip collapse="true"}
+### Piste
+
+Ajoute une colonne avec `mutate(n / sum(n))`.
+:::
+
+::: {.callout-note collapse="true"}
+### Solution
+
+```{r}
+data %>% count(région) %>% mutate(pourcentage = n / sum(n) * 100)
+```
+:::
+
+------------------------------------------------------------------------
+
+### Exercice 4 – Barplot d'une variable catégorielle
+
+Fais un barplot représentant la variable `région`.
+
+::: {.callout-tip collapse="true"}
+### Piste
+
+Utilise `geom_bar()` avec `aes(x = région)`.
+:::
+
+::: {.callout-note collapse="true"}
+### Solution
+
+```{r}
+ggplot(data, aes(x = région)) + geom_bar()
+```
+:::
+
+------------------------------------------------------------------------
+
+### Exercice 5 – Comparaison de deux variables catégorielles
+
+Ajoute une couleur par `sexe` dans le graphique précédent.
+
+::: {.callout-note collapse="true"}
+### Solution
+
+```{r}
+ggplot(data, aes(x = région, fill = sexe)) + geom_bar(position = "dodge")
+```
+:::
+
+------------------------------------------------------------------------
+
+### Exercice 6 – Nettoyer une variable catégorielle
+
+Voici une variable catégorielle incohérente :
+
+```{r}
+reponses <- c("Oui", "oui", "Non", "non", "OUI", "NON")
+```
+
+Nettoie cette variable pour que toutes les réponses soient en minuscules **et sans doublons**.
+
+::: {.callout-note collapse="true"}
+### Solution
+
+```{r}
+unique(str_to_lower(reponses))
+```
+:::
+
+------------------------------------------------------------------------
+
+### Exercice 7 – Tableau croisé
+
+Voici un autre jeu de données :
+
+```{r}
+data2 <- tibble(
+  fumeur = c("Oui", "Non", "Non", "Oui", "Oui", "Non", "Non"),
+  sport = c("Oui", "Oui", "Non", "Non", "Oui", "Non", "Non")
+)
+```
+
+Crée un tableau croisé (contingence) entre les deux variables.
+
+::: {.callout-note collapse="true"}
+### Solution
+
+```{r}
+data2 %>% count(fumeur, sport) %>% pivot_wider(names_from = sport, values_from = n, values_fill = 0)
+```
+:::
+
+------------------------------------------------------------------------
+
+### Exercice 8 – Pour aller plus loin : Mosaic plot
+
+Utilise le package `ggplot2` (ou `ggmosaic` si disponible) pour représenter visuellement la relation entre `fumeur` et `sport`.
+
+::: {.callout-note collapse="true"}
+### Solution avec ggplot2
+
+```{r}
+# En regroupant en barres groupées pour une approximation
+ggplot(data2, aes(x = fumeur, fill = sport)) +
+  geom_bar(position = "fill") +
+  ylab("Proportion")
+```
+:::
+
+------------------------------------------------------------------------
+
+## Problèmes
+
+### Exercice 9 – Palmer Penguins
+
+On utilise le jeu de données `penguins` du package `palmerpenguins`.
+
+-   Variable catégorielle : `species`, `island`, `sex`
+-   Variable numérique : `flipper_length_mm`, `body_mass_g`
+
+Questions : 1. Crée un tableau de fréquence pour `species` 2. Visualise la distribution des espèces par île 3. Compare les sexes pour chaque espèce
+
+::: {.callout-note collapse="true"}
+### Solution
+
+```{r}
+library(palmerpenguins)
+
+penguins %>% count(species)
+
+ggplot(penguins, aes(x = island, fill = species)) + geom_bar(position = "dodge")
+
+ggplot(penguins, aes(x = species, fill = sex)) + geom_bar(position = "fill")
+```
+:::
+
+------------------------------------------------------------------------
+
+### Exercice 10 – Données Titanic
+
+Utilise `titanic::titanic_train`
+
+Variables catégoriques : `Sex`, `Embarked`, `Survived`
+
+Questions : 1. Tableau croisé entre `Sex` et `Survived` 2. Proportion de survie par port d’embarquement (`Embarked`) 3. Représentation graphique croisée `Sex` × `Embarked` × `Survived`
+
+::: {.callout-note collapse="true"}
+### Solution
+
+```{r}
+library(titanic)
+titanic_train <- titanic::titanic_train
+
+titanic_train %>% count(Sex, Survived)
+
+titanic_train %>% count(Embarked, Survived) %>%
+  group_by(Embarked) %>% mutate(p = n / sum(n))
+
+ggplot(titanic_train, aes(x = Embarked, fill = factor(Survived))) +
+  geom_bar(position = "fill") +
+  facet_wrap(~Sex)
+```
+:::

@@ -1,0 +1,190 @@
+---
+title: "Factors and data cleaning"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+::: {.module-banner}
+<p class="module-banner-number">Module 04</p>
+<p class="module-banner-subtitle">Clean real data and prepare variables that can be used in analysis.</p>
+:::
+
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Main thread</span><span class="fact-value">Import, cleaning and lists</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Data</span><span class="fact-value">CSV, Excel, JSON and nested data</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Challenge</span><span class="fact-value">Cleaned and documented dataset</span></span>
+:::
+::::
+
+## Finished Product
+
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Final product</p>
+  <h3>A cleaned and documented table</h3>
+  <p>The chapter leads to a usable version of a real file, with cleaning choices explained and inconsistencies made visible.</p>
+  </div>
+  <div class="product-visual" aria-label="Visual preview of the finished product">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>clean data</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>types corrected</span><span class="mini-bar" style="--bar-width: 44%;"></span></div><div class="mini-bar-row"><span>factors recoded</span><span class="mini-bar" style="--bar-width: 86%;"></span></div><div class="mini-bar-row"><span>list explored</span><span class="mini-bar" style="--bar-width: 67%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>types corrected</span>
+  <span><i class="bi bi-check2"></i>factors recoded</span>
+  <span><i class="bi bi-check2"></i>list explored</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
+
+## Module Objectives
+
+At the end of this module, you should be able to
+
+- Import data from different formats (`txt`, `csv`, `excel`, `json`).
+- Clean and recode data to ensure its quality.
+- Use the `forcats` and `stringr` libraries to manipulate factors and character strings.
+- Create and use lists.
+
+## Learning Plan
+
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="readings">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Readings</span>
+  <span class="path-preview">Prepare import, cleaning, strings, factors and lists.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="initial-readings">Initial readings</h3>
+<h4 id="readings-to-do-before-the-adventure">Readings to do before the adventure</h4>
+<p>In this module, we will explore the basic concepts of data import and data cleansing. Here is some initial reading to prepare you:</p>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/data-import.html" target="_blank"><strong>R for Data Science – Data import</strong></a><br />
+This chapter introduces you to importing data with the <code>readr</code> package.<br />
+</p></li>
+<li><p><a href="https://r4ds.hadley.nz/data-tidy.html" target="_blank"><strong>R for Data Science – Data tidying</strong></a><br />
+This chapter introduces you to data manipulation with the <code>dplyr</code> package.<br />
+</p></li>
+<li><p><a href="https://r4ds.hadley.nz/factors.html" target="_blank"><strong>R for Data Science – Factors</strong></a><br />
+This chapter introduces you to <strong>factors</strong> in R, which are categorical variables.<br />
+&gt; <strong>Note</strong>: Although this chapter is more widely used in module 4, some useful functions like <code>factor()</code> or <code>fct_reorder()</code> can already help you manipulate categorical variables (module 3).</p></li>
+<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank"><strong>R for Data Science – Import spreadsheets</strong></a><br />
+This chapter introduces you to importing data from Excel files.<br />
+</p></li>
+<li><p><a href="https://r4ds.hadley.nz/rectangling.html#lists" target="_blank"><strong>R for Data Science – Lists</strong></a><br />
+This section introduces you to the concept of lists in programming.<br />
+</p></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="adventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Adventure</span>
+  <span class="path-preview">Diagnose a real file and correct fragile variables.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
+  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="challenge">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Challenge</span>
+  <span class="path-preview">Deliver a cleaned table with justified transformations.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="challenge">Challenge</h3>
+<p>At the end of the adventure, you should be able to have placed the following elements in your Github folder:</p>
+<ul>
+<li><p>the <code>.qmd</code> script for your adventure, that is to say a document where you do your tests and build your cleaning_journal list;</p></li>
+<li><p>the <code>journal_nettoyage</code> list in a <code>.Rdata</code> object;</p></li>
+<li><p>the cleaned database in <code>.csv.</code> format</p></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercises">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercises</span>
+  <span class="path-preview">Redo imports, recoding and quality checks.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercises</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Resource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Exercises page</a></p>
+  <p><span class="step-label">Why</span> Exercises stay on a separate page because they take more space.</p>
+  <div class="ae-box"><p class="ae-title">Redo at least one passage without looking at the solution immediately.</p></div>
+  </div>
+  </details>
+</div>
+```
+
+## Data and Tools
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Datasets</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-practical-dataset"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>practical_dataset.csv</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-policies-module-04"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>policies.csv</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-quotes-module-04"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>quotes_2024.xlsx</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>R packages</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#readr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#readxl"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readxl</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#jsonlite"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>jsonlite</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#janitor"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>janitor</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#forcats"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>forcats</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#messy"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>messy</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Review and Extension
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finish the module with the course AI assistant</h3>
+  <p>Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.</p>
+  <ul>
+  <li>Explain the finished product in three sentences.</li>
+  <li>Paste a code or output excerpt and ask for a diagnosis.</li>
+  <li>Ask for a more ambitious variant, then choose what remains reasonable.</li>
+  </ul>
+  </div>
+</div>
+```

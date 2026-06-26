@@ -1,0 +1,160 @@
+---
+title: "R Packages"
+format:
+  html:
+    toc: false
+    embed-resources: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<div class="resource-page package-catalog-page">
+  <section class="resource-hero" aria-labelledby="packages-title">
+  <div>
+  <p class="eyebrow">R library</p>
+  <h1 id="packages-title">Packages used in the course</h1>
+  <p>This page gathers the R packages used or mentioned in the notes, exercises, adventures and scripts. It explains what each package is for and where it appears in the modules.</p>
+  <div class="resource-actions" aria-label="Quick links">
+  <a class="home-action home-action--primary" href="#by-module">By module</a>
+  <a class="home-action" href="#package-library">Library</a>
+  <a class="home-action" href="donnees.html">Datasets</a>
+  </div>
+  </div>
+  <div class="resource-panel" aria-label="Package landmarks">
+  <div><span>01</span><p>Import and clean</p></div>
+  <div><span>02</span><p>Transform and join</p></div>
+  <div><span>03</span><p>Visualize and communicate</p></div>
+  <div><span>04</span><p>Text, web and dashboards</p></div>
+  </div>
+  </section>
+</div>
+```
+
+```{r}
+#| label: setup-packages
+#| include: false
+
+library(dplyr)
+library(htmltools)
+library(knitr)
+library(purrr)
+library(tibble)
+
+html_text <- function(x) htmltools::htmlEscape(as.character(x))
+
+package_catalog <- tibble::tribble(
+  ~id, ~name, ~role, ~url,
+  "babynames", "babynames", "First-name data used to practice joins and summaries.", "https://CRAN.R-project.org/package=babynames",
+  "countrycode", "countrycode", "Country codes and correspondence tables for enriching international data.", "https://CRAN.R-project.org/package=countrycode",
+  "dplyr", "dplyr", "Data manipulation with verbs such as filter, select, mutate and summarise.", "https://CRAN.R-project.org/package=dplyr",
+  "fires", "fires", "Datasets about fires and related weather data.", NA,
+  "fivethirtyeight", "fivethirtyeight", "Demonstration datasets from public articles and examples.", "https://CRAN.R-project.org/package=fivethirtyeight",
+  "flexdashboard", "flexdashboard", "HTML dashboards with R Markdown.", "https://CRAN.R-project.org/package=flexdashboard",
+  "forcats", "forcats", "Factor manipulation and category ordering.", "https://CRAN.R-project.org/package=forcats",
+  "gapminder", "gapminder", "Country-year data used to practice joins and grouped summaries.", "https://CRAN.R-project.org/package=gapminder",
+  "ggcorrplot", "ggcorrplot", "Visualization of correlation matrices.", "https://CRAN.R-project.org/package=ggcorrplot",
+  "ggplot2", "ggplot2", "Statistical visualization with the grammar of graphics.", "https://CRAN.R-project.org/package=ggplot2",
+  "ggplot2movies", "ggplot2movies", "Movie data used to practice joins and comparisons.", "https://CRAN.R-project.org/package=ggplot2movies",
+  "ggwordcloud", "ggwordcloud", "Option mentioned for creating word clouds with ggplot2.", "https://CRAN.R-project.org/package=ggwordcloud",
+  "janitor", "janitor", "Column-name cleaning and quick table diagnostics.", "https://CRAN.R-project.org/package=janitor",
+  "jsonlite", "jsonlite", "Reading and transforming JSON files.", "https://CRAN.R-project.org/package=jsonlite",
+  "knitr", "knitr", "Executing code chunks and producing outputs in Quarto documents.", "https://CRAN.R-project.org/package=knitr",
+  "lahman", "Lahman", "Baseball tables used to practice joins.", "https://CRAN.R-project.org/package=Lahman",
+  "lubridate", "lubridate", "Manipulation of dates, months, years and time variables.", "https://CRAN.R-project.org/package=lubridate",
+  "messy", "messy", "Package used in a module 04 data preparation script.", "https://CRAN.R-project.org/package=messy",
+  "palmerpenguins", "palmerpenguins", "Penguin datasets for exploration, charts and joins.", "https://CRAN.R-project.org/package=palmerpenguins",
+  "patchwork", "patchwork", "Combining several ggplot2 charts.", "https://CRAN.R-project.org/package=patchwork",
+  "plotly", "plotly", "Interactive visualization mentioned for the module 10 dashboard.", "https://CRAN.R-project.org/package=plotly",
+  "purrr", "purrr", "Functional iteration and list processing.", "https://CRAN.R-project.org/package=purrr",
+  "readr", "readr", "Importing CSV and delimited text files.", "https://CRAN.R-project.org/package=readr",
+  "readxl", "readxl", "Importing Excel files.", "https://CRAN.R-project.org/package=readxl",
+  "remotes", "remotes", "Installing packages from GitHub or other development sources.", "https://CRAN.R-project.org/package=remotes",
+  "rvest", "rvest", "Extracting data from HTML pages.", "https://CRAN.R-project.org/package=rvest",
+  "scales", "scales", "Labels, formats and scales for graphics.", "https://CRAN.R-project.org/package=scales",
+  "shiny", "shiny", "Interactive applications and components in R.", "https://CRAN.R-project.org/package=shiny",
+  "skimr", "skimr", "Quick summaries of a table's structure and variables.", "https://CRAN.R-project.org/package=skimr",
+  "stopwords", "stopwords", "Stop-word lists for text processing.", "https://CRAN.R-project.org/package=stopwords",
+  "stringr", "stringr", "String manipulation.", "https://CRAN.R-project.org/package=stringr",
+  "tibble", "tibble", "Modern table creation and display in R.", "https://CRAN.R-project.org/package=tibble",
+  "tidygeocoder", "tidygeocoder", "Geocoding addresses and postal codes.", "https://CRAN.R-project.org/package=tidygeocoder",
+  "tidyr", "tidyr", "Reshaping tables with pivot_longer, pivot_wider and unnest.", "https://CRAN.R-project.org/package=tidyr",
+  "tidytext", "tidytext", "Text mining in tidy data format.", "https://CRAN.R-project.org/package=tidytext",
+  "tidyverse", "tidyverse", "Core ecosystem for importing, transforming and visualizing data.", "https://CRAN.R-project.org/package=tidyverse",
+  "titanic", "titanic", "Titanic data used to practice categorical variables.", "https://CRAN.R-project.org/package=titanic",
+  "ulavalssd", "UlavalSSD", "Data and examples package used in the first course modules.", NA,
+  "unvotes", "unvotes", "United Nations votes used to practice joins and grouped summaries.", "https://CRAN.R-project.org/package=unvotes",
+  "viridis", "viridis", "Color palettes adapted to statistical graphics.", "https://CRAN.R-project.org/package=viridis",
+  "weathercan", "weathercan", "Downloading and manipulating Canadian weather data.", NA,
+  "wordcloud", "wordcloud", "Word clouds mentioned in module 10.", "https://CRAN.R-project.org/package=wordcloud",
+  "wordcloud2", "wordcloud2", "Option mentioned for producing interactive word clouds.", "https://CRAN.R-project.org/package=wordcloud2"
+)
+
+module_packages <- tibble::tribble(
+  ~module_id, ~module, ~packages,
+  "module-01", "Module 01", list(c("tidyverse", "dplyr", "knitr", "remotes", "ulavalssd")),
+  "module-02", "Module 02", list(c("tidyverse", "palmerpenguins", "ulavalssd", "readxl", "ggplot2", "patchwork")),
+  "module-03", "Module 03", list(c("tidyverse", "stringr", "palmerpenguins", "titanic", "ulavalssd", "ggplot2", "tidygeocoder", "viridis", "scales")),
+  "module-04", "Module 04", list(c("readr", "readxl", "dplyr", "tidyr", "jsonlite", "janitor", "stringr", "forcats", "messy")),
+  "module-05", "Module 05", list(c("lubridate", "readr", "readxl", "dplyr", "tidyr", "jsonlite", "janitor", "ggcorrplot")),
+  "module-06", "Module 06", list(c("dplyr", "palmerpenguins", "gapminder", "countrycode", "tibble", "lahman", "babynames", "weathercan", "fivethirtyeight", "unvotes", "ggplot2movies", "ggplot2", "fires")),
+  "module-07", "Module 07", list(c("tidyverse", "ggplot2")),
+  "module-08", "Module 08", list(c("tidyverse", "rvest", "purrr")),
+  "module-09", "Module 09", list(c("tidyverse", "palmerpenguins")),
+  "module-10", "Module 10", list(c("tidytext", "stringr", "dplyr", "tibble", "ggplot2", "stopwords", "tidyr", "forcats", "wordcloud", "wordcloud2", "ggwordcloud", "plotly", "flexdashboard", "shiny"))
+)
+
+package_label <- function(id) {
+  package_catalog |> filter(.data$id ==.env$id) |> pull(.data$name) |> first()
+}
+
+render_package_tags <- function(ids) {
+  ids <- unlist(ids, use.names = FALSE)
+  links <- purrr::map_chr(ids, function(id) {
+  paste0("<a href=\"#", id, "\"><code>", html_text(package_label(id)), "</code></a>")
+  })
+  paste0("<div class=\"tag-list\"><p>", paste(links, collapse = "\n"), "</p></div>")
+}
+
+render_package_card <- function(row) {
+  tag <- ifelse(is.na(row$url), "section", "a")
+  href <- ifelse(is.na(row$url), "", paste0(' href="', row$url, '" target="_blank" rel="noopener"'))
+  source_label <- ifelse(is.na(row$url), "Local documentation or to be specified", "External documentation")
+  paste0(
+  '<', tag, ' id="', row$id, '" class="package-card"', href, '>',
+  '<span class="resource-icon"><i class="bi bi-box-seam"></i></span>',
+  '<span>',
+  '<h2>', html_text(row$name), '</h2>',
+  '<span class="package-role">', html_text(row$role), '</span>',
+  '<span class="package-source">', source_label, '</span>',
+  '</span>',
+  '</', tag, '>'
+  )
+}
+```
+
+## By module
+
+```{r}
+#| label: packages-by-module
+#| results: asis
+
+for (index in seq_len(nrow(module_packages))) {
+  row <- module_packages[index, ]
+  cat("### ", row$module, " {#", row$module_id, "}\n\n", sep = "")
+  cat(render_package_tags(row$packages[[1]]), "\n\n")
+}
+```
+
+## Package library
+
+```{r}
+#| label: package-library
+#| results: asis
+
+cat("<div class=\"package-grid package-library-grid\">\n")
+purrr::walk(seq_len(nrow(package_catalog)), ~ cat(render_package_card(package_catalog[.x, ]), "\n"))
+cat("</div>\n")
+```

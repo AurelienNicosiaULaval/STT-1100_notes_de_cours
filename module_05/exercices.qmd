@@ -18,12 +18,12 @@ editor: visual
 
 # Lectures initiales
 
-## Lectures à faire avant l'aventure
+## Lectures à faire avant l’aventure
 
 Dans ce module, nous allons explorer les concepts de base de l'importation et du nettoyage de données. Voici quelques lectures initiales pour vous préparer :
 
 -   [**R for Data Science – Data import**](https://r4ds.hadley.nz/data-import.html){target="_blank"}\
-    Ce chapitre vous introduit à l'importation de données avec le package `readr`.\
+    Ce chapitre vous introduit à l’importation de données avec le package `readr`.\
 
 -   [**R for Data Science – Data tidying**](https://r4ds.hadley.nz/data-tidy.html){target="_blank"}\
     Ce chapitre vous introduit à la manipulation de données avec le package `dplyr`.\
@@ -33,18 +33,18 @@ Dans ce module, nous allons explorer les concepts de base de l'importation et du
     \>  **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `factor()` ou `fct_reorder()` peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).
 
 -   [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}\
-    Ce chapitre vous introduit à l'importation de données à partir de fichiers Excel.\
+    Ce chapitre vous introduit à l’importation de données à partir de fichiers Excel.\
 
 -   [**R for Data Science – Lists**](https://r4ds.hadley.nz/rectangling.html#lists){target="_blank"}\
     Cette section vous introduit au concept de liste en programmation.\
 
 # Aventure
 
-[Aventure 4](../module_04/aventure.qmd)
+[Aventure 4](https://sitescours.monportail.ulaval.ca/contenu/sitescours/036/03609/202509/site177541/modules1395096/module1747262/page4742827/bloccontenu5043393/Aventure%204.html?identifiant=afa8069a82b693eba79bcfb3092d453ef69c140a){target="_blank"}
 
 # Défi
 
-À la fin de l'aventure, vous devez être en mesure d'avoir déposé dans votre dossier GitHub les éléments suivants :
+A la fin de l'aventure, vous devez être en mesure d'avoir déposer dans votre dossier Github les éléments suivants :
 
 -   le script `.qmd` de votre aventure, c'est à dire un document ou vous faites vos tests et construisez votre liste journal_nettoyage ;
 
@@ -54,7 +54,7 @@ Dans ce module, nous allons explorer les concepts de base de l'importation et du
 
 # Exercices de consolidation
 
-### Exercice 1 – Lecture contrôlée d'un CSV (Data import, § readr)
+### Exercice 1 – Lecture contrôlée d’un CSV (Data import, § readr)
 
 Importez `policies.csv` en :
 
@@ -62,7 +62,7 @@ Importez `policies.csv` en :
 
 -   laissant `premium_amount` en **double**
 
-puis affichez la structure de l'objet.
+puis affichez la structure de l’objet.
 
 ::: {.callout-note collapse="true"}
 ### Réponse
@@ -94,7 +94,7 @@ policies <- read_csv("policies.csv", na = "missing")
 ```
 :::
 
-### Exercice 3 – Passage long ↔ large (Data tidy, § pivot)
+### Exercice 3 – Passage long <-> large (Data tidy, § pivot)
 
 Les colonnes `q1_claims:q4_claims` représentent le nombre de réclamations par trimestre.
 
@@ -156,9 +156,9 @@ parse_number("1 234,56", locale = locale(decimal_mark = ",", grouping_mark = " "
 ```
 :::
 
-### Exercice 7 – Rectangling d'une liste JSON (Lists, ex. 1-2)
+### Exercice 7 – Rectangling d’une liste JSON (Lists, ex. 1-2)
 
-Vous disposez d'une liste `lst <- jsonlite::read_json("coverage.json")`.
+Vous disposez d’une liste `lst <- jsonlite::read_json("coverage.json")`.
 
 1.  Récupérez `lst$collision$limit`.
 
@@ -191,9 +191,11 @@ En trois lignes :
 3.  renvoyez les **5** plus grosses `claim_amount` par `vehicle_type`.
 
 ::: {.callout-note collapse="true"}
-### Réponse\`\`\`r
+### Réponse
 
+``` r
 library(readr); library(dplyr); library(janitor)
 
-read_csv("policies.csv") %\>% clean_names() %\>% slice_max(claim_amount, n = 5, by = vehicle_type) \`\`\`
+read_csv("policies.csv") %>% clean_names() %>% slice_max(claim_amount, n = 5, by = vehicle_type)
+```
 :::

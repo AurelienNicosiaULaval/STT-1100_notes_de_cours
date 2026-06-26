@@ -6,7 +6,7 @@ author:
 format:
   html:
     toc: true
-    toc-title: "Plan de l'aventure"
+    toc-title: "Plan de l’aventure"
     embed-resources: true
     link-external-newwindow: true
     code-link: true
@@ -19,16 +19,16 @@ editor_options:
 
 # Mise en situation
 
-Vous venez tout juste de commencer un stage comme **ingénieur·e de données junior** dans une grande **compagnie d'assurance**. Vous travaillez avec Alex, un·e analyste d'affaires expérimenté·e, qui vous a confié une mission importante.
+Vous venez tout juste de commencer un stage comme **ingénieur·e de données junior** dans une grande **compagnie d’assurance**. Vous travaillez avec Alex, un·e analyste d’affaires expérimenté·e, qui vous a confié une mission importante.
 
-Alex vous a fourni une base de données extraite d'un ancien système d'archives. Cette base contient des informations clés sur les clients, les polices d'assurance et les réclamations. Malheureusement, la base est **truffée d'erreurs** : doublons, valeurs manquantes, incohérences, erreurs de format, fautes de frappe…
+Alex vous a fourni une base de données extraite d’un ancien système d’archives. Cette base contient des informations clés sur les clients, les polices d’assurance et les réclamations. Malheureusement, la base est **truffée d’erreurs** : doublons, valeurs manquantes, incohérences, erreurs de format, fautes de frappe…
 
-Votre rôle sera d'assurer la **qualité des données** pour permettre à Alex de faire une analyse fiable.
+Votre rôle sera d’assurer la **qualité des données** pour permettre à Alex de faire une analyse fiable.
 
-# Objectifs de l'aventure
+# Objectifs de l’aventure
 
 -   Importer une base de données brute (`Dataset_pratique.csv`).
--   Identifier différents types d'erreurs courantes.
+-   Identifier différents types d’erreurs courantes.
 -   Nettoyer et transformer les données avec `dplyr`, `forcats` et `stringr`.
 -   Documenter de façon claire **toutes les modifications apportées** à la base.
 
@@ -39,13 +39,13 @@ Votre rôle sera d'assurer la **qualité des données** pour permettre à Alex d
 1.  Fournir une **base de données propre** (`donnees_propres.csv`).
 2.  Maintenir une **liste R structurée** appelée `journal_nettoyage` dans votre script.
 
->  Pensez à **documenter chaque étape de votre nettoyage**. Votre rigueur est votre meilleure alliée !
+>   Pensez à **documenter chaque étape de votre nettoyage**. Votre rigueur est votre meilleure alliée !
 
 # Typologie des erreurs et structure de la liste
 
-Voici un tableau de référence pour les types d'erreurs que vous pouvez rencontrer :
+Voici un tableau de référence pour les types d’erreurs que vous pouvez rencontrer :
 
-| Code | Type d'erreur | Description | Exemple |
+| Code | Type d’erreur | Description | Exemple |
 |------------------|------------------|------------------|------------------|
 | VM | Valeurs manquantes | Champs essentiels non remplis | Lignes sans valeur pour `age` ou `revenu_annuel` |
 | DF | Doublons | Lignes identiques ou très similaires | Deux lignes avec le même `id_client` |
@@ -81,7 +81,7 @@ journal_nettoyage <- list(
       variables = "id_client",
       probleme = "Doublons complets",
       action = "Suppression",
-      justification = "Inutiles pour l'analyse"
+      justification = "Inutiles pour l’analyse"
     )
   )
 )
@@ -100,13 +100,13 @@ Chaque catégorie (`VM`, `DF`, etc.) contient une **liste de corrections**, où 
 
 -   `justification` : pourquoi cette action a été choisie
 
->  Cette structure vous aidera à **rendre compte de vos modifications** de façon propre et professionnelle.
+>   Cette structure vous aidera à **rendre compte de vos modifications** de façon propre et professionnelle.
 
 # GitHub et rendu
 
 Comme pour les aventures précédentes :
 
--   **Clonez** le dépôt GitHub du module 4 depuis l'organisation du cours. Vous pouvez utiliser la cheat sheet du cours si vous avez un trou de mémoire.
+-   **Clonez** le dépôt GitHub du module 4 depuis l’organisation du cours. Vous pouvez utiliser la cheat sheet du cours si vous avez un trou de mémoire.
 -   Travaillez dans RStudio et **faites des commits régulièrement** pour documenter votre avancement.
 -   Votre dépôt doit contenir :
     -   le script `.qmd` de votre aventure, c'est à dire un document ou vous faites vos tests et construisez votre liste `journal_nettoyage` ;
@@ -117,7 +117,7 @@ Bonne chance, et que vos données soient propres !
 
 # Importation des données
 
-Avant de nettoyer une base de données, il faut savoir l'importer correctement. Pour cette mission, Alex vous a transmis le fichier `Dataset_pratique.csv`. Il vous recommande de :
+Avant de nettoyer une base de données, il faut savoir l’importer correctement. Pour cette mission, Alex vous a transmis le fichier `Dataset_pratique.csv`. Il vous recommande de :
 
 -   charger les données dans R avec la fonction `read_csv()` du package `readr`,
 -   examiner les premières lignes pour repérer les incohérences évidentes,
@@ -138,7 +138,7 @@ head(base)
 glimpse(base)
 ```
 
->  **Alex** : « Cette base est un vrai casse-tête ! J'ai besoin que tu la rendes exploitable rapidement. Tu devrais commencer par repérer ce qui cloche dans les noms, les formats ou les valeurs. »
+>   **Alex** : « Cette base est un vrai casse-tête ! J’ai besoin que tu la rendes exploitable rapidement. Tu devrais commencer par repérer ce qui cloche dans les noms, les formats ou les valeurs. »
 
 ------------------------------------------------------------------------
 
@@ -160,9 +160,9 @@ names(base)
 glimpse(base)
 ```
 
->  **Alex** : « Tu verras, certains types des variables ne font aucun sens... Garde une trace de tout ce que tu trouves bizarre pour qu'on décide ensemble quoi en faire. »
+>   **Alex** : « Tu verras, certains types des variables ne font aucun sens... Garde une trace de tout ce que tu trouves bizarre pour qu’on décide ensemble quoi en faire. »
 
-L'une des fonctions les plus utiles ici est `glimpse()` (du package `dplyr`). Elle affiche un aperçu des premières valeurs de chaque variable **ainsi que leur type** : par exemple `chr` pour une chaîne de caractères (character), `dbl` pour un nombre décimal (double), `int` pour un entier, ou encore `lgl` pour un booléen.
+L’une des fonctions les plus utiles ici est `glimpse()` (du package `dplyr`). Elle affiche un aperçu des premières valeurs de chaque variable **ainsi que leur type** : par exemple `chr` pour une chaîne de caractères (character), `dbl` pour un nombre décimal (double), `int` pour un entier, ou encore `lgl` pour un booléen.
 
 Voici un rappel des principaux types de données en R :
 
@@ -190,15 +190,15 @@ as.factor(base$colonne)
 
 Pensez à toujours vérifier le résultat de la transformation avec `glimpse()` ou `summary()`.
 
->  Alex : « Quand on regarde les types de variables avec glimpse(), il faut garder en tête qu'il y a des standards en science des données. En général, les variables contenant du texte devraient être de type `character` ou `factor` si elles prennent un nombre limité de valeurs (par exemple, une colonne sexe ou province). Les variables contenant des nombres devraient normalement être de type `dbl` (pour les décimaux) ou `int` (pour les entiers), selon le cas.
+>   Alex : « Quand on regarde les types de variables avec glimpse(), il faut garder en tête qu’il y a des standards en science des données. En général, les variables contenant du texte devraient être de type `character` ou `factor` si elles prennent un nombre limité de valeurs (par exemple, une colonne sexe ou province). Les variables contenant des nombres devraient normalement être de type `dbl` (pour les décimaux) ou `int` (pour les entiers), selon le cas.
 
-> Un piège courant, c'est les identifiants ! Même s'ils ont l'air d'être des nombres, comme une colonne `ID_client` ou `numero_contrat`, ce ne sont pas des quantités sur lesquelles on va faire des calculs. Ce sont des étiquettes uniques. On devrait donc les convertir en character. Ça évite qu'un identifiant comme 0012 soit transformé en 12 par erreur, ou que R pense qu'on veut faire une moyenne avec ça…
+>  Un piège courant, c’est les identifiants ! Même s’ils ont l’air d’être des nombres, comme une colonne `ID_client` ou `numero_contrat`, ce ne sont pas des quantités sur lesquelles on va faire des calculs. Ce sont des étiquettes uniques. On devrait donc les convertir en character. Ça évite qu’un identifiant comme 0012 soit transformé en 12 par erreur, ou que R pense qu’on veut faire une moyenne avec ça…
 
-> Bref, vérifiez bien chaque type. Posez-vous la question : est-ce que cette variable est du texte ? Est-ce que je vais calculer dessus ? Est-ce que ce sont des catégories ? »
+>  Bref, vérifiez bien chaque type. Posez-vous la question : est-ce que cette variable est du texte ? Est-ce que je vais calculer dessus ? Est-ce que ce sont des catégories ? »
 
 ## Vérification des doublons
 
-Un des premiers réflexes à avoir dans toute opération de nettoyage : **vérifier les doublons**. Il peut s'agir :
+Un des premiers réflexes à avoir dans toute opération de nettoyage : **vérifier les doublons**. Il peut s’agir :
 
 -   de doublons **complets** (lignes identiques sur toutes les colonnes),
 -   de doublons **partiels** (même identifiant, mais des valeurs légèrement différentes ailleurs).
@@ -229,9 +229,9 @@ base %>%
   filter(n() > 1)
 ```
 
->  **Alex** : « Deux clients avec le même numéro, c'est louche. Regarde ce qui se passe. Supprimer aveuglément n'est pas toujours la bonne solution. Note bien ce que tu fais dans le `journal_nettoyage` ! »
+>   **Alex** : « Deux clients avec le même numéro, c’est louche. Regarde ce qui se passe. Supprimer aveuglément n’est pas toujours la bonne solution. Note bien ce que tu fais dans le `journal_nettoyage` ! »
 
-Et bien sûr, si vous intervenez, n'oubliez pas de l'indiquer dans la section `DF` de votre `journal_nettoyage`.
+Et bien sûr, si vous intervenez, n’oubliez pas de l’indiquer dans la section `DF` de votre `journal_nettoyage`.
 
 ``` r
 journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
@@ -260,7 +260,7 @@ levels(base$VEHICLE_TYPE)
 Bien sur, il faut que ta variable soit de type `factor` pour que cette fonction fonctionne. Si ce n'est pas le cas, vous pouvez la convertir avec `as.factor()` (voir section précédente).
 
 Le problème ?\
-Quand on regarde les niveaux d'un facteur, on remarque souvent des **doublons déguisés** (`"car"` vs `"CAR"`), des **niveaux aberrants** (`"ANIMAL"`) ou des **catégories très rares** qui ne méritent peut-être pas leur propre niveau.
+Quand on regarde les niveaux d’un facteur, on remarque souvent des **doublons déguisés** (`"car"` vs `"CAR"`), des **niveaux aberrants** (`"ANIMAL"`) ou des **catégories très rares** qui ne méritent peut-être pas leur propre niveau.
 
 ## Quelques outils utiles (avec `forcats`)
 
@@ -283,7 +283,7 @@ Prenez le temps de :
     -   fautes de frappe (`"Commute"` vs `"Com.mute"`)
     -   niveaux aberrants (`"ANIMAL"` dans `VEHICLE_TYPE`)
 
->  **Alex** : « Faites attention à ces valeurs étranges. Si une valeur n'a aucun sens dans le contexte (par exemple `"ANIMAL"` dans une colonne sur les types de véhicules), ne cherchez pas à deviner. Mettez-la à `NA`. On préfère une donnée manquante qu'une mauvaise information. »
+>   **Alex** : « Faites attention à ces valeurs étranges. Si une valeur n’a aucun sens dans le contexte (par exemple `"ANIMAL"` dans une colonne sur les types de véhicules), ne cherchez pas à deviner. Mettez-la à `NA`. On préfère une donnée manquante qu’une mauvaise information. »
 
 ## Exemple à adapter
 
@@ -339,7 +339,7 @@ ggplot(base, aes(x = COMMUTE_DISTANCE)) +
        x = "Distance (km)", y = "Fréquence")
 ```
 
-Posez-vous la question : - Une distance de 3000 km pour se rendre au travail, c'est plausible ? - Est-ce que certaines valeurs sont manquantes ou négatives ?
+Posez-vous la question : - Une distance de 3000 km pour se rendre au travail, c’est plausible ? - Est-ce que certaines valeurs sont manquantes ou négatives ?
 
 Si vous intervenez, n'oubliez pas de **justifier dans `journal_nettoyage`**, en utilisant le code `VA` (valeurs aberrantes) ou `VM` (valeurs manquantes).
 
@@ -353,7 +353,7 @@ Il peut exister des **relations logiques** entre deux variables catégoriques. P
 table(base$QUARTER, base$SEASON)
 ```
 
->  **Alex** : « Si tu vois `QUARTER = 1` avec `SEASON = "Summer"`, tu devrais tiquer... Ce genre d'incohérence mérite d'être noté, même si tu ne sais pas quoi corriger. »
+>   **Alex** : « Si tu vois `QUARTER = 1` avec `SEASON = "Summer"`, tu devrais tiquer... Ce genre d’incohérence mérite d’être noté, même si tu ne sais pas quoi corriger. »
 
 Vous pouvez aussi visualiser avec un graphique à barres croisé :
 
@@ -381,10 +381,10 @@ ggplot(base, aes(x = AGE, fill = GENERATION)) +
   geom_histogram(position = "identity", alpha = 0.6, bins = 40)
 ```
 
--   Est-ce qu'un bébé appartient à la génération X ?
+-   Est-ce qu’un bébé appartient à la génération X ?
 -   Une personne de 122 ans est-elle bien classée ?
 
-S'il y a recodage ou regroupement à faire, utilisez le code `RC`.
+S’il y a recodage ou regroupement à faire, utilisez le code `RC`.
 
 ## Étape 4 – Liens logiques entre deux variables numériques
 
@@ -397,35 +397,35 @@ ggplot(base, aes(x = AGE, y = YEARS_LICENSED)) +
   geom_point(alpha = 0.3)
 ```
 
--   Est-ce qu'il y a des points au-dessus d'une certaines lignes ? De quelle ligne parle t-on ici?
--   Peut-on avoir plus d'années de permis que d'âge ?
+-   Est-ce qu’il y a des points au-dessus d'une certaines lignes ? De quelle ligne parle t-on ici?
+-   Peut-on avoir plus d’années de permis que d’âge ?
 
->  **Alex** : « Tu n'es pas obligé de corriger ici. Par contre, **si tu remarques quelque chose d'étrange**, prends deux minutes pour l'écrire dans le `journal_nettoyage`. Juste pour montrer que tu l'as vu, réfléchi, et que tu as pris une décision. C'est ça être rigoureux. »
+>   **Alex** : « Tu n’es pas obligé de corriger ici. Par contre, **si tu remarques quelque chose d’étrange**, prends deux minutes pour l’écrire dans le `journal_nettoyage`. Juste pour montrer que tu l’as vu, réfléchi, et que tu as pris une décision. C’est ça être rigoureux. »
 
 Utilisez ici le code `LG` pour une **erreur logique**.
 
 ## Étape 5 – Vérifications avancées (facultatives mais pros !)
 
-Voici quelques autres choses à garder à l'œil :
+Voici quelques autres choses à garder à l’œil :
 
 -   **Variables redondantes** : deux colonnes qui disent la même chose (`CITY_NAME` et `MUNICIPALITY`)
 -   **Colonnes inutiles** : identifiants internes, colonnes vides ou avec une seule modalité (`EC` ou `RU`)
 -   **Problèmes de format de texte** : accents, caractères spéciaux (`stringr::str_detect`)
 -   **Colonnes fusionnées à la hâte** : chaînes comme `"Smith, John"` dans une seule cellule au lieu de deux (`TR`)
--   **Format de dates mélangés** : on a laissé cela de côté depuis le début de ce cours, mais sachez que ça s'en vient, nous aurons un module spécial sur les dates.
+-   **Format de dates mélangés** : on a laissé cela de côté depuis le début de ce cours, mais sachez que ca s'en vient, nous aurons un module spécial sur les dates.
 
- *Tout au long de votre nettoyage, documentez vos décisions dans la liste `journal_nettoyage`. Le but n'est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.*
+ *Tout au long de votre nettoyage, documentez vos décisions dans la liste `journal_nettoyage`. Le but n’est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.*
 
 # Mission accomplie !
 
-Bravo d'être allé·e jusqu'au bout de cette aventure ! \
+Bravo d’être allé·e jusqu’au bout de cette aventure ! \
 Vous avez maintenant acquis une solide méthodologie pour nettoyer des données de manière rigoureuse et professionnelle. Vous avez :
 
 -   identifié et corrigé des erreurs de format, de type et de cohérence ;
 -   utilisé les outils de `dplyr`, `stringr`, `forcats` et `ggplot2` pour explorer les données sous toutes leurs coutures ;
 -   documenté chaque intervention dans une structure claire et transparente avec la liste `journal_nettoyage`.
 
- **Avant de terminer**, n'oubliez pas de **pousser sur GitHub** les trois éléments suivants :
+ **Avant de terminer**, n’oubliez pas de **pousser sur GitHub** les trois éléments suivants :
 
 1.   Le script `.qmd` de votre aventure (là où vous avez effectué vos tests, analyses et nettoyage)\
 2.   La liste `journal_nettoyage` enregistrée dans un objet `.Rdata`\
@@ -437,4 +437,4 @@ Pour sauvegarder votre liste dans un fichier `.Rdata`, utilisez simplement ce co
 save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 ```
 
->  **Alex** : « Vous venez de faire ce que peu de gens font bien : nettoyer des données proprement, en gardant une trace de vos décisions. C'est ce qui distingue un·e vrai·e professionnel·le de quelqu'un qui bidouille. Chapeau ! »
+>   **Alex** : « Vous venez de faire ce que peu de gens font bien : nettoyer des données proprement, en gardant une trace de vos décisions. C’est ce qui distingue un·e vrai·e professionnel·le de quelqu’un qui bidouille. Chapeau ! »

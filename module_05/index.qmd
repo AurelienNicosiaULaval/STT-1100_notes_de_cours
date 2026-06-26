@@ -1,0 +1,267 @@
+---
+title: "Explorer et comprendre les relations entre les variables"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+::: {.module-banner}
+<p class="module-banner-number">Module 05</p>
+<p class="module-banner-subtitle">Explorer les liens entre variables et interpréter des associations sans surinterpréter.</p>
+:::
+
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Fil principal</span><span class="fact-value">Relations, dates et corrélations</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Données</span><span class="fact-value">Polices, couvertures et vols</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Défi</span><span class="fact-value">Exploration argumentée des relations</span></span>
+:::
+::::
+
+## Produit fini du module
+
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Produit final</p>
+  <h3>Une analyse exploratoire des relations</h3>
+  <p>Le produit fini met en relation des variables, compare des tendances et formule une interprétation prudente des associations observées.</p>
+  </div>
+  <div class="product-visual" aria-label="Aperçu visuel du produit fini">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>rapport EDA</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>corrélation</span><span class="mini-bar" style="--bar-width: 72%;"></span></div><div class="mini-bar-row"><span>dates</span><span class="mini-bar" style="--bar-width: 49%;"></span></div><div class="mini-bar-row"><span>nuages de points</span><span class="mini-bar" style="--bar-width: 88%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>corrélation</span>
+  <span><i class="bi bi-check2"></i>dates</span>
+  <span><i class="bi bi-check2"></i>nuages de points</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
+
+## Objectifs du module
+
+À la fin de ce module, vous devriez être capable de:
+
+-  Gérer et analyser des variables temporelles à l’aide de `lubridate`.
+-  Étudier la relation entre deux variables à l’aide de graphiques et de statistiques descriptives, notamment à l’aide du coefficient de corrélation.
+-  Calculer et interpréter la corrélation entre deux variables numériques.
+-  Rédiger un rapport d’analyse exploratoire des données (EDA) mettant en évidence des tendances et des motifs dans les données.
+
+## Plan d’apprentissage
+
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="lectures-a-faire">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Lectures à faire</span>
+  <span class="path-preview">Préparer dates, corrélations et relations entre variables.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="lectures">Lectures</h3>
+<p>Dans ce module, nous allons explorer les concepts de base de l’analyse exploratoire des données (EDA) et de la manipulation des dates et heures. Voici quelques lectures initiales pour vous préparer :</p>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/EDA.html" target="_blank"><strong>R for Data Science – EDA</strong></a><br />
+Ce chapitre vous introduit à l’analyse exploratoire des données (EDA) avec le package <code>ggplot2</code>.<br />
+</p></li>
+<li><p><a href="https://r4ds.hadley.nz/datetimes.html" target="_blank"><strong>R for Data Science – Dates and Times</strong></a><br />
+Ce chapitre vous introduit à la manipulation des dates et heures avec le package <code>lubridate</code>.<br />
+</p></li>
+</ul>
+<p>Vous pouvez aussi aller réviser le chapitre suivant:</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/data-tidy.html" target="_blank"><strong>R for Data Science – Tidy Data</strong></a><br />
+Ce chapitre vous rappelle les principes de la structure des données « tidy » et comment les appliquer avec <code>tidyr</code>.<br />
+</li>
+</ul>
+<p>Dans le libre <strong>IMS</strong>:</p>
+<ul>
+<li><a href="https://openintro-ims.netlify.app/explore-applications" target="_blank"><strong>Introduction to modern statistics – Applications: Explore</strong></a><br />
+Ce chapitre vous introduit aux bonnes pratiques de modélisation exploratoire des données.</li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="aventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Aventure</span>
+  <span class="path-preview">Explorer retards, dates et associations dans un grand tableau.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
+  <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="defi">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Défi</span>
+  <span class="path-preview">Rédiger une analyse EDA prudente sur les retards.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="défi-analyser-les-retards-pour-soutenir-les-décisions">Défi — Analyser les retards pour soutenir les décisions</h3>
+<p>Dans ce défi, vous devez remettre un <strong>rapport professionnel</strong> destiné à votre superviseure, <strong>Dr Sofia Martínez</strong>, afin de répondre aux trois grandes questions stratégiques posées dans l’aventure. Votre rôle est de fournir une analyse claire, appuyée sur des visualisations pertinentes et des interprétations rigoureuses.</p>
+<h4 id="ce-que-vous-devez-faire">Ce que vous devez faire</h4>
+<p>À partir des données fusionnées fournies (<code>flights_merged_2023.rds</code>), vous devez :</p>
+<ol type="1">
+<li><strong>Explorer les variables temporelles</strong> (<code>date</code>, <code>jour_semaine</code>, <code>moment_journee</code>, etc.) et les préparer si besoin.</li>
+<li><strong>Répondre aux trois grandes questions de Sofia</strong> :
+<ul>
+<li>Quels sont les créneaux horaires à éviter pour réduire les retards ?</li>
+<li>Dans quelle mesure la météo est-elle responsable des retards ?</li>
+<li>Les avions plus âgés sont-ils plus souvent en retard ou annulés ?</li>
+</ul></li>
+<li>Pour chaque question :
+<ul>
+<li>effectuez une <strong>analyse exploratoire</strong> pertinente ;</li>
+<li>produisez <strong>au moins une visualisation claire</strong> ;</li>
+<li>rédigez une <strong>interprétation concise</strong> de vos résultats.</li>
+</ul></li>
+</ol>
+<h4 id="ce-que-le-rapport-doit-contenir">Ce que le rapport doit contenir</h4>
+<p>Votre fichier <strong><code>rapport.qmd</code></strong> doit inclure :</p>
+<ul>
+<li>Une courte <strong>introduction</strong> qui rappelle le contexte (travail à JFK, rôle avec Sofia, etc.).</li>
+<li>Une section pour chaque <strong>question</strong> du brief.</li>
+<li>Vos <strong>analyses</strong> (code R reproductible, tableaux ou graphes, commentaires).</li>
+<li>Vos <strong>interprétations</strong> pour faire ressortir les constats clés.</li>
+<li>Une <strong>courte conclusion</strong> qui résume les réponses apportées aux gestionnaires.</li>
+</ul>
+<h4 id="mise-en-ligne-et-rendu">Mise en ligne et rendu</h4>
+<ul>
+<li>Publiez le rapport sur votre dépôt GitHub dans l’organisation du cours.</li>
+<li>Assurez-vous que le fichier <code>.html</code> est bien généré et lisible.</li>
+<li>Faites une dernière relecture pour vérifier la <strong>clarté, la structure et la présentation</strong>.</li>
+</ul>
+<blockquote>
+<p>Astuce : Mettez-vous dans la peau d’un·e analyste professionnel·le — ce rapport pourrait être présenté au comité exécutif de l’aéroport !</p>
+</blockquote>
+<hr />
+<h4 id="grille-dévaluation-10-points">Grille d’évaluation (10 points)</h4>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 44%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Description</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Exploration temporelle (<code>lubridate</code>)</strong></td>
+<td>Création de variables <code>date</code>, <code>jour_semaine</code>, <code>moment_journee</code> ; bonne utilisation de <code>lubridate</code>.</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Analyse des créneaux horaires</strong></td>
+<td>Pertinence de l’analyse, qualité de la visualisation et interprétation.</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Analyse de la météo</strong></td>
+<td>Choix judicieux des variables météo, test de relation avec les retards, interprétation correcte.</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Analyse des avions anciens</strong></td>
+<td>Construction de <code>age_avion</code>, analyse correcte des retards ou annulations, interprétation pertinente.</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Structure et présentation du rapport</strong></td>
+<td>Rapport clair, bien structuré, visuellement lisible ; visualisations bien annotées ; code commenté.</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Bonus</strong> possible (max +1) pour une analyse complémentaire originale (ex. : analyse par compagnie ou distance).</p>
+</blockquote>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercices">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercices</span>
+  <span class="path-preview">Consolider graphiques, corrélations et interprétations.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
+  <p><span class="step-label">Pourquoi</span> Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.</p>
+  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
+  </div>
+  </details>
+</div>
+```
+
+## Données et outils
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Bases de données</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-policies-module-05"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>policies.csv</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-coverage-module-05"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>coverage.json</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-quotes-module-05"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>quotes_2024.xlsx</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-flights-merged-2023"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>flights_merged_2023.rds</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>Packages R</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#lubridate"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>lubridate</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#readr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#readxl"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readxl</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#jsonlite"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>jsonlite</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#janitor"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>janitor</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggcorrplot"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggcorrplot</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Révision et prolongement
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finir le module avec l’IA du cours</h3>
+  <p>Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.</p>
+  <ul>
+  <li>Expliquez le produit fini en trois phrases.</li>
+  <li>Collez un extrait de code ou de sortie et demandez un diagnostic.</li>
+  <li>Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.</li>
+  </ul>
+  </div>
+</div>
+```

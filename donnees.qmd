@@ -1,0 +1,268 @@
+---
+title: "Bases de données"
+format:
+  html:
+    toc: false
+    embed-resources: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<div class="resource-page data-catalog-page">
+  <section class="resource-hero" aria-labelledby="data-title">
+  <div>
+  <p class="eyebrow">Catalogue des données</p>
+  <h1 id="data-title">Bases de données du cours</h1>
+  <p>Cette page rassemble les jeux de données utilisés dans STT-1100. Elle sert à retrouver rapidement les fichiers à télécharger, les données fournies par des packages R et les fiches courtes des fichiers locaux.</p>
+  <div class="resource-actions" aria-label="Accès rapides">
+  <a class="home-action home-action--primary" href="#catalogue-par-module">Par module</a>
+  <a class="home-action" href="#fiches-fichiers-locaux">Fiches locales</a>
+  <a class="home-action" href="packages.html">Packages R</a>
+  </div>
+  </div>
+  <div class="resource-panel" aria-label="Repères du catalogue">
+  <div><span>CSV</span><p>Fichiers à importer et nettoyer</p></div>
+  <div><span>R</span><p>Données incluses dans des packages</p></div>
+  <div><span>JSON</span><p>Données imbriquées et listes</p></div>
+  <div><span>XLS</span><p>Feuilles Excel de pratique</p></div>
+  </div>
+  </section>
+
+  <section class="resource-section" aria-labelledby="data-use-title">
+  <div class="resource-section__header">
+  <h2 id="data-use-title">Utiliser le catalogue</h2>
+  <p>Les cartes fonctionnent comme dans MQT-2101: un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R.</p>
+  </div>
+  </section>
+</div>
+```
+
+```{r}
+#| label: setup-donnees
+#| include: false
+
+library(DT)
+library(dplyr)
+library(htmltools)
+library(jsonlite)
+library(knitr)
+library(purrr)
+library(readr)
+library(readxl)
+library(tibble)
+
+project_file <- function(path) file.path(getwd(), path)
+
+format_integer_fr <- function(x) {
+  format(x, big.mark = " ", decimal.mark = ",", scientific = FALSE, trim = TRUE)
+}
+
+html_text <- function(x) htmltools::htmlEscape(as.character(x))
+
+dataset_catalog <- tibble::tribble(
+  ~id, ~title, ~path, ~module_id, ~module, ~description, ~usage, ~source, ~license, ~kind, ~delimiter, ~rows, ~cols, ~package_anchor, ~icon,
+  "meteo-quebec", "UlavalSSD::MeteoQuebec", NA, "module-01", "Module 01", "Jeu de données utilisé pour les premiers gestes d'exploration dans R.", "Découvrir un tableau, reconnaître les variables et produire les premiers résumés.", "Package UlavalSSD utilisé dans le cours.", "Voir la documentation du package.", "package", NA, NA, NA, "ulavalssd", "bi-database",
+  "manchots-donnees", "manchots_donnees.xlsx", "module_02/resources/manchots_donnees.xlsx", "module-02", "Module 02", "Fichier Excel de pratique sur les manchots.", "Importer un fichier Excel et inspecter un tableau dans RStudio.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, NA, NA, NA, "bi-file-earmark-spreadsheet",
+  "penguins", "palmerpenguins::penguins", NA, "module-02", "Module 02", "Jeu de données de démonstration sur les manchots.", "Explorer et visualiser des variables numériques et catégorielles.", "Package palmerpenguins.", "Voir la documentation du package.", "package", NA, NA, NA, "palmerpenguins", "bi-database",
+  "penguins-raw", "palmerpenguins::penguins_raw", NA, "module-03", "Module 03", "Version plus brute du jeu de données sur les manchots.", "Travailler le recodage, les types de variables et la préparation d'un tableau.", "Package palmerpenguins.", "Voir la documentation du package.", "package", NA, NA, NA, "palmerpenguins", "bi-database",
+  "titanic-train", "titanic::titanic_train", NA, "module-03", "Module 03", "Données de passagers du Titanic utilisées comme exemple de variables catégorielles.", "Pratiquer les facteurs, les tableaux de fréquences et les regroupements.", "Package titanic.", "Voir la documentation du package.", "package", NA, NA, NA, "titanic", "bi-database",
+  "dataset-pratique", "dataset_pratique.csv", "module_04/dataset_pratique.csv", "module-04", "Module 04", "Fichier CSV de pratique sur des soumissions d'assurance automobile.", "Nettoyer un fichier volumineux, recoder des facteurs et inspecter les incohérences.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", ";", 101768, 23, NA, "bi-filetype-csv",
+  "policies-module-04", "policies.csv", "module_04/policies.csv", "module-04", "Module 04", "Petit fichier CSV de polices d'assurance.", "Pratiquer les diagnostics rapides, les transformations et les résumés.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", ",", 15, 9, NA, "bi-filetype-csv",
+  "coverage-module-04", "coverage.json", "module_04/coverage.json", "module-04", "Module 04", "Fichier JSON associé aux couvertures de polices.", "Lire des listes et comprendre des données imbriquées.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, NA, 2, NA, "bi-filetype-json",
+  "quotes-module-04", "quotes_2024.xlsx", "module_04/resources/quotes_2024.xlsx", "module-04", "Module 04", "Fichier Excel contenant une feuille nommée Q3.", "Importer un fichier Excel et vérifier la structure d'un tableau.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, NA, NA, NA, "bi-file-earmark-spreadsheet",
+  "policies-module-05", "policies.csv", "module_05/policies.csv", "module-05", "Module 05", "Petit fichier CSV de polices d'assurance.", "Construire des résumés et préparer des liens entre variables.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", ",", 15, 9, NA, "bi-filetype-csv",
+  "coverage-module-05", "coverage.json", "module_05/coverage.json", "module-05", "Module 05", "Fichier JSON associé aux couvertures de polices.", "Pratiquer les données imbriquées et leur transformation.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, NA, 2, NA, "bi-filetype-json",
+  "quotes-module-05", "quotes_2024.xlsx", "module_05/resources/quotes_2024.xlsx", "module-05", "Module 05", "Fichier Excel contenant une feuille nommée Q3.", "Importer un fichier Excel et relier plusieurs sources.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, NA, NA, NA, "bi-file-earmark-spreadsheet",
+  "flights-merged-2023", "flights_merged_2023.rds", "module_05/flights_merged_2023.rds", "module-05", "Module 05", "Objet R sérialisé contenant un tableau de vols enrichi.", "Travailler sur un tableau volumineux, les dates et les relations entre variables.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, 435352, 50, NA, "bi-file-earmark-binary",
+  "gapminder", "gapminder::gapminder", NA, "module-06", "Module 06", "Données pays-années utilisées en science des données.", "Pratiquer les jointures, les regroupements et les comparaisons temporelles.", "Package gapminder.", "Voir la documentation du package.", "package", NA, NA, NA, "gapminder", "bi-database",
+  "starwars", "dplyr::starwars", NA, "module-06", "Module 06", "Jeu de données de démonstration fourni par dplyr.", "Illustrer des jointures, des listes-colonnes et des résumés.", "Package dplyr.", "Voir la documentation du package.", "package", NA, NA, NA, "dplyr", "bi-database",
+  "lahman", "Lahman::People et Lahman::Batting", NA, "module-06", "Module 06", "Tables de baseball utilisées pour combiner plusieurs sources.", "Pratiquer les jointures entre tables relationnelles.", "Package Lahman.", "Voir la documentation du package.", "package", NA, NA, NA, "lahman", "bi-database",
+  "weathercan", "weathercan", NA, "module-06", "Module 06", "Données météorologiques canadiennes et métadonnées de stations.", "Travailler avec des données réalistes et des identifiants communs.", "Package weathercan.", "Voir la documentation du package.", "package", NA, NA, NA, "weathercan", "bi-database",
+  "covid-module-07", "donnees_covid_module7.csv", "module_07/donnees_covid_module7.csv", "module-07", "Module 07", "Petit fichier CSV de cas confirmés par région, âge et date.", "Préparer des graphiques et des résumés descriptifs.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", ",", 50, 4, NA, "bi-filetype-csv",
+  "web-pages-module-08", "Pages web analysées avec rvest", NA, "module-08", "Module 08", "Données extraites de pages HTML pendant les activités.", "Comprendre l'extraction de données depuis le web.", "Pages web utilisées dans le module.", "Selon les pages consultées.", "web", NA, NA, NA, "rvest", "bi-globe2",
+  "eleves-fictifs", "eleves_fictifs.csv", "module_09/eleves_fictifs.csv", "module-09", "Module 09", "Fichier CSV fictif sur des élèves.", "Pratiquer les variables catégorielles, la classification et l'interprétation prudente.", "Données fictives créées pour le cours.", "Données simulées pour le cours.", "local", ",", 1000, 6, NA, "bi-filetype-csv",
+  "ecoles-primaires-qc", "ecoles_primaires_qc.csv", "module_09/ecoles_primaires_qc.csv", "module-09", "Module 09", "Fichier CSV sur des écoles primaires du Québec.", "Relier des indicateurs scolaires à des questions descriptives.", "Fichier fourni avec le matériel du cours.", "Voir la source indiquée dans le matériel du module.", "local", ",", 1963, 11, NA, "bi-filetype-csv",
+  "textes-module-10", "Commentaires et textes de travail", NA, "module-10", "Module 10", "Textes et commentaires préparés dans les activités.", "Pratiquer le traitement automatique du langage et les tableaux de bord.", "Textes préparés dans les activités.", "Matériel pédagogique du cours.", "text", NA, NA, NA, "tidytext", "bi-chat-left-text"
+)
+
+read_preview <- function(row, n = 50) {
+  path <- project_file(row$path)
+  extension <- tolower(tools::file_ext(path))
+
+  if (extension == "csv") {
+  return(readr::read_delim(
+  file = path,
+  delim = row$delimiter,
+  n_max = n,
+  show_col_types = FALSE,
+  locale = readr::locale(encoding = "UTF-8")
+  ))
+  }
+
+  if (extension == "xlsx") {
+  return(readxl::read_excel(path, n_max = n))
+  }
+
+  if (extension == "json") {
+  object <- jsonlite::read_json(path, simplifyVector = TRUE)
+  if (is.data.frame(object)) {
+  return(tibble::as_tibble(object))
+  }
+  if (is.list(object)) {
+  return(tibble::tibble(
+  element = names(object),
+  valeur = purrr::map_chr(object, ~ paste(capture.output(str(.x, max.level = 1)), collapse = " "))
+  ))
+  }
+  }
+
+  if (extension == "rds") {
+  object <- readRDS(path)
+  if (is.data.frame(object)) {
+  return(tibble::as_tibble(utils::head(object, n)))
+  }
+  return(tibble::tibble(type = class(object)[1], description = paste(dim(object), collapse = " x ")))
+  }
+
+  tibble::tibble(message = "Aucun aperçu disponible pour ce type de fichier.")
+}
+
+profile_preview <- function(data) {
+  tibble::tibble(
+  variable = names(data),
+  type = purrr::map_chr(data, ~ class(.x)[1]),
+  valeurs_manquantes_apercu = purrr::map_int(data, ~ sum(is.na(.x))),
+  valeurs_distinctes_apercu = purrr::map_int(data, ~ dplyr::n_distinct(.x, na.rm = TRUE)),
+  exemple = purrr::map_chr(data, function(x) {
+  values <- x[!is.na(x)]
+  if (length(values) == 0) return("NA")
+  substr(as.character(values[[1]]), 1, 70)
+  })
+  )
+}
+
+display_preview <- function(data, max_rows = 12, max_cols = 12) {
+  data <- utils::head(data, max_rows)
+  if (ncol(data) > max_cols) {
+  data <- data[, seq_len(max_cols), drop = FALSE]
+  }
+  data
+}
+
+dataset_facts <- function(row) {
+  tibble::tibble(
+  information = c("Module", "Observations", "Variables", "Utilisation", "Source", "Licence"),
+  valeur = c(
+  row$module,
+  ifelse(is.na(row$rows), "Non déterminé automatiquement", format_integer_fr(row$rows)),
+  ifelse(is.na(row$cols), "Non déterminé automatiquement", format_integer_fr(row$cols)),
+  row$usage,
+  row$source,
+  row$license
+  )
+  )
+}
+
+card_href <- function(row) {
+  if (identical(row$kind, "local")) return(paste0("#", row$id))
+  if (!is.na(row$package_anchor)) return(paste0("packages.html#", row$package_anchor))
+  "#"
+}
+
+render_dataset_card <- function(row) {
+  href <- card_href(row)
+  kind_label <- dplyr::case_when(
+  row$kind == "local" ~ "Fichier local",
+  row$kind == "package" ~ "Package R",
+  row$kind == "web" ~ "Web",
+  row$kind == "text" ~ "Texte",
+  TRUE ~ "Donnée"
+  )
+  size_label <- ifelse(
+  is.na(row$rows) & is.na(row$cols),
+  "Structure à consulter",
+  paste0(
+  ifelse(is.na(row$rows), "?", format_integer_fr(row$rows)),
+  " observations / ",
+  ifelse(is.na(row$cols), "?", format_integer_fr(row$cols)),
+  " variables"
+  )
+  )
+  action_label <- ifelse(row$kind == "local", "Voir la fiche", "Voir la documentation")
+
+  paste0(
+  '<a id="dataset-card-', row$id, '" class="dataset-card" href="', href, '">',
+  '<span class="resource-icon"><i class="bi ', row$icon, '"></i></span>',
+  '<span>',
+  '<span class="dataset-module">', html_text(row$module), '</span>',
+  '<h2>', html_text(row$title), '</h2>',
+  '<span class="resource-text">', html_text(row$description), '</span>',
+  '<span class="dataset-meta"><span>', kind_label, '</span><span>', html_text(size_label), '</span></span>',
+  '<span class="package-source">', action_label, '</span>',
+  '</span>',
+  '</a>'
+  )
+}
+
+render_download_link <- function(row) {
+  paste0(
+  "<p class=\"dataset-download-wrap\"><a class=\"dataset-download\" href=\"",
+  html_text(row$path),
+  "\" download>Télécharger ",
+  html_text(basename(row$path)),
+  "</a></p>"
+  )
+}
+```
+
+## Catalogue par module
+
+```{r}
+#| label: catalogue-par-module
+#| results: asis
+
+for (module_id in unique(dataset_catalog$module_id)) {
+  module_rows <- dataset_catalog |> filter(.data$module_id ==.env$module_id)
+  cat("### ", module_rows$module[[1]], " {#", module_id, "}\n\n", sep = "")
+  cat("<div class=\"catalog-grid\">\n")
+  purrr::walk(seq_len(nrow(module_rows)), ~ cat(render_dataset_card(module_rows[.x, ]), "\n"))
+  cat("</div>\n\n")
+}
+```
+
+## Fiches des fichiers locaux
+
+Les aperçus sont limités aux premières lignes afin de garder le site léger. Le profil des variables est donc un diagnostic rapide de l'aperçu affiché, pas une analyse exhaustive de tout le fichier.
+
+```{r}
+#| label: fiches-fichiers-locaux
+#| results: asis
+
+local_rows <- dataset_catalog |> filter(.data$kind == "local")
+
+for (index in seq_len(nrow(local_rows))) {
+  row <- local_rows[index, ]
+  cat("### ", row$title, " {#", row$id, "}\n\n", sep = "")
+  cat(row$description, "\n\n")
+  cat(render_download_link(row), "\n\n")
+
+  print(knitr::kable(dataset_facts(row), col.names = c("Information", "Valeur")))
+  cat("\n\n")
+
+  preview <- tryCatch(read_preview(row, n = 50), error = function(error) {
+  tibble::tibble(message = paste("Aperçu non disponible:", conditionMessage(error)))
+  })
+
+  cat("#### Aperçu\n\n")
+  cat("Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.\n\n")
+  print(DT::datatable(display_preview(preview), rownames = FALSE, class = "compact stripe hover", options = list(pageLength = 6, scrollX = TRUE, dom = "tip")))
+  cat("\n\n")
+
+  cat("#### Variables de l'aperçu\n\n")
+  print(knitr::kable(profile_preview(preview)))
+  cat("\n\n")
+}
+```

@@ -2,7 +2,7 @@
 title: "Adventure 4 - Clean up to insure better"
 subtitle: "STT-1100 Introduction to Data Science"
 author:
-  - institute: "Laval University"
+  - institute: “Laval University”
 format:
   html:
     toc: true
@@ -21,7 +21,7 @@ editor_options:
 
 You have just started an internship as a **junior data engineer** at a large **insurance company**. You work with Alex, an experienced business analyst, who has entrusted you with an important mission.
 
-Alex has provided you with a database taken from an old archive system. This database contains key information on clients, insurance policies and claims. Unfortunately, the database is **riddled with errors**: duplicates, missing values, inconsistencies, format errors, typos, etc.
+Alex has provided you with a database taken from an old archive system. This database contains key information on customers, insurance policies and claims. Unfortunately, the database is **riddled with errors**: duplicates, missing values, inconsistencies, format errors, typos, etc.
 
 Your role will be to ensure **data quality** to allow Alex to carry out a reliable analysis.
 
@@ -39,7 +39,7 @@ At the end of this adventure, you will:
 1. Provide a **clean database** (`own_data.csv`).
 2. Maintain a **structured R list** called `cleanup_log` in your script.
 
->  Remember to **document each step of your cleaning**. Your rigor is your best ally!
+>   Remember to **document each step of your cleaning**. Your rigor is your best ally!
 
 # Typology of errors and structure of the list
 
@@ -100,7 +100,7 @@ Each category (`VM`, `DF`, etc.) contains a **list of fixes**, where each fix is
 
 - `justification`: why this action was chosen
 
->  This structure will help you **report your changes** in a clean and professional manner.
+>   This structure will help you **report your changes** in a clean and professional manner.
 
 # GitHub and rendering
 
@@ -108,7 +108,7 @@ As for previous adventures:
 
 - **Clone** the module 4 GitHub repository from the course organization. You can use the course cheat sheet if you have a memory lapse.
 - Work in RStudio and **make commits regularly** to document your progress.
-- Your repository must contain:
+- Your deposit must contain:
     - the `.qmd` script for your adventure, that is to say a document where you do your tests and build your `journal_nettoyage` list;
     - the `journal_nettoyage` list in a `.Rdata` object;
     - the cleaned database in `.csv` format.
@@ -138,7 +138,7 @@ head(base)
 glimpse(base)
 ```
 
->  **Alex**: "This base is a real headache! I need you to make it usable quickly. You should start by spotting what's wrong with names, formats or values. »
+>   **Alex**: “This base is a real headache! I need you to make it usable quickly. You should start by spotting what's wrong with names, formats or values. »
 
 ----------------------------------------------------------------------------------
 
@@ -160,7 +160,7 @@ names(base)
 glimpse(base)
 ```
 
->  **Alex**: "You'll see, some types of variables don't make any sense... Keep track of everything you find weird so that we can decide together what to do with it. »
+>   **Alex**: “You'll see, some types of variables don't make any sense... Keep track of everything you find weird so that we can decide together what to do with it. »
 
 One of the most useful functions here is `glimpse()` (from the `dplyr` package). It displays a preview of the first values ​​of each variable **as well as their type**: for example `chr` for a character string, `dbl` for a decimal number (double), `int` for an integer, or even `lgl` for a boolean.
 
@@ -190,11 +190,11 @@ as.factor(base$column)
 
 Remember to always check the result of the transformation with `glimpse()` or `summary()`.
 
->  Alex: "When we look at the types of variables with glimpse(), we must keep in mind that there are standards in data science. In general, variables containing text should be of type `character` or `factor` if they take a limited number of values ​​(for example, a gender or province column). Variables containing numbers should normally be of type `dbl` (for decimals) or `int` (for integers), as appropriate.
+>   Alex: “When we look at the types of variables with glimpse(), we must keep in mind that there are standards in data science. In general, variables containing text should be of type `character` or `factor` if they take a limited number of values ​​(for example, a gender or province column). Variables containing numbers should normally be of type `dbl` (for decimals) or `int` (for integers), as appropriate.
 
-> A common pitfall is identifiers! Even if they appear to be numbers, like a `client_ID` or `contract_number` column, they are not quantities on which we are going to do calculations. These are unique labels. We should therefore convert them to character. This prevents an identifier like 0012 from being transformed into 12 by mistake, or from R thinking that we want to do an average with that…
+>  A common pitfall is identifiers! Even if they appear to be numbers, like a `client_ID` or `contract_number` column, they are not quantities on which we are going to do calculations. These are unique labels. We should therefore convert them to character. This prevents an identifier like 0012 from being transformed into 12 by mistake, or from R thinking that we want to do an average with that…
 
-> In short, check each type carefully. Ask yourself: is this variable text? Am I going to calculate on it? Are these categories? »
+>  In short, check each type carefully. Ask yourself: is this variable text? Am I going to calculate on it? Are these categories? »
 
 ## Checking for duplicates
 
@@ -229,7 +229,7 @@ basis %>%
   filter(n() > 1)
 ```
 
->  **Alex**: "Two clients with the same number is fishy. Look what's happening. Blindly deleting is not always the right solution. Note carefully what you do in the `cleaning_journal`! »
+>   **Alex**: “Two customers with the same number is fishy. Look what's happening. Blindly deleting is not always the right solution. Note carefully what you do in the `cleaning_journal`! »
 
 And of course, if you intervene, don't forget to indicate it in the `DF` section of your `cleaning_journal`.
 
@@ -269,7 +269,7 @@ To clean this up, here are some key functions of the `forcats` package:
 - `fct_count()`: to count levels and spot anomalies
 - `fct_recode()`: to rename levels (for example merge `"CAR"` and `"car"`)
 - `fct_collapse()`: to merge several levels into one
-- `fct_lump()`: to group rare levels into "Other"
+- `fct_lump()`: to group rare levels into “Other”
 - `fct_relevel()` or `fct_infreq()`: to reorder the levels
 
 ## Suggested steps
@@ -283,7 +283,7 @@ Take the time to:
     - typos (`"Commute"` vs `"Com.mute"`)
     - aberrant levels ("ANIMAL"` in `VEHICLE_TYPE`)
 
->  **Alex**: "Be careful of these strange values. If a value makes no sense in context (e.g. `"ANIMAL"` in a column about vehicle types), don't guess. Set it to `NA`. We prefer missing data to bad information. »
+>   **Alex**: “Be careful of these strange values. If a value makes no sense in context (e.g. `"ANIMAL"` in a column about vehicle types), don't guess. Set it to `NA`. We prefer missing data to bad information. »
 
 ## Example to adapt
 
@@ -353,7 +353,7 @@ If you intervene, don't forget to **justify in `journal_nettoyage`**, using the 
 table(base$QUARTER, base$SEASON)
 ```
 
->  **Alex**: "If you see `QUARTER = 1` with `SEASON = "Summer"`, you should wince... This kind of inconsistency is worth noting, even if you don't know what to correct. »
+>   **Alex**: “If you see `QUARTER = 1` with `SEASON = "Summer"`, you should wince... This kind of inconsistency is worth noting, even if you don't know what to correct. »
 
 You can also visualize with a crossbar chart:
 
@@ -400,7 +400,7 @@ ggplot(base, aes(x = AGE, y = YEARS_LICENSED)) +
 - Are there points above certain lines? What line are we talking about here?
 - Can you have more years of license than age?
 
->  **Alex**: "You don't have to correct it here. On the other hand, **if you notice something strange**, take two minutes to write it down in the `cleaning_journal`. Just to show that you saw it, thought about it, and made a decision. That's being rigorous. »
+>   **Alex**: “You don’t have to correct it here. On the other hand, **if you notice something strange**, take two minutes to write it down in the `cleaning_journal`. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous. »
 
 Use the code `LG` here for a **logical error**.
 
@@ -437,4 +437,4 @@ To save your list in a `.Rdata` file, simply use this code at the end of your sc
 save(cleaning_journal, file = "cleaning_journal.Rdata")
 ```
 
->  **Alex**: "You have just done what few people do well: clean data cleanly, keeping track of your decisions. This is what distinguishes a true professional from someone who is tinkering. Hat ! »
+>   **Alex**: “You have just done what few people do well: clean data cleanly, keeping track of your decisions. This is what distinguishes a true professional from someone who is tinkering. Hat ! »

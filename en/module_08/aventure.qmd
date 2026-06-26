@@ -2,7 +2,7 @@
 title: "Adventure 8 - Open data from Quebec"
 subtitle: "STT-1100 Introduction to Data Science"
 author:
-  - institute: "Laval University"
+  - institute: “Laval University”
 editor: visual
 editor_options:
   chunk_output_type: console
@@ -55,9 +55,9 @@ safe_read_html <- function(url) {
 
 You work as a **freelancer** in data science. Unlike a salaried position, you are mandated from time to time by clients to resolve specific problems. You must be autonomous, rigorous and capable of delivering effective, reusable and well-documented solutions.
 
-Freelance consultants are often called upon for their ability to unblock projects quickly and efficiently. They deliver tools that are well documented, testable, and easy to maintain by their clients. Clarity of the code, respect for standards and ethics are therefore key elements of their practice.
+Freelance consultants are often called upon for their ability to unblock projects quickly and efficiently. They deliver tools that are well documented, testable, and easy to maintain by their customers. Clarity of the code, respect for standards and ethics are therefore key elements of their practice.
 
-Today, you are hired by **Marie-Pier**, research director at the Quebec Institute for Sustainable Data. She wishes to explore the [donneesquebec.ca](https://www.donneesquebec.ca) portal to identify the most recent and relevant datasets for her projects. Your mission: **design a reliable scraping tool** to extract titles, producers and categories from datasets, while respecting good ethical practices.
+Today, you are hired by **Marie-Pier**, research director at the Quebec Institute for Sustainable Data. She wishes to explore the [dataquebec.ca](https://www.donneesquebec.ca) portal to identify the most recent and relevant datasets for her projects. Your mission: **design a reliable scraping tool** to extract titles, producers and categories from datasets, while respecting good ethical practices.
 
 ::: callout-note
 **Your contact: Marie-Pier**\
@@ -76,8 +76,8 @@ She accompanies you throughout this adventure: she will ask key questions, check
 
 # Prerequisites
 
-::: {.callout-important title=" - Question from Marie-Pier"}
-*"What can we legally extract from this portal? Is scraping allowed here? »*
+::: {.callout-important title="Question from Marie-Pier"}
+*“What can we legally extract from this portal? Is scraping allowed here? »*
 :::
 
 To answer this question, we will first consult the site's `robots.txt` file. This file indicates the rules that indexing (and therefore scraping) robots must follow.
@@ -101,7 +101,7 @@ cat("Paths prohibited for robots:\n")
 writeLines(disinstructions)
 
 # Ethics note
-cat("\n\n\u2139\ufe0f Note:\nPublic datasets listed in the result pages are not explicitly restricted.\nScraping of main search pages is therefore permitted, as long as we avoid the paths /api/, /dataset/rate/, etc.\n")
+cat("\n\nNote:\nPublic datasets listed in the result pages are not explicitly restricted.\nScraping of main search pages is therefore permitted, as long as we avoid the paths /api/, /dataset/rate/, etc.\n")
 
 ```
 
@@ -119,8 +119,8 @@ The `read_html()` function downloads and converts the web page to allow manipula
 
 Marie-Pier asks you:
 
-::: {.callout-important title=" - Question from Marie-Pier"}
-*"Can you show me what the structure of this page looks like? Can you spot anything interesting? »*
+::: {.callout-important title="Question from Marie-Pier"}
+*“Can you show me what the structure of this page looks like? Can you spot anything interesting? »*
 :::
 
 We can now target HTML elements with `html_nodes()` (or `html_elements()` in recent versions):
@@ -162,15 +162,15 @@ org_clean
  **Why use `map_chr()`?**\
 `map_chr()` belongs to the **purrr** package, which is part of the `tidyverse`. This function allows you to apply a function to each element of a list (here each HTML block), and to return a character vector. This is perfect when you want one text value per block.
 
-> Example:
+>  Example:
 >
-> ``` r
-> producers <- map_chr(blocks, function(block) {
-> orgs <- html_nodes(block, ".dqc-org-cat") %>% html_text(trim = TRUE)
-> org <- orgs[grepl("^Organization", orgs)][1]
-> gsub("^Organization: ", "", org)
-> })
-> ```
+>  ``` r
+>  producers <- map_chr(blocks, function(block) {
+>  orgs <- html_nodes(block, ".dqc-org-cat") %>% html_text(trim = TRUE)
+>  org <- orgs[grepl("^Organization", orgs)][1]
+>  gsub("^Organization: ", "", org)
+>  })
+>  ```
 :::
 
 ::: callout-tip
@@ -234,7 +234,7 @@ p2 <- scrape_page("...")
 ```
 
 ::: callout-tip
- **Marie-Pier**: "Have you noticed what changes in the URL each time? Can you generalize this behavior? »
+ **Marie-Pier**: “Have you noticed what changes in the URL each time? Can you generalize this behavior? »
 :::
 
 Reminder of **module 1**: a loop allows you to automate repetitive behavior. Here is the start of a `for` loop to complete:
@@ -260,7 +260,7 @@ for (i in 1:5) {
 
 Use the `results` table to answer your client's questions. She expects precise results from you, illustrated if necessary.
 
-::: {.callout-important title=" - Questions from Marie-Pier"}
+::: {.callout-important title="Questions from Marie-Pier"}
 1. What are the most common categories of datasets?
 2. Which organizations publish the most?
 3. Are we observing a diversity of fields or a concentration on a few themes?
@@ -270,7 +270,7 @@ Use the `results` table to answer your client's questions. She expects precise r
 
 # Ethical reflection
 
-::: {.callout-note title=" For your report"}
+::: {.callout-note title="For your report"}
 Briefly report:
 
 - Does the Data Québec site explicitly allow scraping?

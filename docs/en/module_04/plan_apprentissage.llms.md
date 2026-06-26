@@ -1,0 +1,182 @@
+# Module 4 - Learning plan
+
+STT-1100 Introduction to Data Science
+
+# Module objectives
+
+At the end of this module, you should be able to
+
+- Import data from different formats (`txt`, `csv`, `excel`, `json`).
+- Clean and recode data to ensure its quality.
+- Use the `forcats` and `stringr` libraries to manipulate factors and character strings.
+- Create and use lists.
+
+# Initial readings
+
+## Readings to do before the adventure
+
+In this module, we will explore the basic concepts of data import and data cleansing. Here is some initial reading to prepare you:
+
+- [**R for Data Science – Data import**](https://r4ds.hadley.nz/data-import.html)
+  This chapter introduces you to importing data with the `readr` package.
+
+- [**R for Data Science – Data tidying**](https://r4ds.hadley.nz/data-tidy.html)
+  This chapter introduces you to data manipulation with the `dplyr` package.
+
+- [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html)
+  This chapter introduces you to **factors** in R, which are categorical variables.
+  \> **Note**: Although this chapter is more widely used in module 4, some useful functions like `factor()` or `fct_reorder()` can already help you manipulate categorical variables (module 3).
+
+- [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html)
+  This chapter introduces you to importing data from Excel files.
+
+- [**R for Data Science – Lists**](https://r4ds.hadley.nz/rectangling.html#lists)
+  This section introduces you to the concept of lists in programming.
+
+# Adventure
+
+[Adventure 4](../module_04/aventure.llms.md)
+
+# Challenge
+
+At the end of the adventure, you should be able to have placed the following elements in your Github folder:
+
+- the `.qmd` script for your adventure, that is to say a document where you do your tests and build your cleaning_journal list;
+
+- the `journal_nettoyage` list in a `.Rdata` object;
+
+- the cleaned database in `.csv.` format
+
+# Consolidation exercises
+
+### Exercise 1 – Controlled reading of a CSV (Data import, § readr)
+
+Import `policies.csv` as:
+
+- forcing `policy_id` to **character**;
+
+- leaving `premium_amount` as **double**
+
+then display the structure of the object.
+
+> **NOTE:**
+>
+> ``` r
+> library(readr)
+>
+> policies <- read_csv(
+>   "policies.csv",
+>   col_types = cols(
+>     policy_id = col_character(),
+>     premium_amount = col_double()
+>   )
+> )
+> glimpse(policies)
+> ```
+
+### Exercise 2 – Cleaning up missing values (Data import, ex. 4)
+
+The file contains the string `"missing"` to indicate an absence in `vehicle_type`.
+Re-import the file by converting it to `NA`.
+
+> **NOTE:**
+>
+> ``` r
+> policies <- read_csv("policies.csv", na = "missing")
+> ```
+
+### Exercise 3 – Long \<-\> wide passage (Data tidy, § pivot)
+
+The `q1_claims:q4_claims` columns represent the number of claims per quarter.
+
+1.  Put them in *long* (`quarter`, `claims`).
+
+2.  Then return to *wide*.
+
+> **NOTE:**
+>
+> ``` r
+> library(tidyr)
+> library(dplyr)
+>
+> pol_long <- policies %>%
+>   pivot_longer(
+>     cols = q1_claims:q4_claims,
+>     names_to = "quarter",
+>     values_to = "claims"
+>   )
+>
+> pol_wide <- pol_long %>%
+>   pivot_wider(names_from = quarter, values_from = claims)
+> ```
+
+### Exercise 5 – Read a specific Excel sheet (Import spreadsheets, ex. 3)
+
+The workbook `quotes_2024.xlsx` has a sheet “Q3” where the labels start on the 2nd line.
+Import it and check the types.
+
+> **NOTE:**
+>
+> ``` r
+> library(readxl)
+>
+> q3 <- read_excel(
+>   "resources/quotes_2024.xlsx",
+>   sheet = "Q3",
+>   skip = 1 # we skip the first line
+> )
+> glimpse(q3)
+> ```
+
+### Exercise 6 – Parse numbers with locale (Data import, ex. 5)
+
+The `euro_premium` column contains “1,234.56” (decimal point, space 000).
+Parse it correctly as a `double`.
+
+> **NOTE:**
+>
+> ``` r
+> library(readr)
+>
+> parse_number("1234.56", locale = locale(decimal_mark = ",", grouping_mark = " "))
+> ```
+
+### Exercise 7 – Rectangling a JSON list (Lists, ex. 1-2)
+
+You have a list `lst <- jsonlite::read_json("coverage.json")`.
+
+1.  Get `lst$collision$limit`.
+
+2.  Transform `lst` into a rectangular tibble.
+
+> **NOTE:**
+>
+> ``` r
+> library(jsonlite)
+> library(tidyr)
+> library(dplyr)
+>
+> lst <- read_json("coverage.json")
+> limit <- lst$collision$limit
+>
+> tbl <- tibble(row = lst) %>%
+>   unnest_wider(row)
+> ```
+
+### Exercise 8 – Express pipeline (Summary)
+
+In three lines:
+
+1.  import `policies.csv`;
+
+2.  clean names (`janitor::clean_names`);
+
+3.  return the **5** largest `claim_amount` by `vehicle_type`.
+
+> **NOTE:**
+>
+> ``` r
+> library(readr); library(dplyr); library(janitor)
+>
+> read_csv("policies.csv") %>% clean_names() %>% slice_max(claim_amount, n = 5, by = vehicle_type)
+> ```

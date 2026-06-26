@@ -1,0 +1,210 @@
+---
+title: "Data science dive"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+::: {.module-banner}
+<p class="module-banner-number">Module 01</p>
+<p class="module-banner-subtitle">Discover the role of reproducible analysis and the first practical moves in RStudio, R and Quarto.</p>
+:::
+
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Main thread</span><span class="fact-value">First R and Quarto moves</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Data</span><span class="fact-value">MeteoQuebec and first tables</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Challenge</span><span class="fact-value">Reproducible mini Quarto report</span></span>
+:::
+::::
+
+## Finished Product
+
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Final product</p>
+  <h3>A reproducible mini Quarto report</h3>
+  <p>The chapter leads to a first HTML document that imports data, displays results and can be rendered again cleanly.</p>
+  </div>
+  <div class="product-visual" aria-label="Visual preview of the finished product">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>report.html</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>data loaded</span><span class="mini-bar" style="--bar-width: 88%;"></span></div><div class="mini-bar-row"><span>clear summaries</span><span class="mini-bar" style="--bar-width: 62%;"></span></div><div class="mini-bar-row"><span>reproducible render</span><span class="mini-bar" style="--bar-width: 74%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>data loaded</span>
+  <span><i class="bi bi-check2"></i>clear summaries</span>
+  <span><i class="bi bi-check2"></i>reproducible render</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
+
+## Module Objectives
+
+At the end of this module, you should be able to
+
+- Use RStudio to write and run R code using the console and scripts.
+
+- Install and load libraries.
+
+- Create and manipulate R objects, use conditions, use existing functions, write simple functions.
+
+- Write R code following tidyverse style conventions.
+
+- Check if a dataset is clean.
+
+- Extract a row or column, add a column, filter data using one or more conditions.
+
+- Write a simple report in Quarto, including text, code blocks, section titles.
+
+## Learning Plan
+
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="readings">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Readings</span>
+  <span class="path-preview">Set up the R, RStudio, Quarto and reproducibility landmarks.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="initial-readings">Initial readings</h3>
+<h4 id="the-reference-book">The reference book</h4>
+<p>In this course, we will regularly rely on the book <strong>R for Data Science</strong> (<em>2nd edition</em>, by Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund).</p>
+<blockquote>
+<p>Note: we will often abbreviate with <strong>R4DS</strong></p>
+</blockquote>
+<p>It is an <strong>indispensable reference</strong>, accessible free online and written in clear <strong>English</strong>. You will find complete explanations and concrete examples to learn how to work effectively with <code>tidyverse</code>.</p>
+<p>** Tip**: If in doubt or stuck, consult the document <a href="../references.html">How to search and get help</a>.</p>
+<hr />
+<h5 id="to-read-for-this-module">To read for this module</h5>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/" target="_blank">Book homepage</a><br />
+<em>An overview of the book, its authors and the themes covered in each part.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/intro.html" target="_blank">Introduction</a><br />
+<em>Why learn R for data science, and how to approach your learning in this course.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/workflow-basics.html" target="_blank">Workflow: basics</a><br />
+<em>The first steps in RStudio: the environment, scripts and interactive behavior of R.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/workflow-scripts.html" target="_blank">Workflow: scripts</a><br />
+<em>Why use scripts to make your work reproducible, clear and well structured.</em></p></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="adventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Adventure</span>
+  <span class="path-preview">Create a first report from weather data.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
+  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="challenge">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Challenge</span>
+  <span class="path-preview">Render a clear and reproducible mini HTML report.</span>
+  <span class="path-resource path-note">In this card</span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="challenge">Challenge</h3>
+<p>In this first challenge, in order to get used to the different tools, you must create a Quarto report in HTML format.</p>
+<p><a href="defi.html">Module 1 challenge</a></p>
+<h4 id="further-reading">Further reading</h4>
+<h5 id="deepen-best-practices">Deepen best practices</h5>
+<p>Once the foundations have been laid, it is essential to adopt <strong>clear, reproducible and consistent work habits</strong> from the start. The resources below will help you improve the readability, structure, and organization of your code.</p>
+<hr />
+<h5 id="r4ds-add-ons">R4DS Add-ons</h5>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/workflow-help.html">Workflow: help</a><br />
+<em>Learn to ask the right questions, search documentation effectively, and make relevant requests for help.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/quarto-formats.html">Quarto formats</a><br />
+<em>Introduction to the formats available in Quarto and how to customize your reports, articles or presentations.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/workflow-style.html">Workflow:style</a><br />
+<em>Why a consistent code style is crucial for collaboration and how to achieve it with tidyverse style.</em></p></li>
+</ul>
+<hr />
+<h5 id="tidyverse-style-guide">Tidyverse Style Guide</h5>
+<ul>
+<li><p><a href="https://style.tidyverse.org/files.html">Chapter 1: Files</a><br />
+<em>Tips for organizing your files, structuring your projects and naming your scripts clearly.</em></p></li>
+<li><p><a href="https://style.tidyverse.org/syntax.html">Chapter 2: Syntax</a><br />
+<em>Syntax rules for writing readable code, spacing, indentation and naming conventions.</em></p></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercises">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercises</span>
+  <span class="path-preview">Practise console, scripts, help and Quarto rendering.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercises</a></span>
+  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Resource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Exercises page</a></p>
+  <p><span class="step-label">Why</span> Exercises stay on a separate page because they take more space.</p>
+  <div class="ae-box"><p class="ae-title">Redo at least one passage without looking at the solution immediately.</p></div>
+  </div>
+  </details>
+</div>
+```
+
+## Data and Tools
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Datasets</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-meteo-quebec"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>UlavalSSD::MeteoQuebec</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>R packages</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#knitr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>knitr</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#remotes"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>remotes</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Review and Extension
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finish the module with the course AI assistant</h3>
+  <p>Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.</p>
+  <ul>
+  <li>Explain the finished product in three sentences.</li>
+  <li>Paste a code or output excerpt and ask for a diagnosis.</li>
+  <li>Ask for a more ambitious variant, then choose what remains reasonable.</li>
+  </ul>
+  </div>
+</div>
+```

@@ -1,0 +1,127 @@
+---
+title: "STT-1100 — Checklist sheet"
+author: "Laval University"
+format:
+  pdf:
+    pagetemplate: cheatsheet
+    keep-tex: true
+    geometry: "landscape"
+fontsize: 8pt
+mainfont: "Arial"
+logo: "../../css/STT-1100_hex.png"
+---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+# WORK ENVIRONMENT
+
+## RStudio
+- Script: `Ctrl + Shift + N`
+- Render Quarto: `Ctrl + Shift + K`
+
+## Quarto
+```markdown
+---
+title: "Title"
+format: html
+---
+```
+
+Chunk R:
+````r
+```{r}
+summary(df)
+```
+````
+
+## Basic packages
+```r
+library(tidyverse)
+library(readr)
+library(UlavalSSD)
+library(palmerpenguins)
+```
+
+---
+
+# MANIPULATE DATA — `dplyr`
+
+## Basic
+
+```r
+select(df, col1)
+filter(df, col1 > 10)
+```
+
+## Transformation
+
+```r
+mutate(df, z = x/y)
+arrange(df, desc(x))
+```
+
+## Group and summarize
+
+```r
+group_by(df, cat)
+summarise(df, avg = mean(x, na.rm = TRUE))
+```
+
+---
+
+# VISUALIZATION — `ggplot2`
+
+## Digital
+
+```r
+ggplot(df, aes(x, y)) + geom_point()
+ggplot(df, aes(x)) + geom_histogram()
+```
+
+## Categorical
+
+```r
+ggplot(df, aes(x, fill = cat)) + geom_bar()
+ggplot(df, aes(cat, num)) + geom_boxplot()
+```
+
+ Use `facet_wrap()` to compare multiple groups
+
+---
+
+# DESCRIPTIVE ANALYSIS
+
+## Digital statistics
+
+```r
+mean(x, na.rm=TRUE)
+sd(x)
+summary(df)
+```
+
+## Frequencies
+
+```r
+table(df$cat)
+prop.table(table(df$cat))
+```
+
+## `skimr`
+
+```r
+library(skimr)
+skim(df)
+```
+
+---
+
+# GOOD PRACTICE TIPS
+
+- `glimpse(df)`: structure preview
+- `head(df)` / `tail(df)`
+- Comments `#` to clarify
+- Frequent commits in GitHub
+- Avoid ambiguous variable names

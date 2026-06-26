@@ -1,0 +1,123 @@
+---
+title: "Boîte à outils"
+body-classes: page-resource
+format:
+  html:
+    toc: false
+    embed-resources: true
+---
+
+```{=html}
+<div class="resource-page">
+  <section class="resource-hero" aria-labelledby="toolbox-title">
+  <div>
+  <p class="eyebrow">Travailler dans le cours</p>
+  <h1 id="toolbox-title">Boîte à outils STT-1100</h1>
+  <p>Cette page rassemble les gestes pratiques à réutiliser dans les modules: démarrer un projet, importer des données, transformer un tableau, visualiser, rendre un rapport Quarto, utiliser GitHub et demander de l'aide efficacement.</p>
+  <div class="resource-actions" aria-label="Accès rapides">
+  <a class="home-action home-action--primary" href="#supports-de-classe">Supports de classe</a>
+  <a class="home-action" href="#routines-r">Routines R</a>
+  <a class="home-action" href="#quarto-github">Quarto et GitHub</a>
+  <a class="home-action" href="#depannage">Dépannage</a>
+  </div>
+  </div>
+  <div class="resource-panel" aria-label="Axes de travail">
+  <div><span>R</span><p>Importer, transformer, visualiser</p></div>
+  <div><span>Q</span><p>Rédiger et rendre un rapport</p></div>
+  <div><span>Git</span><p>Suivre les versions du projet</p></div>
+  <div><span>?</span><p>Chercher et demander de l'aide</p></div>
+  </div>
+  </section>
+
+  <section class="resource-section" id="supports-de-classe" aria-labelledby="supports-title">
+  <div class="resource-section__header">
+  <h2 id="supports-title">Supports de classe</h2>
+  <p>Ces documents complètent les modules. Ils sont utiles pour réviser avant un défi, préparer un projet ou retrouver rapidement une procédure présentée en classe.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article class="resource-hub-card">
+  <h3>Aide-mémoire STT-1100</h3>
+  <p>Une feuille synthèse pour retrouver les commandes R, les gestes Quarto et les réflexes de base du cours.</p>
+  <div class="resource-link-list">
+  <a href="autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf"><span>Feuille aide-mémoire PDF</span><span>Support court à imprimer ou garder près de soi pendant les exercices.</span></a>
+  </div>
+  </article>
+  <article class="resource-hub-card">
+  <h3>RStudio et GitHub</h3>
+  <p>Les étapes pour cloner un dépôt, travailler dans un projet RStudio et comprendre l'authentification GitHub.</p>
+  <div class="resource-link-list">
+  <a href="autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.html"><span>Aide-mémoire RStudio et GitHub</span><span>Guide pas à pas pour cloner un projet et configurer GitHub.</span></a>
+  <a href="autre_materiel/Github/Pre%CC%81sentation%20Github.pdf"><span>Présentation GitHub</span><span>Support de classe sur les dépôts, les commits et le travail versionné.</span></a>
+  </div>
+  </article>
+  <article class="resource-hub-card">
+  <h3>Chercher et obtenir de l'aide</h3>
+  <p>Une méthode pour formuler une question, lire un message d'erreur et utiliser les bons espaces d'aide.</p>
+  <div class="resource-link-list">
+  <a href="autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.html"><span>Où et comment chercher</span><span>Guide pour chercher dans RStudio, sur le Web, dans la documentation et avec GPT STT-1100.</span></a>
+  <a href="references.html"><span>Matériel de référence</span><span>Liens utiles pour l'aide, la recherche et les questions fréquentes.</span></a>
+  </div>
+  </article>
+  <article class="resource-hub-card">
+  <h3>Rôles en science des données</h3>
+  <p>Une présentation pour situer le cours dans un vrai cycle de projet: importation, nettoyage, transformation, visualisation, modélisation et communication.</p>
+  <div class="resource-link-list">
+  <a href="autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.html"><span>Panorama des métiers</span><span>Support du module 1 sur les rôles et le cycle complet d'un projet de données.</span></a>
+  </div>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="routines-r" aria-labelledby="routines-title">
+  <div class="resource-section__header">
+  <h2 id="routines-title">Routines R fréquentes</h2>
+  <p>Les cartes ci-dessous résument quoi utiliser selon la tâche. Pour le détail par package, utilisez la page des packages.</p>
+  </div>
+  <div class="reading-map">
+  <article><h3>Importer</h3><p><code>readr::read_csv()</code>, <code>readxl::read_excel()</code>, <code>haven::read_sav()</code>. Toujours vérifier ensuite avec <code>glimpse()</code>, <code>names()</code> et <code>skimr::skim()</code>.</p></article>
+  <article><h3>Sélectionner et filtrer</h3><p><code>dplyr::select()</code> garde des colonnes, <code>dplyr::filter()</code> garde des lignes, <code>dplyr::arrange()</code> ordonne le tableau.</p></article>
+  <article><h3>Créer et résumer</h3><p><code>dplyr::mutate()</code> crée des variables, <code>dplyr::group_by()</code> définit les groupes, <code>dplyr::summarise()</code> calcule les indicateurs.</p></article>
+  <article><h3>Réorganiser</h3><p><code>tidyr::pivot_longer()</code> met les données au format long, <code>tidyr::pivot_wider()</code> élargit un tableau, <code>tidyr::separate()</code> découpe une colonne.</p></article>
+  <article><h3>Nettoyer du texte et des catégories</h3><p><code>stringr</code> aide à détecter, remplacer et extraire du texte. <code>forcats</code> sert à recoder et réordonner les facteurs.</p></article>
+  <article><h3>Visualiser</h3><p>Commencer par <code>ggplot()</code>, définir les variables avec <code>aes()</code>, choisir un <code>geom_*</code>, puis soigner titres, axes et facettes.</p></article>
+  </div>
+  <div class="resource-actions">
+  <a class="home-action home-action--primary" href="packages.html">Voir les packages du cours</a>
+  <a class="home-action" href="donnees.html">Voir les jeux de données</a>
+  </div>
+  </section>
+
+  <section class="resource-section resource-split" id="quarto-github" aria-labelledby="workflow-title">
+  <div>
+  <h2 id="workflow-title">Workflow minimal</h2>
+  <p>Dans STT-1100, un travail reproductible suit toujours la même logique: ouvrir le bon projet, charger les packages, importer les données, écrire le code dans un document Quarto, rendre le document, puis sauvegarder les étapes importantes avec GitHub lorsque le module le demande.</p>
+  <div class="resource-actions">
+  <a class="home-action home-action--primary" href="demarrage.html">Revoir le démarrage</a>
+  <a class="home-action" href="autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.html">Cloner avec RStudio</a>
+  </div>
+  </div>
+  <div class="resource-compact-list" aria-label="Étapes de travail">
+  <article class="resource-compact"><h3>Projet</h3><p>Un dossier, un fichier Quarto, les données au bon endroit et des noms de fichiers explicites.</p></article>
+  <article class="resource-compact"><h3>Rapport</h3><p>Un titre clair, des blocs de code lisibles, des résultats interprétés en phrases courtes.</p></article>
+  <article class="resource-compact"><h3>Version</h3><p>Des commits petits et compréhensibles lorsque le travail est prêt à être sauvegardé.</p></article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="depannage" aria-labelledby="help-title">
+  <div class="resource-section__header">
+  <h2 id="help-title">Dépannage et aide</h2>
+  <p>Avant de demander de l'aide, il faut rendre le problème observable. C'est aussi ce qui permet d'utiliser l'IA du cours de façon utile.</p>
+  </div>
+  <div class="resource-hub-grid compact-hub">
+  <article class="resource-compact"><h3>Lire l'erreur</h3><p>Copier le message complet. Identifier le nom de la fonction, de l'objet ou du fichier mentionné.</p></article>
+  <article class="resource-compact"><h3>Réduire</h3><p>Rejouer seulement le bloc qui pose problème. Vérifier que les packages sont chargés et que les données existent.</p></article>
+  <article class="resource-compact"><h3>Comparer</h3><p>Comparer avec un exemple du module, de la feuille aide-mémoire ou de la documentation officielle.</p></article>
+  <article class="resource-compact"><h3>Formuler</h3><p>Indiquer le but, le code minimal, le message d'erreur et ce qui était attendu.</p></article>
+  </div>
+  <div class="resource-actions">
+  <a class="home-action home-action--primary" href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100" target="_blank" rel="noopener">Ouvrir GPT STT-1100</a>
+  <a class="home-action" href="autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.html">Guide pour chercher</a>
+  </div>
+  </section>
+</div>
+```

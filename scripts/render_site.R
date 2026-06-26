@@ -1,0 +1,211 @@
+#!/usr/bin/env Rscript
+
+command_args <- commandArgs(trailingOnly = FALSE)
+file_arg <- command_args[startsWith(command_args, "--file=")]
+script_path <- if (length(file_arg) > 0) {
+  normalizePath(sub("^--file=", "", file_arg[1]), mustWork = TRUE)
+} else {
+  normalizePath(file.path("scripts", "render_site.R"), mustWork = TRUE)
+}
+repo_root <- normalizePath(file.path(dirname(script_path), ".."), mustWork = TRUE)
+setwd(repo_root)
+
+run_quarto <- function(args, wd = getwd()) {
+  command <- paste(c("quarto", args), collapse = " ")
+  message("Running: ", command)
+  old_wd <- getwd()
+  setwd(wd)
+  on.exit(setwd(old_wd), add = TRUE)
+  exit_code <- system2("quarto", args)
+  if (!identical(exit_code, 0L)) {
+    stop("Command failed: ", command, call. = FALSE)
+  }
+}
+
+clean_paths <- c(
+  ".quarto",
+  "en/.quarto",
+  "docs",
+  "en/docs",
+  "site_libs",
+  "en/site_libs",
+  "docs/site_libs 2",
+  "index.html"
+)
+
+remove_paths <- function(paths) {
+  for (path in paths[file.exists(paths)]) {
+    remove_exit <- system2("rm", c("-rf", path))
+    if (!identical(remove_exit, 0L) || file.exists(path)) {
+      stop("Failed to remove generated path: ", path, call. = FALSE)
+    }
+  }
+}
+
+sync_source_to_render_root <- function(source_root, render_root) {
+  args <- c(
+    "-a",
+    "--delete",
+    "--exclude=.git/",
+    "--exclude=.Rhistory",
+    "--exclude=.RData",
+    "--exclude=.Rproj.user/",
+    "--exclude=.DS_Store",
+    "--exclude=.quarto*/",
+    "--exclude=docs/",
+    "--exclude=en/docs/",
+    "--exclude=site_libs*/",
+    "--exclude=*_files/",
+    "--exclude=*.rmarkdown",
+    "--exclude=*.llms.md",
+    "--exclude=llms.txt",
+    "--include=language-switch.html",
+    "--exclude=*.html",
+    paste0(source_root, "/"),
+    paste0(render_root, "/")
+  )
+  sync_exit <- system2("rsync", args)
+  if (!identical(sync_exit, 0L)) {
+    stop("Failed to sync source files to temporary render directory.", call. = FALSE)
+  }
+}
+
+find_quarto_cache_paths <- function() {
+  c(
+    list.files(".", pattern = "^\\.quarto", all.files = TRUE, full.names = TRUE, recursive = FALSE),
+    list.files("en", pattern = "^\\.quarto", all.files = TRUE, full.names = TRUE, recursive = FALSE)
+  )
+}
+
+remove_generated_duplicates <- function() {
+  duplicate_paths <- c(
+    list.files("docs", pattern = " [0-9]+$", full.names = TRUE, recursive = FALSE),
+    list.files(".", pattern = "^site_libs [0-9]+$", full.names = TRUE, recursive = FALSE),
+    list.files("en", pattern = "^site_libs [0-9]+$", full.names = TRUE, recursive = FALSE)
+  )
+  remove_paths(duplicate_paths)
+}
+
+find_generated_source_paths <- function(root) {
+  old_wd <- getwd()
+  setwd(root)
+  on.exit(setwd(old_wd), add = TRUE)
+
+  args <- c(
+    ".",
+    "(", "-path", "./.git", "-o", "-path", "./docs", "-o", "-path", "./en/docs", ")",
+    "-prune",
+    "-o",
+    "(",
+    "-type", "d",
+    "(",
+    "-name", ".quarto*",
+    "-o", "-name", "site_libs*",
+    "-o", "-name", "*_files",
+    ")",
+    "-print",
+    "-prune",
+    ")",
+    "-o",
+    "(",
+    "-type", "f",
+    "(",
+    "-name", "*.html",
+    "-o", "-name", "*.llms.md",
+    "-o", "-name", "llms.txt",
+    "-o", "-name", "*.rmarkdown",
+    ")",
+    "-print",
+    ")"
+  )
+
+  paths <- system2("find", shQuote(args), stdout = TRUE)
+  paths <- paths[basename(paths) != "language-switch.html"]
+  paths
+}
+
+remove_source_artifacts <- function(root) {
+  old_wd <- getwd()
+  setwd(root)
+  on.exit(setwd(old_wd), add = TRUE)
+
+  remove_paths(unique(c(find_quarto_cache_paths(), "site_libs", "en/site_libs", "en/docs")))
+  remove_generated_duplicates()
+  remove_paths(find_generated_source_paths(root))
+}
+
+strip_trailing_whitespace <- function(root = "docs") {
+  text_files <- list.files(
+    root,
+    pattern = "\\.(html|css|json|md|txt|xml)$",
+    recursive = TRUE,
+    full.names = TRUE,
+    no.. = TRUE
+  )
+
+  for (path in text_files) {
+    lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+    stripped <- sub("[ \t]+$", "", lines, perl = TRUE)
+    if (!identical(lines, stripped)) {
+      con <- file(path, open = "w", encoding = "UTF-8")
+      writeLines(stripped, con = con, useBytes = FALSE)
+      close(con)
+    }
+  }
+}
+
+render_root <- tempfile("stt1100-render-")
+dir.create(render_root, recursive = TRUE, showWarnings = FALSE)
+on.exit(remove_paths(render_root), add = TRUE)
+
+message("Preparing clean temporary render directory: ", render_root)
+sync_source_to_render_root(repo_root, render_root)
+setwd(render_root)
+
+remove_paths(unique(c(clean_paths, find_quarto_cache_paths())))
+remove_generated_duplicates()
+remove_source_artifacts(render_root)
+
+run_quarto(c("render", "."))
+run_quarto(c("render", "en"))
+
+remove_paths(file.path("docs", "en"))
+dir.create(file.path("docs", "en"), recursive = TRUE, showWarnings = FALSE)
+english_output <- list.files(
+  file.path("en", "docs"),
+  all.files = TRUE,
+  no.. = TRUE,
+  full.names = TRUE
+)
+if (length(english_output) == 0) {
+  stop("English render did not produce files in en/docs.", call. = FALSE)
+}
+copy_exit <- system2("cp", c("-R", file.path("en", "docs", "."), file.path("docs", "en")))
+if (!identical(copy_exit, 0L)) {
+  stop("Failed to copy English render output to docs/en.", call. = FALSE)
+}
+
+remove_paths(c("en/docs", "site_libs", "en/site_libs"))
+
+duplicate_outputs <- list.files(
+  "docs",
+  pattern = " [0-9]+\\.",
+  recursive = TRUE,
+  full.names = TRUE
+)
+remove_paths(duplicate_outputs)
+remove_generated_duplicates()
+strip_trailing_whitespace("docs")
+
+setwd(repo_root)
+dir.create(file.path(repo_root, "docs"), recursive = TRUE, showWarnings = FALSE)
+sync_exit <- system2(
+  "rsync",
+  c("-a", "--delete", paste0(file.path(render_root, "docs"), "/"), paste0(file.path(repo_root, "docs"), "/"))
+)
+if (!identical(sync_exit, 0L)) {
+  stop("Failed to sync rendered site back to repository docs/.", call. = FALSE)
+}
+strip_trailing_whitespace(file.path(repo_root, "docs"))
+
+message("Done: rendered French site to docs/ and English site to docs/en/.")

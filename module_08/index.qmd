@@ -1,0 +1,167 @@
+---
+title: "Automatisation et exploration du web"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+::: {.module-banner}
+<p class="module-banner-number">Module 08</p>
+<p class="module-banner-subtitle">Automatiser des tâches répétitives et extraire de l'information de pages web.</p>
+:::
+
+:::: {.module-quick-facts .three-facts}
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span>
+<span><span class="fact-label">Fil principal</span><span class="fact-value">Boucles, fonctions et web scraping</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
+<span><span class="fact-label">Données</span><span class="fact-value">Pages web et textes extraits</span></span>
+:::
+
+::: {.module-fact}
+<span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
+<span><span class="fact-label">Défi</span><span class="fact-value">Extraction ou automatisation reproductible</span></span>
+:::
+::::
+
+## Produit fini du module
+
+```{=html}
+<div class="module-product-showcase">
+  <div class="product-copy">
+  <p class="showcase-kicker">Produit final</p>
+  <h3>Une fonction de scraping reproductible</h3>
+  <p>Le chapitre conduit à une extraction web rangée dans une fonction, avec des sorties contrôlées et une logique que l’on peut refaire.</p>
+  </div>
+  <div class="product-visual" aria-label="Aperçu visuel du produit fini">
+  <div class="mini-product-board">
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>scraping</strong></div>
+  <div class="mini-product-bars">
+  <div class="mini-bar-row"><span>sélecteurs</span><span class="mini-bar" style="--bar-width: 47%;"></span></div><div class="mini-bar-row"><span>fonction</span><span class="mini-bar" style="--bar-width: 78%;"></span></div><div class="mini-bar-row"><span>table finale</span><span class="mini-bar" style="--bar-width: 66%;"></span></div>
+  </div>
+  <div class="mini-product-checks">
+  <span><i class="bi bi-check2"></i>sélecteurs</span>
+  <span><i class="bi bi-check2"></i>fonction</span>
+  <span><i class="bi bi-check2"></i>table finale</span>
+  </div>
+  </div>
+  </div>
+</div>
+```
+
+## Objectifs du module
+
+À la fin de ce module, vous devriez être capable de:
+
+-  Extraire des données textuelles d’une page web en utilisant `rvest`.
+-  Automatiser des tâches répétitives à l'aide de boucles et de fonctions en R.
+-  Identifier les aspects éthiques liés à la collecte automatisée de données en ligne.
+
+## Plan d’apprentissage
+
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+
+```{=html}
+<div class="path-grid interactive-path module-path learning-plan-path">
+<details class="path-card learning-plan-card" id="lectures-a-faire">
+  <summary><span class="path-number">1</span>
+  <span class="path-title">Lectures à faire</span>
+  <span class="path-preview">Préparer HTML, sélecteurs CSS, fonctions et automatisation.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 id="lectures">Lectures</h3>
+<p>Pour vous préparer, consultez les ressources suivantes :</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/webscraping.html">R for Data Science — Web scraping</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt">robots.txt documentation (MDN)</a></li>
+</ul>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="aventure">
+  <summary><span class="path-number">2</span>
+  <span class="path-title">Aventure</span>
+  <span class="path-preview">Extraire une page web et transformer le résultat en table.</span>
+  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
+  <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
+  </div>
+  </details>
+<details class="path-card learning-plan-card" id="defi">
+  <summary><span class="path-number">3</span>
+  <span class="path-title">Défi</span>
+  <span class="path-preview">Construire une fonction de scraping claire et réutilisable.</span>
+  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+      <div class="step-detail plan-section-detail">
+      <div class="plan-section-copy">
+<h3 class="unnumbered" id="défi-fonction-de-scraping">Défi — Fonction de scraping</h3>
+<p>Vous devrez concevoir une fonction <code>scrape_page(url)</code> qui :</p>
+<ul>
+<li>prend en entrée une URL d’une page de recherche de Données Québec ;</li>
+<li>retourne un <code>data.frame</code> avec les colonnes <code>titre</code>, <code>producteur</code>, <code>categorie</code>.</li>
+</ul>
+<p>Vous remettrez cette fonction dans un fichier <code>IDUL.R</code> dans votre dépôt GitHub. Elle sera testée automatiquement sur plusieurs pages.</p>
+      </div>
+    </div>
+  </details>
+<details class="path-card learning-plan-card" id="exercices">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercices</span>
+  <span class="path-preview">Reprendre sélecteurs, boucles et nettoyage de texte web.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
+  <p><span class="step-label">Pourquoi</span> Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.</p>
+  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
+  </div>
+  </details>
+</div>
+```
+
+## Données et outils
+
+```{=html}
+<div class="module-resource-panel">
+  <div class="module-resource-section">
+  <h3>Bases de données</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-web-pages-module-08"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>Pages web analysées avec rvest</span></a>
+  </div>
+  </div>
+  <div class="module-resource-section">
+  <h3>Packages R</h3>
+  <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#rvest"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>rvest</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#purrr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>purrr</span></a>
+  </div>
+  </div>
+</div>
+```
+
+## Révision et prolongement
+
+```{=html}
+<div class="closing-panel">
+  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+  <div>
+  <h3>Finir le module avec l’IA du cours</h3>
+  <p>Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.</p>
+  <ul>
+  <li>Expliquez le produit fini en trois phrases.</li>
+  <li>Collez un extrait de code ou de sortie et demandez un diagnostic.</li>
+  <li>Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.</li>
+  </ul>
+  </div>
+</div>
+```
