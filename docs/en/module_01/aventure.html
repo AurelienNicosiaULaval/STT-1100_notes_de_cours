@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -4098,7 +4100,7 @@ return!(!r[0]||Object.prototype.hasOwnProperty.call(r,"0")||!Object.prototype.ha
 return Array.prototype.sort.call(r,function(r,t){return r-t})===r}()
 )) {"use strict";var origSort=Array.prototype.sort;CreateMethodProperty(Array.prototype,"sort",function r(t){if(t!==undefined&&!1===IsCallable(t))throw new TypeError("The comparison function must be either a function or undefined");if(t===undefined)origSort.call(this);else{var e=Array.prototype.map.call(this,function(r,t){return{item:r,index:t}});origSort.call(e,function(r,e){var i=t.call(undefined,r.item,e.item);return 0===i?r.index-e.index:i});for(var i in e)Object.prototype.hasOwnProperty.call(e,i)&&e[i].item!==this[i]&&(this[i]=e[i].item)}return this});}if (!("setPrototypeOf"in Object
 )) {!function(){if(!Object.setPrototypeOf){var t,e,o=Object.getOwnPropertyNames,r=Object.getOwnPropertyDescriptor,n=Object.create,c=Object.defineProperty,_=Object.getPrototypeOf,f=Object.prototype,p=function(t,e){return o(e).forEach(function(o){c(t,o,r(e,o))}),t},O=function i(t,e){return p(n(e),t)};try{t=r(f,"__proto__").set,t.call({},null),e=function a(e,o){return t.call(e,o),e}}catch(u){t={__proto__:null},t instanceof Object?e=O:(t.__proto__=f,e=t instanceof Object?function o(t,e){return t.__proto__=e,t}:function r(t,e){return _(t)?(t.__proto__=e,t):O(t,e)})}CreateMethodProperty(Object,"setPrototypeOf",e)}}();}if (!("Symbol"in self&&0===self.Symbol.length
-)) {!function(e,r,n){"use strict";function t(e){if("symbol"===Type(e))return e;throw TypeError(e+" is not a symbol")}var u,o=function(){try{var r={};return e.defineProperty(r,"t",{configurable:!0,enumerable:!1,get:function(){return!0},set:undefined}),!!r.t}catch(n){return!1}}(),i=0,a=""+Math.random(),c="__symbol:",l=c.length,f="__symbol@@"+a,s={},v="defineProperty",y="defineProperties",b="getOwnPropertyNames",p="getOwnPropertyDescriptor",h="propertyIsEnumerable",m=e.prototype,d=m.hasOwnProperty,g=m[h],w=m.toString,S=Array.prototype.concat,P=e.getOwnPropertyNames?e.getOwnPropertyNames(self):[],O=e[b],j=function $(e){if("[object Window]"===w.call(e))try{return O(e)}catch(r){return S.call([],P)}return O(e)},E=e[p],N=e.create,T=e.keys,_=e.freeze||e,k=e[v],F=e[y],I=E(e,b),x=function(e,r,n){if(!d.call(e,f))try{k(e,f,{enumerable:!1,configurable:!1,writable:!1,value:{}})}catch(t){e[f]={}}e[f]["@@"+r]=n},z=function(e,r){var n=N(e);return j(r).forEach(function(e){q.call(r,e)&&L(n,e,r[e])}),n},A=function(e){var r=N(e);return r.enumerable=!1,r},D=function ee(){},M=function(e){return e!=f&&!d.call(H,e)},W=function(e){return e!=f&&d.call(H,e)},q=function re(e){var r=""+e;return W(r)?d.call(this,r)&&this[f]&&this[f]["@@"+r]:g.call(this,e)},B=function(r){var n={enumerable:!1,configurable:!0,get:D,set:function(e){u(this,r,{enumerable:!1,configurable:!0,writable:!0,value:e}),x(this,r,!0)}};try{k(m,r,n)}catch(o){m[r]=n.value}H[r]=k(e(r),"constructor",J);var t=E(G.prototype,"description");return t&&k(H[r],"description",t),_(H[r])},C=function(e){var r=t(e);if(Y){var n=V(r);if(""!==n)return n.slice(1,-1)}if(s[r]!==undefined)return s[r];var u=r.toString(),o=u.lastIndexOf("0.");return u=u.slice(10,o),""===u?undefined:u},G=function ne(){var r=arguments[0];if(this instanceof ne)throw new TypeError("Symbol is not a constructor");var n=c.concat(r||"",a,++i);r===undefined||null!==r&&!isNaN(r)&&""!==String(r)||(s[n]=String(r));var t=B(n);return o||e.defineProperty(t,"description",{configurable:!0,enumerable:!1,value:C(t)}),t},H=N(null),J={value:G},K=function(e){return H[e]},L=function te(e,r,n){var t=""+r;return W(t)?(u(e,t,n.enumerable?A(n):n),x(e,t,!!n.enumerable)):k(e,r,n),e},Q=function(e){return function(r){return d.call(e,f)&&d.call(e[f],"@@"+r)}},R=function ue(e){return j(e).filter(e===m?Q(e):W).map(K)};I.value=L,k(e,v,I),I.value=R,k(e,"getOwnPropertySymbols",I),I.value=function oe(e){return j(e).filter(M)},k(e,b,I),I.value=function ie(e,r){var n=R(r);return n.length?T(r).concat(n).forEach(function(n){q.call(r,n)&&L(e,n,r[n])}):F(e,r),e},k(e,y,I),I.value=q,k(m,h,I),I.value=G,k(n,"Symbol",I),I.value=function(e){var r=c.concat(c,e,a);return r in m?H[r]:B(r)},k(G,"for",I),I.value=function(e){if(M(e))throw new TypeError(e+" is not a symbol");return d.call(H,e)?e.slice(2*l,-a.length):void 0},k(G,"keyFor",I),I.value=function ae(e,r){var n=E(e,r);return n&&W(r)&&(n.enumerable=q.call(e,r)),n},k(e,p,I),I.value=function ce(e,r){return 1===arguments.length||void 0===r?N(e):z(e,r)},k(e,"create",I);var U=null===function(){return this}.call(null);if(I.value=U?function(){var e=w.call(this);return"[object String]"===e&&W(this)?"[object Symbol]":e}:function(){if(this===window)return"[object Null]";var e=w.call(this);return"[object String]"===e&&W(this)?"[object Symbol]":e},k(m,"toString",I),u=function(e,r,n){var t=E(m,r);delete m[r],k(e,r,n),e!==m&&k(m,r,t)},function(){try{var r={};return e.defineProperty(r,"t",{configurable:!0,enumerable:!1,get:function(){return!0},set:undefined}),!!r.t}catch(n){return!1}}()){var V;try{V=Function("s","var v = s.valueOf(); return { [v]() {} }[v].name;")}catch(Z){}var X=function(){},Y=V&&"inferred"===X.name?V:null;e.defineProperty(n.Symbol.prototype,"description",{configurable:!0,enumerable:!1,get:function(){return C(this)}})}}(Object,0,self);}if (!("Symbol"in self&&"hasInstance"in self.Symbol
+)) {!function(e,r,n){"use strict";function t(e){if("symbol"===Type(e))return e;throw TypeError(e+" is not a symbol")}var u,o=function(){try{var r={};return e.defineProperty(r,"t",{configurable:!0,enumerable:!1,get:function(){return!0},set:undefined}),!!r.t}catch(n){return!1}}(),i=0,a=""+Math.random(),c="__symbol:",l=c.length,f="__symbol@@"+a,s={},v="defineProperty",y="defineProperties",b="getOwnPropertyNames",p="getOwnPropertyDescriptor",h="propertyIsEnumerable",m=e.prototype,d=m.hasOwnProperty,g=m[h],w=m.toString,S=Array.prototype.concat,P=e.getOwnPropertyNames?e.getOwnPropertyNames(self):[],O=e[b],j=function $(e){if("[object Window]"===w.call(e))try{return O(e)}catch(r){return S.call([],P)}return O(e)},E=e[p],N=e.create,T=e.keys,_=e.freeze||e,k=e[v],F=e[y],I=E(e,b),x=function(e,r,n){if(!d.call(e,f))try{k(e,f,{enumerable:!1,configurable:!1,writable:!1,value:{}})}catch(t){e[f]={}}e[f]["@@"+r]=n},z=function(e,r){var n=N(e);return j(r).forEach(function(e){q.call(r,e)&&L(n,e,r[e])}),n},A=function(e){var r=N(e);return r.enumerable=!1,r},D=function ee(){},M=function(e){return e!=f&&!d.call(H,e)},W=function(e){return e!=f&&d.call(H,e)},q=function re(e){var r=""+e;return W(r)?d.call(this,r)&&this[f]&&this[f]["@@"+r]:g.call(this,e)},B=function(r){var n={enumerable:!1,configurable:!0,get:D,set:function(e){u(this,r,{enumerable:!1,configurable:!0,writable:!0,value:e}),x(this,r,!0)}};try{k(m,r,n)}catch(o){m[r]=n.value}H[r]=k(e(r),"constructor",J);var t=E(G.prototype,"description");return t&&k(H[r],"description",t),_(H[r])},C=function(e){var r=t(e);if(Y){var n=V(r);if(""!==n)return n.slice(1,-1)}if(s[r]!==undefined)return s[r];var u=r.toString(),o=u.lastIndexOf("0.");return u=u.slice(10,o),""===u?undefined:u},G=function ne(){var r=arguments[0];if(this instanceof ne)throw new TypeError("Symbol is not a constructor");var n=c.concat(r||"",a,++i);r===undefined||null!==r&&!isNaN(r)&&""!==String(r)||(s[n]=String(r));var t=B(n);return o||e.defineProperty(t,"description",{configurable:!0,enumerable:!1,value:C(t)}),t},H=N(null),J={value:G},K=function(e){return H[e]},L=function te(e,r,n){var t=""+r;return W(t)?(u(e,t,n.enumerable?A(n):n),x(e,t,!!n.enumerable)):k(e,r,n),e},Q=function(e){return function(r){return d.call(e,f)&&d.call(e[f],"@@"+r)}},R=function ue(e){return j(e).filter(e===m?Q(e):W).map(K)};I.value=L,k(e,v,I),I.value=R,k(e,"getOwnPropertySymbols",I),I.value=function oe(e){return j(e).filter(M)},k(e,b,I),I.value=function ie(e,r){var n=R(r);return n.length?T(r).concat(n).forEach(function(n){q.call(r,n)&&L(e,n,r[n])}):F(e,r),e},k(e,y,I),I.value=q,k(m,h,I),I.value=G,k(n,"Symbol",I),I.value=function(e){var r=c.concat(c,e,a);return r in m?H[r]:B(r)},k(G,"for",I),I.value=function(e){if(M(e))throw new TypeError(e+" is not a symbol");return d.call(H,e)?e.slice(2*l,-a.length):void 0},k(G,"keyFor",I),I.value=function ae(e,r){var n=E(e,r);return n&&W(r)&&(n.enumerable=q.call(e,r)),n},k(e,p,I),I.value=function ce(e,r){return 1===arguments.length||void 0===r?N(e):z(e,r)},k(e,"create",I);var U=null===function(){return this}.call(null);if(I.value=U?function(){var e=w.call(this);return"[object String]"===e&&W(this)?"[object Symbol]":e}:function(){if(this===window)return"[object Null]";var e=w.call(this);return"[object String]"===e&&W(this)?"[object Symbol]":e},k(m,"toString",I),u=function(e,r,n){var t=E(m,r);delete m[r],k(e,r,n),e!==m&&k(m,r,t)},function(){try{var r={};return e.defineProperty(r,"t",{configurable:!0,enumerable:!1,get:function(){return!0},set:undefined}),!!r.t}catch(n){return!1}}()){var V;try{V=Function("s","var v = s.valueOf(); return { [v]() {} }[v].name;")}catch(Z){}var X=function(){},Y=V&&"inferred"===X.name?V:null;e.defineProperty(n.Symbol.prototype,"description",{configurable:!0,enumerable:!1,get:function(){return C(this)}})}}(Object,0,self);}if (!("Symbol"in self&&"hasInstance"in self.Symbol
 )) {Object.defineProperty(Symbol,"hasInstance",{value:Symbol("hasInstance")});}if (!("Symbol"in self&&"isConcatSpreadable"in self.Symbol
 )) {Object.defineProperty(Symbol,"isConcatSpreadable",{value:Symbol("isConcatSpreadable")});}if (!("Symbol"in self&&"iterator"in self.Symbol
 )) {Object.defineProperty(self.Symbol,"iterator",{value:self.Symbol("iterator")});}function GetIterator(t){var e=arguments.length>1?arguments[1]:GetMethod(t,Symbol.iterator),r=Call(e,t);if("object"!==Type(r))throw new TypeError("bad iterator");var o=GetV(r,"next"),a=Object.create(null);return a["[[Iterator]]"]=r,a["[[NextMethod]]"]=o,a["[[Done]]"]=!1,a}if (!("Symbol"in self&&"match"in self.Symbol
@@ -5041,45 +5043,61 @@ margin-bottom: .05rem;
 
   <ul>
   <li><a href="#how-to-pass-this-module" id="toc-how-to-pass-this-module" class="nav-link active" data-scroll-target="#how-to-pass-this-module">How to pass this module</a></li>
-  <li><a href="#it-tools" id="toc-it-tools" class="nav-link" data-scroll-target="#it-tools">IT tools</a>
+  <li>
+<a href="#it-tools" id="toc-it-tools" class="nav-link" data-scroll-target="#it-tools">IT tools</a>
   <ul class="collapse">
-  <li><a href="#discovery-of-rstudio" id="toc-discovery-of-rstudio" class="nav-link" data-scroll-target="#discovery-of-rstudio">Discovery of RStudio</a>
+  <li>
+<a href="#discovery-of-rstudio" id="toc-discovery-of-rstudio" class="nav-link" data-scroll-target="#discovery-of-rstudio">Discovery of RStudio</a>
   <ul class="collapse">
   <li><a href="#the-main-windows-of-rstudio" id="toc-the-main-windows-of-rstudio" class="nav-link" data-scroll-target="#the-main-windows-of-rstudio">The main windows of RStudio</a></li>
   <li><a href="#important-features" id="toc-important-features" class="nav-link" data-scroll-target="#important-features">Important features</a></li>
   <li><a href="#configure-your-environment" id="toc-configure-your-environment" class="nav-link" data-scroll-target="#configure-your-environment">Configure your environment</a></li>
-  </ul></li>
-  <li><a href="#basics-of-programming-in-r" id="toc-basics-of-programming-in-r" class="nav-link" data-scroll-target="#basics-of-programming-in-r">Basics of programming in R</a>
+  </ul>
+</li>
+  <li>
+<a href="#basics-of-programming-in-r" id="toc-basics-of-programming-in-r" class="nav-link" data-scroll-target="#basics-of-programming-in-r">Basics of programming in R</a>
   <ul class="collapse">
   <li><a href="#create-and-manipulate-objects" id="toc-create-and-manipulate-objects" class="nav-link" data-scroll-target="#create-and-manipulate-objects">Create and manipulate objects</a></li>
   <li><a href="#write-conditions" id="toc-write-conditions" class="nav-link" data-scroll-target="#write-conditions">Write conditions</a></li>
   <li><a href="#built-in-basic-functions" id="toc-built-in-basic-functions" class="nav-link" data-scroll-target="#built-in-basic-functions">Built-in basic functions</a></li>
   <li><a href="#define-a-new-function" id="toc-define-a-new-function" class="nav-link" data-scroll-target="#define-a-new-function">Define a new function</a></li>
   <li><a href="#good-programming-practices" id="toc-good-programming-practices" class="nav-link" data-scroll-target="#good-programming-practices">Good programming practices</a></li>
-  </ul></li>
-  <li><a href="#introduction-to-quarto" id="toc-introduction-to-quarto" class="nav-link" data-scroll-target="#introduction-to-quarto">Introduction to Quarto</a>
+  </ul>
+</li>
+  <li>
+<a href="#introduction-to-quarto" id="toc-introduction-to-quarto" class="nav-link" data-scroll-target="#introduction-to-quarto">Introduction to Quarto</a>
   <ul class="collapse">
   <li><a href="#what-is-quarto" id="toc-what-is-quarto" class="nav-link" data-scroll-target="#what-is-quarto">What is Quarto?</a></li>
   <li><a href="#structure-of-a-quarto-document" id="toc-structure-of-a-quarto-document" class="nav-link" data-scroll-target="#structure-of-a-quarto-document">Structure of a Quarto document</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#library-and-data" id="toc-library-and-data" class="nav-link" data-scroll-target="#library-and-data">Library and data</a>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#library-and-data" id="toc-library-and-data" class="nav-link" data-scroll-target="#library-and-data">Library and data</a>
   <ul class="collapse">
   <li><a href="#ulavalssd" id="toc-ulavalssd" class="nav-link" data-scroll-target="#ulavalssd"><code>UlavalSSD</code></a></li>
   <li><a href="#meteoquebec-data" id="toc-meteoquebec-data" class="nav-link" data-scroll-target="#meteoquebec-data"><code>MeteoQuebec</code> data</a></li>
-  </ul></li>
-  <li><a href="#clean-data-tidy-in-english" id="toc-clean-data-tidy-in-english" class="nav-link" data-scroll-target="#clean-data-tidy-in-english">Clean data (<code>Tidy</code> in English)</a>
+  </ul>
+</li>
+  <li>
+<a href="#clean-data-tidy-in-english" id="toc-clean-data-tidy-in-english" class="nav-link" data-scroll-target="#clean-data-tidy-in-english">Clean data (<code>Tidy</code> in English)</a>
   <ul class="collapse">
-  <li><a href="#what-is-clean-data" id="toc-what-is-clean-data" class="nav-link" data-scroll-target="#what-is-clean-data">What is clean data?</a>
+  <li>
+<a href="#what-is-clean-data" id="toc-what-is-clean-data" class="nav-link" data-scroll-target="#what-is-clean-data">What is clean data?</a>
   <ul class="collapse">
   <li><a href="#characteristics-of-clean-data" id="toc-characteristics-of-clean-data" class="nav-link" data-scroll-target="#characteristics-of-clean-data">Characteristics of clean data</a></li>
   <li><a href="#example-of-non-clean-data" id="toc-example-of-non-clean-data" class="nav-link" data-scroll-target="#example-of-non-clean-data">Example of non-clean data</a></li>
   <li><a href="#example-of-clean-data" id="toc-example-of-clean-data" class="nav-link" data-scroll-target="#example-of-clean-data">Example of clean data</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data manipulation</a>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation">Data manipulation</a>
   <ul class="collapse">
-  <li><a href="#example-of-data-table" id="toc-example-of-data-table" class="nav-link" data-scroll-target="#example-of-data-table">Example of data table</a>
+  <li>
+<a href="#example-of-data-table" id="toc-example-of-data-table" class="nav-link" data-scroll-target="#example-of-data-table">Example of data table</a>
   <ul class="collapse">
   <li><a href="#extract-a-line-with-brackets" id="toc-extract-a-line-with-brackets" class="nav-link" data-scroll-target="#extract-a-line-with-brackets">Extract a line with brackets <code>[]</code></a></li>
   <li><a href="#extract-a-column-with-brackets" id="toc-extract-a-column-with-brackets" class="nav-link" data-scroll-target="#extract-a-column-with-brackets">Extract a column with brackets <code>[]</code></a></li>
@@ -5087,8 +5105,10 @@ margin-bottom: .05rem;
   <li><a href="#add-a-new-column-with" id="toc-add-a-new-column-with" class="nav-link" data-scroll-target="#add-a-new-column-with">Add a new column with <code>$</code></a></li>
   <li><a href="#filter-rows-based-on-logical-conditions" id="toc-filter-rows-based-on-logical-conditions" class="nav-link" data-scroll-target="#filter-rows-based-on-logical-conditions">Filter rows based on logical conditions</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  </ul></li>
-  </ul></li>
+  </ul>
+</li>
+  </ul>
+</li>
   </ul>
 </nav>
     </div>
@@ -5154,12 +5174,22 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><strong>Test the console</strong>: open the console and type the following command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello, RStudio!&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Observe the result displayed directly in the console.</p></li>
-<li><p><strong>Create a script</strong>: Click <code>File &gt; New File &gt; R Script</code>, write the following code and run it with <code>Ctrl + Enter</code> (Windows/Linux) or <code>Cmd + Enter</code> (Mac):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">&quot;You are working in an R script!&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Save the file under the name <code>test_script.R</code>.</p></li>
+<li>
+<p><strong>Test the console</strong>: open the console and type the following command:</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello, RStudio!"</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<p>Observe the result displayed directly in the console.</p>
+</li>
+<li>
+<p><strong>Create a script</strong>: Click <code>File &gt; New File &gt; R Script</code>, write the following code and run it with <code>Ctrl + Enter</code> (Windows/Linux) or <code>Cmd + Enter</code> (Mac):</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"You are working in an R script!"</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<p>Save the file under the name <code>test_script.R</code>.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -5183,11 +5213,17 @@ margin-bottom: .05rem;
 <div class="callout-body-container callout-body">
 <p>Install the <code>dplyr</code> package using the GUI or via the following command in the console:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <p>Once installed, load it with:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 </div>
 </div>
@@ -5206,7 +5242,8 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>Exploring options</strong>: Access <code>Tools &gt; Global Options</code> and explore the different possible configurations. Try changing the interface theme (e.g. dark theme) and see the difference.</li>
+<li>
+<strong>Exploring options</strong>: Access <code>Tools &gt; Global Options</code> and explore the different possible configurations. Try changing the interface theme (e.g. dark theme) and see the difference.</li>
 </ul>
 </div>
 </div>
@@ -5229,14 +5266,24 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><strong>Create an object</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">42</span> <span class="co"># Assigns the value 42 to the object x</span></span>
+<li>
+<p><strong>Create an object</strong>:</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">42</span> <span class="co"># Assigns the value 42 to the object x</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x) <span class="co"># Print the value of x</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x <span class="co"># Also displays the value of x</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Manipulate a vector</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="co"># Creates a vector</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x <span class="co"># Also displays the value of x</span></span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</li>
+<li>
+<p><strong>Manipulate a vector</strong>:</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="co"># Creates a vector</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(vector) <span class="co"># Calculates the sum of the elements</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sum</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</li>
 <li><p>Create a vector containing the numbers 1 to 10 and calculate its average using the <code>sum()</code> function.</p></li>
 </ul>
 </div>
@@ -5256,13 +5303,18 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><strong>Simple condition</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<li>
+<p><strong>Simple condition</strong>:</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (number <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;The number is greater than 5&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The number is greater than 5"</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;The number is less than or equal to 5&quot;</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The number is less than or equal to 5"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -5288,8 +5340,11 @@ margin-bottom: .05rem;
 <p>R has many built-in functions to perform simple or advanced calculations. For example, there is the <code>mean</code> function which, as its name suggests, allows you to calculate an average.</p>
 <p>The following code block allows us to calculate the average of the vector <code>(1, 3, 5, 7)</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>) <span class="co"># Defines the vector x</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x) <span class="co"># Call the mean function on x</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>) <span class="co"># Defines the vector x</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x) <span class="co"># Call the mean function on x</span></span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
@@ -5310,11 +5365,16 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><strong>Basic calculation</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<li>
+<p><strong>Basic calculation</strong>:</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">square</span>(<span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">square</span>(<span class="dv">4</span>))</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -5340,16 +5400,26 @@ margin-bottom: .05rem;
 <section id="golden-rules" class="level4">
 <h4 class="anchored" data-anchor-id="golden-rules">Golden rules</h4>
 <ol type="1">
-<li><p><strong>Name your objects descriptively</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>average_notes <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Organize your script with comments</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculation of the sum</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li>
+<p><strong>Name your objects descriptively</strong>:</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>average_notes <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>))</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</li>
+<li>
+<p><strong>Organize your script with comments</strong>:</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculation of the sum</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="fu">sum</span>(vector)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</li>
 </ol>
 <p>In the course, you must follow the <a href="https://style.tidyverse.org/">tydiverse coding best practices</a>. For this module, we will pay particular attention to certain parts of this guide: chapter 1 Files, chapter 2 Syntax and section 3.1 Functions/Naming. The table below summarizes the important criteria of these sections and will serve as an evaluation grid for your codes. Note that this grid will evolve over the modules.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package &#39;knitr&#39; was built under R version 4.5.2</code></pre>
+<pre><code>Warning: package 'knitr' was built under R version 4.5.2</code></pre>
 </div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -5413,16 +5483,21 @@ margin-bottom: .05rem;
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>Identify style errors in code.</p></li>
-<li><p>Correct them by applying tidyverse style best practices.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>MyFunction <span class="ot">=</span> <span class="cf">function</span>(x,y){</span>
+<li>
+<p>Correct them by applying tidyverse style best practices.</p>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>MyFunction <span class="ot">=</span> <span class="cf">function</span>(x,y){</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>result<span class="ot">=</span>x<span class="sc">+</span>y</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(result) }</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">id=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">name=</span><span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>,<span class="st">&quot;Bob&quot;</span>,<span class="st">&quot;Charlie&quot;</span>,<span class="st">&quot;David&quot;</span>,<span class="st">&quot;Eva&quot;</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">id=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">name=</span><span class="fu">c</span>(<span class="st">"Alice"</span>,<span class="st">"Bob"</span>,<span class="st">"Charlie"</span>,<span class="st">"David"</span>,<span class="st">"Eva"</span>))</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">=</span> <span class="fu">subset</span>(df, id<span class="sc">&gt;</span><span class="dv">2</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df_selected <span class="ot">=</span> df_filtered[,<span class="fu">c</span>(<span class="st">&quot;name&quot;</span>)]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df_selected <span class="ot">=</span> df_filtered[,<span class="fu">c</span>(<span class="st">"name"</span>)]</span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>df_selected<span class="sc">$</span>Upper <span class="ot">=</span> <span class="fu">toupper</span>(df_selected<span class="sc">$</span>name)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -5446,24 +5521,30 @@ margin-bottom: .05rem;
 <p>A Quarto file always starts with a YAML header, followed by Markdown content and chunks of code.</p>
 <section id="basic-quarto-file-example" class="level4">
 <h4 class="anchored" data-anchor-id="basic-quarto-file-example">Basic Quarto file example</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My first Quarto document&quot;</span></span>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My first Quarto document"</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </section>
 <section id="insert-a-chunk-block-of-code-r" class="level4">
 <h4 class="anchored" data-anchor-id="insert-a-chunk-block-of-code-r">Insert a <em>chunk</em> (block of code) R</h4>
 <p>To insert a <em>chunk</em> (block of code) into a quarto document, you can click on the following symbol:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img role="img" src="data:image/png;base64,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" class="img-fluid figure-img"></p>
+<p><img role="img" src="data:image/png;base64,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" class="img-fluid figure-img" alt="Visual output generated by the page code."></p>
 <figcaption>Button to add a code block in Rstudio</figcaption>
 </figure>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a block of code</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a block of code</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
@@ -5481,13 +5562,16 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>Create a Quarto document</strong>:
+<li>
+<strong>Create a Quarto document</strong>:
 <ol type="1">
 <li>Click <code>File &gt; New File &gt; Quarto Document</code>.</li>
 <li>Choose the desired format (HTML, PDF, Word) and generate a basic document.</li>
 <li>Insert a code block with <code>Ctrl + Alt + I</code> shortcut (or symbol) and add R code (a simple trick).</li>
-</ol></li>
-<li><strong>Generate the document</strong>: Use <code>Ctrl + Shift + K</code> (or the render button) to generate the final report.</li>
+</ol>
+</li>
+<li>
+<strong>Generate the document</strong>: Use <code>Ctrl + Shift + K</code> (or the render button) to generate the final report.</li>
 </ul>
 </div>
 </div>
@@ -5519,18 +5603,27 @@ margin-bottom: .05rem;
 <h2 class="anchored" data-anchor-id="ulavalssd"><code>UlavalSSD</code></h2>
 <p>First, you will install the <code>UlavalSSD</code> library and load it into your working environment.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the remotes package if necessary</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the remotes package if necessary</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install UlavalSSD from GitHub</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;AurelienNicosiaULaval/UlavalSSD&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"AurelienNicosiaULaval/UlavalSSD"</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <p>Loading the library will allow us to access all of its contents. You can see the library help files with the following code (or by searching in the package tab on the right)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">&quot;UlavalSSD&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">"UlavalSSD"</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5549,7 +5642,8 @@ margin-bottom: .05rem;
 </div>
 </section>
 <section id="meteoquebec-data" class="level2">
-<h2 class="anchored" data-anchor-id="meteoquebec-data"><code>MeteoQuebec</code> data</h2>
+<h2 class="anchored" data-anchor-id="meteoquebec-data">
+<code>MeteoQuebec</code> data</h2>
 <p>In this adventure, we will work with the dataset called <code>MeteoQuebec</code> available in the <code>UlavalSSD</code> library. It is important to note that if the library is not loaded (<code>library(UlavalSSD)</code>) then you will not be able to access this dataset.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5562,7 +5656,8 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><code>MeteoQuebec</code> is an object name in the environment. Display the database by creating a code block.</li>
+<li>
+<code>MeteoQuebec</code> is an object name in the environment. Display the database by creating a code block.</li>
 <li>How many rows and columns does this dataset have?</li>
 <li>Explore the help to make sure you understand what each column represents.</li>
 </ul>
@@ -5579,12 +5674,18 @@ margin-bottom: .05rem;
 <h3 class="anchored" data-anchor-id="characteristics-of-clean-data">Characteristics of clean data</h3>
 <p>Clean data must meet the following criteria:</p>
 <ul>
-<li><strong>No missing values</strong>: All data necessary for the analysis is present.</li>
-<li><strong>Uniformity of formats</strong>: The formats of dates, numbers and character strings are consistent.</li>
-<li><strong>No duplicates</strong>: Duplicate entries have been identified and removed if necessary.</li>
-<li><strong>Error Removal</strong>: Inconsistent or incorrect data has been corrected.</li>
-<li><strong>Well-defined columns</strong>: Each column has a clear and unique meaning.</li>
-<li><strong>One line per observation</strong>: The data is structured in a tabular manner, with one line representing a single observation.</li>
+<li>
+<strong>No missing values</strong>: All data necessary for the analysis is present.</li>
+<li>
+<strong>Uniformity of formats</strong>: The formats of dates, numbers and character strings are consistent.</li>
+<li>
+<strong>No duplicates</strong>: Duplicate entries have been identified and removed if necessary.</li>
+<li>
+<strong>Error Removal</strong>: Inconsistent or incorrect data has been corrected.</li>
+<li>
+<strong>Well-defined columns</strong>: Each column has a clear and unique meaning.</li>
+<li>
+<strong>One line per observation</strong>: The data is structured in a tabular manner, with one line representing a single observation.</li>
 </ul>
 </section>
 <section id="example-of-non-clean-data" class="level3">
@@ -5684,8 +5785,11 @@ margin-bottom: .05rem;
 <h2 class="anchored" data-anchor-id="example-of-data-table">Example of data table</h2>
 <p>We will use <code>MeteoQuebec</code> data. The <code>head</code> function is very practical, because as its name suggests, it displays the top (the head) of the database. This allows you to have quick access to the information contained in the variables.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying the top of the dataset</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Displaying the top of the dataset</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ...1 year month day max_temp mean_temp min_temp total_precip total_rain
 1    1 1970    01  01    -12.8     -16.1    -19.4          0.0          0
@@ -5704,13 +5808,17 @@ margin-bottom: .05rem;
 </div>
 </div>
 <section id="extract-a-line-with-brackets" class="level3">
-<h3 class="anchored" data-anchor-id="extract-a-line-with-brackets">Extract a line with brackets <code>[]</code></h3>
+<h3 class="anchored" data-anchor-id="extract-a-line-with-brackets">Extract a line with brackets <code>[]</code>
+</h3>
 <p>To extract a specific row, use the format <code>data_name[row_number, ]</code>.</p>
 <p>Example: Let’s get the 2nd line:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the 2nd line</span></span>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the 2nd line</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>line_2 <span class="ot">&lt;-</span> MeteoQuebec[<span class="dv">2</span>, ]</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(line_2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(line_2)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ...1 year month day max_temp mean_temp min_temp total_precip total_rain
 2    2 1970    01  02    -12.8     -16.1    -19.4            0          0
@@ -5720,18 +5828,22 @@ margin-bottom: .05rem;
 </div>
 </section>
 <section id="extract-a-column-with-brackets" class="level3">
-<h3 class="anchored" data-anchor-id="extract-a-column-with-brackets">Extract a column with brackets <code>[]</code></h3>
-<p>To extract a column, you can use <code>data_name[, column_number]</code> or <code>data_name[[&quot;column_name&quot;]]</code>.</p>
+<h3 class="anchored" data-anchor-id="extract-a-column-with-brackets">Extract a column with brackets <code>[]</code>
+</h3>
+<p>To extract a column, you can use <code>data_name[, column_number]</code> or <code>data_name[["column_name"]]</code>.</p>
 <p><strong>Attention</strong>, usually we prefer to extract a column by its name rather than by its number. First of all, if your dataset contains many columns, it will become tedious to find the right number. Also, to be reproducible, it is better to work with the name, since even if the order of the columns changes, your analysis will remain valid.</p>
 <p>Example: Let’s get the <strong>total_precip</strong> column:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1: By column number</span></span>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1: By column number</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>column_score <span class="ot">&lt;-</span> MeteoQuebec[, <span class="dv">7</span>]</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(score_column)</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Method 2: By column name</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>column_score2 <span class="ot">&lt;-</span> MeteoQuebec[[<span class="st">&quot;total_precip&quot;</span>]]</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(column_score2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>column_score2 <span class="ot">&lt;-</span> MeteoQuebec[[<span class="st">"total_precip"</span>]]</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(column_score2)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 </section>
 <section id="extract-a-column-with-the-operator" class="level3">
@@ -5739,9 +5851,12 @@ margin-bottom: .05rem;
 <p>A simpler method to extract a column is to use the <code>$</code> operator.</p>
 <p>Example: Let’s get the <strong>mean_temp</strong> column:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the &quot;mean_temp&quot; column</span></span>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the "mean_temp" column</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>column_mean_temp <span class="ot">&lt;-</span> MeteoQuebec<span class="sc">$</span>mean_temp</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(column_mean_temp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(column_mean_temp)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5760,13 +5875,17 @@ margin-bottom: .05rem;
 </div>
 </section>
 <section id="add-a-new-column-with" class="level3">
-<h3 class="anchored" data-anchor-id="add-a-new-column-with">Add a new column with <code>$</code></h3>
+<h3 class="anchored" data-anchor-id="add-a-new-column-with">Add a new column with <code>$</code>
+</h3>
 <p>To create a new column, use the <code>$</code> operator and assign a value to it.</p>
 <p>Example: Let’s add a column <strong>extended_temp</strong>, equal to <strong>max_temp-min_temp</strong>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new column</span></span>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a new column</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>MeteoQuebec<span class="sc">$</span>extended_temp <span class="ot">&lt;-</span> MeteoQuebec<span class="sc">$</span>max_temp <span class="sc">-</span>MeteoQuebec<span class="sc">$</span>min_temp</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ...1 year month day max_temp mean_temp min_temp total_precip total_rain
 1    1 1970    01  01    -12.8     -16.1    -19.4          0.0          0
@@ -5805,9 +5924,12 @@ margin-bottom: .05rem;
 <p>You can use logical conditions with <code>[]</code> brackets to extract specific lines.</p>
 <p>Example: Let’s get the lines where the average temperature <strong>mean_temp</strong> is greater than 25:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract rows with a Score &gt; 85</span></span>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract rows with a Score &gt; 85</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>lines_mean_temp_25 <span class="ot">&lt;-</span> MeteoQuebec[MeteoQuebec<span class="sc">$</span>mean_temp <span class="sc">&gt;</span> <span class="dv">25</span>, ]</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lines_mean_temp_25)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lines_mean_temp_25)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5827,12 +5949,17 @@ margin-bottom: .05rem;
 </div>
 <p><strong>Combine multiple conditions with</strong> <code>&amp;</code> or <code>|</code>:</p>
 <ul>
-<li><strong>AND (<code>&amp;</code>)</strong>: All conditions must be true to include a line.</li>
-<li><strong>OR (<code>|</code>)</strong>: At least one of the conditions must be true to include a line.</li>
+<li>
+<strong>AND (<code>&amp;</code>)</strong>: All conditions must be true to include a line.</li>
+<li>
+<strong>OR (<code>|</code>)</strong>: At least one of the conditions must be true to include a line.</li>
 </ul>
 <p>Here is an example where we will look for the subset of data corresponding to the days in the year 2000 for which there was no precipitation.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec[MeteoQuebec<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2000</span> <span class="sc">&amp;</span> MeteoQuebec<span class="sc">$</span>total_precip <span class="sc">==</span> <span class="dv">0</span>,])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(MeteoQuebec[MeteoQuebec<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2000</span> <span class="sc">&amp;</span> MeteoQuebec<span class="sc">$</span>total_precip <span class="sc">==</span> <span class="dv">0</span>,])</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       ...1 year month day max_temp mean_temp min_temp total_precip total_rain
 10962 10962 2000    01  05     -3.1     -10.1    -17.0            0         NA
@@ -5871,7 +5998,9 @@ margin-bottom: .05rem;
 </tr>
 <tr class="even">
 <td>Extract a column (brackets)</td>
-<td><code>data[, column_number]</code> or <code>data[[&quot;column_name&quot;]]</code></td>
+<td>
+<code>data[, column_number]</code> or <code>data[["column_name"]]</code>
+</td>
 </tr>
 <tr class="odd">
 <td>Extract a column (<code>$</code>)</td>
@@ -6534,4 +6663,5 @@ font-size:.8rem;
 
 
 
-</body></html>
+</body>
+</html>

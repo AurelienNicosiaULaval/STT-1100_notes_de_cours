@@ -1,5 +1,3 @@
-# Ressources
-
 Bibliothèque du cours
 
 # Ressources STT-1100

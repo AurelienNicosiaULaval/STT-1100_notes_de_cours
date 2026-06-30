@@ -1,5 +1,3 @@
-# Exam
-
 Assessment
 
 # Exam

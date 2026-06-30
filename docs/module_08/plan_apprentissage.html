@@ -4008,11 +4008,34 @@ vertical-align: -.125em;
 --blue: #315f8c;
 --radius: 8px;
 }
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+html {
+overflow-x: hidden;
+}
 body {
 font-family: Helvetica, Arial, sans-serif;
 color: var(--ink);
 line-height: 1.6;
 background: var(--surface);
+overflow-x: hidden;
+}
+main,
+.content,
+#quarto-content,
+.page-columns,
+.column-body {
+min-width: 0;
+}
+.navbar-brand {
+min-width: 0;
+max-width: min(34rem, calc(100vw - 24rem));
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 h1, h2, h3 { color: #2f2f2f; letter-spacing: 0; }
 h1 { margin-top: 1rem; }
@@ -4253,14 +4276,28 @@ grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .module-fact {
 display: grid;
-grid-template-columns: 44px minmax(0, 1fr);
-gap: .75rem;
 align-items: center;
-min-height: 5rem;
+min-height: 4.35rem;
 border: 1px solid var(--line);
 border-radius: var(--radius);
 background: #ffffff;
-padding: .85rem;
+padding: .75rem;
+}
+.module-fact p {
+display: grid;
+grid-template-columns: 38px minmax(0, 1fr);
+gap: .65rem;
+align-items: center;
+min-width: 0;
+margin: 0;
+}
+.module-fact p > span:last-child {
+min-width: 0;
+}
+.module-fact .resource-icon {
+width: 38px;
+height: 38px;
+font-size: 1.1rem;
 }
 .fact-label,
 .fact-value {
@@ -4277,6 +4314,7 @@ text-transform: uppercase;
 .fact-value {
 margin-top: .2rem;
 color: var(--ink);
+font-size: .95rem;
 font-weight: 700;
 }
 .module-product-showcase {
@@ -4955,6 +4993,17 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 .reveal pre code { font-size: 0.6em; line-height: 1.3em; }
 .mermaid { font-size: 0.65em; }
 @media (max-width: 700px) {
+.navbar-brand {
+max-width: calc(100vw - 10rem);
+font-size: .95rem;
+}
+.navbar .quarto-navbar-tools {
+flex-shrink: 0;
+}
+h1 {
+line-height: 1.15;
+overflow-wrap: break-word;
+}
 .portal-hero { padding: 1rem; }
 .portal-grid,
 .module-grid,
@@ -4979,6 +5028,9 @@ grid-template-columns: 2.15rem minmax(0, 1fr);
 }
 .module-quick-facts.three-facts {
 grid-template-columns: 1fr;
+}
+.module-fact {
+min-height: auto;
 }
 .path-preview,
 .path-resource,

@@ -1,5 +1,3 @@
-# Resources
-
 Course library
 
 # STT-1100 Resources

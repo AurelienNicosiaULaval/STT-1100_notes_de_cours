@@ -9,18 +9,20 @@ Here are some real-world examples of problematic or controversial visualizations
 
     ![](resources/clipboard-894012077.png)
 
+    Fox News chart with a truncated vertical axis, used as an example of misleading visualization
+
     **Question**: How does the shape of the axis mislead the reader? How to represent it honestly?
 
 2.  **USA Today – Wrong pie chart**
     The graph totals more than 100% shares, making the visualization inconsistent.
 
-    ![](resources/clipboard-2969921414.png)
+    ![USA Today pie chart whose slices add up to more than 100 percent](resources/clipboard-2969921414.png)
     **Question**: What does this error show? What types of alternative charts would work best?
 
 3.  **American electoral maps – Surface distortion**
     Large, sparsely populated rural areas are visually dominant on maps, even if they have few voters.
 
-    ![](resources/clipboard-2149490763.png)
+    ![United States electoral map illustrating visual distortion by geographic area](resources/clipboard-2149490763.png)
     **Question**: Why can geographic size distort the perception of results? How to do better?
 
 4.  **Ticked Axis – Educational example of manipulation**

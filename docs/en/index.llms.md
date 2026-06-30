@@ -1,5 +1,3 @@
-# Home
-
 STT-1100
 
 # Introduction to Data Science

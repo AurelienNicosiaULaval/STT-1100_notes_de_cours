@@ -1,5 +1,3 @@
-# Session project
-
 Assessment
 
 # Session project

@@ -1,5 +1,3 @@
-# Projet de session
-
 Évaluation
 
 # Projet de session

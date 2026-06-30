@@ -9,18 +9,20 @@ Voici quelques exemples réels de visualisations problématiques ou controversé
 
     ![](resources/clipboard-894012077.png)
 
+    Graphique de Fox News avec axe vertical tronqué, utilisé comme exemple de visualisation trompeuse
+
     **Question** : En quoi la forme de l’axe trompe-t-elle le lecteur ? Comment le représenter honnêtement ?
 
 2.  **USA Today – Diagramme circulaire erroné**
     Le graphique totalise plus de 100 % de parts, rendant la visualisation incohérente.
 
-    ![](resources/clipboard-2969921414.png)
+    ![Diagramme circulaire de USA Today dont les parts totalisent plus de 100 pour cent](resources/clipboard-2969921414.png)
     **Question** : Que montre cette erreur ? Quels types de graphiques alternatifs conviendraient mieux ?
 
 3.  **Cartes électorales américaines – Distorsion par surface**
     Les grandes zones rurales peu peuplées sont visuellement dominantes sur les cartes, même si elles comptent peu d’électeurs.
 
-    ![](resources/clipboard-2149490763.png)
+    ![Carte électorale américaine illustrant une distorsion visuelle par surface géographique](resources/clipboard-2149490763.png)
     **Question** : Pourquoi la taille géographique peut-elle fausser la perception des résultats ? Comment faire mieux ?
 
 4.  **Ticked Axis – Exemple pédagogique de manipulation**

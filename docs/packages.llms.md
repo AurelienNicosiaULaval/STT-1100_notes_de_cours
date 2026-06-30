@@ -1,5 +1,3 @@
-# Packages R
-
 Bibliothèque R
 
 # Packages utilisés dans le cours

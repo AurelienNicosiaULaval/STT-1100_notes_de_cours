@@ -1,5 +1,3 @@
-# Datasets
-
 Data catalogue
 
 # Course datasets

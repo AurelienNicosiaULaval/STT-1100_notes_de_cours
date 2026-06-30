@@ -1,5 +1,3 @@
-# Démarrage
-
 STT-1100
 
 # Commencer le cours

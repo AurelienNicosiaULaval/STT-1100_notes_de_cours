@@ -1,5 +1,3 @@
-# R Packages
-
 R library
 
 # Packages used in the course

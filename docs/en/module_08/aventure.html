@@ -5086,24 +5086,23 @@ Scraping of main search pages is therefore permitted, as long as we avoid the pa
 <pre><code>{html_node}
 &lt;div class=&quot;dataset-content&quot;&gt;
 [1] &lt;h3 class=&quot;dataset-heading short&quot;&gt;\n    \n    \n      \n    \n    \n      ...
-[2] &lt;div class=&quot;dqc_donne_spat&quot;&gt;\n      &lt;img src=&quot;/recherche/images/2_icone_g ...
-[3] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
-[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégories :\n      \n        &lt;a href=&quot;/recherch ...
-[5] &lt;div class=&quot;dqc-notes&quot;&gt; Mesure des stations de débit et de niveau des par ...</code></pre>
+[2] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
+[3] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégorie :\n      \n        &lt;a href=&quot;/recherche ...
+[4] &lt;div class=&quot;dqc-notes&quot;&gt; Le fichier horaire des données de la situation à  ...</code></pre>
 </div>
 </div>
 <p>To extract text from an HTML node:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text</span>(blocks[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;\n        \n  \n    \n    \n      \n    \n    \n      Stations débit/niveau - Grand public\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Sécurité intérieure\n  \n  Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique\n  \n     Mesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les... \n  \n\n      &quot;</code></pre>
+<pre><code>[1] &quot;\n        \n  \n    \n    \n      \n    \n    \n      Fichier horaire des données de la situation à l&#39;urgence\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Santé et des services sociaux\n  \n  Catégorie :\n      \n        Santé\n  \n     Le fichier horaire des données de la situation à l&#39;urgence présente le nombre de patients sur civière, le nombre de patients sur civière plus de 24 heures et le nombre de... \n  \n\n      &quot;</code></pre>
 </div>
 </div>
 <p>Now, let’s test the extraction of the <strong>title</strong>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_nodes</span>(blocks[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Stations débit/niveau - Grand public&quot;</code></pre>
+<pre><code>[1] &quot;Fichier horaire des données de la situation à l&#39;urgence&quot;</code></pre>
 </div>
 </div>
 <p>And for the <strong>producers</strong>? It is necessary to identify a substructure containing the information:</p>
@@ -5111,8 +5110,8 @@ Scraping of main search pages is therefore permitted, as long as we avoid the pa
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>orgs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(blocks[[<span class="dv">1</span>]], <span class="st">&quot;.dqc-org-cat&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>orgs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Organisation : Ministère de la Sécurité intérieure&quot;
-[2] &quot;Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique&quot;</code></pre>
+<pre><code>[1] &quot;Organisation : Ministère de la Santé et des services sociaux&quot;
+[2] &quot;Catégorie :\n      \n        Santé&quot;                          </code></pre>
 </div>
 </div>
 <p>We can filter the good element with <code>grepl()</code> then clean the string with <code>gsub()</code>:</p>

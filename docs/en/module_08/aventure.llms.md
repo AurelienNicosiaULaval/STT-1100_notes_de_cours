@@ -138,10 +138,9 @@ blocks[[1]]
     {html_node}
     <div class="dataset-content">
     [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
-    [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
-    [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
-    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
+    [2] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
+    [3] <div class="dqc-org-cat">Catégorie :\n      \n        <a href="/recherche ...
+    [4] <div class="dqc-notes"> Le fichier horaire des données de la situation à  ...
 
 To extract text from an HTML node:
 
@@ -149,7 +148,7 @@ To extract text from an HTML node:
 html_text(blocks[[1]])
 ```
 
-    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Stations débit/niveau - Grand public\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Sécurité intérieure\n  \n  Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique\n  \n     Mesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les... \n  \n\n      "
+    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Fichier horaire des données de la situation à l'urgence\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Santé et des services sociaux\n  \n  Catégorie :\n      \n        Santé\n  \n     Le fichier horaire des données de la situation à l'urgence présente le nombre de patients sur civière, le nombre de patients sur civière plus de 24 heures et le nombre de... \n  \n\n      "
 
 Now, let’s test the extraction of the **title**:
 
@@ -157,7 +156,7 @@ Now, let’s test the extraction of the **title**:
 html_nodes(blocks[[1]], ".dataset-heading a") %>% html_text(trim = TRUE)
 ```
 
-    [1] "Stations débit/niveau - Grand public"
+    [1] "Fichier horaire des données de la situation à l'urgence"
 
 And for the **producers**? It is necessary to identify a substructure containing the information:
 
@@ -166,8 +165,8 @@ orgs <- html_nodes(blocks[[1]], ".dqc-org-cat") %>% html_text(trim = TRUE)
 orgs
 ```
 
-    [1] "Organisation : Ministère de la Sécurité intérieure"
-    [2] "Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique"
+    [1] "Organisation : Ministère de la Santé et des services sociaux"
+    [2] "Catégorie :\n      \n        Santé"
 
 We can filter the good element with `grepl()` then clean the string with `gsub()`:
 

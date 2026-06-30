@@ -1,5 +1,3 @@
-# Bases de données
-
 Catalogue des données
 
 # Bases de données du cours

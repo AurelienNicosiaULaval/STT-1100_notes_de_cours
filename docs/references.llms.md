@@ -122,6 +122,8 @@ Apprenez de vos erreurs (et de celles des autres)
 
 ![](autre_materiel/Présentation%20des%20différents%20rôles/whole-game.png)
 
+Cycle complet d’un projet de science des données, de l’importation à la communication
+
 Inspiré de Hadley Wickham, *R for Data Science* 2e éd. (https://r4ds.hadley.nz/whole-game.html).
 
 - **Import**

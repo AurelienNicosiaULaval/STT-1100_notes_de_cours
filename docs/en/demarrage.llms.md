@@ -1,5 +1,3 @@
-# Getting started
-
 STT-1100
 
 # Start the course

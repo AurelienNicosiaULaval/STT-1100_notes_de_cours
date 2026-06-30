@@ -1,5 +1,3 @@
-# Toolkit
-
 Working in the course
 
 # STT-1100 Toolkit

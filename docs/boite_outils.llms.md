@@ -1,5 +1,3 @@
-# Boîte à outils
-
 Travailler dans le cours
 
 # Boîte à outils STT-1100

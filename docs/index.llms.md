@@ -1,5 +1,3 @@
-# Accueil
-
 STT-1100
 
 # Introduction à la science des données
