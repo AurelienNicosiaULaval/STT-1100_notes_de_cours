@@ -4326,6 +4326,7 @@ align-items: center;
 min-width: 0;
 margin: 0;
 }
+.module-fact > span:last-child,
 .module-fact p > span:last-child {
 min-width: 0;
 }
@@ -4351,6 +4352,8 @@ margin-top: .2rem;
 color: var(--ink);
 font-size: .95rem;
 font-weight: 700;
+overflow-wrap: normal;
+word-break: normal;
 }
 .module-product-showcase {
 display: grid;
@@ -6020,21 +6023,21 @@ Le scraping des pages principales de recherche est donc permis, tant qu&#39;on �
 [2] &lt;div class=&quot;dqc_donne_spat&quot;&gt;\n      &lt;img src=&quot;/recherche/images/2_icone_g ...
 [3] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
 [4] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégories :\n      \n        &lt;a href=&quot;/recherch ...
-[5] &lt;div class=&quot;dqc-notes&quot;&gt; Mesure des stations de débit et de niveau des par ...</code></pre>
+[5] &lt;div class=&quot;dqc-notes&quot;&gt; Localisation des avertissements tels que les ferm ...</code></pre>
 </div>
 </div>
 <p>Pour extraire du texte d’un nœud HTML :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text</span>(blocs[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;\n        \n  \n    \n    \n      \n    \n    \n      Stations débit/niveau - Grand public\n    \n    \n      \n      \n\n\n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Sécurité intérieure\n  \n  Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique\n  \n     Mesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les... \n  \n\n      &quot;</code></pre>
+<pre><code>[1] &quot;\n        \n  \n    \n    \n      \n    \n    \n      Avertissement routier\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère des Transports et de la Mobilité durable\n  \n  Catégories :\n      \n        Infrastructures;\n        Transport\n  \n     Localisation des avertissements tels que les fermetures de route et de pont ou d’incident empêchant le libre passage sur un segment routier ou sur une structure. \n  \n\n      &quot;</code></pre>
 </div>
 </div>
 <p>Maintenant, testons l’extraction du <strong>titre</strong> :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_nodes</span>(blocs[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Stations débit/niveau - Grand public&quot;</code></pre>
+<pre><code>[1] &quot;Avertissement routier&quot;</code></pre>
 </div>
 </div>
 <p>Et pour les <strong>producteurs</strong> ? Il faut repérer une sous-structure contenant l’information :</p>
@@ -6042,8 +6045,8 @@ Le scraping des pages principales de recherche est donc permis, tant qu&#39;on �
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>orgs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(blocs[[<span class="dv">1</span>]], <span class="st">&quot;.dqc-org-cat&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>orgs</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Organisation : Ministère de la Sécurité intérieure&quot;
-[2] &quot;Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique&quot;</code></pre>
+<pre><code>[1] &quot;Organisation : Ministère des Transports et de la Mobilité durable&quot;
+[2] &quot;Catégories :\n      \n        Infrastructures;\n        Transport&quot;</code></pre>
 </div>
 </div>
 <p>On peut filtrer le bon élément avec <code>grepl()</code> puis nettoyer la chaîne avec <code>gsub()</code> :</p>
@@ -6052,7 +6055,7 @@ Le scraping des pages principales de recherche est donc permis, tant qu&#39;on �
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>org_clean <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;^Organisation : &quot;</span>, <span class="st">&quot;&quot;</span>, org)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>org_clean</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Ministère de la Sécurité intérieure&quot;</code></pre>
+<pre><code>[1] &quot;Ministère des Transports et de la Mobilité durable&quot;</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">

@@ -143,7 +143,7 @@ blocs[[1]]
     [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
     [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
     [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
-    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
+    [5] <div class="dqc-notes"> Localisation des avertissements tels que les ferm ...
 
 Pour extraire du texte d’un nœud HTML :
 
@@ -151,7 +151,7 @@ Pour extraire du texte d’un nœud HTML :
 html_text(blocs[[1]])
 ```
 
-    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Stations débit/niveau - Grand public\n    \n    \n      \n      \n\n\n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Sécurité intérieure\n  \n  Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique\n  \n     Mesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les... \n  \n\n      "
+    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Avertissement routier\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère des Transports et de la Mobilité durable\n  \n  Catégories :\n      \n        Infrastructures;\n        Transport\n  \n     Localisation des avertissements tels que les fermetures de route et de pont ou d’incident empêchant le libre passage sur un segment routier ou sur une structure. \n  \n\n      "
 
 Maintenant, testons l’extraction du **titre** :
 
@@ -159,7 +159,7 @@ Maintenant, testons l’extraction du **titre** :
 html_nodes(blocs[[1]], ".dataset-heading a") %>% html_text(trim = TRUE)
 ```
 
-    [1] "Stations débit/niveau - Grand public"
+    [1] "Avertissement routier"
 
 Et pour les **producteurs** ? Il faut repérer une sous-structure contenant l’information :
 
@@ -168,8 +168,8 @@ orgs <- html_nodes(blocs[[1]], ".dqc-org-cat") %>% html_text(trim = TRUE)
 orgs
 ```
 
-    [1] "Organisation : Ministère de la Sécurité intérieure"
-    [2] "Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique"
+    [1] "Organisation : Ministère des Transports et de la Mobilité durable"
+    [2] "Catégories :\n      \n        Infrastructures;\n        Transport"
 
 On peut filtrer le bon élément avec `grepl()` puis nettoyer la chaîne avec `gsub()` :
 
@@ -179,7 +179,7 @@ org_clean <- gsub("^Organisation : ", "", org)
 org_clean
 ```
 
-    [1] "Ministère de la Sécurité intérieure"
+    [1] "Ministère des Transports et de la Mobilité durable"
 
 > **TIP:**
 >
