@@ -132,4 +132,4 @@ Targeted review of prediction, validation and bias concepts in the module materi
 
 ## Visual Sources
 
-The covers displayed here come from the visual material already used in the MQT-2101 course portal in the same course environment.
+The covers displayed here help students quickly recognize the main course resources.

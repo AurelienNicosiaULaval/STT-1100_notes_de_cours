@@ -24,7 +24,7 @@ Practice Excel sheets
 
 ## Use the catalogue
 
-The cards work like in MQT-2101: a quick preview, a link to the local profile when the file is provided, or a link to the package when the data come from R.
+Each card gives a quick preview, a link to the local profile when the file is provided, or a link to the package when the data come from R.
 
 ## Catalogue by module
 

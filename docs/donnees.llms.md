@@ -24,7 +24,7 @@ Feuilles Excel de pratique
 
 ## Utiliser le catalogue
 
-Les cartes fonctionnent comme dans MQT-2101: un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R.
+Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R.
 
 ## Catalogue par module
 

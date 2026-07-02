@@ -132,4 +132,4 @@ Relecture ciblée des notions de prédiction, validation et biais dans le matér
 
 ## Sources des visuels
 
-Les couvertures reprises ici proviennent du matériel visuel déjà utilisé dans le portail MQT-2101 du même environnement de cours.
+Les couvertures reprises ici servent à reconnaître rapidement les ressources principales du cours.
