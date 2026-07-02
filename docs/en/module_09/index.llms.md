@@ -96,7 +96,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[students_fictifs.csv](../donnees.llms.md#dataset-card-students-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc)
+[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc)
 
 ### R packages
 

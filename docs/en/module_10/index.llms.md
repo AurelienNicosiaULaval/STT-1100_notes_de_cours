@@ -80,7 +80,7 @@ You need to build an interactive dashboard from the template provided. This dash
 
 ### Datasets
 
-[Working comments and texts](../donnees.llms.md#dataset-card-texts-module-10)
+[Working comments and texts](../donnees.llms.md#dataset-card-textes-module-10)
 
 ### R packages
 

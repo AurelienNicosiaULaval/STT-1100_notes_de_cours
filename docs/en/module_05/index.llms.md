@@ -139,7 +139,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[policies.csv](../donnees.llms.md#dataset-card-policies-module-05) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-05)
+[policies.csv](../donnees.llms.md#dataset-card-policies-module-05) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-05) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-05) [flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023)
 
 ### R packages
 

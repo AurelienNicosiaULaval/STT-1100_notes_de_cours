@@ -18,39 +18,39 @@ library(tidyverse)
 
 # Simulation of a problematic database
 set.seed(1234)
-covid_problematic <- data.frame(
-  first_name = sample(c("Jean", "Marie", "Luc", "Chloé", "David"), 50, replace = TRUE),
-  last_name = sample(c("Dupont", "Lavoie", "Nguyen", "Morin", "Gagné"), 50, replace = TRUE),
+covid_problematique <- data.frame(
+  prenom = sample(c("Jean", "Marie", "Luc", "Chloé", "David"), 50, replace = TRUE),
+  nom = sample(c("Dupont", "Lavoie", "Nguyen", "Morin", "Gagné"), 50, replace = TRUE),
   age = sample(60:95, 50, replace = TRUE),
-  region = sample(c("Montreal", "Quebec", "Outaouais"), 50, replace = TRUE),
-  confirmed_cases = sample(60:150, 50, replace = TRUE),
+  region = sample(c("Montréal", "Québec", "Outaouais"), 50, replace = TRUE),
+  cas_confirmes = sample(60:150, 50, replace = TRUE),
   date = sample(seq(as.Date('2022-01-01'), as.Date('2022-12-31'), by="day"), 50, replace = TRUE)
 )
 
 # Creating a variable with full name (privacy issue)
-covid_problematic <- covid_problematic %>%
-  mutate(person = paste(first_name, last_name, ",", age, "years"))
+covid_problematique <- covid_problematique %>%
+  mutate(personne = paste(prenom, nom, ",", age, "years"))
 
 # Data available for students
-available <- covid_problematic %>%
-  select(region, age, confirmed_cases, date)
+disponibles <- covid_problematique %>%
+  select(region, age, cas_confirmes, date)
 
-head(available)
+head(disponibles)
 
-write_csv(available, "data_covid_module7.csv")
+write_csv(disponibles, "donnees_covid_module7.csv")
 ```
 
 ## Visualization proposed by the research team
 
 ```{r}
-case_by_region <- covid_problematic %>%
+case_by_region <- covid_problematique %>%
   group_by(region) %>%
-  summarise(total_cases = sum(confirmed_cases), .groups = "drop")
+  summarise(cas_totaux = sum(cas_confirmes), .groups = "drop")
 
-ggplot(case_by_region, aes(x = region, y = total_cases, fill = region)) +
+ggplot(case_by_region, aes(x = region, y = cas_totaux, fill = region)) +
   geom_bar(stat = "identity") +
-  scale_y_continuous(breaks = seq(0, max(case_by_region$total_cases), by = 10)) +
-  scale_fill_manual(values = c("Montreal" = "red", "Quebec" = "orange", "Outaouais" = "purple")) +
+  scale_y_continuous(breaks = seq(0, max(case_by_region$cas_totaux), by = 10)) +
+  scale_fill_manual(values = c("Montréal" = "red", "Québec" = "orange", "Outaouais" = "purple")) +
   theme_minimal() +
   theme(legend.position = "none")
 ```
@@ -69,26 +69,26 @@ The following table shows the 5 people with the highest individual totals of con
 
 ```{r}
 # Extraction of the 5 people with the highest number of confirmed cases
-covid_problematic %>%
-  arrange(desc(confirmed_cases)) %>%
-  select(person, region, confirmed_cases, date) %>%
+covid_problematique %>%
+  arrange(desc(cas_confirmes)) %>%
+  select(personne, region, cas_confirmes, date) %>%
   head(5)
 ```
 
 ## Complementary exploratory analysis
 
 ```{r}
-covid_problematic %>%
-  mutate(risk = if_else(age > 85 & confirmed_cases > 100, "High", "Moderate")) %>%
-  group_by(risk) %>%
+covid_problematique %>%
+  mutate(risque = if_else(age > 85 & cas_confirmes > 100, "High", "Moderate")) %>%
+  group_by(risque) %>%
   summarize(
     mean_age = mean(age),
-    mean_case = mean(confirmed_cases),
+    mean_case = mean(cas_confirmes),
     .groups = "drop"
   )
 
-covid_problematic %>%
-  ggplot(aes(x = age, y = confirmed_cases)) +
+covid_problematique %>%
+  ggplot(aes(x = age, y = cas_confirmes)) +
   geom_point(color = "darkred") +
   geom_smooth(method = "lm", se = FALSE, linetype = "dashed") +
   labs(title = "The older you are, the more you contract COVID")
@@ -129,4 +129,4 @@ Data were pooled quickly without standardization by population. No margin of err
 
 **Educational note**: This document deliberately contains numerous visualization, ethical and analytical errors. It is used as a starting point for your critical mission.
 
-The `data_covid_module7.csv` file is the one you must use to produce a corrected version of the graph.
+The `donnees_covid_module7.csv` file is the one you must use to produce a corrected version of the graph.

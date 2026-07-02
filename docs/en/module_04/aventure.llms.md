@@ -149,7 +149,7 @@ library(readr)
 library(janitor)
 
 # Data import
-base <- read_csv("practical_dataset.csv")
+base <- read_csv("dataset_pratique.csv")
 
 # Cleaning up column names
 base <- base %>% clean_names()

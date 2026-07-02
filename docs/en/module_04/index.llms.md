@@ -101,7 +101,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[practical_dataset.csv](../donnees.llms.md#dataset-card-practical-dataset) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04)
+[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04)
 
 ### R packages
 

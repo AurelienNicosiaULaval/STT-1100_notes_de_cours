@@ -119,7 +119,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins)
+[manchots_donnees.xlsx](../donnees.llms.md#dataset-card-manchots-donnees) [palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins)
 
 ### R packages
 

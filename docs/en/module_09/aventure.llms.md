@@ -93,7 +93,7 @@ Michel also provides you with a fictitious dataset of 1000 students. At first gl
 Load the data:
 
 ``` r
-df_students <- read_csv("students_fictifs.csv")
+df_students <- read_csv("eleves_fictifs.csv")
 glimpse(df_students)
 ```
 

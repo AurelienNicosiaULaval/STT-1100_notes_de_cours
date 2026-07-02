@@ -89,7 +89,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[data_covid_module7.csv](../donnees.llms.md#dataset-card-covid-module-07)
+[donnees_covid_module7.csv](../donnees.llms.md#dataset-card-covid-module-07)
 
 ### R packages
 

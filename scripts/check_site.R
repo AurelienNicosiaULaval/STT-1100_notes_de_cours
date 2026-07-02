@@ -135,6 +135,78 @@ for (page in custom_hero_pages) {
   }
 }
 
+extract_card_ids <- function(path) {
+  doc <- read_html(path)
+  xml2::xml_attr(
+    xml2::xml_find_all(
+      doc,
+      ".//details[contains(concat(' ', normalize-space(@class), ' '), ' path-card ') and contains(concat(' ', normalize-space(@class), ' '), ' learning-plan-card ')]"
+    ),
+    "id"
+  )
+}
+
+extract_anchor_fragments <- function(path, marker) {
+  doc <- read_html(path)
+  refs <- xml2::xml_attr(xml2::xml_find_all(doc, paste0(".//a[contains(@href, '", marker, "')]")), "href")
+  sub("^.*#", "", refs)
+}
+
+extract_ids_with_prefix <- function(path, prefix) {
+  doc <- read_html(path)
+  xml2::xml_attr(xml2::xml_find_all(doc, paste0(".//*[starts-with(@id, '", prefix, "')]")), "id")
+}
+
+bilingual_parity_issues <- character()
+for (module_id in sprintf("module_%02d", 1:10)) {
+  fr_path <- file.path(docs_root, module_id, "index.html")
+  en_path <- file.path(docs_root, "en", module_id, "index.html")
+
+  if (!file.exists(fr_path) || !file.exists(en_path)) {
+    next
+  }
+
+  fr_cards <- extract_card_ids(fr_path)
+  en_cards <- extract_card_ids(en_path)
+  if (!identical(fr_cards, en_cards)) {
+    bilingual_parity_issues <- c(
+      bilingual_parity_issues,
+      sprintf("%s path cards differ: fr=%s en=%s", module_id, paste(fr_cards, collapse = ","), paste(en_cards, collapse = ","))
+    )
+  }
+
+  fr_datasets <- extract_anchor_fragments(fr_path, "dataset-card-")
+  en_datasets <- extract_anchor_fragments(en_path, "dataset-card-")
+  if (!identical(fr_datasets, en_datasets)) {
+    bilingual_parity_issues <- c(
+      bilingual_parity_issues,
+      sprintf("%s dataset links differ: fr=%s en=%s", module_id, paste(fr_datasets, collapse = ","), paste(en_datasets, collapse = ","))
+    )
+  }
+
+  fr_packages <- extract_anchor_fragments(fr_path, "packages.html#")
+  en_packages <- extract_anchor_fragments(en_path, "packages.html#")
+  if (!identical(fr_packages, en_packages)) {
+    bilingual_parity_issues <- c(
+      bilingual_parity_issues,
+      sprintf("%s package links differ: fr=%s en=%s", module_id, paste(fr_packages, collapse = ","), paste(en_packages, collapse = ","))
+    )
+  }
+}
+
+fr_dataset_cards <- extract_ids_with_prefix(file.path(docs_root, "donnees.html"), "dataset-card-")
+en_dataset_cards <- extract_ids_with_prefix(file.path(docs_root, "en", "donnees.html"), "dataset-card-")
+if (!setequal(fr_dataset_cards, en_dataset_cards)) {
+  bilingual_parity_issues <- c(
+    bilingual_parity_issues,
+    sprintf(
+      "dataset catalogue cards differ: only_fr=%s only_en=%s",
+      paste(setdiff(fr_dataset_cards, en_dataset_cards), collapse = ","),
+      paste(setdiff(en_dataset_cards, fr_dataset_cards), collapse = ",")
+    )
+  )
+}
+
 sensitive_files <- list.files(
   docs_root,
   pattern = "\\.(qmd|Rproj|Rhistory|tex|pptx)$",
@@ -170,6 +242,7 @@ issues <- list(
   missing_fragments = missing_fragments,
   images_without_alt = unique(images_without_alt),
   h1_issues = h1_issues,
+  bilingual_parity_issues = bilingual_parity_issues,
   sensitive_files = sensitive_files,
   sensitive_hits = sensitive_hits
 )

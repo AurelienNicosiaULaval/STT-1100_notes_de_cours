@@ -4,25 +4,25 @@
 
 The dataset presented in this analysis simulates information collected during the year 2022 on cases of COVID-19 among elderly people living in three regions of Quebec: Montreal, Quebec and Outaouais. Each line represents an individual identified by their first name, last name, age, region, date of observation and the number of confirmed cases associated with them. The data also includes an observation date.
 
-         region age confirmed_cases       date
-    1    Quebec  78             111 2022-08-03
-    2    Quebec  66              92 2022-03-20
-    3 Outaouais  68              74 2022-01-30
-    4  Montreal  94             144 2022-12-05
-    5    Quebec  85             133 2022-05-02
-    6    Quebec  75              93 2022-07-21
+         region age cas_confirmes       date
+    1    Québec  78           111 2022-08-03
+    2    Québec  66            92 2022-03-20
+    3 Outaouais  68            74 2022-01-30
+    4  Montréal  94           144 2022-12-05
+    5    Québec  85           133 2022-05-02
+    6    Québec  75            93 2022-07-21
 
 ## Visualization proposed by the research team
 
 ``` r
-case_by_region <- covid_problematic %>%
+case_by_region <- covid_problematique %>%
   group_by(region) %>%
-  summarise(total_cases = sum(confirmed_cases), .groups = "drop")
+  summarise(cas_totaux = sum(cas_confirmes), .groups = "drop")
 
-ggplot(case_by_region, aes(x = region, y = total_cases, fill = region)) +
+ggplot(case_by_region, aes(x = region, y = cas_totaux, fill = region)) +
   geom_bar(stat = "identity") +
-  scale_y_continuous(breaks = seq(0, max(case_by_region$total_cases), by = 10)) +
-  scale_fill_manual(values = c("Montreal" = "red", "Quebec" = "orange", "Outaouais" = "purple")) +
+  scale_y_continuous(breaks = seq(0, max(case_by_region$cas_totaux), by = 10)) +
+  scale_fill_manual(values = c("Montréal" = "red", "Québec" = "orange", "Outaouais" = "purple")) +
   theme_minimal() +
   theme(legend.position = "none")
 ```
@@ -43,41 +43,41 @@ The following table shows the 5 people with the highest individual totals of con
 
 ``` r
 # Extraction of the 5 people with the highest number of confirmed cases
-covid_problematic %>%
-  arrange(desc(confirmed_cases)) %>%
-  select(person, region, confirmed_cases, date) %>%
+covid_problematique %>%
+  arrange(desc(cas_confirmes)) %>%
+  select(personne, region, cas_confirmes, date) %>%
   head(5)
 ```
 
-                      person    region confirmed_cases       date
-    1  Luc Dupont , 66 years  Montreal             147 2022-09-29
-    2 Chloé Morin , 67 years Outaouais             146 2022-08-30
-    3 Chloé Gagné , 84 years    Quebec             145 2022-02-11
-    4  Luc Dupont , 90 years    Quebec             145 2022-08-28
-    5 Chloé Morin , 94 years  Montreal             144 2022-12-05
+                    personne    region cas_confirmes       date
+    1  Luc Dupont , 66 years  Montréal           147 2022-09-29
+    2 Chloé Morin , 67 years Outaouais           146 2022-08-30
+    3 Chloé Gagné , 84 years    Québec           145 2022-02-11
+    4  Luc Dupont , 90 years    Québec           145 2022-08-28
+    5 Chloé Morin , 94 years  Montréal           144 2022-12-05
 
 ## Complementary exploratory analysis
 
 ``` r
-covid_problematic %>%
-  mutate(risk = if_else(age > 85 & confirmed_cases > 100, "High", "Moderate")) %>%
-  group_by(risk) %>%
+covid_problematique %>%
+  mutate(risque = if_else(age > 85 & cas_confirmes > 100, "High", "Moderate")) %>%
+  group_by(risque) %>%
   summarize(
     mean_age = mean(age),
-    mean_case = mean(confirmed_cases),
+    mean_case = mean(cas_confirmes),
     .groups = "drop"
   )
 ```
 
     # A tibble: 2 × 3
-      risk     mean_age mean_case
+      risque   mean_age mean_case
       <chr>       <dbl>     <dbl>
     1 High         91.8      132
     2 Moderate     76.3      105.
 
 ``` r
-covid_problematic %>%
-  ggplot(aes(x = age, y = confirmed_cases)) +
+covid_problematique %>%
+  ggplot(aes(x = age, y = cas_confirmes)) +
   geom_point(color = "darkred") +
   geom_smooth(method = "lm", se = FALSE, linetype = "dashed") +
   labs(title = "The older you are, the more you contract COVID")
@@ -101,4 +101,4 @@ Data were pooled quickly without standardization by population. No margin of err
 
 **Educational note**: This document deliberately contains numerous visualization, ethical and analytical errors. It is used as a starting point for your critical mission.
 
-The `data_covid_module7.csv` file is the one you must use to produce a corrected version of the graph.
+The `donnees_covid_module7.csv` file is the one you must use to produce a corrected version of the graph.
