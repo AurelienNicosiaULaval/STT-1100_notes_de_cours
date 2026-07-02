@@ -47,6 +47,20 @@ library(tibble)
 
 html_text <- function(x) htmltools::htmlEscape(as.character(x))
 
+package_logos <- c(
+  dplyr = "assets/img/packages/dplyr.png",
+  ggplot2 = "assets/img/packages/ggplot2.png",
+  tidyverse = "assets/img/packages/tidyverse.png"
+)
+
+package_initials <- function(name) {
+  cleaned <- gsub("[^A-Za-z0-9]", "", name)
+  if (!nzchar(cleaned)) {
+    return("R")
+  }
+  toupper(substr(cleaned, 1, min(3, nchar(cleaned))))
+}
+
 package_catalog <- tibble::tribble(
   ~id, ~name, ~role, ~url,
   "babynames", "babynames", "Données de prénoms utilisées pour pratiquer les jointures et les résumés.", "https://CRAN.R-project.org/package=babynames",
@@ -124,9 +138,22 @@ render_package_card <- function(row) {
   tag <- ifelse(is.na(row$url), "section", "a")
   href <- ifelse(is.na(row$url), "", paste0(' href="', row$url, '" target="_blank" rel="noopener"'))
   source_label <- ifelse(is.na(row$url), "Documentation locale ou à préciser", "Documentation externe")
+  logo_path <- unname(package_logos[row$id])
+  logo <- if (!is.na(logo_path)) {
+    paste0(
+      '<span class="package-logo"><img src="', logo_path, '" alt="Logo hexagonal du package ',
+      html_text(row$name), '"></span>'
+    )
+  } else {
+    paste0(
+      '<span class="package-logo package-logo--fallback" aria-hidden="true">',
+      html_text(package_initials(row$name)),
+      '</span>'
+    )
+  }
   paste0(
   '<', tag, ' id="', row$id, '" class="package-card"', href, '>',
-  '<span class="resource-icon"><i class="bi bi-box-seam"></i></span>',
+  logo,
   '<span>',
   '<h2>', html_text(row$name), '</h2>',
   '<span class="package-role">', html_text(row$role), '</span>',

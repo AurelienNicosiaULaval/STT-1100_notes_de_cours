@@ -1,10 +1,10 @@
 STT-1100
 
-# Start the course
+# Start the Course
 
-STT-1100 works as a data science pathway. Each module begins with a concrete situation, places you in a professional role, and leads to something visible: a report, an analysis, a visualization, a function or a dashboard.
+STT-1100 works as a data science pathway. Each module begins with a concrete situation, places you in a professional role, and leads you to produce something visible: a report, an analysis, a visualization, a function or a dashboard.
 
-[View modules](modules.llms.md) [Toolbox](boite_outils.llms.md) [Resources](ressources.llms.md)
+[See modules](modules.llms.md) [Toolkit](boite_outils.llms.md) [Resources](ressources.llms.md)
 
 01
 
@@ -22,73 +22,87 @@ Complete the challenge
 
 Consolidate with exercises
 
-## Course philosophy
+## Course Philosophy
 
 You learn data science by producing, explaining and revising your own work.
 
 ### Understand before automating
 
-Code is used to answer a question. Before looking for the perfect function, identify the variables, context, units and expected deliverable.
+Code is there to answer a question. Before looking for the perfect function, identify the variables, context, units and expected deliverable.
 
 ### Work reproducibly
 
-Quarto reports, R scripts and GitHub repositories keep the reasoning trace. A result should be reproducible, reviewable and explainable.
+Quarto reports, R scripts and GitHub repositories keep the reasoning visible. A result should be reproducible, readable and explainable.
 
-### Build careful interpretation
+### Build careful interpretations
 
-A useful analysis is more than a graph or model. It states what the data support and what they do not allow you to conclude.
+A useful analysis is not just a chart or a model. It states what the data support and what they do not allow you to conclude.
 
-## How a module works
+## How a Module Works
 
-Each module homepage presents the learning plan as expandable cards.
+Each module home page presents the learning plan as expandable cards.
 
 1
 
 ### Readings
 
-The readings provide words, concepts and functions to recognize. They prepare the adventure rather than replacing practice.
+The readings give you the language, concepts and functions to recognize. They prepare the adventure; they do not replace practice.
 
 2
 
 ### Adventure
 
-The adventure is the main immersion. You play a data science role and follow a guided situation, often longer.
+The adventure is the main immersion. You play a data science role and follow a guided situation, often longer and more contextualized.
 
 3
 
 ### Challenge
 
-The challenge turns guided practice into a personal production. It is the short deliverable showing what you can do in the module.
+The challenge turns guided practice into a personal production. It is the short deliverable that shows what you can do in the module.
 
 4
 
 ### Exercises
 
-The exercises stabilize technical moves: importing, transforming, visualizing, diagnosing, interpreting and rendering work.
+The exercises stabilize technical habits: importing, transforming, visualizing, diagnosing, interpreting and rendering work.
 
-## Data science immersion
+## Data Science Immersion
 
-The modules place you in realistic roles. The goal is not only to learn R commands, but to think like someone who turns data into decisions.
+The modules place you in the roles that structure a data science project. The goal is to learn technical gestures while understanding who produces, protects, analyzes and communicates data.
 
-### Analyst
+![Full data science project cycle: import, tidy, transform, visualize, model and communicate.](autre_materiel/Présentation%20des%20différents%20rôles/whole-game.png)
 
-Explore a table, choose useful summaries and explain what appears important.
+### Data Engineer
 
-### Data developer
+Make reliable, accessible and well-structured data available by designing architectures, imports and automations.
 
-Clean, connect and document files so they become usable.
+### Data Owner
 
-### Communicator
+Guarantee data governance, compliance and quality: metadata, access, source, updates and privacy rules.
 
-Turn an analysis into a graph, report or dashboard that others can understand.
+### Statistician
 
-### Critical reviewer
+Model phenomena, quantify uncertainty and help distinguish what the data truly support.
 
-Identify limits, biases, fragile code and conclusions that go too far.
+### Data Scientist
 
-## Tools to install
+Turn data into products, models, recommendations and high-value analyses.
 
-These tools form the course's minimal environment.
+### Data Analyst
+
+Produce operational insights, monitor indicators and support day-to-day decision-making.
+
+### Data Journalist
+
+Tell engaging, verifiable and visual stories from well-documented data.
+
+### Freelancer
+
+Offer punctual and adaptable expertise across part or all of the data science cycle.
+
+## Tools to Install
+
+These tools form the minimal course environment.
 
 ### R
 
@@ -104,9 +118,9 @@ The working environment used to write code, manage projects and produce reports.
 
 ### Quarto
 
-The system that turns.qmd files into HTML reports, notes and web pages.
+The system that turns .qmd files into HTML reports, notes and web pages.
 
-[Quarto getting startedInstallation and first document.](https://quarto.org/docs/get-started/)
+[Quarto get startedInstallation and first document.](https://quarto.org/docs/get-started/)
 
 ### Git and GitHub
 
@@ -114,21 +128,21 @@ Version-control tools used to track changes and submit some work.
 
 [GitLocal installation.](https://git-scm.com/)[GitHub DocsOfficial documentation.](https://docs.github.com/)
 
-## Minimal routine
+## Minimal Routine
 
 Each work session should follow a simple routine. It reduces errors and keeps the project reproducible.
 
 1.  Open the right project in RStudio.
-2.  Read the learning-plan card linked to the work of the day.
-3.  Run code in small sections and check outputs.
+2.  Read the learning-plan card linked to the task of the day.
+3.  Run code in small sections and check the outputs.
 4.  Render the Quarto document to catch errors.
-5.  Keep only useful files, then commit if the module asks for it.
+5.  Keep only useful files, then commit if the module requires it.
 
-### When stuck
+### When you are stuck
 
 Reproduce the error, read the full message, then isolate the smallest possible example.
 
-### With the course AI assistant
+### With the course AI
 
 Ask for an explanation, a check or a debugging lead. Always verify the answer before using it.
 

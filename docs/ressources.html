@@ -4979,6 +4979,574 @@ margin-top: .4rem;
 .dataTables_wrapper {
 margin: .8rem 0 1rem;
 }
+.home-page {
+display: grid;
+gap: 1.5rem;
+}
+body.page-home #title-block-header {
+display: none !important;
+}
+.home-hero {
+display: grid;
+grid-template-columns: minmax(0, .92fr) minmax(320px, 1.08fr);
+gap: 1.4rem;
+align-items: stretch;
+margin: 1rem 0 1.6rem;
+}
+.home-hero-copy {
+display: grid;
+align-content: center;
+border-left: 6px solid var(--ulaval-red);
+border-radius: var(--radius);
+background: linear-gradient(90deg, #fff7f7 0%, #ffffff 70%);
+padding: 1.45rem 1.55rem;
+}
+.home-hero-copy h1 {
+margin: .15rem 0 1rem;
+color: var(--ink);
+font-size: clamp(2.1rem, 4vw, 3.7rem);
+line-height: 1.05;
+}
+.home-actions {
+display: flex;
+flex-wrap: wrap;
+gap: .45rem;
+}
+.home-visual {
+position: relative;
+display: grid;
+grid-template-columns: 150px minmax(0, 1fr);
+gap: 1rem;
+align-items: center;
+min-height: 21rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background:
+radial-gradient(circle at 82% 22%, rgba(255, 193, 3, .18), transparent 32%),
+linear-gradient(135deg, #f8fbfc 0%, #ffffff 56%, #eef6f7 100%);
+padding: 1.2rem;
+overflow: hidden;
+}
+.home-logo {
+width: min(150px, 32vw);
+height: auto;
+justify-self: center;
+filter: drop-shadow(0 10px 18px rgba(32, 33, 36, .12));
+}
+.home-pipeline {
+display: grid;
+grid-template-columns: minmax(0, 1fr) 1.8rem minmax(0, 1fr) 1.8rem minmax(0, 1fr) 1.8rem minmax(0, 1fr);
+gap: .35rem;
+align-items: center;
+align-self: start;
+}
+.pipeline-step {
+display: inline-flex;
+justify-content: center;
+align-items: center;
+min-height: 2.25rem;
+border: 1px solid rgba(49, 95, 140, .22);
+border-radius: 7px;
+background: #ffffff;
+color: var(--ink);
+font-weight: 700;
+font-size: .88rem;
+line-height: 1.1;
+text-align: center;
+padding: .35rem .45rem;
+}
+.pipeline-line {
+height: 2px;
+background: var(--blue);
+opacity: .65;
+}
+.home-chart {
+position: absolute;
+right: 1.25rem;
+bottom: 1.2rem;
+width: min(54%, 25rem);
+height: 11rem;
+border-left: 2px solid #cbd6dc;
+border-bottom: 2px solid #cbd6dc;
+}
+.home-chart::before {
+content: "";
+position: absolute;
+left: 8%;
+right: 4%;
+top: 62%;
+height: 2px;
+background: linear-gradient(90deg, var(--ulaval-red), var(--teal));
+transform: rotate(-18deg);
+transform-origin: left center;
+}
+.home-chart span {
+position: absolute;
+left: var(--x);
+top: var(--y);
+width: .72rem;
+height: .72rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+box-shadow: 0 0 0 4px rgba(227, 5, 19, .12);
+}
+.module-overview-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1rem;
+}
+.module-overview-card {
+display: grid;
+grid-template-rows: auto auto auto 1fr;
+gap: .65rem;
+min-height: 18rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+color: var(--ink);
+padding: 1rem;
+text-decoration: none;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.module-overview-card:hover,
+.module-overview-card:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+transform: translateY(-1px);
+}
+.module-overview-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2.35rem;
+height: 2.35rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+line-height: 1;
+}
+.module-overview-title {
+color: var(--ink);
+font-size: 1.08rem;
+font-weight: 700;
+line-height: 1.2;
+}
+.module-overview-text {
+color: var(--muted);
+font-size: .94rem;
+line-height: 1.35;
+}
+.module-visual {
+position: relative;
+display: block;
+min-height: 7rem;
+margin-top: .2rem;
+border-radius: var(--radius);
+background: linear-gradient(135deg, #f7fafb, #eef6f7);
+overflow: hidden;
+}
+.visual-dots span,
+.visual-scatterline span {
+position: absolute;
+width: .7rem;
+height: .7rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+}
+.visual-dots span:nth-child(1) { left: 18%; top: 58%; }
+.visual-dots span:nth-child(2) { left: 30%; top: 40%; background: var(--blue); }
+.visual-dots span:nth-child(3) { left: 48%; top: 50%; background: var(--teal); }
+.visual-dots span:nth-child(4) { left: 66%; top: 28%; background: var(--ulaval-yellow); }
+.visual-dots span:nth-child(5) { left: 78%; top: 38%; }
+.visual-git::before,
+.visual-git::after {
+content: "";
+position: absolute;
+height: 3px;
+background: var(--blue);
+left: 20%;
+right: 20%;
+top: 50%;
+}
+.visual-git::after {
+width: 32%;
+right: auto;
+top: 36%;
+transform: rotate(-22deg);
+transform-origin: left center;
+}
+.visual-git span {
+position: absolute;
+width: 1rem;
+height: 1rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+}
+.visual-git span:nth-child(1) { left: 17%; top: 43%; }
+.visual-git span:nth-child(2) { left: 43%; top: 43%; background: var(--teal); }
+.visual-git span:nth-child(3) { right: 17%; top: 43%; background: var(--blue); }
+.visual-git span:nth-child(4) { left: 55%; top: 18%; background: var(--ulaval-yellow); }
+.visual-bars {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: .45rem;
+align-items: end;
+padding: .8rem;
+}
+.visual-bars span {
+display: block;
+border-radius: 6px 6px 0 0;
+background: var(--blue);
+}
+.visual-bars span:nth-child(1) { height: 35%; background: var(--teal); }
+.visual-bars span:nth-child(2) { height: 72%; }
+.visual-bars span:nth-child(3) { height: 52%; background: var(--ulaval-red); }
+.visual-bars span:nth-child(4) { height: 88%; background: var(--ulaval-yellow); }
+.visual-clean {
+display: grid;
+gap: .55rem;
+align-content: center;
+padding: 1rem;
+}
+.visual-clean span {
+display: block;
+height: 1.1rem;
+border-radius: 999px;
+background: linear-gradient(90deg, var(--ulaval-red) 0 18%, #ffffff 18% 24%, var(--blue) 24% 58%, #ffffff 58% 64%, var(--teal) 64% 100%);
+border: 1px solid rgba(32, 33, 36, .08);
+}
+.visual-clean span:nth-child(2) { opacity: .8; transform: translateX(1rem); }
+.visual-clean span:nth-child(3) { opacity: .65; transform: translateX(.35rem); }
+.visual-scatterline::before {
+content: "";
+position: absolute;
+left: 16%;
+right: 12%;
+top: 58%;
+height: 3px;
+background: var(--teal);
+transform: rotate(-18deg);
+transform-origin: left center;
+}
+.visual-scatterline span:nth-child(1) { left: 18%; top: 60%; }
+.visual-scatterline span:nth-child(2) { left: 34%; top: 48%; background: var(--blue); }
+.visual-scatterline span:nth-child(3) { left: 48%; top: 55%; background: var(--ulaval-yellow); }
+.visual-scatterline span:nth-child(4) { left: 64%; top: 34%; background: var(--teal); }
+.visual-scatterline span:nth-child(5) { left: 80%; top: 30%; }
+.visual-join {
+display: grid;
+grid-template-columns: 1fr .5fr 1fr;
+gap: .45rem;
+align-items: center;
+padding: 1rem;
+}
+.visual-join span:nth-child(1),
+.visual-join span:nth-child(3) {
+height: 4.6rem;
+border: 1px solid rgba(49, 95, 140, .25);
+border-radius: 7px;
+background: repeating-linear-gradient(to bottom, #ffffff, #ffffff .7rem, #edf3f6 .7rem, #edf3f6 1.4rem);
+}
+.visual-join span:nth-child(2) {
+height: 3px;
+background: var(--ulaval-red);
+}
+.visual-join span:nth-child(4) {
+position: absolute;
+left: 44%;
+top: 31%;
+width: 12%;
+height: 38%;
+border-radius: 999px;
+background: rgba(0, 124, 137, .18);
+}
+.visual-ethics {
+display: grid;
+grid-template-columns: 1fr .65fr;
+gap: .8rem;
+align-items: end;
+padding: 1rem;
+}
+.visual-ethics span:nth-child(1) {
+height: 4.5rem;
+border-left: 2px solid #cbd6dc;
+border-bottom: 2px solid #cbd6dc;
+background: linear-gradient(135deg, transparent 45%, rgba(227, 5, 19, .18) 45% 55%, transparent 55%);
+}
+.visual-ethics span:nth-child(2) {
+height: 4.8rem;
+clip-path: polygon(50% 0, 90% 18%, 82% 76%, 50% 100%, 18% 76%, 10% 18%);
+background: var(--blue);
+}
+.visual-ethics span:nth-child(3) {
+display: none;
+}
+.visual-web span {
+position: absolute;
+border-radius: 7px;
+background: #ffffff;
+border: 1px solid rgba(49, 95, 140, .24);
+}
+.visual-web span:nth-child(1) { left: 12%; top: 16%; width: 76%; height: 1.4rem; background: #f1f4f6; }
+.visual-web span:nth-child(2) { left: 18%; top: 44%; width: 22%; height: 2.4rem; }
+.visual-web span:nth-child(3) { left: 42%; top: 44%; width: 22%; height: 2.4rem; background: rgba(255, 193, 3, .3); }
+.visual-web span:nth-child(4) { left: 66%; top: 44%; width: 16%; height: 2.4rem; background: rgba(0, 124, 137, .16); }
+.visual-predict::before {
+content: "";
+position: absolute;
+inset: 1rem;
+border-left: 2px solid #cbd6dc;
+border-bottom: 2px solid #cbd6dc;
+}
+.visual-predict span {
+position: absolute;
+width: .75rem;
+height: .75rem;
+border-radius: 50%;
+background: var(--blue);
+}
+.visual-predict span:nth-child(1) { left: 24%; top: 58%; }
+.visual-predict span:nth-child(2) { left: 42%; top: 44%; background: var(--teal); }
+.visual-predict span:nth-child(3) { left: 60%; top: 36%; background: var(--ulaval-red); }
+.visual-predict span:nth-child(4) { left: 76%; top: 28%; background: var(--ulaval-yellow); }
+.visual-dashboard {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: .5rem;
+padding: .85rem;
+}
+.visual-dashboard span {
+border-radius: 7px;
+background: #ffffff;
+border: 1px solid rgba(49, 95, 140, .18);
+}
+.visual-dashboard span:nth-child(1) { background: linear-gradient(135deg, rgba(227, 5, 19, .16), #ffffff); }
+.visual-dashboard span:nth-child(2) { background: linear-gradient(135deg, rgba(0, 124, 137, .18), #ffffff); }
+.visual-dashboard span:nth-child(3) { grid-column: 1 / -1; background: repeating-linear-gradient(to right, #ffffff, #ffffff 1.2rem, #edf3f6 1.2rem, #edf3f6 2.4rem); }
+.workflow-figure {
+margin: .2rem 0 1rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: .8rem;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.workflow-figure img {
+display: block;
+width: 100%;
+height: auto;
+}
+.featured-covers {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: .7rem;
+align-items: end;
+justify-items: center;
+border: 1px solid rgba(49, 95, 140, .18);
+border-radius: var(--radius);
+background: rgba(255, 255, 255, .72);
+padding: .85rem;
+}
+.featured-covers img {
+width: 100%;
+max-width: 8rem;
+aspect-ratio: 2 / 3;
+object-fit: cover;
+border-radius: 6px;
+box-shadow: 0 10px 22px rgba(32, 33, 36, .14);
+}
+.reading-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 1rem;
+}
+.reading-card {
+display: grid;
+grid-template-columns: 112px minmax(0, 1fr);
+gap: 1rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: 1rem;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.reading-cover-frame {
+display: flex;
+align-items: center;
+justify-content: center;
+align-self: start;
+min-height: 9.5rem;
+border-radius: 7px;
+background: #f2f5f7;
+overflow: hidden;
+}
+.reading-cover-frame img {
+width: 100%;
+height: 100%;
+aspect-ratio: 2 / 3;
+object-fit: cover;
+}
+.reading-cover-placeholder {
+background: linear-gradient(135deg, var(--blue), var(--teal));
+color: #ffffff;
+font-weight: 700;
+text-align: center;
+line-height: 1.15;
+padding: .7rem;
+}
+.reading-cover-placeholder--guide {
+background: linear-gradient(135deg, var(--ulaval-red), var(--blue));
+}
+.reading-cover-placeholder--quarto {
+background: linear-gradient(135deg, #30475e, var(--teal));
+}
+.reading-cover-placeholder--github {
+background: linear-gradient(135deg, #202124, var(--blue));
+}
+.reading-card h3 {
+margin: .15rem 0 .45rem;
+color: var(--ink);
+}
+.reading-card p {
+color: var(--muted);
+}
+.reading-source {
+margin: 0;
+color: var(--ulaval-red) !important;
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: .06em;
+text-transform: uppercase;
+}
+.reading-actions a {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 2.1rem;
+border: 1px solid var(--ulaval-red);
+border-radius: 7px;
+background: var(--ulaval-red);
+color: #ffffff !important;
+padding: .35rem .65rem;
+font-weight: 700;
+text-decoration: none;
+}
+.reading-actions a:hover,
+.reading-actions a:focus {
+filter: brightness(.95);
+text-decoration: none;
+}
+.resource-hub-card--visual {
+display: grid;
+gap: .7rem;
+}
+.resource-mini-visual {
+min-height: 5.5rem;
+border-radius: var(--radius);
+background: linear-gradient(135deg, #f7fafb, #eef6f7);
+position: relative;
+overflow: hidden;
+}
+.book-mini::before,
+.book-mini::after {
+content: "";
+position: absolute;
+top: 18%;
+width: 24%;
+height: 64%;
+border-radius: 5px;
+background: var(--blue);
+box-shadow: 0 8px 18px rgba(32, 33, 36, .12);
+}
+.book-mini::before { left: 22%; background: var(--ulaval-red); }
+.book-mini::after { left: 50%; background: var(--teal); }
+.package-mini::before {
+content: "";
+position: absolute;
+left: 50%;
+top: 50%;
+width: 4.2rem;
+height: 4.2rem;
+transform: translate(-50%, -50%);
+clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%);
+background: var(--blue);
+}
+.data-mini {
+display: grid;
+gap: .35rem;
+align-content: center;
+padding: .75rem;
+}
+.data-mini::before,
+.data-mini::after {
+content: "";
+display: block;
+height: 1rem;
+border-radius: 999px;
+background: linear-gradient(90deg, var(--teal) 0 35%, #ffffff 35% 42%, var(--blue) 42% 100%);
+border: 1px solid rgba(32, 33, 36, .08);
+}
+.support-mini::before {
+content: "";
+position: absolute;
+left: 18%;
+right: 18%;
+top: 20%;
+bottom: 20%;
+border-radius: 6px;
+background: repeating-linear-gradient(to bottom, #ffffff, #ffffff .7rem, #edf3f6 .7rem, #edf3f6 1.4rem);
+border: 1px solid rgba(49, 95, 140, .2);
+}
+.ai-mini::before {
+content: "";
+position: absolute;
+left: 20%;
+right: 20%;
+top: 22%;
+bottom: 22%;
+border-radius: 999px;
+border: 3px solid var(--ulaval-red);
+box-shadow: 0 0 0 12px rgba(227, 5, 19, .08);
+}
+.toolkit-mini::before,
+.toolkit-mini::after {
+content: "";
+position: absolute;
+left: 18%;
+right: 18%;
+height: .9rem;
+border-radius: 999px;
+background: var(--blue);
+}
+.toolkit-mini::before { top: 32%; }
+.toolkit-mini::after { top: 55%; background: var(--ulaval-yellow); }
+.package-card {
+grid-template-columns: 64px minmax(0, 1fr);
+align-items: start;
+}
+.package-logo {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 58px;
+height: 58px;
+}
+.package-logo img {
+display: block;
+width: 58px;
+height: 58px;
+object-fit: contain;
+}
+.package-logo--fallback {
+clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%);
+background: linear-gradient(135deg, var(--blue), var(--teal));
+color: #ffffff;
+font-size: .9rem;
+font-weight: 700;
+letter-spacing: .02em;
+}
 pre, code { border-radius: 4px; }
 blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; color: var(--muted); }
 .callout { border-radius: var(--radius); }
@@ -5010,6 +5578,10 @@ overflow-wrap: break-word;
 .resource-link-grid,
 .catalog-grid,
 .package-grid,
+.home-hero,
+.home-visual,
+.module-overview-grid,
+.reading-grid,
 .resource-hero,
 .resource-split,
 .resource-hub-grid,
@@ -5022,6 +5594,25 @@ overflow-wrap: break-word;
 .module-resource-panel,
 .module-quick-facts {
 grid-template-columns: 1fr;
+}
+.home-visual {
+min-height: 24rem;
+}
+.home-pipeline {
+grid-template-columns: 1fr;
+}
+.pipeline-line {
+display: none;
+}
+.home-chart {
+width: calc(100% - 2rem);
+right: 1rem;
+}
+.featured-covers {
+grid-template-columns: repeat(3, 1fr);
+}
+.reading-card {
+grid-template-columns: 92px minmax(0, 1fr);
 }
 .path-card summary {
 grid-template-columns: 2.15rem minmax(0, 1fr);
@@ -5153,15 +5744,40 @@ margin-bottom: .05rem;
   </li>
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="./ressources.html" aria-current="page">
-<span class="menu-text">Ressources</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ressources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Ressources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-ressources">
+        <li>
+    <a class="dropdown-item" href="./ressources.html">
+ <span class="dropdown-text">Vue d’ensemble</span></a>
   </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./glossaire.html">
-<span class="menu-text">Glossaire</span></a>
+        <li>
+    <a class="dropdown-item" href="./livres.html">
+ <span class="dropdown-text">Livres et lectures</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="./packages.html">
+ <span class="dropdown-text">Packages R</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="./donnees.html">
+ <span class="dropdown-text">Bases de données</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="./supports_classe.html">
+ <span class="dropdown-text">Supports de classe</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="./ia.html">
+ <span class="dropdown-text">IA et aide</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="./boite_outils.html">
+ <span class="dropdown-text">Boîte à outils</span></a>
+  </li>
+    </ul>
   </li>
 </ul>
           </div> <!-- /navcollapse -->
@@ -5181,172 +5797,63 @@ margin-bottom: .05rem;
 
 
 
-<div class="resource-page">
+<div class="resource-page resources-hub-page">
   <section class="resource-hero" aria-labelledby="resources-title">
-  <div>
-  <p class="eyebrow">Bibliothèque du cours</p>
-  <h1 id="resources-title">Ressources STT-1100</h1>
-  <p>Cette page rassemble les livres, guides, références techniques et liens internes utiles pendant les modules. Les lectures indiquées dans les modules renvoient ici pour que les ressources restent faciles à retrouver.</p>
-  <div class="resource-actions" aria-label="Accès rapides">
-  <a class="home-action home-action--primary" href="#livres-et-guides">Livres et guides</a>
-  <a class="home-action" href="#lectures-par-module">Lectures par module</a>
-  <a class="home-action" href="#supports-de-classe">Supports de classe</a>
-  <a class="home-action" href="donnees.html">Bases de données</a>
-  <a class="home-action" href="packages.html">Packages R</a>
-  </div>
-  </div>
-  <div class="resource-panel" aria-label="Types de ressources">
-  <div><span>R</span><p>Langage et tidyverse</p></div>
-  <div><span>Q</span><p>Quarto et rapports</p></div>
-  <div><span>D</span><p>Données du cours</p></div>
-  <div><span>IA</span><p>Révision et aide ciblée</p></div>
-  </div>
+    <div>
+      <p class="eyebrow">Bibliothèque du cours</p>
+      <h1 id="resources-title">Ressources STT-1100</h1>
+      <p>Cette page sert de point d&#39;entrée. Les livres, packages, bases de données, supports de classe et ressources d&#39;aide sont séparés pour que chaque type de matériel soit plus facile à consulter.</p>
+    </div>
+    <div class="resource-panel" aria-label="Types de ressources">
+      <div><span>R</span><p>Packages et fonctions</p></div>
+      <div><span>D</span><p>Bases de données</p></div>
+      <div><span>IA</span><p>Aide et révision</p></div>
+    </div>
   </section>
 
   <section class="resource-section" aria-labelledby="hub-title">
-  <div class="resource-section__header">
-  <h2 id="hub-title" class="anchored">Choisir la bonne ressource</h2>
-  <p>Les cartes regroupent les usages les plus fréquents dans le cours.</p>
-  </div>
-  <div class="resource-hub-grid">
-  <article class="resource-hub-card">
-  <h3 class="anchored">Lire et comprendre</h3>
-  <p>Livres ouverts et guides qui accompagnent les lectures de module.</p>
-  <div class="resource-link-list">
-  <a href="#r4ds"><span>R for Data Science</span><span>Référence principale pour tidyverse, graphiques et flux de travail.</span></a>
-  <a href="#ims"><span>Introduction to Modern Statistics</span><span>Complément pour l&#39;interprétation statistique moderne.</span></a>
-  <a href="#tidytext"><span>Text Mining with R</span><span>Référence du module sur les données textuelles.</span></a>
-  </div>
-  </article>
-  <article class="resource-hub-card">
-  <h3 class="anchored">Travailler dans R</h3>
-  <p>Aide-mémoire et documentation pour importer, transformer, visualiser et diagnostiquer.</p>
-  <div class="resource-link-list">
-  <a href="boite_outils.html"><span>Boîte à outils</span><span>Fonctions et gestes importants du cours.</span></a>
-  <a href="autre_materiel/Cheat sheet/stt1100_cheatsheet_mod.pdf"><span>Feuille aide-mémoire STT-1100</span><span>Résumé imprimable des commandes et réflexes du cours.</span></a>
-  <a href="packages.html"><span>Packages R</span><span>Bibliothèque des packages utilisés par module.</span></a>
-  <a href="autre_materiel/Aide mémoire Rstudio et Github.html"><span>Aide-mémoire RStudio et GitHub</span><span>Repères pratiques pour l&#39;environnement de travail.</span></a>
-  </div>
-  </article>
-  <article class="resource-hub-card">
-  <h3 class="anchored">Trouver les données</h3>
-  <p>Catalogue des fichiers locaux et des jeux de données fournis par des packages R.</p>
-  <div class="resource-link-list">
-  <a href="donnees.html"><span>Bases de données</span><span>Fiches, téléchargements et aperçus.</span></a>
-  <a href="packages.html#palmerpenguins"><span>palmerpenguins</span><span>Données de manchots utilisées dans plusieurs modules.</span></a>
-  <a href="packages.html#weathercan"><span>weathercan</span><span>Données météorologiques canadiennes pour les jointures.</span></a>
-  </div>
-  </article>
-  <article class="resource-hub-card">
-  <h3 class="anchored">Finaliser un travail</h3>
-  <p>Repères pour rendre un document, préparer un projet et utiliser l&#39;IA de façon responsable.</p>
-  <div class="resource-link-list">
-  <a href="projet_session/index.html"><span>Projet de session</span><span>Consignes et attentes du projet.</span></a>
-  <a href="evaluations.html"><span>Évaluations</span><span>Structure des livrables et critères généraux.</span></a>
-  <a href="references.html"><span>Matériel de référence</span><span>Aide, recherche, GPT STT-1100 et bonnes questions.</span></a>
-  </div>
-  </article>
-  </div>
-  </section>
-
-  <section class="resource-section" id="supports-de-classe" aria-labelledby="class-material-title">
-  <div class="resource-section__header">
-  <h2 id="class-material-title" class="anchored">Supports de classe</h2>
-  <p>Ces ressources proviennent du matériel complémentaire utilisé en classe. Elles servent de raccourcis vers les procédures et repères qui reviennent souvent dans les modules.</p>
-  </div>
-  <div class="resource-compact-list book-list">
-  <article class="resource-compact"><h3 class="anchored">Boîte à outils STT-1100</h3><p>Point d&#39;entrée pratique pour les routines R, Quarto, GitHub, dépannage et aide.</p><a href="boite_outils.html">Ouvrir la boîte à outils</a></article>
-  <article class="resource-compact"><h3 class="anchored">Feuille aide-mémoire STT-1100</h3><p>Résumé court des fonctions, commandes et bonnes pratiques à utiliser pendant les exercices.</p><a href="autre_materiel/Cheat sheet/stt1100_cheatsheet_mod.pdf">Ouvrir le PDF</a></article>
-  <article class="resource-compact"><h3 class="anchored">Aide-mémoire RStudio et GitHub</h3><p>Guide pour cloner un projet, configurer GitHub et comprendre les erreurs d&#39;authentification.</p><a href="autre_materiel/Aide mémoire Rstudio et Github.html">Ouvrir le guide</a></article>
-  <article class="resource-compact"><h3 class="anchored">Présentation GitHub</h3><p>Support de classe sur les dépôts, les commits, le suivi des versions et le travail dans RStudio.</p><a href="autre_materiel/Github/Présentation Github.pdf">Ouvrir le PDF</a></article>
-  <article class="resource-compact"><h3 class="anchored">Où et comment chercher</h3><p>Méthode pour lire une erreur, chercher dans la documentation et poser une bonne question.</p><a href="autre_materiel/Ou et comment chercher/ou et comment chercher.html">Ouvrir le guide</a></article>
-  <article class="resource-compact"><h3 class="anchored">Panorama des métiers</h3><p>Présentation du cycle d&#39;un projet de science des données et des rôles qui y contribuent.</p><a href="autre_materiel/Présentation des différents rôles/roles_presentation_v2.html">Ouvrir la présentation</a></article>
-  </div>
-  </section>
-
-  <section class="resource-section" id="livres-et-guides" aria-labelledby="books-title">
-  <div class="resource-section__header">
-  <h2 id="books-title" class="anchored">Livres et guides</h2>
-  <p>Ces références sont gratuites ou accessibles en ligne. Elles servent de base aux lectures de plusieurs modules.</p>
-  </div>
-  <div class="resource-compact-list book-list">
-  <article class="resource-compact" id="r4ds">
-  <h3 class="anchored">R for Data Science, 2e édition</h3>
-  <p>Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund. Référence principale pour le tidyverse, l&#39;importation, la transformation, la visualisation, les dates, les jointures et la communication.</p>
-  <a href="https://r4ds.hadley.nz/" target="_blank" rel="noopener">Ouvrir R4DS</a>
-  </article>
-  <article class="resource-compact" id="ims">
-  <h3 class="anchored">Introduction to Modern Statistics</h3>
-  <p>Mine Çetinkaya-Rundel et Johanna Hardin. Complément utilisé pour l&#39;exploration numérique, l&#39;intuition statistique et l&#39;interprétation appliquée.</p>
-  <a href="https://openintro-ims.netlify.app/" target="_blank" rel="noopener">Ouvrir IMS</a>
-  </article>
-  <article class="resource-compact" id="tidy-style">
-  <h3 class="anchored">The Tidyverse Style Guide</h3>
-  <p>Guide pour écrire du code R lisible, cohérent et plus facile à réviser.</p>
-  <a href="https://style.tidyverse.org/" target="_blank" rel="noopener">Ouvrir le guide</a>
-  </article>
-  <article class="resource-compact" id="tidytext">
-  <h3 class="anchored">Text Mining with R</h3>
-  <p>Julia Silge et David Robinson. Référence du module 10 pour transformer du texte en données tidy, calculer des fréquences et produire des analyses lexicales.</p>
-  <a href="https://www.tidytextmining.com/" target="_blank" rel="noopener">Ouvrir le livre</a>
-  </article>
-  <article class="resource-compact" id="quarto-docs">
-  <h3 class="anchored">Documentation Quarto</h3>
-  <p>Documentation officielle pour créer, rendre et publier des documents et sites Quarto.</p>
-  <a href="https://quarto.org/docs/" target="_blank" rel="noopener">Ouvrir Quarto Docs</a>
-  </article>
-  <article class="resource-compact" id="github-docs">
-  <h3 class="anchored">GitHub Docs</h3>
-  <p>Documentation officielle pour les dépôts, commits, issues, branches et workflows GitHub.</p>
-  <a href="https://docs.github.com/" target="_blank" rel="noopener">Ouvrir GitHub Docs</a>
-  </article>
-  </div>
-  </section>
-
-  <section class="resource-section" id="lectures-par-module" aria-labelledby="readings-title">
-  <div class="resource-section__header">
-  <h2 id="readings-title" class="anchored">Lectures par module</h2>
-  <p>Cette synthèse reprend les lectures clés sans obliger à ouvrir le plan d&#39;apprentissage complet.</p>
-  </div>
-  <div class="reading-map">
-  <article><h3 class="anchored">Module 01</h3><p><a href="#r4ds">R4DS</a> pour situer le flux de travail et <a href="#quarto-docs">Quarto</a> pour comprendre le rapport HTML.</p></article>
-  <article><h3 class="anchored">Module 02</h3><p><a href="https://r4ds.hadley.nz/data-visualize.html" target="_blank" rel="noopener">Visualisation</a>, <a href="https://r4ds.hadley.nz/data-transform.html" target="_blank" rel="noopener">transformation</a>, <a href="https://r4ds.hadley.nz/EDA.html" target="_blank" rel="noopener">EDA</a>, <a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank" rel="noopener">fichiers Excel</a> et <a href="https://openintro-ims.netlify.app/explore-numerical" target="_blank" rel="noopener">IMS, chapitre 5</a>.</p></article>
-  <article><h3 class="anchored">Module 03</h3><p><a href="https://r4ds.hadley.nz/strings.html" target="_blank" rel="noopener">R4DS Strings</a> et repères de recodage pour les variables catégorielles.</p></article>
-  <article><h3 class="anchored">Module 04</h3><p><a href="https://r4ds.hadley.nz/data-import.html" target="_blank" rel="noopener">Importation</a>, <a href="https://r4ds.hadley.nz/data-tidy.html" target="_blank" rel="noopener">données tidy</a>, <a href="https://r4ds.hadley.nz/factors.html" target="_blank" rel="noopener">facteurs</a>, <a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank" rel="noopener">tableurs</a> et <a href="https://r4ds.hadley.nz/rectangling.html" target="_blank" rel="noopener">listes</a>.</p></article>
-  <article><h3 class="anchored">Module 05</h3><p><a href="https://r4ds.hadley.nz/EDA.html" target="_blank" rel="noopener">EDA</a>, <a href="https://r4ds.hadley.nz/datetimes.html" target="_blank" rel="noopener">dates</a> et <a href="https://r4ds.hadley.nz/data-tidy.html" target="_blank" rel="noopener">données tidy</a>.</p></article>
-  <article><h3 class="anchored">Module 06</h3><p><a href="#github-docs">GitHub Docs</a>, <a href="https://quarto.org/docs/computations/inline-code.html" target="_blank" rel="noopener">Quarto Inline Code</a> et <a href="https://r4ds.hadley.nz/joins.html" target="_blank" rel="noopener">R4DS Joins</a>.</p></article>
-  <article><h3 class="anchored">Module 07</h3><p><a href="https://r4ds.hadley.nz/communication.html" target="_blank" rel="noopener">R4DS Communication</a> pour passer d&#39;un graphique à un message compréhensible.</p></article>
-  <article><h3 class="anchored">Module 08</h3><p><a href="https://r4ds.hadley.nz/webscraping.html" target="_blank" rel="noopener">R4DS Web scraping</a> pour comprendre HTML, CSS et extraction.</p></article>
-  <article><h3 class="anchored">Module 09</h3><p>Relecture ciblée des notions de prédiction, de validation et de biais dans le matériel du module.</p></article>
-  <article><h3 class="anchored">Module 10</h3><p><a href="#tidytext">Text Mining with R</a>, chapitres 1 à 3, puis documentation <a href="https://rstudio.github.io/flexdashboard/" target="_blank" rel="noopener">flexdashboard</a> et <a href="https://shiny.posit.co/" target="_blank" rel="noopener">Shiny</a>.</p></article>
-  </div>
-  </section>
-
-  <section class="resource-section resource-split" aria-labelledby="ai-title">
-  <div>
-  <h2 id="ai-title" class="anchored">IA et aide ciblée</h2>
-  <p>Le GPT STT-1100 peut servir de partenaire de révision, de débogage et de reformulation. Il ne remplace pas votre jugement: toute réponse utilisée doit être vérifiée avec le code, les données et les consignes du module.</p>
-  <div class="resource-actions">
-  <a class="home-action home-action--primary" href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100" target="_blank" rel="noopener">Ouvrir GPT STT-1100</a>
-  <a class="home-action" href="references.html">Voir le matériel de référence</a>
-  </div>
-  </div>
-  <div class="resource-compact-list" aria-label="Bon usage de l&#39;IA">
-  <article class="resource-compact"><h3 class="anchored">Expliquer</h3><p>Demander une explication d&#39;une sortie R, d&#39;un message d&#39;erreur ou d&#39;une étape du plan.</p></article>
-  <article class="resource-compact"><h3 class="anchored">Vérifier</h3><p>Soumettre votre propre code ou votre interprétation et demander une rétroaction ciblée.</p></article>
-  <article class="resource-compact"><h3 class="anchored">Améliorer</h3><p>Demander une variante plus claire, puis choisir ce qui reste cohérent avec les consignes.</p></article>
-  </div>
-  </section>
-
-  <section class="resource-section" aria-labelledby="llm-title">
-  <div class="resource-section__header">
-  <h2 id="llm-title" class="anchored">Version lisible par les outils IA</h2>
-  <p>Le site génère aussi des versions Markdown simplifiées avec Quarto 1.9. Elles retirent la navigation et gardent le contenu principal.</p>
-  </div>
-  <div class="resource-actions">
-  <a class="home-action" href="llms.txt">Index llms.txt</a>
-  <a class="home-action" href="index.llms.md">Accueil en Markdown simplifié</a>
-  </div>
+    <div class="resource-section__header">
+      <h2 id="hub-title" class="anchored">Choisir la bonne ressource</h2>
+      <p>Les cartes ci-dessous ouvrent les pages spécialisées du portail.</p>
+    </div>
+    <div class="resource-hub-grid">
+      <article class="resource-hub-card resource-hub-card--visual">
+        <div class="resource-mini-visual book-mini" aria-hidden="true"></div>
+        <h3 class="anchored">Livres et lectures</h3>
+        <p>Références ouvertes, couvertures, lectures par module et liens vers les chapitres utiles.</p>
+        <a class="home-action home-action--primary" href="livres.html">Ouvrir les livres</a>
+      </article>
+      <article class="resource-hub-card resource-hub-card--visual">
+        <div class="resource-mini-visual package-mini" aria-hidden="true"></div>
+        <h3 class="anchored">Packages R</h3>
+        <p>Packages utilisés dans les modules, logos, liens vers la documentation et rôles principaux.</p>
+        <a class="home-action home-action--primary" href="packages.html">Ouvrir les packages</a>
+      </article>
+      <article class="resource-hub-card resource-hub-card--visual">
+        <div class="resource-mini-visual data-mini" aria-hidden="true"></div>
+        <h3 class="anchored">Bases de données</h3>
+        <p>Catalogue des données locales et des jeux de données fournis par des packages.</p>
+        <a class="home-action home-action--primary" href="donnees.html">Ouvrir les données</a>
+      </article>
+      <article class="resource-hub-card resource-hub-card--visual">
+        <div class="resource-mini-visual support-mini" aria-hidden="true"></div>
+        <h3 class="anchored">Supports de classe</h3>
+        <p>Aide-mémoire, présentations, guides pratiques et matériel complémentaire.</p>
+        <a class="home-action home-action--primary" href="supports_classe.html">Ouvrir les supports</a>
+      </article>
+      <article class="resource-hub-card resource-hub-card--visual">
+        <div class="resource-mini-visual ai-mini" aria-hidden="true"></div>
+        <h3 class="anchored">IA et aide</h3>
+        <p>Utiliser l&#39;IA du cours pour réviser, déboguer et améliorer un raisonnement sans perdre le contrôle.</p>
+        <a class="home-action home-action--primary" href="ia.html">Ouvrir IA et aide</a>
+      </article>
+      <article class="resource-hub-card resource-hub-card--visual">
+        <div class="resource-mini-visual toolkit-mini" aria-hidden="true"></div>
+        <h3 class="anchored">Boîte à outils</h3>
+        <p>Fonctions R, Quarto, GitHub, routines de dépannage et gestes récurrents du cours.</p>
+        <a class="home-action home-action--primary" href="boite_outils.html">Ouvrir la boîte à outils</a>
+      </article>
+    </div>
   </section>
 </div>
 
@@ -5430,8 +5937,12 @@ font-size:.8rem;
   'examen.html',
   'defis.html',
   'boite_outils.html',
-  'glossaire.html',
   'ressources.html',
+  'livres.html',
+  'packages.html',
+  'donnees.html',
+  'supports_classe.html',
+  'ia.html',
   'references.html'
   ]);
 

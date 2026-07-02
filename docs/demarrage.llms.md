@@ -68,23 +68,37 @@ Les exercices servent à stabiliser les gestes techniques: importer, transformer
 
 ## Immersion en science des données
 
-Les modules vous placent dans des rôles réalistes. Le but n'est pas seulement d'apprendre des commandes R, mais de penser comme une personne qui transforme des données en décision.
+Les modules vous placent dans les rôles qui structurent un projet de science des données. L'objectif est d'apprendre les gestes techniques, mais aussi de comprendre qui produit, protège, analyse et communique les données.
 
-### Analyste
+![Cycle complet d'un projet de science des données: importer, ranger, transformer, visualiser, modéliser et communiquer.](autre_materiel/Présentation%20des%20différents%20rôles/whole-game.png)
 
-Explorer un tableau, choisir les bons résumés et expliquer ce qui semble important.
+### Data Engineer
 
-### Développeur ou développeuse de données
+Mettre à disposition des données fiables, accessibles et bien structurées en concevant les architectures, les imports et les automatisations.
 
-Nettoyer, relier et documenter des fichiers pour qu'ils deviennent utilisables.
+### Data Owner
 
-### Communicateur ou communicatrice
+Garantir la gouvernance, la conformité et la qualité des données: métadonnées, accès, source, mises à jour et règles de confidentialité.
 
-Transformer une analyse en graphique, rapport ou tableau de bord compréhensible.
+### Statisticien
 
-### Réviseur ou réviseuse critique
+Modéliser les phénomènes, quantifier l'incertitude et aider à distinguer ce que les données permettent vraiment de conclure.
 
-Repérer les limites, les biais, les fragilités du code et les conclusions trop rapides.
+### Data Scientist
+
+Transformer les données en produits, modèles, recommandations et analyses à haute valeur ajoutée.
+
+### Data Analyst
+
+Produire des insights opérationnels, suivre les indicateurs et soutenir la prise de décision au quotidien.
+
+### Data Journalist
+
+Raconter des histoires engageantes, vérifiables et visuelles à partir de données bien documentées.
+
+### Freelancer
+
+Offrir une expertise ponctuelle et adaptable sur tout ou partie du cycle de science des données.
 
 ## Outils à installer
 
@@ -104,7 +118,7 @@ L'environnement de travail utilisé pour écrire le code, gérer les projets et 
 
 ### Quarto
 
-Le système qui transforme les fichiers.qmd en rapports HTML, notes et pages web.
+Le système qui transforme les fichiers .qmd en rapports HTML, notes et pages web.
 
 [Guide de démarrage QuartoInstallation et premier document.](https://quarto.org/docs/get-started/)
 

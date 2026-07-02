@@ -1,83 +1,19 @@
+Parcours du cours
+
 # Modules
 
-Chaque module a maintenant une page d’entrée. Utilise-la pour comprendre le contexte, les ressources disponibles et la trace attendue avant d’ouvrir les notes détaillées.
+Chaque module correspond à une étape du parcours STT-1100. La carte ouvre la page d'entrée du module, avec son plan d'apprentissage, son aventure, son défi et ses exercices.
 
-Module 01
+10
 
-### [Plongée en science des données](module_01/index.llms.md)
+Modules progressifs
 
-Découvrir le rôle d’une analyse reproductible et les premiers gestes dans RStudio.
+R
 
-Aventure Plan
+R, Quarto et données
 
-Module 02
+DS
 
-### [GitHub et visualisation de données](module_02/index.llms.md)
+Situations de science des données
 
-Organiser un travail de données et produire des visualisations lisibles.
-
-Aventure Plan
-
-Module 03
-
-### [Les catégories sous toutes leurs formes](module_03/index.llms.md)
-
-Comprendre, recoder et visualiser des variables catégorielles.
-
-Aventure Plan
-
-Module 04
-
-### [Facteurs et nettoyage de données](module_04/index.llms.md)
-
-Nettoyer des données réelles et préparer des variables utilisables pour l’analyse.
-
-Aventure Plan
-
-Module 05
-
-### [Explorer et comprendre les relations entre les variables](module_05/index.llms.md)
-
-Explorer les liens entre variables et interpréter des associations sans surinterpréter.
-
-Aventure Plan
-
-Module 06
-
-### [Collaboration et reproductibilité dans GitHub](module_06/index.llms.md)
-
-Passer d’un travail individuel à un flux collaboratif reproductible.
-
-Aventure Plan
-
-Module 07
-
-### [Visualisation, éthique et sécurisation des données](module_07/index.llms.md)
-
-Relier visualisation, responsabilité et protection des données.
-
-Aventure Plan
-
-Module 08
-
-### [Automatisation et exploration du web](module_08/index.llms.md)
-
-Automatiser des tâches répétitives et extraire de l’information de pages web.
-
-Aventure Plan
-
-Module 09
-
-### [Prédiction et biais](module_09/index.llms.md)
-
-Construire une première prédiction et discuter les biais possibles.
-
-Aventure Plan
-
-Module 10
-
-### [Au-delà des données: texte et tableau de bord](module_10/index.llms.md)
-
-Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
-
-Aventure Plan
+[1 Plongée en science des données Prendre en main RStudio, Quarto et la logique d'une analyse reproductible. ](module_01/index.llms.md) [2 GitHub et visualisation de données Organiser un projet, versionner le travail et produire des graphiques lisibles. ](module_02/index.llms.md) [3 Les catégories sous toutes leurs formes Compter, comparer, recoder et visualiser des variables catégorielles. ](module_03/index.llms.md) [4 Facteurs et nettoyage de données Importer, nettoyer, renommer et recoder des données imparfaites. ](module_04/index.llms.md) [5 Explorer les relations entre les variables Repérer des associations, les visualiser et les interpréter avec prudence. ](module_05/index.llms.md) [6 Collaboration et reproductibilité dans GitHub Relier des tables, documenter le flux et collaborer proprement. ](module_06/index.llms.md) [7 Visualisation, éthique et sécurisation des données Construire des graphiques responsables et réfléchir aux risques liés aux données. ](module_07/index.llms.md) [8 Automatisation et exploration du web Automatiser des tâches et extraire des informations de pages web. ](module_08/index.llms.md) [9 Prédiction et biais Construire une première prédiction et questionner ses limites. ](module_09/index.llms.md) [10 Texte et tableau de bord Transformer du texte en données et communiquer les résultats dans une interface. ](module_10/index.llms.md)

@@ -23,17 +23,21 @@ read_html <- function(path) {
 html_files <- list.files(docs_root, pattern = "\\.html$", recursive = TRUE, full.names = TRUE)
 
 expected_pages <- c(
-  "index.html", "demarrage.html", "ressources.html", "boite_outils.html",
+  "index.html", "demarrage.html", "ressources.html", "livres.html",
+  "supports_classe.html", "ia.html", "boite_outils.html",
   "evaluations.html", "examen.html", "defis.html", "projet_session/index.html",
-  "donnees.html", "packages.html", "glossaire.html", "modules.html",
-  "en/index.html", "en/demarrage.html", "en/ressources.html", "en/boite_outils.html",
+  "donnees.html", "packages.html", "modules.html",
+  "en/index.html", "en/demarrage.html", "en/ressources.html", "en/livres.html",
+  "en/supports_classe.html", "en/ia.html", "en/boite_outils.html",
   "en/evaluations.html", "en/examen.html", "en/defis.html", "en/projet_session/index.html",
-  "en/donnees.html", "en/packages.html", "en/glossaire.html", "en/modules.html",
+  "en/donnees.html", "en/packages.html", "en/modules.html",
   file.path(sprintf("module_%02d", 1:10), "index.html"),
   file.path("en", sprintf("module_%02d", 1:10), "index.html")
 )
 
 missing_expected <- expected_pages[!file.exists(file.path(docs_root, expected_pages))]
+retired_pages <- c("glossaire.html", "en/glossaire.html")
+retired_present <- retired_pages[file.exists(file.path(docs_root, retired_pages))]
 
 split_ref <- function(ref) {
   ref_no_query <- sub("\\?.*$", "", ref)
@@ -107,10 +111,12 @@ for (path in html_files) {
 }
 
 custom_hero_pages <- c(
-  "index.html", "demarrage.html", "ressources.html", "boite_outils.html",
+  "index.html", "demarrage.html", "ressources.html", "livres.html",
+  "supports_classe.html", "ia.html", "boite_outils.html",
   "evaluations.html", "examen.html", "defis.html", "projet_session/index.html",
   "donnees.html", "packages.html",
-  "en/index.html", "en/demarrage.html", "en/ressources.html", "en/boite_outils.html",
+  "en/index.html", "en/demarrage.html", "en/ressources.html", "en/livres.html",
+  "en/supports_classe.html", "en/ia.html", "en/boite_outils.html",
   "en/evaluations.html", "en/examen.html", "en/defis.html", "en/projet_session/index.html",
   "en/donnees.html", "en/packages.html"
 )
@@ -147,6 +153,7 @@ sensitive_patterns <- c(
   "Fermer le module",
   "examen-stt1100-automne-2025\\.qmd",
   "corrige_examen_STT1100\\.pdf",
+  "glossaire\\.html",
   "\\bCodex\\b"
 )
 
@@ -158,6 +165,7 @@ for (pattern in sensitive_patterns) {
 
 issues <- list(
   missing_expected = missing_expected,
+  retired_present = retired_present,
   broken_refs = broken_refs,
   missing_fragments = missing_fragments,
   images_without_alt = unique(images_without_alt),

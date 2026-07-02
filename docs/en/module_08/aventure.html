@@ -4875,15 +4875,40 @@ margin-bottom: .05rem;
   </li>
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../ressources.html">
-<span class="menu-text">Resources</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">
+        <li>
+    <a class="dropdown-item" href="../ressources.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../glossaire.html">
-<span class="menu-text">Glossary</span></a>
+        <li>
+    <a class="dropdown-item" href="../livres.html">
+ <span class="dropdown-text">Books and readings</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../packages.html">
+ <span class="dropdown-text">R packages</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../donnees.html">
+ <span class="dropdown-text">Datasets</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../supports_classe.html">
+ <span class="dropdown-text">Class supports</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../ia.html">
+ <span class="dropdown-text">AI and help</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../boite_outils.html">
+ <span class="dropdown-text">Toolkit</span></a>
+  </li>
+    </ul>
   </li>
 </ul>
           </div> <!-- /navcollapse -->
@@ -5088,22 +5113,22 @@ Scraping of main search pages is therefore permitted, as long as we avoid the pa
 [1] &lt;h3 class=&quot;dataset-heading short&quot;&gt;\n    \n    \n      \n    \n    \n      ...
 [2] &lt;div class=&quot;dqc_donne_spat&quot;&gt;\n      &lt;img src=&quot;/recherche/images/2_icone_g ...
 [3] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
-[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;&lt;/div&gt;
-[5] &lt;div class=&quot;dqc-notes&quot;&gt; Le ministère de l’Environnement, de la Lutte cont ...</code></pre>
+[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégories :\n      \n        &lt;a href=&quot;/recherch ...
+[5] &lt;div class=&quot;dqc-notes&quot;&gt; Mesure des stations de débit et de niveau des par ...</code></pre>
 </div>
 </div>
 <p>To extract text from an HTML node:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text</span>(blocks[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;\n        \n  \n    \n    \n      \n    \n    \n      Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\n  \n  \n  \n     Le ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du... \n  \n\n      &quot;</code></pre>
+<pre><code>[1] &quot;\n        \n  \n    \n    \n      \n    \n    \n      Stations débit/niveau - Grand public\n    \n    \n      \n      \n\n\n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Sécurité intérieure\n  \n  Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique\n  \n     Mesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les... \n  \n\n      &quot;</code></pre>
 </div>
 </div>
 <p>Now, let’s test the extraction of the <strong>title</strong>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_nodes</span>(blocks[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional&quot;</code></pre>
+<pre><code>[1] &quot;Stations débit/niveau - Grand public&quot;</code></pre>
 </div>
 </div>
 <p>And for the <strong>producers</strong>? It is necessary to identify a substructure containing the information:</p>
@@ -5111,8 +5136,8 @@ Scraping of main search pages is therefore permitted, as long as we avoid the pa
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>orgs <span class="ot">&lt;-</span> <span class="fu">html_nodes</span>(blocks[[<span class="dv">1</span>]], <span class="st">&quot;.dqc-org-cat&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>orgs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs&quot;
-[2] &quot;&quot;                                                                                                                     </code></pre>
+<pre><code>[1] &quot;Organisation : Ministère de la Sécurité intérieure&quot;
+[2] &quot;Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique&quot;</code></pre>
 </div>
 </div>
 <p>We can filter the good element with <code>grepl()</code> then clean the string with <code>gsub()</code>:</p>
@@ -5389,8 +5414,12 @@ font-size:.8rem;
   'examen.html',
   'defis.html',
   'boite_outils.html',
-  'glossaire.html',
   'ressources.html',
+  'livres.html',
+  'packages.html',
+  'donnees.html',
+  'supports_classe.html',
+  'ia.html',
   'references.html'
   ]);
 

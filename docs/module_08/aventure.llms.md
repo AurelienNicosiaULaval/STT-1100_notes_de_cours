@@ -142,8 +142,8 @@ blocs[[1]]
     [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
     [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
     [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [4] <div class="dqc-org-cat"></div>
-    [5] <div class="dqc-notes"> Le ministère de l’Environnement, de la Lutte cont ...
+    [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
+    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
 
 Pour extraire du texte d’un nœud HTML :
 
@@ -151,7 +151,7 @@ Pour extraire du texte d’un nœud HTML :
 html_text(blocs[[1]])
 ```
 
-    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\n  \n  \n  \n     Le ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du... \n  \n\n      "
+    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Stations débit/niveau - Grand public\n    \n    \n      \n      \n\n\n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère de la Sécurité intérieure\n  \n  Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique\n  \n     Mesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les... \n  \n\n      "
 
 Maintenant, testons l’extraction du **titre** :
 
@@ -159,7 +159,7 @@ Maintenant, testons l’extraction du **titre** :
 html_nodes(blocs[[1]], ".dataset-heading a") %>% html_text(trim = TRUE)
 ```
 
-    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional"
+    [1] "Stations débit/niveau - Grand public"
 
 Et pour les **producteurs** ? Il faut repérer une sous-structure contenant l’information :
 
@@ -168,8 +168,8 @@ orgs <- html_nodes(blocs[[1]], ".dqc-org-cat") %>% html_text(trim = TRUE)
 orgs
 ```
 
-    [1] "Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
-    [2] ""
+    [1] "Organisation : Ministère de la Sécurité intérieure"
+    [2] "Catégories :\n      \n        Environnement, ressources naturelles et énergie;\n        Loi, justice et sécurité publique"
 
 On peut filtrer le bon élément avec `grepl()` puis nettoyer la chaîne avec `gsub()` :
 
@@ -179,7 +179,7 @@ org_clean <- gsub("^Organisation : ", "", org)
 org_clean
 ```
 
-    [1] "Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+    [1] "Ministère de la Sécurité intérieure"
 
 > **TIP:**
 >
