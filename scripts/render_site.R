@@ -154,6 +154,13 @@ strip_trailing_whitespace <- function(root = "docs") {
   }
 }
 
+ensure_nojekyll <- function(root = "docs") {
+  nojekyll_path <- file.path(root, ".nojekyll")
+  if (!file.exists(nojekyll_path)) {
+    file.create(nojekyll_path)
+  }
+}
+
 ensure_image_alt_text <- function(root = "docs") {
   if (!requireNamespace("xml2", quietly = TRUE)) {
     stop("The xml2 package is required to post-process image alt text.", call. = FALSE)
@@ -232,6 +239,7 @@ duplicate_outputs <- list.files(
 remove_paths(duplicate_outputs)
 remove_generated_duplicates()
 ensure_image_alt_text("docs")
+ensure_nojekyll("docs")
 strip_trailing_whitespace("docs")
 
 setwd(repo_root)
@@ -243,6 +251,7 @@ sync_exit <- system2(
 if (!identical(sync_exit, 0L)) {
   stop("Failed to sync rendered site back to repository docs/.", call. = FALSE)
 }
+ensure_nojekyll(file.path(repo_root, "docs"))
 strip_trailing_whitespace(file.path(repo_root, "docs"))
 
 message("Done: rendered French site to docs/ and English site to docs/en/.")
