@@ -1,137 +1,196 @@
-# Aventure 6 — Collaboration et reproductibilité dans GitHub
+# Aventure 6 - Collaboration et reproductibilité dans GitHub
 
-STT-1100 • Introduction à la science des données
+STT-1100 - Introduction à la science des données
 
 # Mise en contexte
 
-Vous êtes une équipe de scientifiques de données travaillant pour l’aéroport JFK. Votre mandat est de produire une **analyse collaborative et reproductible** visant à identifier les sources de retard des vols, en particulier en lien avec la météo.
+Vous êtes une équipe de scientifiques de données travaillant avec Dr Sofia Martinez au Port Authority Data Lab. Votre mandat est de produire un **rapport collaboratif et reproductible** sur les retards de vols au départ de JFK en 2023.
 
-Chaque membre de votre équipe devra contribuer activement à cette analyse, qui sera produite à l’aide de **Quarto** et hébergée sur **GitHub**.
+Cette aventure change volontairement de niveau. Dans les modules précédents, vous avez surtout travaillé individuellement. Ici, le produit important n’est pas seulement le graphique final. C’est aussi la trace de collaboration : branches, commits, pull requests, résolution de conflits, rendu HTML et décisions documentées.
 
-# Partie 1 — Collaboration avec GitHub : rôles, branches, conflits
+Le rapport sera produit avec **Quarto**, versionné dans **GitHub** et basé sur les tables du package **`nycflights23`** : `flights`, `airlines` et `weather`.
 
-## Formation des équipes et rôles dans le cycle de vie des données
+# Dépôt de départ
 
-Travaillez en **équipes de 3 à 4 personnes**. Chaque membre incarne un rôle essentiel dans le **cycle de vie des données et d’un projet en science des données**. Ces rôles seront maintenus pour les étapes suivantes.
+Clonez le dépôt GitHub du module 6 depuis l’organisation du cours : `STT-1100/aventure-6`.
 
-| Rôle | Fonctions techniques | Lien avec le cycle de vie des données | À faire dans cette activité |
+Le dépôt de départ contient un squelette de rapport. Votre équipe doit le compléter, le rendre en HTML et pousser la version finale sur GitHub.
+
+Le dépôt final doit contenir :
+
+- `rapport.qmd` : le rapport collaboratif reproductible;
+- `rapport.html` : la version rendue du rapport;
+- `README.md` : une courte description du projet, des rôles et de la procédure de rendu;
+- tout fichier supplémentaire réellement nécessaire.
+
+Ne conservez pas de fichiers inutiles comme `Untitled.R`, `rapport_final_final.qmd` ou des copies temporaires.
+
+# Partie 1 - Collaboration avec GitHub
+
+## Formation des équipes et rôles
+
+Travaillez en **équipes de 3 à 4 personnes**. Chaque membre prend un rôle principal. Les rôles servent à structurer le travail, mais toute l’équipe reste responsable du résultat final.
+
+| Rôle | Responsabilités techniques | Lien avec le cycle de vie des données | Contribution minimale |
 |----|----|----|----|
-| **Responsable du dépôt** | Crée et structure le dépôt GitHub, gère les branches et les fusions | Assure le **versionnage**, la traçabilité et la documentation | Crée le dépôt, gère les *pull requests*, fusionne les branches, résout les conflits |
-| **Analyste des données** | Prépare le code de transformation et de fusion des données | Gère l’étape de **préparation et transformation** | Ajoute un `chunk` pour fusionner `flights`, `airlines`, `weather` dans le `.qmd` |
-| **Chargé·e de la reproductibilité** | Organise le `.qmd`, assure la compilation et la clarté | Garant·e de la **reproductibilité et documentation** | Met en place les sections du `.qmd`, nettoie le rendu, vérifie le rendu HTML final |
-| **Visualiseur·se** (optionnel) | Produit les graphiques, harmonise le style | Joue un rôle clé dans la **communication et diffusion** | Ajoute un `chunk` ggplot2 illustratif et adapte les titres/légendes |
+| **Responsable du dépôt** | Structure le dépôt, crée les branches, gère les pull requests et les fusions | Versionnage, traçabilité, partage | Met à jour le `README.md`, coordonne les branches et fusionne dans `main` |
+| **Analyste des données** | Prépare les données et les jointures | Préparation et transformation | Crée le tableau `vols_jfk` en joignant `flights`, `airlines` et `weather` |
+| **Chargé·e de la reproductibilité** | Vérifie le rendu, les packages, les chunks et le texte dynamique | Documentation et reproductibilité | Ajoute une phrase avec au moins trois morceaux de code en ligne |
+| **Visualiseur·se** | Produit les graphiques et améliore leur lisibilité | Communication des résultats | Ajoute au moins deux visualisations interprétables |
 
-> **Tour de rôle recommandé** dans l’aventure pour sensibiliser à toutes les étapes du cycle.
+## Séquence de travail recommandée
 
-## Étapes à suivre
+1.  **Responsable du dépôt** : clone le dépôt, ouvre le projet dans RStudio, vérifie que `rapport.qmd` se rend, puis crée une branche par rôle.
 
-Voici une séquence suggérée pour que les membres de l’équipe travaillent **l’un après l’autre**, pendant que les autres observent et apprennent :
+2.  **Chargé·e de la reproductibilité** : travaille dans sa branche, organise les sections du rapport, vérifie le YAML et ajoute une section “Rôles de l’équipe”.
 
-1.  **Responsable du dépôt** : Cloner le dépôt de départ fourni par l’enseignant, créer le projet RStudio, initialiser les branches pour chaque membre et faire un premier commit avec un `README.md` mis à jour.
+3.  **Analyste des données** : travaille dans sa branche, ajoute le chunk `setup`, prépare les jointures et crée le tableau `vols_jfk`.
 
-2.  **Chargé·e de la reproductibilité** : Créer sa branche, organiser le `.qmd`, ajouter une structure de base avec titres et sous-titres. Ajouter un commentaire dans le YAML ou une section pour créer un petit conflit à venir.
+4.  **Visualiseur·se** : travaille dans sa branche, ajoute les graphiques et les titres nécessaires.
 
-3.  **Analyste des données** : Créer sa branche, ajouter les premières lignes de code pour importer les données et fusionner les tables. Ajouter un `chunk` nommé `fusion_donnees`.
+5.  Chaque membre pousse sa branche et ouvre une **pull request**.
 
-4.  **Visualiseur·se** (si présent·e) : Ajouter une première ébauche de visualisation simple (`geom_bar()` ou `geom_point()`) avec des `labs()` clairs. Pousser ses modifications sur sa branche et ouvrir une *pull request*.
+6.  Le responsable du dépôt fusionne les pull requests une par une. Si un conflit survient, l’équipe le résout ensemble et documente brièvement ce qui s’est passé.
 
-5.  **Responsable du dépôt** : Fusionner les *pull requests* une par une. Lorsqu’un conflit survient (ex. dans l’intro ou le YAML), le gérer en direct avec les autres membres qui observent et prennent des notes sur le processus.
+# Partie 2 - Analyse reproductible avec données fusionnées
 
-6.  Une fois toutes les branches fusionnées, compiler le `.qmd` en HTML et valider le rendu avec l’équipe.
+## Préparation attendue
 
-## Objectifs de la Partie 1
+Le rapport doit charger explicitement les packages nécessaires.
 
-Une branche par rôle avec au moins un commit
+``` r
+library(tidyverse)
+library(nycflights23)
+```
 
-Toutes les branches fusionnées avec gestion de conflits
+Créez ensuite un tableau fusionné pour les vols de JFK.
 
-Le `.qmd` compile en HTML
+``` r
+vols_jfk <- flights |>
+  filter(origin == "JFK") |>
+  left_join(airlines, by = "carrier") |>
+  left_join(
+    weather,
+    by = c("origin", "year", "month", "day", "hour")
+  )
+```
 
-La présentation de l’équipe est complète
+Cette jointure ajoute le nom complet du transporteur et les conditions météo associées à l’aéroport, au jour et à l’heure du vol.
 
-Chacun a réfléchi à sa place dans le **cycle de vie des données**
+Avant d’interpréter les résultats, vérifiez la taille du tableau et les valeurs manquantes importantes.
 
-# Partie 2 — Analyse reproductible avec données fusionnées
+``` r
+vols_jfk |>
+  summarise(
+    n_vols = n(),
+    n_transporteurs = n_distinct(carrier),
+    dep_delay_manquant = sum(is.na(dep_delay)),
+    wind_gust_manquant = sum(is.na(wind_gust))
+  )
+```
 
-## Tâches par rôle
+## Questions d’analyse
 
-Chaque membre de l’équipe poursuit son rôle défini précédemment. Voici les actions attendues pour chacun, dans le même ordre que la Partie 1 :
+Votre rapport doit répondre aux trois questions suivantes.
 
-### Responsable du dépôt — Début de l’analyse
+1.  Quels transporteurs ont les retards moyens au départ les plus élevés à JFK?
+2.  Les conditions météo disponibles, par exemple `wind_gust`, `visib` ou `precip`, semblent-elles associées aux retards?
+3.  Quelles limites faut-il mentionner avant de transformer ces constats en recommandations opérationnelles?
 
-- Crée une branche spécifique à l’analyse collaborative.
-- Revoit l’organisation du dépôt et s’assure que les fichiers nécessaires sont présents.
-- S’assure que tous les chunks ont des noms, options (`echo`, `message`, etc.) cohérents.
-- Vérifie que chaque membre a bien poussé sa branche.
-- Lance la coordination de l’étape d’analyse.
+Pour chaque question, incluez :
 
-### Analyste des données
+- une courte phrase qui précise ce que vous comparez;
+- au moins un résumé numérique;
+- au moins une visualisation;
+- une interprétation prudente.
 
-- Crée une nouvelle section dans le `.qmd` intitulée *Analyse collaborative*.
-- Vérifie que les librairies nécessaires (`tidyverse`, `nycflights23`) sont bien chargées dans un chunk `setup`.
-- Prépare les fusions suivantes :
-  - `flights` + `airlines` pour ajouter le nom des transporteurs.
-  - `flights` + `weather` pour intégrer les conditions météo.
-- Filtrer sur l’aéroport JFK uniquement.
-- Nettoyer les données au besoin (NA, doublons, etc.).
-- Ajouter les résumés statistiques utiles (moyenne des retards, etc.).
+## Exemples de points de départ
 
-### Chargé·e de la reproductibilité
+Retard moyen par transporteur :
 
-- Vérifie que les librairies nécessaires (`tidyverse`, `nycflights23`) sont bien chargées dans un chunk `setup`.
+``` r
+retards_transporteurs <- vols_jfk |>
+  group_by(name) |>
+  summarise(
+    n_vols = n(),
+    retard_moyen = mean(dep_delay, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  filter(n_vols >= 500) |>
+  arrange(desc(retard_moyen))
+```
 
-- S’assure que tous les chunks ont des noms, options (`echo`, `message`, etc.) cohérents.
+Visualisation possible :
 
-- Vérifie que le document se compile proprement.
+``` r
+retards_transporteurs |>
+  slice_max(retard_moyen, n = 8) |>
+  ggplot(aes(x = reorder(name, retard_moyen), y = retard_moyen)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Transporteurs avec les retards moyens les plus élevés à JFK",
+    x = "Transporteur",
+    y = "Retard moyen au départ (minutes)"
+  )
+```
 
-- Ajoute **une phrase dans le texte principal** utilisant **du code en ligne** (ex: `r nrow(flights)`), pour montrer un exemple de reproductibilité intégrée dans le texte. La phrase doit contenir au moins 3 codes en ligne différents, par exemple : \> Exemple : “Le jeu de données contient `r nrow(flights)` vols enregistrés en 2023.”
+Relation météo et retards :
 
-- S’assurer que tout soit reproductible dans le rapport.
+``` r
+vols_jfk |>
+  filter(!is.na(wind_gust), !is.na(dep_delay)) |>
+  slice_sample(n = 5000) |>
+  ggplot(aes(x = wind_gust, y = dep_delay)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = "lm", se = FALSE, color = "firebrick") +
+  labs(
+    title = "Rafales de vent et retards au départ",
+    x = "Rafales de vent",
+    y = "Retard au départ (minutes)"
+  )
+```
 
-### Visualiseur·se (si présent·e)
+Exemple de phrase reproductible avec du code en ligne :
 
-- Crée au moins deux graphiques pertinents à partir du tableau fusionné :
-  - Un `geom_col()` montrant le retard moyen par transporteur.
-  - Un `geom_point()` ou `geom_smooth()` explorant la relation entre météo et retards.
-- Personnalise les titres, les axes, et la lisibilité du graphique.
-- S’assure que les graphiques sont bien interprétables et alignés avec les questions posées.
+``` markdown
+Le tableau fusionné contient `r nrow(vols_jfk)` vols au départ de JFK, couvre `r n_distinct(vols_jfk$carrier)` transporteurs et présente un retard moyen de `r round(mean(vols_jfk$dep_delay, na.rm = TRUE), 1)` minutes.
+```
 
-### Responsable du dépôt — Fin de l’analyse
+# Partie 3 - Journal de collaboration
 
-- Révise les contributions finales de chacun.
-- Fusionne les branches propres dans `main`.
-- Pousse la version finale sur GitHub.
-- Documente la démarche dans le `README.md` ou dans une section « Notes de production » du `.qmd`.
+Ajoutez une section “Journal de collaboration” dans `rapport.qmd`.
 
-# Partie 3 — Réflexion et cycle de vie des données
+Chaque membre doit y écrire un court paragraphe indiquant :
 
-## Journal de bord
+- son rôle dans l’équipe;
+- sa contribution principale;
+- une difficulté rencontrée avec GitHub, Quarto ou les données;
+- la manière dont cette difficulté a été résolue;
+- ce qu’il ou elle retient sur la collaboration reproductible.
 
-Dans cette section, chaque membre de l’équipe écrit un paragraphe sur :
+Le responsable du dépôt doit initialiser cette section et prévoir un sous-titre pour chaque membre.
 
-- Son rôle dans le projet
-- Les difficultés rencontrées avec GitHub (et comment elles ont été résolues)
-- Ce qu’il/elle a appris sur la collaboration et la reproductibilité
+# Partie 4 - Cycle de vie des données
 
-Le **responsable du projet** doit bien sûr initialisé le document quarto de journal de bord et planifié les sections pour chaque membre. Chaque membre doit ensuite ajouter son paragraphe dans sa section dédiée.
+Ajoutez une section expliquant comment votre projet illustre les étapes suivantes :
 
-## Cycle de vie des données
-
-Ajoutez une section expliquant comment votre projet illustre les étapes suivantes :
-
-1.  Collecte
-2.  Transformation
-3.  Analyse
-4.  Partage
-5.  Réutilisation et versionnage
+1.  collecte;
+2.  transformation;
+3.  analyse;
+4.  communication;
+5.  partage, réutilisation et versionnage.
 
 # Vérification finale
 
-- Le rapport HTML se compile-t-il sans erreur?
-- Y a-t-il au moins **2 visualisations**?
-- Tous les membres ont-ils fait **au moins 2 commits**?
-- Le rapport est-il **clairement écrit et bien structuré**?
+Avant la remise, vérifiez que :
 
-------------------------------------------------------------------------
+- `rapport.qmd` se rend en HTML sans erreur;
+- le rapport contient au moins deux visualisations;
+- chaque membre a fait au moins deux commits significatifs;
+- les pull requests ont été fusionnées dans `main`;
+- le `README.md` explique le rôle de chaque membre et la procédure de rendu;
+- les conclusions restent descriptives et prudentes;
+- le dépôt GitHub contient `rapport.qmd`, `rapport.html` et les fichiers nécessaires.
 
 Bonne collaboration!

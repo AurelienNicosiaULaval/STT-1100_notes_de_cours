@@ -1,137 +1,196 @@
-# Adventure 6 — Collaboration and reproducibility in GitHub
+# Adventure 6 - Collaboration and Reproducibility in GitHub
 
-STT-1100 • Introduction to Data Science
+STT-1100 - Introduction to Data Science
 
-# Put in context
+# Context
 
-You are a team of data scientists working for JFK Airport. Your mandate is to produce a **collaborative and reproducible analysis** aimed at identifying the sources of flight delays, particularly in relation to the weather.
+You are a team of data scientists working with Dr Sofia Martinez at the Port Authority Data Lab. Your mandate is to produce a **collaborative and reproducible report** on flight delays from JFK in 2023.
 
-Each member of your team will need to actively contribute to this analysis, which will be produced using **Quarto** and hosted on **GitHub**.
+This adventure deliberately changes the level of work. In previous modules, most of the work was individual. Here, the important product is not only the final chart. It is also the collaboration trail: branches, commits, pull requests, conflict resolution, HTML rendering and documented decisions.
 
-# Part 1 — Collaboration with GitHub: roles, branches, conflicts
+The report will be produced with **Quarto**, versioned in **GitHub** and based on the tables from the **`nycflights23`** package: `flights`, `airlines` and `weather`.
 
-## Team training and roles in the data lifecycle
+# Starter Repository
 
-Work in **teams of 3 to 4 people**. Each member embodies an essential role in the **lifecycle of data and a data science project**. These roles will be maintained for the following steps.
+Clone the module 6 GitHub repository from the course organization: `STT-1100/aventure-6`.
 
-| Role | Technical functions | Link to data lifecycle | To do in this activity |
+The starter repository contains a report skeleton. Your team must complete it, render it to HTML and push the final version to GitHub.
+
+The final repository must contain:
+
+- `rapport.qmd`: the reproducible collaborative report;
+- `rapport.html`: the rendered version of the report;
+- `README.md`: a short description of the project, roles and rendering procedure;
+- any additional file that is truly necessary.
+
+Do not keep unnecessary files such as `Untitled.R`, `final_final_report.qmd` or temporary copies.
+
+# Part 1 - Collaboration with GitHub
+
+## Teams and Roles
+
+Work in **teams of 3 to 4 people**. Each member takes one main role. The roles structure the work, but the whole team remains responsible for the final result.
+
+| Role | Technical responsibilities | Link to the data life cycle | Minimum contribution |
 |----|----|----|----|
-| **Responsible for the deposit** | Creates and structures the GitHub repository, manages branches and merges | Ensures **versioning**, traceability and documentation | Creates repository, manages *pull requests*, merges branches, resolves conflicts |
-| **Data Analyst** | Prepare data transformation and merging code | Manages the **preparation and transformation** stage | Add a `chunk` to merge `flights`, `airlines`, `weather` into the `.qmd` |
-| **Reproducibility Manager** | Organizes the `.qmd`, ensures compilation and clarity | Guarantor of **reproducibility and documentation** | Sets up sections of `.qmd`, cleans up rendering, checks final HTML rendering |
-| **Viewer** (optional) | Produces graphics, harmonizes style | Plays a key role in **communication and dissemination** | Adds an illustrative ggplot2 `chunk` and adapts titles/captions |
+| **Repository lead** | Structures the repository, creates branches, manages pull requests and merges | Versioning, traceability, sharing | Updates `README.md`, coordinates branches and merges into `main` |
+| **Data analyst** | Prepares data and joins | Preparation and transformation | Creates the `vols_jfk` table by joining `flights`, `airlines` and `weather` |
+| **Reproducibility lead** | Checks rendering, packages, chunks and dynamic text | Documentation and reproducibility | Adds one sentence with at least three pieces of inline code |
+| **Visualizer** | Produces charts and improves readability | Communication of results | Adds at least two interpretable visualizations |
 
-> **Recommended role turn** in the adventure to raise awareness at all stages of the cycle.
+## Recommended Workflow
 
-## Steps to follow
+1.  **Repository lead**: clone the repository, open the project in RStudio, check that `rapport.qmd` renders, then create one branch per role.
 
-Here is a suggested sequence for team members to work **one after the other**, while others observe and learn:
+2.  **Reproducibility lead**: work on your branch, organize the report sections, check the YAML and add a “Team roles” section.
 
-1.  **Repository maintainer**: Clone the starting repository provided by the teacher, create the RStudio project, initialize the branches for each member and make a first commit with an updated `README.md`.
+3.  **Data analyst**: work on your branch, add the `setup` chunk, prepare the joins and create the `vols_jfk` table.
 
-2.  **Responsible for reproducibility**: Create your branch, organize the `.qmd`, add a basic structure with titles and subtitles. Add a comment in the YAML or section to create a small upcoming conflict.
+4.  **Visualizer**: work on your branch, add charts and the necessary titles.
 
-3.  **Data analyst**: Create your branch, add the first lines of code to import the data and merge the tables. Add a `chunk` named `merge_data`.
+5.  Each member pushes their branch and opens a **pull request**.
 
-4.  **Visualizer** (if present): Add a first draft of a simple visualization (`geom_bar()` or `geom_point()`) with clear `labs()`. Push your changes to your branch and open a *pull request*.
+6.  The repository lead merges the pull requests one by one. If a conflict occurs, the team resolves it together and briefly documents what happened.
 
-5.  **Repository manager**: Merge the *pull requests* one by one. When a conflict arises (e.g. in the intro or YAML), manage it directly with other members who observe and take notes on the process.
+# Part 2 - Reproducible Analysis with Joined Data
 
-6.  Once all the branches have been merged, compile the `.qmd` into HTML and validate the rendering with the team.
+## Expected Preparation
 
-## Part 1 Objectives
+The report must explicitly load the required packages.
 
-One branch per role with at least one commit
+``` r
+library(tidyverse)
+library(nycflights23)
+```
 
-All branches merged with conflict management
+Then create a joined table for JFK flights.
 
-The `.qmd` compiles to HTML
+``` r
+vols_jfk <- flights |>
+  filter(origin == "JFK") |>
+  left_join(airlines, by = "carrier") |>
+  left_join(
+    weather,
+    by = c("origin", "year", "month", "day", "hour")
+  )
+```
 
-The team presentation is complete
+This join adds the full carrier name and weather conditions associated with the airport, day and hour of each flight.
 
-Everyone thought about their place in the **data lifecycle**
+Before interpreting results, check the table size and important missing values.
 
-# Part 2 — Reproducible analysis with merged data
+``` r
+vols_jfk |>
+  summarise(
+    n_flights = n(),
+    n_carriers = n_distinct(carrier),
+    dep_delay_missing = sum(is.na(dep_delay)),
+    wind_gust_missing = sum(is.na(wind_gust))
+  )
+```
 
-## Tasks by role
+## Questions to Answer
 
-Each member of the team continues their previously defined role. Here are the expected actions for each, in the same order as Part 1:
+Your report must answer the following three questions.
 
-### Responsible for the repository — Start of analysis
+1.  Which carriers have the highest average departure delays at JFK?
+2.  Do available weather conditions, such as `wind_gust`, `visib` or `precip`, seem associated with delays?
+3.  What limits should be mentioned before turning these findings into operational recommendations?
 
-- Creates a specific branch for collaborative analysis.
-- Reviews the organization of the repository and ensures that the necessary files are present.
-- Ensures that all chunks have consistent names, options (`echo`, `message`, etc.).
-- Check that each member has pushed its branch well.
-- Starts the coordination of the analysis step.
+For each question, include:
 
-### Data Analyst
+- a short sentence explaining what you are comparing;
+- at least one numerical summary;
+- at least one visualization;
+- a careful interpretation.
 
-- Creates a new section in `.qmd` titled *Collaborative Analysis*.
-- Check that the necessary libraries (`tidyverse`, `nycflights2`) are loaded in a `setup` chunk.
-- Prepare the following mergers:
-  - `flights` + `airlines` to add the name of the carriers.
-  - `flights` + `weather` to integrate weather conditions.
-- Filter on JFK airport only.
-- Clean data as needed (NA, duplicates, etc.).
-- Add useful statistical summaries (average delays, etc.).
+## Starting Points
 
-### Responsible for reproducibility
+Average delay by carrier:
 
-- Check that the necessary libraries (`tidyverse`, `nycflights2`) are loaded in a `setup` chunk.
+``` r
+carrier_delays <- vols_jfk |>
+  group_by(name) |>
+  summarise(
+    n_flights = n(),
+    mean_delay = mean(dep_delay, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  filter(n_flights >= 500) |>
+  arrange(desc(mean_delay))
+```
 
-- Ensures that all chunks have consistent names, options (`echo`, `message`, etc.).
+Possible visualization:
 
-- Checks that the document compiles properly.
+``` r
+carrier_delays |>
+  slice_max(mean_delay, n = 8) |>
+  ggplot(aes(x = reorder(name, mean_delay), y = mean_delay)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Carriers with the highest average delays at JFK",
+    x = "Carrier",
+    y = "Average departure delay (minutes)"
+  )
+```
 
-- Add **a sentence in the main text** using **inline code** (eg: `r nrow(flights)`), to show an example of reproducibility embedded in the text. The sentence must contain at least 3 different inline codes, for example: \> Example: “The dataset contains `r nrow(flights)` flights recorded in 2023.”
+Weather and delay relationship:
 
-- Ensure that everything is reproducible in the report.
+``` r
+vols_jfk |>
+  filter(!is.na(wind_gust), !is.na(dep_delay)) |>
+  slice_sample(n = 5000) |>
+  ggplot(aes(x = wind_gust, y = dep_delay)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = "lm", se = FALSE, color = "firebrick") +
+  labs(
+    title = "Wind gusts and departure delays",
+    x = "Wind gusts",
+    y = "Departure delay (minutes)"
+  )
+```
 
-### Visualizer (if present)
+Example of a reproducible sentence with inline code:
 
-- Creates at least two relevant charts from the merged table:
-  - A `geom_col()` showing the average delay per carrier.
-  - A `geom_point()` or `geom_smooth()` exploring the relationship between weather and delays.
-- Customizes the titles, axes, and readability of the graph.
-- Ensures that the graphs are clearly interpretable and aligned with the questions asked.
+``` markdown
+The joined table contains `r nrow(vols_jfk)` flights from JFK, covers `r n_distinct(vols_jfk$carrier)` carriers and has an average departure delay of `r round(mean(vols_jfk$dep_delay, na.rm = TRUE), 1)` minutes.
+```
 
-### Responsible for repository — End of analysis
+# Part 3 - Collaboration Logbook
 
-- Revises everyone’s final contributions.
-- Merge clean branches into `main`.
-- Push the final version to GitHub.
-- Document the process in the `README.md` or in a “Production notes” section of the `.qmd`.
+Add a “Collaboration logbook” section to `rapport.qmd`.
 
-# Part 3 — Thinking and the data lifecycle
+Each member must write one short paragraph indicating:
 
-## Logbook
+- their role in the team;
+- their main contribution;
+- one difficulty encountered with GitHub, Quarto or the data;
+- how that difficulty was resolved;
+- what they learned about reproducible collaboration.
 
-In this section, each team member writes a paragraph about:
+The repository lead must initialize this section and create one subsection for each member.
 
-- His role in the project
-- Difficulties encountered with GitHub (and how they were resolved)
-- What he/she learned about collaboration and reproducibility
+# Part 4 - Data Life Cycle
 
-The **project manager** must of course initialize the quarto logbook document and plan the sections for each member. Each member must then add their paragraph in their dedicated section.
+Add a section explaining how your project illustrates the following steps:
 
-## Data lifecycle
+1.  collection;
+2.  transformation;
+3.  analysis;
+4.  communication;
+5.  sharing, reuse and versioning.
 
-Add a section explaining how your project demonstrates the following steps:
+# Final Check
 
-1.  Collection
-2.  Transformation
-3.  Analysis
-4.  Sharing
-5.  Reuse and versioning
+Before submission, check that:
 
-# Final verification
+- `rapport.qmd` renders to HTML without error;
+- the report contains at least two visualizations;
+- each member has made at least two meaningful commits;
+- pull requests have been merged into `main`;
+- `README.md` explains each member’s role and the rendering procedure;
+- conclusions remain descriptive and careful;
+- the GitHub repository contains `rapport.qmd`, `rapport.html` and the necessary files.
 
-- Does the HTML report compile without errors?
-- Are there at least **2 visualizations**?
-- Have all members made **at least 2 commits**?
-- Is the report **clearly written and well structured**?
-
-------------------------------------------------------------------------
-
-Happy collaboration!
+Happy collaborating!

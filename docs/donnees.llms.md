@@ -94,7 +94,19 @@ Fichier JSON associé aux couvertures de polices.Fichier local? observations / 2
 
 ### Module 06
 
-[Module 06 ](packages.llms.md#gapminder)
+[Module 06 ](packages.llms.md#nycflights23)
+
+## nycflights23::flights
+
+Table des vols au départ de New York en 2023.Package R435 352 observations / 19 variablesVoir la documentation [Module 06 ](packages.llms.md#nycflights23)
+
+## nycflights23::airlines
+
+Table de correspondance entre codes de transporteurs et noms complets.Package R14 observations / 2 variablesVoir la documentation [Module 06 ](packages.llms.md#nycflights23)
+
+## nycflights23::weather
+
+Conditions météo horaires pour les aéroports de New York en 2023.Package R26 207 observations / 15 variablesVoir la documentation [Module 06 ](packages.llms.md#gapminder)
 
 ## gapminder::gapminder
 

@@ -72,6 +72,12 @@ Produce a cautious exploratory report on flight delays, weather and plane age.
 
 [View challenge 5](module_05/defi.llms.md)
 
+### Challenge 6
+
+Peer-review a collaborative report and check its reproducibility.
+
+[View challenge 6](module_06/defi.llms.md)
+
 ## Types of productions
 
 Formats vary across modules, but they always remain connected to course skills.

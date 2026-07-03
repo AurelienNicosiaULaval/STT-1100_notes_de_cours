@@ -72,6 +72,12 @@ Produire un rapport exploratoire prudent sur les retards de vols, la météo et 
 
 [Consulter le défi 5](module_05/defi.llms.md)
 
+### Défi 6
+
+Faire une revue croisée d'un rapport collaboratif et vérifier sa reproductibilité.
+
+[Consulter le défi 6](module_06/defi.llms.md)
+
 ## Types de productions
 
 Les formats changent selon les modules, mais ils restent toujours reliés aux compétences du cours.

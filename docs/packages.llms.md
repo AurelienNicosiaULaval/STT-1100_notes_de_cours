@@ -46,7 +46,7 @@ Texte, web et tableaux de bord
 
 ### Module 06
 
-[`dplyr`](#dplyr) [`palmerpenguins`](#palmerpenguins) [`gapminder`](#gapminder) [`countrycode`](#countrycode) [`tibble`](#tibble) [`Lahman`](#lahman) [`babynames`](#babynames) [`weathercan`](#weathercan) [`fivethirtyeight`](#fivethirtyeight) [`unvotes`](#unvotes) [`ggplot2movies`](#ggplot2movies) [`ggplot2`](#ggplot2) [`fires`](#fires)
+[`tidyverse`](#tidyverse) [`nycflights23`](#nycflights23) [`dplyr`](#dplyr) [`palmerpenguins`](#palmerpenguins) [`gapminder`](#gapminder) [`countrycode`](#countrycode) [`tibble`](#tibble) [`Lahman`](#lahman) [`babynames`](#babynames) [`weathercan`](#weathercan) [`fivethirtyeight`](#fivethirtyeight) [`unvotes`](#unvotes) [`ggplot2movies`](#ggplot2movies) [`ggplot2`](#ggplot2)
 
 ### Module 07
 
@@ -78,15 +78,7 @@ Codes et correspondances de pays pour enrichir des données internationales.Docu
 
 ## dplyr
 
-Manipulation de tableaux avec des verbes comme filter, select, mutate et summarise.Documentation externe
-
-FIR
-
-## fires
-
-Jeux de données sur les incendies et la météo associée.Documentation locale ou à préciser
-
-[FIV ](https://CRAN.R-project.org/package=fivethirtyeight)
+Manipulation de tableaux avec des verbes comme filter, select, mutate et summarise.Documentation externe [FIV ](https://CRAN.R-project.org/package=fivethirtyeight)
 
 ## fivethirtyeight
 
@@ -142,7 +134,11 @@ Manipulation de dates, mois, années et variables temporelles.Documentation exte
 
 ## messy
 
-Package utilisé dans un script de préparation de données du module 04.Documentation externe [PAL ](https://CRAN.R-project.org/package=palmerpenguins)
+Package utilisé dans un script de préparation de données du module 04.Documentation externe [NYC ](https://CRAN.R-project.org/package=nycflights23)
+
+## nycflights23
+
+Tables de vols, transporteurs, aéroports et météo de New York en 2023.Documentation externe [PAL ](https://CRAN.R-project.org/package=palmerpenguins)
 
 ## palmerpenguins
 

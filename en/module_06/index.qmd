@@ -1,5 +1,5 @@
 ---
-title: "Collaboration and reproducibility in GitHub"
+title: "Collaboration and Reproducibility in GitHub"
 format:
   html:
     toc: true
@@ -19,12 +19,12 @@ format:
 
 ::: {.module-fact}
 <span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span>
-<span><span class="fact-label">Data</span><span class="fact-value">Linked tables and multiple datasets</span></span>
+<span><span class="fact-label">Data</span><span class="fact-value">nycflights23 and related tables</span></span>
 :::
 
 ::: {.module-fact}
 <span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span>
-<span><span class="fact-label">Challenge</span><span class="fact-value">Reproducible workflow with merged data</span></span>
+<span><span class="fact-label">Challenge</span><span class="fact-value">Peer review of a collaborative report</span></span>
 :::
 ::::
 
@@ -34,19 +34,19 @@ format:
 <div class="module-product-showcase">
   <div class="product-copy">
   <p class="showcase-kicker">Final product</p>
-  <h3>A reproducible collaboration logbook</h3>
-  <p>The module leads to a structured GitHub work trace, enriched by joined data and explicit collaboration choices.</p>
+  <h3>A reproducible collaborative report</h3>
+  <p>The module leads to a Quarto report versioned in GitHub, enriched with joined data, visualizations and a clear trail of team decisions.</p>
   </div>
   <div class="product-visual" aria-label="Visual preview of the finished product">
   <div class="mini-product-board">
   <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>collaboration</strong></div>
   <div class="mini-product-bars">
-  <div class="mini-bar-row"><span>joins</span><span class="mini-bar" style="--bar-width: 59%;"></span></div><div class="mini-bar-row"><span>issues</span><span class="mini-bar" style="--bar-width: 82%;"></span></div><div class="mini-bar-row"><span>peer review</span><span class="mini-bar" style="--bar-width: 64%;"></span></div>
+  <div class="mini-bar-row"><span>branches</span><span class="mini-bar" style="--bar-width: 68%;"></span></div><div class="mini-bar-row"><span>joins</span><span class="mini-bar" style="--bar-width: 82%;"></span></div><div class="mini-bar-row"><span>review</span><span class="mini-bar" style="--bar-width: 64%;"></span></div>
   </div>
   <div class="mini-product-checks">
-  <span><i class="bi bi-check2"></i>joins</span>
+  <span><i class="bi bi-check2"></i>report</span>
+  <span><i class="bi bi-check2"></i>render</span>
   <span><i class="bi bi-check2"></i>issues</span>
-  <span><i class="bi bi-check2"></i>peer review</span>
   </div>
   </div>
   </div>
@@ -55,161 +55,62 @@ format:
 
 ## Module Objectives
 
-At the end of this module, you should be able to:
+By the end of this module, you should be able to:
 
-- Collaborate effectively on data science projects using `GitHub`.
-- Ensure the reproducibility of analyzes with `Quarto`.
-- Merge and manage multiple datasets.
-- Explain the data life cycle and the principles of `DataOps`.
+- collaborate effectively on a data science project with GitHub;
+- use branches, commits and pull requests in a team context;
+- join several tables with `dplyr`;
+- produce a reproducible Quarto report;
+- provide constructive feedback in a GitHub issue.
 
 ## Learning Plan
-
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
 
 ```{=html}
 <div class="path-grid interactive-path module-path learning-plan-path">
 <details class="path-card learning-plan-card" id="lectures-a-faire">
   <summary><span class="path-number">1</span>
   <span class="path-title">Readings</span>
-  <span class="path-preview">Prepare GitHub collaboration, joins and relational data.</span>
-  <span class="path-resource path-note">In this card</span>
+  <span class="path-preview">Prepare GitHub collaboration, pull requests and joins.</span>
+  <span class="path-resource"><a class="summary-resource-link" href="plan_apprentissage.html">Plan</a></span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 id="lectures-a-faire">Readings</h3>
-<p>In this module, we’ll explore the basic concepts of collaboration and reproducibility in GitHub, as well as using Quarto to create dynamic reports. Here is some initial reading to prepare you:</p>
-<ul>
-<li><a href="https://docs.github.com/en/get-started/quickstart/hello-world">GitHub Docs – Hello World</a> First complete project: repository, branch, pull request then merge.</li>
-<li><a href="https://docs.github.com/en/pull-requests">GitHub Docs – About pull requests</a> Learn everything about code review, comments and conflict resolution.</li>
-<li><a href="https://quarto.org/docs/computations/inline-code.html">Quarto Docs – Inline Code</a> Insert R code directly into text to dynamically display values.</li>
-<li><a href="https://datakitchen.io/what-is-dataops/">What is DataOps? (DataKitchen)</a> DataOps fundamentals: automation, quality, and collaboration.<br />
-</li>
-<li><a href="https://r4ds.hadley.nz/joins.html">R for Data Science (2nd ed.) – Chapter 26: Joins</a> Learn to combine data from different sources with <code>dplyr</code>.</li>
-</ul>
-      </div>
-    </div>
+  <div class="step-detail">
+  <p><span class="step-label">Goal</span> Understand the vocabulary before teamwork begins.</p>
+  <p><span class="step-label">Resource</span> <a class="summary-resource-link" href="plan_apprentissage.html">Learning plan</a></p>
+  </div>
   </details>
 <details class="path-card learning-plan-card" id="aventure">
   <summary><span class="path-number">2</span>
   <span class="path-title">Adventure</span>
-  <span class="path-preview">Connect several tables and document team decisions.</span>
+  <span class="path-preview">Produce a collaborative report on JFK flight delays.</span>
   <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
   <div class="step-detail">
-  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
-  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
+  <p><span class="step-label">Goal</span> Use GitHub, Quarto and `nycflights23` in teamwork.</p>
+  <p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p>
+  <p><span class="step-label">Submit</span> <code>rapport.qmd</code>, <code>rapport.html</code> and <code>README.md</code>.</p>
   </div>
   </details>
 <details class="path-card learning-plan-card" id="defi">
   <summary><span class="path-number">3</span>
   <span class="path-title">Challenge</span>
-  <span class="path-preview">Produce a useful peer review of logbooks.</span>
-  <span class="path-resource path-note">In this card</span>
+  <span class="path-preview">Write a clear and actionable peer review.</span>
+  <span class="path-resource"><a class="summary-resource-link challenge-link" href="defi.html">Challenge</a></span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 class="unnumbered" id="challenge-cross-review-of-logbooks">Challenge — Cross-review of logbooks</h3>
-<blockquote>
-<p>Each team must <strong>share their logbook</strong> with another team and provide <strong>constructive feedback</strong>. This step simulates the peer review process and reinforces critical communication skills.</p>
-</blockquote>
-<h4 id="steps-to-take">Steps to take</h4>
-<ol type="1">
-<li><p><strong>Assignment of pairs</strong>: the teacher will publish a table listing for each team the logbook to be examined.</p></li>
-<li><p><strong>Sharing the document</strong>:</p>
-<ul>
-<li>The repository manager adds the recipient team as a read/write <em>Collaborator</em> on GitHub.</li>
-<li>The URL of the HTML logbook is communicated.</li>
-</ul></li>
-<li><p><strong>Peer Review</strong>:</p>
-<ul>
-<li><p>Each member of the review team opens an <em>Issue</em> in the review team repository and submits at least <strong>one detailed comment</strong> relating to:</p>
-<ol type="1">
-<li><strong>Clarity</strong> of content (structure, titles, readability)</li>
-<li><strong>Rigour</strong> of the methodology (description of roles, reproducibility of the code)</li>
-<li><strong>Relevance</strong> of reflections (data life cycle, lessons learned)</li>
-</ol></li>
-<li><p>Comments must contain:</p>
-<ul>
-<li>A positive aspect statement (“what is successful”)</li>
-<li>A specific suggestion for improvement (“what could be clarified”)</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Acknowledgement of receipt &amp; review</strong>:</p>
-<ul>
-<li>The receiving team responds to each <em>Issue</em> and, if deemed necessary, updates its logbook.</li>
-</ul></li>
-</ol>
-<h4 id="deliverables">Deliverables</h4>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 54%" />
-<col style="width: 22%" />
-</colgroup>
-<thead>
-<tr>
-<th>Team</th>
-<th>Deliverable</th>
-<th>Where to drop it off</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Reviewing team</strong></td>
-<td>≥ 3 <em>Issues</em> (one per member) containing full feedback</td>
-<td>GitHub repository of the reviewed team</td>
-</tr>
-<tr>
-<td><strong>Revised team</strong></td>
-<td>Updated logbook (if necessary modifications) + responses to <em>Issues</em></td>
-<td>Same GitHub repository</td>
-</tr>
-</tbody>
-</table>
-<h4 id="scale-20pts">Scale (20pts)</h4>
-<table>
-<colgroup>
-<col style="width: 85%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr>
-<th>Criterion</th>
-<th>Pts</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Quality of comments (clarity, constructiveness, examples)</td>
-<td>10</td>
-</tr>
-<tr>
-<td>Relevance of suggestions to reproducibility &amp; collaboration</td>
-<td>5</td>
-</tr>
-<tr>
-<td>Follow-up and responses from the revised team</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<blockquote>
-<p><strong>Tip</strong>: focus on actionable feedback (e.g. proposing a more descriptive title, adding an additional graphic, specifying a YAML parameter) rather than generic comments.</p>
-</blockquote>
-      </div>
-    </div>
+  <div class="step-detail">
+  <p><span class="step-label">Goal</span> Check another team's report and open useful issues.</p>
+  <p><span class="step-label">Resource</span> <a class="summary-resource-link challenge-link" href="defi.html">Challenge page</a></p>
+  <p><span class="step-label">Deliverable</span> GitHub issues, responses and accepted corrections.</p>
+  </div>
   </details>
 <details class="path-card learning-plan-card" id="exercices">
   <summary><span class="path-number">4</span>
   <span class="path-title">Exercises</span>
-  <span class="path-preview">Revisit joins, issues and shared project reading.</span>
+  <span class="path-preview">Practise joins on several datasets.</span>
   <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercises</a></span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
   <div class="step-detail">
+  <p><span class="step-label">Goal</span> Consolidate joins before using them in a report.</p>
   <p><span class="step-label">Resource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Exercises page</a></p>
-  <p><span class="step-label">Why</span> Exercises stay on a separate page because they take more space.</p>
-  <div class="ae-box"><p class="ae-title">Redo at least one passage without looking at the solution immediately.</p></div>
   </div>
   </details>
 </div>
@@ -222,28 +123,19 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
   <div class="module-resource-section">
   <h3>Datasets</h3>
   <div class="module-chip-list">
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-nycflights23-flights"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>nycflights23::flights</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-nycflights23-airlines"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>nycflights23::airlines</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-nycflights23-weather"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>nycflights23::weather</span></a>
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-gapminder"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>gapminder::gapminder</span></a>
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-starwars"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>dplyr::starwars</span></a>
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-lahman"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>Lahman::People</span></a>
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-weathercan"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>weathercan</span></a>
   </div>
   </div>
   <div class="module-resource-section">
   <h3>R packages</h3>
   <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#nycflights23"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>nycflights23</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#gapminder"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>gapminder</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#countrycode"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>countrycode</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#tibble"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tibble</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#lahman"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>lahman</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#babynames"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>babynames</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#weathercan"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>weathercan</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#fivethirtyeight"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>fivethirtyeight</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#unvotes"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>unvotes</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2movies"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2movies</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#fires"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>fires</span></a>
   </div>
   </div>
 </div>
@@ -255,13 +147,8 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 <div class="closing-panel">
   <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
   <div>
-  <h3>Finish the module with the course AI assistant</h3>
-  <p>Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.</p>
-  <ul>
-  <li>Explain the finished product in three sentences.</li>
-  <li>Paste a code or output excerpt and ask for a diagnosis.</li>
-  <li>Ask for a more ambitious variant, then choose what remains reasonable.</li>
-  </ul>
+  <h3>Before moving to the next module</h3>
+  <p>Reread one issue you wrote and ask whether a team could realistically act on that feedback.</p>
   </div>
 </div>
 ```

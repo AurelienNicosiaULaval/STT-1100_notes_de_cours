@@ -5844,7 +5844,7 @@ margin-bottom: .05rem;
   <li><a href="#pizza-ratings" id="toc-pizza-ratings" class="nav-link" data-scroll-target="#pizza-ratings">7. Pizza Ratings</a></li>
   <li><a href="#onu-votes-résolutions" id="toc-onu-votes-résolutions" class="nav-link" data-scroll-target="#onu-votes-résolutions">8. ONU – Votes &amp; Résolutions</a></li>
   <li><a href="#films-oscars" id="toc-films-oscars" class="nav-link" data-scroll-target="#films-oscars">9. Films &amp; Oscars</a></li>
-  <li><a href="#mini-projet-eda-incendies-de-forêt" id="toc-mini-projet-eda-incendies-de-forêt" class="nav-link" data-scroll-target="#mini-projet-eda-incendies-de-forêt">10. <strong>Mini-projet EDA</strong> — Incendies de forêt</a></li>
+  <li><a href="#mini-projet-eda---vols-à-jfk" id="toc-mini-projet-eda---vols-à-jfk" class="nav-link" data-scroll-target="#mini-projet-eda---vols-à-jfk">10. <strong>Mini-projet EDA</strong> - Vols à JFK</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -6166,13 +6166,14 @@ Astuce
 </div>
 <hr>
 </section>
-<section id="mini-projet-eda-incendies-de-forêt" class="level2">
-<h2 class="anchored" data-anchor-id="mini-projet-eda-incendies-de-forêt">10. <strong>Mini-projet EDA</strong> — Incendies de forêt</h2>
-<p><em>Jeux de données :</em> <code>fires::fires</code> et <code>fires::fire_weather</code> (package <strong>fires</strong>).</p>
+<section id="mini-projet-eda---vols-à-jfk" class="level2">
+<h2 class="anchored" data-anchor-id="mini-projet-eda---vols-à-jfk">10. <strong>Mini-projet EDA</strong> - Vols à JFK</h2>
+<p><em>Jeux de données :</em> <code>nycflights23::flights</code>, <code>nycflights23::airlines</code> et <code>nycflights23::weather</code> (package <strong>nycflights23</strong>).</p>
 <ol type="1">
-<li><strong>Joins :</strong> relie <code>fires</code> (incidents) et <code>fire_weather</code> (conditions météo) via <code>fid</code>.</li>
-<li>Calcule l’impact moyen de la température (<code>temp</code>) et du vent (<code>wind</code>) sur la superficie brûlée (<code>area</code>).</li>
-<li>Visualise <code>temp</code> × <code>area</code> avec un nuage de points et une droite de régression.</li>
+<li><strong>Jointures :</strong> relie <code>flights</code>, <code>airlines</code> et <code>weather</code>.</li>
+<li>Filtre uniquement les vols au départ de JFK.</li>
+<li>Calcule le retard moyen au départ par transporteur.</li>
+<li>Visualise la relation entre les rafales de vent (<code>wind_gust</code>) et les retards au départ (<code>dep_delay</code>).</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -6188,17 +6189,35 @@ Astuce
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fires)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights23)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>fires_full <span class="ot">&lt;-</span> fires <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(fire_weather, <span class="at">by =</span> <span class="st">&quot;fid&quot;</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>summary_tbl <span class="ot">&lt;-</span> fires_full <span class="sc">|&gt;</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_area =</span> <span class="fu">mean</span>(area, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">corr_temp =</span> <span class="fu">cor</span>(temp, area, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>),</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">corr_wind =</span> <span class="fu">cor</span>(wind, area, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>vols_jfk <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(origin <span class="sc">==</span> <span class="st">&quot;JFK&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(airlines, <span class="at">by =</span> <span class="st">&quot;carrier&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    weather,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;origin&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;hour&quot;</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>resume_transporteurs <span class="ot">&lt;-</span> vols_jfk <span class="sc">|&gt;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">|&gt;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_vols =</span> <span class="fu">n</span>(),</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">retard_moyen =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>vols_jfk <span class="sc">|&gt;</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wind_gust), <span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">|&gt;</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wind_gust, <span class="at">y =</span> dep_delay)) <span class="sc">+</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Rafales de vent et retards au départ à JFK&quot;</span>,</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Rafales de vent&quot;</span>,</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Retard au départ (minutes)&quot;</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>

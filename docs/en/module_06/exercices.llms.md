@@ -56,7 +56,7 @@
 >
 > species_class <- tibble::tribble(
 >   ~species, ~classification,
->   “Human”, “mammal”,
+>   "Human", "mammal",
 >   "Droid", "artificial",
 >   "Gungan", "amphibian",
 >   "Wookiee", "mammal"
@@ -173,7 +173,7 @@
 > library(dplyr)
 > library(unvotes)
 >
-> votes_desc <- one_votes |>
+> votes_desc <- un_votes |>
 >   inner_join(un_roll_calls, by = "rcid") |>
 >   filter(year >= 2000, year <= 2010, vote == "no") |>
 >   count(country, sort = TRUE) |>
@@ -197,12 +197,12 @@
 >   "The Hurt Locker", 2010,
 >   "Argo", 2013,
 >   "Parasite", 2020,
->   “Nomadland”, 2021
+>   "Nomadland", 2021
 > )
 >
 > movies_oscar <- full_join(
 >   select(movies, title, year, rating),
->   Oscars,
+>   oscars,
 >   by = "title",
 >   keep = TRUE
 > )
@@ -213,28 +213,47 @@
 
 ------------------------------------------------------------------------
 
-## 10. **EDA mini-project** — Forest fires
+## 10. **EDA mini-project** - JFK flights
 
-*Datasets:* `fires::fires` and `fires::fire_weather` (package **fires**).
+*Datasets:* `nycflights23::flights`, `nycflights23::airlines` and `nycflights23::weather` (package **nycflights23**).
 
-1.  **Joins:** connects `fires` (incidents) and `fire_weather` (weather conditions) via `fid`.
-2.  Calculate the average impact of temperature (`temp`) and wind (`wind`) on the burned surface area (`area`).
-3.  Visualize `temp` × `area` with a scatterplot and a regression line.
+1.  **Joins:** connect `flights`, `airlines` and `weather`.
+2.  Filter on JFK flights only.
+3.  Calculate the average departure delay by carrier.
+4.  Visualize the relationship between wind gusts (`wind_gust`) and departure delays (`dep_delay`).
 
 > **TIP:**
 >
 > ``` r
 > library(dplyr)
 > library(ggplot2)
-> library(fires)
+> library(nycflights23)
 >
-> fires_full <- fires |>
->   inner_join(fire_weather, by = "fid")
+> flights_jfk <- flights |>
+>   filter(origin == "JFK") |>
+>   left_join(airlines, by = "carrier") |>
+>   left_join(
+>     weather,
+>     by = c("origin", "year", "month", "day", "hour")
+>   )
 >
-> summary_tbl <- fires_full |>
+> summary_tbl <- flights_jfk |>
+>   group_by(name) |>
 >   summarize(
->     mean_area = mean(area, na.rm = TRUE),
->     corr_temp = cor(temp, area, use = "complete.obs"),
->     corr_wind = cor(wind, area, use = "complete.obs")
+>     n_flights = n(),
+>     mean_delay = mean(dep_delay, na.rm = TRUE),
+>     .groups = "drop"
+>   )
+>
+> flights_jfk |>
+>   filter(!is.na(wind_gust), !is.na(dep_delay)) |>
+>   slice_sample(n = 5000) |>
+>   ggplot(aes(x = wind_gust, y = dep_delay)) +
+>   geom_point(alpha = 0.2) +
+>   geom_smooth(method = "lm", se = FALSE) +
+>   labs(
+>     title = "Wind gusts and departure delays at JFK",
+>     x = "Wind gusts",
+>     y = "Departure delay (minutes)"
 >   )
 > ```

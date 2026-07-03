@@ -94,7 +94,19 @@ JSON file associated with policy coverages.Local file? observations / 2 variable
 
 ### Module 06
 
-[Module 06 ](packages.llms.md#gapminder)
+[Module 06 ](packages.llms.md#nycflights23)
+
+## nycflights23::flights
+
+Flight table for departures from New York in 2023.R package435,352 observations / 19 variablesView documentation [Module 06 ](packages.llms.md#nycflights23)
+
+## nycflights23::airlines
+
+Lookup table between carrier codes and full carrier names.R package14 observations / 2 variablesView documentation [Module 06 ](packages.llms.md#nycflights23)
+
+## nycflights23::weather
+
+Hourly weather conditions for New York airports in 2023.R package26,207 observations / 15 variablesView documentation [Module 06 ](packages.llms.md#gapminder)
 
 ## gapminder::gapminder
 

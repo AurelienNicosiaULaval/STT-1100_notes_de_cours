@@ -213,28 +213,47 @@
 
 ------------------------------------------------------------------------
 
-## 10. **Mini-projet EDA** — Incendies de forêt
+## 10. **Mini-projet EDA** - Vols à JFK
 
-*Jeux de données :* `fires::fires` et `fires::fire_weather` (package **fires**).
+*Jeux de données :* `nycflights23::flights`, `nycflights23::airlines` et `nycflights23::weather` (package **nycflights23**).
 
-1.  **Joins :** relie `fires` (incidents) et `fire_weather` (conditions météo) via `fid`.
-2.  Calcule l’impact moyen de la température (`temp`) et du vent (`wind`) sur la superficie brûlée (`area`).
-3.  Visualise `temp` × `area` avec un nuage de points et une droite de régression.
+1.  **Jointures :** relie `flights`, `airlines` et `weather`.
+2.  Filtre uniquement les vols au départ de JFK.
+3.  Calcule le retard moyen au départ par transporteur.
+4.  Visualise la relation entre les rafales de vent (`wind_gust`) et les retards au départ (`dep_delay`).
 
 > **TIP:**
 >
 > ``` r
 > library(dplyr)
 > library(ggplot2)
-> library(fires)
+> library(nycflights23)
 >
-> fires_full <- fires |>
->   inner_join(fire_weather, by = "fid")
+> vols_jfk <- flights |>
+>   filter(origin == "JFK") |>
+>   left_join(airlines, by = "carrier") |>
+>   left_join(
+>     weather,
+>     by = c("origin", "year", "month", "day", "hour")
+>   )
 >
-> summary_tbl <- fires_full |>
+> resume_transporteurs <- vols_jfk |>
+>   group_by(name) |>
 >   summarise(
->     mean_area = mean(area, na.rm = TRUE),
->     corr_temp = cor(temp, area, use = "complete.obs"),
->     corr_wind = cor(wind, area, use = "complete.obs")
+>     n_vols = n(),
+>     retard_moyen = mean(dep_delay, na.rm = TRUE),
+>     .groups = "drop"
+>   )
+>
+> vols_jfk |>
+>   filter(!is.na(wind_gust), !is.na(dep_delay)) |>
+>   slice_sample(n = 5000) |>
+>   ggplot(aes(x = wind_gust, y = dep_delay)) +
+>   geom_point(alpha = 0.2) +
+>   geom_smooth(method = "lm", se = FALSE) +
+>   labs(
+>     title = "Rafales de vent et retards au départ à JFK",
+>     x = "Rafales de vent",
+>     y = "Retard au départ (minutes)"
 >   )
 > ```

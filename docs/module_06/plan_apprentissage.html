@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
-
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-}
-pre.numberSource { margin-left: 3em; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -5836,25 +5801,8 @@ margin-bottom: .05rem;
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
   <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
   <li><a href="#aventure" id="toc-aventure" class="nav-link" data-scroll-target="#aventure">Aventure</a></li>
-  <li><a href="#défi-revue-croisée-des-journaux-de-bord" id="toc-défi-revue-croisée-des-journaux-de-bord" class="nav-link" data-scroll-target="#défi-revue-croisée-des-journaux-de-bord">Défi — Revue croisée des journaux de bord</a>
-  <ul class="collapse">
-  <li><a href="#étapes-à-réaliser" id="toc-étapes-à-réaliser" class="nav-link" data-scroll-target="#étapes-à-réaliser">Étapes à réaliser</a></li>
-  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
-  <li><a href="#barème-20-pts" id="toc-barème-20-pts" class="nav-link" data-scroll-target="#barème-20-pts">Barème (20 pts)</a></li>
-  </ul></li>
-  <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a>
-  <ul class="collapse">
-  <li><a href="#penguins-islands" id="toc-penguins-islands" class="nav-link" data-scroll-target="#penguins-islands">1. Penguins &amp; Islands</a></li>
-  <li><a href="#gapminder-code-iso-3" id="toc-gapminder-code-iso-3" class="nav-link" data-scroll-target="#gapminder-code-iso-3">2. Gapminder × Code ISO-3</a></li>
-  <li><a href="#star-wars-espèces-classifications" id="toc-star-wars-espèces-classifications" class="nav-link" data-scroll-target="#star-wars-espèces-classifications">3. Star Wars – Espèces &amp; Classifications</a></li>
-  <li><a href="#baseball-joueurs-canadiens" id="toc-baseball-joueurs-canadiens" class="nav-link" data-scroll-target="#baseball-joueurs-canadiens">4. Baseball – Joueurs canadiens</a></li>
-  <li><a href="#prénoms-première-lettre" id="toc-prénoms-première-lettre" class="nav-link" data-scroll-target="#prénoms-première-lettre">5. Prénoms &amp; Première lettre</a></li>
-  <li><a href="#météo-canadienne-stations-observations" id="toc-météo-canadienne-stations-observations" class="nav-link" data-scroll-target="#météo-canadienne-stations-observations">6. Météo canadienne – Stations &amp; Observations</a></li>
-  <li><a href="#pizza-ratings" id="toc-pizza-ratings" class="nav-link" data-scroll-target="#pizza-ratings">7. Pizza Ratings</a></li>
-  <li><a href="#onu-votes-résolutions" id="toc-onu-votes-résolutions" class="nav-link" data-scroll-target="#onu-votes-résolutions">8. ONU – Votes &amp; Résolutions</a></li>
-  <li><a href="#films-oscars" id="toc-films-oscars" class="nav-link" data-scroll-target="#films-oscars">9. Films &amp; Oscars</a></li>
-  <li><a href="#mini-projet-eda-incendies-de-forêt" id="toc-mini-projet-eda-incendies-de-forêt" class="nav-link" data-scroll-target="#mini-projet-eda-incendies-de-forêt">10. <strong>Mini-projet EDA</strong> — Incendies de forêt</a></li>
-  </ul></li>
+  <li><a href="#défi" id="toc-défi" class="nav-link" data-scroll-target="#défi">Défi</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices">Exercices</a></li>
   </ul>
 </nav>
     </div>
@@ -5885,459 +5833,39 @@ margin-bottom: .05rem;
 <h1>Objectifs du module</h1>
 <p>À la fin de ce module, vous devriez être capable de :</p>
 <ul>
-<li>Collaborer efficacement sur des projets de science des données en utilisant <code>GitHub</code>.</li>
-<li>Assurer la reproductibilité des analyses avec <code>Quarto</code>.</li>
-<li>Fusionner et gérer plusieurs jeux de données.</li>
-<li>Expliquer le cycle de vie des données et les principes de <code>DataOps</code>.</li>
+<li>collaborer efficacement sur un projet de science des données avec GitHub;</li>
+<li>utiliser des branches, des commits et des pull requests dans un contexte d’équipe;</li>
+<li>produire un rapport Quarto reproductible;</li>
+<li>joindre plusieurs tables avec <code>dplyr</code>;</li>
+<li>expliquer le cycle de vie des données dans un projet collaboratif.</li>
 </ul>
 </section>
 <section id="lectures" class="level1">
 <h1>Lectures</h1>
-<p>Dans ce module, nous allons explorer les concepts de base de la collaboration et de la reproductibilité dans GitHub, ainsi que l’utilisation de Quarto pour créer des rapports dynamiques. Voici quelques lectures initiales pour vous préparer :</p>
+<p>Avant l’activité, consultez les ressources suivantes.</p>
 <ul>
-<li><a href="https://docs.github.com/en/get-started/quickstart/hello-world">GitHub Docs – Hello World</a> Premier projet complet : dépôt, branche, pull request puis merge.</li>
-<li><a href="https://docs.github.com/en/pull-requests">GitHub Docs – About pull requests</a> Tout savoir sur la revue de code, les commentaires et la résolution de conflits.</li>
-<li><a href="https://quarto.org/docs/computations/inline-code.html">Quarto Docs – Inline Code</a> Insérer du code R directement dans le texte pour afficher dynamiquement des valeurs.</li>
-<li><a href="https://datakitchen.io/what-is-dataops/">What is DataOps? (DataKitchen)</a> Principes fondamentaux de DataOps : automatisation, qualité et collaboration.<br>
-</li>
-<li><a href="https://r4ds.hadley.nz/joins.html">R for Data Science (2ᵉ éd.) – Chapitre 26 : Joins</a> Apprendre à combiner des données de différentes sources avec <code>dplyr</code>.</li>
+<li><a href="https://docs.github.com/en/get-started/quickstart/hello-world">GitHub Docs - Hello World</a> : premier projet complet avec dépôt, branche, pull request et fusion.</li>
+<li><a href="https://docs.github.com/en/pull-requests">GitHub Docs - About pull requests</a> : revue de code, commentaires et résolution de conflits.</li>
+<li><a href="https://quarto.org/docs/computations/inline-code.html">Quarto Docs - Inline Code</a> : insertion de code R directement dans le texte.</li>
+<li><a href="https://r4ds.hadley.nz/joins.html">R for Data Science (2e éd.) - Chapitre 20 : Joins</a> : combiner des données de différentes sources avec <code>dplyr</code>.</li>
 </ul>
 </section>
 <section id="aventure" class="level1">
 <h1>Aventure</h1>
 <p><a href="../module_06/aventure.html">Aventure 6</a></p>
+<p>L’aventure vous guide dans la production d’un rapport collaboratif sur les retards de vols à JFK avec les tables <code>flights</code>, <code>airlines</code> et <code>weather</code> du package <code>nycflights23</code>.</p>
 </section>
-<section id="défi-revue-croisée-des-journaux-de-bord" class="level1 unnumbered">
-<h1 class="unnumbered">Défi — Revue croisée des journaux de bord</h1>
-<blockquote class="blockquote">
-<p>Chaque équipe doit <strong>partager son journal de bord</strong> avec une autre équipe et fournir une <strong>rétroaction constructive</strong>. Cette étape simule le processus de revue par les pairs et renforce les compétences de communication critique.</p>
-</blockquote>
-<section id="étapes-à-réaliser" class="level2">
-<h2 class="anchored" data-anchor-id="étapes-à-réaliser">Étapes à réaliser</h2>
-<ol type="1">
-<li><p><strong>Attribution des paires</strong> : l’enseignant·e publiera un tableau listant pour chaque équipe le journal de bord à examiner.</p></li>
-<li><p><strong>Partage du document</strong> :</p>
-<ul>
-<li>Le·la responsable du dépôt ajoute l’équipe destinataire comme <em>Collaborator</em> en lecture/écriture sur GitHub.</li>
-<li>L’URL du journal de bord HTML est communiqué.</li>
-</ul></li>
-<li><p><strong>Revue par les pairs</strong> :</p>
-<ul>
-<li><p>Chaque membre de l’équipe examinatrice ouvre une <em>Issue</em> dans le dépôt de l’équipe revue et dépose au moins <strong>un commentaire détaillé</strong> portant sur :</p>
-<ol type="1">
-<li><strong>Clarté</strong> du contenu (structure, titres, lisibilité)</li>
-<li><strong>Rigueur</strong> de la méthodologie (description des rôles, reproductibilité du code)</li>
-<li><strong>Pertinence</strong> des réflexions (cycle de vie des données, leçons apprises)</li>
-</ol></li>
-<li><p>Les commentaires doivent contenir :</p>
-<ul>
-<li>Un énoncé d’aspect positif (« ce qui est réussi »)</li>
-<li>Une suggestion d’amélioration spécifique (« ce qui pourrait être clarifié »)</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Accusé de réception &amp; révision</strong> :</p>
-<ul>
-<li>L’équipe réceptrice répond à chaque <em>Issue</em> et, si jugé nécessaire, pousse une mise à jour de son journal de bord.</li>
-</ul></li>
-</ol>
+<section id="défi" class="level1">
+<h1>Défi</h1>
+<p><a href="../module_06/defi.html">Défi 6</a></p>
+<p>Le défi consiste à faire une revue croisée du rapport d’une autre équipe dans GitHub. Vous devez vérifier la clarté, la reproductibilité, les jointures, les visualisations et la qualité des interprétations.</p>
 </section>
-<section id="livrables" class="level2">
-<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 22%">
-<col style="width: 55%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Équipe</th>
-<th>Livrable</th>
-<th>Où le déposer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Équipe examinatrice</strong></td>
-<td>≥ 3 <em>Issues</em> (une par membre) contenant une rétroaction complète</td>
-<td>Dépôt GitHub de l’équipe revue</td>
-</tr>
-<tr class="even">
-<td><strong>Équipe révisée</strong></td>
-<td>Journal de bord mis à jour (si modifications nécessaires) + réponses aux <em>Issues</em></td>
-<td>Même dépôt GitHub</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="barème-20-pts" class="level2">
-<h2 class="anchored" data-anchor-id="barème-20-pts">Barème (20 pts)</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 84%">
-<col style="width: 15%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Critère</th>
-<th>Pts</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Qualité des commentaires (clarté, constructivité, exemples)</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td>Pertinence des suggestions vis‑à‑vis de la reproductibilité &amp; collaboration</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Suivi et réponses de l’équipe révisée</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<blockquote class="blockquote">
-<p><strong>Conseil</strong> : concentrez‑vous sur des rétroactions actionnables (ex. proposer un titre plus descriptif, ajouter un graphique supplémentaire, préciser un paramètre YAML) plutôt que des commentaires génériques.</p>
-</blockquote>
-</section>
-</section>
-<section id="exercices-de-consolidation" class="level1 unnumbered">
-<h1 class="unnumbered">Exercices de consolidation</h1>
-<blockquote class="blockquote">
-<p><strong>Objectif général – Maîtriser les différentes jointures <code>dplyr</code> (<code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code>, <code>full_join()</code>, <code>semi_join()</code>, <code>anti_join()</code>) sur des jeux de données variés.</strong></p>
-</blockquote>
-<hr>
-<section id="penguins-islands" class="level2">
-<h2 class="anchored" data-anchor-id="penguins-islands">1. Penguins &amp; Islands</h2>
-<p><em>Jeux de données :</em> <code>palmerpenguins::penguins</code> et <code>palmerpenguins::penguins_raw</code> (package <strong>palmerpenguins</strong>). Ajoute à chaque manchot la latitude (<code>lat</code>) et la longitude (<code>long</code>) de son île en faisant correspondre la variable <code>island</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>islands <span class="ot">&lt;-</span> penguins_raw <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(island, <span class="at">lat =</span> latitude, <span class="at">long =</span> longitude)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>penguins_loc <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(islands, <span class="at">by =</span> <span class="st">&quot;island&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="gapminder-code-iso-3" class="level2">
-<h2 class="anchored" data-anchor-id="gapminder-code-iso-3">2. Gapminder × Code ISO-3</h2>
-<p><em>Jeux de données :</em> <code>gapminder::gapminder</code> (package <strong>gapminder</strong>) et <code>countrycode::codelist</code> (package <strong>countrycode</strong>). Récupère le code ISO‑3 (<code>iso3c</code>) et la région de la FAO pour chaque pays dans <code>gapminder</code>. <em>Indice :</em> clé = <code>country</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(countrycode)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>gap_iso <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(countrycode<span class="sc">::</span>codelist, <span class="at">country =</span> country.name.en, iso3c, region_fao),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">&quot;country&quot;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="star-wars-espèces-classifications" class="level2">
-<h2 class="anchored" data-anchor-id="star-wars-espèces-classifications">3. Star Wars – Espèces &amp; Classifications</h2>
-<p><em>Jeu de données :</em> <code>dplyr::starwars</code> (package <strong>dplyr</strong>). Crée un tibble <code>species_class</code> listant quelques espèces et leur <strong>classification</strong> (<code>mammal</code>, <code>reptilian</code>, etc.). Fais une <strong><code>left_join()</code></strong> pour ajouter la colonne <code>classification</code> et calcule la taille moyenne (<code>height</code>) par classification.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>species_class <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>species, <span class="sc">~</span>classification,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Human&quot;</span>,  <span class="st">&quot;mammal&quot;</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Droid&quot;</span>,  <span class="st">&quot;artificial&quot;</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Gungan&quot;</span>, <span class="st">&quot;amphibian&quot;</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Wookiee&quot;</span>,<span class="st">&quot;mammal&quot;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>starwars_cls <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(species_class, <span class="at">by =</span> <span class="st">&quot;species&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(classification) <span class="sc">|&gt;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="baseball-joueurs-canadiens" class="level2">
-<h2 class="anchored" data-anchor-id="baseball-joueurs-canadiens">4. Baseball – Joueurs canadiens</h2>
-<p><em>Jeux de données :</em> <code>Lahman::People</code>, <code>Lahman::Batting</code> (package <strong>Lahman</strong>).</p>
-<ol type="1">
-<li>Obtiens la liste des joueurs nés au <em>Canada</em> (<code>birthCountry</code>).</li>
-<li>Calcule leur moyenne au bâton (<code>H/AB</code>) en fusionnant People &lt;-&gt; Batting sur <code>playerID</code>.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Lahman)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>can_players <span class="ot">&lt;-</span> People <span class="sc">|&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(birthCountry <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(playerID, nameFirst, nameLast)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>can_stats <span class="ot">&lt;-</span> can_players <span class="sc">|&gt;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">select</span>(Batting, playerID, H, AB), <span class="at">by =</span> <span class="st">&quot;playerID&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(playerID, nameFirst, nameLast) <span class="sc">|&gt;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg =</span> <span class="fu">sum</span>(H, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(AB, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="prénoms-première-lettre" class="level2">
-<h2 class="anchored" data-anchor-id="prénoms-première-lettre">5. Prénoms &amp; Première lettre</h2>
-<p><em>Jeu de données :</em> <code>babynames::babynames</code> (package <strong>babynames</strong>). Crée un tibble <code>alphabet</code> comportant la première lettre (<code>initial</code>) et sa catégorie (« A‑M », « N‑Z »). Ajoute la catégorie à <code>babynames</code>, puis compte les naissances par catégorie en 2010.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>alphabet <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">initial =</span> LETTERS,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">group   =</span> <span class="fu">if_else</span>(initial <span class="sc">&lt;=</span> <span class="st">&quot;M&quot;</span>, <span class="st">&quot;A-M&quot;</span>, <span class="st">&quot;N-Z&quot;</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>babynames_2010 <span class="ot">&lt;-</span> babynames <span class="sc">|&gt;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2010</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">initial =</span> <span class="fu">substr</span>(name, <span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(alphabet, <span class="at">by =</span> <span class="st">&quot;initial&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(n))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="météo-canadienne-stations-observations" class="level2">
-<h2 class="anchored" data-anchor-id="météo-canadienne-stations-observations">6. Météo canadienne – Stations &amp; Observations</h2>
-<p><em>Jeux de données :</em> <code>weathercan::stations_meta()</code> et <code>weathercan::weather_dl()</code> (package <strong>weathercan</strong>). Télécharge les données quotidiennes de Québec‑Jean‑Lesage (station #7025250) pour 2024 et joins‑les aux métadonnées de station pour ajouter <code>province</code> et <code>elevation</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(weathercan)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">stations_meta</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(station_id <span class="sc">==</span> <span class="dv">7025250</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(station_id, province, <span class="at">elev =</span> elevation)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>qc24 <span class="ot">&lt;-</span> <span class="fu">weather_dl</span>(<span class="at">station_ids =</span> <span class="dv">7025250</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">start =</span> <span class="st">&quot;2024-01-01&quot;</span>, <span class="at">end =</span> <span class="st">&quot;2024-12-31&quot;</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">interval =</span> <span class="st">&quot;day&quot;</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>qc24_full <span class="ot">&lt;-</span> qc24 <span class="sc">|&gt;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(meta, <span class="at">by =</span> <span class="st">&quot;station_id&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="pizza-ratings" class="level2">
-<h2 class="anchored" data-anchor-id="pizza-ratings">7. Pizza Ratings</h2>
-<p><em>Jeux de données :</em> <code>fivethirtyeight::pizza</code> et <code>fivethirtyeight::pizza_places</code> (package <strong>fivethirtyeight</strong>). Associe chaque évaluation (<code>pizza</code>) à son restaurant (<code>pizza_places</code>) via <code>place_id</code> et trouve la note moyenne (<code>rating</code>) par <strong>state</strong>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>pizza_avg_state <span class="ot">&lt;-</span> pizza <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(pizza_places, <span class="at">by =</span> <span class="st">&quot;place_id&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(rating, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="onu-votes-résolutions" class="level2">
-<h2 class="anchored" data-anchor-id="onu-votes-résolutions">8. ONU – Votes &amp; Résolutions</h2>
-<p><em>Jeux de données :</em> <code>unvotes::un_votes</code>, <code>unvotes::un_roll_calls</code> (package <strong>unvotes</strong>). Relie chaque vote (<code>un_votes</code>) à la description de la résolution (<code>un_roll_calls</code>) via <code>rcid</code>. Énumère les cinq pays ayant voté le plus souvent « no » entre 2000 et 2010.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unvotes)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>votes_desc <span class="ot">&lt;-</span> un_votes <span class="sc">|&gt;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(un_roll_calls, <span class="at">by =</span> <span class="st">&quot;rcid&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">2000</span>, year <span class="sc">&lt;=</span> <span class="dv">2010</span>, vote <span class="sc">==</span> <span class="st">&quot;no&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(country, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="films-oscars" class="level2">
-<h2 class="anchored" data-anchor-id="films-oscars">9. Films &amp; Oscars</h2>
-<p><em>Jeux de données :</em> <code>ggplot2movies::movies</code> (package <strong>ggplot2movies</strong>) et un tibble <code>oscars</code> listant quelques titres et l’année de l’Oscar du meilleur film. Fais une <strong><code>full_join()</code></strong> puis repère les films présents dans un seul des deux ensembles.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2movies)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>oscars <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>title,            <span class="sc">~</span>oscar_year,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;The Hurt Locker&quot;</span>, <span class="dv">2010</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Argo&quot;</span>,            <span class="dv">2013</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Parasite&quot;</span>,        <span class="dv">2020</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Nomadland&quot;</span>,       <span class="dv">2021</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>movies_oscar <span class="ot">&lt;-</span> <span class="fu">full_join</span>(</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(movies, title, year, rating),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  oscars,</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">&quot;title&quot;</span>,</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep =</span> <span class="cn">TRUE</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>only_one_side <span class="ot">&lt;-</span> movies_oscar <span class="sc">|&gt;</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(year) <span class="sc">|</span> <span class="fu">is.na</span>(oscar_year))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="mini-projet-eda-incendies-de-forêt" class="level2">
-<h2 class="anchored" data-anchor-id="mini-projet-eda-incendies-de-forêt">10. <strong>Mini-projet EDA</strong> — Incendies de forêt</h2>
-<p><em>Jeux de données :</em> <code>fires::fires</code> et <code>fires::fire_weather</code> (package <strong>fires</strong>).</p>
-<ol type="1">
-<li><strong>Joins :</strong> relie <code>fires</code> (incidents) et <code>fire_weather</code> (conditions météo) via <code>fid</code>.</li>
-<li>Calcule l’impact moyen de la température (<code>temp</code>) et du vent (<code>wind</code>) sur la superficie brûlée (<code>area</code>).</li>
-<li>Visualise <code>temp</code> × <code>area</code> avec un nuage de points et une droite de régression.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fires)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>fires_full <span class="ot">&lt;-</span> fires <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(fire_weather, <span class="at">by =</span> <span class="st">&quot;fid&quot;</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>summary_tbl <span class="ot">&lt;-</span> fires_full <span class="sc">|&gt;</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_area =</span> <span class="fu">mean</span>(area, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">corr_temp =</span> <span class="fu">cor</span>(temp, area, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>),</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">corr_wind =</span> <span class="fu">cor</span>(wind, area, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
+<section id="exercices" class="level1">
+<h1>Exercices</h1>
+<p><a href="../module_06/exercices.html">Exercices de consolidation</a></p>
+<p>Les exercices permettent de pratiquer les jointures <code>inner_join()</code>, <code>left_join()</code>, <code>full_join()</code>, <code>semi_join()</code> et <code>anti_join()</code> sur plusieurs jeux de données.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
