@@ -38,6 +38,34 @@ Challenges gradually build the reflexes needed for the project and the exam.
 
 The deliverable must be understandable to someone reading your work without being inside your head.
 
+## Challenges by module
+
+Use these links to find the full instructions and expected deliverables.
+
+### Challenge 1
+
+Create a reproducible mini Quarto report from weather data.
+
+[View challenge 1](module_01/defi.llms.md)
+
+### Challenge 2
+
+Submit a GitHub repository containing a logbook and an analysis report about penguins.
+
+[View challenge 2](../module_02/defi.llms.md)
+
+### Challenge 3
+
+Write a reproducible Quarto article about food offences.
+
+[View challenge 3](../module_03/defi.llms.md)
+
+### Challenge 4
+
+Clean an insurance dataset, produce a clean file and document the decisions.
+
+[View challenge 4](module_04/defi.llms.md)
+
 ## Types of productions
 
 Formats vary across modules, but they always remain connected to course skills.

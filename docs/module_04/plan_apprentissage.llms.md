@@ -39,13 +39,15 @@ Dans ce module, nous allons explorer les concepts de base de l’importation et 
 
 # Défi
 
-A la fin de l’aventure, vous devez être en mesure d’avoir déposer dans votre dossier Github les éléments suivants :
+[Défi 4](../module_04/defi.llms.md)
 
-- le script `.qmd` de votre aventure, c’est à dire un document ou vous faites vos tests et construisez votre liste journal_nettoyage ;
+À la fin de l’aventure, vous devez déposer dans votre dossier GitHub les éléments suivants :
+
+- le script `.qmd` de votre défi, c’est-à-dire un document où vous faites vos tests et construisez votre liste `journal_nettoyage` ;
 
 - la liste `journal_nettoyage` dans un objet `.Rdata` ;
 
-- la base de données nettoyée au format `.csv.`
+- la base de données nettoyée au format `.csv`.
 
 # Exercices de consolidation
 
@@ -63,6 +65,7 @@ puis affichez la structure de l’objet.
 >
 > ``` r
 > library(readr)
+> library(dplyr)
 >
 > policies <- read_csv(
 >   "policies.csv",
@@ -74,15 +77,28 @@ puis affichez la structure de l’objet.
 > glimpse(policies)
 > ```
 
-### Exercice 2 – Nettoyage des valeurs manquantes (Data import, ex. 4)
+### Exercice 2 – Recodage de valeurs catégorielles
 
-Le fichier contient la chaîne `"missing"` pour indiquer une absence dans `vehicle_type`.
-Ré-importez le fichier en la convertissant en `NA`.
+La variable `vehicle_use` contient les valeurs `"Pleasure"`, `"pleasure"`, `"Commute"` et `"Com.mute"`.
+Recoder cette variable pour obtenir seulement les niveaux `"Pleasure"` et `"Commute"`.
 
 > **NOTE:**
 >
 > ``` r
-> policies <- read_csv("policies.csv", na = "missing")
+> library(readr)
+> library(dplyr)
+> library(forcats)
+>
+> policies <- read_csv("policies.csv", show_col_types = FALSE) %>%
+>   mutate(
+>     vehicle_use = fct_collapse(
+>       as.factor(vehicle_use),
+>       Pleasure = c("Pleasure", "pleasure"),
+>       Commute = c("Commute", "Com.mute")
+>     )
+>   )
+>
+> table(policies$vehicle_use)
 > ```
 
 ### Exercice 3 – Passage long \<-\> large (Data tidy, § pivot)
@@ -110,6 +126,29 @@ Les colonnes `q1_claims:q4_claims` représentent le nombre de réclamations par 
 >   pivot_wider(names_from = quarter, values_from = claims)
 > ```
 
+### Exercice 4 – Importation contrôlée du fichier principal
+
+Importez `dataset_pratique.csv`, nettoyez les noms de colonnes et vérifiez que le tableau contient 23 colonnes.
+
+> **NOTE:**
+>
+> ``` r
+> library(readr)
+> library(dplyr)
+> library(janitor)
+>
+> base <- read_delim(
+>   "dataset_pratique.csv",
+>   delim = ";",
+>   trim_ws = TRUE,
+>   show_col_types = FALSE
+> ) %>%
+>   clean_names()
+>
+> ncol(base)
+> glimpse(base)
+> ```
+
 ### Exercice 5 – Lire une feuille Excel précise (Import spreadsheets, ex. 3)
 
 Le classeur `quotes_2024.xlsx` possède une feuille « Q3 » où les libellés commencent à la 2ᵉ ligne.
@@ -119,6 +158,7 @@ Importez-la et vérifiez les types.
 >
 > ``` r
 > library(readxl)
+> library(dplyr)
 >
 > q3 <- read_excel(
 >   "resources/quotes_2024.xlsx",
@@ -155,12 +195,19 @@ Vous disposez d’une liste `lst <- jsonlite::read_json("coverage.json")`.
 > library(jsonlite)
 > library(tidyr)
 > library(dplyr)
+> library(tibble)
 >
 > lst   <- read_json("coverage.json")
-> limit <- lst$collision$limit
+> limit <- lst$coverage$collision$limit
 >
-> tbl <- tibble(row = lst) %>%
->   unnest_wider(row)
+> tbl <- tibble(
+>   couverture = names(lst$coverage),
+>   details = lst$coverage
+> ) %>%
+>   unnest_wider(details)
+>
+> limit
+> tbl
 > ```
 
 ### Exercice 8 – Pipeline express (Synthèse)
@@ -178,5 +225,8 @@ En trois lignes :
 > ``` r
 > library(readr); library(dplyr); library(janitor)
 >
-> read_csv("policies.csv") %>% clean_names() %>% slice_max(claim_amount, n = 5, by = vehicle_type)
+> read_csv("policies.csv", show_col_types = FALSE) %>%
+>   clean_names() %>%
+>   group_by(vehicle_type) %>%
+>   slice_max(claim_amount, n = 5, with_ties = FALSE)
 > ```

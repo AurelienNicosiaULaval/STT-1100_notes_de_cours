@@ -60,6 +60,12 @@ Rédiger un article Quarto reproductible sur les infractions alimentaires.
 
 [Consulter le défi 3](module_03/defi.llms.md)
 
+### Défi 4
+
+Nettoyer une base d'assurance, produire un fichier propre et documenter les décisions.
+
+[Consulter le défi 4](module_04/defi.llms.md)
+
 ## Types de productions
 
 Les formats changent selon les modules, mais ils restent toujours reliés aux compétences du cours.

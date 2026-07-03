@@ -6,13 +6,13 @@ STT-1100 Introduction to Data Science
 
 You have just started an internship as a **junior data engineer** at a large **insurance company**. You work with Alex, an experienced business analyst, who has entrusted you with an important mission.
 
-Alex has provided you with a database taken from an old archive system. This database contains key information on customers, insurance policies and claims. Unfortunately, the database is **riddled with errors**: duplicates, missing values, inconsistencies, format errors, typos, etc.
+Alex has provided you with a database taken from an old archive system. This database contains key information on customers, insurance policies and claims. Unfortunately, the database is **riddled with potential errors**: missing values, inconsistencies, format errors, typos, outliers and possible duplicates to check.
 
-Your role will be to ensure **data quality** to allow Alex to carry out a reliable analysis.
+Your role will be to ensure **data quality** to allow Alex to carry out a reliable analysis. Some errors will be corrected; others will only be flagged if the available information does not support a defensible correction.
 
 # Adventure objectives
 
-- Import a raw database (`Dataset_pratique.csv`).
+- Import a raw database (`dataset_pratique.csv`).
 - Identify different types of common errors.
 - Clean and transform data with `dplyr`, `forcats` and `stringr`.
 - Clearly document **all modifications made** to the database.
@@ -21,8 +21,9 @@ Your role will be to ensure **data quality** to allow Alex to carry out a reliab
 
 At the end of this adventure, you will:
 
-1.  Provide a **clean database** (`own_data.csv`).
-2.  Maintain a **structured R list** called `cleanup_log` in your script.
+1.  Provide a **clean database** (`clean_data.csv`).
+2.  Maintain a **structured R list** called `cleaning_log` in your script.
+3.  Save this list in a file named `cleaning_log.Rdata`.
 
 > Remember to **document each step of your cleaning**. Your rigor is your best ally!
 
@@ -37,17 +38,17 @@ Here is a reference table for the types of errors you may encounter:
 | IF | Format inconsistencies | Data of the same type but different formats | `birth_date` in mixed formats (`1980-01-01`, `01/01/1980`) |
 | VA | Outliers | Obviously extreme or unrealistic values ​​ | `annual_income = $99,999,999` |
 | FT | Typos | Typographical errors affecting consistency | Province listed as “Quebec”, “quebec”, “Quebec” |
-| CR | Recoding or grouping | Categories similar to merge | “unemployed”, “inactive”, “unemployed” |
+| RC | Recoding or grouping | Categories similar to merge | “unemployed”, “inactive”, “unemployed” |
 | TY | Ill-defined types | Wrong variable type for data | `annual_income` saved as text |
 | LG | Logical errors | Incorrect temporal or conditional relationships | Customer born in 2022 but contract signed in 2020 |
-| IC | Inter-variable inconsistencies | Inconsistent data between two columns | `province = "Quebec"` but `postal_code` starts with “H” |
-| UK | Redundant or unnecessary data | Duplicate or irrelevant columns | Two columns containing the same information |
+| CI | Inter-variable inconsistencies | Inconsistent data between two columns | `province = "Quebec"` but `postal_code` starts with “H” |
+| RU | Redundant or unnecessary data | Duplicate or irrelevant columns | Two columns containing the same information |
 | TR | Truncations or bad merge | Truncated or incorrectly merged text strings | Surnames hyphenated like “Du” |
 | EC | Encoding issues | Incorrectly encoded special characters | “Ã©” instead of “é” |
 
-This typology makes it possible to rigorously structure the detection and documentation of errors in the R cleaning log (list `journal_nettoyage`).
+This typology makes it possible to rigorously structure the detection and documentation of errors in the R cleaning log (list `cleaning_log`).
 
-In your script, you will construct the `journal_nettoyage` list structured by category:
+In your script, you will construct the `cleaning_log` list structured by category:
 
 ``` downlit
 cleaning_log <- list(
@@ -68,7 +69,17 @@ cleaning_log <- list(
       action = "Delete",
       justification = "Useless for analysis"
     )
-  )
+  ),
+  IF = list(),
+  VA = list(),
+  FT = list(),
+  RC = list(),
+  TY = list(),
+  LG = list(),
+  CI = list(),
+  RU = list(),
+  TR = list(),
+  EC = list()
 )
 cleaning_log
 ```
@@ -109,6 +120,38 @@ cleaning_log
     $DF[[1]]$justification
     [1] "Useless for analysis"
 
+
+
+    $IF
+    list()
+
+    $VA
+    list()
+
+    $FT
+    list()
+
+    $RC
+    list()
+
+    $TY
+    list()
+
+    $LG
+    list()
+
+    $CI
+    list()
+
+    $RU
+    list()
+
+    $TR
+    list()
+
+    $EC
+    list()
+
 Each category (`VM`, `DF`, etc.) contains a **list of fixes**, where each fix is a [`list()`](https://rdrr.io/r/base/list.html) with:
 
 - `id`: affected line(s) or position(s)
@@ -130,36 +173,48 @@ As for previous adventures:
 - **Clone** the module 4 GitHub repository from the course organization. You can use the course cheat sheet if you have a memory lapse.
 - Work in RStudio and **make commits regularly** to document your progress.
 - Your deposit must contain:
-  - the `.qmd` script for your adventure, that is to say a document where you do your tests and build your `journal_nettoyage` list;
-  - the `journal_nettoyage` list in a `.Rdata` object;
+  - the `.qmd` script for your adventure, that is to say a document where you do your tests and build your `cleaning_log` list;
+  - the `cleaning_log` list in a `.Rdata` object;
   - the cleaned database in `.csv` format.
 
 Good luck, and may your data be clean!
 
 # Data import
 
-Before cleaning a database, you need to know how to import it correctly. For this mission, Alex has sent you the `Dataset_pratique.csv` file. He recommends that you:
+Before cleaning a database, you need to know how to import it correctly. For this mission, Alex has sent you the `dataset_pratique.csv` file. This file is separated by semicolons. He recommends that you:
 
-- load the data into R with the [`read_csv()`](https://readr.tidyverse.org/reference/read_delim.html) function of the `readr` package,
+- load the data into R with the [`read_delim()`](https://readr.tidyverse.org/reference/read_delim.html) function of the `readr` package,
 - examine the first lines to spot obvious inconsistencies,
 - and immediately convert the column names to lowercase with [`janitor::clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html) to facilitate future manipulations.
 
 ``` downlit
 library(readr)
+library(dplyr)
 library(janitor)
+library(ggplot2)
+library(stringr)
+library(forcats)
 
 # Data import
-base <- read_csv("dataset_pratique.csv")
+base <- read_delim(
+  "dataset_pratique.csv",
+  delim = ";",
+  trim_ws = TRUE,
+  show_col_types = FALSE
+)
 
 # Cleaning up column names
-base <- base %>% clean_names()
+base <- base %>%
+  clean_names()
 
 # Data overview
 head(base)
 glimpse(base)
 ```
 
-> **Alex**: “This base is a real headache! I need you to make it usable quickly. You should start by spotting what’s wrong with names, formats or values. »
+> If you use [`read_csv()`](https://readr.tidyverse.org/reference/read_delim.html) here, the whole file will be read as one column. A good reflex is to check `ncol(base)` immediately after import.
+
+> **Alex**: “This base is a real headache! I need you to make it usable quickly. You should start by spotting what’s wrong with names, formats or values.”
 
 ------------------------------------------------------------------------
 
@@ -181,9 +236,9 @@ names(base)
 glimpse(base)
 ```
 
-> **Alex**: “You’ll see, some types of variables don’t make any sense… Keep track of everything you find weird so that we can decide together what to do with it. »
+> **Alex**: “You’ll see, some types of variables don’t make any sense… Keep track of everything you find weird so that we can decide together what to do with it.”
 
-One of the most useful functions here is `glimpse()` (from the `dplyr` package). It displays a preview of the first values ​​of each variable **as well as their type**: for example `chr` for a character string, `dbl` for a decimal number (double), `int` for an integer, or even `lgl` for a boolean.
+One of the most useful functions here is [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) (from the `dplyr` package). It displays a preview of the first values ​​of each variable **as well as their type**: for example `chr` for a character string, `dbl` for a decimal number (double), `int` for an integer, or even `lgl` for a boolean.
 
 Here is a reminder of the main data types in R:
 
@@ -207,13 +262,13 @@ To transform a variable, you can use the following functions:
     as.logical(base$column)
     as.factor(base$column)
 
-Remember to always check the result of the transformation with `glimpse()` or [`summary()`](https://rdrr.io/r/base/summary.html).
+Remember to always check the result of the transformation with [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) or [`summary()`](https://rdrr.io/r/base/summary.html).
 
 > Alex: “When we look at the types of variables with glimpse(), we must keep in mind that there are standards in data science. In general, variables containing text should be of type `character` or `factor` if they take a limited number of values ​​(for example, a gender or province column). Variables containing numbers should normally be of type `dbl` (for decimals) or `int` (for integers), as appropriate.
 
-> A common pitfall is identifiers! Even if they appear to be numbers, like a `client_ID` or `contract_number` column, they are not quantities on which we are going to do calculations. These are unique labels. We should therefore convert them to character. This prevents an identifier like 0012 from being transformed into 12 by mistake, or from R thinking that we want to do an average with that…
+> A common pitfall is identifiers! Even if they appear to be numbers, like a `client_id` or `contract_number` column, they are not quantities on which we are going to do calculations. These are unique labels. We should therefore convert them to character. This prevents an identifier like 0012 from being transformed into 12 by mistake, or from R thinking that we want to do an average with that…
 
-> In short, check each type carefully. Ask yourself: is this variable text? Am I going to calculate on it? Are these categories? »
+> In short, check each type carefully. Ask yourself: is this variable text? Am I going to calculate on it? Are these categories?”
 
 ## Checking for duplicates
 
@@ -240,17 +295,17 @@ You can then remove them:
 base <- base %>% distinct()
 ```
 
-If you want to spot duplicates on one or more key columns (e.g. `ID_Variable`), use:
+If you want to spot duplicates on one or more key columns (e.g. `id_variable`), use:
 
 ``` downlit
-basis %>%
-  group_by(Variable_ID) %>%
+base %>%
+  group_by(id_variable) %>%
   filter(n() > 1)
 ```
 
-> **Alex**: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the `cleaning_journal`! »
+> **Alex**: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the `cleaning_log`!”
 
-And of course, if you intervene, don’t forget to indicate it in the `DF` section of your `cleaning_journal`.
+And of course, if you intervene, don’t forget to indicate it in the `DF` section of your `cleaning_log`. If you find no duplicates, you can simply state in your text that the check was performed and that no deletion was needed.
 
 ``` downlit
 cleaning_log$DF <- append(cleaning_log$DF, list(
@@ -259,7 +314,7 @@ cleaning_log$DF <- append(cleaning_log$DF, list(
     variables = "All columns",
     problem = "Complete duplicates",
     action = "Lines deleted",
-    justification = "Exact duplicates detected automatically"
+    justification = "Illustrative example: adapt only if duplicates are detected"
   )
 ))
 ```
@@ -268,70 +323,76 @@ cleaning_log$DF <- append(cleaning_log$DF, list(
 
 We continue the exploration with a type of variable that is often neglected… but which can derail an entire analysis: **factors**.
 
-In R, factors are used to represent **categories**. For example, in the `VEHICLE_TYPE` column, each value corresponds to a vehicle type: `"car"`, `"truck"`, `"CAR"`, `"ANIMAL"`, etc.
+In R, factors are used to represent **categories**. For example, in the `vehicle_type` column, each value corresponds to a vehicle type: `"CAR"`, `"TRUCK"`, `"VAN"`, `"ANIMAL"`, etc.
 
 To see all the levels of a factor, you can use the [`levels()`](https://rdrr.io/r/base/levels.html) function:
 
 ``` downlit
-levels(base$VEHICLE_TYPE)
+base <- base %>%
+  mutate(vehicle_type = as_factor(vehicle_type))
+
+levels(base$vehicle_type)
 ```
 
 Of course, your variable must be of type `factor` for this function to work. If this is not the case, you can convert it with [`as.factor()`](https://rdrr.io/r/base/factor.html) (see previous section).
 
 The problem?
-When looking at the levels of a factor, we often notice **disguised duplicates** (“car”`vs`“CAR”`), **aberrant levels** ("ANIMAL"`) or **very rare categories** that may not deserve their own level.
+When looking at the levels of a factor, we often notice **disguised duplicates** (`"car"` vs `"CAR"`), **aberrant levels** (`"ANIMAL"`) or **very rare categories** that may not deserve their own level.
 
 ## Some useful tools (with `forcats`)
 
 To clean this up, here are some key functions of the `forcats` package:
 
-- `fct_count()`: to count levels and spot anomalies
-- `fct_recode()`: to rename levels (for example merge `"CAR"` and `"car"`)
-- `fct_collapse()`: to merge several levels into one
-- `fct_lump()`: to group rare levels into “Other”
-- `fct_relevel()` or `fct_infreq()`: to reorder the levels
+- [`fct_count()`](https://forcats.tidyverse.org/reference/fct_count.html): to count levels and spot anomalies
+- [`fct_recode()`](https://forcats.tidyverse.org/reference/fct_recode.html): to rename levels (for example merge `"CAR"` and `"car"`)
+- [`fct_collapse()`](https://forcats.tidyverse.org/reference/fct_collapse.html): to merge several levels into one
+- [`fct_lump()`](https://forcats.tidyverse.org/reference/fct_lump.html): to group rare levels into “Other”
+- [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html) or [`fct_infreq()`](https://forcats.tidyverse.org/reference/fct_inorder.html): to reorder the levels
 
 ## Suggested steps
 
 Take the time to:
 
-1.  **List factor type variables** with `glimpse()` or `select(where(is.factor))`.
-2.  **Explore levels** with `fct_count()`.
+1.  **List factor type variables** with [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) or `select(where(is.factor))`.
+2.  **Explore levels** with [`fct_count()`](https://forcats.tidyverse.org/reference/fct_count.html).
 3.  **Identify inconsistencies**, such as:
-    - same values with different case (`"CAR"` vs `"car"`)
-    - typos (`"Commute"` vs `"Com.mute"`)
-    - aberrant levels (“ANIMAL”`in`VEHICLE_TYPE\`)
+    - same values with different case (`"CAR"` vs `"car"`) in some files
+    - typos or data-entry variants
+    - aberrant levels (`"ANIMAL"` in `vehicle_type`)
 
-> **Alex**: “Be careful of these strange values. If a value makes no sense in context (e.g. `"ANIMAL"` in a column about vehicle types), don’t guess. Set it to `NA`. We prefer missing data to bad information. »
+> **Alex**: “Be careful of these strange values. If a value makes no sense in context (e.g. `"ANIMAL"` in a column about vehicle types), don’t guess. Set it to `NA`. We prefer missing data to bad information.”
 
 ## Example to adapt
 
 ``` downlit
 # Harmonize lowercase/uppercase
-base$VEHICLE_TYPE <- base$VEHICLE_TYPE %>%
-  str_to_title() %>% # "car" -> "Car", "TRUCK" -> "Truck"
-  as_factor()
-
-# Replace outliers with NA
-base$VEHICLE_TYPE <- na_if(base$VEHICLE_TYPE, "ANIMAL")
-
-# Or by changing the levels directly:
-base$VEHICLE_USE <- fct_collapse(
-  base$VEHICLE_USE,
-  Pleasure = c("Pleasure", "Pleasure"),
-  Commute = c("Commute", "Comm.mute"))
+base <- base %>%
+  mutate(
+    vehicle_type = vehicle_type %>%
+      str_to_title() %>%    # "CAR" -> "Car", "TRUCK" -> "Truck"
+      na_if("Animal") %>%   # aberrant level in this context
+      as_factor()
+  )
 ```
 
-Don’t forget to document these modifications in your `cleaning_journal` list! For example, for the `VEHICLE_USE` variable above, you could add:
+You can identify the affected row before correcting it:
+
+``` downlit
+base %>%
+  filter(vehicle_type == "ANIMAL") %>%
+  select(id_variable, vehicle_type, vehicle_make, vehicle_model)
+```
+
+Don’t forget to document these modifications in your `cleaning_log` list! For example, for the `vehicle_type` variable above, you could add:
 
 ``` downlit
 cleaning_log$RC <- append(cleaning_log$RC, list(
   list(
-    id = c(101, 203, 317), # Adapt with the correct lines concerned
-    variables = "VEHICLE_USE",
-    problem = "Merging similar levels (capital letters/mistakes)",
-    action = "Grouping of 'Pleasure' and 'pleasure', 'Commute' and 'Com.mute'",
-    justification = "Improving consistency and reducing duplication"
+    id = 40064548,
+    variables = "vehicle_type",
+    problem = "Aberrant level in a vehicle-type variable",
+    action = "Replace 'ANIMAL' with NA after case harmonization",
+    justification = "The value does not describe a usable vehicle type"
   )
 ))
 ```
@@ -348,36 +409,36 @@ Just as we checked the factor levels, we must check if certain **numerical value
 
 Take each numeric variable and summarize it with [`summary()`](https://rdrr.io/r/base/summary.html) or a boxplot to identify extremes.
 
-**Example: `COMMUTE_DISTANCE`**
+**Example: `commute_distance`**
 
 ``` downlit
-summary(base$COMMUTE_DISTANCE)
-ggplot(base, aes(x = SWITCH_DISTANCE)) +
+summary(base$commute_distance)
+ggplot(base, aes(x = commute_distance)) +
   geom_histogram(bins = 50, fill = "blue", alpha = 0.7) +
   labs(title = "Distribution of commuting distance",
        x = "Distance (km)", y = "Frequency")
 ```
 
-Ask yourself: - Is a distance of 3000 km to work plausible? - Are some values ​​missing or negative?
+Ask yourself: is a commuting distance of 150 km plausible or simply rare? Are some values missing or negative?
 
-If you intervene, don’t forget to **justify in `journal_nettoyage`**, using the code `VA` (outliers) or `VM` (missing values).
+If you intervene, don’t forget to **justify in `cleaning_log`**, using the code `VA` (outliers) or `VM` (missing values).
 
 ## Step 2 – Inconsistent combinations of two factors
 
-**Logical relationships** can exist between two categorical variables. For example, quarter (`QUARTER`) and season (`SEASON`) should be consistent.
+**Logical relationships** can exist between two categorical variables. For example, quarter (`quarter`) and season (`season`) should be consistent.
 
-**Example: `QUARTER` and `SEASON`**
+**Example: `quarter` and `season`**
 
 ``` downlit
-table(base$QUARTER, base$SEASON)
+table(base$quarter, base$season)
 ```
 
-> **Alex**: “If you see `QUARTER = 1` with `SEASON = "Summer"`, you should wince… This kind of inconsistency is worth noting, even if you don’t know what to correct. »
+> **Alex**: “If you see `quarter = "Q2"` with `season = "Winter"`, you should pause… This kind of inconsistency is worth noting, even if you don’t know what to correct.”
 
 You can also visualize with a crossbar chart:
 
 ``` downlit
-ggplot(base, aes(x = QUARTER, fill = SEASON)) +
+ggplot(base, aes(x = quarter, fill = season)) +
   geom_bar(position = "fill")
 ```
 
@@ -387,21 +448,21 @@ If you correct, use the code `CI` (inter-variable inconsistencies).
 
 Another check: are some **numeric values inconsistent for certain groups**?
 
-**Example: `AGE` according to `GENERATION`**
+**Example: `age` according to `generation`**
 
 ``` downlit
-basis %>%
-  group_by(GENERATION) %>%
-  summarize(min = min(AGE, na.rm = TRUE),
-            max = max(AGE, na.rm = TRUE),
-            mean = mean(AGE, na.rm = TRUE))
+base %>%
+  group_by(generation) %>%
+  summarize(min = min(age, na.rm = TRUE),
+            max = max(age, na.rm = TRUE),
+            mean = mean(age, na.rm = TRUE))
 
-ggplot(base, aes(x = AGE, fill = GENERATION)) +
+ggplot(base, aes(x = age, fill = generation)) +
   geom_histogram(position = "identity", alpha = 0.6, bins = 40)
 ```
 
-- Does a baby belong to generation X?
-- Is a 122 year old person well classified?
+- Is an age of 16 consistent with the other variables in the record?
+- Do the age ranges for each generation seem reasonable?
 
 If there is recoding or grouping to be done, use the code `RC`.
 
@@ -409,17 +470,17 @@ If there is recoding or grouping to be done, use the code `RC`.
 
 Here, we verify that the numerical relationships **make sense**.
 
-**Example: `AGE` vs `YEARS_LICENSED`**
+**Example: `age` vs `years_licensed`**
 
 ``` downlit
-ggplot(base, aes(x = AGE, y = YEARS_LICENSED)) +
+ggplot(base, aes(x = age, y = years_licensed)) +
   geom_point(alpha = 0.3)
 ```
 
-- Are there points above certain lines? What line are we talking about here?
+- Are there points above a line where `years_licensed = age`?
 - Can you have more years of license than age?
 
-> **Alex**: “You don’t have to correct it here. On the other hand, **if you notice something strange**, take two minutes to write it down in the `cleaning_journal`. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous. »
+> **Alex**: “You don’t have to correct it here. On the other hand, **if you notice something strange**, take two minutes to write it down in the `cleaning_log`. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous.”
 
 Use the code `LG` here for a **logical error**.
 
@@ -427,13 +488,15 @@ Use the code `LG` here for a **logical error**.
 
 Here are a few other things to keep an eye out for:
 
-- **Redundant variables**: two columns that say the same thing (`CITY_NAME` and `MUNICIPALITY`)
+- **Incomplete or overly long postal codes**: `fsa_code` should contain three characters.
+- **Implausible vehicle years**: a value such as `14` in `vehicle_year` does not have the same meaning as `2014`.
+- **Redundant variables**: two columns that say the same thing.
 - **Useless columns**: internal identifiers, empty columns or with only one category (`EC` or `RU`)
 - **Text format issues**: accents, special characters ([`stringr::str_detect`](https://stringr.tidyverse.org/reference/str_detect.html))
 - **Hastily merged columns**: strings like `"Smith, John"` in one cell instead of two (`TR`)
 - **Mixed date format**: we have left this aside since the beginning of this course, but know that it is coming, we will have a special module on dates.
 
-*Throughout your cleaning, document your decisions in the `cleaning_journal` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
+*Throughout your cleaning, document your decisions in the `cleaning_log` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
 
 # Mission accomplished!
 
@@ -442,18 +505,18 @@ You have now acquired a solid methodology for cleaning data in a rigorous and pr
 
 - identified and corrected format, type and consistency errors;
 - used the `dplyr`, `stringr`, `forcats` and `ggplot2` tools to explore the data from every angle;
-- documented each intervention in a clear and transparent structure with the `cleaning_journal` list.
+- documented each intervention in a clear and transparent structure with the `cleaning_log` list.
 
 **Before finishing**, don’t forget to **push to GitHub** the following three items:
 
 1.  The `.qmd` script of your adventure (where you carried out your tests, analyzes and cleaning)
-2.  The `journal_nettoyage` list saved in a `.Rdata` object
+2.  The `cleaning_log` list saved in a `.Rdata` object
 3.  The cleaned database in `.csv` format
 
 To save your list in a `.Rdata` file, simply use this code at the end of your script:
 
 ``` downlit
-save(cleaning_journal, file = "cleaning_journal.Rdata")
+save(cleaning_log, file = "cleaning_log.Rdata")
 ```
 
-> **Alex**: “You have just done what few people do well: clean data cleanly, keeping track of your decisions. This is what distinguishes a true professional from someone who is tinkering. Hat ! »
+> **Alex**: “You have just done what few people do well: clean data carefully while keeping track of your decisions. That is what distinguishes rigorous work from improvised work. Well done!”

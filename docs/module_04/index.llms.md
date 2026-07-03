@@ -77,17 +77,15 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Livrer un tableau nettoyé avec transformations justifiées. Dans la carte Ouvrir la carteRéduire
+3 Défi Livrer un tableau nettoyé avec transformations justifiées. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-### Défi
+Objectif Nettoyer une base d'assurance et documenter les décisions.
 
-A la fin de l’aventure, vous devez être en mesure d’avoir déposer dans votre dossier Github les éléments suivants :
+Ressource [Page Défi](defi.llms.md)
 
-- le script `.qmd` de votre aventure, c’est à dire un document ou vous faites vos tests et construisez votre liste journal_nettoyage ;
+À remettre Un fichier `.qmd`, `donnees_propres.csv` et `journal_nettoyage.Rdata`.
 
-- la liste `journal_nettoyage` dans un objet `.Rdata` ;
-
-- la base de données nettoyée au format `.csv.`
+Vérifiez que l'importation donne 23 colonnes avant de nettoyer.
 
 4 Exercices Refaire les imports, recodages et contrôles de qualité. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
@@ -105,7 +103,7 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Packages R
 
-[readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [stringr](../packages.llms.md#stringr) [forcats](../packages.llms.md#forcats) [messy](../packages.llms.md#messy)
+[readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [stringr](../packages.llms.md#stringr) [forcats](../packages.llms.md#forcats)
 
 ## Révision et prolongement
 

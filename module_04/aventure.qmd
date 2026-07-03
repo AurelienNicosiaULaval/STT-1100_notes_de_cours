@@ -21,13 +21,13 @@ editor_options:
 
 Vous venez tout juste de commencer un stage comme **ingénieur·e de données junior** dans une grande **compagnie d’assurance**. Vous travaillez avec Alex, un·e analyste d’affaires expérimenté·e, qui vous a confié une mission importante.
 
-Alex vous a fourni une base de données extraite d’un ancien système d’archives. Cette base contient des informations clés sur les clients, les polices d’assurance et les réclamations. Malheureusement, la base est **truffée d’erreurs** : doublons, valeurs manquantes, incohérences, erreurs de format, fautes de frappe…
+Alex vous a fourni une base de données extraite d’un ancien système d’archives. Cette base contient des informations clés sur les clients, les polices d’assurance et les réclamations. Malheureusement, la base est **truffée d’erreurs potentielles** : valeurs manquantes, incohérences, erreurs de format, fautes de frappe, valeurs aberrantes et doublons possibles à vérifier.
 
-Votre rôle sera d’assurer la **qualité des données** pour permettre à Alex de faire une analyse fiable.
+Votre rôle sera d’assurer la **qualité des données** pour permettre à Alex de faire une analyse fiable. Certaines erreurs seront corrigées; d’autres seront seulement signalées si l’information disponible ne permet pas de choisir une correction défendable.
 
 # Objectifs de l’aventure
 
--   Importer une base de données brute (`Dataset_pratique.csv`).
+-   Importer une base de données brute (`dataset_pratique.csv`).
 -   Identifier différents types d’erreurs courantes.
 -   Nettoyer et transformer les données avec `dplyr`, `forcats` et `stringr`.
 -   Documenter de façon claire **toutes les modifications apportées** à la base.
@@ -38,6 +38,7 @@ Votre rôle sera d’assurer la **qualité des données** pour permettre à Alex
 
 1.  Fournir une **base de données propre** (`donnees_propres.csv`).
 2.  Maintenir une **liste R structurée** appelée `journal_nettoyage` dans votre script.
+3.  Sauvegarder cette liste dans un fichier `journal_nettoyage.Rdata`.
 
 >   Pensez à **documenter chaque étape de votre nettoyage**. Votre rigueur est votre meilleure alliée !
 
@@ -83,7 +84,17 @@ journal_nettoyage <- list(
       action = "Suppression",
       justification = "Inutiles pour l’analyse"
     )
-  )
+  ),
+  IF = list(),
+  VA = list(),
+  FT = list(),
+  RC = list(),
+  TY = list(),
+  LG = list(),
+  CI = list(),
+  RU = list(),
+  TR = list(),
+  EC = list()
 )
 journal_nettoyage
 ```
@@ -109,7 +120,7 @@ Comme pour les aventures précédentes :
 -   **Clonez** le dépôt GitHub du module 4 depuis l’organisation du cours. Vous pouvez utiliser la cheat sheet du cours si vous avez un trou de mémoire.
 -   Travaillez dans RStudio et **faites des commits régulièrement** pour documenter votre avancement.
 -   Votre dépôt doit contenir :
-    -   le script `.qmd` de votre aventure, c'est à dire un document ou vous faites vos tests et construisez votre liste `journal_nettoyage` ;
+    -   le script `.qmd` de votre aventure, c’est-à-dire un document où vous faites vos tests et construisez votre liste `journal_nettoyage` ;
     -   la liste `journal_nettoyage` dans un objet `.Rdata` ;
     -   la base de données nettoyée au format `.csv`.
 
@@ -117,26 +128,38 @@ Bonne chance, et que vos données soient propres !
 
 # Importation des données
 
-Avant de nettoyer une base de données, il faut savoir l’importer correctement. Pour cette mission, Alex vous a transmis le fichier `Dataset_pratique.csv`. Il vous recommande de :
+Avant de nettoyer une base de données, il faut savoir l’importer correctement. Pour cette mission, Alex vous a transmis le fichier `dataset_pratique.csv`. Ce fichier est séparé par des points-virgules. Il vous recommande de :
 
--   charger les données dans R avec la fonction `read_csv()` du package `readr`,
+-   charger les données dans R avec la fonction `read_delim()` du package `readr`,
 -   examiner les premières lignes pour repérer les incohérences évidentes,
 -   et convertir immédiatement les noms de colonnes en minuscules avec `janitor::clean_names()` pour faciliter les manipulations à venir.
 
 ``` r
 library(readr)
+library(dplyr)
 library(janitor)
+library(ggplot2)
+library(stringr)
+library(forcats)
 
 # Importation des données
-base <- read_csv("dataset_pratique.csv")
+base <- read_delim(
+  "dataset_pratique.csv",
+  delim = ";",
+  trim_ws = TRUE,
+  show_col_types = FALSE
+)
 
 # Nettoyage des noms de colonnes
-base <- base %>% clean_names()
+base <- base %>%
+  clean_names()
 
 # Aperçu des données
 head(base)
 glimpse(base)
 ```
+
+>   Si vous utilisez `read_csv()` ici, tout le fichier sera lu comme une seule colonne. C’est un bon réflexe de vérifier `ncol(base)` juste après l’importation.
 
 >   **Alex** : « Cette base est un vrai casse-tête ! J’ai besoin que tu la rendes exploitable rapidement. Tu devrais commencer par repérer ce qui cloche dans les noms, les formats ou les valeurs. »
 
@@ -221,17 +244,17 @@ Vous pouvez ensuite les retirer :
 base <- base %>% distinct()
 ```
 
-Si vous voulez repérer les doublons sur une ou plusieurs colonnes clés (ex. : `ID_Variable`), utilisez :
+Si vous voulez repérer les doublons sur une ou plusieurs colonnes clés (ex. : `id_variable`), utilisez :
 
 ``` r
 base %>%
-  group_by(ID_Variable) %>%
+  group_by(id_variable) %>%
   filter(n() > 1)
 ```
 
 >   **Alex** : « Deux clients avec le même numéro, c’est louche. Regarde ce qui se passe. Supprimer aveuglément n’est pas toujours la bonne solution. Note bien ce que tu fais dans le `journal_nettoyage` ! »
 
-Et bien sûr, si vous intervenez, n’oubliez pas de l’indiquer dans la section `DF` de votre `journal_nettoyage`.
+Et bien sûr, si vous intervenez, n’oubliez pas de l’indiquer dans la section `DF` de votre `journal_nettoyage`. Si vous ne trouvez aucun doublon, vous pouvez simplement noter dans votre texte que la vérification a été faite et qu’aucune suppression n’était nécessaire.
 
 ``` r
 journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
@@ -240,7 +263,7 @@ journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
     variables = "Toutes les colonnes",
     probleme = "Doublons complets",
     action = "Lignes supprimées",
-    justification = "Doublons exacts détectés automatiquement"
+    justification = "Exemple illustratif: à adapter seulement si des doublons sont détectés"
   )
 ))
 ```
@@ -249,15 +272,18 @@ journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
 
 On continue l'exploration avec un type de variable souvent négligé… mais qui peut faire dérailler toute une analyse : les **facteurs**.
 
-En R, les facteurs sont utilisés pour représenter des **catégories**. Par exemple, dans la colonne `VEHICLE_TYPE`, chaque valeur correspond à un type de véhicule : `"car"`, `"truck"`, `"CAR"`, `"ANIMAL"`, etc.
+En R, les facteurs sont utilisés pour représenter des **catégories**. Par exemple, dans la colonne `vehicle_type`, chaque valeur correspond à un type de véhicule : `"CAR"`, `"TRUCK"`, `"VAN"`, `"ANIMAL"`, etc.
 
 Pour voir l'ensemble des niveaux d'un facteur, vous pouvez utiliser la fonction `levels()` :
 
 ```{r, eval=FALSE}
-levels(base$VEHICLE_TYPE)
+base <- base %>%
+  mutate(vehicle_type = as_factor(vehicle_type))
+
+levels(base$vehicle_type)
 ```
 
-Bien sur, il faut que ta variable soit de type `factor` pour que cette fonction fonctionne. Si ce n'est pas le cas, vous pouvez la convertir avec `as.factor()` (voir section précédente).
+Bien sûr, il faut que votre variable soit de type `factor` pour que cette fonction fonctionne. Si ce n’est pas le cas, vous pouvez la convertir avec `as.factor()` (voir section précédente).
 
 Le problème ?\
 Quand on regarde les niveaux d’un facteur, on remarque souvent des **doublons déguisés** (`"car"` vs `"CAR"`), des **niveaux aberrants** (`"ANIMAL"`) ou des **catégories très rares** qui ne méritent peut-être pas leur propre niveau.
@@ -279,9 +305,9 @@ Prenez le temps de :
 1.  **Lister les variables de type facteur** avec `glimpse()` ou `select(where(is.factor))`.
 2.  **Explorer les niveaux** avec `fct_count()`.
 3.  **Identifier les incohérences**, comme :
-    -   mêmes valeurs avec casse différente (`"CAR"` vs `"car"`)
-    -   fautes de frappe (`"Commute"` vs `"Com.mute"`)
-    -   niveaux aberrants (`"ANIMAL"` dans `VEHICLE_TYPE`)
+    -   mêmes valeurs avec casse différente (`"CAR"` vs `"car"`) dans certains fichiers
+    -   fautes de frappe ou variantes de saisie
+    -   niveaux aberrants (`"ANIMAL"` dans `vehicle_type`)
 
 >   **Alex** : « Faites attention à ces valeurs étranges. Si une valeur n’a aucun sens dans le contexte (par exemple `"ANIMAL"` dans une colonne sur les types de véhicules), ne cherchez pas à deviner. Mettez-la à `NA`. On préfère une donnée manquante qu’une mauvaise information. »
 
@@ -289,30 +315,33 @@ Prenez le temps de :
 
 ``` r
 # Harmoniser les minuscules/majuscules
-base$VEHICLE_TYPE <- base$VEHICLE_TYPE %>%
-  str_to_title() %>%                     # "car" -> "Car", "TRUCK" -> "Truck"
-  as_factor()
-
-# Remplacer les valeurs aberrantes par NA
-base$VEHICLE_TYPE <- na_if(base$VEHICLE_TYPE, "ANIMAL")
-
-# Ou en changeant les niveaux directement :
-base$VEHICLE_USE <- fct_collapse(
-  base$VEHICLE_USE,
-  Pleasure = c( "Pleasure", "Pleasure"),
-  Commute = c("Commute", "Com.mute"))
+base <- base %>%
+  mutate(
+    vehicle_type = vehicle_type %>%
+      str_to_title() %>%                 # "CAR" -> "Car", "TRUCK" -> "Truck"
+      na_if("Animal") %>%                # niveau aberrant dans ce contexte
+      as_factor()
+  )
 ```
 
-Il ne faudra pas oublier de documenter ces modifications dans votre liste `journal_nettoyage` ! Par exemple, pour la variable `VEHICULE_USE` ci-dessus, vous pourriez ajouter :
+Vous pouvez repérer la ligne concernée avant la correction :
+
+``` r
+base %>%
+  filter(vehicle_type == "ANIMAL") %>%
+  select(id_variable, vehicle_type, vehicle_make, vehicle_model)
+```
+
+Il ne faudra pas oublier de documenter ces modifications dans votre liste `journal_nettoyage` ! Par exemple, pour la variable `vehicle_type` ci-dessus, vous pourriez ajouter :
 
 ```{r}
 journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
   list(
-    id = c(101, 203, 317),  # Adapter avec les bonnes lignes concernées
-    variables = "VEHICLE_USE",
-    probleme = "Fusion de niveaux similaires (majuscules/fautes)",
-    action = "Regroupement de 'Pleasure' et 'pleasure', 'Commute' et 'Com.mute'",
-    justification = "Amélioration de la cohérence et réduction des doublons"
+    id = 40064548,
+    variables = "vehicle_type",
+    probleme = "Niveau aberrant dans une variable de type de véhicule",
+    action = "Remplacement de 'ANIMAL' par NA après harmonisation de la casse",
+    justification = "La valeur ne décrit pas un type de véhicule exploitable"
   )
 ))
 ```
@@ -329,36 +358,36 @@ Tout comme on a vérifié les niveaux des facteurs, on doit vérifier si certain
 
 Prenez chaque variable numérique et résumez-la avec `summary()` ou un boxplot pour identifier les extrêmes.
 
- **Exemple : `COMMUTE_DISTANCE`**
+ **Exemple : `commute_distance`**
 
 ``` r
-summary(base$COMMUTE_DISTANCE)
-ggplot(base, aes(x = COMMUTE_DISTANCE)) +
+summary(base$commute_distance)
+ggplot(base, aes(x = commute_distance)) +
   geom_histogram(bins = 50, fill = "blue", alpha = 0.7) +
   labs(title = "Distribution de la distance de trajet domicile-travail",
        x = "Distance (km)", y = "Fréquence")
 ```
 
-Posez-vous la question : - Une distance de 3000 km pour se rendre au travail, c’est plausible ? - Est-ce que certaines valeurs sont manquantes ou négatives ?
+Posez-vous la question : une distance de 150 km pour se rendre au travail est-elle plausible ou simplement rare ? Est-ce que certaines valeurs sont manquantes ou négatives ?
 
 Si vous intervenez, n'oubliez pas de **justifier dans `journal_nettoyage`**, en utilisant le code `VA` (valeurs aberrantes) ou `VM` (valeurs manquantes).
 
 ## Étape 2 – Combinaisons incohérentes de deux facteurs
 
-Il peut exister des **relations logiques** entre deux variables catégoriques. Par exemple, le trimestre (`QUARTER`) et la saison (`SEASON`) devraient être cohérents.
+Il peut exister des **relations logiques** entre deux variables catégoriques. Par exemple, le trimestre (`quarter`) et la saison (`season`) devraient être cohérents.
 
- **Exemple : `QUARTER` et `SEASON`**
+ **Exemple : `quarter` et `season`**
 
 ``` r
-table(base$QUARTER, base$SEASON)
+table(base$quarter, base$season)
 ```
 
->   **Alex** : « Si tu vois `QUARTER = 1` avec `SEASON = "Summer"`, tu devrais tiquer... Ce genre d’incohérence mérite d’être noté, même si tu ne sais pas quoi corriger. »
+>   **Alex** : « Si tu vois `quarter = "Q2"` avec `season = "Winter"`, tu devrais tiquer... Ce genre d’incohérence mérite d’être noté, même si tu ne sais pas quoi corriger. »
 
 Vous pouvez aussi visualiser avec un graphique à barres croisé :
 
 ``` r
-ggplot(base, aes(x = QUARTER, fill = SEASON)) +
+ggplot(base, aes(x = quarter, fill = season)) +
   geom_bar(position = "fill")
 ```
 
@@ -368,21 +397,21 @@ Si vous corrigez, utilisez le code `CI` (incohérences inter-variables).
 
 Autre vérification : est-ce que certaines **valeurs numériques sont incohérentes pour certains groupes** ?
 
- **Exemple : `AGE` selon `GENERATION`**
+ **Exemple : `age` selon `generation`**
 
 ``` r
 base %>%
-  group_by(GENERATION) %>%
-  summarise(min = min(AGE, na.rm = TRUE),
-            max = max(AGE, na.rm = TRUE),
-            mean = mean(AGE, na.rm = TRUE))
+  group_by(generation) %>%
+  summarise(min = min(age, na.rm = TRUE),
+            max = max(age, na.rm = TRUE),
+            mean = mean(age, na.rm = TRUE))
 
-ggplot(base, aes(x = AGE, fill = GENERATION)) +
+ggplot(base, aes(x = age, fill = generation)) +
   geom_histogram(position = "identity", alpha = 0.6, bins = 40)
 ```
 
--   Est-ce qu’un bébé appartient à la génération X ?
--   Une personne de 122 ans est-elle bien classée ?
+-   Est-ce qu’un âge de 16 ans est cohérent avec les autres variables du dossier ?
+-   Est-ce que les bornes d’âge de chaque génération semblent raisonnables ?
 
 S’il y a recodage ou regroupement à faire, utilisez le code `RC`.
 
@@ -390,14 +419,14 @@ S’il y a recodage ou regroupement à faire, utilisez le code `RC`.
 
 Ici, on vérifie que les relations numériques **ont du sens**.
 
- **Exemple : `AGE` vs `YEARS_LICENSED`**
+ **Exemple : `age` vs `years_licensed`**
 
 ``` r
-ggplot(base, aes(x = AGE, y = YEARS_LICENSED)) +
+ggplot(base, aes(x = age, y = years_licensed)) +
   geom_point(alpha = 0.3)
 ```
 
--   Est-ce qu’il y a des points au-dessus d'une certaines lignes ? De quelle ligne parle t-on ici?
+-   Est-ce qu’il y a des points au-dessus d’une ligne où `years_licensed = age` ?
 -   Peut-on avoir plus d’années de permis que d’âge ?
 
 >   **Alex** : « Tu n’es pas obligé de corriger ici. Par contre, **si tu remarques quelque chose d’étrange**, prends deux minutes pour l’écrire dans le `journal_nettoyage`. Juste pour montrer que tu l’as vu, réfléchi, et que tu as pris une décision. C’est ça être rigoureux. »
@@ -408,11 +437,13 @@ Utilisez ici le code `LG` pour une **erreur logique**.
 
 Voici quelques autres choses à garder à l’œil :
 
--   **Variables redondantes** : deux colonnes qui disent la même chose (`CITY_NAME` et `MUNICIPALITY`)
+-   **Codes postaux incomplets ou trop longs** : la colonne `fsa_code` devrait contenir trois caractères.
+-   **Années de véhicule improbables** : une valeur comme `14` dans `vehicle_year` n’a pas le même sens que `2014`.
+-   **Variables redondantes** : deux colonnes qui disent la même chose.
 -   **Colonnes inutiles** : identifiants internes, colonnes vides ou avec une seule modalité (`EC` ou `RU`)
 -   **Problèmes de format de texte** : accents, caractères spéciaux (`stringr::str_detect`)
 -   **Colonnes fusionnées à la hâte** : chaînes comme `"Smith, John"` dans une seule cellule au lieu de deux (`TR`)
--   **Format de dates mélangés** : on a laissé cela de côté depuis le début de ce cours, mais sachez que ca s'en vient, nous aurons un module spécial sur les dates.
+-   **Format de dates mélangés** : on a laissé cela de côté depuis le début de ce cours, mais sachez que cela s’en vient, nous aurons un module spécial sur les dates.
 
  *Tout au long de votre nettoyage, documentez vos décisions dans la liste `journal_nettoyage`. Le but n’est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.*
 

@@ -77,17 +77,15 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Deliver a cleaned table with justified transformations. In this card Open cardCollapse
+3 Challenge Deliver a cleaned table with justified transformations. [Challenge](defi.llms.md) Open cardCollapse
 
-### Challenge
+Goal Clean an insurance dataset and document the decisions.
 
-At the end of the adventure, you should be able to have placed the following elements in your Github folder:
+Resource [Challenge page](defi.llms.md)
 
-- the `.qmd` script for your adventure, that is to say a document where you do your tests and build your cleaning_journal list;
+Submit A `.qmd` file, `clean_data.csv` and `cleaning_log.Rdata`.
 
-- the `journal_nettoyage` list in a `.Rdata` object;
-
-- the cleaned database in `.csv.` format
+Check that the import produces 23 columns before cleaning.
 
 4 Exercises Redo imports, recoding and quality checks. [Exercises](exercices.llms.md) Open cardCollapse
 
@@ -105,7 +103,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### R packages
 
-[readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [stringr](../packages.llms.md#stringr) [forcats](../packages.llms.md#forcats) [messy](../packages.llms.md#messy)
+[readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [stringr](../packages.llms.md#stringr) [forcats](../packages.llms.md#forcats)
 
 ## Review and Extension
 

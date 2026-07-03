@@ -16,6 +16,7 @@ then display the structure of the object.
 >
 > ``` r
 > library(readr)
+> library(dplyr)
 >
 > policies <- read_csv(
 >   "policies.csv",
@@ -27,15 +28,28 @@ then display the structure of the object.
 > glimpse(policies)
 > ```
 
-### Exercise 2 – Cleaning up missing values (Data import, ex. 4)
+### Exercise 2 – Recoding categorical values
 
-The file contains the string `"missing"` to indicate an absence in `vehicle_type`.
-Re-import the file by converting it to `NA`.
+The variable `vehicle_use` contains the values `"Pleasure"`, `"pleasure"`, `"Commute"` and `"Com.mute"`.
+Recode this variable to keep only the levels `"Pleasure"` and `"Commute"`.
 
 > **NOTE:**
 >
 > ``` r
-> policies <- read_csv("policies.csv", na = "missing")
+> library(readr)
+> library(dplyr)
+> library(forcats)
+>
+> policies <- read_csv("policies.csv", show_col_types = FALSE) %>%
+>   mutate(
+>     vehicle_use = fct_collapse(
+>       as.factor(vehicle_use),
+>       Pleasure = c("Pleasure", "pleasure"),
+>       Commute = c("Commute", "Com.mute")
+>     )
+>   )
+>
+> table(policies$vehicle_use)
 > ```
 
 ### Exercise 3 – Long \<-\> wide passage (Data tidy, § pivot)
@@ -63,6 +77,29 @@ The `q1_claims:q4_claims` columns represent the number of claims per quarter.
 >   pivot_wider(names_from = quarter, values_from = claims)
 > ```
 
+### Exercise 4 – Controlled import of the main file
+
+Import `dataset_pratique.csv`, clean the column names and verify that the table contains 23 columns.
+
+> **NOTE:**
+>
+> ``` r
+> library(readr)
+> library(dplyr)
+> library(janitor)
+>
+> base <- read_delim(
+>   "dataset_pratique.csv",
+>   delim = ";",
+>   trim_ws = TRUE,
+>   show_col_types = FALSE
+> ) %>%
+>   clean_names()
+>
+> ncol(base)
+> glimpse(base)
+> ```
+
 ### Exercise 5 – Read a specific Excel sheet (Import spreadsheets, ex. 3)
 
 The workbook `quotes_2024.xlsx` has a sheet “Q3” where the labels start on the 2nd line.
@@ -72,6 +109,7 @@ Import it and check the types.
 >
 > ``` r
 > library(readxl)
+> library(dplyr)
 >
 > q3 <- read_excel(
 >   "resources/quotes_2024.xlsx",
@@ -83,7 +121,7 @@ Import it and check the types.
 
 ### Exercise 6 – Parse numbers with locale (Data import, ex. 5)
 
-The `euro_premium` column contains “1,234.56” (decimal point, space 000).
+The `euro_premium` column contains `"1 234,56"` (decimal comma, space as thousands separator).
 Parse it correctly as a `double`.
 
 > **NOTE:**
@@ -91,14 +129,14 @@ Parse it correctly as a `double`.
 > ``` r
 > library(readr)
 >
-> parse_number("1234.56", locale = locale(decimal_mark = ",", grouping_mark = " "))
+> parse_number("1 234,56", locale = locale(decimal_mark = ",", grouping_mark = " "))
 > ```
 
 ### Exercise 7 – Rectangling a JSON list (Lists, ex. 1-2)
 
 You have a list `lst <- jsonlite::read_json("coverage.json")`.
 
-1.  Get `lst$collision$limit`.
+1.  Get `lst$coverage$collision$limit`.
 
 2.  Transform `lst` into a rectangular tibble.
 
@@ -108,12 +146,19 @@ You have a list `lst <- jsonlite::read_json("coverage.json")`.
 > library(jsonlite)
 > library(tidyr)
 > library(dplyr)
+> library(tibble)
 >
 > lst <- read_json("coverage.json")
-> limit <- lst$collision$limit
+> limit <- lst$coverage$collision$limit
 >
-> tbl <- tibble(row = lst) %>%
->   unnest_wider(row)
+> tbl <- tibble(
+>   coverage_type = names(lst$coverage),
+>   details = lst$coverage
+> ) %>%
+>   unnest_wider(details)
+>
+> limit
+> tbl
 > ```
 
 ### Exercise 8 – Express pipeline (Summary)
@@ -131,5 +176,8 @@ In three lines:
 > ``` r
 > library(readr); library(dplyr); library(janitor)
 >
-> read_csv("policies.csv") %>% clean_names() %>% slice_max(claim_amount, n = 5, by = vehicle_type)
+> read_csv("policies.csv", show_col_types = FALSE) %>%
+>   clean_names() %>%
+>   group_by(vehicle_type) %>%
+>   slice_max(claim_amount, n = 5, with_ties = FALSE)
 > ```
