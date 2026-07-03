@@ -86,19 +86,7 @@ JSON file associated with policy coverages.Local file? observations / 2 variable
 
 ### Module 05
 
-[Module 05 ](#policies-module-05)
-
-## policies.csv
-
-Small CSV file about insurance policies.Local file15 observations / 9 variablesView profile [Module 05 ](#coverage-module-05)
-
-## coverage.json
-
-JSON file associated with policy coverages.Local file? observations / 2 variablesView profile [Module 05 ](#quotes-module-05)
-
-## quotes_2024.xlsx
-
-Excel file containing one sheet named Q3.Local fileStructure to consultView profile [Module 05 ](#flights-merged-2023)
+[Module 05 ](#flights-merged-2023)
 
 ## flights_merged_2023.rds
 
@@ -315,92 +303,6 @@ Excel file containing one sheet named Q3.
 | Course use   | Import an Excel file and check the structure of a table. |
 | Source       | File provided with the course material.                  |
 | License      | Course teaching material.                                |
-
-#### Preview
-
-Preview limited to 12 rows and 12 columns to keep the page light.
-
-#### Preview variables
-
-| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
-|:---|:---|---:|---:|:---|
-| Quotes Q3 2024 | character | 0 | 5 | policy_id |
-| …2 | character | 0 | 5 | quote_date |
-| …3 | character | 0 | 5 | quote_amount |
-
-### policies.csv
-
-Small CSV file about insurance policies.
-
-[Download policies.csv](module_05/policies.csv)
-
-| Information  | Value                                                |
-|:-------------|:-----------------------------------------------------|
-| Module       | Module 05                                            |
-| Observations | 15                                                   |
-| Variables    | 9                                                    |
-| Course use   | Build summaries and prepare links between variables. |
-| Source       | File provided with the course material.              |
-| License      | Course teaching material.                            |
-
-#### Preview
-
-Preview limited to 12 rows and 12 columns to keep the page light.
-
-#### Preview variables
-
-| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
-|:---|:---|---:|---:|:---|
-| policy_id | character | 0 | 15 | P001 |
-| premium_amount | numeric | 0 | 15 | 750.5 |
-| vehicle_type | character | 0 | 2 | car |
-| vehicle_use | character | 0 | 4 | Pleasure |
-| q1_claims | numeric | 0 | 4 | 2 |
-| q2_claims | numeric | 0 | 3 | 1 |
-| q3_claims | numeric | 0 | 3 | 0 |
-| q4_claims | numeric | 0 | 3 | 1 |
-| claim_amount | numeric | 0 | 11 | 1200 |
-
-### coverage.json
-
-JSON file associated with policy coverages.
-
-[Download coverage.json](module_05/coverage.json)
-
-| Information  | Value                                          |
-|:-------------|:-----------------------------------------------|
-| Module       | Module 05                                      |
-| Observations | Not determined automatically                   |
-| Variables    | 2                                              |
-| Course use   | Practice nested data and their transformation. |
-| Source       | File provided with the course material.        |
-| License      | Course teaching material.                      |
-
-#### Preview
-
-Preview limited to 12 rows and 12 columns to keep the page light.
-
-#### Preview variables
-
-| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
-|:---|:---|---:|---:|:---|
-| element | character | 0 | 2 | policy_id |
-| value | character | 0 | 2 | chr “P001” |
-
-### quotes_2024.xlsx
-
-Excel file containing one sheet named Q3.
-
-[Download quotes_2024.xlsx](module_05/resources/quotes_2024.xlsx)
-
-| Information  | Value                                              |
-|:-------------|:---------------------------------------------------|
-| Module       | Module 05                                          |
-| Observations | Not determined automatically                       |
-| Variables    | Not determined automatically                       |
-| Course use   | Import an Excel file and connect multiple sources. |
-| Source       | File provided with the course material.            |
-| License      | Course teaching material.                          |
 
 #### Preview
 

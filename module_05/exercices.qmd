@@ -5,197 +5,257 @@ format:
   html:
     toc: true
     toc-title: Plan
-    self-contained: true
+    embed-resources: true
     link-external-newwindow: true
-# number-sections: true
     css: [../css/base_css.css]
 editor: visual
 ---
 
 # Objectifs du module
 
-À la fin de ce module, vous devriez être capable de
+À la fin de ce module, vous devriez être capable de :
 
-# Lectures initiales
+- préparer des variables de dates avec `lubridate`;
+- résumer des retards par groupe en tenant compte du nombre d'observations;
+- visualiser des relations entre variables numériques ou catégorielles;
+- calculer et interpréter une corrélation simple;
+- formuler des conclusions exploratoires sans surinterpréter.
 
-## Lectures à faire avant l’aventure
+# Lectures à revoir
 
-Dans ce module, nous allons explorer les concepts de base de l'importation et du nettoyage de données. Voici quelques lectures initiales pour vous préparer :
-
--   [**R for Data Science – Data import**](https://r4ds.hadley.nz/data-import.html){target="_blank"}\
-    Ce chapitre vous introduit à l’importation de données avec le package `readr`.\
-
--   [**R for Data Science – Data tidying**](https://r4ds.hadley.nz/data-tidy.html){target="_blank"}\
-    Ce chapitre vous introduit à la manipulation de données avec le package `dplyr`.\
-
--   [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html){target="_blank"}\
-    Ce chapitre vous introduit aux **facteurs** en R, qui sont des variables catégoriques.\
-    \>  **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `factor()` ou `fct_reorder()` peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).
-
--   [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}\
-    Ce chapitre vous introduit à l’importation de données à partir de fichiers Excel.\
-
--   [**R for Data Science – Lists**](https://r4ds.hadley.nz/rectangling.html#lists){target="_blank"}\
-    Cette section vous introduit au concept de liste en programmation.\
+- [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html){target="_blank"}
+- [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html){target="_blank"}
+- [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html){target="_blank"}
+- [Introduction to Modern Statistics - Exploratory data analysis](https://openintro-ims.netlify.app/explore-data){target="_blank"}
 
 # Aventure
 
-[Aventure 4](https://sitescours.monportail.ulaval.ca/contenu/sitescours/036/03609/202509/site177541/modules1395096/module1747262/page4742827/bloccontenu5043393/Aventure%204.html?identifiant=afa8069a82b693eba79bcfb3092d453ef69c140a){target="_blank"}
+[Aventure 5](aventure.qmd)
 
 # Défi
 
-A la fin de l'aventure, vous devez être en mesure d'avoir déposer dans votre dossier Github les éléments suivants :
+[Défi 5](defi.qmd)
 
--   le script `.qmd` de votre aventure, c'est à dire un document ou vous faites vos tests et construisez votre liste journal_nettoyage ;
+# Préparation
 
--   la liste `journal_nettoyage` dans un objet `.Rdata` ;
+Les exercices utilisent le fichier `flights_merged_2023.rds`.
 
--   la base de données nettoyée au format `.csv.`
+```r
+library(tidyverse)
+library(lubridate)
+
+flights <- readRDS("flights_merged_2023.rds")
+```
 
 # Exercices de consolidation
 
-### Exercice 1 – Lecture contrôlée d’un CSV (Data import, § readr)
+## Exercice 1 - Vérifier la structure
 
-Importez `policies.csv` en :
-
--   forçant `policy_id` en **character** ;
-
--   laissant `premium_amount` en **double**
-
-puis affichez la structure de l’objet.
+Chargez les données, affichez la structure et vérifiez le nombre de lignes et de colonnes.
 
 ::: {.callout-note collapse="true"}
 ### Réponse
 
-``` r
-library(readr)
+```r
+glimpse(flights)
 
-policies <- read_csv(
-  "policies.csv",
-  col_types = cols(
-    policy_id      = col_character(),
-    premium_amount = col_double()
+flights |>
+  summarise(
+    n_vols = n(),
+    n_colonnes = ncol(flights)
   )
-)
-glimpse(policies)
 ```
 :::
 
-### Exercice 2 – Nettoyage des valeurs manquantes (Data import, ex. 4)
+## Exercice 2 - Créer des variables temporelles
 
-Le fichier contient la chaîne `"missing"` pour indiquer une absence dans `vehicle_type`.\
-Ré-importez le fichier en la convertissant en `NA`.
+Créez les variables `date`, `jour_semaine` et `moment_journee`.
 
 ::: {.callout-note collapse="true"}
 ### Réponse
 
-``` r
-policies <- read_csv("policies.csv", na = "missing")
-```
-:::
-
-### Exercice 3 – Passage long <-> large (Data tidy, § pivot)
-
-Les colonnes `q1_claims:q4_claims` représentent le nombre de réclamations par trimestre.
-
-1.  Mettez-les en *long* (`quarter`, `claims`).
-
-2.  Revenez ensuite en *wide*.
-
-::: {.callout-note collapse="true"}
-### Réponse
-
-``` r
-library(tidyr)
-library(dplyr)
-
-pol_long <- policies %>%
-  pivot_longer(
-    cols = q1_claims:q4_claims,
-    names_to  = "quarter",
-    values_to = "claims"
+```r
+flights <- flights |>
+  mutate(
+    date = make_date(year, month, day),
+    jour_semaine = wday(date, label = TRUE, abbr = FALSE),
+    moment_journee = case_when(
+      hour < 6 ~ "nuit",
+      hour < 12 ~ "matin",
+      hour < 18 ~ "après-midi",
+      TRUE ~ "soir"
+    )
   )
 
-pol_wide <- pol_long %>%
-  pivot_wider(names_from = quarter, values_from = claims)
+flights |>
+  select(date, jour_semaine, hour, moment_journee) |>
+  slice_head(n = 10)
 ```
 :::
 
-### Exercice 5 – Lire une feuille Excel précise (Import spreadsheets, ex. 3)
+## Exercice 3 - Repérer les valeurs manquantes importantes
 
-Le classeur `quotes_2024.xlsx` possède une feuille « Q3 » où les libellés commencent à la 2ᵉ ligne.\
-Importez-la et vérifiez les types.
+Calculez le nombre de valeurs manquantes dans `dep_time`, `dep_delay`, `plane_year`, `wind_gust`, `visib` et `precip`.
 
 ::: {.callout-note collapse="true"}
 ### Réponse
 
-``` r
-library(readxl)
-
-q3 <- read_excel(
-  "resources/quotes_2024.xlsx",
-  sheet = "Q3",
-  skip  = 1   # on saute la première ligne
-)
-glimpse(q3)
+```r
+flights |>
+  summarise(
+    dep_time_manquant = sum(is.na(dep_time)),
+    dep_delay_manquant = sum(is.na(dep_delay)),
+    plane_year_manquant = sum(is.na(plane_year)),
+    wind_gust_manquant = sum(is.na(wind_gust)),
+    visib_manquant = sum(is.na(visib)),
+    precip_manquant = sum(is.na(precip))
+  )
 ```
 :::
 
-### Exercice 6 – Parse de nombres avec locale (Data import, ex. 5)
+## Exercice 4 - Retard moyen selon l'heure
 
-La colonne `euro_premium` contient « 1 234,56 » (virgule décimale, espace 000).\
-Parsez-la correctement en `double`.
+Calculez le retard moyen au départ par heure prévue de départ. Ajoutez aussi le nombre de vols par heure.
 
 ::: {.callout-note collapse="true"}
 ### Réponse
 
-``` r
-library(readr)
+```r
+retards_heure <- flights |>
+  group_by(hour) |>
+  summarise(
+    n_vols = n(),
+    retard_moyen = mean(dep_delay, na.rm = TRUE),
+    .groups = "drop"
+  )
 
-parse_number("1 234,56", locale = locale(decimal_mark = ",", grouping_mark = " "))
+retards_heure |>
+  arrange(desc(retard_moyen))
 ```
 :::
 
-### Exercice 7 – Rectangling d’une liste JSON (Lists, ex. 1-2)
+## Exercice 5 - Visualiser les retards par créneau
 
-Vous disposez d’une liste `lst <- jsonlite::read_json("coverage.json")`.
-
-1.  Récupérez `lst$collision$limit`.
-
-2.  Transformez `lst` en tibble rectangulaire.
+Produisez un boxplot de `dep_delay` selon `moment_journee`. Pour rendre le graphique lisible, limitez l'affichage aux retards entre -30 et 180 minutes.
 
 ::: {.callout-note collapse="true"}
 ### Réponse
 
-``` r
-library(jsonlite)
-library(tidyr)
-library(dplyr)
-
-lst   <- read_json("coverage.json")
-limit <- lst$collision$limit
-
-tbl <- tibble(row = lst) %>%
-  unnest_wider(row)
+```r
+flights |>
+  filter(!is.na(dep_delay), between(dep_delay, -30, 180)) |>
+  ggplot(aes(x = moment_journee, y = dep_delay)) +
+  geom_boxplot() +
+  labs(
+    title = "Distribution des retards selon le moment de la journée",
+    x = "Moment de la journée",
+    y = "Retard au départ (minutes)"
+  )
 ```
 :::
 
-### Exercice 8 – Pipeline express (Synthèse)
+## Exercice 6 - Corrélation météo
 
-En trois lignes :
-
-1.  importez `policies.csv` ;
-
-2.  nettoyez les noms (`janitor::clean_names`) ;
-
-3.  renvoyez les **5** plus grosses `claim_amount` par `vehicle_type`.
+Calculez la corrélation entre `dep_delay`, `wind_gust`, `visib` et `precip`.
 
 ::: {.callout-note collapse="true"}
 ### Réponse
 
-``` r
-library(readr); library(dplyr); library(janitor)
-
-read_csv("policies.csv") %>% clean_names() %>% slice_max(claim_amount, n = 5, by = vehicle_type)
+```r
+flights |>
+  select(dep_delay, wind_gust, visib, precip) |>
+  cor(use = "complete.obs") |>
+  round(2)
 ```
+
+Une corrélation faible ne prouve pas qu'une variable est inutile. Elle indique seulement que la relation linéaire globale est faible dans ce résumé.
+:::
+
+## Exercice 7 - Nuage de points météo
+
+Créez un nuage de points entre `wind_gust` et `dep_delay`. Utilisez un échantillon de 5 000 vols pour garder le graphique lisible.
+
+::: {.callout-note collapse="true"}
+### Réponse
+
+```r
+flights |>
+  filter(!is.na(wind_gust), !is.na(dep_delay)) |>
+  slice_sample(n = 5000) |>
+  ggplot(aes(x = wind_gust, y = dep_delay)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(
+    title = "Rafales de vent et retards au départ",
+    x = "Rafales de vent (mph)",
+    y = "Retard au départ (minutes)"
+  )
+```
+:::
+
+## Exercice 8 - Âge des avions
+
+Créez `age_avion`, regroupez les vols en tranches d'âge et calculez le retard moyen ainsi que le taux d'annulation.
+
+::: {.callout-note collapse="true"}
+### Réponse
+
+```r
+flights |>
+  mutate(
+    age_avion = 2023 - plane_year,
+    tranche_age = cut(
+      age_avion,
+      breaks = c(-Inf, 5, 10, 15, 20, Inf),
+      labels = c("0-5", "6-10", "11-15", "16-20", "21+")
+    )
+  ) |>
+  filter(!is.na(tranche_age)) |>
+  group_by(tranche_age) |>
+  summarise(
+    n_vols = n(),
+    retard_moyen = mean(dep_delay, na.rm = TRUE),
+    taux_annulation = mean(is.na(dep_time)),
+    .groups = "drop"
+  )
+```
+:::
+
+## Exercice 9 - Comparer les compagnies
+
+Identifiez les dix compagnies ayant le plus de vols, puis comparez leur retard moyen.
+
+::: {.callout-note collapse="true"}
+### Réponse
+
+```r
+top_compagnies <- flights |>
+  count(name, sort = TRUE) |>
+  slice_head(n = 10)
+
+flights |>
+  semi_join(top_compagnies, by = "name") |>
+  group_by(name) |>
+  summarise(
+    n_vols = n(),
+    retard_moyen = mean(dep_delay, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(retard_moyen))
+```
+:::
+
+## Exercice 10 - Formuler une conclusion prudente
+
+Choisissez un résultat des exercices précédents et rédigez deux phrases :
+
+1. une phrase qui décrit le résultat observé;
+2. une phrase qui précise une limite ou une explication alternative.
+
+::: {.callout-note collapse="true"}
+### Exemple de réponse
+
+Si les retards moyens semblent plus élevés en soirée, on peut écrire :
+
+> Les vols prévus en soirée présentent des retards moyens plus élevés dans ces données. Cette comparaison reste descriptive, car elle ne contrôle pas la destination, la compagnie, la météo ou les effets d'accumulation des retards dans la journée.
 :::

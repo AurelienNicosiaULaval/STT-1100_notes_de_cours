@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Aventure 5 - Explorer et comprendre les relations entre les données – STT-1100 Introduction à la science des données</title>
+<title>Défi 5 - Explorer les retards de vols – STT-1100 Introduction à la science des données</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5830,33 +5830,17 @@ margin-bottom: .05rem;
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Plan de l’aventure</h2>
+    <h2 id="toc-title">Plan du défi</h2>
 
   <ul>
-  <li><a href="#mise-en-situation---aventure-5" id="toc-mise-en-situation---aventure-5" class="nav-link active" data-scroll-target="#mise-en-situation---aventure-5">Mise en situation - Aventure 5</a></li>
-  <li><a href="#objectifs-de-laventure" id="toc-objectifs-de-laventure" class="nav-link" data-scroll-target="#objectifs-de-laventure">Objectifs de l’aventure</a></li>
-  <li><a href="#comment-réussir-cette-aventure" id="toc-comment-réussir-cette-aventure" class="nav-link" data-scroll-target="#comment-réussir-cette-aventure">Comment réussir cette aventure ?</a></li>
-  <li><a href="#github-et-rendu" id="toc-github-et-rendu" class="nav-link" data-scroll-target="#github-et-rendu">GitHub et rendu</a></li>
-  <li><a href="#comprendre-et-manipuler-les-dates-avec-lubridate" id="toc-comprendre-et-manipuler-les-dates-avec-lubridate" class="nav-link" data-scroll-target="#comprendre-et-manipuler-les-dates-avec-lubridate">Comprendre et manipuler les dates avec <code>lubridate</code></a>
-  <ul class="collapse">
-  <li><a href="#fonctionnalités-essentielles" id="toc-fonctionnalités-essentielles" class="nav-link" data-scroll-target="#fonctionnalités-essentielles">Fonctionnalités essentielles</a></li>
-  <li><a href="#exercice-1---quelle-est-la-structure-de-la-date" id="toc-exercice-1---quelle-est-la-structure-de-la-date" class="nav-link" data-scroll-target="#exercice-1---quelle-est-la-structure-de-la-date">Exercice 1 - Quelle est la structure de la date ?</a></li>
-  <li><a href="#exercice-2---jour-de-la-semaine" id="toc-exercice-2---jour-de-la-semaine" class="nav-link" data-scroll-target="#exercice-2---jour-de-la-semaine">Exercice 2 - Jour de la semaine</a></li>
-  <li><a href="#exercice-3---créneau-horaire" id="toc-exercice-3---créneau-horaire" class="nav-link" data-scroll-target="#exercice-3---créneau-horaire">Exercice 3 - Créneau horaire</a></li>
-  <li><a href="#exercice-4---est-ce-un-week-end" id="toc-exercice-4---est-ce-un-week-end" class="nav-link" data-scroll-target="#exercice-4---est-ce-un-week-end">Exercice 4 - Est-ce un week-end ?</a></li>
-  </ul></li>
-  <li><a href="#explorer-et-comprendre-les-relations-entre-les-données" id="toc-explorer-et-comprendre-les-relations-entre-les-données" class="nav-link" data-scroll-target="#explorer-et-comprendre-les-relations-entre-les-données">Explorer et comprendre les relations entre les données</a>
-  <ul class="collapse">
-  <li><a href="#outils-à-ta-disposition" id="toc-outils-à-ta-disposition" class="nav-link" data-scroll-target="#outils-à-ta-disposition">Outils à ta disposition</a></li>
-  <li><a href="#analyse-1---à-quelle-heure-faut-il-éviter-de-partir" id="toc-analyse-1---à-quelle-heure-faut-il-éviter-de-partir" class="nav-link" data-scroll-target="#analyse-1---à-quelle-heure-faut-il-éviter-de-partir">Analyse 1 - À quelle heure faut-il éviter de partir ?</a></li>
-  <li><a href="#analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" id="toc-analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" class="nav-link" data-scroll-target="#analyse-2---la-météo-est-elle-vraiment-liée-aux-retards">Analyse 2 - La météo est-elle vraiment liée aux retards ?</a>
-  <ul class="collapse">
-  <li><a href="#quest-ce-que-la-corrélation" id="toc-quest-ce-que-la-corrélation" class="nav-link" data-scroll-target="#quest-ce-que-la-corrélation">Qu’est-ce que la corrélation ?</a></li>
-  <li><a href="#étape-1---calculer-la-corrélation" id="toc-étape-1---calculer-la-corrélation" class="nav-link" data-scroll-target="#étape-1---calculer-la-corrélation">Étape 1 - Calculer la corrélation</a></li>
-  <li><a href="#étape-2---visualiser-une-relation" id="toc-étape-2---visualiser-une-relation" class="nav-link" data-scroll-target="#étape-2---visualiser-une-relation">Étape 2 - Visualiser une relation</a></li>
-  </ul></li>
-  <li><a href="#analyse-3---les-vieux-avions-sont-ils-moins-fiables" id="toc-analyse-3---les-vieux-avions-sont-ils-moins-fiables" class="nav-link" data-scroll-target="#analyse-3---les-vieux-avions-sont-ils-moins-fiables">Analyse 3 - Les vieux avions sont-ils moins fiables ?</a></li>
-  </ul></li>
+  <li><a href="#mission" id="toc-mission" class="nav-link active" data-scroll-target="#mission">Mission</a></li>
+  <li><a href="#données-de-départ" id="toc-données-de-départ" class="nav-link" data-scroll-target="#données-de-départ">Données de départ</a></li>
+  <li><a href="#questions-à-traiter" id="toc-questions-à-traiter" class="nav-link" data-scroll-target="#questions-à-traiter">Questions à traiter</a></li>
+  <li><a href="#points-de-vigilance" id="toc-points-de-vigilance" class="nav-link" data-scroll-target="#points-de-vigilance">Points de vigilance</a></li>
+  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
+  <li><a href="#structure-suggérée" id="toc-structure-suggérée" class="nav-link" data-scroll-target="#structure-suggérée">Structure suggérée</a></li>
+  <li><a href="#grille-dévaluation" id="toc-grille-dévaluation" class="nav-link" data-scroll-target="#grille-dévaluation">Grille d’évaluation</a></li>
+  <li><a href="#checklist-avant-remise" id="toc-checklist-avant-remise" class="nav-link" data-scroll-target="#checklist-avant-remise">Checklist avant remise</a></li>
   </ul>
 </nav>
     </div>
@@ -5865,7 +5849,7 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Aventure 5 - Explorer et comprendre les relations entre les données</h1>
+<h1 class="title">Défi 5 - Explorer les retards de vols</h1>
 <p class="subtitle lead">STT-1100 Introduction à la science des données</p>
 </div>
 
@@ -5883,470 +5867,149 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mise-en-situation---aventure-5" class="level1">
-<h1>Mise en situation - Aventure 5</h1>
-<p>Tu enfiles les chaussures (et le badge sécurisé !) d’un·e <strong>statisticien·ne des opérations aéroportuaires</strong> fraîchement recruté·e par la <strong>Port Authority Data Lab (PADL)</strong>, l’équipe d’analytique du <strong>Port Authority of New York &amp; New Jersey</strong>.<br>
-Ta mission : aider l’aéroport <strong>JFK</strong> (et, à terme, <strong>EWR</strong> et <strong>LGA</strong>) à fluidifier les départs et à réduire le <strong>temps perdu au sol</strong>.</p>
-<ul>
-<li><strong>Ta coéquipière</strong> : <strong>Dr Sofia Martínez</strong>, data-scientist senior reconnue pour ses visualisations interactives percutantes. Sofia pose les bonnes questions, valide tes hypothèses et t’ouvre l’accès aux ressources internes.<br>
-</li>
-<li><strong>Le jeu de données</strong> : <strong>Alex Chen</strong>, data engineer au PADL, t’a préparé un fichier <strong><code>flights_merged_2023.rds</code></strong> qui regroupe en une seule table exhaustive les vols 2023, la météo à l’heure de départ, les infos avion, les noms complets des compagnies et la géolocalisation des aéroports d’origine et de destination.<br>
-</li>
-<li><strong>Contexte concret</strong> : le Board des opérations veut savoir <em>quand</em> et <em>pourquoi</em> les retards explosent, comment la météo influe sur les connexions, et quelles compagnies devraient revoir leur plan de vol. Tes livrables (rapports Quarto + visualisations) orienteront les décisions budgétaires pour l’été 2026.</li>
-</ul>
-<blockquote class="blockquote">
-<p><strong>Brief de Sofia</strong><br>
-1. Quels créneaux horaires affichent systématiquement les retards les plus élevés ?<br>
-2. Les variables météo disponibles sont-elles associées aux retards, et jusqu’où peut-on interpréter cette association ?<br>
-3. Les avions plus âgés (&gt; 20 ans) sont-ils davantage sujets aux annulations ?</p>
-<p>À toi de jouer !</p>
-</blockquote>
+<section id="mission" class="level1">
+<h1>Mission</h1>
+<p>Vous travaillez avec Dr Sofia Martínez au Port Authority Data Lab. Votre mission est de produire un court rapport exploratoire sur les retards des vols au départ de New York en 2023.</p>
+<p>Le but n’est pas de prouver une cause unique. Le but est de montrer que vous savez préparer des variables temporelles, visualiser des relations, calculer des associations simples et interpréter les résultats avec prudence.</p>
 </section>
-<section id="objectifs-de-laventure" class="level1">
-<h1>Objectifs de l’aventure</h1>
-<ul>
-<li>Utiliser les fonctions de <code>lubridate</code> pour manipuler et enrichir les données temporelles.</li>
-<li>Réaliser une analyse exploratoire des données (EDA) pour mieux comprendre leur structure et identifier des patterns intéressants.</li>
-<li>Visualiser les relations entre variables à l’aide de <code>ggplot2</code>.</li>
-<li>Interpréter des résultats statistiques simples, comme la corrélation.</li>
-<li>Répondre à des questions concrètes en lien avec des enjeux réels (retards, météo, flotte d’avions).</li>
-</ul>
-</section>
-<section id="comment-réussir-cette-aventure" class="level1">
-<h1>Comment réussir cette aventure ?</h1>
-<p>Voici quelques conseils de Sofia pour bien réussir ta mission :</p>
-<ul>
-<li>Commence par <strong>explorer les données</strong> et comprendre leur structure. Tu peux utiliser <code>glimpse()</code>, <code>summary()</code>, ou même un tableau interactif.</li>
-<li>Utilise les fonctions de <code>lubridate</code> pour créer des colonnes temporelles utiles (jour, mois, heure, etc.).</li>
-<li>Pour chaque question, <strong>structure ton analyse</strong> :
-<ul>
-<li>explique ce que tu cherches à tester ;</li>
-<li>montre ton code ;</li>
-<li>interprète le résultat.</li>
-</ul></li>
-<li>Privilégie des visualisations claires et bien annotées. N’oublie pas d’ajouter des titres, axes, etc.</li>
-<li>Commente ton code au besoin. Imagine que tu travailles en équipe avec Sofia !</li>
-</ul>
-<p>Et surtout… <strong>pose-toi des questions</strong> ! L’important, c’est de développer ton raisonnement analytique.</p>
-</section>
-<section id="github-et-rendu" class="level1">
-<h1>GitHub et rendu</h1>
-<p>Comme pour les aventures précédentes :</p>
-<ul>
-<li><p><strong>Clonez</strong> le dépôt GitHub du module 5 depuis l’organisation du cours. Vous pouvez utiliser la cheat sheet du cours si vous avez un trou de mémoire.</p></li>
-<li><p>Travaillez dans RStudio et <strong>faites des commits régulièrement</strong> pour documenter votre avancement.</p></li>
-<li><p>Votre dépôt doit contenir :</p></li>
-<li><p>un fichier <strong><code>rapport.qmd</code></strong> bien structuré contenant :</p>
-<ul>
-<li><p>votre code R ;</p></li>
-<li><p>des visualisations commentées ;</p></li>
-<li><p>des interprétations claires pour chaque analyse demandée ;</p></li>
-<li><p>des encadrés <code>callout</code> (type <code>.tip</code>, <code>.warning</code>, etc.) pour faire ressortir vos conclusions ;</p></li>
-<li><p>un fichier <strong><code>rapport.html</code></strong> généré à partir du <code>.qmd</code> (vous pouvez utiliser le bouton “Render” dans RStudio) ;</p></li>
-<li><p>tous les fichiers nécessaires à la reproduction de votre travail (ex. : script de préparation, jeu de données <code>flights_merged_2023.rds</code>, etc.).</p></li>
-</ul></li>
-<li><p>Le dépôt doit rester <strong>propre et bien organisé</strong> :</p>
-<ul>
-<li>ne conservez pas les fichiers inutiles ;</li>
-<li>évitez les noms de fichiers comme <code>Untitled1.Rmd</code> ou <code>copie rapport final.qmd</code> ;</li>
-<li>commentez vos commits avec des messages clairs et descriptifs.</li>
-</ul></li>
-</ul>
-<blockquote class="blockquote">
-<p><strong>Rappel</strong> : Le <code>.qmd</code> est votre document principal. Il doit permettre à n’importe quel·le membre de l’équipe (ou à Sofia !) de comprendre ce que vous avez fait et pourquoi.</p>
-</blockquote>
-</section>
-<section id="comprendre-et-manipuler-les-dates-avec-lubridate" class="level1">
-<h1>Comprendre et manipuler les dates avec <code>lubridate</code></h1>
-<p>Avant de plonger dans les analyses de retard et de performance, Sofia souhaite s’assurer que tu maîtrises bien la gestion des <strong>dates et heures</strong> en R. Le package <code>lubridate</code> est un outil incontournable pour cela.</p>
-<p>Commence ton document par charger les packages et les données. Tous les exemples qui suivent supposent que l’objet <code>flights</code> existe.</p>
+<section id="données-de-départ" class="level1">
+<h1>Données de départ</h1>
+<p>Le fichier principal est <code>flights_merged_2023.rds</code>. Il contient 435 352 vols et 50 variables.</p>
+<p>Commencez votre fichier <code>rapport.qmd</code> avec un bloc de préparation semblable à celui-ci.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;flights_merged_2023.rds&quot;</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(flights)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Avant toute interprétation, vérifie aussi l’ampleur du tableau et les valeurs manquantes dans les variables qui seront utilisées.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_vols =</span> <span class="fu">n</span>(),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_colonnes =</span> <span class="fu">ncol</span>(flights),</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_delay_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(dep_delay)),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_time_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(dep_time)),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">plane_year_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(plane_year))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="fonctionnalités-essentielles" class="level2">
-<h2 class="anchored" data-anchor-id="fonctionnalités-essentielles">Fonctionnalités essentielles</h2>
-<p>Voici les principales fonctions que tu utiliseras :</p>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">make_date</span>(year, month, day),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">jour_semaine =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">moment_journee =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      hour <span class="sc">&lt;</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">&quot;nuit&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      hour <span class="sc">&lt;</span> <span class="dv">12</span> <span class="sc">~</span> <span class="st">&quot;matin&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      hour <span class="sc">&lt;</span> <span class="dv">18</span> <span class="sc">~</span> <span class="st">&quot;après-midi&quot;</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;soir&quot;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_avion =</span> <span class="dv">2023</span> <span class="sc">-</span> plane_year</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="questions-à-traiter" class="level1">
+<h1>Questions à traiter</h1>
+<p>Votre rapport doit répondre aux trois questions suivantes.</p>
+<ol type="1">
+<li>Quels créneaux horaires semblent associés aux plus grands retards au départ ?</li>
+<li>Les variables météo disponibles, par exemple <code>wind_gust</code>, <code>visib</code> ou <code>precip</code>, sont-elles associées aux retards ?</li>
+<li>Les avions plus âgés sont-ils plus souvent en retard ou annulés ?</li>
+</ol>
+<p>Pour chaque question, vous devez inclure :</p>
+<ul>
+<li>une courte phrase qui précise ce que vous cherchez à comparer;</li>
+<li>au moins un tableau ou résumé numérique;</li>
+<li>au moins une visualisation;</li>
+<li>une interprétation concise;</li>
+<li>une phrase de prudence sur les limites de l’analyse.</li>
+</ul>
+</section>
+<section id="points-de-vigilance" class="level1">
+<h1>Points de vigilance</h1>
+<ul>
+<li>Les retards annulés ont souvent <code>dep_time</code> et <code>dep_delay</code> manquants. Utilisez <code>is.na(dep_time)</code> pour mesurer les annulations.</li>
+<li>Les heures tardives peuvent contenir peu de vols. Affichez toujours le nombre de vols par groupe.</li>
+<li>Une corrélation ne prouve pas une relation de causalité.</li>
+<li>Les variables météo peuvent être manquantes. Indiquez brièvement comment vous les traitez.</li>
+<li>Les années de fabrication manquantes doivent être exclues ou signalées avant l’analyse de l’âge des avions.</li>
+</ul>
+</section>
+<section id="livrables" class="level1">
+<h1>Livrables</h1>
+<p>Votre dépôt GitHub doit contenir les fichiers suivants :</p>
+<ul>
+<li><code>rapport.qmd</code> : votre rapport reproductible;</li>
+<li><code>rapport.html</code> : la version rendue du rapport;</li>
+<li><code>flights_merged_2023.rds</code> : le fichier de données fourni;</li>
+<li>tout fichier supplémentaire réellement nécessaire à votre analyse.</li>
+</ul>
+<p>Votre fichier <code>.qmd</code> doit pouvoir être rendu en HTML sans erreur.</p>
+</section>
+<section id="structure-suggérée" class="level1">
+<h1>Structure suggérée</h1>
+<p>Vous pouvez utiliser cette structure.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu"># Préparation des données</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Question 1 : créneaux horaires</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Question 2 : météo et retards</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># Question 3 : âge des avions</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conclusion</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="grille-dévaluation" class="level1">
+<h1>Grille d’évaluation</h1>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 63%">
-<col style="width: 36%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Fonction</th>
-<th>Utilité</th>
+<th>Critère</th>
+<th>Excellent</th>
+<th>Satisfaisant</th>
+<th>À améliorer</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>make_date()</code></td>
-<td>Crée une variable de type <code>Date</code> à partir de <code>year</code>, <code>month</code>, <code>day</code></td>
+<td>Préparation temporelle</td>
+<td>Les variables de date, jour et créneau sont correctes et expliquées</td>
+<td>Les variables principales sont créées</td>
+<td>Les variables temporelles sont absentes ou incorrectes</td>
 </tr>
 <tr class="even">
-<td><code>make_datetime()</code></td>
-<td>Crée un objet temporel complet (<code>POSIXct</code>) avec <code>hour</code></td>
+<td>Analyse des heures</td>
+<td>Les retards sont comparés avec les tailles de groupes et un graphique clair</td>
+<td>L’analyse répond à la question, mais les tailles de groupes sont peu discutées</td>
+<td>L’analyse est vague ou non reliée à la question</td>
 </tr>
 <tr class="odd">
-<td><code>wday()</code></td>
-<td>Donne le jour de la semaine</td>
+<td>Analyse météo</td>
+<td>Les associations sont quantifiées, visualisées et interprétées avec prudence</td>
+<td>Une relation météo est explorée, mais l’interprétation reste limitée</td>
+<td>La météo est présentée comme une cause sans justification</td>
 </tr>
 <tr class="even">
-<td><code>month()</code></td>
-<td>Donne le mois</td>
+<td>Analyse des avions</td>
+<td>L’âge et les annulations sont traités avec les valeurs manquantes</td>
+<td>L’âge est analysé, mais les limites sont peu discutées</td>
+<td>Les variables d’âge ou d’annulation sont mal utilisées</td>
 </tr>
 <tr class="odd">
-<td><code>hour()</code></td>
-<td>Extrait l’heure</td>
-</tr>
-<tr class="even">
-<td><code>ymd()</code></td>
-<td>Transforme une chaîne comme <code>&quot;2023-01-01&quot;</code> en <code>Date</code></td>
-</tr>
-<tr class="odd">
-<td><code>floor_date()</code></td>
-<td>Tronque une date à la journée, semaine, mois, etc.</td>
+<td>Communication</td>
+<td>Le rapport est clair, reproductible et bien structuré</td>
+<td>Le rapport est compréhensible, mais pourrait être mieux organisé</td>
+<td>Le rapport est difficile à suivre ou ne rend pas correctement</td>
 </tr>
 </tbody>
 </table>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de création de date et datetime</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">make_date</span>(year, month, day),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="fu">make_datetime</span>(year, month, day, hour)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="exercice-1---quelle-est-la-structure-de-la-date" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1---quelle-est-la-structure-de-la-date">Exercice 1 - Quelle est la structure de la date ?</h2>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Crée une variable <code>date</code> à partir des colonnes <code>year</code>, <code>month</code> et <code>day</code>, puis utilise <code>class()</code> pour vérifier le type de cette nouvelle variable.</em></p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Réponse de Sofia</strong><br>
-Tu peux utiliser :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">make_date</span>(year, month, day))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(flights<span class="sc">$</span>date)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Le type attendu est <code>&quot;Date&quot;</code>. Tu peux désormais manipuler cette variable avec toutes les fonctions temporelles !</p>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-2---jour-de-la-semaine" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---jour-de-la-semaine">Exercice 2 - Jour de la semaine</h2>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Ajoute une colonne <code>jour_semaine</code> qui donne le jour de la semaine (lundi, mardi, etc.) pour chaque vol. Affiche les 7 premiers résultats.</em></p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Réponse de Sofia</strong><br>
-Voici une façon de faire :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jour_semaine =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flights<span class="sc">$</span>jour_semaine, <span class="dv">7</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Cela utilise <code>label = TRUE</code> pour obtenir le nom complet (et non un chiffre).</p>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-3---créneau-horaire" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---créneau-horaire">Exercice 3 - Créneau horaire</h2>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Crée une variable <code>moment_journee</code> qui classe les vols en “nuit”, “matin”, “après-midi” ou “soir” selon l’heure prévue de départ.</em></p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Réponse de Sofia</strong><br>
-Voici une suggestion :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">moment_journee =</span> <span class="fu">case_when</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    hour <span class="sc">&lt;</span> <span class="dv">6</span>  <span class="sc">~</span> <span class="st">&quot;nuit&quot;</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    hour <span class="sc">&lt;</span> <span class="dv">12</span> <span class="sc">~</span> <span class="st">&quot;matin&quot;</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    hour <span class="sc">&lt;</span> <span class="dv">18</span> <span class="sc">~</span> <span class="st">&quot;après-midi&quot;</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span>      <span class="sc">~</span> <span class="st">&quot;soir&quot;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Tu peux ensuite explorer les retards selon ces créneaux temporels.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-4---est-ce-un-week-end" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---est-ce-un-week-end">Exercice 4 - Est-ce un week-end ?</h2>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Ajoute une variable logique <code>weekend</code> qui vaut <code>TRUE</code> si le vol a lieu un samedi ou un dimanche.</em></p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Réponse de Sofia</strong><br>
-Utilise :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weekend =</span> jour_semaine <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;samedi&quot;</span>, <span class="st">&quot;dimanche&quot;</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>N’oublie pas que <code>jour_semaine</code> est une variable factor avec labels.</p>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="explorer-et-comprendre-les-relations-entre-les-données" class="level1">
-<h1>Explorer et comprendre les relations entre les données</h1>
-<p>Maintenant que tu es à l’aise avec les dates et les heures, Sofia souhaite t’introduire à une étape clé de tout projet en science des données : <strong>l’analyse exploratoire des données</strong>, souvent abrégée en <strong>EDA</strong> (<em>Exploratory Data Analysis</em>).</p>
-<p>L’objectif est simple : <strong>comprendre la structure des données, repérer des patterns, des anomalies, ou des corrélations intéressantes entre les variables</strong>.</p>
-<section id="outils-à-ta-disposition" class="level2">
-<h2 class="anchored" data-anchor-id="outils-à-ta-disposition">Outils à ta disposition</h2>
-<p>Tu peux t’appuyer sur :</p>
+<section id="checklist-avant-remise" class="level1">
+<h1>Checklist avant remise</h1>
 <ul>
-<li><strong>Statistiques descriptives</strong> : <code>summary()</code>, <code>mean()</code>, <code>median()</code>, <code>sd()</code>, <code>n_distinct()</code>, etc.</li>
-<li><strong>Visualisation</strong> avec <code>ggplot2</code> :
-<ul>
-<li><code>geom_histogram()</code> ou <code>geom_density()</code> pour les distributions</li>
-<li><code>geom_point()</code> pour visualiser des relations entre deux variables numériques</li>
-<li><code>geom_boxplot()</code> pour comparer une variable numérique selon une variable catégorique</li>
-<li><code>geom_bar()</code> pour des variables catégoriques</li>
-</ul></li>
-<li><strong>Tableaux croisés</strong> avec <code>count()</code>, <code>group_by()</code> + <code>summarise()</code></li>
-<li><strong>Corrélations</strong> avec <code>cor()</code> ou <code>ggcorrplot::ggcorrplot()</code> pour une matrice graphique</li>
+<li>Le fichier <code>rapport.qmd</code> se rend en HTML.</li>
+<li>Les packages nécessaires sont chargés explicitement.</li>
+<li>Les données sont lues avec <code>readRDS(&quot;flights_merged_2023.rds&quot;)</code>.</li>
+<li>Chaque graphique a un titre et des axes compréhensibles.</li>
+<li>Les conclusions restent descriptives et prudentes.</li>
+<li>Le dépôt GitHub contient les fichiers attendus.</li>
 </ul>
-<p>Sofia te propose maintenant d’examiner des <strong>questions concrètes</strong> liées à la performance des vols et aux retards. Tu devras analyser les données pour proposer une interprétation claire.</p>
-<hr>
-</section>
-<section id="analyse-1---à-quelle-heure-faut-il-éviter-de-partir" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-1---à-quelle-heure-faut-il-éviter-de-partir">Analyse 1 - À quelle heure faut-il éviter de partir ?</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Contexte</strong> : Le gestionnaire des opérations de JFK a observé que les retards semblent plus fréquents à certaines heures de la journée. Il souhaite valider s’il existe des <strong>créneaux critiques</strong> à éviter pour les départs.</p>
-</div>
-</div>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Fais une analyse pour identifier les heures de la journée où les retards au départ (<code>dep_delay</code>) sont les plus élevés en moyenne. Visualise cette relation avec un graphique clair.</em></p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Réponse de Sofia</strong><br>
-Tu peux regrouper les vols par heure et calculer la moyenne des retards :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(hour) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_vols =</span> <span class="fu">n</span>(),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">moyenne_retard =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> moyenne_retard)) <span class="sc">+</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Retard moyen au départ selon l&#39;heure&quot;</span>,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Heure prévue de départ&quot;</span>,</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Retard moyen (minutes)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Attention : ne te laisse pas piéger par les heures tardives avec peu de vols. Utilise la colonne <code>n_vols</code> pour repérer les groupes trop petits.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-2---la-météo-est-elle-vraiment-liée-aux-retards">Analyse 2 - La météo est-elle vraiment liée aux retards ?</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Contexte</strong> : Certains gestionnaires accusent systématiquement la météo pour les retards. Sofia te propose d’examiner cette idée à l’aide des données météo jointes aux vols. Ton objectif est de mesurer des <strong>associations</strong>, sans conclure trop vite à une cause directe.</p>
-</div>
-</div>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Choisis une ou deux variables météo (ex : <code>wind_gust</code>, <code>visib</code>, <code>precip</code>) et examine leur relation avec les retards (<code>dep_delay</code>).</em></p>
-</div>
-<p>Avant de plonger dans les visualisations, un petit détour par un concept clé : la <strong>corrélation</strong>.</p>
-<section id="quest-ce-que-la-corrélation" class="level3">
-<h3 class="anchored" data-anchor-id="quest-ce-que-la-corrélation">Qu’est-ce que la corrélation ?</h3>
-<p>La corrélation mesure la <strong>force et la direction d’une relation linéaire</strong> entre deux variables numériques. Sa valeur est comprise entre :</p>
-<ul>
-<li><strong>-1</strong> : corrélation parfaitement <strong>négative</strong> (quand l’une augmente, l’autre diminue),</li>
-<li><strong>0</strong> : <strong>aucune relation linéaire</strong> détectée,</li>
-<li><strong>+1</strong> : corrélation parfaitement <strong>positive</strong> (les deux variables augmentent ensemble).</li>
-</ul>
-<p>Par exemple, si les rafales de vent (<code>wind_gust</code>) augmentent et que les retards aussi, on devrait observer une <strong>corrélation positive</strong>.</p>
-<hr>
-</section>
-<section id="étape-1---calculer-la-corrélation" class="level3">
-<h3 class="anchored" data-anchor-id="étape-1---calculer-la-corrélation">Étape 1 - Calculer la corrélation</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dep_delay, wind_gust, visib, precip) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Ce tableau te donne un aperçu rapide de la force de la relation entre les retards (<code>dep_delay</code>) et certaines variables météo.</p>
-<p>Une corrélation proche de 0 ne veut pas dire que la météo ne joue jamais de rôle. Elle indique seulement qu’il n’y a pas de relation linéaire forte dans ce résumé global.</p>
-</section>
-<section id="étape-2---visualiser-une-relation" class="level3">
-<h3 class="anchored" data-anchor-id="étape-2---visualiser-une-relation">Étape 2 - Visualiser une relation</h3>
-<p>Un graphique de dispersion permet de <strong>voir</strong> la tendance entre deux variables. Tu peux par exemple tester :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wind_gust), <span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5000</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wind_gust, <span class="at">y =</span> dep_delay)) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relation entre les rafales de vent et le retard au départ&quot;</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Rafales de vent (mph)&quot;</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Retard au départ (min)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Le nuage de points te montre la tendance globale, et la ligne rouge correspond à une <strong>régression linéaire</strong> (c’est à dire la “meilleure” droite qui représente le lien linéaire entre les deux variables) qui estime cette relation.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Réponse de Sofia</strong><br>
-Tu peux aussi tester avec d’autres variables comme <code>visib</code> (visibilité) ou <code>precip</code> (précipitations), et observer si les retards sont plus élevés lorsque la météo est mauvaise.</p>
-<p>Attention :</p>
-<ul>
-<li><p>Les corrélations ne prouvent pas de lien de <strong>causalité</strong> !</p></li>
-<li><p>Certains retards météo sont <strong>indirects</strong> (ex: en provenance d’un autre aéroport).</p></li>
-<li><p>Une analyse plus avancée devrait contrôler d’autres variables comme l’heure, l’aéroport, la compagnie et la saison.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="analyse-3---les-vieux-avions-sont-ils-moins-fiables" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-3---les-vieux-avions-sont-ils-moins-fiables">Analyse 3 - Les vieux avions sont-ils moins fiables ?</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Contexte</strong> : L’équipe maintenance s’interroge : les avions les plus âgés sont-ils plus souvent en retard ou annulés ? L’information sur l’année de fabrication est disponible dans <code>plane_year</code>.</p>
-</div>
-</div>
-<div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Analyse la relation entre l’âge de l’avion et les retards ou annulations (<code>is.na(dep_time)</code>).</em></p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Réponse de Sofia</strong><br>
-Tu peux créer une variable <code>age_avion</code> :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_avion =</span> <span class="dv">2023</span> <span class="sc">-</span> plane_year)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Puis comparer par tranche d’âge. Les tranches évitent de surinterpréter des âges où il y a très peu d’avions.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_avion)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tranche_age =</span> <span class="fu">cut</span>(</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    age_avion,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="cn">Inf</span>),</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-5&quot;</span>, <span class="st">&quot;6-10&quot;</span>, <span class="st">&quot;11-15&quot;</span>, <span class="st">&quot;16-20&quot;</span>, <span class="st">&quot;21+&quot;</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tranche_age) <span class="sc">%&gt;%</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_vols =</span> <span class="fu">n</span>(),</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_annulation =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(dep_time)),</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">retard_moyen =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tranche_age, <span class="at">y =</span> retard_moyen)) <span class="sc">+</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Retard moyen selon l&#39;âge de l&#39;avion&quot;</span>,</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Âge de l&#39;avion (années)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Retard moyen (minutes)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Tu peux refaire le même graphique avec <code>p_annulation</code>. N’oublie pas de regarder <code>n_vols</code> avant de comparer les tranches.</p>
-</div>
-</div>
-</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -5,197 +5,257 @@ format:
   html:
     toc: true
     toc-title: Plan
-    self-contained: true
+    embed-resources: true
     link-external-newwindow: true
-# number-sections: true
     css: [../css/base_css.css]
 editor: visual
 ---
 
-# Module objectives
+# Module Objectives
 
-At the end of this module, you should be able to
+At the end of this module, you should be able to:
 
-# Initial readings
+- prepare date variables with `lubridate`;
+- summarize delays by group while accounting for the number of observations;
+- visualize relationships between numerical or categorical variables;
+- calculate and interpret a simple correlation;
+- formulate exploratory conclusions without overclaiming.
 
-## Readings to do before the adventure
+# Readings to Review
 
-In this module, we will explore the basic concepts of data import and data cleansing. Here is some initial reading to prepare you:
-
-- [**R for Data Science – Data import**](https://r4ds.hadley.nz/data-import.html){target="_blank"}\
-    This chapter introduces you to importing data with the `readr` package.\
-
-- [**R for Data Science – Data tidying**](https://r4ds.hadley.nz/data-tidy.html){target="_blank"}\
-    This chapter introduces you to data manipulation with the `dplyr` package.\
-
-- [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html){target="_blank"}\
-    This chapter introduces you to **factors** in R, which are categorical variables.\
-    \>  **Note**: Although this chapter is more widely used in module 4, some useful functions like `factor()` or `fct_reorder()` can already help you manipulate categorical variables (module 3).
-
-- [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}\
-    This chapter introduces you to importing data from Excel files.\
-
-- [**R for Data Science – Lists**](https://r4ds.hadley.nz/rectangling.html#lists){target="_blank"}\
-    This section introduces you to the concept of lists in programming.\
+- [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html){target="_blank"}
+- [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html){target="_blank"}
+- [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html){target="_blank"}
+- [Introduction to Modern Statistics - Exploratory data analysis](https://openintro-ims.netlify.app/explore-data){target="_blank"}
 
 # Adventure
 
-[Adventure 4](https://sitescours.monportail.ulaval.ca/contenu/sitescours/036/03609/202509/site177541/modules1395096/module1747262/page4742827/bloccontenu5043393/Aventure%204.html?identifiant=afa8069a82b693eba79bcfb3092d453ef69c140a){target="_blank"}
+[Adventure 5](aventure.qmd)
 
 # Challenge
 
-At the end of the adventure, you should be able to have placed the following elements in your Github folder:
+[Challenge 5](defi.qmd)
 
-- the `.qmd` script for your adventure, that is to say a document where you do your tests and build your cleaning_journal list;
+# Setup
 
-- the `journal_nettoyage` list in a `.Rdata` object;
+The exercises use the `flights_merged_2023.rds` file.
 
-- the cleaned database in `.csv.` format
+```r
+library(tidyverse)
+library(lubridate)
 
-# Consolidation exercises
+flights <- readRDS("flights_merged_2023.rds")
+```
 
-### Exercise 1 – Controlled reading of a CSV (Data import, § readr)
+# Consolidation Exercises
 
-Import `policies.csv` as:
+## Exercise 1 - Check the Structure
 
-- forcing `policy_id` to **character**;
-
-- leaving `premium_amount` as **double**
-
-then display the structure of the object.
+Load the data, display the structure and verify the number of rows and columns.
 
 ::: {.callout-note collapse="true"}
-### Reply
+### Answer
 
-``` r
-library(readr)
+```r
+glimpse(flights)
 
-policies <- read_csv(
-  "policies.csv",
-  col_types = cols(
-    policy_id = col_character(),
-    premium_amount = col_double()
+flights |>
+  summarise(
+    n_flights = n(),
+    n_columns = ncol(flights)
   )
-)
-glimpse(policies)
 ```
 :::
 
-### Exercise 2 – Cleaning up missing values (Data import, ex. 4)
+## Exercise 2 - Create Temporal Variables
 
-The file contains the string `"missing"` to indicate an absence in `vehicle_type`.\
-Re-import the file by converting it to `NA`.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-policies <- read_csv("policies.csv", na = "missing")
-```
-:::
-
-### Exercise 3 – Long <-> wide passage (Data tidy, § pivot)
-
-The `q1_claims:q4_claims` columns represent the number of claims per quarter.
-
-1. Put them in *long* (`quarter`, `claims`).
-
-2. Then return to *wide*.
+Create the `date`, `weekday` and `moment_day` variables.
 
 ::: {.callout-note collapse="true"}
-### Reply
+### Answer
 
-``` r
-library(tidyr)
-library(dplyr)
-
-pol_long <- policies %>%
-  pivot_longer(
-    cols = q1_claims:q4_claims,
-    names_to = "quarter",
-    values_to = "claims"
+```r
+flights <- flights |>
+  mutate(
+    date = make_date(year, month, day),
+    weekday = wday(date, label = TRUE, abbr = FALSE),
+    moment_day = case_when(
+      hour < 6 ~ "night",
+      hour < 12 ~ "morning",
+      hour < 18 ~ "afternoon",
+      TRUE ~ "evening"
+    )
   )
 
-pol_wide <- pol_long %>%
-  pivot_wider(names_from = quarter, values_from = claims)
+flights |>
+  select(date, weekday, hour, moment_day) |>
+  slice_head(n = 10)
 ```
 :::
 
-### Exercise 5 – Read a specific Excel sheet (Import spreadsheets, ex. 3)
+## Exercise 3 - Identify Important Missing Values
 
-The workbook `quotes_2024.xlsx` has a sheet “Q3” where the labels start on the 2nd line.\
-Import it and check the types.
+Calculate the number of missing values in `dep_time`, `dep_delay`, `plane_year`, `wind_gust`, `visib` and `precip`.
 
 ::: {.callout-note collapse="true"}
-### Reply
+### Answer
 
-``` r
-library(readxl)
-
-q3 <- read_excel(
-  "resources/quotes_2024.xlsx",
-  sheet = "Q3",
-  skip = 1 # we skip the first line
-)
-glimpse(q3)
+```r
+flights |>
+  summarise(
+    dep_time_missing = sum(is.na(dep_time)),
+    dep_delay_missing = sum(is.na(dep_delay)),
+    plane_year_missing = sum(is.na(plane_year)),
+    wind_gust_missing = sum(is.na(wind_gust)),
+    visib_missing = sum(is.na(visib)),
+    precip_missing = sum(is.na(precip))
+  )
 ```
 :::
 
-### Exercise 6 – Parse numbers with locale (Data import, ex. 5)
+## Exercise 4 - Mean Delay by Hour
 
-The `euro_premium` column contains “1,234.56” (decimal point, space 000).\
-Parse it correctly as a `double`.
+Calculate the mean departure delay by scheduled departure hour. Also include the number of flights by hour.
 
 ::: {.callout-note collapse="true"}
-### Reply
+### Answer
 
-``` r
-library(readr)
+```r
+hourly_delays <- flights |>
+  group_by(hour) |>
+  summarise(
+    n_flights = n(),
+    mean_delay = mean(dep_delay, na.rm = TRUE),
+    .groups = "drop"
+  )
 
-parse_number("1234.56", locale = locale(decimal_mark = ",", grouping_mark = " "))
+hourly_delays |>
+  arrange(desc(mean_delay))
 ```
 :::
 
-### Exercise 7 – Rectangling a JSON list (Lists, ex. 1-2)
+## Exercise 5 - Visualize Delays by Time Slot
 
-You have a list `lst <- jsonlite::read_json("coverage.json")`.
-
-1. Get `lst$collision$limit`.
-
-2. Transform `lst` into a rectangular tibble.
+Produce a boxplot of `dep_delay` by `moment_day`. To keep the graph readable, limit the display to delays between -30 and 180 minutes.
 
 ::: {.callout-note collapse="true"}
-### Reply
+### Answer
 
-``` r
-library(jsonlite)
-library(tidyr)
-library(dplyr)
-
-lst <- read_json("coverage.json")
-limit <- lst$collision$limit
-
-tbl <- tibble(row = lst) %>%
-  unnest_wider(row)
+```r
+flights |>
+  filter(!is.na(dep_delay), between(dep_delay, -30, 180)) |>
+  ggplot(aes(x = moment_day, y = dep_delay)) +
+  geom_boxplot() +
+  labs(
+    title = "Distribution of delays by time of day",
+    x = "Time of day",
+    y = "Departure delay (minutes)"
+  )
 ```
 :::
 
-### Exercise 8 – Express pipeline (Summary)
+## Exercise 6 - Weather Correlation
 
-In three lines:
-
-1. import `policies.csv`;
-
-2. clean names (`janitor::clean_names`);
-
-3. return the **5** largest `claim_amount` by `vehicle_type`.
+Calculate the correlation between `dep_delay`, `wind_gust`, `visib` and `precip`.
 
 ::: {.callout-note collapse="true"}
-### Reply
+### Answer
 
-``` r
-library(readr); library(dplyr); library(janitor)
-
-read_csv("policies.csv") %>% clean_names() %>% slice_max(claim_amount, n = 5, by = vehicle_type)
+```r
+flights |>
+  select(dep_delay, wind_gust, visib, precip) |>
+  cor(use = "complete.obs") |>
+  round(2)
 ```
+
+A weak correlation does not prove that a variable is useless. It only indicates that the global linear relationship is weak in this summary.
+:::
+
+## Exercise 7 - Weather Scatterplot
+
+Create a scatterplot between `wind_gust` and `dep_delay`. Use a sample of 5,000 flights to keep the graph readable.
+
+::: {.callout-note collapse="true"}
+### Answer
+
+```r
+flights |>
+  filter(!is.na(wind_gust), !is.na(dep_delay)) |>
+  slice_sample(n = 5000) |>
+  ggplot(aes(x = wind_gust, y = dep_delay)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(
+    title = "Wind gusts and departure delays",
+    x = "Wind gusts (mph)",
+    y = "Departure delay (minutes)"
+  )
+```
+:::
+
+## Exercise 8 - Plane Age
+
+Create `plane_age`, group flights into age bands and calculate mean delay and cancellation rate.
+
+::: {.callout-note collapse="true"}
+### Answer
+
+```r
+flights |>
+  mutate(
+    plane_age = 2023 - plane_year,
+    age_group = cut(
+      plane_age,
+      breaks = c(-Inf, 5, 10, 15, 20, Inf),
+      labels = c("0-5", "6-10", "11-15", "16-20", "21+")
+    )
+  ) |>
+  filter(!is.na(age_group)) |>
+  group_by(age_group) |>
+  summarise(
+    n_flights = n(),
+    mean_delay = mean(dep_delay, na.rm = TRUE),
+    cancellation_rate = mean(is.na(dep_time)),
+    .groups = "drop"
+  )
+```
+:::
+
+## Exercise 9 - Compare Airlines
+
+Identify the ten airlines with the most flights, then compare their mean delay.
+
+::: {.callout-note collapse="true"}
+### Answer
+
+```r
+top_airlines <- flights |>
+  count(name, sort = TRUE) |>
+  slice_head(n = 10)
+
+flights |>
+  semi_join(top_airlines, by = "name") |>
+  group_by(name) |>
+  summarise(
+    n_flights = n(),
+    mean_delay = mean(dep_delay, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(mean_delay))
+```
+:::
+
+## Exercise 10 - Write a Cautious Conclusion
+
+Choose one result from the previous exercises and write two sentences:
+
+1. one sentence that describes the observed result;
+2. one sentence that states a limitation or an alternative explanation.
+
+::: {.callout-note collapse="true"}
+### Example Answer
+
+If mean delays appear higher in the evening, you could write:
+
+> Flights scheduled in the evening show higher mean delays in these data. This comparison remains descriptive because it does not control for destination, airline, weather or delay accumulation throughout the day.
 :::

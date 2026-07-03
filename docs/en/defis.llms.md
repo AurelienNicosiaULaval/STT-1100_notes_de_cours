@@ -66,6 +66,12 @@ Clean an insurance dataset, produce a clean file and document the decisions.
 
 [View challenge 4](module_04/defi.llms.md)
 
+### Challenge 5
+
+Produce a cautious exploratory report on flight delays, weather and plane age.
+
+[View challenge 5](module_05/defi.llms.md)
+
 ## Types of productions
 
 Formats vary across modules, but they always remain connected to course skills.

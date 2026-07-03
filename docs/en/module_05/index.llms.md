@@ -6,7 +6,7 @@ Explore links between variables and interpret associations without overclaiming.
 
 Main threadRelationships, dates and correlations
 
-DataPolicies, coverage and flights
+DataEnriched 2023 flights
 
 ChallengeReasoned exploration of relationships
 
@@ -75,57 +75,15 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Write a cautious EDA report about delays. In this card Open cardCollapse
+3 Challenge Write a cautious EDA report about delays. [Challenge](defi.llms.md) Open cardCollapse
 
-### Challenge — Analyze delays to support decisions
+Goal Submit an exploratory report on flight delays.
 
-In this challenge, you must submit a **professional report** intended for your supervisor, **Dr Sofia Martínez**, in order to answer the three major strategic questions posed in the adventure. Your role is to provide clear analysis, supported by relevant visualizations and rigorous interpretations.
+Resource [Challenge page](defi.llms.md)
 
-#### What you should do
+Submit `rapport.qmd`, `rapport.html` and the provided data.
 
-From the merged data provided (`flights_merged_2023.rds`), you must:
-
-1.  **Explore temporal variables** (`date`, `day_week`, `moment_day`, etc.) and prepare them if necessary.
-2.  **Answer Sofia’s three big questions**:
-    - What time slots should you avoid to reduce delays?
-    - To what extent is the weather responsible for the delays?
-    - Are older planes more often delayed or canceled?
-3.  For each question:
-    - carry out a relevant **exploratory analysis**;
-    - produce **at least one clear visualization**;
-    - write a **concise interpretation** of your results.
-
-#### What the report should contain
-
-Your **`rapport.qmd`** file must include:
-
-- A short **introduction** which recalls the context (work at JFK, role with Sofia, etc.).
-- A section for each **question** of the brief.
-- Your **analyses** (reproducible R code, tables or graphs, comments).
-- Your **interpretations** to highlight the key findings.
-- A **short conclusion** which summarizes the answers given to managers.
-
-#### Upload and rendering
-
-- Publish the report to your GitHub repository in the course organization.
-- Make sure that the `.html` file is properly generated and readable.
-- Do a final proofread to check **clarity, structure and presentation**.
-
-> Tip: Put yourself in the shoes of a professional analyst — this report could be presented to the airport executive committee!
-
-------------------------------------------------------------------------
-
-#### Evaluation grid (10 points)
-
-| Criterion | Description | Points |
-|----|----|----|
-| **Time exploration (`lubridate`)** | Creation of `date`, `day_week`, `moment_day` variables; good use of `lubridate`. | 2 |
-| **Time slot analysis** | Relevance of the analysis, quality of visualization and interpretation. | 2 |
-| **Weather analysis** | Judicious choice of weather variables, test of relationship with delays, correct interpretation. | 2 |
-| **Analysis of old planes** | Construction of `age_avion`, correct analysis of delays or cancellations, relevant interpretation. | 2 |
-| **Structure and presentation of the report** | Clear, well-structured, visually readable report; well-annotated visualizations; commented code. | 2 |
-
-> **Bonus** possible (max +1) for an original additional analysis (e.g.: analysis by company or distance).
+Clearly distinguish association from causation in your conclusions.
 
 4 Exercises Consolidate charts, correlations and interpretations. [Exercises](exercices.llms.md) Open cardCollapse
 
@@ -139,11 +97,11 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[policies.csv](../donnees.llms.md#dataset-card-policies-module-05) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-05) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-05) [flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023)
+[flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023)
 
 ### R packages
 
-[lubridate](../packages.llms.md#lubridate) [readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [ggcorrplot](../packages.llms.md#ggcorrplot)
+[tidyverse](../packages.llms.md#tidyverse) [lubridate](../packages.llms.md#lubridate) [dplyr](../packages.llms.md#dplyr) [ggplot2](../packages.llms.md#ggplot2)
 
 ## Review and Extension
 

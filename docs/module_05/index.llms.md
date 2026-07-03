@@ -6,7 +6,7 @@ Explorer les liens entre variables et interpréter des associations sans surinte
 
 Fil principalRelations, dates et corrélations
 
-DonnéesPolices, couvertures et vols
+DonnéesVols 2023 enrichis
 
 DéfiExploration argumentée des relations
 
@@ -75,57 +75,15 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Rédiger une analyse EDA prudente sur les retards. Dans la carte Ouvrir la carteRéduire
+3 Défi Rédiger une analyse EDA prudente sur les retards. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-### Défi — Analyser les retards pour soutenir les décisions
+Objectif Remettre un rapport exploratoire sur les retards de vols.
 
-Dans ce défi, vous devez remettre un **rapport professionnel** destiné à votre superviseure, **Dr Sofia Martínez**, afin de répondre aux trois grandes questions stratégiques posées dans l’aventure. Votre rôle est de fournir une analyse claire, appuyée sur des visualisations pertinentes et des interprétations rigoureuses.
+Ressource [Page Défi](defi.llms.md)
 
-#### Ce que vous devez faire
+À remettre `rapport.qmd`, `rapport.html` et les données fournies.
 
-À partir des données fusionnées fournies (`flights_merged_2023.rds`), vous devez :
-
-1.  **Explorer les variables temporelles** (`date`, `jour_semaine`, `moment_journee`, etc.) et les préparer si besoin.
-2.  **Répondre aux trois grandes questions de Sofia** :
-    - Quels sont les créneaux horaires à éviter pour réduire les retards ?
-    - Dans quelle mesure la météo est-elle responsable des retards ?
-    - Les avions plus âgés sont-ils plus souvent en retard ou annulés ?
-3.  Pour chaque question :
-    - effectuez une **analyse exploratoire** pertinente ;
-    - produisez **au moins une visualisation claire** ;
-    - rédigez une **interprétation concise** de vos résultats.
-
-#### Ce que le rapport doit contenir
-
-Votre fichier **`rapport.qmd`** doit inclure :
-
-- Une courte **introduction** qui rappelle le contexte (travail à JFK, rôle avec Sofia, etc.).
-- Une section pour chaque **question** du brief.
-- Vos **analyses** (code R reproductible, tableaux ou graphes, commentaires).
-- Vos **interprétations** pour faire ressortir les constats clés.
-- Une **courte conclusion** qui résume les réponses apportées aux gestionnaires.
-
-#### Mise en ligne et rendu
-
-- Publiez le rapport sur votre dépôt GitHub dans l’organisation du cours.
-- Assurez-vous que le fichier `.html` est bien généré et lisible.
-- Faites une dernière relecture pour vérifier la **clarté, la structure et la présentation**.
-
-> Astuce : Mettez-vous dans la peau d’un·e analyste professionnel·le — ce rapport pourrait être présenté au comité exécutif de l’aéroport !
-
-------------------------------------------------------------------------
-
-#### Grille d’évaluation (10 points)
-
-| Critère | Description | Points |
-|----|----|----|
-| **Exploration temporelle (`lubridate`)** | Création de variables `date`, `jour_semaine`, `moment_journee` ; bonne utilisation de `lubridate`. | 2 |
-| **Analyse des créneaux horaires** | Pertinence de l’analyse, qualité de la visualisation et interprétation. | 2 |
-| **Analyse de la météo** | Choix judicieux des variables météo, test de relation avec les retards, interprétation correcte. | 2 |
-| **Analyse des avions anciens** | Construction de `age_avion`, analyse correcte des retards ou annulations, interprétation pertinente. | 2 |
-| **Structure et présentation du rapport** | Rapport clair, bien structuré, visuellement lisible ; visualisations bien annotées ; code commenté. | 2 |
-
-> **Bonus** possible (max +1) pour une analyse complémentaire originale (ex. : analyse par compagnie ou distance).
+Distinguez clairement association et causalité dans vos conclusions.
 
 4 Exercices Consolider graphiques, corrélations et interprétations. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
@@ -139,11 +97,11 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[policies.csv](../donnees.llms.md#dataset-card-policies-module-05) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-05) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-05) [flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023)
+[flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023)
 
 ### Packages R
 
-[lubridate](../packages.llms.md#lubridate) [readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [ggcorrplot](../packages.llms.md#ggcorrplot)
+[tidyverse](../packages.llms.md#tidyverse) [lubridate](../packages.llms.md#lubridate) [dplyr](../packages.llms.md#dplyr) [ggplot2](../packages.llms.md#ggplot2)
 
 ## Révision et prolongement
 

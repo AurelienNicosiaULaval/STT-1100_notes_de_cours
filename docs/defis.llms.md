@@ -66,6 +66,12 @@ Nettoyer une base d'assurance, produire un fichier propre et documenter les déc
 
 [Consulter le défi 4](module_04/defi.llms.md)
 
+### Défi 5
+
+Produire un rapport exploratoire prudent sur les retards de vols, la météo et l'âge des avions.
+
+[Consulter le défi 5](module_05/defi.llms.md)
+
 ## Types de productions
 
 Les formats changent selon les modules, mais ils restent toujours reliés aux compétences du cours.

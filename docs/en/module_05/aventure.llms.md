@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Scenario — Adventure 5
+# Scenario - Adventure 5
 
 You put on the shoes (and secure badge!) of an **airport operations statistician** newly recruited by the **Port Authority Data Lab (PADL)**, the analytics team of the **Port Authority of New York & New Jersey**.
 Your mission: to help **JFK** airport (and, ultimately, **EWR** and **LGA**) to streamline departures and reduce **time lost on the ground**.
@@ -13,7 +13,7 @@ Your mission: to help **JFK** airport (and, ultimately, **EWR** and **LGA**) to 
 
 > **Brief from Sofia**
 > 1. Which time slots systematically display the highest delays?
-> 2. How much of the delays is attributable to the weather compared to other factors?
+> 2. Are the available weather variables associated with delays, and how far can that association be interpreted?
 > 3. Are older planes (\> 20 years old) more prone to cancellations?
 >
 > It’s up to you!
@@ -31,11 +31,11 @@ Your mission: to help **JFK** airport (and, ultimately, **EWR** and **LGA**) to 
 Here are some tips from Sofia to succeed in your mission:
 
 - Start by **exploring the data** and understanding its structure. You can use `glimpse()`, `summary()`, or even an interactive table.
-- Uses `lubridate` functions to create useful time columns (day, month, hour, etc.).
+- Use `lubridate` functions to create useful time columns (day, month, hour, etc.).
 - For each question, **structure your analysis**:
   - explain what you are looking to test;
   - show your code;
-  - interprets the result.
+  - interpret the result.
 - Favor clear and well-annotated visualizations. Don’t forget to add titles, axes, etc.
 - Comment your code if necessary. Imagine working as a team with Sofia!
 
@@ -49,7 +49,7 @@ As for previous adventures:
 
 - Work in RStudio and **make commits regularly** to document your progress.
 
-- Your deposit must contain:
+- Your repository must contain:
 
 - a well-structured **`rapport.qmd`** file containing:
 
@@ -65,7 +65,7 @@ As for previous adventures:
 
   - all files necessary for reproducing your work (e.g.: preparation script, `flights_merged_2023.rds` dataset, etc.).
 
-- The depot must remain **clean and well organized**:
+- The repository must remain **clean and well organized**:
 
   - do not keep unnecessary files;
   - avoid file names like `Untitled1.Rmd` or `copy report final.qmd` ;
@@ -76,6 +76,30 @@ As for previous adventures:
 # Understand and manipulate dates with `lubridate`
 
 Before diving into delay and performance analyses, Sofia wants to make sure that you are familiar with managing **dates and times** in R. The `lubridate` package is an essential tool for this.
+
+Start your document by loading the packages and the data. All examples below assume that the `flights` object exists.
+
+``` r
+library(tidyverse)
+library(lubridate)
+
+flights <- readRDS("flights_merged_2023.rds")
+
+glimpse(flights)
+```
+
+Before interpreting anything, also check the size of the table and missing values in the variables you will use.
+
+``` r
+flights %>%
+  summarise(
+    n_flights = n(),
+    n_columns = ncol(flights),
+    dep_delay_missing = sum(is.na(dep_delay)),
+    dep_time_missing = sum(is.na(dep_time)),
+    plane_year_missing = sum(is.na(plane_year))
+  )
+```
 
 ## Essential Features
 
@@ -93,14 +117,14 @@ Here are the main functions you will use:
 
 ``` r
 # Example of creating date and datetime
-<flights- flights %>%
+flights <- flights %>%
   mutate(
     date = make_date(year, month, day),
     datetime = make_datetime(year, month, day, hour)
   )
 ```
 
-## Exercise 1 — What is the structure of the date?
+## Exercise 1 - What is the structure of the date?
 
 **Sofia asks you**: *Create a `date` variable from the `year`, `month` and `day` columns, then use `class()` to check the type of this new variable.*
 
@@ -116,9 +140,9 @@ Here are the main functions you will use:
 >
 > The expected type is `"Date"`. You can now manipulate this variable with all time functions!
 
-## Exercise 2 — Day of the week
+## Exercise 2 - Day of the week
 
-**Sofia asks you**: *Add a `day_week` column which gives the day of the week (Monday, Tuesday, etc.) for each flight. Shows first 7 results.*
+**Sofia asks you**: *Add a `weekday` column that gives the day of the week (Monday, Tuesday, etc.) for each flight. Show the first 7 results.*
 
 > **TIP:**
 >
@@ -126,7 +150,7 @@ Here are the main functions you will use:
 > Here is one way to do it:
 >
 > ``` r
-> <flights- flights %>%
+> flights <- flights %>%
 >   mutate(weekday = wday(date, label = TRUE, abbr = FALSE))
 >
 > head(flights$weekday, 7)
@@ -134,9 +158,9 @@ Here are the main functions you will use:
 >
 > This uses `label=TRUE` to get the full name (not a number).
 
-## Exercise 3 — Time slot
+## Exercise 3 - Time slot
 
-**Sofia asks you**: *Create a variable `moment_journee` which classifies flights as “night”, “morning”, “afternoon” or “evening” depending on the scheduled departure time.*
+**Sofia asks you**: *Create a `moment_day` variable that classifies flights as “night”, “morning”, “afternoon” or “evening” depending on the scheduled departure time.*
 
 > **TIP:**
 >
@@ -144,18 +168,18 @@ Here are the main functions you will use:
 > Here is a suggestion:
 >
 > ``` r
-> <flights- flights %>%
+> flights <- flights %>%
 >   mutate(moment_day = case_when(
 >     hour < 6 ~ "night",
 >     hour < 12 ~ "morning",
 >     hour < 18 ~ "afternoon",
->     TRUE ~ “evening”
+>     TRUE ~ "evening"
 >   ))
 > ```
 >
 > You can then explore the delays according to these time slots.
 
-## Exercise 4 — Is it a weekend?
+## Exercise 4 - Is it a weekend?
 
 **Sofia asks you**: *Add a logical variable `weekend` which is `TRUE` if the flight takes place on a Saturday or a Sunday.*
 
@@ -165,11 +189,11 @@ Here are the main functions you will use:
 > Use:
 >
 > ``` r
-> <flights- flights %>%
+> flights <- flights %>%
 >   mutate(weekend = weekday %in% c("Saturday", "Sunday"))
 > ```
 >
-> Don’t forget that `day_week` is a factor variable with labels.
+> Don’t forget that `weekday` is a factor variable with labels.
 
 # Explore and understand relationships between data
 
@@ -194,7 +218,7 @@ Sofia now invites you to examine **concrete questions** related to flight perfor
 
 ------------------------------------------------------------------------
 
-## Analysis 1 — What time should you avoid leaving?
+## Analysis 1 - What time should you avoid leaving?
 
 > **NOTE:**
 >
@@ -210,21 +234,25 @@ Sofia now invites you to examine **concrete questions** related to flight perfor
 > ``` r
 > flights %>%
 >   group_by(hour) %>%
->   summarise(mean_delay = mean(dep_delay, na.rm = TRUE)) %>%
->   ggplot(aes(x = hour, y = average_delay)) +
+>   summarise(
+>     n_flights = n(),
+>     mean_delay = mean(dep_delay, na.rm = TRUE),
+>     .groups = "drop"
+>   ) %>%
+>   ggplot(aes(x = hour, y = mean_delay)) +
 >   geom_col(fill = "steelblue") +
 >   labs(title = "Average delay at departure according to time",
 >        x = "Planned departure time",
 >        y = "Average delay (minutes)")
 > ```
 >
-> Warning: don’t get trapped by late hours with few flights!
+> Warning: don’t get trapped by late hours with few flights. Use `n_flights` to spot groups that are too small.
 
-## Analysis 2 — Is the weather really the culprit?
+## Analysis 2 - Is the weather really linked to delays?
 
 > **NOTE:**
 >
-> **Context**: Some managers systematically blame the weather for delays. Sofia suggests that you test this **hypothesis** using the weather data attached to the flights.
+> **Context**: Some managers systematically blame the weather for delays. Sofia suggests that you examine this idea using the weather data attached to the flights. Your goal is to measure **associations**, without jumping too quickly to a direct cause.
 
 **Sofia asks you**: *Choose one or two weather variables (e.g. `wind_gust`, `visib`, `precip`) and examine their relationship with delays (`dep_delay`).*
 
@@ -242,7 +270,7 @@ For example, if wind gusts (`wind_gust`) increase and delays also increase, we s
 
 ------------------------------------------------------------------------
 
-### Step 1 — Calculate the correlation
+### Step 1 - Calculate the correlation
 
 ``` r
 flights %>%
@@ -253,12 +281,17 @@ flights %>%
 
 This table gives you a quick overview of the strength of the relationship between delays (`dep_delay`) and certain weather variables.
 
-### Step 2 — Visualize a relationship
+A correlation close to 0 does not mean that weather never matters. It only indicates that there is no strong linear relationship in this global summary.
+
+### Step 2 - Visualize a relationship
 
 A scatter chart allows you to **see** the trend between two variables. For example, you can test:
 
 ``` r
-ggplot(flights, aes(x = wind_gust, y = dep_delay)) +
+flights %>%
+  filter(!is.na(wind_gust), !is.na(dep_delay)) %>%
+  slice_sample(n = 5000) %>%
+  ggplot(aes(x = wind_gust, y = dep_delay)) +
   geom_point(alpha = 0.2) +
   geom_smooth(method = "lm", color = "red") +
   labs(title = "Relationship between wind gusts and departure delay",
@@ -278,8 +311,10 @@ The scatter plot shows you the overall trend, and the red line corresponds to a 
 > - Correlations do not prove a **causal** link!
 >
 > - Some weather delays are **indirect** (e.g. from another airport).
+>
+> - A more advanced analysis would need to control for other variables such as time, airport, airline and season.
 
-## Analysis 3 — Are old planes less reliable?
+## Analysis 3 - Are old planes less reliable?
 
 > **NOTE:**
 >
@@ -290,25 +325,34 @@ The scatter plot shows you the overall trend, and the red line corresponds to a 
 > **TIP:**
 >
 > **Reply from Sofia**
-> You can create an `airplane_age` variable:
+> You can create a `plane_age` variable:
 >
 > ``` r
-> <flights- flights %>%
+> flights <- flights %>%
 >   mutate(plane_age = 2023 - plane_year)
 > ```
 >
-> Then compare:
+> Then compare by age group. Age groups avoid overinterpreting ages with very few aircraft.
 >
 > ``` r
 > flights %>%
 >   filter(!is.na(plane_age)) %>%
->   group_by(airplane_age) %>%
->   summarise(p_cancellation = mean(is.na(dep_time)),
->             delay_mean = mean(dep_delay, na.rm = TRUE)) %>%
->   ggplot(aes(x = aircraft_age, y = average_delay)) +
->   geom_line() +
->   labs(title = "Average delay according to the age of the plane",
->        x = "Age of aircraft (years)", y = "Average delay (minutes)")
+>   mutate(age_group = cut(
+>     plane_age,
+>     breaks = c(-Inf, 5, 10, 15, 20, Inf),
+>     labels = c("0-5", "6-10", "11-15", "16-20", "21+")
+>   )) %>%
+>   group_by(age_group) %>%
+>   summarise(
+>     n_flights = n(),
+>     p_cancellation = mean(is.na(dep_time)),
+>     mean_delay = mean(dep_delay, na.rm = TRUE),
+>     .groups = "drop"
+>   ) %>%
+>   ggplot(aes(x = age_group, y = mean_delay)) +
+>   geom_col(fill = "steelblue") +
+>   labs(title = "Average delay by aircraft age",
+>        x = "Aircraft age (years)", y = "Average delay (minutes)")
 > ```
 >
-> You can also do a `geom_bar()` for the cancellation rate by age group.
+> You can repeat the same graph with `p_cancellation`. Do not forget to inspect `n_flights` before comparing groups.

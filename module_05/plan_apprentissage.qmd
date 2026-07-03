@@ -5,9 +5,8 @@ format:
   html:
     toc: true
     toc-title: Plan
-    self-contained: true
+    embed-resources: true
     link-external-newwindow: true
-# number-sections: true
     css: [../css/base_css.css]
 editor: visual
 ---
@@ -16,254 +15,34 @@ editor: visual
 
 À la fin de ce module, vous devriez être capable de :
 
--   Gérer et analyser des variables temporelles à l’aide de `lubridate`.
--   Étudier la relation entre deux variables à l’aide de graphiques et de statistiques descriptives, notamment à l’aide du coefficient de corrélation.
--   Calculer et interpréter la corrélation entre deux variables numériques.
--   Rédiger un rapport d’analyse exploratoire des données (EDA) mettant en évidence des tendances et des motifs dans les données.
+- gérer et analyser des variables temporelles avec `lubridate`;
+- étudier la relation entre deux variables à l'aide de graphiques et de statistiques descriptives;
+- calculer et interpréter une corrélation entre deux variables numériques;
+- rédiger un court rapport d'analyse exploratoire en distinguant association et causalité.
 
 # Lectures
 
-Dans ce module, nous allons explorer les concepts de base de l'analyse exploratoire des données (EDA) et de la manipulation des dates et heures. Voici quelques lectures initiales pour vous préparer :
+Avant l'aventure, révisez les ressources suivantes :
 
--   [**R for Data Science – EDA**](https://r4ds.hadley.nz/EDA.html){target="_blank"}\
-    Ce chapitre vous introduit à l'analyse exploratoire des données (EDA) avec le package `ggplot2`.\
-
--   [**R for Data Science – Dates and Times**](https://r4ds.hadley.nz/datetimes.html){target="_blank"}\
-    Ce chapitre vous introduit à la manipulation des dates et heures avec le package `lubridate`.\
-
-Vous pouvez aussi aller réviser le chapitre suivant:
-
--   [**R for Data Science – Tidy Data**](https://r4ds.hadley.nz/data-tidy.html){target="_blank"}\
-    Ce chapitre vous rappelle les principes de la structure des données « tidy » et comment les appliquer avec `tidyr`.\
-
-Dans le libre **IMS**:
-
--   [**Introduction to modern statistics – Applications: Explore**](https://openintro-ims.netlify.app/explore-applications){target="_blank"}\
-    Ce chapitre vous introduit aux bonnes pratiques de modélisation exploratoire des données.
+- [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html){target="_blank"}
+- [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html){target="_blank"}
+- [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html){target="_blank"}
+- [Introduction to Modern Statistics - Exploratory data analysis](https://openintro-ims.netlify.app/explore-data){target="_blank"}
 
 # Aventure
 
 [Aventure 5](aventure.qmd)
 
-# Défi — Analyser les retards pour soutenir les décisions
+Suivez l'aventure pour charger `flights_merged_2023.rds`, créer les variables temporelles et pratiquer les analyses exploratoires demandées.
 
-Dans ce défi, vous devez remettre un **rapport professionnel** destiné à votre superviseure, **Dr Sofia Martínez**, afin de répondre aux trois grandes questions stratégiques posées dans l’aventure. Votre rôle est de fournir une analyse claire, appuyée sur des visualisations pertinentes et des interprétations rigoureuses.
+# Défi
 
-## Ce que vous devez faire
+[Défi 5](defi.qmd)
 
-À partir des données fusionnées fournies (`flights_merged_2023.rds`), vous devez :
-
-1.  **Explorer les variables temporelles** (`date`, `jour_semaine`, `moment_journee`, etc.) et les préparer si besoin.
-2.  **Répondre aux trois grandes questions de Sofia** :
-    -   Quels sont les créneaux horaires à éviter pour réduire les retards ?
-    -   Dans quelle mesure la météo est-elle responsable des retards ?
-    -   Les avions plus âgés sont-ils plus souvent en retard ou annulés ?
-3.  Pour chaque question :
-    -   effectuez une **analyse exploratoire** pertinente ;
-    -   produisez **au moins une visualisation claire** ;
-    -   rédigez une **interprétation concise** de vos résultats.
-
-## Ce que le rapport doit contenir
-
-Votre fichier **`rapport.qmd`** doit inclure :
-
--   Une courte **introduction** qui rappelle le contexte (travail à JFK, rôle avec Sofia, etc.).
--   Une section pour chaque **question** du brief.
--   Vos **analyses** (code R reproductible, tableaux ou graphes, commentaires).
--   Vos **interprétations** pour faire ressortir les constats clés.
--   Une **courte conclusion** qui résume les réponses apportées aux gestionnaires.
-
-## Mise en ligne et rendu
-
--   Publiez le rapport sur votre dépôt GitHub dans l’organisation du cours.
--   Assurez-vous que le fichier `.html` est bien généré et lisible.
--   Faites une dernière relecture pour vérifier la **clarté, la structure et la présentation**.
-
->   Astuce : Mettez-vous dans la peau d’un·e analyste professionnel·le — ce rapport pourrait être présenté au comité exécutif de l’aéroport !
-
-------------------------------------------------------------------------
-
-## Grille d’évaluation (10 points)
-
-| Critère | Description | Points |
-|--------------------|--------------------------------|--------------------|
-| **Exploration temporelle (`lubridate`)** | Création de variables `date`, `jour_semaine`, `moment_journee` ; bonne utilisation de `lubridate`. | 2 |
-| **Analyse des créneaux horaires** | Pertinence de l’analyse, qualité de la visualisation et interprétation. | 2 |
-| **Analyse de la météo** | Choix judicieux des variables météo, test de relation avec les retards, interprétation correcte. | 2 |
-| **Analyse des avions anciens** | Construction de `age_avion`, analyse correcte des retards ou annulations, interprétation pertinente. | 2 |
-| **Structure et présentation du rapport** | Rapport clair, bien structuré, visuellement lisible ; visualisations bien annotées ; code commenté. | 2 |
-
->   **Bonus** possible (max +1) pour une analyse complémentaire originale (ex. : analyse par compagnie ou distance).
+Le défi consiste à remettre un rapport `rapport.qmd` et sa version `rapport.html`. Le rapport doit répondre aux trois questions de Sofia sur les créneaux horaires, la météo et l'âge des avions.
 
 # Exercices de consolidation
 
-Ces exercices vous permettront de consolider les compétences du module 5 : exploration, corrélation, visualisation, analyse bivariée. Tous les jeux de données utilisés sont intégrés à R.
+[Exercices du module 5](exercices.qmd)
 
-## 1. Jeu de données : mtcars
-
-Quelle est la force de la relation linéaire entre la consommation (mpg) et le poids (wt) des voitures ?
-
-::: {.callout-tip collapse="true"}
-``` r
-cor(mtcars$mpg, mtcars$wt)
-# ≈ -0.87 -> forte corrélation négative : les voitures plus lourdes consomment plus.
-```
-:::
-
-## 2. Jeu de données : airquality
-
-Créez un graphique illustrant la relation entre la température (Temp) et le taux d’ozone (Ozone), avec une ligne de tendance.
-
-::: {.callout-tip collapse="true"}
-``` r
-ggplot(airquality, aes(x = Temp, y = Ozone)) +
-  geom_point() +
-  geom_smooth(method = "lm")
-```
-:::
-
-## 3. Jeu de données : airquality
-
-Créez une variable date à partir de Month et Day (en supposant l’année 1973), puis ajoutez une colonne indiquant le jour de la semaine.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(lubridate)
-
-airquality <- airquality %>%
-  mutate(date = make_date(1973, Month, Day),
-         jour_semaine = wday(date, label = TRUE))
-```
-:::
-
-## 4. Jeu de données : ToothGrowth
-
-Comparez la longueur des dents (len) selon le type de supplément (supp) à l’aide d’un boxplot.
-
-::: {.callout-tip collapse="true"}
-``` r
-ggplot(ToothGrowth, aes(x = supp, y = len)) +
-  geom_boxplot()
-```
-:::
-
-## 5. Jeu de données : ToothGrowth
-
-Calculez la moyenne de longueur des dents pour chaque combinaison de supplément (supp) et de dose (dose).
-
-::: {.callout-tip collapse="true"}
-``` r
-ToothGrowth %>%
-  group_by(supp, dose) %>%
-  summarise(moyenne = mean(len), .groups = "drop")
-```
-:::
-
-## 6. Jeu de données : iris
-
-Calculez la matrice de corrélation entre les variables numériques.
-
-::: {.callout-tip collapse="true"}
-``` r
-iris %>%
-  select(where(is.numeric)) %>%
-  cor() %>%
-  round(2)
-```
-:::
-
-## 7. Jeu de données : ChickWeight
-
-Tracez l’évolution du poids (weight) dans le temps (Time) pour un seul poussin (par exemple Chick 1).
-
-::: {.callout-tip collapse="true"}
-``` r
-ggplot(filter(ChickWeight, Chick == 1), aes(x = Time, y = weight)) +
-  geom_line()
-```
-:::
-
-## 8. Jeu de données : ChickWeight
-
-Quel est le poids moyen des poussins à la fin de l’expérience (Time = 21) pour chaque type de régime alimentaire (Diet) ?
-
-::: {.callout-tip collapse="true"}
-``` r
-ChickWeight %>%
-  filter(Time == 21) %>%
-  group_by(Diet) %>%
-  summarise(moyenne = mean(weight))
-```
-:::
-
-## 9. Jeu de données : iris
-
-Visualisez la distribution de Petal.Length à l’aide d’un histogramme avec courbe de densité superposée.
-
-::: {.callout-tip collapse="true"}
-``` r
-ggplot(iris, aes(x = Petal.Length)) +
-  geom_histogram(aes(y = ..density..), bins = 20, fill = "lightblue") +
-  geom_density(color = "blue")
-```
-:::
-
-## 10. Jeu de données : mtcars
-
-Combien y a-t-il de voitures pour chaque combinaison de nombre de cylindres (cyl) et de type de transmission (am) ?
-
-::: {.callout-tip collapse="true"}
-``` r
-mtcars %>%
-  count(cyl, am)
-```
-:::
-
-## Problème 1 — EDA météo et ozone (jeu de données : airquality)
-
-1.  Visualisez la relation entre la vitesse du vent (`Wind`) et le taux d’ozone (`Ozone`).
-2.  Calculez leur corrélation.
-3.  Ajoutez une variable logique `jour_chaud` qui vaut `TRUE` si la température est supérieure à 85°F.
-4.  Comparez les taux d’ozone selon `jour_chaud` avec un boxplot.
-
-::: {.callout-tip collapse="true"}
-``` r
-ggplot(airquality, aes(x = Wind, y = Ozone)) +
-  geom_point() +
-  geom_smooth(method = "lm")
-
-cor(airquality$Wind, airquality$Ozone, use = "complete.obs")
-
-airquality <- airquality %>%
-  mutate(jour_chaud = Temp > 85)
-
-ggplot(airquality, aes(x = jour_chaud, y = Ozone)) +
-  geom_boxplot()
-```
-:::
-
-## Problème 2 — EDA florale (jeu de données : iris)
-
-1.  Est-ce que la variable `Sepal.Length` permet de distinguer les espèces (`Species`) ?
-2.  Affichez un boxplot de `Sepal.Length` par espèce.
-3.  Calculez la moyenne et l’écart-type de `Sepal.Length` par espèce.
-4.  Calculez la corrélation entre `Sepal.Length` et `Petal.Length`.
-5.  Visualisez leur relation avec un nuage de points et une ligne de tendance.
-
-::: {.callout-tip collapse="true"}
-``` r
-ggplot(iris, aes(x = Species, y = Sepal.Length)) +
-  geom_boxplot()
-
-iris %>%
-  group_by(Species) %>%
-  summarise(moyenne = mean(Sepal.Length),
-            ecart = sd(Sepal.Length))
-
-cor(iris$Sepal.Length, iris$Petal.Length)
-
-ggplot(iris, aes(x = Petal.Length, y = Sepal.Length)) +
-  geom_point() +
-  geom_smooth(method = "lm")
-```
-:::
+Les exercices reprennent les gestes nécessaires au défi : préparation des dates, valeurs manquantes, résumés par groupe, corrélations, visualisations et conclusion prudente.

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Mise en situation — Aventure 5
+# Mise en situation - Aventure 5
 
 Tu enfiles les chaussures (et le badge sécurisé !) d’un·e **statisticien·ne des opérations aéroportuaires** fraîchement recruté·e par la **Port Authority Data Lab (PADL)**, l’équipe d’analytique du **Port Authority of New York & New Jersey**.
 Ta mission : aider l’aéroport **JFK** (et, à terme, **EWR** et **LGA**) à fluidifier les départs et à réduire le **temps perdu au sol**.
@@ -13,7 +13,7 @@ Ta mission : aider l’aéroport **JFK** (et, à terme, **EWR** et **LGA**) à f
 
 > **Brief de Sofia**
 > 1. Quels créneaux horaires affichent systématiquement les retards les plus élevés ?
-> 2. Quelle part des retards est imputable à la météo par rapport à d’autres facteurs ?
+> 2. Les variables météo disponibles sont-elles associées aux retards, et jusqu’où peut-on interpréter cette association ?
 > 3. Les avions plus âgés (\> 20 ans) sont-ils davantage sujets aux annulations ?
 >
 > À toi de jouer !
@@ -77,6 +77,30 @@ Comme pour les aventures précédentes :
 
 Avant de plonger dans les analyses de retard et de performance, Sofia souhaite s’assurer que tu maîtrises bien la gestion des **dates et heures** en R. Le package `lubridate` est un outil incontournable pour cela.
 
+Commence ton document par charger les packages et les données. Tous les exemples qui suivent supposent que l’objet `flights` existe.
+
+``` r
+library(tidyverse)
+library(lubridate)
+
+flights <- readRDS("flights_merged_2023.rds")
+
+glimpse(flights)
+```
+
+Avant toute interprétation, vérifie aussi l’ampleur du tableau et les valeurs manquantes dans les variables qui seront utilisées.
+
+``` r
+flights %>%
+  summarise(
+    n_vols = n(),
+    n_colonnes = ncol(flights),
+    dep_delay_manquant = sum(is.na(dep_delay)),
+    dep_time_manquant = sum(is.na(dep_time)),
+    plane_year_manquant = sum(is.na(plane_year))
+  )
+```
+
 ## Fonctionnalités essentielles
 
 Voici les principales fonctions que tu utiliseras :
@@ -100,7 +124,7 @@ flights <- flights %>%
   )
 ```
 
-## Exercice 1 — Quelle est la structure de la date ?
+## Exercice 1 - Quelle est la structure de la date ?
 
 **Sofia te demande** : *Crée une variable `date` à partir des colonnes `year`, `month` et `day`, puis utilise `class()` pour vérifier le type de cette nouvelle variable.*
 
@@ -116,7 +140,7 @@ flights <- flights %>%
 >
 > Le type attendu est `"Date"`. Tu peux désormais manipuler cette variable avec toutes les fonctions temporelles !
 
-## Exercice 2 — Jour de la semaine
+## Exercice 2 - Jour de la semaine
 
 **Sofia te demande** : *Ajoute une colonne `jour_semaine` qui donne le jour de la semaine (lundi, mardi, etc.) pour chaque vol. Affiche les 7 premiers résultats.*
 
@@ -134,7 +158,7 @@ flights <- flights %>%
 >
 > Cela utilise `label = TRUE` pour obtenir le nom complet (et non un chiffre).
 
-## Exercice 3 — Créneau horaire
+## Exercice 3 - Créneau horaire
 
 **Sofia te demande** : *Crée une variable `moment_journee` qui classe les vols en “nuit”, “matin”, “après-midi” ou “soir” selon l’heure prévue de départ.*
 
@@ -155,7 +179,7 @@ flights <- flights %>%
 >
 > Tu peux ensuite explorer les retards selon ces créneaux temporels.
 
-## Exercice 4 — Est-ce un week-end ?
+## Exercice 4 - Est-ce un week-end ?
 
 **Sofia te demande** : *Ajoute une variable logique `weekend` qui vaut `TRUE` si le vol a lieu un samedi ou un dimanche.*
 
@@ -194,7 +218,7 @@ Sofia te propose maintenant d’examiner des **questions concrètes** liées à 
 
 ------------------------------------------------------------------------
 
-## Analyse 1 — À quelle heure faut-il éviter de partir ?
+## Analyse 1 - À quelle heure faut-il éviter de partir ?
 
 > **NOTE:**
 >
@@ -210,7 +234,11 @@ Sofia te propose maintenant d’examiner des **questions concrètes** liées à 
 > ``` r
 > flights %>%
 >   group_by(hour) %>%
->   summarise(moyenne_retard = mean(dep_delay, na.rm = TRUE)) %>%
+>   summarise(
+>     n_vols = n(),
+>     moyenne_retard = mean(dep_delay, na.rm = TRUE),
+>     .groups = "drop"
+>   ) %>%
 >   ggplot(aes(x = hour, y = moyenne_retard)) +
 >   geom_col(fill = "steelblue") +
 >   labs(title = "Retard moyen au départ selon l'heure",
@@ -218,13 +246,13 @@ Sofia te propose maintenant d’examiner des **questions concrètes** liées à 
 >        y = "Retard moyen (minutes)")
 > ```
 >
-> Attention : ne te laisse pas piéger par les heures tardives avec peu de vols !
+> Attention : ne te laisse pas piéger par les heures tardives avec peu de vols. Utilise la colonne `n_vols` pour repérer les groupes trop petits.
 
-## Analyse 2 — La météo est-elle vraiment la coupable ?
+## Analyse 2 - La météo est-elle vraiment liée aux retards ?
 
 > **NOTE:**
 >
-> **Contexte** : Certains gestionnaires accusent systématiquement la météo pour les retards. Sofia te propose de tester cette **hypothèse** à l’aide des données météo jointes aux vols.
+> **Contexte** : Certains gestionnaires accusent systématiquement la météo pour les retards. Sofia te propose d’examiner cette idée à l’aide des données météo jointes aux vols. Ton objectif est de mesurer des **associations**, sans conclure trop vite à une cause directe.
 
 **Sofia te demande** : *Choisis une ou deux variables météo (ex : `wind_gust`, `visib`, `precip`) et examine leur relation avec les retards (`dep_delay`).*
 
@@ -242,7 +270,7 @@ Par exemple, si les rafales de vent (`wind_gust`) augmentent et que les retards 
 
 ------------------------------------------------------------------------
 
-### Étape 1 — Calculer la corrélation
+### Étape 1 - Calculer la corrélation
 
 ``` r
 flights %>%
@@ -253,12 +281,17 @@ flights %>%
 
 Ce tableau te donne un aperçu rapide de la force de la relation entre les retards (`dep_delay`) et certaines variables météo.
 
-### Étape 2 — Visualiser une relation
+Une corrélation proche de 0 ne veut pas dire que la météo ne joue jamais de rôle. Elle indique seulement qu’il n’y a pas de relation linéaire forte dans ce résumé global.
+
+### Étape 2 - Visualiser une relation
 
 Un graphique de dispersion permet de **voir** la tendance entre deux variables. Tu peux par exemple tester :
 
 ``` r
-ggplot(flights, aes(x = wind_gust, y = dep_delay)) +
+flights %>%
+  filter(!is.na(wind_gust), !is.na(dep_delay)) %>%
+  slice_sample(n = 5000) %>%
+  ggplot(aes(x = wind_gust, y = dep_delay)) +
   geom_point(alpha = 0.2) +
   geom_smooth(method = "lm", color = "red") +
   labs(title = "Relation entre les rafales de vent et le retard au départ",
@@ -278,8 +311,10 @@ Le nuage de points te montre la tendance globale, et la ligne rouge correspond �
 > - Les corrélations ne prouvent pas de lien de **causalité** !
 >
 > - Certains retards météo sont **indirects** (ex: en provenance d’un autre aéroport).
+>
+> - Une analyse plus avancée devrait contrôler d’autres variables comme l’heure, l’aéroport, la compagnie et la saison.
 
-## Analyse 3 — Les vieux avions sont-ils moins fiables ?
+## Analyse 3 - Les vieux avions sont-ils moins fiables ?
 
 > **NOTE:**
 >
@@ -297,18 +332,27 @@ Le nuage de points te montre la tendance globale, et la ligne rouge correspond �
 >   mutate(age_avion = 2023 - plane_year)
 > ```
 >
-> Puis comparer :
+> Puis comparer par tranche d’âge. Les tranches évitent de surinterpréter des âges où il y a très peu d’avions.
 >
 > ``` r
 > flights %>%
 >   filter(!is.na(age_avion)) %>%
->   group_by(age_avion) %>%
->   summarise(p_annulation = mean(is.na(dep_time)),
->             retard_moyen = mean(dep_delay, na.rm = TRUE)) %>%
->   ggplot(aes(x = age_avion, y = retard_moyen)) +
->   geom_line() +
->   labs(title = "Retard moyen selon l’âge de l’avion",
->        x = "Âge de l’avion (années)", y = "Retard moyen (minutes)")
+>   mutate(tranche_age = cut(
+>     age_avion,
+>     breaks = c(-Inf, 5, 10, 15, 20, Inf),
+>     labels = c("0-5", "6-10", "11-15", "16-20", "21+")
+>   )) %>%
+>   group_by(tranche_age) %>%
+>   summarise(
+>     n_vols = n(),
+>     p_annulation = mean(is.na(dep_time)),
+>     retard_moyen = mean(dep_delay, na.rm = TRUE),
+>     .groups = "drop"
+>   ) %>%
+>   ggplot(aes(x = tranche_age, y = retard_moyen)) +
+>   geom_col(fill = "steelblue") +
+>   labs(title = "Retard moyen selon l'âge de l'avion",
+>        x = "Âge de l'avion (années)", y = "Retard moyen (minutes)")
 > ```
 >
-> Tu peux aussi faire un `geom_bar()` pour le taux d’annulation par tranche d’âge.
+> Tu peux refaire le même graphique avec `p_annulation`. N’oublie pas de regarder `n_vols` avant de comparer les tranches.

@@ -86,19 +86,7 @@ Fichier JSON associé aux couvertures de polices.Fichier local? observations / 2
 
 ### Module 05
 
-[Module 05 ](#policies-module-05)
-
-## policies.csv
-
-Petit fichier CSV de polices d’assurance.Fichier local15 observations / 9 variablesVoir la fiche [Module 05 ](#coverage-module-05)
-
-## coverage.json
-
-Fichier JSON associé aux couvertures de polices.Fichier local? observations / 2 variablesVoir la fiche [Module 05 ](#quotes-module-05)
-
-## quotes_2024.xlsx
-
-Fichier Excel contenant une feuille nommée Q3.Fichier localStructure à consulterVoir la fiche [Module 05 ](#flights-merged-2023)
+[Module 05 ](#flights-merged-2023)
 
 ## flights_merged_2023.rds
 
@@ -315,92 +303,6 @@ Fichier Excel contenant une feuille nommée Q3.
 | Utilisation | Importer un fichier Excel et vérifier la structure d’un tableau. |
 | Source | Fichier fourni avec le matériel du cours. |
 | Licence | Matériel pédagogique du cours. |
-
-#### Aperçu
-
-Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
-
-#### Variables de l’aperçu
-
-| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
-|:---|:---|---:|---:|:---|
-| Quotes Q3 2024 | character | 0 | 5 | policy_id |
-| …2 | character | 0 | 5 | quote_date |
-| …3 | character | 0 | 5 | quote_amount |
-
-### policies.csv
-
-Petit fichier CSV de polices d’assurance.
-
-[Télécharger policies.csv](module_05/policies.csv)
-
-| Information | Valeur |
-|:---|:---|
-| Module | Module 05 |
-| Observations | 15 |
-| Variables | 9 |
-| Utilisation | Construire des résumés et préparer des liens entre variables. |
-| Source | Fichier fourni avec le matériel du cours. |
-| Licence | Matériel pédagogique du cours. |
-
-#### Aperçu
-
-Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
-
-#### Variables de l’aperçu
-
-| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
-|:---|:---|---:|---:|:---|
-| policy_id | character | 0 | 15 | P001 |
-| premium_amount | numeric | 0 | 15 | 750.5 |
-| vehicle_type | character | 0 | 2 | car |
-| vehicle_use | character | 0 | 4 | Pleasure |
-| q1_claims | numeric | 0 | 4 | 2 |
-| q2_claims | numeric | 0 | 3 | 1 |
-| q3_claims | numeric | 0 | 3 | 0 |
-| q4_claims | numeric | 0 | 3 | 1 |
-| claim_amount | numeric | 0 | 11 | 1200 |
-
-### coverage.json
-
-Fichier JSON associé aux couvertures de polices.
-
-[Télécharger coverage.json](module_05/coverage.json)
-
-| Information  | Valeur                                                   |
-|:-------------|:---------------------------------------------------------|
-| Module       | Module 05                                                |
-| Observations | Non déterminé automatiquement                            |
-| Variables    | 2                                                        |
-| Utilisation  | Pratiquer les données imbriquées et leur transformation. |
-| Source       | Fichier fourni avec le matériel du cours.                |
-| Licence      | Matériel pédagogique du cours.                           |
-
-#### Aperçu
-
-Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
-
-#### Variables de l’aperçu
-
-| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
-|:---|:---|---:|---:|:---|
-| element | character | 0 | 2 | policy_id |
-| valeur | character | 0 | 2 | chr “P001” |
-
-### quotes_2024.xlsx
-
-Fichier Excel contenant une feuille nommée Q3.
-
-[Télécharger quotes_2024.xlsx](module_05/resources/quotes_2024.xlsx)
-
-| Information  | Valeur                                                 |
-|:-------------|:-------------------------------------------------------|
-| Module       | Module 05                                              |
-| Observations | Non déterminé automatiquement                          |
-| Variables    | Non déterminé automatiquement                          |
-| Utilisation  | Importer un fichier Excel et relier plusieurs sources. |
-| Source       | Fichier fourni avec le matériel du cours.              |
-| Licence      | Matériel pédagogique du cours.                         |
 
 #### Aperçu
 

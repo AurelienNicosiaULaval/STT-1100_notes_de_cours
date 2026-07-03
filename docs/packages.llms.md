@@ -42,7 +42,7 @@ Texte, web et tableaux de bord
 
 ### Module 05
 
-[`lubridate`](#lubridate) [`readr`](#readr) [`readxl`](#readxl) [`dplyr`](#dplyr) [`tidyr`](#tidyr) [`jsonlite`](#jsonlite) [`janitor`](#janitor) [`ggcorrplot`](#ggcorrplot)
+[`tidyverse`](#tidyverse) [`lubridate`](#lubridate) [`dplyr`](#dplyr) [`ggplot2`](#ggplot2)
 
 ### Module 06
 

@@ -5841,7 +5841,7 @@ Explorer les liens entre variables et interpréter des associations sans surinte
 <p><span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span> <span><span class="fact-label">Fil principal</span><span class="fact-value">Relations, dates et corrélations</span></span></p>
 </div>
 <div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Données</span><span class="fact-value">Polices, couvertures et vols</span></span></p>
+<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Données</span><span class="fact-value">Vols 2023 enrichis</span></span></p>
 </div>
 <div class="module-fact">
 <p><span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span> <span><span class="fact-label">Défi</span><span class="fact-value">Exploration argumentée des relations</span></span></p>
@@ -5931,97 +5931,12 @@ Ce chapitre vous introduit aux bonnes pratiques de modélisation exploratoire de
   <summary><span class="path-number">3</span>
   <span class="path-title">Défi</span>
   <span class="path-preview">Rédiger une analyse EDA prudente sur les retards.</span>
-  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-resource"><a class="summary-resource-link challenge-link" href="defi.html">Défi</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 id="défi-analyser-les-retards-pour-soutenir-les-décisions" class="anchored">Défi — Analyser les retards pour soutenir les décisions</h3>
-<p>Dans ce défi, vous devez remettre un <strong>rapport professionnel</strong> destiné à votre superviseure, <strong>Dr Sofia Martínez</strong>, afin de répondre aux trois grandes questions stratégiques posées dans l’aventure. Votre rôle est de fournir une analyse claire, appuyée sur des visualisations pertinentes et des interprétations rigoureuses.</p>
-<h4 id="ce-que-vous-devez-faire" class="anchored">Ce que vous devez faire</h4>
-<p>À partir des données fusionnées fournies (<code>flights_merged_2023.rds</code>), vous devez :</p>
-<ol type="1">
-<li><strong>Explorer les variables temporelles</strong> (<code>date</code>, <code>jour_semaine</code>, <code>moment_journee</code>, etc.) et les préparer si besoin.</li>
-<li><strong>Répondre aux trois grandes questions de Sofia</strong> :
-<ul>
-<li>Quels sont les créneaux horaires à éviter pour réduire les retards ?</li>
-<li>Dans quelle mesure la météo est-elle responsable des retards ?</li>
-<li>Les avions plus âgés sont-ils plus souvent en retard ou annulés ?</li>
-</ul></li>
-<li>Pour chaque question :
-<ul>
-<li>effectuez une <strong>analyse exploratoire</strong> pertinente ;</li>
-<li>produisez <strong>au moins une visualisation claire</strong> ;</li>
-<li>rédigez une <strong>interprétation concise</strong> de vos résultats.</li>
-</ul></li>
-</ol>
-<h4 id="ce-que-le-rapport-doit-contenir" class="anchored">Ce que le rapport doit contenir</h4>
-<p>Votre fichier <strong><code>rapport.qmd</code></strong> doit inclure :</p>
-<ul>
-<li>Une courte <strong>introduction</strong> qui rappelle le contexte (travail à JFK, rôle avec Sofia, etc.).</li>
-<li>Une section pour chaque <strong>question</strong> du brief.</li>
-<li>Vos <strong>analyses</strong> (code R reproductible, tableaux ou graphes, commentaires).</li>
-<li>Vos <strong>interprétations</strong> pour faire ressortir les constats clés.</li>
-<li>Une <strong>courte conclusion</strong> qui résume les réponses apportées aux gestionnaires.</li>
-</ul>
-<h4 id="mise-en-ligne-et-rendu" class="anchored">Mise en ligne et rendu</h4>
-<ul>
-<li>Publiez le rapport sur votre dépôt GitHub dans l’organisation du cours.</li>
-<li>Assurez-vous que le fichier <code>.html</code> est bien généré et lisible.</li>
-<li>Faites une dernière relecture pour vérifier la <strong>clarté, la structure et la présentation</strong>.</li>
-</ul>
-<blockquote class="blockquote">
-<p>Astuce : Mettez-vous dans la peau d’un·e analyste professionnel·le — ce rapport pourrait être présenté au comité exécutif de l’aéroport !</p>
-</blockquote>
-<hr>
-<h4 id="grille-dévaluation-10-points" class="anchored">Grille d’évaluation (10 points)</h4>
-
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 44%">
-<col style="width: 27%">
-</colgroup>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Critère</th>
-<th data-quarto-table-cell-role="th">Description</th>
-<th data-quarto-table-cell-role="th">Points</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Exploration temporelle (<code>lubridate</code>)</strong></td>
-<td>Création de variables <code>date</code>, <code>jour_semaine</code>, <code>moment_journee</code> ; bonne utilisation de <code>lubridate</code>.</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td><strong>Analyse des créneaux horaires</strong></td>
-<td>Pertinence de l’analyse, qualité de la visualisation et interprétation.</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td><strong>Analyse de la météo</strong></td>
-<td>Choix judicieux des variables météo, test de relation avec les retards, interprétation correcte.</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td><strong>Analyse des avions anciens</strong></td>
-<td>Construction de <code>age_avion</code>, analyse correcte des retards ou annulations, interprétation pertinente.</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td><strong>Structure et présentation du rapport</strong></td>
-<td>Rapport clair, bien structuré, visuellement lisible ; visualisations bien annotées ; code commenté.</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-
-<blockquote class="blockquote">
-<p><strong>Bonus</strong> possible (max +1) pour une analyse complémentaire originale (ex. : analyse par compagnie ou distance).</p>
-</blockquote>
-      </div>
-    </div>
+  <div class="step-detail">
+  <p><span class="step-label">Objectif</span> Remettre un rapport exploratoire sur les retards de vols.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link challenge-link" href="defi.html">Page Défi</a></p><p><span class="step-label">À remettre</span> <code>rapport.qmd</code>, <code>rapport.html</code> et les données fournies.</p>
+  <div class="ae-box"><p class="ae-title">Distinguez clairement association et causalité dans vos conclusions.</p></div>
+  </div>
   </details>
 <details class="path-card learning-plan-card" id="exercices">
   <summary><span class="path-number">4</span>
@@ -6043,23 +5958,16 @@ Ce chapitre vous introduit aux bonnes pratiques de modélisation exploratoire de
   <div class="module-resource-section">
   <h3 class="anchored">Bases de données</h3>
   <div class="module-chip-list">
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-policies-module-05"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>policies.csv</span></a>
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-coverage-module-05"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>coverage.json</span></a>
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-quotes-module-05"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>quotes_2024.xlsx</span></a>
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-flights-merged-2023"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>flights_merged_2023.rds</span></a>
   </div>
   </div>
   <div class="module-resource-section">
   <h3 class="anchored">Packages R</h3>
   <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#lubridate"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>lubridate</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#readr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readr</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#readxl"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readxl</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#tidyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyr</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#jsonlite"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>jsonlite</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#janitor"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>janitor</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#ggcorrplot"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggcorrplot</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
   </div>
   </div>
 </div>
