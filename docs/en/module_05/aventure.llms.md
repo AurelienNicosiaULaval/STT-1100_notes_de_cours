@@ -51,19 +51,21 @@ As for previous adventures:
 
 - Your repository must contain:
 
-- a well-structured **`rapport.qmd`** file containing:
+  - a well-structured **`rapport.qmd`** file containing:
 
-  - your R code;
+    - your R code;
 
-  - commented visualizations;
+    - commented visualizations;
 
-  - clear interpretations for each analysis requested;
+    - clear interpretations for each analysis requested;
 
-  - `callout` boxes (type `.tip`, `.warning`, etc.) to highlight your conclusions;
+    - `callout` boxes (type `.tip`, `.warning`, etc.) to highlight your conclusions;
 
   - a **`rapport.html`** file generated from `.qmd` (you can use the “Render” button in RStudio);
 
-  - all files necessary for reproducing your work (e.g.: preparation script, `flights_merged_2023.rds` dataset, etc.).
+  - the **`flights_merged_2023.rds`** dataset;
+
+  - any other file truly necessary for reproducing your work.
 
 - The repository must remain **clean and well organized**:
 
