@@ -1,6 +1,6 @@
 ---
-title: "Adventure 7 — Visualization, ethics and data security"
-subtitle: "STT-1100 • Introduction to Data Science"
+title: "Adventure 7 - Visualization, Ethics and Data Security"
+subtitle: "STT-1100 - Introduction to Data Science"
 format:
   html:
     toc: true
@@ -15,57 +15,164 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Put in context
+# Context
 
-You are an **invited expert** in a data science ethics committee. An organization submits a report to you containing visualization and statistics from a simulated COVID-19 dataset. Your role: assess the compliance of this report with good visual communication practices, ethics and the protection of sensitive data.
+You are a team mandated by a data science ethics committee. An organization gives you a deliberately problematic internal report about simulated COVID-19 tests. The report contains visualizations, quick interpretations and personally identifiable information.
 
-# Adventure objectives
+Your task is not only to remake a chart. You must show that an analysis can be technically reproducible, visually honest and responsible toward the people represented in the data.
 
-- Develop your critical thinking in the face of misleading visualizations and biased interpretations.
-- Identify presentation biases, ethical errors and breaches of confidentiality (PII).
-- Apply good visualization practices (CRAP, axes, colors, legends).
-- Implement ethical principles in the processing and communication of data.
+# Starter Repository
 
-## Instructions
+Clone the module 7 GitHub repository from the course organization: `STT-1100/aventure-7`.
 
-As a team, you must:
+The repository contains:
 
-1. **Read the provided report carefully** (`Initial Analysis of COVID-19 Cases.html`).
-2. **Identify all problems**: visual, statistical, ethical, methodological, etc.
-3. **Correct and improve the visualization** using the data file `donnees_covid_module7.csv`.
-4. **Write a critical report** including:
-    - Problems identified
-    - Ethical reasoning
-    - Recommendations
-5. **Provide one or more corrected visualizations** with explanations.
-6. **Add a short personal conclusion** (5 lines per person) on what you remember from this activity.
+- `Rapport_COVID_Douteux.html`: problematic report to review;
+- `Rapport_COVID_Douteux.qmd`: Quarto source of the problematic report;
+- `covid_module7_douteux.csv`: simulated data deliberately containing quality, confidentiality and re-identification issues;
+- `rapport_ethique.qmd`: report skeleton to complete.
 
-## Work to be submitted
+The final repository must contain:
 
-A `.qmd` file on GitHub containing:
+- `rapport_ethique.qmd`: your reproducible critical report;
+- `rapport_ethique.html`: the rendered version of the report;
+- `covid_module7_anonymise.csv`: an anonymized and better prepared version of the data;
+- `README.md`: a short project description and rendering procedure;
+- any additional file that is truly necessary.
 
-- A “Critical Analysis” section
-- An “Improved visualization” section
-- A “Personal conclusion” section
+# Part 1 - Audit the Problematic Report
 
-## Useful resources
+First read `Rapport_COVID_Douteux.html`, then consult `Rapport_COVID_Douteux.qmd` to understand how the report was produced.
 
-- CRAP rules: Contrast, Repetition, Alignment, Proximity
-- *How to Lie with Statistics* — Darrell Huff
-- Data anonymization rules (PII)
-- Ethical principles: transparency, reproducibility, non-harm
-- Good visualization practices with `ggplot2`
-- Concepts covered in module 7: security, bias, visualization, ethics
+Identify problems in at least four dimensions:
 
-## Starting file
+- **visualization**: truncated axes, alarming colors, hard-to-read scales, overly precise maps, misleading dual axes;
+- **statistics**: unjustified causal interpretations, small counts, lack of uncertainty, selected time window;
+- **data**: inconsistent values, dates in several formats, test results coded in several ways, impossible ages;
+- **confidentiality**: names, emails, phone numbers, dates of birth, coordinates, free-text notes;
+- **communication**: overly strong recommendations, undisclosed conflict of interest, missing limitations.
 
-- `Initial analysis of COVID-19 cases.html` (provided on GitHub)
-- `donnees_covid_module7.csv` (cleaned data to use for the corrected version)
+For each selected issue, state:
 
-## Success criteria
+1. where it appears;
+2. why it is problematic;
+3. what you would change.
 
-- Ability to identify a large number of problems (technical, ethical, visual)
-- Ability to justify your corrections
-- Improved visualization quality (clarity, honesty, accessibility)
-- Quality of the critical report
-- Ability to adopt a reflective stance on ethics in data science
+# Part 2 - Responsible Data Preparation
+
+Starting from `covid_module7_douteux.csv`, prepare a version better suited to public or pedagogical communication.
+
+Your preparation must at least:
+
+- remove direct identifiers such as name, email, phone number and date of birth;
+- avoid publishing precise individual coordinates;
+- create a standardized test result variable;
+- transform test dates into an analyzable format;
+- group or handle impossible or overly precise ages;
+- document the choices made.
+
+Starting point:
+
+``` r
+library(tidyverse)
+library(lubridate)
+
+covid_raw <- readr::read_csv("covid_module7_douteux.csv", show_col_types = FALSE)
+
+covid_prepared <- covid_raw |>
+  mutate(
+    parsed_test_date = suppressWarnings(lubridate::parse_date_time(
+      date_test,
+      orders = c("Y-m-d", "d/m/Y", "m-d-Y", "Y/m/d", "d-m-Y", "m/d/Y", "y/m/d", "d/m/y", "m/d/y")
+    )),
+    parsed_test_date = as.Date(parsed_test_date),
+    standardized_result = case_when(
+      result %in% c("Positive", "Pos", "+") ~ "positive",
+      result %in% c("Negative", "neg", "-") ~ "negative",
+      TRUE ~ NA_character_
+    ),
+    valid_age = if_else(age >= 0 & age <= 110, age, NA_real_),
+    age_group = cut(
+      valid_age,
+      breaks = c(0, 18, 40, 60, 80, Inf),
+      labels = c("0-17", "18-39", "40-59", "60-79", "80+"),
+      right = FALSE
+    )
+  )
+```
+
+This step is not about deleting all useful information. It is about reducing risks while keeping the analysis understandable.
+
+# Part 3 - Corrected Visualization
+
+Produce at least two corrected visualizations.
+
+Each visualization must:
+
+- use a clear unit;
+- avoid unjustified truncated axes;
+- show counts when proportions are compared;
+- avoid publishing personal identifiers;
+- be accompanied by a careful interpretation.
+
+One possible visualization is a positivity rate by borough with counts.
+
+``` r
+borough_positivity <- covid_prepared |>
+  filter(!is.na(standardized_result), !is.na(borough)) |>
+  group_by(borough) |>
+  summarise(
+    n_tests = n(),
+    n_positive = sum(standardized_result == "positive"),
+    positivity_rate = n_positive / n_tests,
+    .groups = "drop"
+  ) |>
+  arrange(desc(positivity_rate))
+
+borough_positivity |>
+  ggplot(aes(x = reorder(borough, positivity_rate), y = positivity_rate)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1), limits = c(0, 1)) +
+  labs(
+    title = "Positivity rate by borough in the simulated data",
+    subtitle = "Counts must be checked before interpretation",
+    x = "Borough",
+    y = "Positivity rate"
+  )
+```
+
+# Part 4 - Ethics Note
+
+Add an "Ethics note" section to `rapport_ethique.qmd`.
+
+Your note must answer the following questions:
+
+- Which information should not be published as is?
+- What re-identification risks remain even after names are removed?
+- Which limitations prevent strong recommendations?
+- How would you present these results to a non-specialist audience without creating panic or stigma?
+
+# Part 5 - Personal Conclusion
+
+Each team member adds a short personal conclusion of about five lines.
+
+This conclusion must explain:
+
+- one issue they might not have noticed before this module;
+- one visualization or anonymization decision they consider important;
+- one personal rule to remember for future data science projects.
+
+# Final Check
+
+Before submission, check that:
+
+- `rapport_ethique.qmd` renders to HTML without error;
+- the report contains at least two corrected visualizations;
+- `covid_module7_anonymise.csv` contains no name, email, phone number, date of birth or precise individual coordinates;
+- the limitations of the analysis are clearly written;
+- recommendations remain descriptive and careful;
+- `README.md` explains how to render the report;
+- the GitHub repository contains only the necessary files.
+
+Good analysis.

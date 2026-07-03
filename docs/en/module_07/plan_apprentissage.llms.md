@@ -1,76 +1,39 @@
-# Module 7 - Learning plan
+# Module 7 - Learning Plan
 
 STT-1100 Introduction to Data Science
 
-# Module objectives
+# Module Objectives
 
 At the end of this module, you should be able to:
 
-- Identify ethical issues in a visualization.
-- Correctly anonymize data.
-- Apply good visualization practices to represent data clearly and honestly.
-- Identify and avoid data presentation bias.
-- Understand the ethical and confidentiality issues related to data science.
-- Implement measures to protect and secure sensitive data.
-- Explain the CRAP principles.
-- Explain the FAIR principles.
+- identify ethical issues in a visualization and report;
+- recognize personally identifiable information in a dataset;
+- prepare an anonymized and better documented version of a file;
+- apply good visualization practices with `ggplot2`;
+- distinguish description, association and operational recommendation;
+- explain the CRAP and FAIR principles in a responsible communication context.
 
 # Readings
 
-To prepare, check out the following resources:
+To prepare, consult the following resources:
 
-- [R for Data Science — Communication](https://r4ds.hadley.nz/communication.html)
-- [Guide to good practices for data scientists (government of Luxembourg)](https://mindigital.temporel.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
+- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
+- [Guide to good practices for data scientists](https://mindigital.gouvernement.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
 
 # Adventure
 
-You will play a **data ethics expert** and will be responsible for evaluating a problematic report.
-Link to the adventure:
-[Adventure 7 — Visualization, ethics and data security](../module_07/aventure.llms.md)
+You will act as a data ethics expert. Your team will evaluate a problematic report in the `STT-1100/aventure-7` repository.
 
-# Challenge — Ethical analysis and responsible visualization
+Link to the adventure: [Adventure 7 - Visualization, Ethics and Data Security](../module_07/aventure.llms.md)
 
-You will receive a simulated COVID dataset. Your task will be to produce responsible analysis:
+# Challenge
 
-- Evaluate the ethical aspects related to the visualization provided.
-- Properly anonymize the data.
-- Create a new faithful and informative visualization.
-- Write a critical reflection on the issues encountered.
+The challenge turns the adventure audit into a reproducible ethics note. You will submit a report, a corrected visualization and an anonymized file.
 
-# Consolidation exercises
+Link to the challenge: [Challenge 7 - Ethics Note and Responsible Visualization](../module_07/defi.llms.md)
 
-Here are some real-world examples of problematic or controversial visualizations to analyze:
+# Consolidation Exercises
 
-1.  **Fox News – Graphic on Christianity in the United States**
-    The channel broadcast a graph with a truncated Y axis, visually exaggerating a decline in the unemployment rate.
+The exercises help you practice analyzing problematic or controversial visualizations before submission.
 
-    ![](resources/clipboard-894012077.png)
-
-    Fox News chart with a truncated vertical axis, used as an example of misleading visualization
-
-    **Question**: How does the shape of the axis mislead the reader? How to represent it honestly?
-
-2.  **USA Today – Wrong pie chart**
-    The graph totals more than 100% shares, making the visualization inconsistent.
-
-    ![USA Today pie chart whose slices add up to more than 100 percent](resources/clipboard-2969921414.png)
-    **Question**: What does this error show? What types of alternative charts would work best?
-
-3.  **American electoral maps – Surface distortion**
-    Large, sparsely populated rural areas are visually dominant on maps, even if they have few voters.
-
-    ![United States electoral map illustrating visual distortion by geographic area](resources/clipboard-2149490763.png)
-    **Question**: Why can geographic size distort the perception of results? How to do better?
-
-4.  **Ticked Axis – Educational example of manipulation**
-    Two versions of the same graph, one honest and the other manipulated by axis truncation, reveal the impact of visual choices.
-
-
-
-    ![Lesson 3: Apply the Information \| Critical Thinking Course \| Learn ...](https://giencprograms.blob.core.windows.net/lms/uploads/ceu-course/truncated-y.png)
-    **Question**: What do you notice when comparing the two versions? What different messages are conveyed?
-
-5.  **Cambridge Analytica – Psychological profiling without consent**
-    Facebook data used without users’ knowledge for electoral manipulation purposes.
-    <https://fr.wikipedia.org/wiki/Cambridge_Analytica>
-    **Question**: What ethical principles are violated here (transparency, consent, anonymization)? How to prevent this type of drift?
+Link to the exercises: [Consolidation Exercises](../module_07/exercices.llms.md)

@@ -50,7 +50,7 @@ Text, web and dashboards
 
 ### Module 07
 
-[`tidyverse`](#tidyverse) [`ggplot2`](#ggplot2)
+[`tidyverse`](#tidyverse) [`ggplot2`](#ggplot2) [`lubridate`](#lubridate) [`scales`](#scales) [`leaflet`](#leaflet)
 
 ### Module 08
 
@@ -126,7 +126,11 @@ Executing code chunks and producing outputs in Quarto documents.External documen
 
 ## Lahman
 
-Baseball tables used to practice joins.External documentation [LUB ](https://CRAN.R-project.org/package=lubridate)
+Baseball tables used to practice joins.External documentation [LEA ](https://CRAN.R-project.org/package=leaflet)
+
+## leaflet
+
+Interactive maps used to discuss individual location risks.External documentation [LUB ](https://CRAN.R-project.org/package=lubridate)
 
 ## lubridate
 

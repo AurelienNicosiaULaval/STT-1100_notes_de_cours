@@ -1,39 +1,53 @@
 # Consolidation Exercises
 
-# Consolidation exercises
+# Consolidation Exercises
 
-Here are some real-world examples of problematic or controversial visualizations to analyze:
+Here are some examples of problematic or controversial visualizations to analyze.
 
-1.  **Fox News – Graphic on Christianity in the United States**
-    The channel broadcast a graph with a truncated Y axis, visually exaggerating a decline in the unemployment rate.
+## 1. Truncated Axis in a Television Chart
 
-    ![](resources/clipboard-894012077.png)
+The image shows a chart about the percentage of Americans who identify as Christians. The vertical axis does not start at zero, which visually amplifies the difference between 2009 and 2019.
 
-    Fox News chart with a truncated vertical axis, used as an example of misleading visualization
+![](resources/clipboard-894012077.png)
 
-    **Question**: How does the shape of the axis mislead the reader? How to represent it honestly?
+Television chart with a truncated vertical axis about religious identification in the United States
 
-2.  **USA Today – Wrong pie chart**
-    The graph totals more than 100% shares, making the visualization inconsistent.
+**Question**: How can the axis shape mislead the reader? How could this comparison be represented more honestly?
 
-    ![USA Today pie chart whose slices add up to more than 100 percent](resources/clipboard-2969921414.png)
-    **Question**: What does this error show? What types of alternative charts would work best?
+## 2. Pie Chart Not Drawn to Scale
 
-3.  **American electoral maps – Surface distortion**
-    Large, sparsely populated rural areas are visually dominant on maps, even if they have few voters.
+The image shows a pie chart with angles written on it, but the drawing itself is not to scale. The chart also asks a median question, which is not natural to answer from a pie chart.
 
-    ![United States electoral map illustrating visual distortion by geographic area](resources/clipboard-2149490763.png)
-    **Question**: Why can geographic size distort the perception of results? How to do better?
+![](resources/clipboard-2969921414.png)
 
-4.  **Ticked Axis – Educational example of manipulation**
-    Two versions of the same graph, one honest and the other manipulated by axis truncation, reveal the impact of visual choices.
+Pie chart displaying angles and stating that the drawing is not to scale
 
+**Question**: What might be misinterpreted from this chart? What chart type would better support comparisons across days or finding a median?
 
+## 3. Electoral Map and Area Perception
 
-    ![Lesson 3: Apply the Information \| Critical Thinking Course \| Learn ...](https://giencprograms.blob.core.windows.net/lms/uploads/ceu-course/truncated-y.png)
-    **Question**: What do you notice when comparing the two versions? What different messages are conveyed?
+Large, sparsely populated areas can visually dominate a map, even if they represent few voters. A population-weighted map or cartogram can sometimes support the message better.
 
-5.  **Cambridge Analytica – Psychological profiling without consent**
-    Facebook data used without users’ knowledge for electoral manipulation purposes.
-    <https://fr.wikipedia.org/wiki/Cambridge_Analytica>
-    **Question**: What ethical principles are violated here (transparency, consent, anonymization)? How to prevent this type of drift?
+![](resources/clipboard-2149490763.png)
+
+United States electoral map illustrating visual distortion by geographic area
+
+**Question**: Why can geographic size distort the perception of results? How could it be improved?
+
+## 4. Truncated Vertical Axis
+
+Two versions of the same chart, one honest and one manipulated through axis truncation, reveal the impact of visual choices.
+
+![](https://giencprograms.blob.core.windows.net/lms/uploads/ceu-course/truncated-y.png)
+
+Two charts comparing the effect of a truncated vertical axis
+
+**Question**: What do you notice when comparing the two versions? What different messages are conveyed?
+
+## 5. Cambridge Analytica
+
+Facebook data were used without users’ knowledge for profiling and political persuasion.
+
+<https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal>
+
+**Question**: Which ethical principles are violated here, such as transparency, consent, minimization or anonymization? How can this type of misuse be prevented?

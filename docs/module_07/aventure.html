@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Aventure 7 — Visualisation, éthique et sécurisation des données – STT-1100 Introduction à la science des données</title>
+<title>Aventure 7 - Visualisation, éthique et sécurisation des données – STT-1100 Introduction à la science des données</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5799,14 +5834,13 @@ margin-bottom: .05rem;
 
   <ul>
   <li><a href="#mise-en-contexte" id="toc-mise-en-contexte" class="nav-link active" data-scroll-target="#mise-en-contexte">Mise en contexte</a></li>
-  <li><a href="#objectifs-de-laventure" id="toc-objectifs-de-laventure" class="nav-link" data-scroll-target="#objectifs-de-laventure">Objectifs de l’aventure</a>
-  <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#travail-à-remettre" id="toc-travail-à-remettre" class="nav-link" data-scroll-target="#travail-à-remettre">Travail à remettre</a></li>
-  <li><a href="#ressources-utiles" id="toc-ressources-utiles" class="nav-link" data-scroll-target="#ressources-utiles">Ressources utiles</a></li>
-  <li><a href="#fichier-de-départ" id="toc-fichier-de-départ" class="nav-link" data-scroll-target="#fichier-de-départ">Fichier de départ</a></li>
-  <li><a href="#critères-de-réussite" id="toc-critères-de-réussite" class="nav-link" data-scroll-target="#critères-de-réussite">Critères de réussite</a></li>
-  </ul></li>
+  <li><a href="#dépôt-de-départ" id="toc-dépôt-de-départ" class="nav-link" data-scroll-target="#dépôt-de-départ">Dépôt de départ</a></li>
+  <li><a href="#partie-1---audit-du-rapport-problématique" id="toc-partie-1---audit-du-rapport-problématique" class="nav-link" data-scroll-target="#partie-1---audit-du-rapport-problématique">Partie 1 - Audit du rapport problématique</a></li>
+  <li><a href="#partie-2---préparation-responsable-des-données" id="toc-partie-2---préparation-responsable-des-données" class="nav-link" data-scroll-target="#partie-2---préparation-responsable-des-données">Partie 2 - Préparation responsable des données</a></li>
+  <li><a href="#partie-3---visualisation-corrigée" id="toc-partie-3---visualisation-corrigée" class="nav-link" data-scroll-target="#partie-3---visualisation-corrigée">Partie 3 - Visualisation corrigée</a></li>
+  <li><a href="#partie-4---note-éthique" id="toc-partie-4---note-éthique" class="nav-link" data-scroll-target="#partie-4---note-éthique">Partie 4 - Note éthique</a></li>
+  <li><a href="#partie-5---conclusion-personnelle" id="toc-partie-5---conclusion-personnelle" class="nav-link" data-scroll-target="#partie-5---conclusion-personnelle">Partie 5 - Conclusion personnelle</a></li>
+  <li><a href="#vérification-finale" id="toc-vérification-finale" class="nav-link" data-scroll-target="#vérification-finale">Vérification finale</a></li>
   </ul>
 </nav>
     </div>
@@ -5815,8 +5849,8 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Aventure 7 — Visualisation, éthique et sécurisation des données</h1>
-<p class="subtitle lead">STT-1100 • Introduction à la science des données</p>
+<h1 class="title">Aventure 7 - Visualisation, éthique et sécurisation des données</h1>
+<p class="subtitle lead">STT-1100 - Introduction à la science des données</p>
 </div>
 
 
@@ -5835,72 +5869,157 @@ margin-bottom: .05rem;
 
 <section id="mise-en-contexte" class="level1">
 <h1>Mise en contexte</h1>
-<p>Vous êtes un·e <strong>expert·e invité·e</strong> dans une commission d’éthique en science des données. Une organisation vous soumet un rapport contenant une visualisation et des statistiques issues d’un jeu de données simulé sur la COVID-19. Votre rôle : évaluer la conformité de ce rapport aux bonnes pratiques de communication visuelle, à l’éthique et à la protection des données sensibles.</p>
+<p>Vous êtes une équipe mandatée par un comité d’éthique en science des données. Une organisation vous remet un rapport interne volontairement problématique sur des tests COVID-19 simulés. Le rapport contient des visualisations, des interprétations rapides et des renseignements personnels identifiables.</p>
+<p>Votre mandat n’est pas seulement de refaire un graphique. Vous devez montrer qu’une analyse peut être techniquement reproductible, visuellement honnête et responsable envers les personnes représentées dans les données.</p>
 </section>
-<section id="objectifs-de-laventure" class="level1">
-<h1>Objectifs de l’aventure</h1>
+<section id="dépôt-de-départ" class="level1">
+<h1>Dépôt de départ</h1>
+<p>Clonez le dépôt GitHub du module 7 depuis l’organisation du cours : <code>STT-1100/aventure-7</code>.</p>
+<p>Le dépôt contient :</p>
 <ul>
-<li>Développer votre esprit critique face à des visualisations trompeuses et des interprétations biaisées.</li>
-<li>Identifier les biais de présentation, les erreurs éthiques et les atteintes à la confidentialité (PII).</li>
-<li>Appliquer les bonnes pratiques de visualisation (CRAP, axes, couleurs, légendes).</li>
-<li>Mettre en œuvre des principes éthiques dans le traitement et la communication des données.</li>
+<li><code>Rapport_COVID_Douteux.html</code> : rapport problématique à examiner;</li>
+<li><code>Rapport_COVID_Douteux.qmd</code> : source Quarto du rapport problématique;</li>
+<li><code>covid_module7_douteux.csv</code> : données simulées contenant volontairement des problèmes de qualité, de confidentialité et de ré-identification;</li>
+<li><code>rapport_ethique.qmd</code> : squelette de rapport à compléter.</li>
 </ul>
-<section id="instructions" class="level2">
-<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<p>En équipe, vous devez :</p>
-<ol type="1">
-<li><strong>Lire attentivement le rapport fourni</strong> (<code>Analyse initiale des cas de COVID-19.html</code>).</li>
-<li><strong>Identifier tous les problèmes</strong> : visuels, statistiques, éthiques, méthodologiques, etc.</li>
-<li><strong>Corriger et améliorer la visualisation</strong> à l’aide du fichier de données <code>donnees_covid_module7.csv</code>.</li>
-<li><strong>Rédiger un rapport critique</strong> incluant :
+<p>Le dépôt final doit contenir :</p>
 <ul>
-<li>Problèmes identifiés</li>
-<li>Raisonnement éthique</li>
-<li>Recommandations</li>
-</ul></li>
-<li><strong>Fournir une ou plusieurs visualisations corrigées</strong> avec explications.</li>
-<li><strong>Ajouter une courte conclusion personnelle</strong> (5 lignes par personne) sur ce que vous retenez de cette activité.</li>
+<li><code>rapport_ethique.qmd</code> : votre rapport critique reproductible;</li>
+<li><code>rapport_ethique.html</code> : la version rendue du rapport;</li>
+<li><code>covid_module7_anonymise.csv</code> : une version anonymisée et mieux préparée des données;</li>
+<li><code>README.md</code> : une courte description du projet et de la procédure de rendu;</li>
+<li>tout fichier supplémentaire réellement nécessaire.</li>
+</ul>
+</section>
+<section id="partie-1---audit-du-rapport-problématique" class="level1">
+<h1>Partie 1 - Audit du rapport problématique</h1>
+<p>Lisez d’abord <code>Rapport_COVID_Douteux.html</code>, puis consultez <code>Rapport_COVID_Douteux.qmd</code> pour comprendre comment le rapport a été produit.</p>
+<p>Repérez des problèmes dans au moins quatre dimensions :</p>
+<ul>
+<li><strong>visualisation</strong> : axes tronqués, couleurs anxiogènes, échelles difficiles à lire, cartes trop précises, doubles axes trompeurs;</li>
+<li><strong>statistique</strong> : interprétations causales non justifiées, petits effectifs, absence d’incertitude, sélection de période;</li>
+<li><strong>données</strong> : valeurs incohérentes, dates dans plusieurs formats, résultats de tests codés de plusieurs façons, âges impossibles;</li>
+<li><strong>confidentialité</strong> : noms, courriels, téléphones, dates de naissance, coordonnées, notes libres;</li>
+<li><strong>communication</strong> : recommandations trop fortes, conflit d’intérêts non discuté, absence de limites.</li>
+</ul>
+<p>Pour chaque problème retenu, indiquez :</p>
+<ol type="1">
+<li>l’endroit où il apparaît;</li>
+<li>pourquoi c’est problématique;</li>
+<li>ce que vous changeriez.</li>
 </ol>
 </section>
-<section id="travail-à-remettre" class="level2">
-<h2 class="anchored" data-anchor-id="travail-à-remettre">Travail à remettre</h2>
-<p>Un fichier <code>.qmd</code> sur GitHub contenant :</p>
+<section id="partie-2---préparation-responsable-des-données" class="level1">
+<h1>Partie 2 - Préparation responsable des données</h1>
+<p>À partir de <code>covid_module7_douteux.csv</code>, préparez une version mieux adaptée à une communication publique ou pédagogique.</p>
+<p>Votre préparation doit au minimum :</p>
 <ul>
-<li>Une section “Analyse critique”</li>
-<li>Une section “Visualisation améliorée”</li>
-<li>Une section “Conclusion personnelle”</li>
+<li>retirer les identifiants directs comme le nom, le courriel, le téléphone et la date de naissance;</li>
+<li>éviter de publier des coordonnées individuelles précises;</li>
+<li>créer une variable de résultat de test standardisée;</li>
+<li>transformer les dates de test dans un format analysable;</li>
+<li>regrouper ou traiter les valeurs d’âge impossibles ou trop précises;</li>
+<li>documenter les choix faits.</li>
+</ul>
+<p>Exemple de point de départ :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>covid_brut <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;covid_module7_douteux.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>covid_prepare <span class="ot">&lt;-</span> covid_brut <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_test_parsee =</span> <span class="fu">suppressWarnings</span>(lubridate<span class="sc">::</span><span class="fu">parse_date_time</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      date_test,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">orders =</span> <span class="fu">c</span>(<span class="st">&quot;Y-m-d&quot;</span>, <span class="st">&quot;d/m/Y&quot;</span>, <span class="st">&quot;m-d-Y&quot;</span>, <span class="st">&quot;Y/m/d&quot;</span>, <span class="st">&quot;d-m-Y&quot;</span>, <span class="st">&quot;m/d/Y&quot;</span>, <span class="st">&quot;y/m/d&quot;</span>, <span class="st">&quot;d/m/y&quot;</span>, <span class="st">&quot;m/d/y&quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    )),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_test_parsee =</span> <span class="fu">as.Date</span>(date_test_parsee),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">resultat_standard =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      result <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Positive&quot;</span>, <span class="st">&quot;Pos&quot;</span>, <span class="st">&quot;+&quot;</span>) <span class="sc">~</span> <span class="st">&quot;positif&quot;</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      result <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Negative&quot;</span>, <span class="st">&quot;neg&quot;</span>, <span class="st">&quot;-&quot;</span>) <span class="sc">~</span> <span class="st">&quot;negatif&quot;</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_valide =</span> <span class="fu">if_else</span>(age <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">110</span>, age, <span class="cn">NA_real_</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_groupe =</span> <span class="fu">cut</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      age_valide,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">80</span>, <span class="cn">Inf</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-17&quot;</span>, <span class="st">&quot;18-39&quot;</span>, <span class="st">&quot;40-59&quot;</span>, <span class="st">&quot;60-79&quot;</span>, <span class="st">&quot;80+&quot;</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">right =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cette étape n’a pas pour but d’effacer toute information utile. Elle vise à réduire les risques tout en gardant une analyse compréhensible.</p>
+</section>
+<section id="partie-3---visualisation-corrigée" class="level1">
+<h1>Partie 3 - Visualisation corrigée</h1>
+<p>Produisez au moins deux visualisations corrigées.</p>
+<p>Chaque visualisation doit :</p>
+<ul>
+<li>utiliser une unité claire;</li>
+<li>éviter les axes tronqués non justifiés;</li>
+<li>montrer les effectifs lorsque les proportions sont comparées;</li>
+<li>éviter de publier des identifiants personnels;</li>
+<li>être accompagnée d’une interprétation prudente.</li>
+</ul>
+<p>Une visualisation possible consiste à montrer le taux de positivité par arrondissement avec les effectifs.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>positivite_arrondissement <span class="ot">&lt;-</span> covid_prepare <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(resultat_standard), <span class="sc">!</span><span class="fu">is.na</span>(borough)) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_tests =</span> <span class="fu">n</span>(),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_positifs =</span> <span class="fu">sum</span>(resultat_standard <span class="sc">==</span> <span class="st">&quot;positif&quot;</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">taux_positivite =</span> n_positifs <span class="sc">/</span> n_tests,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(taux_positivite))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>positivite_arrondissement <span class="sc">|&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(borough, taux_positivite), <span class="at">y =</span> taux_positivite)) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Taux de positivité par arrondissement dans les données simulées&quot;</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Les effectifs doivent être consultés avant toute interprétation&quot;</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Arrondissement&quot;</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Taux de positivité&quot;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="partie-4---note-éthique" class="level1">
+<h1>Partie 4 - Note éthique</h1>
+<p>Ajoutez une section “Note éthique” dans <code>rapport_ethique.qmd</code>.</p>
+<p>Votre note doit répondre aux questions suivantes :</p>
+<ul>
+<li>Quelles informations ne devraient pas être publiées telles quelles?</li>
+<li>Quels risques de ré-identification demeurent même après retrait des noms?</li>
+<li>Quelles limites empêchent de formuler des recommandations fortes?</li>
+<li>Comment présenteriez-vous ces résultats à un public non spécialiste sans créer de panique ou de stigmatisation?</li>
 </ul>
 </section>
-<section id="ressources-utiles" class="level2">
-<h2 class="anchored" data-anchor-id="ressources-utiles">Ressources utiles</h2>
+<section id="partie-5---conclusion-personnelle" class="level1">
+<h1>Partie 5 - Conclusion personnelle</h1>
+<p>Chaque membre de l’équipe ajoute une courte conclusion personnelle d’environ cinq lignes.</p>
+<p>Cette conclusion doit expliquer :</p>
 <ul>
-<li>Règles CRAP : Contraste, Répétition, Alignement, Proximité</li>
-<li><em>How to Lie with Statistics</em> — Darrell Huff</li>
-<li>Règles d’anonymisation des données (PII)</li>
-<li>Principes d’éthique : transparence, reproductibilité, non-nuisance</li>
-<li>Bonnes pratiques de visualisation avec <code>ggplot2</code></li>
-<li>Concepts abordés dans le module 7 : sécurité, biais, visualisation, éthique</li>
+<li>un problème qu’il ou elle n’aurait peut-être pas remarqué avant ce module;</li>
+<li>une décision de visualisation ou d’anonymisation qu’il ou elle juge importante;</li>
+<li>une règle personnelle à retenir pour de futurs projets de science des données.</li>
 </ul>
 </section>
-<section id="fichier-de-départ" class="level2">
-<h2 class="anchored" data-anchor-id="fichier-de-départ">Fichier de départ</h2>
+<section id="vérification-finale" class="level1">
+<h1>Vérification finale</h1>
+<p>Avant la remise, vérifiez que :</p>
 <ul>
-<li><code>Analyse initiale des cas de COVID-19.html</code> (fourni sur GitHub)</li>
-<li><code>donnees_covid_module7.csv</code> (données nettoyées à utiliser pour la version corrigée)</li>
+<li><code>rapport_ethique.qmd</code> se rend en HTML sans erreur;</li>
+<li>le rapport contient au moins deux visualisations corrigées;</li>
+<li><code>covid_module7_anonymise.csv</code> ne contient pas de nom, courriel, téléphone, date de naissance ou coordonnées individuelles précises;</li>
+<li>les limites de l’analyse sont clairement écrites;</li>
+<li>les recommandations restent descriptives et prudentes;</li>
+<li>le <code>README.md</code> explique comment rendre le rapport;</li>
+<li>le dépôt GitHub contient seulement les fichiers nécessaires.</li>
 </ul>
-</section>
-<section id="critères-de-réussite" class="level2">
-<h2 class="anchored" data-anchor-id="critères-de-réussite">Critères de réussite</h2>
-<ul>
-<li>Capacité à identifier un grand nombre de problèmes (techniques, éthiques, visuels)</li>
-<li>Capacité à justifier vos corrections</li>
-<li>Qualité de la visualisation améliorée (clarté, honnêteté, accessibilité)</li>
-<li>Qualité du rapport critique</li>
-<li>Capacité à adopter une posture réflexive sur l’éthique en science des données</li>
-</ul>
+<p>Bonne analyse.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -50,7 +50,7 @@ Texte, web et tableaux de bord
 
 ### Module 07
 
-[`tidyverse`](#tidyverse) [`ggplot2`](#ggplot2)
+[`tidyverse`](#tidyverse) [`ggplot2`](#ggplot2) [`lubridate`](#lubridate) [`scales`](#scales) [`leaflet`](#leaflet)
 
 ### Module 08
 
@@ -126,7 +126,11 @@ Exécution de blocs de code et production de sorties dans les documents Quarto.D
 
 ## Lahman
 
-Tables de baseball utilisées pour pratiquer les jointures.Documentation externe [LUB ](https://CRAN.R-project.org/package=lubridate)
+Tables de baseball utilisées pour pratiquer les jointures.Documentation externe [LEA ](https://CRAN.R-project.org/package=leaflet)
+
+## leaflet
+
+Cartes interactives utilisées pour discuter des risques de localisation individuelle.Documentation externe [LUB ](https://CRAN.R-project.org/package=lubridate)
 
 ## lubridate
 

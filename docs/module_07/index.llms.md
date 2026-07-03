@@ -45,13 +45,13 @@ message clair risques notés données protégées
 
 Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
 
-1 Lectures à faire Préparer visualisation responsable, confidentialité et éthique. Dans la carte Ouvrir la carteRéduire
+1 Lectures à faire Préparer visualisation responsable, confidentialité et éthique. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
 ### Lectures
 
 Pour vous préparer, consultez les ressources suivantes :
 
-- [R for Data Science — Communication](https://r4ds.hadley.nz/communication.html)
+- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
 - [Guide de bonnes pratiques à l’usage des data scientists (gouvernement du Luxembourg)](https://mindigital.gouvernement.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
 
 2 Aventure Transformer des données sensibles en message visuel prudent. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
@@ -68,14 +68,16 @@ Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
 3 Défi Analyser une visualisation avec une note éthique argumentée. Dans la carte Ouvrir la carteRéduire
 
-### Défi — Analyse éthique et visualisation responsable
+### Défi - Analyse éthique et visualisation responsable
 
-Vous recevrez un jeu de données COVID simulé. Votre tâche sera de produire une analyse responsable :
+Vous transformerez l'audit de l'aventure en note éthique reproductible :
 
-- Évaluer les aspects éthiques liés à la visualisation fournie.
-- Anonymiser correctement les données.
-- Créer une nouvelle visualisation fidèle et informative.
-- Rédiger une réflexion critique sur les enjeux rencontrés.
+- identifier des problèmes précis dans le rapport initial;
+- produire une version anonymisée des données;
+- créer une visualisation corrigée et défendable;
+- formuler les limites et les risques résiduels.
+
+[Consulter le défi 7](defi.llms.md)
 
 4 Exercices Vérifier choix graphiques, limites et risques de communication. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
@@ -89,11 +91,11 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[donnees_covid_module7.csv](../donnees.llms.md#dataset-card-covid-module-07)
+[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07)
 
 ### Packages R
 
-[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2)
+[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2) [lubridate](../packages.llms.md#lubridate) [scales](../packages.llms.md#scales) [leaflet](../packages.llms.md#leaflet)
 
 ## Révision et prolongement
 

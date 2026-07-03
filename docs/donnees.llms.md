@@ -126,11 +126,11 @@ Tables de baseball utilisées pour combiner plusieurs sources.Package RStructure
 
 ### Module 07
 
-[Module 07 ](#covid-module-07)
+[Module 07 ](https://github.com/STT-1100/aventure-7)
 
-## donnees_covid_module7.csv
+## covid_module7_douteux.csv
 
-[Petit fichier CSV de cas confirmés par région, âge et date.Fichier local50 observations / 4 variablesVoir la fiche](#covid-module-07)
+[Fichier CSV simulé contenant volontairement des problèmes de qualité, de confidentialité et de ré-identification.Web120 observations / 25 variablesVoir la documentation](https://github.com/STT-1100/aventure-7)
 
 ### Module 08
 
@@ -401,34 +401,6 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | dest_tz_code | numeric | 0 | 5 | -8 |
 | dest_dst | character | 0 | 2 | A |
 | dest_tz | character | 0 | 7 | America/Los_Angeles |
-
-### donnees_covid_module7.csv
-
-Petit fichier CSV de cas confirmés par région, âge et date.
-
-[Télécharger donnees_covid_module7.csv](module_07/donnees_covid_module7.csv)
-
-| Information  | Valeur                                              |
-|:-------------|:----------------------------------------------------|
-| Module       | Module 07                                           |
-| Observations | 50                                                  |
-| Variables    | 4                                                   |
-| Utilisation  | Préparer des graphiques et des résumés descriptifs. |
-| Source       | Fichier fourni avec le matériel du cours.           |
-| Licence      | Matériel pédagogique du cours.                      |
-
-#### Aperçu
-
-Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
-
-#### Variables de l’aperçu
-
-| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
-|:---|:---|---:|---:|:---|
-| region | character | 0 | 3 | Québec |
-| age | numeric | 0 | 27 | 78 |
-| cas_confirmes | numeric | 0 | 39 | 111 |
-| date | Date | 0 | 47 | 2022-08-03 |
 
 ### eleves_fictifs.csv
 

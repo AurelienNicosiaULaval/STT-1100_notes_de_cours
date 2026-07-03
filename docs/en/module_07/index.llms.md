@@ -51,8 +51,8 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 
 To prepare, check out the following resources:
 
-- [R for Data Science — Communication](https://r4ds.hadley.nz/communication.html)
-- [Guide to good practices for data scientists (government of Luxembourg)](https://mindigital.temporel.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
+- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
+- [Guide to good practices for data scientists (government of Luxembourg)](https://mindigital.gouvernement.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
 
 2 Adventure Turn sensitive data into a careful visual message. [Adventure](aventure.llms.md) Open cardCollapse
 
@@ -66,16 +66,18 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Analyze a visualization with an argued ethics note. In this card Open cardCollapse
+3 Challenge Analyze a visualization with an argued ethics note. [Challenge](defi.llms.md) Open cardCollapse
 
-### Challenge — Ethical analysis and responsible visualization
+### Challenge - Ethical analysis and responsible visualization
 
-You will receive a simulated COVID dataset. Your task will be to produce responsible analysis:
+You will turn the adventure audit into a reproducible ethics note:
 
-- Evaluate the ethical aspects related to the visualization provided.
-- Properly anonymize the data.
-- Create a new faithful and informative visualization.
-- Write a critical reflection on the issues encountered.
+- identify specific problems in the initial report;
+- produce an anonymized version of the data;
+- create a corrected and defensible visualization;
+- state limitations and residual risks.
+
+[View challenge 7](defi.llms.md)
 
 4 Exercises Check chart choices, limits and communication risks. [Exercises](exercices.llms.md) Open cardCollapse
 
@@ -89,11 +91,11 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[donnees_covid_module7.csv](../donnees.llms.md#dataset-card-covid-module-07)
+[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07)
 
 ### R packages
 
-[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2)
+[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2) [lubridate](../packages.llms.md#lubridate) [scales](../packages.llms.md#scales) [leaflet](../packages.llms.md#leaflet)
 
 ## Review and Extension
 

@@ -126,11 +126,11 @@ Baseball tables used to combine several sources.R packageStructure to consultVie
 
 ### Module 07
 
-[Module 07 ](#covid-module-07)
+[Module 07 ](https://github.com/STT-1100/aventure-7)
 
-## donnees_covid_module7.csv
+## covid_module7_douteux.csv
 
-[Small CSV file of confirmed cases by region, age and date.Local file50 observations / 4 variablesView profile](#covid-module-07)
+[Simulated CSV file deliberately containing quality, confidentiality and re-identification issues.Web120 observations / 25 variablesView documentation](https://github.com/STT-1100/aventure-7)
 
 ### Module 08
 
@@ -401,34 +401,6 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | dest_tz_code | numeric | 0 | 5 | -8 |
 | dest_dst | character | 0 | 2 | A |
 | dest_tz | character | 0 | 7 | America/Los_Angeles |
-
-### donnees_covid_module7.csv
-
-Small CSV file of confirmed cases by region, age and date.
-
-[Download donnees_covid_module7.csv](module_07/donnees_covid_module7.csv)
-
-| Information  | Value                                     |
-|:-------------|:------------------------------------------|
-| Module       | Module 07                                 |
-| Observations | 50                                        |
-| Variables    | 4                                         |
-| Course use   | Prepare charts and descriptive summaries. |
-| Source       | File provided with the course material.   |
-| License      | Course teaching material.                 |
-
-#### Preview
-
-Preview limited to 12 rows and 12 columns to keep the page light.
-
-#### Preview variables
-
-| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
-|:---|:---|---:|---:|:---|
-| region | character | 0 | 3 | Québec |
-| age | numeric | 0 | 27 | 78 |
-| cas_confirmes | numeric | 0 | 39 | 111 |
-| date | Date | 0 | 47 | 2022-08-03 |
 
 ### eleves_fictifs.csv
 

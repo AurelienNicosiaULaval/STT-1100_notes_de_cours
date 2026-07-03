@@ -78,6 +78,12 @@ Faire une revue croisée d'un rapport collaboratif et vérifier sa reproductibil
 
 [Consulter le défi 6](module_06/defi.llms.md)
 
+### Défi 7
+
+Produire une note éthique, une visualisation responsable et un fichier anonymisé.
+
+[Consulter le défi 7](module_07/defi.llms.md)
+
 ## Types de productions
 
 Les formats changent selon les modules, mais ils restent toujours reliés aux compétences du cours.

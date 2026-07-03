@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Adventure 7 - Visualization, Ethics and Data Security – STT-1100 Introduction to Data Science</title>
+<title>Challenge 7 - Ethics Note and Responsible Visualization – STT-1100 Introduction to Data Science</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,41 +19,6 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
-}
-
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-}
-pre.numberSource { margin-left: 3em; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5830,17 +5795,16 @@ margin-bottom: .05rem;
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Adventure plan</h2>
+    <h2 id="toc-title">Challenge plan</h2>
 
   <ul>
-  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
-  <li><a href="#starter-repository" id="toc-starter-repository" class="nav-link" data-scroll-target="#starter-repository">Starter Repository</a></li>
-  <li><a href="#part-1---audit-the-problematic-report" id="toc-part-1---audit-the-problematic-report" class="nav-link" data-scroll-target="#part-1---audit-the-problematic-report">Part 1 - Audit the Problematic Report</a></li>
-  <li><a href="#part-2---responsible-data-preparation" id="toc-part-2---responsible-data-preparation" class="nav-link" data-scroll-target="#part-2---responsible-data-preparation">Part 2 - Responsible Data Preparation</a></li>
-  <li><a href="#part-3---corrected-visualization" id="toc-part-3---corrected-visualization" class="nav-link" data-scroll-target="#part-3---corrected-visualization">Part 3 - Corrected Visualization</a></li>
-  <li><a href="#part-4---ethics-note" id="toc-part-4---ethics-note" class="nav-link" data-scroll-target="#part-4---ethics-note">Part 4 - Ethics Note</a></li>
-  <li><a href="#part-5---personal-conclusion" id="toc-part-5---personal-conclusion" class="nav-link" data-scroll-target="#part-5---personal-conclusion">Part 5 - Personal Conclusion</a></li>
-  <li><a href="#final-check" id="toc-final-check" class="nav-link" data-scroll-target="#final-check">Final Check</a></li>
+  <li><a href="#mission" id="toc-mission" class="nav-link active" data-scroll-target="#mission">Mission</a></li>
+  <li><a href="#expected-work" id="toc-expected-work" class="nav-link" data-scroll-target="#expected-work">Expected Work</a></li>
+  <li><a href="#anonymized-file" id="toc-anonymized-file" class="nav-link" data-scroll-target="#anonymized-file">Anonymized File</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables</a></li>
+  <li><a href="#evaluation-grid" id="toc-evaluation-grid" class="nav-link" data-scroll-target="#evaluation-grid">Evaluation Grid</a></li>
+  <li><a href="#checklist-before-submission" id="toc-checklist-before-submission" class="nav-link" data-scroll-target="#checklist-before-submission">Checklist Before Submission</a></li>
   </ul>
 </nav>
     </div>
@@ -5849,8 +5813,8 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Adventure 7 - Visualization, Ethics and Data Security</h1>
-<p class="subtitle lead">STT-1100 - Introduction to Data Science</p>
+<h1 class="title">Challenge 7 - Ethics Note and Responsible Visualization</h1>
+<p class="subtitle lead">STT-1100 Introduction to Data Science</p>
 </div>
 
 
@@ -5867,157 +5831,114 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="context" class="level1">
-<h1>Context</h1>
-<p>You are a team mandated by a data science ethics committee. An organization gives you a deliberately problematic internal report about simulated COVID-19 tests. The report contains visualizations, quick interpretations and personally identifiable information.</p>
-<p>Your task is not only to remake a chart. You must show that an analysis can be technically reproducible, visually honest and responsible toward the people represented in the data.</p>
+<section id="mission" class="level1">
+<h1>Mission</h1>
+<p>In adventure 7, you audited a problematic report and prepared a more responsible version of the data. The challenge is to turn that work into a short, clear and reusable note.</p>
+<p>Your goal is to convince a reader that your improved visualization is more honest than the initial version, and that your data protection choices genuinely reduce risk.</p>
 </section>
-<section id="starter-repository" class="level1">
-<h1>Starter Repository</h1>
-<p>Clone the module 7 GitHub repository from the course organization: <code>STT-1100/aventure-7</code>.</p>
-<p>The repository contains:</p>
+<section id="expected-work" class="level1">
+<h1>Expected Work</h1>
+<p>Starting from your <code>STT-1100/aventure-7</code> repository, produce a final version of <code>rapport_ethique.qmd</code>.</p>
+<p>The report must contain:</p>
 <ul>
-<li><code>Rapport_COVID_Douteux.html</code>: problematic report to review;</li>
-<li><code>Rapport_COVID_Douteux.qmd</code>: Quarto source of the problematic report;</li>
-<li><code>covid_module7_douteux.csv</code>: simulated data deliberately containing quality, confidentiality and re-identification issues;</li>
-<li><code>rapport_ethique.qmd</code>: report skeleton to complete.</li>
-</ul>
-<p>The final repository must contain:</p>
-<ul>
-<li><code>rapport_ethique.qmd</code>: your reproducible critical report;</li>
-<li><code>rapport_ethique.html</code>: the rendered version of the report;</li>
-<li><code>covid_module7_anonymise.csv</code>: an anonymized and better prepared version of the data;</li>
-<li><code>README.md</code>: a short project description and rendering procedure;</li>
-<li>any additional file that is truly necessary.</li>
+<li>a “Problems identified” section with at least five specific issues;</li>
+<li>an “Anonymized data” section describing the columns removed, grouped or transformed;</li>
+<li>a “Responsible visualization” section with at least one corrected visualization;</li>
+<li>a “Limitations” section explaining what the data do not allow you to conclude;</li>
+<li>a short personal conclusion from each team member.</li>
 </ul>
 </section>
-<section id="part-1---audit-the-problematic-report" class="level1">
-<h1>Part 1 - Audit the Problematic Report</h1>
-<p>First read <code>Rapport_COVID_Douteux.html</code>, then consult <code>Rapport_COVID_Douteux.qmd</code> to understand how the report was produced.</p>
-<p>Identify problems in at least four dimensions:</p>
+<section id="anonymized-file" class="level1">
+<h1>Anonymized File</h1>
+<p>Your repository must also contain a <code>covid_module7_anonymise.csv</code> file.</p>
+<p>This file must not contain:</p>
 <ul>
-<li><strong>visualization</strong>: truncated axes, alarming colors, hard-to-read scales, overly precise maps, misleading dual axes;</li>
-<li><strong>statistics</strong>: unjustified causal interpretations, small counts, lack of uncertainty, selected time window;</li>
-<li><strong>data</strong>: inconsistent values, dates in several formats, test results coded in several ways, impossible ages;</li>
-<li><strong>confidentiality</strong>: names, emails, phone numbers, dates of birth, coordinates, free-text notes;</li>
-<li><strong>communication</strong>: overly strong recommendations, undisclosed conflict of interest, missing limitations.</li>
+<li>names;</li>
+<li>emails;</li>
+<li>phone numbers;</li>
+<li>dates of birth;</li>
+<li>precise individual coordinates;</li>
+<li>free-text notes that could identify a person.</li>
 </ul>
-<p>For each selected issue, state:</p>
-<ol type="1">
-<li>where it appears;</li>
-<li>why it is problematic;</li>
-<li>what you would change.</li>
-</ol>
+<p>If you keep sensitive variables such as age, sex, occupation or certain medical conditions, explain why they are necessary and how you reduce re-identification risk.</p>
 </section>
-<section id="part-2---responsible-data-preparation" class="level1">
-<h1>Part 2 - Responsible Data Preparation</h1>
-<p>Starting from <code>covid_module7_douteux.csv</code>, prepare a version better suited to public or pedagogical communication.</p>
-<p>Your preparation must at least:</p>
+<section id="visualization" class="level1">
+<h1>Visualization</h1>
+<p>Your visualization must:</p>
 <ul>
-<li>remove direct identifiers such as name, email, phone number and date of birth;</li>
-<li>avoid publishing precise individual coordinates;</li>
-<li>create a standardized test result variable;</li>
-<li>transform test dates into an analyzable format;</li>
-<li>group or handle impossible or overly precise ages;</li>
-<li>document the choices made.</li>
-</ul>
-<p>Starting point:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>covid_raw <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;covid_module7_douteux.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>covid_prepared <span class="ot">&lt;-</span> covid_raw <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">parsed_test_date =</span> <span class="fu">suppressWarnings</span>(lubridate<span class="sc">::</span><span class="fu">parse_date_time</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      date_test,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">orders =</span> <span class="fu">c</span>(<span class="st">&quot;Y-m-d&quot;</span>, <span class="st">&quot;d/m/Y&quot;</span>, <span class="st">&quot;m-d-Y&quot;</span>, <span class="st">&quot;Y/m/d&quot;</span>, <span class="st">&quot;d-m-Y&quot;</span>, <span class="st">&quot;m/d/Y&quot;</span>, <span class="st">&quot;y/m/d&quot;</span>, <span class="st">&quot;d/m/y&quot;</span>, <span class="st">&quot;m/d/y&quot;</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    )),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">parsed_test_date =</span> <span class="fu">as.Date</span>(parsed_test_date),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">standardized_result =</span> <span class="fu">case_when</span>(</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      result <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Positive&quot;</span>, <span class="st">&quot;Pos&quot;</span>, <span class="st">&quot;+&quot;</span>) <span class="sc">~</span> <span class="st">&quot;positive&quot;</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      result <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Negative&quot;</span>, <span class="st">&quot;neg&quot;</span>, <span class="st">&quot;-&quot;</span>) <span class="sc">~</span> <span class="st">&quot;negative&quot;</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">valid_age =</span> <span class="fu">if_else</span>(age <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">110</span>, age, <span class="cn">NA_real_</span>),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">cut</span>(</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      valid_age,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">80</span>, <span class="cn">Inf</span>),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-17&quot;</span>, <span class="st">&quot;18-39&quot;</span>, <span class="st">&quot;40-59&quot;</span>, <span class="st">&quot;60-79&quot;</span>, <span class="st">&quot;80+&quot;</span>),</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">right =</span> <span class="cn">FALSE</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This step is not about deleting all useful information. It is about reducing risks while keeping the analysis understandable.</p>
-</section>
-<section id="part-3---corrected-visualization" class="level1">
-<h1>Part 3 - Corrected Visualization</h1>
-<p>Produce at least two corrected visualizations.</p>
-<p>Each visualization must:</p>
-<ul>
-<li>use a clear unit;</li>
-<li>avoid unjustified truncated axes;</li>
-<li>show counts when proportions are compared;</li>
-<li>avoid publishing personal identifiers;</li>
+<li>use an honest scale;</li>
+<li>avoid colors that suggest an unjustified judgment;</li>
+<li>display or mention counts;</li>
+<li>have a descriptive title;</li>
 <li>be accompanied by a careful interpretation.</li>
 </ul>
-<p>One possible visualization is a positivity rate by borough with counts.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>borough_positivity <span class="ot">&lt;-</span> covid_prepared <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(standardized_result), <span class="sc">!</span><span class="fu">is.na</span>(borough)) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(borough) <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_tests =</span> <span class="fu">n</span>(),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_positive =</span> <span class="fu">sum</span>(standardized_result <span class="sc">==</span> <span class="st">&quot;positive&quot;</span>),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">positivity_rate =</span> n_positive <span class="sc">/</span> n_tests,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(positivity_rate))</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>borough_positivity <span class="sc">|&gt;</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(borough, positivity_rate), <span class="at">y =</span> positivity_rate)) <span class="sc">+</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Positivity rate by borough in the simulated data&quot;</span>,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Counts must be checked before interpretation&quot;</span>,</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Borough&quot;</span>,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Positivity rate&quot;</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A strong answer does not try to produce the most spectacular chart. It tries to produce a chart that can be defended.</p>
 </section>
-<section id="part-4---ethics-note" class="level1">
-<h1>Part 4 - Ethics Note</h1>
-<p>Add an “Ethics note” section to <code>rapport_ethique.qmd</code>.</p>
-<p>Your note must answer the following questions:</p>
+<section id="deliverables" class="level1">
+<h1>Deliverables</h1>
+<p>Your GitHub repository must contain:</p>
 <ul>
-<li>Which information should not be published as is?</li>
-<li>What re-identification risks remain even after names are removed?</li>
-<li>Which limitations prevent strong recommendations?</li>
-<li>How would you present these results to a non-specialist audience without creating panic or stigma?</li>
+<li><code>rapport_ethique.qmd</code>;</li>
+<li><code>rapport_ethique.html</code>;</li>
+<li><code>covid_module7_anonymise.csv</code>;</li>
+<li><code>README.md</code>;</li>
+<li>the starter files if you kept them to document your process.</li>
 </ul>
 </section>
-<section id="part-5---personal-conclusion" class="level1">
-<h1>Part 5 - Personal Conclusion</h1>
-<p>Each team member adds a short personal conclusion of about five lines.</p>
-<p>This conclusion must explain:</p>
-<ul>
-<li>one issue they might not have noticed before this module;</li>
-<li>one visualization or anonymization decision they consider important;</li>
-<li>one personal rule to remember for future data science projects.</li>
-</ul>
+<section id="evaluation-grid" class="level1">
+<h1>Evaluation Grid</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Excellent</th>
+<th>Satisfactory</th>
+<th>Needs improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Critical audit</td>
+<td>Problems are precise, varied and supported by observable elements</td>
+<td>Problems are relevant, but sometimes general</td>
+<td>Problems are vague or incomplete</td>
+</tr>
+<tr class="even">
+<td>Anonymization</td>
+<td>Direct identifiers are removed and residual risks are discussed</td>
+<td>Direct identifiers are removed, but the discussion remains limited</td>
+<td>Identifying information remains</td>
+</tr>
+<tr class="odd">
+<td>Visualization</td>
+<td>The chart is clear, honest, readable and interpreted carefully</td>
+<td>The chart is understandable, but some choices remain weakly justified</td>
+<td>The chart reproduces biases from the initial version</td>
+</tr>
+<tr class="even">
+<td>Reproducibility</td>
+<td>The report renders without error and the README explains the procedure</td>
+<td>The report renders, but the procedure is weakly documented</td>
+<td>The report does not render or necessary files are missing</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="final-check" class="level1">
-<h1>Final Check</h1>
-<p>Before submission, check that:</p>
+<section id="checklist-before-submission" class="level1">
+<h1>Checklist Before Submission</h1>
 <ul>
-<li><code>rapport_ethique.qmd</code> renders to HTML without error;</li>
-<li>the report contains at least two corrected visualizations;</li>
-<li><code>covid_module7_anonymise.csv</code> contains no name, email, phone number, date of birth or precise individual coordinates;</li>
-<li>the limitations of the analysis are clearly written;</li>
-<li>recommendations remain descriptive and careful;</li>
-<li><code>README.md</code> explains how to render the report;</li>
-<li>the GitHub repository contains only the necessary files.</li>
+<li><code>rapport_ethique.qmd</code> renders without error.</li>
+<li><code>rapport_ethique.html</code> is present.</li>
+<li><code>covid_module7_anonymise.csv</code> contains no direct identifiers.</li>
+<li>Limitations are explicitly stated.</li>
+<li>Conclusions remain descriptive and careful.</li>
 </ul>
-<p>Good analysis.</p>
 
 
 </section>

@@ -1,0 +1,75 @@
+# Défi 7 - Note éthique et visualisation responsable
+
+STT-1100 Introduction à la science des données
+
+# Mission
+
+Dans l’aventure 7, vous avez audité un rapport problématique et préparé une version plus responsable des données. Le défi consiste à transformer ce travail en une note courte, claire et réutilisable.
+
+Votre objectif est de convaincre une personne lectrice que votre visualisation améliorée est plus honnête que la version initiale, et que vos choix de protection des données réduisent réellement les risques.
+
+# Travail attendu
+
+À partir de votre dépôt `STT-1100/aventure-7`, produisez une version finale de `rapport_ethique.qmd`.
+
+Le rapport doit contenir :
+
+- une section “Problèmes repérés” avec au moins cinq problèmes précis;
+- une section “Données anonymisées” qui décrit les colonnes retirées, regroupées ou transformées;
+- une section “Visualisation responsable” avec au moins une visualisation corrigée;
+- une section “Limites” qui explique ce que les données ne permettent pas de conclure;
+- une courte conclusion personnelle par membre de l’équipe.
+
+# Fichier anonymisé
+
+Votre dépôt doit aussi contenir un fichier `covid_module7_anonymise.csv`.
+
+Ce fichier ne doit pas contenir :
+
+- noms;
+- courriels;
+- numéros de téléphone;
+- dates de naissance;
+- coordonnées individuelles précises;
+- notes libres permettant d’identifier une personne.
+
+Si vous conservez des variables sensibles comme l’âge, le sexe, l’occupation ou certaines conditions médicales, expliquez pourquoi elles sont nécessaires et comment vous réduisez le risque de ré-identification.
+
+# Visualisation
+
+Votre visualisation doit :
+
+- utiliser une échelle honnête;
+- éviter les couleurs qui suggèrent un jugement non justifié;
+- afficher ou mentionner les effectifs;
+- porter un titre descriptif;
+- être accompagnée d’une interprétation prudente.
+
+Une bonne réponse ne cherche pas à produire le graphique le plus spectaculaire. Elle cherche à produire un graphique que l’on peut défendre.
+
+# Livrables
+
+Votre dépôt GitHub doit contenir :
+
+- `rapport_ethique.qmd`;
+- `rapport_ethique.html`;
+- `covid_module7_anonymise.csv`;
+- `README.md`;
+- les fichiers de départ si vous les avez conservés pour documenter votre démarche.
+
+# Grille d’évaluation
+
+| Critère | Excellent | Satisfaisant | À améliorer |
+|----|----|----|----|
+| Audit critique | Les problèmes sont précis, variés et appuyés sur des éléments observables | Les problèmes sont pertinents, mais parfois généraux | Les problèmes sont vagues ou incomplets |
+| Anonymisation | Les identifiants directs sont retirés et les risques résiduels sont discutés | Les identifiants directs sont retirés, mais la discussion reste limitée | Des informations identifiantes demeurent |
+| Visualisation | Le graphique est clair, honnête, lisible et interprété avec prudence | Le graphique est compréhensible, mais certaines décisions restent peu justifiées | Le graphique reproduit des biais de la version initiale |
+| Reproductibilité | Le rapport se rend sans erreur et le README explique la procédure | Le rapport se rend, mais la procédure est peu documentée | Le rapport ne se rend pas ou les fichiers nécessaires manquent |
+
+# Checklist avant remise
+
+- `rapport_ethique.qmd` se rend sans erreur.
+- `rapport_ethique.html` est présent.
+- `covid_module7_anonymise.csv` ne contient pas d’identifiants directs.
+- Les limites sont explicitement formulées.
+- Les conclusions restent descriptives et prudentes.
