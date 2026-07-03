@@ -46,18 +46,18 @@ After import, check that you have 23 columns. If you get only one column, the im
 
 Your GitHub repository must contain the following three files:
 
-- `challenge_04.qmd`: your reproducible working document;
-- `clean_data.csv`: the cleaned dataset;
-- `cleaning_log.Rdata`: an R object containing the `cleaning_log` list.
+- `defi_04.qmd`: your reproducible working document;
+- `donnees_propres.csv`: the cleaned dataset;
+- `journal_nettoyage.Rdata`: an R object containing the `journal_nettoyage` list.
 
 Your `.qmd` file must render to HTML without error.
 
 # Minimal Log Structure
 
-Your `cleaning_log` object must be a named list. Each entry must contain at least the fields `id`, `variables`, `problem`, `action` and `justification`.
+Your `journal_nettoyage` object must be a named list. Each entry must contain at least the fields `id`, `variables`, `probleme`, `action` and `justification`.
 
 ```r
-cleaning_log <- list(
+journal_nettoyage <- list(
   VM = list(),
   DF = list(),
   IF = list(),
@@ -76,11 +76,11 @@ cleaning_log <- list(
 Example entry:
 
 ```r
-cleaning_log$RC <- append(cleaning_log$RC, list(
+journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
   list(
     id = 40064548,
     variables = "vehicle_type",
-    problem = "Aberrant level in a vehicle-type variable",
+    probleme = "Aberrant level in a vehicle-type variable",
     action = "Replace 'ANIMAL' with NA",
     justification = "The value does not describe a usable vehicle type"
   )
@@ -95,9 +95,9 @@ Your work must include:
 2. an overview of the data structure;
 3. at least five quality checks;
 4. at least three corrections applied to the data;
-5. at least five documented entries in `cleaning_log`;
+5. at least five documented entries in `journal_nettoyage`;
 6. a saved clean dataset;
-7. a saved `cleaning_log`.
+7. a saved `journal_nettoyage`.
 
 Corrections must be cautious. If an anomaly is real but no obvious correction is defensible, record it in your log or in your text and explain why you do not correct it.
 
@@ -118,8 +118,8 @@ These are useful starting points. You do not have to correct all of them.
 At the end of your document, save both submission objects.
 
 ```r
-write_csv(clean_data, "clean_data.csv")
-save(cleaning_log, file = "cleaning_log.Rdata")
+write_csv(donnees_propres, "donnees_propres.csv")
+save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 ```
 
 # Evaluation Grid
@@ -135,7 +135,7 @@ save(cleaning_log, file = "cleaning_log.Rdata")
 # Checklist Before Submission
 
 - The `.qmd` file renders to HTML.
-- `clean_data.csv` is created by the code.
-- `cleaning_log.Rdata` is created by the code.
+- `donnees_propres.csv` is created by the code.
+- `journal_nettoyage.Rdata` is created by the code.
 - Variable names used in the code are the names obtained after `clean_names()`.
 - The GitHub repository contains the expected files.

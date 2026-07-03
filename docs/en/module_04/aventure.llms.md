@@ -21,9 +21,9 @@ Your role will be to ensure **data quality** to allow Alex to carry out a reliab
 
 At the end of this adventure, you will:
 
-1.  Provide a **clean database** (`clean_data.csv`).
-2.  Maintain a **structured R list** called `cleaning_log` in your script.
-3.  Save this list in a file named `cleaning_log.Rdata`.
+1.  Provide a **clean database** (`donnees_propres.csv`).
+2.  Maintain a **structured R list** called `journal_nettoyage` in your script.
+3.  Save this list in a file named `journal_nettoyage.Rdata`.
 
 > Remember to **document each step of your cleaning**. Your rigor is your best ally!
 
@@ -46,17 +46,17 @@ Here is a reference table for the types of errors you may encounter:
 | TR | Truncations or bad merge | Truncated or incorrectly merged text strings | Surnames hyphenated like “Du” |
 | EC | Encoding issues | Incorrectly encoded special characters | “Ã©” instead of “é” |
 
-This typology makes it possible to rigorously structure the detection and documentation of errors in the R cleaning log (list `cleaning_log`).
+This typology makes it possible to rigorously structure the detection and documentation of errors in the R cleaning log (list `journal_nettoyage`).
 
-In your script, you will construct the `cleaning_log` list structured by category:
+In your script, you will construct the `journal_nettoyage` list structured by category:
 
 ``` downlit
-cleaning_log <- list(
+journal_nettoyage <- list(
   VM = list(
     list(
       id = c(12, 27),
       variables = "age",
-      problem = "Missing values",
+      probleme = "Missing values",
       action = "Replaced by median",
       justification = "To maintain consistency"
     )
@@ -65,7 +65,7 @@ cleaning_log <- list(
     list(
       id = c(45, 46),
       variables = "client_id",
-      problem = "Complete duplicates",
+      probleme = "Complete duplicates",
       action = "Delete",
       justification = "Useless for analysis"
     )
@@ -81,7 +81,7 @@ cleaning_log <- list(
   TR = list(),
   EC = list()
 )
-cleaning_log
+journal_nettoyage
 ```
 
     $VM
@@ -92,7 +92,7 @@ cleaning_log
     $VM[[1]]$variables
     [1] "age"
 
-    $VM[[1]]$problem
+    $VM[[1]]$probleme
     [1] "Missing values"
 
     $VM[[1]]$action
@@ -111,7 +111,7 @@ cleaning_log
     $DF[[1]]$variables
     [1] "client_id"
 
-    $DF[[1]]$problem
+    $DF[[1]]$probleme
     [1] "Complete duplicates"
 
     $DF[[1]]$action
@@ -158,7 +158,7 @@ Each category (`VM`, `DF`, etc.) contains a **list of fixes**, where each fix is
 
 - `variables`: the variables concerned
 
-- `problem`: nature of the problem
+- `probleme`: nature of the problem
 
 - `action`: action performed
 
@@ -173,8 +173,8 @@ As for previous adventures:
 - **Clone** the module 4 GitHub repository from the course organization. You can use the course cheat sheet if you have a memory lapse.
 - Work in RStudio and **make commits regularly** to document your progress.
 - Your deposit must contain:
-  - the `.qmd` script for your adventure, that is to say a document where you do your tests and build your `cleaning_log` list;
-  - the `cleaning_log` list in a `.Rdata` object;
+  - the `.qmd` script for your adventure, that is to say a document where you do your tests and build your `journal_nettoyage` list;
+  - the `journal_nettoyage` list in a `.Rdata` object;
   - the cleaned database in `.csv` format.
 
 Good luck, and may your data be clean!
@@ -303,16 +303,16 @@ base %>%
   filter(n() > 1)
 ```
 
-> **Alex**: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the `cleaning_log`!”
+> **Alex**: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the `journal_nettoyage`!”
 
-And of course, if you intervene, don’t forget to indicate it in the `DF` section of your `cleaning_log`. If you find no duplicates, you can simply state in your text that the check was performed and that no deletion was needed.
+And of course, if you intervene, don’t forget to indicate it in the `DF` section of your `journal_nettoyage`. If you find no duplicates, you can simply state in your text that the check was performed and that no deletion was needed.
 
 ``` downlit
-cleaning_log$DF <- append(cleaning_log$DF, list(
+journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
   list(
     id = c(101, 102),
     variables = "All columns",
-    problem = "Complete duplicates",
+    probleme = "Complete duplicates",
     action = "Lines deleted",
     justification = "Illustrative example: adapt only if duplicates are detected"
   )
@@ -383,14 +383,14 @@ base %>%
   select(id_variable, vehicle_type, vehicle_make, vehicle_model)
 ```
 
-Don’t forget to document these modifications in your `cleaning_log` list! For example, for the `vehicle_type` variable above, you could add:
+Don’t forget to document these modifications in your `journal_nettoyage` list! For example, for the `vehicle_type` variable above, you could add:
 
 ``` downlit
-cleaning_log$RC <- append(cleaning_log$RC, list(
+journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
   list(
     id = 40064548,
     variables = "vehicle_type",
-    problem = "Aberrant level in a vehicle-type variable",
+    probleme = "Aberrant level in a vehicle-type variable",
     action = "Replace 'ANIMAL' with NA after case harmonization",
     justification = "The value does not describe a usable vehicle type"
   )
@@ -421,7 +421,7 @@ ggplot(base, aes(x = commute_distance)) +
 
 Ask yourself: is a commuting distance of 150 km plausible or simply rare? Are some values missing or negative?
 
-If you intervene, don’t forget to **justify in `cleaning_log`**, using the code `VA` (outliers) or `VM` (missing values).
+If you intervene, don’t forget to **justify in `journal_nettoyage`**, using the code `VA` (outliers) or `VM` (missing values).
 
 ## Step 2 – Inconsistent combinations of two factors
 
@@ -480,7 +480,7 @@ ggplot(base, aes(x = age, y = years_licensed)) +
 - Are there points above a line where `years_licensed = age`?
 - Can you have more years of license than age?
 
-> **Alex**: “You don’t have to correct it here. On the other hand, **if you notice something strange**, take two minutes to write it down in the `cleaning_log`. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous.”
+> **Alex**: “You don’t have to correct it here. On the other hand, **if you notice something strange**, take two minutes to write it down in the `journal_nettoyage`. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous.”
 
 Use the code `LG` here for a **logical error**.
 
@@ -496,7 +496,7 @@ Here are a few other things to keep an eye out for:
 - **Hastily merged columns**: strings like `"Smith, John"` in one cell instead of two (`TR`)
 - **Mixed date format**: we have left this aside since the beginning of this course, but know that it is coming, we will have a special module on dates.
 
-*Throughout your cleaning, document your decisions in the `cleaning_log` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
+*Throughout your cleaning, document your decisions in the `journal_nettoyage` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
 
 # Mission accomplished!
 
@@ -505,18 +505,18 @@ You have now acquired a solid methodology for cleaning data in a rigorous and pr
 
 - identified and corrected format, type and consistency errors;
 - used the `dplyr`, `stringr`, `forcats` and `ggplot2` tools to explore the data from every angle;
-- documented each intervention in a clear and transparent structure with the `cleaning_log` list.
+- documented each intervention in a clear and transparent structure with the `journal_nettoyage` list.
 
 **Before finishing**, don’t forget to **push to GitHub** the following three items:
 
 1.  The `.qmd` script of your adventure (where you carried out your tests, analyzes and cleaning)
-2.  The `cleaning_log` list saved in a `.Rdata` object
+2.  The `journal_nettoyage` list saved in a `.Rdata` object
 3.  The cleaned database in `.csv` format
 
 To save your list in a `.Rdata` file, simply use this code at the end of your script:
 
 ``` downlit
-save(cleaning_log, file = "cleaning_log.Rdata")
+save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 ```
 
 > **Alex**: “You have just done what few people do well: clean data carefully while keeping track of your decisions. That is what distinguishes rigorous work from improvised work. Well done!”

@@ -83,7 +83,7 @@ Goal Clean an insurance dataset and document the decisions.
 
 Resource [Challenge page](defi.llms.md)
 
-Submit A `.qmd` file, `clean_data.csv` and `cleaning_log.Rdata`.
+Submit A `.qmd` file, `donnees_propres.csv` and `journal_nettoyage.Rdata`.
 
 Check that the import produces 23 columns before cleaning.
 

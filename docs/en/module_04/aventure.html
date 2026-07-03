@@ -5882,9 +5882,9 @@ margin-bottom: .05rem;
 </ul></section><section id="how-to-succeed-in-this-adventure" class="level1"><h1>How to succeed in this adventure?</h1>
 <p>At the end of this adventure, you will:</p>
 <ol type="1">
-<li>Provide a <strong>clean database</strong> (<code>clean_data.csv</code>).</li>
-<li>Maintain a <strong>structured R list</strong> called <code>cleaning_log</code> in your script.</li>
-<li>Save this list in a file named <code>cleaning_log.Rdata</code>.</li>
+<li>Provide a <strong>clean database</strong> (<code>donnees_propres.csv</code>).</li>
+<li>Maintain a <strong>structured R list</strong> called <code>journal_nettoyage</code> in your script.</li>
+<li>Save this list in a file named <code>journal_nettoyage.Rdata</code>.</li>
 </ol>
 <blockquote class="blockquote">
 <p>Remember to <strong>document each step of your cleaning</strong>. Your rigor is your best ally!</p>
@@ -5984,15 +5984,15 @@ margin-bottom: .05rem;
 </tr>
 </tbody>
 </table>
-<p>This typology makes it possible to rigorously structure the detection and documentation of errors in the R cleaning log (list <code>cleaning_log</code>).</p>
-<p>In your script, you will construct the <code>cleaning_log</code> list structured by category:</p>
+<p>This typology makes it possible to rigorously structure the detection and documentation of errors in the R cleaning log (list <code>journal_nettoyage</code>).</p>
+<p>In your script, you will construct the <code>journal_nettoyage</code> list structured by category:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cleaning_log</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_nettoyage</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>  VM <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>      id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">27</span><span class="op">)</span>,</span>
 <span>      variables <span class="op">=</span> <span class="st">&quot;age&quot;</span>,</span>
-<span>      problem <span class="op">=</span> <span class="st">&quot;Missing values&quot;</span>,</span>
+<span>      probleme <span class="op">=</span> <span class="st">&quot;Missing values&quot;</span>,</span>
 <span>      action <span class="op">=</span> <span class="st">&quot;Replaced by median&quot;</span>,</span>
 <span>      justification <span class="op">=</span> <span class="st">&quot;To maintain consistency&quot;</span></span>
 <span>    <span class="op">)</span></span>
@@ -6001,7 +6001,7 @@ margin-bottom: .05rem;
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>      id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">45</span>, <span class="fl">46</span><span class="op">)</span>,</span>
 <span>      variables <span class="op">=</span> <span class="st">&quot;client_id&quot;</span>,</span>
-<span>      problem <span class="op">=</span> <span class="st">&quot;Complete duplicates&quot;</span>,</span>
+<span>      probleme <span class="op">=</span> <span class="st">&quot;Complete duplicates&quot;</span>,</span>
 <span>      action <span class="op">=</span> <span class="st">&quot;Delete&quot;</span>,</span>
 <span>      justification <span class="op">=</span> <span class="st">&quot;Useless for analysis&quot;</span></span>
 <span>    <span class="op">)</span></span>
@@ -6017,7 +6017,7 @@ margin-bottom: .05rem;
 <span>  TR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  EC <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">cleaning_log</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="va">journal_nettoyage</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$VM
 $VM[[1]]
@@ -6027,7 +6027,7 @@ $VM[[1]]$id
 $VM[[1]]$variables
 [1] &quot;age&quot;
 
-$VM[[1]]$problem
+$VM[[1]]$probleme
 [1] &quot;Missing values&quot;
 
 $VM[[1]]$action
@@ -6046,7 +6046,7 @@ $DF[[1]]$id
 $DF[[1]]$variables
 [1] &quot;client_id&quot;
 
-$DF[[1]]$problem
+$DF[[1]]$probleme
 [1] &quot;Complete duplicates&quot;
 
 $DF[[1]]$action
@@ -6092,7 +6092,7 @@ list()</code></pre>
 <ul>
 <li><p><code>id</code>: affected line(s) or position(s)</p></li>
 <li><p><code>variables</code>: the variables concerned</p></li>
-<li><p><code>problem</code>: nature of the problem</p></li>
+<li><p><code>probleme</code>: nature of the problem</p></li>
 <li><p><code>action</code>: action performed</p></li>
 <li><p><code>justification</code>: why this action was chosen</p></li>
 </ul>
@@ -6107,8 +6107,8 @@ list()</code></pre>
 <li>Work in RStudio and <strong>make commits regularly</strong> to document your progress.</li>
 <li>Your deposit must contain:
 <ul>
-<li>the <code>.qmd</code> script for your adventure, that is to say a document where you do your tests and build your <code>cleaning_log</code> list;</li>
-<li>the <code>cleaning_log</code> list in a <code>.Rdata</code> object;</li>
+<li>the <code>.qmd</code> script for your adventure, that is to say a document where you do your tests and build your <code>journal_nettoyage</code> list;</li>
+<li>the <code>journal_nettoyage</code> list in a <code>.Rdata</code> object;</li>
 <li>the cleaned database in <code>.csv</code> format.</li>
 </ul>
 </li>
@@ -6209,14 +6209,14 @@ as.factor(base$column)</code></pre>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">id_variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
-<p><strong>Alex</strong>: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the <code>cleaning_log</code>!”</p>
+<p><strong>Alex</strong>: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the <code>journal_nettoyage</code>!”</p>
 </blockquote>
-<p>And of course, if you intervene, don’t forget to indicate it in the <code>DF</code> section of your <code>cleaning_log</code>. If you find no duplicates, you can simply state in your text that the check was performed and that no deletion was needed.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cleaning_log</span><span class="op">$</span><span class="va">DF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">cleaning_log</span><span class="op">$</span><span class="va">DF</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<p>And of course, if you intervene, don’t forget to indicate it in the <code>DF</code> section of your <code>journal_nettoyage</code>. If you find no duplicates, you can simply state in your text that the check was performed and that no deletion was needed.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">DF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">DF</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>    id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">101</span>, <span class="fl">102</span><span class="op">)</span>,</span>
 <span>    variables <span class="op">=</span> <span class="st">&quot;All columns&quot;</span>,</span>
-<span>    problem <span class="op">=</span> <span class="st">&quot;Complete duplicates&quot;</span>,</span>
+<span>    probleme <span class="op">=</span> <span class="st">&quot;Complete duplicates&quot;</span>,</span>
 <span>    action <span class="op">=</span> <span class="st">&quot;Lines deleted&quot;</span>,</span>
 <span>    justification <span class="op">=</span> <span class="st">&quot;Illustrative example: adapt only if duplicates are detected&quot;</span></span>
 <span>  <span class="op">)</span></span>
@@ -6280,13 +6280,13 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">vehicle_type</span> <span class="op">==</span> <span class="st">&quot;ANIMAL&quot;</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id_variable</span>, <span class="va">vehicle_type</span>, <span class="va">vehicle_make</span>, <span class="va">vehicle_model</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Don’t forget to document these modifications in your <code>cleaning_log</code> list! For example, for the <code>vehicle_type</code> variable above, you could add:</p>
+<p>Don’t forget to document these modifications in your <code>journal_nettoyage</code> list! For example, for the <code>vehicle_type</code> variable above, you could add:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cleaning_log</span><span class="op">$</span><span class="va">RC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">cleaning_log</span><span class="op">$</span><span class="va">RC</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">RC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">RC</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>    id <span class="op">=</span> <span class="fl">40064548</span>,</span>
 <span>    variables <span class="op">=</span> <span class="st">&quot;vehicle_type&quot;</span>,</span>
-<span>    problem <span class="op">=</span> <span class="st">&quot;Aberrant level in a vehicle-type variable&quot;</span>,</span>
+<span>    probleme <span class="op">=</span> <span class="st">&quot;Aberrant level in a vehicle-type variable&quot;</span>,</span>
 <span>    action <span class="op">=</span> <span class="st">&quot;Replace &#39;ANIMAL&#39; with NA after case harmonization&quot;</span>,</span>
 <span>    justification <span class="op">=</span> <span class="st">&quot;The value does not describe a usable vehicle type&quot;</span></span>
 <span>  <span class="op">)</span></span>
@@ -6305,7 +6305,7 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">&quot;Distribution of commuting distance&quot;</span>,</span>
 <span>       x <span class="op">=</span> <span class="st">&quot;Distance (km)&quot;</span>, y <span class="op">=</span> <span class="st">&quot;Frequency&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ask yourself: is a commuting distance of 150 km plausible or simply rare? Are some values missing or negative?</p>
-<p>If you intervene, don’t forget to <strong>justify in <code>cleaning_log</code></strong>, using the code <code>VA</code> (outliers) or <code>VM</code> (missing values).</p>
+<p>If you intervene, don’t forget to <strong>justify in <code>journal_nettoyage</code></strong>, using the code <code>VA</code> (outliers) or <code>VM</code> (missing values).</p>
 </section><section id="step-2-inconsistent-combinations-of-two-factors" class="level2"><h2 class="anchored" data-anchor-id="step-2-inconsistent-combinations-of-two-factors">Step 2 – Inconsistent combinations of two factors</h2>
 <p><strong>Logical relationships</strong> can exist between two categorical variables. For example, quarter (<code>quarter</code>) and season (<code>season</code>) should be consistent.</p>
 <p><strong>Example: <code>quarter</code> and <code>season</code></strong></p>
@@ -6343,7 +6343,7 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <li>Can you have more years of license than age?</li>
 </ul>
 <blockquote class="blockquote">
-<p><strong>Alex</strong>: “You don’t have to correct it here. On the other hand, <strong>if you notice something strange</strong>, take two minutes to write it down in the <code>cleaning_log</code>. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous.”</p>
+<p><strong>Alex</strong>: “You don’t have to correct it here. On the other hand, <strong>if you notice something strange</strong>, take two minutes to write it down in the <code>journal_nettoyage</code>. Just to show that you saw it, thought about it, and made a decision. That’s being rigorous.”</p>
 </blockquote>
 <p>Use the code <code>LG</code> here for a <strong>logical error</strong>.</p>
 </section><section id="step-5-advanced-checks-optional-but-professional" class="level2"><h2 class="anchored" data-anchor-id="step-5-advanced-checks-optional-but-professional">Step 5 – Advanced checks (optional but professional!)</h2>
@@ -6364,25 +6364,25 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <li>
 <strong>Mixed date format</strong>: we have left this aside since the beginning of this course, but know that it is coming, we will have a special module on dates.</li>
 </ul>
-<p><em>Throughout your cleaning, document your decisions in the <code>cleaning_log</code> list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.</em></p>
+<p><em>Throughout your cleaning, document your decisions in the <code>journal_nettoyage</code> list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.</em></p>
 </section></section><section id="mission-accomplished" class="level1"><h1>Mission accomplished!</h1>
 <p>Well done for making it to the end of this adventure!<br>
 You have now acquired a solid methodology for cleaning data in a rigorous and professional manner. You have:</p>
 <ul>
 <li>identified and corrected format, type and consistency errors;</li>
 <li>used the <code>dplyr</code>, <code>stringr</code>, <code>forcats</code> and <code>ggplot2</code> tools to explore the data from every angle;</li>
-<li>documented each intervention in a clear and transparent structure with the <code>cleaning_log</code> list.</li>
+<li>documented each intervention in a clear and transparent structure with the <code>journal_nettoyage</code> list.</li>
 </ul>
 <p><strong>Before finishing</strong>, don’t forget to <strong>push to GitHub</strong> the following three items:</p>
 <ol type="1">
 <li>The <code>.qmd</code> script of your adventure (where you carried out your tests, analyzes and cleaning)<br>
 </li>
-<li>The <code>cleaning_log</code> list saved in a <code>.Rdata</code> object<br>
+<li>The <code>journal_nettoyage</code> list saved in a <code>.Rdata</code> object<br>
 </li>
 <li>The cleaned database in <code>.csv</code> format</li>
 </ol>
 <p>To save your list in a <code>.Rdata</code> file, simply use this code at the end of your script:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">cleaning_log</span>, file <span class="op">=</span> <span class="st">&quot;cleaning_log.Rdata&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">journal_nettoyage</span>, file <span class="op">=</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
 <p><strong>Alex</strong>: “You have just done what few people do well: clean data carefully while keeping track of your decisions. That is what distinguishes rigorous work from improvised work. Well done!”</p>
 </blockquote>

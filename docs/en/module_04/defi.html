@@ -5896,16 +5896,16 @@ margin-bottom: .05rem;
 <h1>Deliverables</h1>
 <p>Your GitHub repository must contain the following three files:</p>
 <ul>
-<li><code>challenge_04.qmd</code>: your reproducible working document;</li>
-<li><code>clean_data.csv</code>: the cleaned dataset;</li>
-<li><code>cleaning_log.Rdata</code>: an R object containing the <code>cleaning_log</code> list.</li>
+<li><code>defi_04.qmd</code>: your reproducible working document;</li>
+<li><code>donnees_propres.csv</code>: the cleaned dataset;</li>
+<li><code>journal_nettoyage.Rdata</code>: an R object containing the <code>journal_nettoyage</code> list.</li>
 </ul>
 <p>Your <code>.qmd</code> file must render to HTML without error.</p>
 </section>
 <section id="minimal-log-structure" class="level1">
 <h1>Minimal Log Structure</h1>
-<p>Your <code>cleaning_log</code> object must be a named list. Each entry must contain at least the fields <code>id</code>, <code>variables</code>, <code>problem</code>, <code>action</code> and <code>justification</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cleaning_log <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<p>Your <code>journal_nettoyage</code> object must be a named list. Each entry must contain at least the fields <code>id</code>, <code>variables</code>, <code>probleme</code>, <code>action</code> and <code>justification</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">VM =</span> <span class="fu">list</span>(),</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">DF =</span> <span class="fu">list</span>(),</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">IF =</span> <span class="fu">list</span>(),</span>
@@ -5920,11 +5920,11 @@ margin-bottom: .05rem;
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">EC =</span> <span class="fu">list</span>()</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Example entry:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cleaning_log<span class="sc">$</span>RC <span class="ot">&lt;-</span> <span class="fu">append</span>(cleaning_log<span class="sc">$</span>RC, <span class="fu">list</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage<span class="sc">$</span>RC <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_nettoyage<span class="sc">$</span>RC, <span class="fu">list</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="dv">40064548</span>,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;vehicle_type&quot;</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">problem =</span> <span class="st">&quot;Aberrant level in a vehicle-type variable&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Aberrant level in a vehicle-type variable&quot;</span>,</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Replace &#39;ANIMAL&#39; with NA&quot;</span>,</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;The value does not describe a usable vehicle type&quot;</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span>
@@ -5938,9 +5938,9 @@ margin-bottom: .05rem;
 <li>an overview of the data structure;</li>
 <li>at least five quality checks;</li>
 <li>at least three corrections applied to the data;</li>
-<li>at least five documented entries in <code>cleaning_log</code>;</li>
+<li>at least five documented entries in <code>journal_nettoyage</code>;</li>
 <li>a saved clean dataset;</li>
-<li>a saved <code>cleaning_log</code>.</li>
+<li>a saved <code>journal_nettoyage</code>.</li>
 </ol>
 <p>Corrections must be cautious. If an anomaly is real but no obvious correction is defensible, record it in your log or in your text and explain why you do not correct it.</p>
 </section>
@@ -5960,8 +5960,8 @@ margin-bottom: .05rem;
 <section id="saving-results" class="level1">
 <h1>Saving Results</h1>
 <p>At the end of your document, save both submission objects.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(clean_data, <span class="st">&quot;clean_data.csv&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(cleaning_log, <span class="at">file =</span> <span class="st">&quot;cleaning_log.Rdata&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(donnees_propres, <span class="st">&quot;donnees_propres.csv&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(journal_nettoyage, <span class="at">file =</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="evaluation-grid" class="level1">
 <h1>Evaluation Grid</h1>
@@ -6018,8 +6018,8 @@ margin-bottom: .05rem;
 <h1>Checklist Before Submission</h1>
 <ul>
 <li>The <code>.qmd</code> file renders to HTML.</li>
-<li><code>clean_data.csv</code> is created by the code.</li>
-<li><code>cleaning_log.Rdata</code> is created by the code.</li>
+<li><code>donnees_propres.csv</code> is created by the code.</li>
+<li><code>journal_nettoyage.Rdata</code> is created by the code.</li>
 <li>Variable names used in the code are the names obtained after <code>clean_names()</code>.</li>
 <li>The GitHub repository contains the expected files.</li>
 </ul>
