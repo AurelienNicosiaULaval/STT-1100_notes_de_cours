@@ -1,0 +1,159 @@
+# Challenge 2 - GitHub and data visualization
+
+STT-1100 Introduction to Data Science
+
+# Challenge overview
+
+In this challenge, you must produce a readable GitHub repository containing two deliverables:
+
+- your logbook for Adventure 2;
+
+- a Quarto analysis report on the penguin data.
+
+The challenge continues Dr. Adélie Fortier’s mission. She wants to understand how penguin physical characteristics vary by species in order to prepare a grant application.
+
+You must work in the same GitHub repository used for Adventure 2. There is no new repository to create.
+
+# Data to use
+
+In your GitHub repository, use the following file:
+
+``` text
+data/manchots_donnees.xlsx
+```
+
+Your report must import the data from this file. The report must therefore render after restarting R, without depending on objects already present in your environment.
+
+# Expected deliverables
+
+Your GitHub repository must contain the following files:
+
+- `journal de bord.qmd`;
+
+- `journal de bord.html`;
+
+- `rapport_analyse.qmd`;
+
+- `rapport_analyse.html`.
+
+The file `rapport_analyse.qmd` must be a new Quarto report. It must contain a title, your name, a short introduction, an analysis section and a conclusion.
+
+Your GitHub history must also show several useful commits. For example, you can make one commit after importing the data, another after handling anomalies, another after the charts, and a final one after proofreading.
+
+# Required work
+
+## Step 1 - Import and inspect the data
+
+Import `data/manchots_donnees.xlsx` with `read_excel()`.
+
+In your report, show that you understand the structure of the data. For example, you can display the first rows, use `glimpse()` or present a short summary of the important variables.
+
+## Step 2 - Identify problematic values
+
+Use the outliers identified in Adventure 2.
+
+In your report:
+
+- identify the problematic observations;
+
+- explain whether you keep them, remove them or only flag them;
+
+- apply your choice consistently in the descriptive statistics and charts.
+
+Do not modify the Excel file directly. Do the processing in your R code so that your workflow remains reproducible.
+
+## Step 3 - Compare species
+
+Answer the following question:
+
+> Are there notable differences between penguin species?
+
+For each species, compute the mean and standard deviation of the following variables:
+
+- bill length, `bill_length_mm`;
+
+- bill depth, `bill_depth_mm`;
+
+- flipper length, `flipper_length_mm`;
+
+- body mass, `body_mass_g`.
+
+Present the results in a clear table.
+
+## Step 4 - Create a size indicator
+
+Create a variable named `indice_grandeur`, defined as:
+
+``` text
+indice_grandeur = flipper_length_mm + bill_length_mm
+```
+
+Display a few rows of the table to check that the variable was created correctly.
+
+If you remove outliers, do so before calculating `indice_grandeur`.
+
+## Step 5 - Produce two charts
+
+Your report must contain two charts:
+
+1.  an histogram of `bill_length_mm` by species;
+
+2.  a scatterplot showing the relationship between `indice_grandeur` and `body_mass_g`, with a different color for each species.
+
+For the histogram by species, you can use facets, colors with transparency, or another readable choice. The chart must allow species to be compared without confusion.
+
+Each chart must have:
+
+- an informative title;
+
+- readable axes;
+
+- a clear legend if color is used;
+
+- units when relevant.
+
+## Step 6 - Conclude
+
+In the conclusion, answer the following questions in a few sentences:
+
+- What differences do you observe between species?
+
+- Which characteristic seems to best distinguish some species?
+
+- Does your treatment of outliers change your interpretation?
+
+# Checklist
+
+Before submitting your challenge, check that:
+
+- `rapport_analyse.qmd` renders without errors;
+
+- `rapport_analyse.html` is present in the repository;
+
+- the logbook is rendered as HTML;
+
+- the data are imported with a reproducible path;
+
+- anomalies are identified and discussed;
+
+- descriptive statistics are computed by species;
+
+- the two required charts are present and readable;
+
+- the conclusion answers Dr. Adélie’s question;
+
+- several clear commits appear in the GitHub history;
+
+- the changes have been pushed to GitHub.
+
+# Evaluation grid
+
+| Criterion | Excellent | Satisfactory | To improve |
+|----|----|----|----|
+| GitHub repository | Complete repository, expected files present, clear history with several useful commits. | Usable repository, but history or organization could be improved. | Missing files, incomplete repository or history difficult to follow. |
+| Reproducibility | Both HTML reports render without manual intervention. File paths are correct. | Rendering possible after a few minor adjustments. | Rendering impossible or dependence on objects not created in the report. |
+| Treatment of anomalies | Problematic observations identified, choice explained and applied consistently. | Anomalies mentioned, but justification or application incomplete. | Anomalies ignored or handled inconsistently. |
+| Descriptive statistics | Means and standard deviations correctly computed by species and clearly presented. | Results present, but table unclear or incomplete. | Calculations absent, incorrect or not grouped by species. |
+| Visualizations | Two readable, well-titled charts useful for comparing species. | Charts present, but readability or interpretation is limited. | Charts absent, incorrect or difficult to understand. |
+| Conclusion | Clear interpretation supported by statistics and charts. | Conclusion present but imprecise. | Conclusion absent or disconnected from the results. |
+| Code quality | Clear, structured code consistent with good practices seen in the module. | Understandable code, with a few style issues. | Code difficult to read, fragile or disorganized. |

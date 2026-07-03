@@ -97,7 +97,7 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Share a repository with commented charts and readable history. In this card Open cardCollapse
+3 Challenge Share a repository with commented charts and readable history. [Challenge](defi.llms.md) Open cardCollapse
 
 ### Challenge
 
@@ -106,6 +106,8 @@ Here is the challenge you will have to complete for **module 2**. It is divided 
 **Part 1**: Complete your logbook and submit it to GitHub. Ten (10) logbooks will be selected at random and will be subject to a **summative evaluation**.
 
 **Part 2**: Submit the **data analysis report** on GitHub that Dr. Adélie can use as part of her grant application.
+
+The complete instructions are available on the [Challenge 2](defi.llms.md) page.
 
 4 Exercises Practise charts, commits and short interpretations. [Exercises](exercices.llms.md) Open cardCollapse
 

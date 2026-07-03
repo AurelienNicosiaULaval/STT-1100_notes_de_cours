@@ -52,13 +52,13 @@ Create a reproducible mini Quarto report from weather data.
 
 Submit a GitHub repository containing a logbook and an analysis report about penguins.
 
-[View challenge 2](../module_02/defi.llms.md)
+[View challenge 2](module_02/defi.llms.md)
 
 ### Challenge 3
 
 Write a reproducible Quarto article about food offences.
 
-[View challenge 3](../module_03/defi.llms.md)
+[View challenge 3](module_03/defi.llms.md)
 
 ### Challenge 4
 

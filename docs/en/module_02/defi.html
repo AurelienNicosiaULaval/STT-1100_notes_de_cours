@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Categories in all their forms – STT-1100 Introduction to Data Science</title>
+<title>Challenge 2 - GitHub and data visualization – STT-1100 Introduction to Data Science</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/**
+/** 
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document.
+ * Finds all non-overlapping matches for a search string in the document. 
  * The search string may be split between multiple consecutive leaf nodes.
- *
+ * 
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- *
+ * 
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match
+ * and would contribute the match 
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- *
+ * 
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/**
+/** 
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- *
+ * 
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset.
+// inside/outside that tabset. 
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -5666,120 +5666,120 @@ margin-bottom: .05rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../demarrage.html">
+    <a class="nav-link" href="../demarrage.html"> 
 <span class="menu-text">Start</span></a>
-  </li>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Modules</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">    
         <li>
     <a class="dropdown-item" href="../modules.html">
  <span class="dropdown-text">Overview</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_01/index.html">
  <span class="dropdown-text">Module 01 - Data science dive</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_02/index.html">
  <span class="dropdown-text">Module 02 - GitHub and data visualization</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_03/index.html">
  <span class="dropdown-text">Module 03 - Categories in all their forms</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_04/index.html">
  <span class="dropdown-text">Module 04 - Factors and data cleaning</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_05/index.html">
  <span class="dropdown-text">Module 05 - Explore and understand relationships between variables</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_06/index.html">
  <span class="dropdown-text">Module 06 - Collaboration and reproducibility in GitHub</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_07/index.html">
  <span class="dropdown-text">Module 07 - Visualization, ethics and data security</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_08/index.html">
  <span class="dropdown-text">Module 08 - Automation and web exploration</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_09/index.html">
  <span class="dropdown-text">Module 09 - Prediction and bias</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_10/index.html">
  <span class="dropdown-text">Module 10 - Beyond data: text and dashboard</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assessments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Assessments</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-assessments">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assessments">    
         <li>
     <a class="dropdown-item" href="../evaluations.html">
  <span class="dropdown-text">Overview</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../examen.html">
  <span class="dropdown-text">Exam</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../defis.html">
  <span class="dropdown-text">Challenges</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../projet_session/index.html">
  <span class="dropdown-text">Session project</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Resources</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
         <li>
     <a class="dropdown-item" href="../ressources.html">
  <span class="dropdown-text">Overview</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../livres.html">
  <span class="dropdown-text">Books and readings</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../packages.html">
  <span class="dropdown-text">R packages</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../donnees.html">
  <span class="dropdown-text">Datasets</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../supports_classe.html">
  <span class="dropdown-text">Class supports</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../ia.html">
  <span class="dropdown-text">AI and help</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../boite_outils.html">
  <span class="dropdown-text">Toolkit</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -5795,14 +5795,23 @@ margin-bottom: .05rem;
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-
+    <h2 id="toc-title">Plan</h2>
+   
   <ul>
-  <li><a href="#finished-product" id="toc-finished-product" class="nav-link active" data-scroll-target="#finished-product">Finished Product</a></li>
-  <li><a href="#module-objectives" id="toc-module-objectives" class="nav-link" data-scroll-target="#module-objectives">Module Objectives</a></li>
-  <li><a href="#learning-plan" id="toc-learning-plan" class="nav-link" data-scroll-target="#learning-plan">Learning Plan</a></li>
-  <li><a href="#data-and-tools" id="toc-data-and-tools" class="nav-link" data-scroll-target="#data-and-tools">Data and Tools</a></li>
-  <li><a href="#review-and-extension" id="toc-review-and-extension" class="nav-link" data-scroll-target="#review-and-extension">Review and Extension</a></li>
+  <li><a href="#challenge-overview" id="toc-challenge-overview" class="nav-link active" data-scroll-target="#challenge-overview">Challenge overview</a></li>
+  <li><a href="#data-to-use" id="toc-data-to-use" class="nav-link" data-scroll-target="#data-to-use">Data to use</a></li>
+  <li><a href="#expected-deliverables" id="toc-expected-deliverables" class="nav-link" data-scroll-target="#expected-deliverables">Expected deliverables</a></li>
+  <li><a href="#required-work" id="toc-required-work" class="nav-link" data-scroll-target="#required-work">Required work</a>
+  <ul class="collapse">
+  <li><a href="#step-1---import-and-inspect-the-data" id="toc-step-1---import-and-inspect-the-data" class="nav-link" data-scroll-target="#step-1---import-and-inspect-the-data">Step 1 - Import and inspect the data</a></li>
+  <li><a href="#step-2---identify-problematic-values" id="toc-step-2---identify-problematic-values" class="nav-link" data-scroll-target="#step-2---identify-problematic-values">Step 2 - Identify problematic values</a></li>
+  <li><a href="#step-3---compare-species" id="toc-step-3---compare-species" class="nav-link" data-scroll-target="#step-3---compare-species">Step 3 - Compare species</a></li>
+  <li><a href="#step-4---create-a-size-indicator" id="toc-step-4---create-a-size-indicator" class="nav-link" data-scroll-target="#step-4---create-a-size-indicator">Step 4 - Create a size indicator</a></li>
+  <li><a href="#step-5---produce-two-charts" id="toc-step-5---produce-two-charts" class="nav-link" data-scroll-target="#step-5---produce-two-charts">Step 5 - Produce two charts</a></li>
+  <li><a href="#step-6---conclude" id="toc-step-6---conclude" class="nav-link" data-scroll-target="#step-6---conclude">Step 6 - Conclude</a></li>
+  </ul></li>
+  <li><a href="#checklist" id="toc-checklist" class="nav-link" data-scroll-target="#checklist">Checklist</a></li>
+  <li><a href="#evaluation-grid" id="toc-evaluation-grid" class="nav-link" data-scroll-target="#evaluation-grid">Evaluation grid</a></li>
   </ul>
 </nav>
     </div>
@@ -5811,296 +5820,196 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Categories in all their forms</h1>
+<h1 class="title">Challenge 2 - GitHub and data visualization</h1>
+<p class="subtitle lead">STT-1100 Introduction to Data Science</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-
-
-
+    
+  
+    
   </div>
-
+  
 
 
 </header>
 
 
-<div class="module-banner">
-<p class="module-banner-number">
-Module 03
-</p>
-<p class="module-banner-subtitle">
-Understand, recode and visualize categorical variables.
-</p>
-</div>
-<div class="module-quick-facts three-facts">
-<div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span> <span><span class="fact-label">Main thread</span><span class="fact-value">Categories, strings and charts</span></span></p>
-</div>
-<div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Data</span><span class="fact-value">Penguins, Titanic and categories</span></span></p>
-</div>
-<div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span> <span><span class="fact-label">Challenge</span><span class="fact-value">Documented recoding and interpreted chart</span></span></p>
-</div>
-</div>
-<section id="finished-product" class="level2">
-<h2 class="anchored" data-anchor-id="finished-product">Finished Product</h2>
-<div class="module-product-showcase">
-  <div class="product-copy">
-  <p class="showcase-kicker">Final product</p>
-  <h3 class="anchored">A categorical variable ready for analysis</h3>
-  <p>The module produces documented recoding, a check of levels and a chart that respects the categorical structure.</p>
-  </div>
-  <div class="product-visual" aria-label="Visual preview of the finished product">
-  <div class="mini-product-board">
-  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>categories</strong></div>
-  <div class="mini-product-bars">
-  <div class="mini-bar-row"><span>levels checked</span><span class="mini-bar" style="--bar-width: 52%;"></span></div><div class="mini-bar-row"><span>recoding justified</span><span class="mini-bar" style="--bar-width: 76%;"></span></div><div class="mini-bar-row"><span>chart interpreted</span><span class="mini-bar" style="--bar-width: 91%;"></span></div>
-  </div>
-  <div class="mini-product-checks">
-  <span><i class="bi bi-check2"></i>levels checked</span>
-  <span><i class="bi bi-check2"></i>recoding justified</span>
-  <span><i class="bi bi-check2"></i>chart interpreted</span>
-  </div>
-  </div>
-  </div>
-</div>
-</section>
-<section id="module-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="module-objectives">Module Objectives</h2>
-<p>At the end of this module, you should be able to</p>
+<section id="challenge-overview" class="level1">
+<h1>Challenge overview</h1>
+<p>In this challenge, you must produce a readable GitHub repository containing two deliverables:</p>
 <ul>
-<li>Handle character strings with <code>stringr</code>.</li>
-<li>Recognize patterns with regular expressions.</li>
-<li>Use regular expressions to select, manipulate and modify character strings.</li>
-<li>Calculate and interpret descriptive statistics for categorical variables (frequency tables, proportions, including by groups, cross-tabulation).</li>
-<li>Produce and interpret visualizations of categorical variables with <code>ggplot2</code> (bar, stacked bar, standardized stacked bar, grouped stacked bar, mosaic, pie and waffle plots).</li>
+<li><p>your logbook for Adventure 2;</p></li>
+<li><p>a Quarto analysis report on the penguin data.</p></li>
 </ul>
+<p>The challenge continues Dr. Adélie Fortier’s mission. She wants to understand how penguin physical characteristics vary by species in order to prepare a grant application.</p>
+<p>You must work in the same GitHub repository used for Adventure 2. There is no new repository to create.</p>
 </section>
-<section id="learning-plan" class="level2">
-<h2 class="anchored" data-anchor-id="learning-plan">Learning Plan</h2>
-<p>The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.</p>
-<div class="path-grid interactive-path module-path learning-plan-path">
-<details class="path-card learning-plan-card" id="lectures-a-faire">
-  <summary><span class="path-number">1</span>
-  <span class="path-title">Readings</span>
-  <span class="path-preview">Review categories, factors and suitable representations.</span>
-  <span class="path-resource path-note">In this card</span>
-  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 id="initial-readings" class="anchored">Initial readings</h3>
-<h4 id="readings-to-do-before-the-adventure" class="anchored">Readings to do before the adventure</h4>
-<p>In this module, we will explore <strong>categorical</strong> variables and <strong>visualization adapted</strong> to this type of data. Two readings are suggested to prepare you:</p>
+<section id="data-to-use" class="level1">
+<h1>Data to use</h1>
+<p>In your GitHub repository, use the following file:</p>
+<pre class="text"><code>data/manchots_donnees.xlsx</code></pre>
+<p>Your report must import the data from this file. The report must therefore render after restarting R, without depending on objects already present in your environment.</p>
+</section>
+<section id="expected-deliverables" class="level1">
+<h1>Expected deliverables</h1>
+<p>Your GitHub repository must contain the following files:</p>
 <ul>
-<li><p><a href="https://r4ds.hadley.nz/strings.html" target="_blank"><strong>R for Data Science – Strings</strong></a><br>
-This chapter introduces you to the manipulation of character strings with the <code>stringr</code> package.<br>
-&gt; <strong>Note</strong>: Although this chapter is most widely used in module 4, some useful functions like <code>str_detect()</code> or <code>str_to_lower()</code> can already help you clean or prepare categorical variables.</p></li>
-<li><p><a href="https://openintro-ims.netlify.app/explore-categorical" target="_blank"><strong>Introduction to Modern Statistics – Chapter 6: Explore categorical data</strong></a><br>
-This chapter of <strong>IMS</strong> introduces statistical concepts associated with categorical data. We talk in particular about frequency tables, proportions and ways to visually represent this type of variable.</p></li>
+<li><p><code>journal de bord.qmd</code>;</p></li>
+<li><p><code>journal de bord.html</code>;</p></li>
+<li><p><code>rapport_analyse.qmd</code>;</p></li>
+<li><p><code>rapport_analyse.html</code>.</p></li>
 </ul>
-<p>Take the time to browse these two resources. They will be useful for you to understand how to process <strong>qualitative data</strong>, both from a <strong>statistical</strong> and <strong>practical</strong> point of view.</p>
-      </div>
-    </div>
-  </details>
-<details class="path-card learning-plan-card" id="aventure">
-  <summary><span class="path-number">2</span>
-  <span class="path-title">Adventure</span>
-  <span class="path-preview">Recode levels and compare groups without distorting them.</span>
-  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
-  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
-  <div class="step-detail">
-  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
-  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
-  </div>
-  </details>
-<details class="path-card learning-plan-card" id="defi">
-  <summary><span class="path-number">3</span>
-  <span class="path-title">Challenge</span>
-  <span class="path-preview">Document a recoding and defend the chart choice.</span>
-  <span class="path-resource"><a class="summary-resource-link challenge-link" href="defi.html">Challenge</a></span>
-  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 id="defi" class="anchored">Challenge</h3>
-<p>At the end of this module, <strong>you will take on the role of data journalist</strong> for <em>Le Courrier Gourmand</em>.<br>
-Your mission:</p>
-<ol type="1">
-<li><strong>Explore and clean</strong> the <code>listecondamnation</code> dataset (food offenses in Quebec).<br>
-</li>
-<li><strong>Extract key facts</strong> (top offenses, fine amounts, Montreal/non-Montreal comparison).<br>
-</li>
-<li><strong>Illustrate your analyses</strong> with at least <strong>two visuals</strong> (a category graph + the fines map).<br>
-</li>
-<li><strong>Write a Quarto article (HTML)</strong> clear and eye-catching: hat -&gt; context -&gt; methodology -&gt; results -&gt; recommendations.<br>
-</li>
-<li><strong>Cite two narrative figures</strong> and <strong>integrate a short quote from Alexandre</strong> to humanize the conclusion.</li>
-</ol>
+<p>The file <code>rapport_analyse.qmd</code> must be a new Quarto report. It must contain a title, your name, a short introduction, an analysis section and a conclusion.</p>
+<p>Your GitHub history must also show several useful commits. For example, you can make one commit after importing the data, another after handling anomalies, another after the charts, and a final one after proofreading.</p>
+</section>
+<section id="required-work" class="level1">
+<h1>Required work</h1>
+<section id="step-1---import-and-inspect-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-1---import-and-inspect-the-data">Step 1 - Import and inspect the data</h2>
+<p>Import <code>data/manchots_donnees.xlsx</code> with <code>read_excel()</code>.</p>
+<p>In your report, show that you understand the structure of the data. For example, you can display the first rows, use <code>glimpse()</code> or present a short summary of the important variables.</p>
+</section>
+<section id="step-2---identify-problematic-values" class="level2">
+<h2 class="anchored" data-anchor-id="step-2---identify-problematic-values">Step 2 - Identify problematic values</h2>
+<p>Use the outliers identified in Adventure 2.</p>
+<p>In your report:</p>
+<ul>
+<li><p>identify the problematic observations;</p></li>
+<li><p>explain whether you keep them, remove them or only flag them;</p></li>
+<li><p>apply your choice consistently in the descriptive statistics and charts.</p></li>
+</ul>
+<p>Do not modify the Excel file directly. Do the processing in your R code so that your workflow remains reproducible.</p>
+</section>
+<section id="step-3---compare-species" class="level2">
+<h2 class="anchored" data-anchor-id="step-3---compare-species">Step 3 - Compare species</h2>
+<p>Answer the following question:</p>
 <blockquote class="blockquote">
-<p><strong>To be submitted</strong>: the <code>.qmd</code> file and the generated HTML, delivered via your GitHub repository before the deadline.</p>
+<p>Are there notable differences between penguin species?</p>
 </blockquote>
-<p>The complete instructions are available on the <a href="defi.html">Challenge 3</a> page.</p>
-<h4 id="evaluation-grid" class="anchored">Evaluation grid</h4>
-<p>Your article will be evaluated according to the following criteria. Make sure you follow the template provided and the instructions given.</p>
-
+<p>For each species, compute the mean and standard deviation of the following variables:</p>
+<ul>
+<li><p>bill length, <code>bill_length_mm</code>;</p></li>
+<li><p>bill depth, <code>bill_depth_mm</code>;</p></li>
+<li><p>flipper length, <code>flipper_length_mm</code>;</p></li>
+<li><p>body mass, <code>body_mass_g</code>.</p></li>
+</ul>
+<p>Present the results in a clear table.</p>
+</section>
+<section id="step-4---create-a-size-indicator" class="level2">
+<h2 class="anchored" data-anchor-id="step-4---create-a-size-indicator">Step 4 - Create a size indicator</h2>
+<p>Create a variable named <code>indice_grandeur</code>, defined as:</p>
+<pre class="text"><code>indice_grandeur = flipper_length_mm + bill_length_mm</code></pre>
+<p>Display a few rows of the table to check that the variable was created correctly.</p>
+<p>If you remove outliers, do so before calculating <code>indice_grandeur</code>.</p>
+</section>
+<section id="step-5---produce-two-charts" class="level2">
+<h2 class="anchored" data-anchor-id="step-5---produce-two-charts">Step 5 - Produce two charts</h2>
+<p>Your report must contain two charts:</p>
+<ol type="1">
+<li><p>an histogram of <code>bill_length_mm</code> by species;</p></li>
+<li><p>a scatterplot showing the relationship between <code>indice_grandeur</code> and <code>body_mass_g</code>, with a different color for each species.</p></li>
+</ol>
+<p>For the histogram by species, you can use facets, colors with transparency, or another readable choice. The chart must allow species to be compared without confusion.</p>
+<p>Each chart must have:</p>
+<ul>
+<li><p>an informative title;</p></li>
+<li><p>readable axes;</p></li>
+<li><p>a clear legend if color is used;</p></li>
+<li><p>units when relevant.</p></li>
+</ul>
+</section>
+<section id="step-6---conclude" class="level2">
+<h2 class="anchored" data-anchor-id="step-6---conclude">Step 6 - Conclude</h2>
+<p>In the conclusion, answer the following questions in a few sentences:</p>
+<ul>
+<li><p>What differences do you observe between species?</p></li>
+<li><p>Which characteristic seems to best distinguish some species?</p></li>
+<li><p>Does your treatment of outliers change your interpretation?</p></li>
+</ul>
+</section>
+</section>
+<section id="checklist" class="level1">
+<h1>Checklist</h1>
+<p>Before submitting your challenge, check that:</p>
+<ul>
+<li><p><code>rapport_analyse.qmd</code> renders without errors;</p></li>
+<li><p><code>rapport_analyse.html</code> is present in the repository;</p></li>
+<li><p>the logbook is rendered as HTML;</p></li>
+<li><p>the data are imported with a reproducible path;</p></li>
+<li><p>anomalies are identified and discussed;</p></li>
+<li><p>descriptive statistics are computed by species;</p></li>
+<li><p>the two required charts are present and readable;</p></li>
+<li><p>the conclusion answers Dr. Adélie’s question;</p></li>
+<li><p>several clear commits appear in the GitHub history;</p></li>
+<li><p>the changes have been pushed to GitHub.</p></li>
+</ul>
+</section>
+<section id="evaluation-grid" class="level1">
+<h1>Evaluation grid</h1>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 28%">
-<col style="width: 17%">
-<col style="width: 17%">
-<col style="width: 17%">
-<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th">Criterion</th>
-<th data-quarto-table-cell-role="th">Excellent (3)</th>
-<th data-quarto-table-cell-role="th">Satisfactory (2)</th>
-<th data-quarto-table-cell-role="th">To improve (1)</th>
-<th data-quarto-table-cell-role="th">Comment</th>
+<th>Criterion</th>
+<th>Excellent</th>
+<th>Satisfactory</th>
+<th>To improve</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>** Introductory hat**</td>
-<td>Punchy hook, clear angle, well-chosen key figures</td>
-<td>Present but not very engaging or unclear</td>
-<td>Absent or very vague</td>
-<td></td>
+<td>GitHub repository</td>
+<td>Complete repository, expected files present, clear history with several useful commits.</td>
+<td>Usable repository, but history or organization could be improved.</td>
+<td>Missing files, incomplete repository or history difficult to follow.</td>
 </tr>
 <tr class="even">
-<td>** Context &amp; presentation of data**</td>
-<td>Well identified source, relevance explained, limitations mentioned</td>
-<td>Partial context or summary explanation</td>
-<td>Source absent or not justified</td>
-<td></td>
+<td>Reproducibility</td>
+<td>Both HTML reports render without manual intervention. File paths are correct.</td>
+<td>Rendering possible after a few minor adjustments.</td>
+<td>Rendering impossible or dependence on objects not created in the report.</td>
 </tr>
 <tr class="odd">
-<td>** Methodology (section without code)**</td>
-<td>Well summarized, clear and logical approach</td>
-<td>Present but confusing or too technical</td>
-<td>Absent or very unclear</td>
-<td></td>
+<td>Treatment of anomalies</td>
+<td>Problematic observations identified, choice explained and applied consistently.</td>
+<td>Anomalies mentioned, but justification or application incomplete.</td>
+<td>Anomalies ignored or handled inconsistently.</td>
 </tr>
 <tr class="even">
-<td>** Key result #1 (graph + interpretation)**</td>
-<td>Clear visual, good interpretation, obvious analytical contribution</td>
-<td>Visual or in-depth commentary</td>
-<td>Visual or analysis absent</td>
-<td></td>
+<td>Descriptive statistics</td>
+<td>Means and standard deviations correctly computed by species and clearly presented.</td>
+<td>Results present, but table unclear or incomplete.</td>
+<td>Calculations absent, incorrect or not grouped by species.</td>
 </tr>
 <tr class="odd">
-<td>** Key result #2 (graph + interpretation)**</td>
-<td>Relevant visual, well-formulated insight</td>
-<td>Correct visual but weak analysis</td>
-<td>Result little exploited or missing</td>
-<td></td>
+<td>Visualizations</td>
+<td>Two readable, well-titled charts useful for comparing species.</td>
+<td>Charts present, but readability or interpretation is limited.</td>
+<td>Charts absent, incorrect or difficult to understand.</td>
 </tr>
 <tr class="even">
-<td>** Key result #3 (graph + interpretation)**</td>
-<td>Original or complementary result, well explained</td>
-<td>Present but underdeveloped</td>
-<td>Lacking or superficial</td>
-<td></td>
+<td>Conclusion</td>
+<td>Clear interpretation supported by statistics and charts.</td>
+<td>Conclusion present but imprecise.</td>
+<td>Conclusion absent or disconnected from the results.</td>
 </tr>
 <tr class="odd">
-<td>** Discussion (section 4)**</td>
-<td>Critical reflection, putting results into perspective</td>
-<td>Partial or descriptive discussion</td>
-<td>Discussion absent or without added value</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>** Conclusion &amp; recommendations**</td>
-<td>Clear, useful, well-formulated action messages</td>
-<td>Messages present but not convincing</td>
-<td>Unclear or off-topic</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>** Narrative figures + quote from Alexandre**</td>
-<td>Two well-chosen figures + well-integrated quote</td>
-<td>One of the elements present only</td>
-<td>None or poorly integrated</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>** Render quality (Quarto + GitHub repository)**</td>
-<td><code>.qmd</code> functional, readable HTML, clean and complete repository</td>
-<td>Some technical problems or disorganized filing</td>
-<td>Unable to execute or rendered partial/absent</td>
-<td></td>
+<td>Code quality</td>
+<td>Clear, structured code consistent with good practices seen in the module.</td>
+<td>Understandable code, with a few style issues.</td>
+<td>Code difficult to read, fragile or disorganized.</td>
 </tr>
 </tbody>
 </table>
-
-<hr>
-<p><strong>Total out of 30 points</strong>: <code>XX / 30</code></p>
-<blockquote class="blockquote">
-<p><em>Don’t forget to reread the checklist at the end of the template before publishing your article.</em></p>
-</blockquote>
-      </div>
-    </div>
-  </details>
-<details class="path-card learning-plan-card" id="exercices">
-  <summary><span class="path-number">4</span>
-  <span class="path-title">Exercises</span>
-  <span class="path-preview">Stabilize frequency tables, factors and groupings.</span>
-  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercises</a></span>
-  <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
-  <div class="step-detail">
-  <p><span class="step-label">Resource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Exercises page</a></p>
-  <p><span class="step-label">Why</span> Exercises stay on a separate page because they take more space.</p>
-  <div class="ae-box"><p class="ae-title">Redo at least one passage without looking at the solution immediately.</p></div>
-  </div>
-  </details>
-</div>
-</section>
-<section id="data-and-tools" class="level2">
-<h2 class="anchored" data-anchor-id="data-and-tools">Data and Tools</h2>
-<div class="module-resource-panel">
-  <div class="module-resource-section">
-  <h3 class="anchored">Datasets</h3>
-  <div class="module-chip-list">
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-listecondamnation"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>UlavalSSD::listecondamnation</span></a>
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-penguins-raw"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>palmerpenguins::penguins_raw</span></a>
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-titanic-train"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>titanic::titanic_train</span></a>
-  </div>
-  </div>
-  <div class="module-resource-section">
-  <h3 class="anchored">R packages</h3>
-  <div class="module-chip-list">
-  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#titanic"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>titanic</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#tidygeocoder"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidygeocoder</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#viridis"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>viridis</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#scales"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>scales</span></a>
-  </div>
-  </div>
-</div>
-</section>
-<section id="review-and-extension" class="level2">
-<h2 class="anchored" data-anchor-id="review-and-extension">Review and Extension</h2>
-<div class="closing-panel">
-  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
-  <div>
-  <h3 class="anchored">Finish the module with the course AI assistant</h3>
-  <p>Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.</p>
-  <ul>
-  <li>Explain the finished product in three sentences.</li>
-  <li>Paste a code or output excerpt and ask for a diagnosis.</li>
-  <li>Ask for a more ambitious variant, then choose what remains reasonable.</li>
-  </ul>
-  </div>
-</div>
 
 
 </section>
@@ -6360,7 +6269,7 @@ font-size:.8rem;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {
+        if (clz.startsWith('code-annotation-')) {                     
           return true;
         }
       }
@@ -6380,11 +6289,11 @@ font-size:.8rem;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button,
-          { trigger: "manual",
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();
+        tooltip.show();    
       }
       setTimeout(function() {
         if (tooltip) {
@@ -6461,7 +6370,7 @@ font-size:.8rem;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config);
+      window.tippy(el, config); 
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -6536,7 +6445,7 @@ font-size:.8rem;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined;
+        let hash = undefined; 
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -6564,7 +6473,7 @@ font-size:.8rem;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              }
+              } 
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -6588,7 +6497,7 @@ font-size:.8rem;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            }
+            } 
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -6628,7 +6537,7 @@ font-size:.8rem;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it
+              // cook up a div (if necessary) and position it 
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");

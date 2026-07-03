@@ -97,7 +97,7 @@ Here are examples demonstrating how to use `stringr` (part of the `Tidyverse`) t
 
 ## Demonstration
 
-We will use the `listecondemnation` dataset from the `UlavalSSD` library which contains the convictions of food establishments in Quebec.
+We will use the `listecondamnation` dataset from the `UlavalSSD` library which contains the convictions of food establishments in Quebec.
 
 ```{r}
 library(UlavalSSD)
@@ -122,9 +122,9 @@ What is the type of the `Fine` variable? Does this seem problematic to you?
 :::
 
 ::: {.callout-caution collapse="true" title="Response from Alexandre"}
-**Possible answer**: Use `nrow(listecondemnation)` after import; for example we obtain **1,712** lines.
+**Possible answer**: Use `nrow(listecondamnation)` after import; for example we obtain **1,712** lines.
 
-Alexandre reminds you that `?listecondemnation` gives you the documentation of the dataset.
+Alexandre reminds you that `?listecondamnation` gives you the documentation of the dataset.
 :::
 
 ### Pattern detection (`str_detect()`)
@@ -287,7 +287,7 @@ listecondamnation <- listecondamnation %>%
 ::: {.callout-caution collapse="true" title="Response from Alexandre"}
 **Possible answer**: Use `unique()` to count the number of offense types. For example, `length(unique(listecondamnation$SOC_NOM_ARTCL_INFRC))` will give you the total number of offense types.
 
-Now we can do the same thing but for offenses related to temperature with `listecondemnation %>% filter(est_temp == TRUE) %>% unique()`
+Now we can do the same thing but for offences related to temperature with `listecondamnation %>% filter(est_temp == TRUE) %>% unique()`
 
 And there are 5 of them:
 
@@ -539,7 +539,7 @@ You now have:
 1. **Structure your Quarto article**: catchy hat -> context -> methodology -> key results -> recommendations.\
 2. **Integrate at least two visuals** among those produced (a category graph and the fines map).\
 3. **Cite two narrative figures** (e.g. “5 categories cover 62% of offenses”, “180,000\$ fines within a 2km radius”) to captivate the reader.\
-4. **Add a summary quote from Alexander** to humanize your conclusion.
+4. **Add a summary quote from Alexandre** to humanize your conclusion.
 
 >  **Expected deliverable**: a standalone HTML file exported from your `.qmd`, committed to your GitHub repository before the deadline.
 

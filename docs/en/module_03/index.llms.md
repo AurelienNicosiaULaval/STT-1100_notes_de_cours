@@ -71,7 +71,7 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Document a recoding and defend the chart choice. In this card Open cardCollapse
+3 Challenge Document a recoding and defend the chart choice. [Challenge](defi.llms.md) Open cardCollapse
 
 ### Challenge
 
@@ -82,9 +82,11 @@ Your mission:
 2.  **Extract key facts** (top offenses, fine amounts, Montreal/non-Montreal comparison).
 3.  **Illustrate your analyses** with at least **two visuals** (a category graph + the fines map).
 4.  **Write a Quarto article (HTML)** clear and eye-catching: hat -\> context -\> methodology -\> results -\> recommendations.
-5.  **Cite two narrative figures** and **integrate a short quote from Alexander** to humanize the conclusion.
+5.  **Cite two narrative figures** and **integrate a short quote from Alexandre** to humanize the conclusion.
 
 > **To be submitted**: the `.qmd` file and the generated HTML, delivered via your GitHub repository before the deadline.
+
+The complete instructions are available on the [Challenge 3](defi.llms.md) page.
 
 #### Evaluation grid
 

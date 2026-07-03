@@ -65,6 +65,8 @@ Here is the challenge you will have to complete for **module 2**. It is divided 
 
 **Part 2**: Submit the **data analysis report** on GitHub that Dr. Adélie can use as part of her grant application.
 
+Complete instructions: [Challenge 2 - GitHub and data visualization](../module_02/defi.llms.md)
+
 # Consolidation exercises
 
 To put into practice what you have learned from this module, you will find below **13 exercises** covering all the concepts of module 2 (`ggplot2`, `dplyr`, EDA, tidy data, good style practices and *IMS* style descriptive statistics).

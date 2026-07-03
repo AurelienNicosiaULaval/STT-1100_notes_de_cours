@@ -36,13 +36,15 @@ Take the time to browse these two resources. They will be useful for you to unde
 At the end of this module, **you will take on the role of data journalist** for *Le Courrier Gourmand*.
 Your mission:
 
-1.  **Explore and clean** the `listecondemnation` game (food offenses in Quebec).
-2.  **Extract key facts** (top offenses, fine amounts, Montreal/non-Montreal comparison).
+1.  **Explore and clean** the `listecondamnation` dataset (food offences in Quebec).
+2.  **Extract key facts** (top offences, fine amounts, Montreal/non-Montreal comparison).
 3.  **Illustrate your analyses** with at least **two visuals** (a category graph + the fines map).
 4.  **Write a Quarto article (HTML)** clear and eye-catching: hat -\> context -\> methodology -\> results -\> recommendations.
-5.  **Cite two narrative figures** and **integrate a short quote from Alexander** to humanize the conclusion.
+5.  **Cite two narrative figures** and **integrate a short quote from Alexandre** to humanize the conclusion.
 
 > **To be submitted**: the `.qmd` file and the generated HTML, delivered via your GitHub repository before the deadline.
+
+Complete instructions: [Challenge 3 - Data article on food offences](../module_03/defi.llms.md)
 
 ## Evaluation grid
 

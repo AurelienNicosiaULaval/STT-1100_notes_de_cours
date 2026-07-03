@@ -1,0 +1,164 @@
+# Challenge 3 - Data article on food offences
+
+STT-1100 Introduction to Data Science
+
+# Challenge overview
+
+In this challenge, you become a data journalist for *Le Courrier Gourmand*. Your goal is to produce a short Quarto article on food offences using the `listecondamnation` dataset from the `UlavalSSD` package.
+
+Your article must be understandable to someone who does not know R. The code supports the article, but the text must clearly tell the reader what you found.
+
+# Data to use
+
+Use the following dataset:
+
+``` text
+UlavalSSD::listecondamnation
+```
+
+Your report must explicitly load the required packages, especially `tidyverse` and `UlavalSSD`.
+
+The report must render after restarting R, without depending on objects already present in your environment.
+
+# Expected deliverables
+
+Your GitHub repository must contain the following files:
+
+- completed `template_article.qmd`;
+
+- rendered `template_article.html`.
+
+You may rename the article title in the Quarto header, but keep the source filename provided in the template.
+
+Your GitHub history must show several useful commits. For example, you can make one commit after importing the data, another after cleaning, another after the charts, and a final one after proofreading.
+
+# Expected article structure
+
+Your article must contain the following sections:
+
+- an introductory lead;
+
+- a context and data section;
+
+- a methodology section written in prose, without detailing every line of code;
+
+- a results section with at least two key findings;
+
+- a discussion;
+
+- a conclusion with recommendations.
+
+# Required work
+
+## Step 1 - Import and inspect the data
+
+Load the `UlavalSSD` package, inspect `listecondamnation`, then briefly describe:
+
+- the number of rows;
+
+- the main variables;
+
+- the initial type of the `Amende` variable;
+
+- the dataset limits that you consider important.
+
+## Step 2 - Clean the useful variables
+
+Create a clean table containing at least:
+
+- a numeric variable for fines, for example `amende_num`;
+
+- a standardized postal code variable;
+
+- a logical variable identifying tickets located in Montreal;
+
+- a logical variable identifying offences related to temperature;
+
+- a recoded establishment type variable when two labels refer to the same category.
+
+Do not modify the original dataset. Do the cleaning in your R code so that your workflow remains reproducible.
+
+## Step 3 - Extract key facts
+
+Your article must include at least two narrative figures. For example:
+
+- the proportion of tickets located in Montreal;
+
+- the proportion of temperature-related offences in Montreal;
+
+- the median or mean fine;
+
+- the most frequent types of offences;
+
+- the most frequent types of establishments.
+
+Each figure must be accompanied by a textual interpretation.
+
+## Step 4 - Produce at least two visuals
+
+Your article must contain at least two visualizations:
+
+1.  a categorical chart, for example a bar chart on offence types or establishment types;
+
+2.  a second relevant visual, for example a boxplot of fines or a chart comparing Montreal with the rest of Quebec.
+
+The fines map is optional. If you choose to make it, clearly state that geocoding depends on an external web service and may not be perfectly reproducible.
+
+Each chart must have:
+
+- an informative title;
+
+- readable axes;
+
+- a clear legend if color is used;
+
+- units when relevant.
+
+## Step 5 - Write the article
+
+Your article must answer a clear journalistic question. For example:
+
+> What do food offence tickets reveal about Montreal establishments?
+
+In the conclusion, add a short synthetic quote from Alexandre. This quote must summarize an implication of your results. It may be fictional, but it must be coherent with your analyses.
+
+# Checklist
+
+Before submitting your challenge, check that:
+
+- `template_article.qmd` renders without errors;
+
+- `template_article.html` is present in the repository;
+
+- the required packages are loaded in the report;
+
+- the data are cleaned in code, without manual modification of the original dataset;
+
+- `amende_num` is numeric;
+
+- establishment type categories are checked;
+
+- the analyses clearly distinguish Montreal from the rest of Quebec;
+
+- at least two narrative figures are cited and interpreted;
+
+- at least two charts are present and readable;
+
+- the conclusion answers the journalistic question;
+
+- several clear commits appear in the GitHub history;
+
+- the changes have been pushed to GitHub.
+
+# Evaluation grid
+
+| Criterion | Excellent | Satisfactory | To improve |
+|----|----|----|----|
+| Journalistic angle | Clear question, effective lead, coherent narrative thread. | Angle present but imprecise. | Angle absent or descriptive article without guiding question. |
+| Data presentation | Source, variables, limits and subset choices clearly explained. | Partial presentation. | Source or limits absent. |
+| Data cleaning | Useful variables cleaned correctly, including fines and establishment categories. | Cleaning present but incomplete or insufficiently explained. | Cleaning absent, incorrect or not reproducible. |
+| Narrative figures | At least two relevant figures, correctly computed and interpreted. | Figures present but weakly connected to the text. | Figures absent, incorrect or not interpreted. |
+| Visualizations | At least two readable, titled charts useful for the article. | Charts present, but readability or relevance is limited. | Charts absent, incorrect or difficult to understand. |
+| Discussion | Nuanced results, limits acknowledged, clear link with the question. | Discussion present but mostly descriptive. | Discussion absent or disconnected from the results. |
+| Conclusion | Clear action messages and an Alexandre quote coherent with the results. | Conclusion present but general. | Conclusion absent or not supported by the analyses. |
+| Reproducibility | Functional `.qmd` and HTML, correct paths and packages, complete GitHub repository. | Rendering possible with a few minor adjustments. | Rendering impossible, missing files or disorganized repository. |
