@@ -6,27 +6,27 @@ Comprendre, recoder et visualiser des variables catégorielles.
 
 Fil principalCatégories, chaînes et graphiques
 
-DonnéesManchots, Titanic et catégories
+DonnéesInfractions alimentaires au Québec
 
-DéfiRecodage documenté et graphique interprété
+DéfiArticle journalistique reproductible
 
 ## Produit fini du module
 
 Produit final
 
-### Une variable catégorielle prête pour l’analyse
+### Un article de données sur les infractions alimentaires
 
-Le module produit un recodage documenté, une vérification des modalités et un graphique qui respecte la nature des catégories.
+Le module produit un jeu de données nettoyé, des catégories vérifiées, des graphiques lisibles et un court article Quarto appuyé par des chiffres.
 
-**catégories**
+**article.html**
 
-modalités vérifiées
+données nettoyées
 
-recodage justifié
+catégories vérifiées
 
-graphique interprété
+article rédigé
 
-modalités vérifiées recodage justifié graphique interprété
+données nettoyées catégories vérifiées article rédigé
 
 ## Objectifs du module
 
@@ -71,43 +71,19 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Documenter un recodage et défendre le choix du graphique. Dans la carte Ouvrir la carteRéduire
+3 Défi Rédiger un article Quarto à partir des infractions alimentaires. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
 ### Défi
 
-Au terme de ce module, **vous endosserez le rôle de journaliste de données** pour *Le Courrier Gourmand*.
-Votre mission :
+Vous endosserez le rôle de journaliste de données pour *Le Courrier Gourmand*. Votre mission est de nettoyer `listecondamnation`, d’en extraire des faits marquants et de rédiger un article Quarto reproductible.
 
-1.  **Explorer et nettoyer** le jeu `listecondamnation` (infractions alimentaires au Québec).
-2.  **Extraire des faits marquants** (top infractions, montants d’amendes, comparaison Montréal / hors-Montréal).
-3.  **Illustrer vos analyses** par au moins **deux visuels** (un graphique de catégories + la carte des amendes).
-4.  **Rédiger un article Quarto (HTML)** clair et accrocheur : chapeau -\> contexte -\> méthodologie -\> résultats -\> recommandations.
-5.  **Citer deux chiffres narratifs** et **intégrer une courte citation d’Alexandre** pour humaniser la conclusion.
+[Consulter le défi du module 3](defi.llms.md)
 
-> **À remettre** : le fichier `.qmd` et le HTML généré, livrés via votre dépôt GitHub avant la date limite.
+- Livrables : `template_article.qmd` complété et HTML rendu.
 
-#### Grille d’évaluation
+- Analyse : au moins deux chiffres narratifs et deux visuels, dont un graphique de catégories.
 
-Votre article sera évalué selon les critères suivants. Assurez-vous de bien respecter le canevas fourni et les consignes données.
-
-| Critère | Excellent (3) | Satisfaisant (2) | À améliorer (1) | Commentaire |
-|----|----|----|----|----|
-| \*\* Chapeau introductif\*\* | Accroche percutante, angle clair, chiffres clés bien choisis | Présent mais peu engageant ou peu clair | Absent ou très vague |  |
-| \*\* Contexte & présentation des données\*\* | Source bien identifiée, pertinence expliquée, limites évoquées | Contexte partiel ou explication sommaire | Source absente ou non justifiée |  |
-| \*\* Méthodologie (section sans code)\*\* | Démarche bien résumée, claire et logique | Présente mais confuse ou trop technique | Absente ou très floue |  |
-| \*\* Résultat clé \#1 (graphique + interprétation)\*\* | Visuel clair, bonne interprétation, apport analytique évident | Visuel ou commentaire peu approfondi | Visuel ou analyse absente |  |
-| \*\* Résultat clé \#2 (graphique + interprétation)\*\* | Visuel pertinent, insight bien formulé | Visuel correct mais analyse faible | Résultat peu exploité ou manquant |  |
-| \*\* Résultat clé \#3 (graphique + interprétation)\*\* | Résultat original ou complémentaire, bien expliqué | Présent mais peu développé | Manquant ou superficiel |  |
-| \*\* Discussion (section 4)\*\* | Réflexion critique, mise en perspective des résultats | Discussion partielle ou descriptive | Discussion absente ou sans valeur ajoutée |  |
-| \*\* Conclusion & recommandations\*\* | Messages d’action clairs, utiles, bien formulés | Messages présents mais peu convaincants | Peu clairs ou hors sujet |  |
-| \*\* Chiffres narratifs + citation d’Alexandre\*\* | Deux chiffres bien choisis + citation bien intégrée | Un des éléments présent seulement | Aucun ou mal intégré |  |
-| \*\* Qualité du rendu (Quarto + dépôt GitHub)\*\* | `.qmd` fonctionnel, HTML lisible, dépôt propre et complet | Quelques problèmes techniques ou dépôt désorganisé | Exécution impossible ou rendu partiel/absent |  |
-
-------------------------------------------------------------------------
-
-**Total sur 30 points** : `XX / 30`
-
-> *N’oubliez pas de relire la checklist en fin de template avant de publier votre article.*
+- GitHub : plusieurs commits clairs et un dépôt complet.
 
 4 Exercices Stabiliser tableaux de fréquences, facteurs et regroupements. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
@@ -121,7 +97,7 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[palmerpenguins::penguins_raw](../donnees.llms.md#dataset-card-penguins-raw) [titanic::titanic_train](../donnees.llms.md#dataset-card-titanic-train)
+[UlavalSSD::listecondamnation](../donnees.llms.md#dataset-card-listecondamnation) [palmerpenguins::penguins_raw](../donnees.llms.md#dataset-card-penguins-raw) [titanic::titanic_train](../donnees.llms.md#dataset-card-titanic-train)
 
 ### Packages R
 

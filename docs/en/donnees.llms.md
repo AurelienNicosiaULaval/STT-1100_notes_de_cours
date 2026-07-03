@@ -50,7 +50,11 @@ Practice Excel file about penguins.Local fileStructure to consultView profile [M
 
 ### Module 03
 
-[Module 03 ](packages.llms.md#palmerpenguins)
+[Module 03 ](packages.llms.md#ulavalssd)
+
+## UlavalSSD::listecondamnation
+
+Food offence records used for the journalistic article.R packageStructure to consultView documentation [Module 03 ](packages.llms.md#palmerpenguins)
 
 ## palmerpenguins::penguins_raw
 

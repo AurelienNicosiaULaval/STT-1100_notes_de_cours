@@ -1,0 +1,159 @@
+# Défi 2 - GitHub et visualisation de données
+
+STT-1100 Introduction à la science des données
+
+# Présentation du défi
+
+Dans ce défi, vous devez produire un dépôt GitHub lisible contenant deux livrables :
+
+- votre journal de bord de l’aventure 2 ;
+
+- un rapport d’analyse Quarto sur les données des manchots.
+
+Le défi reprend la mission de la Dre Adélie Fortier. Elle souhaite comprendre comment les caractéristiques physiques des manchots varient selon les espèces afin de préparer une demande de subvention.
+
+Vous devez travailler dans le même dépôt GitHub que celui utilisé pour l’aventure 2. Il n’y a pas de nouveau dépôt à créer.
+
+# Données à utiliser
+
+Dans votre dépôt GitHub, utilisez le fichier suivant :
+
+``` text
+data/manchots_donnees.xlsx
+```
+
+Votre rapport doit importer les données à partir de ce fichier. Le rapport doit donc pouvoir être rendu après un redémarrage de R, sans dépendre d’objets déjà présents dans votre environnement.
+
+# Livrables attendus
+
+Votre dépôt GitHub doit contenir les fichiers suivants :
+
+- `journal de bord.qmd` ;
+
+- `journal de bord.html` ;
+
+- `rapport_analyse.qmd` ;
+
+- `rapport_analyse.html`.
+
+Le fichier `rapport_analyse.qmd` doit être un nouveau rapport Quarto. Il doit contenir un titre, votre nom, une courte introduction, une section d’analyse et une conclusion.
+
+Votre historique GitHub doit aussi montrer plusieurs commits utiles. Par exemple, vous pouvez faire un commit après l’importation des données, un autre après le traitement des anomalies, un autre après les graphiques, puis un dernier après la relecture.
+
+# Travail demandé
+
+## Étape 1 - Importer et inspecter les données
+
+Importez le fichier `data/manchots_donnees.xlsx` avec `read_excel()`.
+
+Dans votre rapport, montrez que vous comprenez la structure des données. Par exemple, vous pouvez afficher les premières lignes, utiliser `glimpse()` ou présenter un court résumé des variables importantes.
+
+## Étape 2 - Repérer les valeurs problématiques
+
+Reprenez les valeurs aberrantes repérées dans l’aventure 2.
+
+Dans votre rapport :
+
+- identifiez les observations problématiques ;
+
+- expliquez si vous les conservez, les retirez ou les signalez seulement ;
+
+- appliquez votre choix de façon cohérente dans les statistiques descriptives et les graphiques.
+
+Ne modifiez pas directement le fichier Excel. Faites le traitement dans votre code R afin que votre démarche soit reproductible.
+
+## Étape 3 - Comparer les espèces
+
+Répondez à la question suivante :
+
+> Existe-t-il des différences notables entre les espèces de manchots ?
+
+Calculez, par espèce, la moyenne et l’écart-type des variables suivantes :
+
+- longueur du bec, `bill_length_mm` ;
+
+- profondeur du bec, `bill_depth_mm` ;
+
+- longueur des nageoires, `flipper_length_mm` ;
+
+- masse corporelle, `body_mass_g`.
+
+Présentez les résultats sous forme de tableau clair.
+
+## Étape 4 - Créer un indicateur de grandeur
+
+Créez une variable nommée `indice_grandeur`, définie comme :
+
+``` text
+indice_grandeur = flipper_length_mm + bill_length_mm
+```
+
+Affichez quelques lignes du tableau pour vérifier que la variable a été créée correctement.
+
+Si vous retirez des observations aberrantes, faites-le avant de calculer `indice_grandeur`.
+
+## Étape 5 - Produire deux graphiques
+
+Votre rapport doit contenir deux graphiques :
+
+1.  un histogramme de `bill_length_mm` par espèce ;
+
+2.  un nuage de points montrant la relation entre `indice_grandeur` et `body_mass_g`, avec une couleur différente pour chaque espèce.
+
+Pour l’histogramme par espèce, vous pouvez utiliser des facettes, des couleurs avec transparence, ou un autre choix lisible. Le graphique doit permettre de comparer les espèces sans confusion.
+
+Chaque graphique doit avoir :
+
+- un titre informatif ;
+
+- des axes lisibles ;
+
+- une légende claire si une couleur est utilisée ;
+
+- des unités lorsque c’est pertinent.
+
+## Étape 6 - Conclure
+
+Dans la conclusion, répondez en quelques phrases aux questions suivantes :
+
+- Quelles différences observez-vous entre les espèces ?
+
+- Quelle caractéristique semble le mieux distinguer certaines espèces ?
+
+- Votre traitement des valeurs aberrantes change-t-il votre interprétation ?
+
+# Liste de vérification
+
+Avant de remettre votre défi, vérifiez que :
+
+- le rapport `rapport_analyse.qmd` se rend sans erreur ;
+
+- le fichier `rapport_analyse.html` est présent dans le dépôt ;
+
+- le journal de bord est rendu en HTML ;
+
+- les données sont importées avec un chemin reproductible ;
+
+- les anomalies sont identifiées et discutées ;
+
+- les statistiques descriptives sont calculées par espèce ;
+
+- les deux graphiques demandés sont présents et lisibles ;
+
+- la conclusion répond à la question de la Dre Adélie ;
+
+- plusieurs commits clairs apparaissent dans l’historique GitHub ;
+
+- les changements ont été poussés sur GitHub.
+
+# Grille d’évaluation
+
+| Critère | Excellent | Satisfaisant | À améliorer |
+|----|----|----|----|
+| Dépôt GitHub | Dépôt complet, fichiers attendus présents, historique clair avec plusieurs commits utiles. | Dépôt utilisable, mais historique ou organisation perfectible. | Fichiers manquants, dépôt incomplet ou historique difficile à suivre. |
+| Reproductibilité | Les deux rapports HTML se rendent sans intervention manuelle. Les chemins de fichiers sont corrects. | Rendu possible après quelques ajustements mineurs. | Rendu impossible ou dépendance à des objets non créés dans le rapport. |
+| Traitement des anomalies | Observations problématiques identifiées, choix expliqué et appliqué de façon cohérente. | Anomalies mentionnées, mais justification ou application incomplète. | Anomalies ignorées ou traitement incohérent. |
+| Statistiques descriptives | Moyennes et écarts-types calculés correctement par espèce et présentés clairement. | Résultats présents, mais tableau peu clair ou incomplet. | Calculs absents, erronés ou non groupés par espèce. |
+| Visualisations | Deux graphiques lisibles, bien titrés, utiles pour comparer les espèces. | Graphiques présents, mais lisibilité ou interprétation limitée. | Graphiques absents, incorrects ou difficiles à comprendre. |
+| Conclusion | Interprétation claire, appuyée sur les statistiques et les graphiques. | Conclusion présente mais peu précise. | Conclusion absente ou sans lien avec les résultats. |
+| Qualité du code | Code clair, structuré, conforme aux bonnes pratiques vues dans le module. | Code compréhensible, avec quelques problèmes de style. | Code difficile à lire, fragile ou non organisé. |

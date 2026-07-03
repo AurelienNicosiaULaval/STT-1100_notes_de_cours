@@ -104,7 +104,7 @@ for (path in html_files) {
     }
   }
 
-  missing_alt <- xml2::xml_find_all(doc, ".//img[not(@alt)]")
+  missing_alt <- xml2::xml_find_all(doc, ".//img[not(@alt) and not(@aria-label)]")
   if (length(missing_alt) > 0) {
     images_without_alt <- c(images_without_alt, path)
   }

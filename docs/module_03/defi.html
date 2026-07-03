@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Défi 1 - Plongée en science des données – STT-1100 Introduction à la science des données</title>
+<title>Défi 3 - Article de données sur les infractions alimentaires – STT-1100 Introduction à la science des données</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -4291,7 +4291,6 @@ align-items: center;
 min-width: 0;
 margin: 0;
 }
-.module-fact > span:last-child,
 .module-fact p > span:last-child {
 min-width: 0;
 }
@@ -4317,8 +4316,6 @@ margin-top: .2rem;
 color: var(--ink);
 font-size: .95rem;
 font-weight: 700;
-overflow-wrap: normal;
-word-break: normal;
 }
 .module-product-showcase {
 display: grid;
@@ -5799,11 +5796,19 @@ margin-bottom: .05rem;
 
   <ul>
   <li><a href="#présentation-du-défi" id="toc-présentation-du-défi" class="nav-link active" data-scroll-target="#présentation-du-défi">Présentation du défi</a></li>
+  <li><a href="#données-à-utiliser" id="toc-données-à-utiliser" class="nav-link" data-scroll-target="#données-à-utiliser">Données à utiliser</a></li>
   <li><a href="#livrables-attendus" id="toc-livrables-attendus" class="nav-link" data-scroll-target="#livrables-attendus">Livrables attendus</a></li>
-  <li><a href="#grille-dévaluation" id="toc-grille-dévaluation" class="nav-link" data-scroll-target="#grille-dévaluation">Grille d’évaluation</a>
+  <li><a href="#structure-attendue-de-larticle" id="toc-structure-attendue-de-larticle" class="nav-link" data-scroll-target="#structure-attendue-de-larticle">Structure attendue de l’article</a></li>
+  <li><a href="#travail-demandé" id="toc-travail-demandé" class="nav-link" data-scroll-target="#travail-demandé">Travail demandé</a>
   <ul class="collapse">
-  <li><a href="#note-importante" id="toc-note-importante" class="nav-link" data-scroll-target="#note-importante">Note importante</a></li>
+  <li><a href="#étape-1---importer-et-inspecter-les-données" id="toc-étape-1---importer-et-inspecter-les-données" class="nav-link" data-scroll-target="#étape-1---importer-et-inspecter-les-données">Étape 1 - Importer et inspecter les données</a></li>
+  <li><a href="#étape-2---nettoyer-les-variables-utiles" id="toc-étape-2---nettoyer-les-variables-utiles" class="nav-link" data-scroll-target="#étape-2---nettoyer-les-variables-utiles">Étape 2 - Nettoyer les variables utiles</a></li>
+  <li><a href="#étape-3---extraire-des-faits-marquants" id="toc-étape-3---extraire-des-faits-marquants" class="nav-link" data-scroll-target="#étape-3---extraire-des-faits-marquants">Étape 3 - Extraire des faits marquants</a></li>
+  <li><a href="#étape-4---produire-au-moins-deux-visuels" id="toc-étape-4---produire-au-moins-deux-visuels" class="nav-link" data-scroll-target="#étape-4---produire-au-moins-deux-visuels">Étape 4 - Produire au moins deux visuels</a></li>
+  <li><a href="#étape-5---rédiger-larticle" id="toc-étape-5---rédiger-larticle" class="nav-link" data-scroll-target="#étape-5---rédiger-larticle">Étape 5 - Rédiger l’article</a></li>
   </ul></li>
+  <li><a href="#liste-de-vérification" id="toc-liste-de-vérification" class="nav-link" data-scroll-target="#liste-de-vérification">Liste de vérification</a></li>
+  <li><a href="#grille-dévaluation" id="toc-grille-dévaluation" class="nav-link" data-scroll-target="#grille-dévaluation">Grille d’évaluation</a></li>
   </ul>
 </nav>
     </div>
@@ -5812,7 +5817,7 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Défi 1 - Plongée en science des données</h1>
+<h1 class="title">Défi 3 - Article de données sur les infractions alimentaires</h1>
 <p class="subtitle lead">STT-1100 Introduction à la science des données</p>
 </div>
 
@@ -5832,41 +5837,119 @@ margin-bottom: .05rem;
 
 <section id="présentation-du-défi" class="level1">
 <h1>Présentation du défi</h1>
-<p>Vous devez créer un rapport Quarto au format HTML. Votre rapport doit inclure :</p>
-<ul>
-<li>un en-tête parlant (titre, date et auteur) ;</li>
-<li>trois sections : introduction, analyse et conclusion.</li>
-</ul>
-<p>Le rapport doit répondre à la question suivante : “Suis-je né ou née la bonne année ?”. On pourra répondre à cette question en s’intéressant à la température moyenne observée le jour de votre naissance, en la comparant à celles des années précédentes ou suivantes.</p>
-<p>Dans l’introduction, vous devrez nommer l’objectif de votre analyse, la date choisie, la base de données que vous allez utiliser et ce que vous considérez comme une température plus favorable. Par exemple, vous pouvez décider qu’une année est plus favorable si elle est plus chaude, plus fraîche ou plus proche de la moyenne des années comparées.</p>
-<p>Dans la section analyse, vous devrez réaliser une analyse simple de la base de données <code>MeteoQuebec</code> de la librairie <code>UlavalSSD</code>. Votre fichier <code>.qmd</code> doit charger la librairie avec <code>library(UlavalSSD)</code> afin que le rapport puisse être rendu après un redémarrage de R.</p>
-<p>Voici les étapes à suivre :</p>
-<ol type="1">
-<li><p>Définissez dans votre code la date étudiée : le jour, le mois et l’année de naissance. Attention : dans <code>MeteoQuebec</code>, les variables <code>month</code> et <code>day</code> sont écrites avec deux caractères. Par exemple, juin correspond à <code>&quot;06&quot;</code>.</p></li>
-<li><p>Donnez la température moyenne observée à cette date pour votre année de naissance.</p></li>
-<li><p>Comparez cette valeur avec les températures moyennes observées à la même date pour les 5 années précédentes et les 5 années suivantes. Au total, votre comparaison devrait donc porter sur 11 années, de <code>annee_naissance - 5</code> à <code>annee_naissance + 5</code>.</p></li>
-<li><p>Signalez les valeurs manquantes, s’il y en a. Si elles empêchent de faire une comparaison raisonnable, choisissez une autre date symbolique.</p></li>
-</ol>
-<p>Aucun graphique n’est obligatoire dans ce premier défi. Si vous choisissez d’en ajouter un, il doit aider à comprendre la comparaison.</p>
-<p>Dans la section conclusion, vous devez répondre avec du texte à la question du défi en vous appuyant sur vos résultats.</p>
-<p>Remarque importante : si les données correspondant à votre jour de naissance contiennent des valeurs manquantes, par exemple pour la température moyenne, vous pouvez choisir une autre date symbolique, comme la date de fête d’un membre de votre famille ou d’un ami. Si votre date est le 29 février, vous pouvez aussi choisir une date proche et l’indiquer clairement.</p>
+<p>Dans ce défi, vous devenez journaliste de données pour <em>Le Courrier Gourmand</em>. Votre objectif est de produire un court article Quarto sur les infractions alimentaires à partir du jeu <code>listecondamnation</code> du package <code>UlavalSSD</code>.</p>
+<p>Votre article doit être compréhensible par une personne qui ne connaît pas R. Le code sert à soutenir l’article, mais le texte doit raconter clairement ce que vous avez trouvé.</p>
+</section>
+<section id="données-à-utiliser" class="level1">
+<h1>Données à utiliser</h1>
+<p>Utilisez le jeu de données suivant :</p>
+<pre class="text"><code>UlavalSSD::listecondamnation</code></pre>
+<p>Votre rapport doit charger explicitement les packages nécessaires, notamment <code>tidyverse</code> et <code>UlavalSSD</code>.</p>
+<p>Le rapport doit pouvoir être rendu après un redémarrage de R, sans dépendre d’objets déjà présents dans votre environnement.</p>
 </section>
 <section id="livrables-attendus" class="level1">
 <h1>Livrables attendus</h1>
+<p>Votre dépôt GitHub doit contenir les fichiers suivants :</p>
 <ul>
-<li><p>Un rapport HTML ;</p></li>
-<li><p>Votre fichier source <code>.qmd</code>.</p></li>
-<li><p>Votre rapport <code>.qmd</code> doit respecter les bonnes pratiques de codage du tidyverse (chapitres 1 et 2).</p></li>
+<li><p><code>template_article.qmd</code> complété ;</p></li>
+<li><p><code>template_article.html</code> rendu.</p></li>
+</ul>
+<p>Vous pouvez renommer le titre de l’article dans l’en-tête Quarto, mais gardez le nom du fichier source fourni dans le gabarit.</p>
+<p>Votre historique GitHub doit montrer plusieurs commits utiles. Par exemple, vous pouvez faire un commit après l’importation des données, un autre après le nettoyage, un autre après les graphiques, puis un dernier après la relecture.</p>
+</section>
+<section id="structure-attendue-de-larticle" class="level1">
+<h1>Structure attendue de l’article</h1>
+<p>Votre article doit contenir les sections suivantes :</p>
+<ul>
+<li><p>un chapeau introductif ;</p></li>
+<li><p>une section contexte et données ;</p></li>
+<li><p>une section méthodologie écrite en texte, sans détailler chaque ligne de code ;</p></li>
+<li><p>une section résultats avec au moins deux résultats clés ;</p></li>
+<li><p>une discussion ;</p></li>
+<li><p>une conclusion avec recommandations.</p></li>
+</ul>
+</section>
+<section id="travail-demandé" class="level1">
+<h1>Travail demandé</h1>
+<section id="étape-1---importer-et-inspecter-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="étape-1---importer-et-inspecter-les-données">Étape 1 - Importer et inspecter les données</h2>
+<p>Chargez le package <code>UlavalSSD</code>, inspectez <code>listecondamnation</code>, puis décrivez brièvement :</p>
+<ul>
+<li><p>le nombre de lignes ;</p></li>
+<li><p>les variables principales ;</p></li>
+<li><p>le type initial de la variable <code>Amende</code> ;</p></li>
+<li><p>les limites du jeu de données que vous jugez importantes.</p></li>
+</ul>
+</section>
+<section id="étape-2---nettoyer-les-variables-utiles" class="level2">
+<h2 class="anchored" data-anchor-id="étape-2---nettoyer-les-variables-utiles">Étape 2 - Nettoyer les variables utiles</h2>
+<p>Créez un tableau propre qui contient au minimum :</p>
+<ul>
+<li><p>une variable numérique pour les amendes, par exemple <code>amende_num</code> ;</p></li>
+<li><p>une variable de code postal standardisée ;</p></li>
+<li><p>une variable logique qui identifie les constats situés à Montréal ;</p></li>
+<li><p>une variable logique qui identifie les infractions liées à la température ;</p></li>
+<li><p>une variable de type d’établissement recodée lorsque deux modalités désignent la même catégorie.</p></li>
+</ul>
+<p>Ne modifiez pas le jeu de données original. Faites le nettoyage dans votre code R afin que votre démarche soit reproductible.</p>
+</section>
+<section id="étape-3---extraire-des-faits-marquants" class="level2">
+<h2 class="anchored" data-anchor-id="étape-3---extraire-des-faits-marquants">Étape 3 - Extraire des faits marquants</h2>
+<p>Votre article doit inclure au moins deux chiffres narratifs. Par exemple :</p>
+<ul>
+<li><p>la proportion de constats situés à Montréal ;</p></li>
+<li><p>la proportion d’infractions liées à la température à Montréal ;</p></li>
+<li><p>la médiane ou la moyenne des amendes ;</p></li>
+<li><p>les types d’infractions les plus fréquents ;</p></li>
+<li><p>les types d’établissements les plus souvent présents.</p></li>
+</ul>
+<p>Chaque chiffre doit être accompagné d’une interprétation en texte.</p>
+</section>
+<section id="étape-4---produire-au-moins-deux-visuels" class="level2">
+<h2 class="anchored" data-anchor-id="étape-4---produire-au-moins-deux-visuels">Étape 4 - Produire au moins deux visuels</h2>
+<p>Votre article doit contenir au moins deux visualisations :</p>
+<ol type="1">
+<li><p>un graphique de catégories, par exemple un diagramme à barres sur les types d’infractions ou les types d’établissements ;</p></li>
+<li><p>un deuxième visuel pertinent, par exemple une boîte à moustaches sur les amendes ou un graphique comparant Montréal et le reste du Québec.</p></li>
+</ol>
+<p>La carte des amendes est optionnelle. Si vous choisissez de la faire, indiquez clairement que le géocodage dépend d’un service web externe et peut ne pas être parfaitement reproductible.</p>
+<p>Chaque graphique doit avoir :</p>
+<ul>
+<li><p>un titre informatif ;</p></li>
+<li><p>des axes lisibles ;</p></li>
+<li><p>une légende claire si une couleur est utilisée ;</p></li>
+<li><p>des unités lorsque c’est pertinent.</p></li>
+</ul>
+</section>
+<section id="étape-5---rédiger-larticle" class="level2">
+<h2 class="anchored" data-anchor-id="étape-5---rédiger-larticle">Étape 5 - Rédiger l’article</h2>
+<p>Votre article doit répondre à une question journalistique claire. Par exemple :</p>
+<blockquote class="blockquote">
+<p>Que révèlent les constats d’infractions alimentaires sur les établissements montréalais ?</p>
+</blockquote>
+<p>Dans la conclusion, ajoutez une courte citation synthétique d’Alexandre. Cette citation doit résumer une implication de vos résultats. Elle peut être fictive, mais elle doit être cohérente avec vos analyses.</p>
+</section>
+</section>
+<section id="liste-de-vérification" class="level1">
+<h1>Liste de vérification</h1>
+<p>Avant de remettre votre défi, vérifiez que :</p>
+<ul>
+<li><p><code>template_article.qmd</code> se rend sans erreur ;</p></li>
+<li><p><code>template_article.html</code> est présent dans le dépôt ;</p></li>
+<li><p>les packages nécessaires sont chargés dans le rapport ;</p></li>
+<li><p>les données sont nettoyées dans le code, sans modification manuelle du jeu original ;</p></li>
+<li><p><code>amende_num</code> est bien numérique ;</p></li>
+<li><p>les catégories de type d’établissement sont vérifiées ;</p></li>
+<li><p>les analyses distinguent clairement Montréal du reste du Québec ;</p></li>
+<li><p>au moins deux chiffres narratifs sont cités et interprétés ;</p></li>
+<li><p>au moins deux graphiques sont présents et lisibles ;</p></li>
+<li><p>la conclusion répond à la question journalistique ;</p></li>
+<li><p>plusieurs commits clairs apparaissent dans l’historique GitHub ;</p></li>
+<li><p>les changements ont été poussés sur GitHub.</p></li>
 </ul>
 </section>
 <section id="grille-dévaluation" class="level1">
 <h1>Grille d’évaluation</h1>
-<section id="note-importante" class="level2">
-<h2 class="anchored" data-anchor-id="note-importante">Note importante</h2>
-<blockquote class="blockquote">
-<p>Pour ce <strong>premier rendu d’un rapport Quarto</strong>, vous recevrez une <strong>rétroaction formative</strong> de la part de l’enseignant·e.<br>
-Elle sera basée sur la grille suivante afin de vous aider à progresser et à améliorer vos prochains livrables.</p>
-</blockquote>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -5884,52 +5967,57 @@ Elle sera basée sur la grille suivante afin de vous aider à progresser et à a
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Présentation du rapport</strong></td>
-<td>En-tête complète (titre, auteur, date). Trois sections clairement identifiées.</td>
-<td>Quelques éléments manquent ou sections peu claires.</td>
-<td>Structure absente ou éléments essentiels manquants.</td>
+<td>Angle journalistique</td>
+<td>Question claire, chapeau efficace, fil narratif cohérent.</td>
+<td>Angle présent mais peu précis.</td>
+<td>Angle absent ou article descriptif sans question directrice.</td>
 </tr>
 <tr class="even">
-<td><strong>Introduction</strong></td>
-<td>Objectif clair, date choisie justifiée, source de données nommée, critère de comparaison explicite.</td>
-<td>Objectif, date ou critère de comparaison imprécis. Source non mentionnée.</td>
-<td>Absence d’introduction ou hors sujet.</td>
+<td>Présentation des données</td>
+<td>Source, variables, limites et choix de sous-ensemble clairement expliqués.</td>
+<td>Présentation partielle.</td>
+<td>Source ou limites absentes.</td>
 </tr>
 <tr class="odd">
-<td><strong>Analyse de la température du jour choisi</strong></td>
-<td>Extraction correcte, valeur interprétée.</td>
-<td>Extraction partielle ou commentaire limité.</td>
-<td>Donnée absente ou erronée.</td>
+<td>Nettoyage des données</td>
+<td>Variables utiles nettoyées correctement, dont les amendes et les catégories d’établissement.</td>
+<td>Nettoyage présent mais incomplet ou peu expliqué.</td>
+<td>Nettoyage absent, erroné ou non reproductible.</td>
 </tr>
 <tr class="even">
-<td><strong>Comparaison sur 11 années (±5)</strong></td>
-<td>Analyse complète, valeurs manquantes traitées, interprétation pertinente. Graphique clair si présent.</td>
-<td>Analyse existante mais simpliste ou peu claire. Valeurs manquantes peu discutées.</td>
-<td>Analyse absente ou incorrecte.</td>
+<td>Chiffres narratifs</td>
+<td>Au moins deux chiffres pertinents, calculés correctement et interprétés.</td>
+<td>Chiffres présents mais peu reliés au texte.</td>
+<td>Chiffres absents, erronés ou non interprétés.</td>
 </tr>
 <tr class="odd">
-<td><strong>Conclusion</strong></td>
-<td>Réponse logique, bien justifiée avec un retour sur la question initiale.</td>
-<td>Réponse présente mais peu argumentée.</td>
-<td>Réponse absente ou hors sujet.</td>
+<td>Visualisations</td>
+<td>Au moins deux graphiques lisibles, titrés et utiles pour l’article.</td>
+<td>Graphiques présents mais lisibilité ou pertinence limitée.</td>
+<td>Graphiques absents, incorrects ou difficiles à comprendre.</td>
 </tr>
 <tr class="even">
-<td><strong>Qualité du code (<code>.qmd</code>)</strong></td>
-<td>Style clair, indentation cohérente, respect des conventions tidyverse.</td>
-<td>Style acceptable avec quelques écarts.</td>
-<td>Style désordonné ou peu lisible.</td>
+<td>Discussion</td>
+<td>Résultats nuancés, limites reconnues, lien clair avec la question.</td>
+<td>Discussion présente mais surtout descriptive.</td>
+<td>Discussion absente ou sans lien avec les résultats.</td>
 </tr>
 <tr class="odd">
-<td><strong>Reproductibilité (<code>.html</code>)</strong></td>
-<td>Rapport rendu complet, HTML fonctionnel.</td>
-<td>Rapport partiel ou avec erreurs mineures.</td>
-<td>Fichier HTML non fonctionnel ou absent.</td>
+<td>Conclusion</td>
+<td>Messages d’action clairs et citation d’Alexandre cohérente avec les résultats.</td>
+<td>Conclusion présente mais générale.</td>
+<td>Conclusion absente ou non appuyée par les analyses.</td>
+</tr>
+<tr class="even">
+<td>Reproductibilité</td>
+<td><code>.qmd</code> et HTML fonctionnels, chemins et packages corrects, dépôt GitHub complet.</td>
+<td>Rendu possible avec quelques ajustements mineurs.</td>
+<td>Rendu impossible, fichiers manquants ou dépôt désorganisé.</td>
 </tr>
 </tbody>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

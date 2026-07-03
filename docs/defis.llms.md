@@ -38,6 +38,28 @@ Les défis construisent graduellement les réflexes nécessaires pour le projet 
 
 Le livrable doit être compréhensible pour une personne qui lit votre travail sans être dans votre tête.
 
+## Défis par module
+
+Utilisez ces liens pour retrouver les consignes complètes et les livrables attendus.
+
+### Défi 1
+
+Créer un mini-rapport Quarto reproductible à partir des données météo.
+
+[Consulter le défi 1](module_01/defi.llms.md)
+
+### Défi 2
+
+Remettre un dépôt GitHub contenant le journal de bord et un rapport d'analyse sur les manchots.
+
+[Consulter le défi 2](module_02/defi.llms.md)
+
+### Défi 3
+
+Rédiger un article Quarto reproductible sur les infractions alimentaires.
+
+[Consulter le défi 3](module_03/defi.llms.md)
+
 ## Types de productions
 
 Les formats changent selon les modules, mais ils restent toujours reliés aux compétences du cours.

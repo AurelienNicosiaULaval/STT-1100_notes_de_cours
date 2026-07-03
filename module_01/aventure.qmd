@@ -11,13 +11,18 @@ format:
     toc: true
     toc-title: Plan
     css: [../css/base_css.css]
-    self-contained: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
 # number-sections: true
 ---
 
 # Comment réussir ce module {.unnumbered}
 
 Bienvenue dans cette première aventure en sciences des données ! Ce module est conçu pour vous offrir une introduction complète aux outils et concepts fondamentaux qui vous accompagneront tout au long de votre parcours en science des données.
+
+Votre mission est de préparer les bases d'un premier rapport reproductible sur les données météorologiques du Québec. À la fin de l'aventure, vous devriez avoir exécuté du code R, créé un court document Quarto, chargé les données `MeteoQuebec`, puis extrait quelques informations simples de ce tableau.
 
 -   **Lisez attentivement chaque section** avant de passer à l'expérimentation. Les explications théoriques fournissent les bases pour comprendre les exemples pratiques.
 
@@ -131,10 +136,11 @@ En R, tout est un objet. Voici les bases pour créer des objets et les manipuler
     ``` r
     vecteur <- c(1, 2, 3, 4, 5)  # Crée un vecteur
     somme <- sum(vecteur)  # Calcule la somme des éléments
-    somme
+    moyenne <- somme / length(vecteur)  # Calcule la moyenne
+    moyenne
     ```
 
--   Créez un vecteur contenant les chiffres de 1 à 10 et calculez sa moyenne en utilisant la fonction `sum()`.
+-   Créez un vecteur contenant les chiffres de 1 à 10 et calculez sa moyenne en utilisant `sum()` et `length()`.
 :::
 
 ### Écrire des conditions
@@ -161,7 +167,7 @@ Les conditions permettent de rendre vos scripts dynamiques.
 
 -   Écrivez une condition qui affiche si un nombre est pair ou impair.
 
-Indice: la fonction `%%` en R permet de donner le reste de la division euclidienne. Par exemple `10%%2` vaut 0 car $10=5\times2$.
+Indice: la fonction `%%` en R permet de donner le reste de la division euclidienne. Par exemple, `10 %% 2` vaut 0 car $10=5\times2$.
 :::
 
 ### Fonctions de base intégrées
@@ -219,11 +225,10 @@ Voici quelques conseils pour écrire un code propre et facile à maintenir :
     somme <- sum(vecteur)
     ```
 
-Dans le cours, vous devez suivre les [bonnes pratiques de codage du tydiverse](https://style.tidyverse.org/). Pour ce module, on portera une attention particulière à certaines partie de ce guide : chapitre 1 Files, chapitre 2 Syntax et section 3.1 Functions/Naming. La table ci-dessous résume les critères importants de ces sections et servira de grille d'évaluation pour vos codes. Notez que cette grille sera amenée à évoluer au fil des modules.
+Dans le cours, vous devez suivre les [bonnes pratiques de codage du tidyverse](https://style.tidyverse.org/). Pour ce module, on portera une attention particulière à certaines parties de ce guide : chapitre 1 Files, chapitre 2 Syntax et section 3.1 Functions/Naming. La table ci-dessous résume les critères importants de ces sections et servira de grille d'évaluation pour vos codes. Notez que cette grille sera amenée à évoluer au fil des modules.
 
-```{r, echo=FALSE}
-library(knitr)
-kable(
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::kable(
   data.frame(
     Critère = c("Syntaxe et indentation", "Espaces et lisibilité", "Longueur des lignes", "Assignation", "Nommage des objets", "Style des fonctions", "Cohérence et clarté", "Commentaires utiles"),
     Explication = c(
@@ -261,7 +266,7 @@ kable(
 :::
 
 ```{r eval=FALSE, echo= FALSE}
-# Définir une fonction avec un nom explicite et bien formattée
+# Définir une fonction avec un nom explicite et bien formatée
 my_function <- function(x, y) {
   result <- x + y
   return(result)
@@ -276,8 +281,8 @@ df <- data.frame(
 # Filtrer les lignes avec id > 2
 df_filtered <- df[df$id > 2, ]
 
-# Sélectionner la colonne "name"
-df_selected <- df_filtered[, c("name")]
+# Sélectionner la colonne "name" en gardant un data frame
+df_selected <- df_filtered[, "name", drop = FALSE]
 
 # Ajouter une colonne avec les noms en majuscule
 df_selected$upper <- toupper(df_selected$name)
@@ -316,18 +321,18 @@ editor: visual
 
 #### Insérer un *chunk* (bloc de code) R
 
-Pour insérer un *chunk* (bloc de code) dans un document quarto, vous pouvez cliquer sur le symbole suivant :
+Pour insérer un *chunk* (bloc de code) dans un document Quarto, vous pouvez cliquer sur le symbole suivant :
 
-![Bouton pour ajouter un bloc de code dans Rstudio](resources/bouton_chunck.png)
+![Bouton pour ajouter un bloc de code dans RStudio](resources/bouton_chunck.png){fig-alt="Bouton pour ajouter un bloc de code dans RStudio"}
 
 ```{r}
 # Ceci est un bloc de code
-2+2
+2 + 2
 ```
 
-Vous pouvez facilement exécuter un bloc de code soit en executant (`Ctrl + Enter`) ligne par ligne ou alors en cliquant sur la petite flèche verte dans le coin haut gauche du bloc de code. Vous remarquerez que vos résultats s'affichent sous la boite de code.
+Vous pouvez facilement exécuter un bloc de code soit ligne par ligne avec `Ctrl + Enter` (Windows/Linux) ou `Cmd + Enter` (Mac), soit en cliquant sur la petite flèche verte dans le coin supérieur droit du bloc de code. Vous remarquerez que vos résultats s'affichent sous la boîte de code.
 
-Une fois que votre rapport est final, vous pouvez générer le rapport en cliquant sur le bouton Render: ![Bouton pour ajouter generer le rapport](resources/bouton_render.png)
+Une fois que votre rapport est final, vous pouvez générer le rapport en cliquant sur le bouton Render: ![Bouton pour générer le rapport](resources/bouton_render.png)
 
 ::: callout-note
 #### Exemple
@@ -335,7 +340,7 @@ Une fois que votre rapport est final, vous pouvez générer le rapport en cliqua
 -   **Créez un document Quarto** :
     1.  Cliquez sur `File > New File > Quarto Document`.
     2.  Choisissez le format souhaité (HTML, PDF, Word) et générez un document de base.
-    3.  Insérez un bloc de code avec le raccourci `Ctrl + Alt + I` (ou le symbole) et ajoutez du code R (un truc simple).
+    3.  Insérez un bloc de code avec le raccourci `Ctrl + Alt + I` (ou le symbole) et ajoutez une commande R simple.
 -   **Générez le document** : Utilisez `Ctrl + Shift + K` (ou le bouton render) pour générer le rapport final.
 :::
 
@@ -343,13 +348,13 @@ Une fois que votre rapport est final, vous pouvez générer le rapport en cliqua
 #### Exercice
 
 1.  Créez un document Quarto au format HTML.
-2.  Ajoutez un bloc de code R pour afficher un résumé du jeu de données `mtcars` (il s'agit de `summary(mtcars)`).
+2.  Ajoutez un bloc de code R qui calcule la moyenne du vecteur `c(1, 3, 5, 7)`.
 3.  Personnalisez l'en-tête YAML pour inclure votre nom et une date.
 :::
 
 # Librairie et données
 
-Nous avons vu plus haut que vous pouvez améliorer votre experience de R en utilisant des librairies. Dans le cadre du cours, nous allons utiliser une librairie appellé `UlavalSSD`. Il s'agit d'une librairie développée pour le cours.
+Nous avons vu plus haut que vous pouvez améliorer votre expérience de R en utilisant des librairies. Dans le cadre du cours, nous allons utiliser une librairie appelée `UlavalSSD`. Il s'agit d'une librairie développée pour le cours.
 
 ## `UlavalSSD`
 
@@ -367,7 +372,7 @@ remotes::install_github("AurelienNicosiaULaval/UlavalSSD")
 library(UlavalSSD)
 ```
 
-Le fait de charger la librairie va nous permettre d'accéder à tout son contenu. Vous pouvez voir les fichiers d'aide de la librairie avec le code suivant (ou en cherchant dans l'onglet package à droite)
+Le fait de charger la librairie va nous permettre d'accéder à tout son contenu. Vous pouvez voir les fichiers d'aide de la librairie avec le code suivant (ou en cherchant dans l'onglet Packages à droite).
 
 ```{r eval=FALSE}
 help(package = "UlavalSSD")
@@ -376,12 +381,12 @@ help(package = "UlavalSSD")
 ::: callout-tip
 #### Exercice
 
--   Fouillez dans le contenu de la librairie. Que remarquez vous?
+-   Fouillez dans le contenu de la librairie. Que remarquez-vous?
 :::
 
 ## Données `MeteoQuebec`
 
-Dans cette aventure, nous allons travailler avec le jeu de données appelé `MeteoQuebec` disponible dans la librairie `UlavalSSD`. Il est important de noter que si la libraire n'est pas chargée (`library(UlavalSSD)`) alors vous ne pourrez pas accéder à ce jeu de données.
+Dans cette aventure, nous allons travailler avec le jeu de données appelé `MeteoQuebec` disponible dans la librairie `UlavalSSD`. Il est important de noter que si la librairie n'est pas chargée (`library(UlavalSSD)`), alors vous ne pourrez pas accéder à ce jeu de données.
 
 ::: callout-tip
 #### Exercice
@@ -391,17 +396,19 @@ Dans cette aventure, nous allons travailler avec le jeu de données appelé `Met
 -   Explorez l'aide pour vous assurer de bien comprendre ce que représente chaque colonne.
 :::
 
-# Données propres (`Tidy` en anglais)
+# Données propres et données rangées
 
 ## Qu'est-ce que des données propres ?
 
-Dans le cadre de la science des données, **des données propres** désignent un ensemble de données qui est prêt à être utilisé pour des analyses. Cela signifie que les données sont organisées, cohérentes et exemptes d'erreurs ou d'incohérences. Travailler avec des données propres est essentiel pour garantir la qualité des résultats d'analyse et des modèles.
+Dans le cadre de la science des données, des données propres désignent un ensemble de données qui est prêt à être utilisé pour des analyses. Cela signifie que les données sont organisées, cohérentes et que les problèmes connus ont été repérés ou corrigés. Travailler avec des données propres est essentiel pour garantir la qualité des résultats d'analyse et des modèles.
+
+On distingue aussi les données rangées, ou *tidy data* en anglais. Selon cette convention, chaque variable forme une colonne, chaque observation forme une ligne et chaque cellule contient une seule valeur. Un tableau peut être rangé tout en contenant encore des valeurs manquantes; il est alors bien structuré, mais il reste à vérifier sa qualité.
 
 ### Caractéristiques des données propres
 
 Les données propres doivent respecter les critères suivants :
 
--   **Aucune valeur manquante** : Toutes les données nécessaires pour l'analyse sont présentes.
+-   **Valeurs manquantes comprises** : Les données nécessaires pour l'analyse sont présentes, ou les valeurs manquantes sont repérées et justifiées.
 -   **Uniformité des formats** : Les formats des dates, des nombres et des chaînes de caractères sont cohérents.
 -   **Absence de doublons** : Les entrées en double ont été identifiées et supprimées si nécessaire.
 -   **Suppression des erreurs** : Les données incohérentes ou incorrectes ont été corrigées.
@@ -419,7 +426,11 @@ Un tableau contenant les données suivantes :
 | Charlie |                | 87.5  |
 | Alice   | 01/01/1990     | 85.5  |
 
-Problèmes : - Le format des dates n'est pas cohérent. - Une ligne contient une valeur manquante (Date Naissance pour Charlie). - Les données contiennent un doublon pour Alice.
+Problèmes :
+
+-   Le format des dates n'est pas cohérent.
+-   Une ligne contient une valeur manquante (Date Naissance pour Charlie).
+-   Les données contiennent un doublon pour Alice.
 
 ### Exemple de données propres
 
@@ -440,9 +451,9 @@ Dans les prochaines semaines, nous aurons un module complet sur le nettoyage des
 ::: callout-tip
 #### Exercice
 
--   Dans le jeu de données `MeteoQuebec`, verifiez s'il y a des données manquantes. Vous pouvez utiliser pour cela la fonction `summary`. Quand on applique la fonction `summary` sur un jeu de données, celle-ci nous donne des statistiques descriptives (nous y reviendrons), mais elle donne surtout le nombre de données manquantes par colonne.
+-   Dans le jeu de données `MeteoQuebec`, vérifiez s'il y a des données manquantes. Vous pouvez utiliser pour cela la fonction `summary`. Quand on applique la fonction `summary` sur un jeu de données, celle-ci donne des statistiques descriptives (nous y reviendrons), mais elle indique aussi le nombre de données manquantes par colonne.
 
--   Les données `MeteoQuebec` sont-telles propres? Justifiez votre réponse.
+-   Les données `MeteoQuebec` sont-elles prêtes pour toutes les analyses? Justifiez votre réponse en nommant au moins une variable qui contient des valeurs manquantes.
 :::
 
 # Manipulation de données
@@ -479,13 +490,14 @@ Pour extraire une colonne, vous pouvez utiliser `nom_donnees[, numéro_de_colonn
 Exemple : Obtenons la colonne **total_precip** :
 
 ```{r,eval=FALSE}
-# Méthode 1 : Par numéro de colonne
-colonne_score <- MeteoQuebec[, 7]
-print(colonne_score)
+# Méthode 1 : Par numéro de colonne.
+# Ici, total_precip est la 8e colonne.
+colonne_precip <- MeteoQuebec[, 8]
+print(colonne_precip)
 
 # Méthode 2 : Par nom de colonne
-colonne_score2 <- MeteoQuebec[["total_precip"]]
-print(colonne_score2)
+colonne_precip_2 <- MeteoQuebec[["total_precip"]]
+print(colonne_precip_2)
 ```
 
 ### Extraire une colonne avec l'opérateur `$`
@@ -503,44 +515,46 @@ print(colonne_mean_temp)
 ::: callout-note
 #### Exemple
 
--   Dans la console, tapez le nom de la base de données `MeteoQuebec`, ajouter un `$` à la fin. Que se passe t-il?
+-   Dans la console, tapez le nom de la base de données `MeteoQuebec`, ajoutez un `$` à la fin. Que se passe-t-il?
 :::
 
 ### Ajouter une nouvelle colonne avec `$`
 
 Pour créer une nouvelle colonne, utilisez l'opérateur `$` et assignez-y une valeur.
 
-Exemple : Ajoutons une colonne **etendue_temp**, égale à **max_temp-min_temp** :
+Exemple : Ajoutons une colonne **etendue_temp**, égale à **max_temp - min_temp** :
 
 ```{r}
 # Ajouter une nouvelle colonne
-MeteoQuebec$etendue_temp <- MeteoQuebec$max_temp -MeteoQuebec$min_temp
+MeteoQuebec$etendue_temp <- MeteoQuebec$max_temp - MeteoQuebec$min_temp
 head(MeteoQuebec)
 ```
 
 ::: callout-tip
 #### Exercice
 
--   Créez une nouvelle colonne **mean_temp_F** qui correspond à la temperature moyenne par jour en degrés fahrenheit.
+-   Créez une nouvelle colonne **mean_temp_F** qui correspond à la température moyenne par jour en degrés Fahrenheit. Utilisez la formule $F = C \times 9 / 5 + 32$.
 :::
 
 ### Filtrer des lignes selon des conditions logiques
 
 Vous pouvez utiliser des conditions logiques avec les crochets `[]` pour extraire des lignes spécifiques.
 
-Exemple : Obtenons les lignes où la temperature moyenne **mean_temp** est supérieure à 25 :
+Exemple : Obtenons les lignes où la température moyenne **mean_temp** est supérieure à 25. On ajoute `!is.na(MeteoQuebec$mean_temp)` pour retirer les valeurs manquantes avant de filtrer.
 
 ```{r,eval=FALSE}
-# Extraire les lignes avec un Score > 85
-lignes_mean_temp_25 <- MeteoQuebec[MeteoQuebec$mean_temp > 25, ]
+# Extraire les lignes avec une température moyenne supérieure à 25
+lignes_mean_temp_25 <- MeteoQuebec[
+  !is.na(MeteoQuebec$mean_temp) & MeteoQuebec$mean_temp > 25,
+]
 print(lignes_mean_temp_25)
 ```
 
 ::: callout-tip
 #### Exercice
 
--   Obtenez les lignes où le total de precipitation **total_precip** est nul:
--   Obtenez le sous ensemble des données pour le mois de juin seulement.
+-   Obtenez les lignes où le total de précipitation **total_precip** est nul. Pensez à exclure les valeurs manquantes.
+-   Obtenez le sous-ensemble des données pour le mois de juin seulement. Attention: la variable `month` est écrite avec deux caractères, donc juin correspond à `"06"`.
 :::
 
 **Combiner plusieurs conditions avec** `&` ou `|` :
@@ -551,8 +565,18 @@ print(lignes_mean_temp_25)
 Voici un exemple où on va chercher le sous-ensemble des données correspondant aux journées de l'année 2000 pour lesquelles il n'y avait aucune précipitation.
 
 ```{r,eval=TRUE}
-head(MeteoQuebec[MeteoQuebec$year == 2000 & MeteoQuebec$total_precip == 0,])
+head(
+  MeteoQuebec[
+    MeteoQuebec$year == 2000 & MeteoQuebec$total_precip == 0,
+  ]
+)
 ```
+
+::: callout-note
+#### Avant de passer au défi
+
+Vous devriez maintenant être capable de créer un document Quarto, de charger `UlavalSSD`, d'afficher `MeteoQuebec`, de vérifier les valeurs manquantes avec `summary()`, puis d'extraire des lignes ou des colonnes à partir de conditions simples.
+:::
 
 ### Résumé
 

@@ -11,30 +11,40 @@ format:
     toc: true
     toc-title: Plan
     css: [../css/base_css.css]
-    self-contained: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
 ---
 
 # Présentation du défi
 
 Vous devez créer un rapport Quarto au format HTML. Votre rapport doit inclure :
 
--   une en-tête parlante (titre, date et auteur) ;
+-   un en-tête parlant (titre, date et auteur) ;
 -   trois sections : introduction, analyse et conclusion.
 
-Le rapport doit répondre à la question suivante : **"*Suis-je né.e la bonne année ?***". On pourra répondre à cette question en s’intéressant à la température moyenne observée le jour de votre naissance, en la comparant à celles des années précédentes ou suivantes.
+Le rapport doit répondre à la question suivante : "Suis-je né ou née la bonne année ?". On pourra répondre à cette question en s’intéressant à la température moyenne observée le jour de votre naissance, en la comparant à celles des années précédentes ou suivantes.
 
-Dans *l'**introduction*** vous devrez nommer l'objectif de votre analyse, la date choisie et la base de données que vous allez utiliser pour y répondre.
+Dans l'introduction, vous devrez nommer l'objectif de votre analyse, la date choisie, la base de données que vous allez utiliser et ce que vous considérez comme une température plus favorable. Par exemple, vous pouvez décider qu'une année est plus favorable si elle est plus chaude, plus fraîche ou plus proche de la moyenne des années comparées.
 
-Dans la section ***analyse***, vous devrez réaliser une analyse simple de la base de données `MeteoQuebec` de la librairie `UlavalSSD`. Voici les étapes à suivre :
+Dans la section analyse, vous devrez réaliser une analyse simple de la base de données `MeteoQuebec` de la librairie `UlavalSSD`. Votre fichier `.qmd` doit charger la librairie avec `library(UlavalSSD)` afin que le rapport puisse être rendu après un redémarrage de R.
 
-1.  Donnez la température moyenne lors de votre jour de naissance.
+Voici les étapes à suivre :
 
-2.  Analysez les températures moyenne en comparant votre jour de naissance avec les données de 5 années consécutives avant et 5 années après votre année de naissance. Cela vous permettra de déterminer si la température moyenne de votre jour de naissance était plus favorable.
+1.  Définissez dans votre code la date étudiée : le jour, le mois et l'année de naissance. Attention : dans `MeteoQuebec`, les variables `month` et `day` sont écrites avec deux caractères. Par exemple, juin correspond à `"06"`.
 
-Dans la section ***conclusion***, vous devez répondre avec du texte à la question du défi.
+2.  Donnez la température moyenne observée à cette date pour votre année de naissance.
 
-[*Remarque importante*]{.underline} **:**\
-Si les données correspondant à votre jour de naissance contiennent des valeurs manquantes, par exemple pour la température moyenne, vous pouvez choisir une autre date symbolique, comme la date de fête d'un membre de votre famille, d'un ami ou de votre animal de compagnie.
+3.  Comparez cette valeur avec les températures moyennes observées à la même date pour les 5 années précédentes et les 5 années suivantes. Au total, votre comparaison devrait donc porter sur 11 années, de `annee_naissance - 5` à `annee_naissance + 5`.
+
+4.  Signalez les valeurs manquantes, s'il y en a. Si elles empêchent de faire une comparaison raisonnable, choisissez une autre date symbolique.
+
+Aucun graphique n'est obligatoire dans ce premier défi. Si vous choisissez d'en ajouter un, il doit aider à comprendre la comparaison.
+
+Dans la section conclusion, vous devez répondre avec du texte à la question du défi en vous appuyant sur vos résultats.
+
+Remarque importante : si les données correspondant à votre jour de naissance contiennent des valeurs manquantes, par exemple pour la température moyenne, vous pouvez choisir une autre date symbolique, comme la date de fête d'un membre de votre famille ou d'un ami. Si votre date est le 29 février, vous pouvez aussi choisir une date proche et l'indiquer clairement.
 
 # Livrables attendus
 
@@ -42,7 +52,7 @@ Si les données correspondant à votre jour de naissance contiennent des valeurs
 
 -   Votre fichier source `.qmd`.
 
--   Votre rapport `.qmd` doit respecter les bonne pratiques de codage du tidyverse (chapitre 1 et 2)
+-   Votre rapport `.qmd` doit respecter les bonnes pratiques de codage du tidyverse (chapitres 1 et 2).
 
 # Grille d'évaluation
 
@@ -54,9 +64,9 @@ Si les données correspondant à votre jour de naissance contiennent des valeurs
 | Critère | Excellent | Satisfaisant | À améliorer |
 |------------------|------------------|------------------|------------------|
 | **Présentation du rapport** | En-tête complète (titre, auteur, date). Trois sections clairement identifiées. | Quelques éléments manquent ou sections peu claires. | Structure absente ou éléments essentiels manquants. |
-| **Introduction** | Objectif clair, date choisie justifiée, source de données nommée. | Objectif ou date imprécis. Source non mentionnée. | Absence d’introduction ou hors sujet. |
+| **Introduction** | Objectif clair, date choisie justifiée, source de données nommée, critère de comparaison explicite. | Objectif, date ou critère de comparaison imprécis. Source non mentionnée. | Absence d’introduction ou hors sujet. |
 | **Analyse de la température du jour choisi** | Extraction correcte, valeur interprétée. | Extraction partielle ou commentaire limité. | Donnée absente ou erronée. |
-| **Comparaison sur 11 années (±5)** | Analyse complète, interprétation pertinente, bon usage des graphiques si présent. | Analyse existante mais simpliste ou peu claire. | Analyse absente ou incorrecte. |
+| **Comparaison sur 11 années (±5)** | Analyse complète, valeurs manquantes traitées, interprétation pertinente. Graphique clair si présent. | Analyse existante mais simpliste ou peu claire. Valeurs manquantes peu discutées. | Analyse absente ou incorrecte. |
 | **Conclusion** | Réponse logique, bien justifiée avec un retour sur la question initiale. | Réponse présente mais peu argumentée. | Réponse absente ou hors sujet. |
 | **Qualité du code (`.qmd`)** | Style clair, indentation cohérente, respect des conventions tidyverse. | Style acceptable avec quelques écarts. | Style désordonné ou peu lisible. |
 | **Reproductibilité (`.html`)** | Rapport rendu complet, HTML fonctionnel. | Rapport partiel ou avec erreurs mineures. | Fichier HTML non fonctionnel ou absent. |

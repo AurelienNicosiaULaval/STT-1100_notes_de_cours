@@ -6,23 +6,23 @@ STT-1100 Introduction à la science des données
 
 À la fin de ce module, vous devriez être capable de
 
-- Utiliser GitHub via RStudio pour clôner un dépôt et faire des commit et des push.
+- Utiliser GitHub via RStudio pour cloner un dépôt et faire des commits et des push.
 
-- Lire un fichier `xls` dans RStudio.
+- Lire un fichier `xlsx` dans RStudio.
 
 - Gérer et transformer des données numériques à l’aide de `dplyr` (`glimpse`, `select`, `mutate`, `filter`).
 
 - Calculer et interpréter des statistiques descriptives pour des variables numériques (`moyenne`, `médiane`, `écart-type`, `variance`, `étendue`, `quantiles`), incluant pour des sous-groupes de données.
 
-- Visualiser des variables numériques avec `ggplot2` (`histogramme`, `boite à moustache`, `nuage de points`) et interpréter les graphiques obtenus.
+- Visualiser des variables numériques avec `ggplot2` (`histogramme`, `boîte à moustaches`, `nuage de points`) et interpréter les graphiques obtenus.
 
-- Produire et interpréter des graphiques comparant la distribution de variables continues entre des groupes (`histogrammes superposés`, `diagrammes en boites juxtaposés`, `densités empilées (ridge plots)`, `visualisation en facettes`).
+- Produire et interpréter des graphiques comparant la distribution de variables continues entre des groupes (`histogrammes superposés`, `diagrammes en boîtes juxtaposés`, `densités empilées (ridge plots)`, `visualisation en facettes`).
 
 - Utiliser les options de `ggplot2` pour améliorer la qualité de graphiques (titres, légendes, axes lisibles, cohérence graphique, `facets`).
 
 # Lectures initiales
 
-Comme le module 2 est étallé sur 2 semaines, il y a un peu plus de lecture, pour vous préparer à la première partie du module vous pouvez survoler les lectures et y revenir de facon plus précise en préparation de la partie 2.
+Comme le module 2 est étalé sur 2 semaines, il y a un peu plus de lecture. Pour vous préparer à la première partie du module, vous pouvez survoler les lectures et y revenir de façon plus précise en préparation de la partie 2.
 
 On commence par quelques chapitres dans le fameux R4DS de Hadley Wickham et Garrett Grolemund:
 
@@ -59,16 +59,26 @@ Ce livre, également accessible gratuitement en ligne, propose une **approche mo
 
 # Défi
 
-Voici le défi que vous devrez réaliser pour le **module 2**. Il est divisé en deux parties :
+Le défi du module 2 se fait dans le même dépôt GitHub que l’aventure.
 
-**Partie 1** : Compléter votre journal de bord et le soumettre sur GitHub. Dix (10) journaux de bord seront sélectionnés au hasard et feront l’objet d’une **évaluation sommative**.
+[Défi du module 2](../module_02/defi.llms.md)
 
-**Partie 2** : Soumettre sur GitHub le **rapport d’analyse de données** que la Dre Adélie pourra utiliser dans le cadre de sa demande de subvention.
+Vous devrez remettre :
+
+- `journal de bord.qmd` ;
+
+- `journal de bord.html` ;
+
+- `rapport_analyse.qmd` ;
+
+- `rapport_analyse.html`.
+
+Le rapport d’analyse doit répondre à la demande de la Dre Adélie Fortier : comprendre comment les caractéristiques physiques des manchots varient selon les espèces.
 
 # Exercices de consolidation
 
 Pour mettre en pratique les apprentissages de ce module, vous trouverez ci‑dessous **13 exercices** couvrant l’ensemble des notions du module 2 (`ggplot2`, `dplyr`, EDA, données tidy, bonnes pratiques de style et statistique descriptive façon *IMS*).
-Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la library `ggplot2` (performances de voitures commercialisées aux États‑Unis, 1999‑2008). Lorsque d’autres jeux de données sont utilisés, ils sont précisés dans l’énoncé.
+Nous utiliserons principalement le jeu de données **`mpg`** provenant du package `ggplot2` (performances de voitures commercialisées aux États-Unis, 1999-2008). Lorsque d’autres jeux de données sont utilisés, ils sont précisés dans l’énoncé.
 
 ### Jeu de données `mpg` – Description des variables
 
@@ -90,7 +100,7 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 
 ------------------------------------------------------------------------
 
-## Exercice 1 — Premier graphique *(visualisation rapide)*
+## Exercice 1 - Premier graphique *(visualisation rapide)*
 
 *Contexte :* vous découvrez la relation entre cylindrée (`displ`) et consommation sur autoroute (`hwy`) dans **`mpg`**. Tracez un nuage de points.
 
@@ -111,7 +121,7 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 
 ------------------------------------------------------------------------
 
-## Exercice 2 — Ajout de couleur et thème *(esthétique)*
+## Exercice 2 - Ajout de couleur et thème *(esthétique)*
 
 *Contexte :* améliorer la lisibilité du graphique précédent en distinguant les points par **catégorie de véhicule** (`class`) et en appliquant un thème minimaliste.
 
@@ -130,7 +140,7 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 
 ------------------------------------------------------------------------
 
-## Exercice 3 — Filtrer avec `dplyr` *(extraction ciblée)*
+## Exercice 3 - Filtrer avec `dplyr` *(extraction ciblée)*
 
 *Contexte :* la responsable marketing de **Toyota** souhaite connaître la dispersion de ses modèles. Sélectionnez uniquement les voitures *Toyota* et affichez `model`, `displ`, `hwy`.
 
@@ -146,7 +156,7 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 
 ------------------------------------------------------------------------
 
-## Exercice 4 — Variable dérivée et résumé *(statistiques descriptives)*
+## Exercice 4 - Variable dérivée et résumé *(statistiques descriptives)*
 
 *Contexte :* on définit une mesure d’**efficacité globale** `efficiency = hwy / cty`. Calculez, par catégorie (`class`), la moyenne et l’écart‑type de cette nouvelle variable.
 
@@ -164,7 +174,7 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 
 ------------------------------------------------------------------------
 
-## Exercice 5 — Histogramme et densité *(distribution)*
+## Exercice 5 - Histogramme et densité *(distribution)*
 
 *Contexte :* la répartition de la cylindrée vous intrigue. Tracez l’histogramme de `displ` (largeur de classe 0,5 L) et superposez la densité.
 
@@ -180,7 +190,7 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 
 ------------------------------------------------------------------------
 
-## Exercice 6 — Valeur extrême *(repérage d’outliers)*
+## Exercice 6 - Valeur extrême *(repérage d’outliers)*
 
 *Contexte :* un magazine veut savoir quel modèle possède la **meilleure consommation autoroute**. Trouvez‑le et affichez `manufacturer`, `model`, `year`, `hwy`.
 
@@ -194,11 +204,11 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 
 ------------------------------------------------------------------------
 
-## Exercice 7 — Bonnes pratiques \#1 *(style tidyverse)*
+## Exercice 7 - Bonnes pratiques \#1 *(style tidyverse)*
 
 *Contexte :* vous recevez un script bâclé. Réécrivez‑le pour qu’il respecte le guide de style tidyverse.
 
-- Tout d’abord executer le code pour voir ce que ca donne. \> C’est l’ancienne facon de faire un graphique avec `base R`.
+- Tout d’abord, exécutez le code pour voir ce que cela donne. C’est l’ancienne façon de faire un graphique avec `base R`.
 
 - Reproduisez le graphique avec `ggplot2` en respectant les bonnes pratiques de style.
 
@@ -222,7 +232,7 @@ plot(mpg$displ,mpg$hwy,col=as.factor(mpg$drv));title("plot")
 
 ------------------------------------------------------------------------
 
-## Exercice 8 — Bonnes pratiques \#2 *(structure de script)*
+## Exercice 8 - Bonnes pratiques \#2 *(structure de script)*
 
 *Contexte :* créez un fichier `analyse_mpg.R` avec :
 
@@ -247,7 +257,7 @@ plot(mpg$displ,mpg$hwy,col=as.factor(mpg$drv));title("plot")
 
 ------------------------------------------------------------------------
 
-## Exercice 9 — Données « tidy » *(pivot_longer)*
+## Exercice 9 - Données « tidy » *(pivot_longer)*
 
 *Contexte :* vous passez des ventes annuelles d’un format large à long pour faciliter les visualisations.
 
@@ -275,7 +285,7 @@ sales <- tibble(
 
 ------------------------------------------------------------------------
 
-## Exercice 10 — Sommaire numérique *(cinq‑nombre)*
+## Exercice 10 - Sommaire numérique *(cinq‑nombre)*
 
 *Contexte :* résumé statistique rapide du MPG en ville (`cty`).
 
@@ -289,7 +299,7 @@ sales <- tibble(
 
 ------------------------------------------------------------------------
 
-## Exercice 11 — Boxplot par catégorie *(comparaison de groupes)*
+## Exercice 11 - Boxplot par catégorie *(comparaison de groupes)*
 
 *Contexte :* visualiser la distribution de `hwy` par `class`, classes triées par médiane décroissante.
 
@@ -308,7 +318,7 @@ sales <- tibble(
 
 ------------------------------------------------------------------------
 
-## Exercice 12 — Facettes *(distribution par transmission)*
+## Exercice 12 - Facettes *(distribution par transmission)*
 
 *Contexte :* comparer les distributions de cylindrée (`displ`) selon le type de transmission (`drv`).
 
@@ -324,7 +334,7 @@ sales <- tibble(
 
 ------------------------------------------------------------------------
 
-## Exercice 13 — Analyse statistique complète *(inspiration IMS)*
+## Exercice 13 - Analyse statistique complète *(inspiration IMS)*
 
 *Contexte :* comme dans le chapitre 5 d’*Introduction to Modern Statistics*, vous devez explorer en profondeur la variable **`hwy`**.
 

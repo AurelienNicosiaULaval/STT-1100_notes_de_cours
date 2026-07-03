@@ -50,7 +50,11 @@ Fichier Excel de pratique sur les manchots.Fichier localStructure à consulterVo
 
 ### Module 03
 
-[Module 03 ](packages.llms.md#palmerpenguins)
+[Module 03 ](packages.llms.md#ulavalssd)
+
+## UlavalSSD::listecondamnation
+
+Constats d’infractions alimentaires utilisés pour l’article journalistique.Package RStructure à consulterVoir la documentation [Module 03 ](packages.llms.md#palmerpenguins)
 
 ## palmerpenguins::penguins_raw
 

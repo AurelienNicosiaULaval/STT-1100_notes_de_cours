@@ -1,14 +1,14 @@
-# Aventure 2 - Github et la visualisation de données numériques
+# Aventure 2 - GitHub et la visualisation de données numériques
 
 STT-1100 Introduction à la science des données
 
 ## Mission Antarctique – Dans la peau d’un·e scientifique de données
 
-Bienvenue dans votre nouvelle mission scientifique ! Vous êtes désormais **scientifique de données** dans l’équipe de la **Dre Adélie**, une chercheuse spécialisée dans l’étude des pingouins d’Antarctique. Elle vous a confié un ensemble de données collectées sur le terrain pour l’aider à explorer certaines pistes de recherche.
+Bienvenue dans votre nouvelle mission scientifique ! Vous êtes désormais **scientifique de données** dans l’équipe de la **Dre Adélie**, une chercheuse spécialisée dans l’étude des manchots d’Antarctique. Elle vous a confié un ensemble de données collectées sur le terrain pour l’aider à explorer certaines pistes de recherche.
 
 Votre travail consiste à **manipuler, transformer et visualiser** les données de manière rigoureuse, afin d’en extraire des informations utiles et reproductibles. Vous devrez notamment produire des visualisations convaincantes, calculer des statistiques descriptives et documenter votre démarche dans un rapport clair.
 
-> Le jeu de données, qui contient des mesures physiques de plusieurs espèces de pingouins, vous servira de terrain d’enquête.
+> Le jeu de données, qui contient des mesures physiques de plusieurs espèces de manchots, vous servira de terrain d’enquête.
 
 ------------------------------------------------------------------------
 
@@ -34,7 +34,13 @@ Vous devez rédiger un **journal de bord** dans un rapport Quarto (format HTML) 
 De retour de mission, la Dre Adélie reviendra avec des **questions précises** à explorer et vous demandera de l’aider à préparer un rapport solide pour accompagner sa **demande de subvention**.
 
 **Livrable de la deuxième partie** :
-Un **rapport structuré et complet** répondant à ses nouvelles demandes précises, incluant : - Des visualisations ciblées. - Des analyses précises basées sur vos découvertes antérieures. - Une mise en forme professionnelle (titre, légendes, axes lisibles, cohérence graphique). - Un suivi rigoureux via **GitHub**, incluant plusieurs commits bien commentés. - Elle vous donnera une liste de tâches claires et précises à répondre.
+Un **rapport structuré et complet** répondant à ses nouvelles demandes précises, incluant :
+
+- Des visualisations ciblées.
+- Des analyses précises basées sur vos découvertes antérieures.
+- Une mise en forme professionnelle (titre, légendes, axes lisibles, cohérence graphique).
+- Un suivi rigoureux via **GitHub**, incluant plusieurs commits bien commentés.
+- Des réponses claires aux tâches laissées par la Dre Adélie.
 
 ------------------------------------------------------------------------
 
@@ -54,31 +60,31 @@ Pour réussir cette aventure, voici quelques conseils essentiels :
 
 Cette aventure vous permettra de développer vos compétences en manipulation, visualisation et analyse de données avec `dplyr` et `ggplot2`. Ce sont des compétences primordiales pour un scientifique de données. Prenez le temps d’explorer les différentes étapes et amusez-vous à apprendre !
 
-# Travail sur Github
+# Travail sur GitHub
 
-La chercheuse a préparé un dépôt sur GitHub où elle souhaite que vous enregistriez tout votre travail. De son côté, elle y a déposé la base de données qu’elle a collectée ainsi qu’une description détaillée des variables. Elle souhaite notamment que vous completiez un journal de bord modèle au format Quarto.
+La chercheuse a préparé un dépôt sur GitHub où elle souhaite que vous enregistriez tout votre travail. De son côté, elle y a déposé la base de données qu’elle a collectée ainsi qu’une description détaillée des variables. Elle souhaite notamment que vous complétiez un journal de bord modèle au format Quarto.
 
 Avant de commencer l’analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.
 
-1.  Clonez le dépôt “Aventure-2-IDENTIFIANT_GITHUB”, pour cela créez un nouveau projet Rstudio et copier coller le lien HTTPS de votre repo Github (voir feuille aide mémoire).
+1.  Clonez votre dépôt `aventure-2-IDENTIFIANT_GITHUB`. Pour cela, créez un nouveau projet RStudio et collez le lien de votre dépôt GitHub selon la méthode indiquée dans la feuille aide-mémoire.
 
 Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier `.Rproj` dans votre explorateur de fichiers.
 
-2.  Ouvrir le fichier Quarto de journal de bord: Inscrivez votre nom et enregistrer.
+2.  Ouvrez le fichier Quarto de journal de bord, inscrivez votre nom et enregistrez le fichier.
 
-3.  Premier commit et push vers GitHub: Une fois votre fichier `.qmd` modifié et enregistré, commitez et poussez vos modifications sur GitHub :
+3.  Faites un premier commit et un premier push vers GitHub. Une fois votre fichier `.qmd` modifié et enregistré, commitez et poussez vos modifications sur GitHub.
 
-Attention: on se rappelle que les messages de commit doivent être parlant. Par exemple “Initialisation du journal de bord”
+Attention : les messages de commit doivent être parlants. Par exemple : “Initialisation du journal de bord”.
 
 Félicitations ! Vous êtes maintenant prêt à débuter l’analyse scientifique des manchots !
 
-> Conseil : Utiliser le modèle de journal de bord pour completer l’ensemble des analyses de la première partie de cette aventure. Prenez donc quelques minutes pour regarder la structure du document.
+> Conseil : utilisez le modèle de journal de bord pour compléter l’ensemble des analyses de la première partie de cette aventure. Prenez donc quelques minutes pour regarder la structure du document.
 
 # Lecture des données
 
 La chercheuse vous a fourni un fichier Excel contenant les données des manchots qu’elle a collectées. Votre première mission consiste à **charger ces données dans R** en utilisant l’interface graphique de RStudio.
 
-\*\* Étapes à suivre\*\*
+**Étapes à suivre**
 
 1.  **Ouvrir le menu d’importation de données**
 
@@ -86,31 +92,31 @@ La chercheuse vous a fourni un fichier Excel contenant les données des manchots
 
     - Cliquez sur **Import Dataset** (Importer un jeu de données).
 
-    - Sélectionnez **From Excel…** (Depuis Excel…), puisque l’extension est un `.xlsx`
+    - Sélectionnez **From Excel…** (Depuis Excel…), puisque l’extension est `.xlsx`.
 
-![](resources/bouton_import_data.png)
+![Capture d'écran montrant le bouton Import Dataset dans l'onglet Environment de RStudio.](resources/bouton_import_data.png)
 
-Bouton pour importer des données
+Bouton Import Dataset dans l’onglet Environment de RStudio
 
-1.  **Sélectionner le fichier**
+2.  **Sélectionner le fichier**
 
-    - Dans la fenêtre qui s’ouvre, cliquez sur **Browse…** (Parcourir…) et sélectionnez le fichier **`.xlsx`** que vous avez téléchargé via le clonage du dépôt.
+    - Dans la fenêtre qui s’ouvre, cliquez sur **Browse…** (Parcourir…) et sélectionnez le fichier **`data/manchots_donnees.xlsx`** dans le dépôt cloné.
 
-2.  **Ajuster les paramètres d’importation**
+3.  **Ajuster les paramètres d’importation**
 
-    - Assurez-vous que les en-têtes de colonnes sont bien détectées.
+    - Assurez-vous que les en-têtes de colonnes sont bien détectés.
 
     - Vérifiez que toutes les variables sont correctement identifiées (ex. les nombres sont bien en format numérique).
 
-    - On appelera le jeu de données `penguins_mission`, compléter l’information dans la fenêtre.
+    - Appelez le jeu de données `penguins_mission` en complétant l’information dans la fenêtre.
 
-3.  **Importer et afficher les données**
+4.  **Importer et afficher les données**
 
     - Cliquez sur **Import**.
 
     - Vérifiez que votre jeu de données apparaît dans l’**Environment** sous le nom `penguins_mission`.
 
-    *Remarque*: lorsque on clique sur **Import,** un code s’execute dans la console. Il s’agit du code pour importer le jeu de données.
+    *Remarque* : lorsqu’on clique sur **Import**, un code s’exécute dans la console. Il s’agit du code qui importe le jeu de données.
 
     - Pour voir un aperçu des données, utilisez la commande suivante dans la console :
 
@@ -121,10 +127,19 @@ Bouton pour importer des données
 Une bonne pratique en science des données est de toujours **documenter** comment vous avez importé les données, même si vous avez utilisé une interface graphique.
 Ajoutez le code exécuté dans la console dans votre fichier **Quarto** de journal de bord **(`.qmd`)** à la section appropriée.
 
-Dans chaque rapport d’analyse, vous devriez avoir une première section **Lecture des données,** avec un bloc de code qui contient le code qui permet de lire les données. J’en profite pour vous rappeler les **bonnes pratiques de programmation du Tidyverse**, à savoir que dans votre bloc de code, il devrait par exemple y avoir des commentaires.
+Dans chaque rapport d’analyse, vous devriez avoir une première section **Lecture des données**, avec un bloc de code qui contient le code qui permet de lire les données. J’en profite pour vous rappeler les **bonnes pratiques de programmation du tidyverse** : dans votre bloc de code, il devrait par exemple y avoir des commentaires.
 
 **Pourquoi est-ce important ?**
 Cela garantit que votre analyse est **reproductible** : si un autre chercheur veut la refaire, il pourra exécuter votre code sans avoir à utiliser l’interface graphique.
+
+Dans votre dépôt étudiant, le code devrait ressembler à ceci :
+
+``` r
+library(readxl)
+
+# Importation des données
+penguins_mission <- read_excel("data/manchots_donnees.xlsx")
+```
 
 > **IMPORTANT:**
 >
@@ -139,7 +154,7 @@ Cela garantit que votre analyse est **reproductible** : si un autre chercheur ve
 > Tu devais nommer ta base **`penguins_mission`**, comme indiqué dans l’instruction d’importation.
 > Attention : tout le reste de l’analyse repose sur ce nom cohérent !
 
-\*\* Une fois vos données chargées, vous êtes prêts à les explorer et à les analyser ! Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail ! \*\*
+**Une fois vos données chargées, vous êtes prêts à les explorer et à les analyser ! Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
 # Manipulation de données
 
@@ -162,9 +177,9 @@ glimpse(penguins_mission)
 
 > **CAUTION:**
 >
-> Il y a généralement **4 variables numériques** :
+> Au moment de l’importation, il y a **4 variables numériques** :
 > `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` et `body_mass_g`.
-> Attention : certaines versions du jeu peuvent varier selon l’importation !
+> Attention : si vous ajoutez ensuite de nouvelles colonnes numériques, ce total changera.
 
 #### Aperçu rapide avec `glimpse()`
 
@@ -184,7 +199,9 @@ Cette présentation facilite l’examen rapide de la structure d’un tableau, s
 
 > **TIP:**
 >
-> La chercheuse souhaite obtenir un premier compte rendu sur les données disponibles. Pour cela, vous devez compléter le texte suivant et l’intégrer dans votre journal de bord d’analyse Quarto : \> “Le jeu de données contient \*\*\_\_\_\*\* observations et \*\*\_\_\_\*\* variables. Les variables sont ***,*** , \*\*\_\_\_\*\*….etc”
+> La chercheuse souhaite obtenir un premier compte rendu sur les données disponibles. Pour cela, vous devez compléter le texte suivant et l’intégrer dans votre journal de bord d’analyse Quarto :
+>
+> > Le jeu de données contient `___` observations et `___` variables. Les variables sont `___`, `___`, `___`, etc.
 
 > **NOTE:**
 >
@@ -194,7 +211,7 @@ Ne vous inquiétez pas si cela vous semble complexe ! Nous reviendrons sur cet a
 
 > **TIP:**
 >
-> Combien de variables sont de type numérique? Combien de type charactère? *to-do*: Inclure votre réponse dans votre journal de bord à la suite du texte troué.
+> Combien de variables sont de type numérique ? Combien sont de type caractère ? Incluez votre réponse dans votre journal de bord à la suite du texte troué.
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
@@ -209,11 +226,11 @@ penguins_subset <- penguins_mission %>%
 
 > **NOTE:**
 >
-> Faite un `glimpse()` de la nouvelle base de données `penguins_subset`. Pourquoi avoir choisi un nouveau nom?
+> Faites un `glimpse()` de la nouvelle base de données `penguins_subset`. Pourquoi avoir choisi un nouveau nom ?
 
 > **TIP:**
 >
-> Sélectionnez toutes les variables sauf `flipper_length_mm` et `body_mass_g`. Attention il y a une facon rapide de le faire!
+> Sélectionnez toutes les variables sauf `flipper_length_mm` et `body_mass_g`. Attention, il y a une façon rapide de le faire !
 
 ## Créer de nouvelles variables avec `mutate()`
 
@@ -230,25 +247,25 @@ penguins_mission <- penguins_mission %>%
 
 > **IMPORTANT:**
 >
-> Tu as transformé la masse en kilogrammes. La masse du penguin numéro 21 est plus petit que 4 kg, vrai ou faux?
+> Tu as transformé la masse en kilogrammes. La masse du manchot numéro 21 est-elle plus petite que 4 kg ?
 > 1. Vrai
 > 2. Faux
 
 > **CAUTION:**
 >
-> Quand on regarde la ligne 21 de la base de données, on obtiens un nombre pour `body_mass_kg` de 4.01 kg, donc la réponse est **Faux**.
+> Quand on regarde la ligne 21 de la base de données, on obtient un nombre pour `body_mass_kg` de 4.01 kg, donc la réponse est **Faux**.
 >
 > ``` r
 > penguins_mission[21,"body_mass_kg"]
 > ```
 
-On va maintenant continuer avec une nouvelle variable dont la chercheuse est très intéréssée:
+On va maintenant continuer avec une nouvelle variable qui intéresse beaucoup la chercheuse :
 
 > **TIP:**
 >
 > Créez une nouvelle variable appelée `bill_ratio` correspondant au rapport entre la longueur et la profondeur du bec.
 >
-> **Question de la chercheuse** : un de mes collègues en antartique m’assure que le rapport **moyen** entre la longueur et la profondeur du bec est superieur à 3. De mon côté, je trouve cela étrange, car ca ne respecte pas ce qu’on peut lire dans la littérature. Peux-tu m’aider avec cela? j’aimerai que tu répondes à la question dans le journal de bord.
+> **Question de la chercheuse** : un de mes collègues en Antarctique m’assure que le rapport moyen entre la longueur et la profondeur du bec est supérieur à 3. Peux-tu vérifier cette affirmation avec les données ? J’aimerais que tu répondes à la question dans le journal de bord.
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
@@ -279,13 +296,13 @@ penguins_summary <- penguins_mission %>%
 
 > **TIP:**
 >
-> **Question de la chercheuse** : Quelle est la combinaison île/espèce qui possède la longueur médiane de nageoire la plus faible ? j’aimerai que tu répondes à la question dans le journal de bord.
+> **Question de la chercheuse** : Quelle est la combinaison île/espèce qui possède la longueur médiane de nageoire la plus faible ? J’aimerais que tu répondes à la question dans le journal de bord.
 
-Grâce à `group_by` on peut aussi par exemple filter par groupe, ce qui peut être très pratique!
+Grâce à `group_by()`, on peut aussi travailler par groupe, ce qui peut être très pratique.
 
 > **TIP:**
 >
-> **Exercice** : Faites sortir le premier manchot de la base de données pour chaque espèce et chaque île. *Indice:* on peut utiliser la fonction `slice`.
+> **Exercice** : faites sortir le premier manchot de la base de données pour chaque espèce et chaque île. *Indice* : on peut utiliser `group_by(species, island)` puis `slice(1)`.
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
@@ -293,9 +310,9 @@ Grâce à `group_by` on peut aussi par exemple filter par groupe, ce qui peut ê
 
 Alors que vous avanciez bien dans votre analyse des données, vous recevez un message urgent de la chercheuse. Elle a dû partir précipitamment en Antarctique pour une mission d’urgence : aider une colonie de manchots confrontée à des conditions climatiques extrêmes.
 
-Avant son départ, elle a pris soin de vous laisser une liste de tâches essentielles à compléter. Elle compte sur vous pour poursuivre son analyse ! Cependant, la connexion est instable là-bas, et la seule manière de communiquer avec elle est par Teams, elle vous enverra des messages mais vous ne pourrais pas communiquer avec elle.
+Avant son départ, elle a pris soin de vous laisser une liste de tâches essentielles à compléter. Elle compte sur vous pour poursuivre son analyse ! Cependant, la connexion est instable là-bas. La seule manière de communiquer avec elle est par Teams : elle vous enverra des messages, mais vous ne pourrez pas communiquer directement avec elle.
 
-> **Note:** ici vous êtes toujours dans la partie 1 de l’aventure, mais la chercheuse vous a laissé une liste de tâches à compléter avant son départ. Vous devez donc continuer à travailler sur le jeu de données `penguins_mission` que vous avez créé précédemment. Vous devez donc continuer a completer le journal de bord.
+> **Note** : ici vous êtes toujours dans la partie 1 de l’aventure, mais la chercheuse vous a laissé une liste de tâches à compléter avant son départ. Vous devez donc continuer à travailler sur le jeu de données `penguins_mission` que vous avez créé précédemment et continuer à compléter le journal de bord.
 
 # Visualisation des données
 
@@ -321,12 +338,12 @@ La visualisation des données est une étape essentielle de l’analyse, car ell
 library(ggplot2)
 ggplot(penguins_mission, aes(x = bill_depth_mm)) +
   geom_histogram(binwidth = 0.5, fill = "steelblue", color = "black") +
-  labs(title = "Distribution de la longueur du bec des manchots",
-       x = "Longueur du bec (mm)",
+  labs(title = "Distribution de la profondeur du bec des manchots",
+       x = "Profondeur du bec (mm)",
        y = "Effectif")
 ```
 
-![](aventure_files/figure-html/unnamed-chunk-9-1.png)
+![Histogramme montrant la distribution de la profondeur du bec des manchots en millimètres.](aventure_files/figure-html/unnamed-chunk-10-1.png)
 
 > **NOTE:**
 >
@@ -334,20 +351,16 @@ ggplot(penguins_mission, aes(x = bill_depth_mm)) +
 
 > **IMPORTANT:**
 >
-> Quand tu regardes l’histogramme de `bill_depth_mm`, quel mot décrit le mieux la forme de la distribution ?
-> 1. Uniforme
-> 2. Bimodale
-> 3. Asymétrique droite
-> 4. Symétrique
+> Quand tu regardes l’histogramme de `bill_depth_mm`, comment décrirais-tu la forme de la distribution ? Est-elle uniforme, bimodale, asymétrique ou plutôt concentrée autour d’une zone centrale ?
 
 > **CAUTION:**
 >
-> La distribution est généralement **symétrique**, voire légèrement étalée.
-> Une bonne lecture visuelle aide à anticiper les mesures centrales et extrêmes.
+> La distribution n’est pas uniforme : les valeurs sont surtout concentrées autour d’une zone centrale, avec moins d’observations aux extrêmes.
+> La conclusion peut varier légèrement selon la valeur de `binwidth`; il faut donc justifier votre interprétation à partir du graphique obtenu.
 
-\*\* Instructions laissées par la chercheuse\*\*
+**Instructions laissées par la chercheuse**
 
-Pour connaître la première demande de la chercheuse, voic son message recu :
+Pour connaître la première demande de la chercheuse, voici son message reçu :
 
     [1] "Je veux voir la répartition des longueurs de nageoires des manchots. En effet, quand j'ai regardé, il me semblait y avoir une erreur dans les données. J'aimerais que tu m'aides à la trouver."
 
@@ -355,11 +368,11 @@ Pour connaître la première demande de la chercheuse, voic son message recu :
 >
 > Créez un histogramme pour la variable `flipper_length_mm`. Vous devez ajuster l’ensemble des informations sur le graphique en respectant les bonnes pratiques de visualisation.
 >
-> **Question de la chercheuse** : En regardant l’histogramme de la longueur des nageoires, remarquez-vous quelque chose de particulière dans la distribution ?
+> **Question de la chercheuse** : en regardant l’histogramme de la longueur des nageoires, remarquez-vous quelque chose de particulier dans la distribution ?
 
 Poussons un peu plus loin la visualisation pour essayer de répondre à sa demande.
 
-## Boite à moustache
+## Boîte à moustaches
 
 **Explication** : Une boîte à moustaches permet de visualiser la dispersion d’une variable numérique et d’identifier d’éventuelles valeurs aberrantes. Ici, nous allons examiner la distribution de la longueur des nageoires (`flipper_length_mm`).
 
@@ -371,7 +384,7 @@ ggplot(penguins_mission, aes(x = species, y = flipper_length_mm, fill = species)
        y = "Longueur des nageoires (mm)")
 ```
 
-![](aventure_files/figure-html/unnamed-chunk-11-1.png)
+![Boîte à moustaches comparant la longueur des nageoires des manchots selon l'espèce.](aventure_files/figure-html/unnamed-chunk-12-1.png)
 
 > **NOTE:**
 >
@@ -398,11 +411,11 @@ ggplot(penguins_mission, aes(x = species, y = flipper_length_mm, fill = species)
 
 > **TIP:**
 >
-> Dans le graphique précédent, le titre de la légende est “species”, en anglais, qui est par default le nom de la variable. Changez-le pour “Espèce” en français. Vous devez trouver par vous-même comment faire cela.
+> Dans le graphique précédent, le titre de la légende est “species”, en anglais, ce qui correspond au nom de la variable par défaut. Changez-le pour “Espèce” en français. Vous devez trouver par vous-même comment faire cela.
 
-## Nuages de point (scatter plot)
+## Nuages de points
 
-**Explication** : Un scatter plot (ou nuage de points) permet de visualiser la relation entre deux variables numériques. Ici, nous allons examiner la relation entre la longueur du bec (`bill_length_mm`) et la profondeur du bec (`bill_depth_mm`).
+**Explication** : Un nuage de points permet de visualiser la relation entre deux variables numériques. Ici, nous allons examiner la relation entre la longueur du bec (`bill_length_mm`) et la profondeur du bec (`bill_depth_mm`).
 
 ``` r
 ggplot(penguins_mission, aes(x = bill_length_mm, y = bill_depth_mm)) +
@@ -412,7 +425,7 @@ ggplot(penguins_mission, aes(x = bill_length_mm, y = bill_depth_mm)) +
        y = "Profondeur du bec (mm)")
 ```
 
-![](aventure_files/figure-html/unnamed-chunk-12-1.png)
+![Nuage de points montrant la relation entre la longueur du bec et la profondeur du bec des manchots.](aventure_files/figure-html/unnamed-chunk-13-1.png)
 
 > **NOTE:**
 >
@@ -424,7 +437,11 @@ Pour connaître la prochaine demande de la chercheuse, voici le message que vous
 
 > **TIP:**
 >
-> Modifiez le scatter plot pour afficher la relation souhaitée par la chercheuse. Est-ce que vous trouver qu’un point à l’air bizarre? Si oui, quel est son numéro de ligne?
+> Modifiez le nuage de points pour afficher la relation souhaitée par la chercheuse. Trouvez-vous qu’un point a l’air bizarre ? Si oui, quel est son numéro de ligne ?
+
+> **CAUTION:**
+>
+> L’observation qui combine une masse corporelle de 9000 g et une longueur de bec de 20 mm est la ligne **11**.
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
@@ -432,10 +449,10 @@ Pour connaître la prochaine demande de la chercheuse, voici le message que vous
 
 **Explication** : Les statistiques descriptives permettent de résumer et comprendre rapidement un ensemble de données. Elles se divisent en plusieurs catégories :
 
-- \*\* Tendance centrale\*\* : moyenne, médiane
-- \*\* Dispersion\*\* : variance, écart-type, coefficient de variation
-- \*\* Distribution\*\* : min, max, quartiles
-- \*\* Asymétrie et aplatissement\*\* : skewness et kurtosis (optionnel)
+- **Tendance centrale** : moyenne, médiane
+- **Dispersion** : variance, écart-type, coefficient de variation
+- **Distribution** : min, max, quartiles
+- **Asymétrie et aplatissement** : skewness et kurtosis (optionnel)
 
 Nous allons voir comment obtenir ces statistiques en R avec `dplyr`. En utilisant la fonction `summarise` il est très facile de calculer des statistiques descriptives sur une variable:
 
@@ -453,27 +470,38 @@ penguins_mission %>%
   )
 ```
 
-\*\* Instructions laissées par la chercheuse\*\*
+**Instructions laissées par la chercheuse**
 
-Pour connaître la première demande de la chercheuse, elle viens de vous a envoyé ceci :
+Pour connaître la première demande de la chercheuse, elle vient de vous envoyer ceci :
 
     [1] "Quelle espèce de pingouin a le bec le plus long en moyenne ? Le plus variable?"
 
 > **TIP:**
 >
-> Répondez de facon précise dans votre journal de bord à la demande du Docteur Adélie.
+> Répondez de façon précise dans votre journal de bord à la demande de la Dre Adélie.
 
-Méthode rapide avec `across()` ans `dplyr`
+Méthode rapide avec `across()` dans `dplyr`
 
 Tu peux appliquer toutes les fonctions statistiques sur plusieurs colonnes d’un coup :
 
 ``` r
 penguins_mission %>%
   group_by(species) %>%
-  summarise(across(bill_length_mm, list(
-    mean = mean, median = median, sd = sd, var = var,
-    min = min, max = max, q1 = ~quantile(.x, 0.25), q3 = ~quantile(.x, 0.75)
-  )))
+  summarise(
+    across(
+      bill_length_mm,
+      list(
+        mean = ~mean(.x, na.rm = TRUE),
+        median = ~median(.x, na.rm = TRUE),
+        sd = ~sd(.x, na.rm = TRUE),
+        var = ~var(.x, na.rm = TRUE),
+        min = ~min(.x, na.rm = TRUE),
+        max = ~max(.x, na.rm = TRUE),
+        q1 = ~quantile(.x, 0.25, na.rm = TRUE),
+        q3 = ~quantile(.x, 0.75, na.rm = TRUE)
+      )
+    )
+  )
 ```
 
 Avantages :
@@ -484,15 +512,15 @@ Avantages :
 
 > **IMPORTANT:**
 >
-> Tu as calculé `bill_ratio` plus haut avec la fonction `mutate`. Si la moyenne est 2.94 et que ton collègue s’attend à 3.5, que peux-tu conclure ?
-> 1. Le collègue a raison, 2.94 ≈ 3.5
+> Tu as calculé `bill_ratio` plus haut avec la fonction `mutate`. Si la moyenne est environ 2.70 et que ton collègue s’attend à une valeur supérieure à 3, que peux-tu conclure ?
+> 1. Le collègue a raison, 2.70 est supérieur à 3
 > 2. Il faut plus d’échantillons
 > 3. Tes résultats contredisent son hypothèse
 > 4. Le ratio n’est pas utile
 
 > **CAUTION:**
 >
-> Une moyenne de **2.94**, bien inférieure à 3.5, contredit l’hypothèse du collègue.
+> Une moyenne d’environ **2.70**, inférieure à 3, contredit l’hypothèse du collègue.
 > Cela suggère une différence, mais tu pourrais aussi comparer les distributions, par exemple avec un histogramme ou un boxplot, pour mieux visualiser les variations.
 
 ## Visualisation avancée et statistiques descriptives (optionnel)
@@ -506,23 +534,23 @@ Nous allons maintenant créer un boxplot détaillé qui affiche :
 
 > **TIP:**
 >
-> Parmis les stastiques précédentes, laquelle n’est habituellement pas affichée dans une boite à moustache?
+> Parmi les statistiques précédentes, laquelle n’est habituellement pas affichée dans une boîte à moustaches ?
 
-Avant de partir en antartique, la chercheuse vous as laissé un bout de code (vraisemblablement un début de travail qu’elle souhaitait faire);
+Avant de partir en Antarctique, la chercheuse vous a laissé un bout de code, vraisemblablement un début de travail qu’elle souhaitait faire.
 
 ``` r
 ggplot(penguins_mission, aes(x = species, y = bill_length_mm, fill = species)) +
   geom_boxplot(alpha = 0.5) +
   stat_summary(fun = mean, geom = "point", shape = 23, size = 4, fill = "red") +
-  labs(title = "Longueur du bec des pingouins par espèce",
+  labs(title = "Longueur du bec des manchots par espèce",
        x = "Espèce",
        y = "Longueur du bec (mm)") +
   theme_minimal()
 ```
 
-![](aventure_files/figure-html/unnamed-chunk-17-1.png)
+![Boîte à moustaches de la longueur du bec par espèce avec un point rouge indiquant la moyenne.](aventure_files/figure-html/unnamed-chunk-18-1.png)
 
-\*\* Instructions laissées par la chercheuse\*\*
+**Instructions laissées par la chercheuse**
 
 Pour connaître la tâche optionnelle de la chercheuse :
 
@@ -530,11 +558,11 @@ Pour connaître la tâche optionnelle de la chercheuse :
 
 > **TIP:**
 >
-> Completer le code `ggplot2` du Dr Adélie afin de répondre à sa demande. Inclure cela dans votre journal de bord. Dites en quoi ce graphique avancé peut aider à comprendre mieux nos données.
+> Complétez le code `ggplot2` de la Dre Adélie afin de répondre à sa demande. Incluez cela dans votre journal de bord. Dites en quoi ce graphique avancé peut aider à mieux comprendre les données.
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
-Félicitations ! Vous avez maintenant terminer la partie 1 de cette aventure, vous pouvez allez vous reposer un peu avant la prochaine partie de cette mission!
+Félicitations ! Vous avez maintenant terminé la partie 1 de cette aventure. Vous pouvez aller vous reposer un peu avant la prochaine partie de cette mission !
 
 > **IMPORTANT:**
 >
@@ -549,12 +577,14 @@ Félicitations ! Vous avez maintenant terminer la partie 1 de cette aventure, vo
 > Tu dois faire un commit **après chaque étape significative** (import, filtre, graphique, analyse).
 > Cela assure la traçabilité, et te sauvera du stress si tu dois revenir en arrière.
 
-# Le retour du Dr Adélie Fortier! (2e partie de l’aventure)
+# Le retour de la Dre Adélie Fortier ! (2e partie de l’aventure)
 
-Après plusieurs semaines en Antarctique à observer les manchots, notre chercheuse est de retour avec pleins de nouvelles questions en tête. Elle a remarqué que certaines espèces semblaient avoir des caractéristiques bien distinctes, mais elle aimerait une analyse plus approfondie qui va l’aider a obtenir une nouvelle subvention pour son projet de recherche.
+Après plusieurs semaines en Antarctique à observer les manchots, notre chercheuse est de retour avec plein de nouvelles questions en tête. Elle a remarqué que certaines espèces semblaient avoir des caractéristiques bien distinctes, mais elle aimerait une analyse plus approfondie qui l’aidera à obtenir une nouvelle subvention pour son projet de recherche.
+
+La page de consignes du défi est disponible ici : [Défi du module 2](../module_02/defi.llms.md).
 
 **Rappel des livrables de la deuxième partie** :
-Un **rapport structuré et complet** répondant à ses nouvelles demandes précises, incluant :
+Un **rapport structuré et complet**, nommé `rapport_analyse.qmd`, répondant à ses nouvelles demandes précises, incluant :
 
 - Des visualisations ciblées.
 
@@ -564,13 +594,27 @@ Un **rapport structuré et complet** répondant à ses nouvelles demandes préci
 
 - Un suivi rigoureux via **GitHub**, incluant plusieurs commits bien commentés.
 
-- Elle vous donnera une liste de tâches claires et précises à répondre.
+- Des réponses claires aux tâches ci-dessous.
 
-> **Note**: vous devez batir vous même votre rapport quarto pour l’aider dans sa demande de subvention. Commencer par créer un nouveau rapport QMD.
+- Une version HTML rendue, nommée `rapport_analyse.html`.
 
-Sa question principale : Comment les caractéristiques physiques des manchots varient-elles selon les espèces ?
+> **Note** : vous devez bâtir vous-même votre rapport Quarto pour l’aider dans sa demande de subvention. Commencez par créer un nouveau fichier Quarto, par exemple `rapport_analyse.qmd`.
+
+Sa question principale : comment les caractéristiques physiques des manchots varient-elles selon les espèces ?
 
 Pour l’aider, vous réaliserez une analyse complète, en mobilisant toutes les compétences acquises dans ce module.
+
+> **TIP:**
+>
+> Avant de produire le rapport final, reprenez les valeurs aberrantes repérées dans la partie 1.
+
+Tâches :
+
+- Identifiez les observations problématiques dans le rapport.
+
+- Expliquez si vous les conservez, les retirez ou les signalez seulement dans les analyses.
+
+- Appliquez ce choix de manière cohérente dans les graphiques et les statistiques descriptives.
 
 > **TIP:**
 >
@@ -592,7 +636,7 @@ Calculez la moyenne et l’écart-type des variables suivantes par espèce :
 
 Affichez les résultats sous forme de tableau clair.
 
-Indice : Utilisez `group_by()` et `summarise()` de `dplyr` pour obtenir ces statistiques.
+Indice : utilisez `group_by()` et `summarise()` de `dplyr` pour obtenir ces statistiques.
 
 > **TIP:**
 >
@@ -602,15 +646,15 @@ La chercheuse aimerait une nouvelle variable qui pourrait représenter la taille
 
 Tâches :
 
-- Créez une nouvelle variable **`indice_grandeur`** , définie comme la somme de :
+- Créez une nouvelle variable **`indice_grandeur`**, définie comme la somme de :
 
-  - La longueur des nageoires (flipper_length_mm)
+  - La longueur des nageoires (`flipper_length_mm`)
 
-  - La longueur du bec (bill_length_mm)
+  - La longueur du bec (`bill_length_mm`)
 
 - Ajoutez cette variable au jeu de données et affichez quelques valeurs pour vérifier son calcul.
 
-Indice : Utilisez `mutate()` pour ajouter la variable à votre data.frame.
+Indice : utilisez `mutate()` pour ajouter la variable à votre tableau de données. Si vous décidez de retirer une observation aberrante, appliquez ce choix avant de calculer l’indice.
 
 > **TIP:**
 >
@@ -624,9 +668,9 @@ Tâches :
 
 - Un nuage de points montrant la relation entre **`indice_grandeur`** et la masse corporelle (`body_mass_g`), en colorant par espèce.
 
-Attention, n’oubliez pas vos bonnes pratiques de visualisation.
+Attention, n’oubliez pas vos bonnes pratiques de visualisation : titres informatifs, axes lisibles, légendes claires et choix cohérent des couleurs.
 
-\*\* Conclusion\*\*
+**Conclusion**
 
 - Que remarquez-vous ?
 
@@ -636,4 +680,4 @@ Attention, n’oubliez pas vos bonnes pratiques de visualisation.
 
 ------------------------------------------------------------------------
 
-**Mission réussie !** Vous avez aidé le Dr Adélie Fortier à analyser les données des manchots avec succès !
+**Mission réussie !** Vous avez aidé la Dre Adélie Fortier à analyser les données des manchots avec succès !

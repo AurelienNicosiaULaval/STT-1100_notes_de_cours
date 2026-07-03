@@ -33,39 +33,21 @@ Prenez le temps de parcourir ces deux ressources. Elles vous seront utiles pour 
 
 # Défi
 
-Au terme de ce module, **vous endosserez le rôle de journaliste de données** pour *Le Courrier Gourmand*.
-Votre mission :
+Au terme de ce module, vous endosserez le rôle de journaliste de données pour *Le Courrier Gourmand*.
 
-1.  **Explorer et nettoyer** le jeu `listecondamnation` (infractions alimentaires au Québec).
-2.  **Extraire des faits marquants** (top infractions, montants d’amendes, comparaison Montréal / hors-Montréal).
-3.  **Illustrer vos analyses** par au moins **deux visuels** (un graphique de catégories + la carte des amendes).
-4.  **Rédiger un article Quarto (HTML)** clair et accrocheur : chapeau -\> contexte -\> méthodologie -\> résultats -\> recommandations.
-5.  **Citer deux chiffres narratifs** et **intégrer une courte citation d’Alexandre** pour humaniser la conclusion.
+[Défi du module 3](../module_03/defi.llms.md)
 
-> **À remettre** : le fichier `.qmd` et le HTML généré, livrés via votre dépôt GitHub avant la date limite.
+Votre mission consiste à nettoyer le jeu `listecondamnation`, à extraire des faits marquants sur les infractions alimentaires, puis à rédiger un article Quarto reproductible.
 
-## Grille d’évaluation
+Vous devrez remettre :
 
-Votre article sera évalué selon les critères suivants. Assurez-vous de bien respecter le canevas fourni et les consignes données.
+- `template_article.qmd` complété ;
 
-| Critère | Excellent (3) | Satisfaisant (2) | À améliorer (1) | Commentaire |
-|----|----|----|----|----|
-| \*\* Chapeau introductif\*\* | Accroche percutante, angle clair, chiffres clés bien choisis | Présent mais peu engageant ou peu clair | Absent ou très vague |  |
-| \*\* Contexte & présentation des données\*\* | Source bien identifiée, pertinence expliquée, limites évoquées | Contexte partiel ou explication sommaire | Source absente ou non justifiée |  |
-| \*\* Méthodologie (section sans code)\*\* | Démarche bien résumée, claire et logique | Présente mais confuse ou trop technique | Absente ou très floue |  |
-| \*\* Résultat clé \#1 (graphique + interprétation)\*\* | Visuel clair, bonne interprétation, apport analytique évident | Visuel ou commentaire peu approfondi | Visuel ou analyse absente |  |
-| \*\* Résultat clé \#2 (graphique + interprétation)\*\* | Visuel pertinent, insight bien formulé | Visuel correct mais analyse faible | Résultat peu exploité ou manquant |  |
-| \*\* Résultat clé \#3 (graphique + interprétation)\*\* | Résultat original ou complémentaire, bien expliqué | Présent mais peu développé | Manquant ou superficiel |  |
-| \*\* Discussion (section 4)\*\* | Réflexion critique, mise en perspective des résultats | Discussion partielle ou descriptive | Discussion absente ou sans valeur ajoutée |  |
-| \*\* Conclusion & recommandations\*\* | Messages d’action clairs, utiles, bien formulés | Messages présents mais peu convaincants | Peu clairs ou hors sujet |  |
-| \*\* Chiffres narratifs + citation d’Alexandre\*\* | Deux chiffres bien choisis + citation bien intégrée | Un des éléments présent seulement | Aucun ou mal intégré |  |
-| \*\* Qualité du rendu (Quarto + dépôt GitHub)\*\* | `.qmd` fonctionnel, HTML lisible, dépôt propre et complet | Quelques problèmes techniques ou dépôt désorganisé | Exécution impossible ou rendu partiel/absent |  |
+- `template_article.html` rendu ;
 
-------------------------------------------------------------------------
+- un dépôt GitHub avec plusieurs commits clairs.
 
-**Total sur 30 points** : `XX / 30`
-
-> *N’oubliez pas de relire la checklist en fin de template avant de publier votre article.*
+Votre article doit contenir au moins deux chiffres narratifs et deux visuels, dont un graphique de catégories. La carte des amendes est une activité optionnelle.
 
 # Exercices de consolidation
 
@@ -157,7 +139,7 @@ Fais un barplot représentant la variable `région`.
 > ggplot(data, aes(x = région)) + geom_bar()
 > ```
 >
-> ![](plan_apprentissage_files/figure-html/unnamed-chunk-5-1.png)
+> ![Diagramme à barres du nombre d'observations par région.](plan_apprentissage_files/figure-html/unnamed-chunk-5-1.png)
 
 ------------------------------------------------------------------------
 
@@ -171,7 +153,7 @@ Ajoute une couleur par `sexe` dans le graphique précédent.
 > ggplot(data, aes(x = région, fill = sexe)) + geom_bar(position = "dodge")
 > ```
 >
-> ![](plan_apprentissage_files/figure-html/unnamed-chunk-6-1.png)
+> ![Diagramme à barres groupées comparant les régions selon le sexe.](plan_apprentissage_files/figure-html/unnamed-chunk-6-1.png)
 
 ------------------------------------------------------------------------
 
@@ -235,7 +217,7 @@ Utilise le package `ggplot2` (ou `ggmosaic` si disponible) pour représenter vis
 >   ylab("Proportion")
 > ```
 >
-> ![](plan_apprentissage_files/figure-html/unnamed-chunk-11-1.png)
+> ![Diagramme à barres empilées à 100 % comparant sport et statut de fumeur.](plan_apprentissage_files/figure-html/unnamed-chunk-11-1.png)
 
 ------------------------------------------------------------------------
 
@@ -278,13 +260,13 @@ Questions : 1. Crée un tableau de fréquence pour `species` 2. Visualise la dis
 > ggplot(penguins, aes(x = island, fill = species)) + geom_bar(position = "dodge")
 > ```
 >
-> ![](plan_apprentissage_files/figure-html/unnamed-chunk-12-1.png)
+> ![Diagramme à barres groupées montrant les espèces de manchots par île.](plan_apprentissage_files/figure-html/unnamed-chunk-12-1.png)
 >
 > ``` r
 > ggplot(penguins, aes(x = species, fill = sex)) + geom_bar(position = "fill")
 > ```
 >
-> ![](plan_apprentissage_files/figure-html/unnamed-chunk-12-2.png)
+> ![Diagramme à barres empilées à 100 % comparant le sexe par espèce de manchot.](plan_apprentissage_files/figure-html/unnamed-chunk-12-2.png)
 
 ------------------------------------------------------------------------
 
@@ -334,4 +316,4 @@ Questions : 1. Tableau croisé entre `Sex` et `Survived` 2. Proportion de survie
 >   facet_wrap(~Sex)
 > ```
 >
-> ![](plan_apprentissage_files/figure-html/unnamed-chunk-13-1.png)
+> ![Diagramme à barres empilées à 100 % de la survie Titanic par port d'embarquement, avec facettes selon le sexe.](plan_apprentissage_files/figure-html/unnamed-chunk-13-1.png)

@@ -78,7 +78,7 @@ Pause after each important result and state what it shows.
 At the end of this module, **you will take on the role of data journalist** for *Le Courrier Gourmand*.
 Your mission:
 
-1.  **Explore and clean** the `listecondemnation` game (food offenses in Quebec).
+1.  **Explore and clean** the `listecondamnation` dataset (food offenses in Quebec).
 2.  **Extract key facts** (top offenses, fine amounts, Montreal/non-Montreal comparison).
 3.  **Illustrate your analyses** with at least **two visuals** (a category graph + the fines map).
 4.  **Write a Quarto article (HTML)** clear and eye-catching: hat -\> context -\> methodology -\> results -\> recommendations.
@@ -121,7 +121,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[palmerpenguins::penguins_raw](../donnees.llms.md#dataset-card-penguins-raw) [titanic::titanic_train](../donnees.llms.md#dataset-card-titanic-train)
+[UlavalSSD::listecondamnation](../donnees.llms.md#dataset-card-listecondamnation) [palmerpenguins::penguins_raw](../donnees.llms.md#dataset-card-penguins-raw) [titanic::titanic_train](../donnees.llms.md#dataset-card-titanic-train)
 
 ### R packages
 

@@ -8,17 +8,17 @@ Fil principalGitHub, importation et graphiques
 
 DonnéesManchots et tableaux Excel
 
-DéfiDépôt GitHub et graphiques commentés
+DéfiJournal de bord et rapport GitHub
 
 ## Produit fini du module
 
 Produit final
 
-### Un dépôt GitHub lisible avec graphiques commentés
+### Un dépôt GitHub lisible avec un rapport d'analyse
 
-Le produit attendu combine un projet rangé, quelques graphiques et des messages de versionnement qui racontent le travail.
+Le produit attendu combine un projet rangé, un journal de bord, un rapport Quarto et des messages de versionnement qui racontent le travail.
 
-**depot GitHub**
+**dépôt GitHub**
 
 commit propre
 
@@ -32,17 +32,17 @@ commit propre graphique annoté projet partagé
 
 À la fin de ce module, vous devriez être capable de
 
-- Utiliser GitHub via RStudio pour clôner un dépôt et faire des commit et des push.
+- Utiliser GitHub via RStudio pour cloner un dépôt et faire des commits et des push.
 
-- Lire un fichier `xls` dans RStudio.
+- Lire un fichier `xlsx` dans RStudio.
 
 - Gérer et transformer des données numériques à l’aide de `dplyr` (`glimpse`, `select`, `mutate`, `filter`).
 
 - Calculer et interpréter des statistiques descriptives pour des variables numériques (`moyenne`, `médiane`, `écart-type`, `variance`, `étendue`, `quantiles`), incluant pour des sous-groupes de données.
 
-- Visualiser des variables numériques avec `ggplot2` (`histogramme`, `boite à moustache`, `nuage de points`) et interpréter les graphiques obtenus.
+- Visualiser des variables numériques avec `ggplot2` (`histogramme`, `boîte à moustaches`, `nuage de points`) et interpréter les graphiques obtenus.
 
-- Produire et interpréter des graphiques comparant la distribution de variables continues entre des groupes (`histogrammes superposés`, `diagrammes en boites juxtaposés`, `densités empilées (ridge plots)`, `visualisation en facettes`).
+- Produire et interpréter des graphiques comparant la distribution de variables continues entre des groupes (`histogrammes superposés`, `diagrammes en boîtes juxtaposés`, `densités empilées (ridge plots)`, `visualisation en facettes`).
 
 - Utiliser les options de `ggplot2` pour améliorer la qualité de graphiques (titres, légendes, axes lisibles, cohérence graphique, `facets`).
 
@@ -54,7 +54,7 @@ Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exerc
 
 ### Lectures initiales
 
-Comme le module 2 est étallé sur 2 semaines, il y a un peu plus de lecture, pour vous préparer à la première partie du module vous pouvez survoler les lectures et y revenir de facon plus précise en préparation de la partie 2.
+Comme le module 2 est étalé sur 2 semaines, il y a un peu plus de lecture. Pour vous préparer à la première partie du module, vous pouvez survoler les lectures et y revenir de façon plus précise en préparation de la partie 2.
 
 On commence par quelques chapitres dans le fameux R4DS de Hadley Wickham et Garrett Grolemund:
 
@@ -97,15 +97,19 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Partager un dépôt avec graphiques commentés et historique lisible. Dans la carte Ouvrir la carteRéduire
+3 Défi Remettre le journal de bord et un rapport d'analyse dans GitHub. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
 ### Défi
 
-Voici le défi que vous devrez réaliser pour le **module 2**. Il est divisé en deux parties :
+Le défi du module 2 se fait dans le même dépôt GitHub que l’aventure. Vous devez remettre le journal de bord et un rapport d’analyse Quarto sur les données des manchots.
 
-**Partie 1** : Compléter votre journal de bord et le soumettre sur GitHub. Dix (10) journaux de bord seront sélectionnés au hasard et feront l’objet d’une **évaluation sommative**.
+[Consulter le défi du module 2](defi.llms.md)
 
-**Partie 2** : Soumettre sur GitHub le **rapport d’analyse de données** que la Dre Adélie pourra utiliser dans le cadre de sa demande de subvention.
+- Partie 1 : compléter et rendre le journal de bord.
+
+- Partie 2 : créer `rapport_analyse.qmd` et rendre `rapport_analyse.html`.
+
+- GitHub : faire plusieurs commits clairs et pousser les changements.
 
 4 Exercices Pratiquer graphiques, commits et interprétations courtes. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 

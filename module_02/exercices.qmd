@@ -9,7 +9,7 @@ format:
 # Exercices de consolidation
 
 Pour mettre en pratique les apprentissages de ce module, vous trouverez ci‑dessous **13 exercices** couvrant l’ensemble des notions du module 2 (`ggplot2`, `dplyr`, EDA, données tidy, bonnes pratiques de style et statistique descriptive façon *IMS*).\
-Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la library `ggplot2` (performances de voitures commercialisées aux États‑Unis, 1999‑2008). Lorsque d’autres jeux de données sont utilisés, ils sont précisés dans l’énoncé.
+Nous utiliserons principalement le jeu de données **`mpg`** provenant du package `ggplot2` (performances de voitures commercialisées aux États-Unis, 1999-2008). Lorsque d’autres jeux de données sont utilisés, ils sont précisés dans l’énoncé.
 
 ### Jeu de données `mpg` – Description des variables
 
@@ -31,7 +31,7 @@ Nous utiliserons principalement le jeu de données **`mpg`** prevenant de la lib
 
 ------------------------------------------------------------------------
 
-## Exercice 1 — Premier graphique *(visualisation rapide)*
+## Exercice 1 - Premier graphique *(visualisation rapide)*
 
 *Contexte :* vous découvrez la relation entre cylindrée (`displ`) et consommation sur autoroute (`hwy`) dans **`mpg`**. Tracez un nuage de points.
 
@@ -52,7 +52,7 @@ mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 2 — Ajout de couleur et thème *(esthétique)*
+## Exercice 2 - Ajout de couleur et thème *(esthétique)*
 
 *Contexte :* améliorer la lisibilité du graphique précédent en distinguant les points par **catégorie de véhicule** (`class`) et en appliquant un thème minimaliste.
 
@@ -71,7 +71,7 @@ mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 3 — Filtrer avec `dplyr` *(extraction ciblée)*
+## Exercice 3 - Filtrer avec `dplyr` *(extraction ciblée)*
 
 *Contexte :* la responsable marketing de **Toyota** souhaite connaître la dispersion de ses modèles. Sélectionnez uniquement les voitures *Toyota* et affichez `model`, `displ`, `hwy`.
 
@@ -87,7 +87,7 @@ toyota
 
 ------------------------------------------------------------------------
 
-## Exercice 4 — Variable dérivée et résumé *(statistiques descriptives)*
+## Exercice 4 - Variable dérivée et résumé *(statistiques descriptives)*
 
 *Contexte :* on définit une mesure d’**efficacité globale** `efficiency = hwy / cty`. Calculez, par catégorie (`class`), la moyenne et l’écart‑type de cette nouvelle variable.
 
@@ -105,7 +105,7 @@ mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 5 — Histogramme et densité *(distribution)*
+## Exercice 5 - Histogramme et densité *(distribution)*
 
 *Contexte :* la répartition de la cylindrée vous intrigue. Tracez l’histogramme de `displ` (largeur de classe 0,5 L) et superposez la densité.
 
@@ -121,7 +121,7 @@ mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 6 — Valeur extrême *(repérage d’outliers)*
+## Exercice 6 - Valeur extrême *(repérage d’outliers)*
 
 *Contexte :* un magazine veut savoir quel modèle possède la **meilleure consommation autoroute**. Trouvez‑le et affichez `manufacturer`, `model`, `year`, `hwy`.
 
@@ -135,11 +135,11 @@ mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 7 — Bonnes pratiques #1 *(style tidyverse)*
+## Exercice 7 - Bonnes pratiques #1 *(style tidyverse)*
 
 *Contexte :* vous recevez un script bâclé. Réécrivez‑le pour qu’il respecte le guide de style tidyverse.
 
--   Tout d'abord executer le code pour voir ce que ca donne. \> C'est l'ancienne facon de faire un graphique avec `base R`.
+-   Tout d'abord, exécutez le code pour voir ce que cela donne. C'est l'ancienne façon de faire un graphique avec `base R`.
 
 -   Reproduisez le graphique avec `ggplot2` en respectant les bonnes pratiques de style.
 
@@ -163,7 +163,7 @@ mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 8 — Bonnes pratiques #2 *(structure de script)*
+## Exercice 8 - Bonnes pratiques #2 *(structure de script)*
 
 *Contexte :* créez un fichier `analyse_mpg.R` avec :
 
@@ -188,7 +188,7 @@ mean_hwy <- mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 9 — Données « tidy » *(pivot_longer)*
+## Exercice 9 - Données « tidy » *(pivot_longer)*
 
 *Contexte :* vous passez des ventes annuelles d’un format large à long pour faciliter les visualisations.
 
@@ -216,7 +216,7 @@ sales_long
 
 ------------------------------------------------------------------------
 
-## Exercice 10 — Sommaire numérique *(cinq‑nombre)*
+## Exercice 10 - Sommaire numérique *(cinq‑nombre)*
 
 *Contexte :* résumé statistique rapide du MPG en ville (`cty`).
 
@@ -230,7 +230,7 @@ summary(mpg$cty)
 
 ------------------------------------------------------------------------
 
-## Exercice 11 — Boxplot par catégorie *(comparaison de groupes)*
+## Exercice 11 - Boxplot par catégorie *(comparaison de groupes)*
 
 *Contexte :* visualiser la distribution de `hwy` par `class`, classes triées par médiane décroissante.
 
@@ -249,7 +249,7 @@ mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 12 — Facettes *(distribution par transmission)*
+## Exercice 12 - Facettes *(distribution par transmission)*
 
 *Contexte :* comparer les distributions de cylindrée (`displ`) selon le type de transmission (`drv`).
 
@@ -265,7 +265,7 @@ mpg %>%
 
 ------------------------------------------------------------------------
 
-## Exercice 13 — Analyse statistique complète *(inspiration IMS)*
+## Exercice 13 - Analyse statistique complète *(inspiration IMS)*
 
 *Contexte :* comme dans le chapitre 5 d’*Introduction to Modern Statistics*, vous devez explorer en profondeur la variable **`hwy`**.
 
