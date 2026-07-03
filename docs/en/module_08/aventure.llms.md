@@ -96,13 +96,17 @@ In this section, you discover the essential functions of the `rvest` package. Th
 ``` r
 url <- "https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1"
 page <- safe_read_html(url)
+```
+
+    Unable to download https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1; using a local HTML fallback.
+
+``` r
 page
 ```
 
     {html_document}
-    <html lang="fr">
-    [1] <head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
-    [2] <body data-site-root="https://www.donneesquebec.ca/recherche/" data-local ...
+    <html>
+    [1] <body>\n    <div class="dataset-content">\n      <h3 class="dataset-headi ...
 
 The `read_html()` function downloads and converts the web page so it can be manipulated.
 
@@ -117,7 +121,7 @@ blocks <- html_elements(page, ".dataset-content")
 length(blocks)
 ```
 
-    [1] 20
+    [1] 1
 
 ``` r
 blocks[[1]]
@@ -125,10 +129,9 @@ blocks[[1]]
 
     {html_node}
     <div class="dataset-content">
-    [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
-    [2] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [3] <div class="dqc-org-cat">Catégorie :\n      \n        <a href="/recherche ...
-    [4] <div class="dqc-notes"> Le fichier horaire des données de la situation à  ...
+    [1] <h3 class="dataset-heading"><a>Example public dataset</a></h3>
+    [2] <div class="dqc-org-cat">Organisation : Données Québec</div>
+    [3] <div class="dqc-org-cat">Catégories : Santé</div>
 
 To extract text from an HTML element:
 
@@ -136,7 +139,7 @@ To extract text from an HTML element:
 html_text2(blocks[[1]])
 ```
 
-    [1] "Fichier horaire des données de la situation à l'urgence\nOrganisation : Ministère de la Santé et des services sociaux\nCatégorie : Santé\nLe fichier horaire des données de la situation à l'urgence présente le nombre de patients sur civière, le nombre de patients sur civière plus de 24 heures et le nombre de..."
+    [1] "Example public dataset\nOrganisation : Données Québec\nCatégories : Santé"
 
 Now, let us test extraction of the title:
 
@@ -145,7 +148,7 @@ html_elements(blocks[[1]], ".dataset-heading a") |>
   html_text2()
 ```
 
-    [1] "Fichier horaire des données de la situation à l'urgence"
+    [1] "Example public dataset"
 
 And for the producer? We need to locate a substructure containing the information:
 
@@ -156,8 +159,7 @@ info <- html_elements(blocks[[1]], ".dqc-org-cat") |>
 info
 ```
 
-    [1] "Organisation : Ministère de la Santé et des services sociaux"
-    [2] "Catégorie : Santé"
+    [1] "Organisation : Données Québec" "Catégories : Santé"
 
 The Données Québec page used here returns French labels. A robust function should therefore handle labels such as `Organisation`, `Catégorie` and `Catégories`, even when you are reading the English version of the course.
 
@@ -170,7 +172,7 @@ producer <- extract_value(
 producer
 ```
 
-    [1] "Ministère de la Santé et des services sociaux"
+    [1] "Données Québec"
 
 > **TIP:**
 >

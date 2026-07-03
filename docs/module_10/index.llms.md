@@ -64,7 +64,7 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Déployer ou présenter un tableau de bord final cohérent. Dans la carte Ouvrir la carteRéduire
+3 Défi Déployer ou présenter un tableau de bord final cohérent. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
 ### Défi — Tableau de bord déployé
 
@@ -75,6 +75,8 @@ Vous devez construire un tableau de bord interactif à partir du modèle fourni.
 - Analyser les variables numériques (`plaisir`, `engagement`, `difficulte`) ;
 - Être personnalisé (filtrage, couleurs, résumé) ;
 - Être déployé et partagé à Anne-Sophie.
+
+La consigne complète est disponible dans la page [Défi 10](defi.llms.md). Le dépôt de départ est `STT-1100/aventure-10`.
 
 ## Données et outils
 

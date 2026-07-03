@@ -64,7 +64,7 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Deploy or present a coherent final dashboard. In this card Open cardCollapse
+3 Challenge Deploy or present a coherent final dashboard. [Challenge](defi.llms.md) Open cardCollapse
 
 ### Challenge — Deployed Dashboard
 
@@ -72,9 +72,11 @@ You need to build an interactive dashboard from the template provided. This dash
 
 - Display a sentiment score per week;
 - Identify distinctive words (TF-IDF) or a word cloud;
-- Analyze numerical variables (`pleasure`, `commitment`, `difficulty`);
+- Analyze numerical variables (`plaisir`, `engagement`, `difficulte`);
 - Be personalized (filtering, colors, summary);
 - Be deployed and shared with Anne-Sophie.
+
+The complete instructions are available on the [Challenge 10](defi.llms.md) page. The starter repository is `STT-1100/aventure-10`.
 
 ## Data and Tools
 

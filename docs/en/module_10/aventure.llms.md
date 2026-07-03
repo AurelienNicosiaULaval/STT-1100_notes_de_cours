@@ -2,11 +2,11 @@
 
 STT-1100 • Introduction to Data Science
 
-# Put in context
+# Context
 
-This week, you were **hired as a junior business analyst** by the **Faculty of Science and Engineering at Laval University**. As part of the reform of the baccalaureate in statistics and data science, management wishes to evaluate **the evolution of student feelings throughout the session**.
+This week, you were **hired as a junior business analyst** by the **Faculty of Science and Engineering at Laval University**. As part of the reform of the bachelor’s program in statistics and data science, management wishes to evaluate **how student feedback evolves throughout the session**.
 
-Each week, students answered a questionnaire about their learning experience in the STT-1100 course. Your analyzes will be essential to document the strengths and areas for improvement of the new program.
+Each week, students answered a questionnaire about their learning experience in the STT-1100 course. Your analysis will help document strengths and areas for improvement in the new program.
 
 You are guided by **Anne-Sophie**, the program director, who supports you in structuring your dashboard and helps you interpret the results.
 
@@ -14,30 +14,36 @@ You are guided by **Anne-Sophie**, the program director, who supports you in str
 
 # Mission
 
-Build an interactive dashboard (with `flexdashboard` and `shiny`) which allows you to:
+Build an interactive dashboard with `flexdashboard` and `shiny` that allows you to:
 
-- view the feelings expressed per week,
+- visualize sentiment expressed by week,
 - identify the most frequent and distinctive words,
 - explore lexical trends over time,
 - offer dynamic filters to refine the analysis.
 
 # Data
 
-A `sentiments_cours.csv` file contains:
+The main working file is `data/sentiments_cours.csv`. It is built progressively during the session from anonymized student feedback.
+
+At the beginning of the adventure, this file may not yet be complete. The module repository therefore also provides a small non-real example file so you can test the dashboard before the final feedback data are available.
+
+The expected final file contains:
 
 - `id`: anonymous identifier
-- `week`: week number
-- `comment`: free text on their feelings about the course this week
-- `difficulty`: perceived level of difficulty (1 to 5)
+- `semaine`: week or module number
+- `commentaire`: free text about the course experience
+- `difficulte`: perceived level of difficulty (1 to 5)
 - `engagement`: engagement level (1 to 5)
-- `pleasure`: pleasure level (1 to 5)
+- `plaisir`: enjoyment level (1 to 5)
+
+The column names are kept in French to match the R template. If a variable is not collected exactly in this form, clearly document the recoding used in your dashboard.
 
 # Recommended tools
 
 - `tidytext`, `stringr`, `dplyr`: text cleaning and analysis
 - `ggplot2`, `wordcloud`, `plotly`: visualization
 - `flexdashboard`, `shiny`: interactive interface
-- `lexicon`: `bing`, `afinn`, or `nrc` (for sentiment analysis)
+- a custom French lexicon for sentiment analysis
 
 # Guided steps
 
@@ -45,7 +51,7 @@ A `sentiments_cours.csv` file contains:
 
 > **IMPORTANT:**
 >
-> “Could you show me an example with some comments and how you would clean them step by step? »
+> “Could you show me an example with some comments and how you would clean them step by step?”
 
 > **TIP:**
 >
@@ -57,21 +63,23 @@ A `sentiments_cours.csv` file contains:
 > - **Stopwords**: very frequent words (“the”, “of”, “and”, etc.) which generally do not provide useful semantic information for analysis.
 > - **Cleaning**: lowercase, removal of punctuation, numbers and special characters to standardize tokens.
 
-### Example of simulated dataset
+### Example of a simulated dataset
+
+This example is only used to understand the steps. The final dashboard must be connected to `data/sentiments_cours.csv` when anonymized feedback is available.
 
 ``` downlit
 # Fictitious dataset in French with comments
-example <- tibble::tibble(
+exemple <- tibble::tibble(
   id = 1:7,
-  week = c(1, 1, 2, 2, 2, 3, 3),
-  comment = c(
-    "I found the course very clear this week, well done to the teacher!",
-    "I'm starting to understand better, it's motivating!",
-    "Too much material to assimilate in a short time, I feel overwhelmed.",
-    "Not easy this week, I had trouble with the graphics.",
-    "Phew very difficult this week, especially with the graphics.",
-    "The tools are powerful, but I lack practice.",
-    "The construction of the dashboard is super interesting."
+  semaine = c(1, 1, 2, 2, 2, 3, 3),
+  commentaire = c(
+    "J'ai trouvé le cours très clair cette semaine, bravo au prof !",
+    "Je commence à mieux comprendre, c'est motivant !",
+    "Trop de matière à assimiler en peu de temps, je me sens dépassé.",
+    "Pas facile cette semaine, j’ai eu du mal avec les graphiques.",
+    "Ouf très difficile cette semaine, particulièrement avec les graphiques.",
+    "Les outils sont puissants, mais je manque de pratique.",
+    "La construction du dashboard est super intéressante."
   )
 )
 ```
@@ -89,29 +97,29 @@ library(stopwords)
 # Load French stopwords
 stop_fr <- stopwords::stopwords("fr", source = "snowball")
 
-clean_text <- example %>%
-  unnest_tokens(word, comment) %>%
+texte_nettoye <- exemple %>%
+  unnest_tokens(word, commentaire) %>%
   filter(!word %in% stop_fr, # Remove frequent words
          str_detect(word, "^[a-zéèêàâîôûùçäëïöü]+$")) # Keep words valid in French
 
-head(clean_text)
+head(texte_nettoye)
 ```
 
     # A tibble: 6 × 3
-         id  week word
-      <int> <dbl> <chr>
-    1     1     1 i
-    2     1     1 found
-    3     1     1 the
-    4     1     1 course
-    5     1     1 very
-    6     1     1 clear
+         id semaine word
+      <int>   <dbl> <chr>
+    1     1       1 trouvé
+    2     1       1 cours
+    3     1       1 très
+    4     1       1 clair
+    5     1       1 semaine
+    6     1       1 bravo
 
 > **IMPORTANT:**
 >
-> “Could you show me an example with some comments and how you would clean them step by step? »
+> Then apply the same type of cleaning to `data/sentiments_cours.csv` or to the example file provided in the repository.
 
-Anne-Sophie asks you to apply a classic cleanse:
+Anne-Sophie asks you to apply a classic cleaning workflow:
 
 - remove punctuation, numbers and frequent words (stopwords),
 
@@ -134,39 +142,39 @@ Currently, there **does not exist a lexicon integrated into [`tidytext::get_sent
 
 > **IMPORTANT:**
 >
-> “For this step, I recommend that you build a little homemade lexicon. You can start with words that come up often and rank them subjectively. The goal here is to understand the principle of sentiment analysis, even with simple tools. »
+> “For this step, I recommend that you build a small custom lexicon. You can start with words that come up often and classify them subjectively. The goal here is to understand the principle of sentiment analysis, even with simple tools.”
 
 ``` downlit
-# Basic house glossary to adapt
-lexicon_fr <- tibble::tibble(
-  word = c("clear", "motivating", "well done", "difficult", "outdated", "bad", "interesting", "powerful"),
-  feeling = c("positive", "positive", "positive", "negative", "negative", "negative", "positive", "positive")
+# Basic custom lexicon to adapt
+lexique_fr <- tibble::tibble(
+  word = c("clair", "motivant", "bravo", "difficile", "dépassé", "mal", "intéressante", "puissants"),
+  sentiment = c("positive", "positive", "positive", "negative", "negative", "negative", "positive", "positive")
 )
 
-sentiment_fr <- clean_text %>%
-  inner_join(lexicon_fr, by = "word") %>%
-  count(week, feeling) %>%
-  tidyr::pivot_wider(names_from = feeling, values_from = n, values_fill = 0) %>%
+sentiment_fr <- texte_nettoye %>%
+  inner_join(lexique_fr, by = "word") %>%
+  count(semaine, sentiment) %>%
+  tidyr::pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>%
   mutate(score = positive - negative)
 
 sentiment_fr
 ```
 
     # A tibble: 3 × 4
-       week positive negative score
-      <dbl>    <int>    <int> <int>
-    1     1        2        0     2
-    2     2        0        1    -1
-    3     3        2        0     2
+      semaine positive negative score
+        <dbl>    <int>    <int> <int>
+    1       1        3        0     3
+    2       2        0        3    -3
+    3       3        2        0     2
 
 ### Viewing scores per week
 
 Let’s make a graph to visualize the evolution of the sentiment score per week:
 
 ``` downlit
-ggplot(sentiment_fr, aes(x = week, y = score)) +
+ggplot(sentiment_fr, aes(x = semaine, y = score)) +
   geom_col(fill = "steelblue") +
-  labs(title = "Feeling score per week",
+  labs(title = "Sentiment score by week",
        y = "Net score (positive - negative)", x = "Week")
 ```
 
@@ -174,11 +182,11 @@ ggplot(sentiment_fr, aes(x = week, y = score)) +
 
 > **NOTE:**
 >
-> “As the lexicons integrated into [`get_sentiments()`](https://juliasilge.github.io/tidytext/reference/get_sentiments.html) are only available in English, I suggest you build a small homemade lexicon for French. It will be imperfect, but it will help you understand the principle. We can then discuss it together to enrich it. What interests me is that you are able to interpret the evolution of sentiment from one week to the next, even with simple tools. »
+> “As the lexicons integrated into [`get_sentiments()`](https://juliasilge.github.io/tidytext/reference/get_sentiments.html) are only available in English, I suggest you build a small custom lexicon for French. It will be imperfect, but it will help you understand the principle. We can then discuss it together to enrich it. What interests me is that you are able to interpret the evolution of sentiment from one week to the next, even with simple tools.”
 
 ### Final collaboration
 
-At the end of the course, an in-class activity will allow each student/team to **share their own lexicon of feelings in French** built during the analysis.
+At the end of the course, an in-class activity will allow each student/team to **share their own French sentiment lexicon** built during the analysis.
 
 **The teacher will collect and merge these lexicons**, checking them to obtain a common enriched version. This new version will be shared with the whole class as a collective resource for future projects.
 
@@ -188,7 +196,7 @@ In this step, we will identify the words that stand out the most each week. To d
 
 > **TIP:**
 >
-> “A good indicator of how students feel is the words that stand out the most in their comments. You can try a TF-IDF analysis or even create a word cloud. »
+> “A good indicator of how students feel is the words that stand out the most in their comments. You can try a TF-IDF analysis or even create a word cloud.”
 
 > **NOTE:**
 >
@@ -201,23 +209,23 @@ In this step, we will identify the words that stand out the most each week. To d
 Let’s calculate the TF-IDF for each word per week:
 
 ``` downlit
-tfidf <- clean_text %>%
-  count(week, word) %>%
-  bind_tf_idf(word, week, n) %>%
+tfidf <- texte_nettoye %>%
+  count(semaine, word) %>%
+  bind_tf_idf(word, semaine, n) %>%
   arrange(desc(tf_idf))
 
 head(tfidf)
 ```
 
     # A tibble: 6 × 6
-       week word             n     tf   idf tf_idf
-      <dbl> <chr>        <int>  <dbl> <dbl>  <dbl>
-    1     2 graphics         2 0.0645  1.10 0.0709
-    2     2 with             2 0.0645  1.10 0.0709
-    3     3 are              1 0.0625  1.10 0.0687
-    4     3 but              1 0.0625  1.10 0.0687
-    5     3 construction     1 0.0625  1.10 0.0687
-    6     3 dashboard        1 0.0625  1.10 0.0687
+      semaine word             n    tf   idf tf_idf
+        <dbl> <chr>        <int> <dbl> <dbl>  <dbl>
+    1       3 construction     1 0.125  1.10  0.137
+    2       3 dashboard        1 0.125  1.10  0.137
+    3       3 intéressante     1 0.125  1.10  0.137
+    4       3 manque           1 0.125  1.10  0.137
+    5       3 outils           1 0.125  1.10  0.137
+    6       3 pratique         1 0.125  1.10  0.137
 
 ### Visualization for a given week
 
@@ -228,7 +236,7 @@ Let’s make a chart to visualize the most distinctive words for a specific week
 library(forcats)
 
 tfidf %>%
-  filter(week == 2) %>%
+  filter(semaine == 2) %>%
   slice_max(tf_idf, n = 8) %>%
   mutate(word = fct_reorder(word, tf_idf)) %>%
   ggplot(aes(x = word, y = tf_idf)) +
@@ -242,11 +250,14 @@ tfidf %>%
 
 A visualization like this allows you to see which words are most representative of that week’s comments. There is also the possibility of creating a **word cloud** for a more visual representation. A word cloud is a graphical representation of the most frequent words, where the size of each word is proportional to its frequency of occurrence.
 
-To create a word cloud in French: - Use the `wordcloud()` function of the `wordcloud` package, or `ggwordcloud` for more customization. - Get inspired by this complete example: <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
+To create a word cloud in French:
+
+- use the `wordcloud()` function from the `wordcloud` package, or `ggwordcloud` for more customization;
+- use this complete example as inspiration: <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>.
 
 > **IMPORTANT:**
 >
-> “Can you spot the words that stand out the most each week? You could try a TF-IDF approach and make me a graph or even a word cloud. »
+> “Can you spot the words that stand out the most each week? You could try a TF-IDF approach and make me a graph or even a word cloud.”
 
 ## Step 4 — Creating the dashboard
 
@@ -254,7 +265,7 @@ Now that we’ve cleaned the data and performed the sentiment and distinguishing
 
 > **NOTE:**
 >
-> The final dashboard should be **clear, interactive and useful**. A **ready-to-use template (`Modele_Dashboardt.Rmd`)** can be found in the module’s GitHub repository. Customize it: plug in your own data, adjust filters, and add at least two visualizations.
+> The final dashboard should be **clear, interactive and useful**. A **ready-to-use template (`modele_dashboard.Rmd`)** can be found in the module’s GitHub repository. Customize it: connect the anonymized feedback data, adjust filters, and add at least two visualizations.
 
 ## Step 5 — Recommendations and final analysis
 
@@ -263,13 +274,13 @@ At the end of the dashboard, write a summary of your **key observations**:
 - evolution of the sentiment score,
 - critical weeks,
 - recommendations for action to improve the student experience,
-- **analysis of numerical variables** `difficulty`, `engagement`, `pleasure`: average and trend per week, comparison with the sentiment score (e.g. simple correlations or combined graphs).
+- **analysis of numerical variables** `difficulte`, `engagement`, `plaisir`: average and trend per week, comparison with the sentiment score (e.g. simple correlations or combined graphs).
 
 > **IMPORTANT:**
 >
-> “Don’t forget to explore the numerical scores. How does text sentiment compare to level of perceived enjoyment or difficulty? Present at least one visualization that cross-references this information. »
+> “Don’t forget to explore the numerical scores. How does text sentiment compare to perceived enjoyment or difficulty? Present at least one visualization that cross-references this information.”
 
-# Bonus — Personalization — Personalization
+# Bonus — Personalization
 
 Here are some ideas to go further in customizing your dashboard:
 
@@ -286,8 +297,8 @@ You can also integrate a progress bar or visual indicator of overall sentiment p
   - the `.Rmd` of the dashboard,
   - the final HTML rendering,
   - the cleaned data file (if modified).
-- **The dashboard must be deployed (for example via Shinyapp.io or Posit Cloud)** and the final link sent to **Anne-Sophie (the real program director)**.
+- **The dashboard must be deployed (for example via shinyapps.io or Posit Cloud)** and the final link must be submitted using the mechanism defined for the course.
 
 # Advice from Anne-Sophie
 
-> “A good dashboard is like a good pitch: **clear, readable and targeted**. Put yourself in your end user’s shoes. »
+> “A good dashboard is like a good pitch: **clear, readable and targeted**. Put yourself in your end user’s shoes.”

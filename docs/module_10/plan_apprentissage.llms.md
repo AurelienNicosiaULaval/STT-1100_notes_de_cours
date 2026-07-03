@@ -36,6 +36,10 @@ Vous devez construire un tableau de bord interactif à partir du modèle fourni.
 - Être personnalisé (filtrage, couleurs, résumé) ;
 - Être déployé et partagé à Anne-Sophie.
 
+Consigne complète : [Défi 10 — Tableau de bord de rétroactions](../module_10/defi.llms.md)
+
+Dépôt de départ : `STT-1100/aventure-10`
+
 # Grille d’évaluation
 
 Chaque équipe doit remettre un tableau de bord interactif basé sur les commentaires des étudiant·es du cours. Voici la grille utilisée pour l’évaluation :

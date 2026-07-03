@@ -96,6 +96,12 @@ Present a predictive model or a bias analysis in a short video capsule.
 
 [View challenge 9](module_09/defi.llms.md)
 
+### Challenge 10
+
+Build an interactive dashboard from anonymized course feedback.
+
+[View challenge 10](module_10/defi.llms.md)
+
 ## Types of productions
 
 Formats vary across modules, but they always remain connected to course skills.

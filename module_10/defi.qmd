@@ -1,0 +1,88 @@
+---
+title: "Défi 10 — Tableau de bord de rétroactions"
+subtitle: "STT-1100 • Introduction à la science des données"
+format:
+  html:
+    toc: true
+    toc-title: "Plan du défi"
+    embed-resources: true
+    link-external-newwindow: true
+    code-link: true
+    theme: flatly
+    css: [../css/base_css.css]
+editor: visual
+editor_options:
+  chunk_output_type: console
+---
+
+# Mission
+
+Vous devez construire un tableau de bord interactif à partir des rétroactions anonymisées recueillies pendant la session.
+
+Le fichier principal attendu est `data/sentiments_cours.csv`. Il sera construit progressivement à partir des rétroactions des étudiant·es. Si ce fichier n'est pas encore complet au moment où vous commencez, utilisez le fichier exemple non réel fourni dans le dépôt pour tester votre code.
+
+# Dépôt de départ
+
+Le dépôt de départ est :
+
+`STT-1100/aventure-10`
+
+Le modèle à modifier est :
+
+`modele_dashboard.Rmd`
+
+# Données
+
+Le tableau de bord final doit être conçu pour fonctionner avec un fichier `data/sentiments_cours.csv` contenant, au minimum, les variables suivantes :
+
+-   `id` : identifiant anonyme ;
+-   `semaine` : numéro de semaine ou de module ;
+-   `commentaire` : texte libre à analyser ;
+-   `difficulte` : niveau de difficulté perçu ;
+-   `engagement` : niveau d'engagement ;
+-   `plaisir` : niveau de plaisir.
+
+Si vous utilisez une variable recodée ou dérivée, indiquez-le clairement dans le tableau de bord.
+
+# Tableau de bord attendu
+
+Votre tableau de bord doit :
+
+-   afficher un score de sentiment par semaine ;
+-   identifier les mots distinctifs avec TF-IDF ou produire un nuage de mots ;
+-   analyser les variables numériques `plaisir`, `engagement` et `difficulte` ;
+-   inclure au moins un filtre interactif ;
+-   présenter un court résumé des observations principales ;
+-   être personnalisé sans nuire à la lisibilité.
+
+# Confidentialité
+
+Les rétroactions étudiantes doivent rester anonymes. Ne publiez pas de commentaires contenant des informations permettant d'identifier une personne.
+
+Si vous nettoyez ou modifiez les données, conservez seulement la version anonymisée nécessaire au tableau de bord.
+
+# Livrables
+
+Votre dépôt GitHub doit contenir :
+
+-   le fichier `modele_dashboard.Rmd` modifié ;
+-   le rendu HTML final ou les instructions nécessaires pour lancer le tableau de bord ;
+-   le fichier de données anonymisé si sa diffusion est autorisée ;
+-   un court fichier `README.md` expliquant comment ouvrir ou déployer le tableau de bord.
+
+Le tableau de bord doit être déployé ou partagé selon les consignes données en classe.
+
+# Grille d’évaluation
+
+| Critère | Description | Points |
+|--------------------|--------------------------------------|--------------|
+| Nettoyage du texte | Texte transformé, tokenisé, stopwords retirés, valeurs manquantes traitées | /10 |
+| Lexique et score de sentiment | Lexique français clair, application correcte par semaine, limites expliquées | /15 |
+| TF-IDF ou nuage de mots | Analyse claire des mots distinctifs, visualisation lisible | /15 |
+| Variables numériques | Tendances ou moyennes bien explorées pour `plaisir`, `engagement`, `difficulte` | /15 |
+| Visualisations | Graphiques pertinents, lisibles et bien titrés | /15 |
+| Interactivité | Filtres ou composants Shiny utiles pour explorer les données | /15 |
+| Personnalisation | Adaptation du modèle, choix visuels cohérents, résumé utile | /10 |
+| Déploiement et accessibilité | Tableau de bord fonctionnel et lien valide remis dans les temps | /5 |
+
+Total : /100

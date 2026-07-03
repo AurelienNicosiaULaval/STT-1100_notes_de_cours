@@ -23,7 +23,11 @@ Construire un tableau de bord interactif (avec `flexdashboard` et `shiny`) qui p
 
 # Données
 
-Un fichier `sentiments_cours.csv` contient :
+Le fichier de travail principal s’appelle `data/sentiments_cours.csv`. Il est construit progressivement pendant la session à partir des rétroactions anonymisées des étudiant·es.
+
+Au début de l’aventure, ce fichier peut ne pas encore être complet. Le dépôt du module fournit donc aussi un petit fichier exemple non réel pour tester le tableau de bord avant l’arrivée des rétroactions finales.
+
+Le format attendu du fichier final est :
 
 - `id`: identifiant anonyme
 - `semaine`: numéro de semaine
@@ -32,12 +36,14 @@ Un fichier `sentiments_cours.csv` contient :
 - `engagement`: niveau d’engagement (1 à 5)
 - `plaisir`: niveau de plaisir (1 à 5)
 
+Si une variable n’est pas collectée exactement sous cette forme, documentez clairement le recodage utilisé dans votre tableau de bord.
+
 # Outils recommandés
 
 - `tidytext`, `stringr`, `dplyr` : nettoyage et analyse du texte
 - `ggplot2`, `wordcloud`, `plotly` : visualisation
 - `flexdashboard`, `shiny` : interface interactive
-- `lexique` : `bing`, `afinn`, ou `nrc` (pour l’analyse de sentiment)
+- un lexique maison en français pour l’analyse de sentiment
 
 # Étapes guidées
 
@@ -58,6 +64,8 @@ Un fichier `sentiments_cours.csv` contient :
 > - **Nettoyage** : mise en minuscules, retrait de la ponctuation, chiffres et caractères spéciaux pour normaliser les tokens.
 
 ### Exemple de jeu de données simulé
+
+Cet exemple sert seulement à comprendre les étapes. Le tableau de bord final devra être branché au fichier `data/sentiments_cours.csv` lorsque les rétroactions anonymisées seront disponibles.
 
 ``` downlit
 # Jeu de données fictif en français avec des commentaires
@@ -81,20 +89,6 @@ exemple <- tibble::tibble(
 ``` downlit
 library(tidytext)
 library(dplyr)
-```
-
-
-    Attaching package: 'dplyr'
-
-    The following objects are masked from 'package:stats':
-
-        filter, lag
-
-    The following objects are masked from 'package:base':
-
-        intersect, setdiff, setequal, union
-
-``` downlit
 library(stringr)
 library(tibble)
 library(ggplot2)
@@ -123,7 +117,7 @@ head(texte_nettoye)
 
 > **IMPORTANT:**
 >
-> « Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »
+> Appliquez ensuite le même type de nettoyage au fichier `data/sentiments_cours.csv` ou au fichier exemple fourni dans le dépôt.
 
 Anne-Sophie vous demande d’appliquer un nettoyage classique :
 
@@ -192,9 +186,9 @@ ggplot(sentiment_fr, aes(x = semaine, y = score)) +
 
 ### Collaboration finale
 
-À la fin du cours, une activité en classe permettra à chaque étudiants/équipes de **partager son propre lexique de sentiments en français** construit durant l’analyse.
+À la fin du cours, une activité en classe permettra à chaque étudiant·e ou équipe de **partager son propre lexique de sentiments en français** construit durant l’analyse.
 
-**L’enseignant collectera et fusionnera ces lexiques**, en les vérifiant pour en retirer une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.
+**L’enseignant collectera et fusionnera ces lexiques**, en les vérifiant pour produire une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.
 
 ## Étape 3 — Mots distinctifs
 
@@ -254,9 +248,12 @@ tfidf %>%
 
 ![](aventure_files/figure-html/unnamed-chunk-6-1.png)
 
-Une visualisation comme celle-ci permet de voir quels mots sont les plus représentatifs des commentaires de cette semaine-là. Il existe aussi la possibilité de créer un **nuage de mots** pour une représentation plus visuelle. Un nuage de mot est une représentation graphique des mots les plus fréquents, où la taille de chaque mot est proportionnelle à sa fréquence d’apparition.
+Une visualisation comme celle-ci permet de voir quels mots sont les plus représentatifs des commentaires de cette semaine-là. Il existe aussi la possibilité de créer un **nuage de mots** pour une représentation plus visuelle. Un nuage de mots est une représentation graphique des mots les plus fréquents, où la taille de chaque mot est proportionnelle à sa fréquence d’apparition.
 
-Pour créer un nuage de mots en français : - Utilisez la fonction `wordcloud()` du package `wordcloud`, ou `ggwordcloud` pour plus de personnalisation. - Inspirez-vous de cet exemple complet : <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
+Pour créer un nuage de mots en français :
+
+- utilisez la fonction `wordcloud()` du package `wordcloud`, ou `ggwordcloud` pour plus de personnalisation ;
+- inspirez-vous de cet exemple complet : <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>.
 
 > **IMPORTANT:**
 >
@@ -268,7 +265,7 @@ Maintenant que nous avons nettoyé les données et effectué les analyses de sen
 
 > **NOTE:**
 >
-> Le tableau de bord final doit être **clair, interactif et utile**. Un **modèle prêt à l’emploi (`Modele_Dashboardt.Rmd`)** se trouve dans le dépôt GitHub du module. Personnalisez‑le : branchez vos propres données, ajustez les filtres, et ajoutez au moins deux visualisations.
+> Le tableau de bord final doit être **clair, interactif et utile**. Un **modèle prêt à l’emploi (`modele_dashboard.Rmd`)** se trouve dans le dépôt GitHub du module. Personnalisez-le : branchez les rétroactions anonymisées, ajustez les filtres, et ajoutez au moins deux visualisations.
 
 ## Étape 5 — Recommandations et analyse finale
 
@@ -283,7 +280,7 @@ Maintenant que nous avons nettoyé les données et effectué les analyses de sen
 >
 > « N’oubliez pas d’explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »
 
-# Bonus — Personnalisation — Personnalisation
+# Bonus — Personnalisation
 
 Voici quelques idées pour aller plus loin dans la personnalisation de votre tableau de bord :
 
@@ -300,7 +297,7 @@ Vous pouvez également intégrer une barre de progression ou un indicateur visue
   - le `.Rmd` du tableau de bord,
   - le rendu HTML final,
   - le fichier de données nettoyé (si modifié).
-- **Le tableau de bord doit être déployé (par exemple via Shinyapp.io ou Posit Cloud)** et le lien final envoyé à **Anne-Sophie (la véritable directrice du programme)**.
+- **Le tableau de bord doit être déployé (par exemple via shinyapps.io ou Posit Cloud)** et le lien final doit être remis selon le mécanisme prévu par le cours.
 
 # Conseils d’Anne-Sophie
 

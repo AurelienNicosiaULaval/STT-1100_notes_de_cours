@@ -96,6 +96,12 @@ Présenter un modèle prédictif ou une analyse de biais dans une capsule vidéo
 
 [Consulter le défi 9](module_09/defi.llms.md)
 
+### Défi 10
+
+Construire un tableau de bord interactif à partir des rétroactions anonymisées du cours.
+
+[Consulter le défi 10](module_10/defi.llms.md)
+
 ## Types de productions
 
 Les formats changent selon les modules, mais ils restent toujours reliés aux compétences du cours.

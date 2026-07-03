@@ -5853,7 +5853,7 @@ margin-bottom: .05rem;
   <li><a href="#%C3%A9tape-5-recommandations-et-analyse-finale" id="toc-étape-5-recommandations-et-analyse-finale" class="nav-link" data-scroll-target="#%C3%A9tape-5-recommandations-et-analyse-finale">Étape 5 — Recommandations et analyse finale</a></li>
   </ul>
 </li>
-  <li><a href="#bonus-personnalisation-personnalisation" id="toc-bonus-personnalisation-personnalisation" class="nav-link" data-scroll-target="#bonus-personnalisation-personnalisation">Bonus — Personnalisation — Personnalisation</a></li>
+  <li><a href="#bonus-personnalisation" id="toc-bonus-personnalisation" class="nav-link" data-scroll-target="#bonus-personnalisation">Bonus — Personnalisation</a></li>
   <li><a href="#livraison-attendue" id="toc-livraison-attendue" class="nav-link" data-scroll-target="#livraison-attendue">Livraison attendue</a></li>
   <li><a href="#conseils-danne-sophie" id="toc-conseils-danne-sophie" class="nav-link" data-scroll-target="#conseils-danne-sophie">Conseils d’Anne-Sophie</a></li>
   </ul></nav>
@@ -5890,7 +5890,9 @@ margin-bottom: .05rem;
 <li>explorer les tendances lexicales dans le temps,</li>
 <li>offrir des filtres dynamiques pour affiner l’analyse.</li>
 </ul></section><section id="données" class="level1"><h1>Données</h1>
-<p>Un fichier <code>sentiments_cours.csv</code> contient :</p>
+<p>Le fichier de travail principal s’appelle <code>data/sentiments_cours.csv</code>. Il est construit progressivement pendant la session à partir des rétroactions anonymisées des étudiant·es.</p>
+<p>Au début de l’aventure, ce fichier peut ne pas encore être complet. Le dépôt du module fournit donc aussi un petit fichier exemple non réel pour tester le tableau de bord avant l’arrivée des rétroactions finales.</p>
+<p>Le format attendu du fichier final est :</p>
 <ul>
 <li>
 <code>id</code>: identifiant anonyme</li>
@@ -5904,7 +5906,9 @@ margin-bottom: .05rem;
 <code>engagement</code>: niveau d’engagement (1 à 5)</li>
 <li>
 <code>plaisir</code>: niveau de plaisir (1 à 5)</li>
-</ul></section><section id="outils-recommandés" class="level1"><h1>Outils recommandés</h1>
+</ul>
+<p>Si une variable n’est pas collectée exactement sous cette forme, documentez clairement le recodage utilisé dans votre tableau de bord.</p>
+</section><section id="outils-recommandés" class="level1"><h1>Outils recommandés</h1>
 <ul>
 <li>
 <code>tidytext</code>, <code>stringr</code>, <code>dplyr</code> : nettoyage et analyse du texte</li>
@@ -5912,8 +5916,7 @@ margin-bottom: .05rem;
 <code>ggplot2</code>, <code>wordcloud</code>, <code>plotly</code> : visualisation</li>
 <li>
 <code>flexdashboard</code>, <code>shiny</code> : interface interactive</li>
-<li>
-<code>lexique</code> : <code>bing</code>, <code>afinn</code>, ou <code>nrc</code> (pour l’analyse de sentiment)</li>
+<li>un lexique maison en français pour l’analyse de sentiment</li>
 </ul></section><section id="étapes-guidées" class="level1"><h1>Étapes guidées</h1>
 <section id="étape-1-nettoyage-de-texte" class="level2"><h2 class="anchored" data-anchor-id="étape-1-nettoyage-de-texte">Étape 1 — Nettoyage de texte</h2>
 <div class="callout callout-style-default callout-important callout-titled" title="Question d’Anne-Sophie">
@@ -5963,6 +5966,7 @@ margin-bottom: .05rem;
 </div>
 </div>
 <section id="exemple-de-jeu-de-données-simulé" class="level3"><h3 class="anchored" data-anchor-id="exemple-de-jeu-de-données-simulé">Exemple de jeu de données simulé</h3>
+<p>Cet exemple sert seulement à comprendre les étapes. Le tableau de bord final devra être branché au fichier <code>data/sentiments_cours.csv</code> lorsque les rétroactions anonymisées seront disponibles.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Jeu de données fictif en français avec des commentaires</span></span>
@@ -5983,28 +5987,11 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section><section id="prétraitement-du-texte" class="level3"><h3 class="anchored" data-anchor-id="prétraitement-du-texte">Prétraitement du texte</h3>
-<div class="cell" data-messge="false">
+<div class="cell">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://juliasilge.github.io/tidytext/">tidytext</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code></pre></div>
-<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="code-copy-outer-scaffold">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quanteda/stopwords">stopwords</a></span><span class="op">)</span></span>
@@ -6032,17 +6019,17 @@ Attaching package: 'dplyr'</code></pre>
 6     1       1 bravo  </code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Question d’Anne-Sophie">
+<div class="callout callout-style-default callout-important callout-titled" title="À faire dans votre analyse">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Question d’Anne-Sophie
+<span class="screen-reader-only">Important</span>À faire dans votre analyse
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>« Est-ce que tu pourrais me montrer un exemple avec quelques commentaires et comment tu les nettoierais étape par étape ? »</p>
+<p>Appliquez ensuite le même type de nettoyage au fichier <code>data/sentiments_cours.csv</code> ou au fichier exemple fourni dans le dépôt.</p>
 </div>
 </div>
 <p>Anne-Sophie vous demande d’appliquer un nettoyage classique :</p>
@@ -6087,7 +6074,7 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Lexique maison de base à adapter</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Lexique maison de base à adapter</span></span>
 <span><span class="va">lexique_fr</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  word <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"clair"</span>, <span class="st">"motivant"</span>, <span class="st">"bravo"</span>, <span class="st">"difficile"</span>, <span class="st">"dépassé"</span>, <span class="st">"mal"</span>, <span class="st">"intéressante"</span>, <span class="st">"puissants"</span><span class="op">)</span>,</span>
 <span>  sentiment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"positive"</span>, <span class="st">"positive"</span>, <span class="st">"positive"</span>, <span class="st">"negative"</span>, <span class="st">"negative"</span>, <span class="st">"negative"</span>, <span class="st">"positive"</span>, <span class="st">"positive"</span><span class="op">)</span></span>
@@ -6115,7 +6102,7 @@ Attaching package: 'dplyr'</code></pre>
 <p>Faisons un graphique pour visualiser l’évolution du score de sentiment par semaine :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">sentiment_fr</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">semaine</span>, y <span class="op">=</span> <span class="va">score</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">sentiment_fr</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">semaine</span>, y <span class="op">=</span> <span class="va">score</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"steelblue"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Score de sentiment par semaine"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Score net (positif - négatif)"</span>, x <span class="op">=</span> <span class="st">"Semaine"</span><span class="op">)</span></span></code></pre></div>
@@ -6142,8 +6129,8 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </section><section id="collaboration-finale" class="level3"><h3 class="anchored" data-anchor-id="collaboration-finale">Collaboration finale</h3>
-<p>À la fin du cours, une activité en classe permettra à chaque étudiants/équipes de <strong>partager son propre lexique de sentiments en français</strong> construit durant l’analyse.</p>
-<p><strong>L’enseignant collectera et fusionnera ces lexiques</strong>, en les vérifiant pour en retirer une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.</p>
+<p>À la fin du cours, une activité en classe permettra à chaque étudiant·e ou équipe de <strong>partager son propre lexique de sentiments en français</strong> construit durant l’analyse.</p>
+<p><strong>L’enseignant collectera et fusionnera ces lexiques</strong>, en les vérifiant pour produire une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.</p>
 </section></section><section id="étape-3-mots-distinctifs" class="level2"><h2 class="anchored" data-anchor-id="étape-3-mots-distinctifs">Étape 3 — Mots distinctifs</h2>
 <p>Dans cette étape, nous allons identifier les mots qui ressortent le plus chaque semaine. Pour cela, nous utiliserons l’approche <strong>TF-IDF</strong> (Term Frequency-Inverse Document Frequency), qui permet de mettre en évidence les mots à la fois fréquents dans un document et rares dans l’ensemble des documents.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Idée d’Anne-Sophie">
@@ -6183,7 +6170,7 @@ Attaching package: 'dplyr'</code></pre>
 <p>Calculons le TF-IDF pour chaque mot par semaine :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tfidf</span> <span class="op">&lt;-</span> <span class="va">texte_nettoye</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tfidf</span> <span class="op">&lt;-</span> <span class="va">texte_nettoye</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">semaine</span>, <span class="va">word</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://juliasilge.github.io/tidytext/reference/bind_tf_idf.html">bind_tf_idf</a></span><span class="op">(</span><span class="va">word</span>, <span class="va">semaine</span>, <span class="va">n</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">tf_idf</span><span class="op">)</span><span class="op">)</span></span>
@@ -6207,7 +6194,7 @@ Attaching package: 'dplyr'</code></pre>
 <p>Faisons un graphique pour visualiser les mots les plus distinctifs pour une semaine spécifique. Par exemple, la semaine 2 :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Choisir semaine 2 comme exemple</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Choisir semaine 2 comme exemple</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://forcats.tidyverse.org/">forcats</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">tfidf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -6228,8 +6215,12 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </div>
-<p>Une visualisation comme celle-ci permet de voir quels mots sont les plus représentatifs des commentaires de cette semaine-là. Il existe aussi la possibilité de créer un <strong>nuage de mots</strong> pour une représentation plus visuelle. Un nuage de mot est une représentation graphique des mots les plus fréquents, où la taille de chaque mot est proportionnelle à sa fréquence d’apparition.</p>
-<p>Pour créer un nuage de mots en français : - Utilisez la fonction <code>wordcloud()</code> du package <code>wordcloud</code>, ou <code>ggwordcloud</code> pour plus de personnalisation. - Inspirez-vous de cet exemple complet : <a href="https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html" class="uri">https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html</a></p>
+<p>Une visualisation comme celle-ci permet de voir quels mots sont les plus représentatifs des commentaires de cette semaine-là. Il existe aussi la possibilité de créer un <strong>nuage de mots</strong> pour une représentation plus visuelle. Un nuage de mots est une représentation graphique des mots les plus fréquents, où la taille de chaque mot est proportionnelle à sa fréquence d’apparition.</p>
+<p>Pour créer un nuage de mots en français :</p>
+<ul>
+<li>utilisez la fonction <code>wordcloud()</code> du package <code>wordcloud</code>, ou <code>ggwordcloud</code> pour plus de personnalisation ;</li>
+<li>inspirez-vous de cet exemple complet : <a href="https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html" class="uri">https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html</a>.</li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled" title="Question d’Anne-Sophie">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6255,7 +6246,7 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le tableau de bord final doit être <strong>clair, interactif et utile</strong>. Un <strong>modèle prêt à l’emploi (<code>Modele_Dashboardt.Rmd</code>)</strong> se trouve dans le dépôt GitHub du module. Personnalisez‑le : branchez vos propres données, ajustez les filtres, et ajoutez au moins deux visualisations.</p>
+<p>Le tableau de bord final doit être <strong>clair, interactif et utile</strong>. Un <strong>modèle prêt à l’emploi (<code>modele_dashboard.Rmd</code>)</strong> se trouve dans le dépôt GitHub du module. Personnalisez-le : branchez les rétroactions anonymisées, ajustez les filtres, et ajoutez au moins deux visualisations.</p>
 </div>
 </div>
 </section><section id="étape-5-recommandations-et-analyse-finale" class="level2"><h2 class="anchored" data-anchor-id="étape-5-recommandations-et-analyse-finale">Étape 5 — Recommandations et analyse finale</h2>
@@ -6280,7 +6271,7 @@ Attaching package: 'dplyr'</code></pre>
 <p>« N’oubliez pas d’explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »</p>
 </div>
 </div>
-</section></section><section id="bonus-personnalisation-personnalisation" class="level1"><h1>Bonus — Personnalisation — Personnalisation</h1>
+</section></section><section id="bonus-personnalisation" class="level1"><h1>Bonus — Personnalisation</h1>
 <p>Voici quelques idées pour aller plus loin dans la personnalisation de votre tableau de bord :</p>
 <ul>
 <li>Ajouter le <strong>logo de la Faculté des sciences et de génie</strong> ou de l’Université Laval,</li>
@@ -6299,7 +6290,7 @@ Attaching package: 'dplyr'</code></pre>
 </ul>
 </li>
 <li>
-<strong>Le tableau de bord doit être déployé (par exemple via Shinyapp.io ou Posit Cloud)</strong> et le lien final envoyé à <strong>Anne-Sophie (la véritable directrice du programme)</strong>.</li>
+<strong>Le tableau de bord doit être déployé (par exemple via shinyapps.io ou Posit Cloud)</strong> et le lien final doit être remis selon le mécanisme prévu par le cours.</li>
 </ul></section><section id="conseils-danne-sophie" class="level1"><h1>Conseils d’Anne-Sophie</h1>
 <blockquote class="blockquote">
 <p>« Un bon tableau de bord, c’est comme un bon pitch : <strong>clair, lisible et ciblé</strong>. Mettez-vous à la place de votre utilisateur final. »</p>
