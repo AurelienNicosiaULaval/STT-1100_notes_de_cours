@@ -6,7 +6,7 @@ STT-1100 Introduction to Data Science
 
 At the end of this module, you should be able to:
 
-- identify ethical issues in a visualization and report;
+- identify ethical issues in visualizations and a report;
 - recognize personally identifiable information in a dataset;
 - prepare an anonymized and better documented version of a file;
 - apply good visualization practices with `ggplot2`;
@@ -28,9 +28,9 @@ Link to the adventure: [Adventure 7 - Visualization, Ethics and Data Security](.
 
 # Challenge
 
-The challenge turns the adventure audit into a reproducible ethics note. You will submit a report, a corrected visualization and an anonymized file.
+The challenge turns the adventure audit into a reproducible ethics note. You will submit a report, two corrected visualizations and an anonymized file.
 
-Link to the challenge: [Challenge 7 - Ethics Note and Responsible Visualization](../module_07/defi.llms.md)
+Link to the challenge: [Challenge 7 - Ethics Note and Responsible Visualizations](../module_07/defi.llms.md)
 
 # Consolidation Exercises
 

@@ -6,7 +6,7 @@ STT-1100 Introduction à la science des données
 
 À la fin de ce module, vous devriez être capable de :
 
-- repérer des problèmes éthiques dans une visualisation et un rapport;
+- repérer des problèmes éthiques dans des visualisations et un rapport;
 - reconnaître des renseignements personnels identifiables dans un jeu de données;
 - préparer une version anonymisée et mieux documentée d’un fichier;
 - appliquer des bonnes pratiques de visualisation avec `ggplot2`;
@@ -28,9 +28,9 @@ Lien vers l’aventure : [Aventure 7 - Visualisation, éthique et sécurisation 
 
 # Défi
 
-Le défi transforme l’audit de l’aventure en note éthique reproductible. Vous devrez remettre un rapport, une visualisation corrigée et un fichier anonymisé.
+Le défi transforme l’audit de l’aventure en note éthique reproductible. Vous devrez remettre un rapport, deux visualisations corrigées et un fichier anonymisé.
 
-Lien vers le défi : [Défi 7 - Note éthique et visualisation responsable](../module_07/defi.llms.md)
+Lien vers le défi : [Défi 7 - Note éthique et visualisations responsables](../module_07/defi.llms.md)
 
 # Exercices de consolidation
 

@@ -80,7 +80,7 @@ Faire une revue croisée d'un rapport collaboratif et vérifier sa reproductibil
 
 ### Défi 7
 
-Produire une note éthique, une visualisation responsable et un fichier anonymisé.
+Produire une note éthique, deux visualisations responsables et un fichier anonymisé.
 
 [Consulter le défi 7](module_07/defi.llms.md)
 

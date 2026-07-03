@@ -1,4 +1,4 @@
-# Challenge 7 - Ethics Note and Responsible Visualization
+# Challenge 7 - Ethics Note and Responsible Visualizations
 
 STT-1100 Introduction to Data Science
 
@@ -16,7 +16,7 @@ The report must contain:
 
 - a “Problems identified” section with at least five specific issues;
 - an “Anonymized data” section describing the columns removed, grouped or transformed;
-- a “Responsible visualization” section with at least two corrected visualizations;
+- a “Responsible visualizations” section with at least two corrected visualizations;
 - a “Limitations” section explaining what the data do not allow you to conclude;
 - a short personal conclusion from each team member.
 

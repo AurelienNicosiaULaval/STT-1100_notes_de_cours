@@ -90,7 +90,7 @@ covid_prepare <- covid_brut |>
 
 Cette étape n’a pas pour but d’effacer toute information utile. Elle vise à réduire les risques tout en gardant une analyse compréhensible.
 
-# Partie 3 - Visualisation corrigée
+# Partie 3 - Visualisations corrigées
 
 Produisez au moins deux visualisations corrigées.
 

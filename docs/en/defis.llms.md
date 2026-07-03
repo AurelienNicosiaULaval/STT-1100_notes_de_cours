@@ -80,7 +80,7 @@ Peer-review a collaborative report and check its reproducibility.
 
 ### Challenge 7
 
-Produce an ethics note, a responsible visualization and an anonymized file.
+Produce an ethics note, two responsible visualizations and an anonymized file.
 
 [View challenge 7](module_07/defi.llms.md)
 

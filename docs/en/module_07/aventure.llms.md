@@ -90,7 +90,7 @@ covid_prepared <- covid_raw |>
 
 This step is not about deleting all useful information. It is about reducing risks while keeping the analysis understandable.
 
-# Part 3 - Corrected Visualization
+# Part 3 - Corrected Visualizations
 
 Produce at least two corrected visualizations.
 

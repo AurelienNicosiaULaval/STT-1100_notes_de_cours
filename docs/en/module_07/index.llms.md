@@ -8,17 +8,17 @@ Main threadResponsible visualization and privacy
 
 DataCOVID data and ethical cases
 
-ChallengeCommented visualization and ethics note
+ChallengeCommented visualizations and ethics note
 
 ## Finished Product
 
 Final product
 
-### A responsible visualization with an ethics note
+### Responsible visualizations with an ethics note
 
 The expected result shows sensitive data carefully and explains choices about protection, interpretation and communication.
 
-**ethical visual**
+**ethical visuals**
 
 clear message
 
@@ -32,7 +32,7 @@ clear message risks noted data protected
 
 At the end of this module, you should be able to:
 
-- Identify ethical issues in a visualization.
+- Identify ethical issues in visualizations.
 - Correctly anonymize data.
 - Apply good visualization practices to represent data clearly and honestly.
 - Identify and avoid data presentation bias.
@@ -45,7 +45,7 @@ At the end of this module, you should be able to:
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
 
-1 Readings Prepare responsible visualization, confidentiality and ethics. In this card Open cardCollapse
+1 Readings Prepare responsible visualizations, confidentiality and ethics. In this card Open cardCollapse
 
 ### Readings
 
@@ -54,7 +54,7 @@ To prepare, check out the following resources:
 - [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
 - [Guide to good practices for data scientists (government of Luxembourg)](https://mindigital.gouvernement.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
 
-2 Adventure Turn sensitive data into a careful visual message. [Adventure](aventure.llms.md) Open cardCollapse
+2 Adventure Turn sensitive data into careful visual messages. [Adventure](aventure.llms.md) Open cardCollapse
 
 Goal Move from reading to guided practice.
 
@@ -66,15 +66,15 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Analyze a visualization with an argued ethics note. [Challenge](defi.llms.md) Open cardCollapse
+3 Challenge Analyze visualizations with an argued ethics note. [Challenge](defi.llms.md) Open cardCollapse
 
-### Challenge - Ethical analysis and responsible visualization
+### Challenge - Ethical analysis and responsible visualizations
 
 You will turn the adventure audit into a reproducible ethics note:
 
 - identify specific problems in the initial report;
 - produce an anonymized version of the data;
-- create a corrected and defensible visualization;
+- create two corrected and defensible visualizations;
 - state limitations and residual risks.
 
 [View challenge 7](defi.llms.md)

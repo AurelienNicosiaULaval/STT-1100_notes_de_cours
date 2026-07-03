@@ -1,4 +1,4 @@
-# Défi 7 - Note éthique et visualisation responsable
+# Défi 7 - Note éthique et visualisations responsables
 
 STT-1100 Introduction à la science des données
 
@@ -16,7 +16,7 @@ Le rapport doit contenir :
 
 - une section “Problèmes repérés” avec au moins cinq problèmes précis;
 - une section “Données anonymisées” qui décrit les colonnes retirées, regroupées ou transformées;
-- une section “Visualisation responsable” avec au moins deux visualisations corrigées;
+- une section “Visualisations responsables” avec au moins deux visualisations corrigées;
 - une section “Limites” qui explique ce que les données ne permettent pas de conclure;
 - une courte conclusion personnelle par membre de l’équipe.
 
