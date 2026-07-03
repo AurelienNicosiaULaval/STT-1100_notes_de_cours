@@ -2,18 +2,17 @@
 
 STT-1100 Introduction à la science des données
 
-# Mise en situation : Plongez dans la peau d’un·e consultant·e freelance
+# Mise en situation
 
-Vous travaillez comme **freelancer** en science des données. À la différence d’un poste salarié, vous êtes mandaté·e ponctuellement par des client·e·s pour résoudre des problèmes spécifiques. Vous devez être autonome, rigoureux·se et capable de livrer des solutions efficaces, réutilisables et bien documentées.
+Vous travaillez comme consultant ou consultante indépendante en science des données. À la différence d’un poste salarié, vous êtes mandaté ponctuellement par des clientes et clients pour résoudre des problèmes précis. Vous devez donc être autonome, rigoureux et capable de livrer des solutions efficaces, réutilisables et bien documentées.
 
-Les consultant·e·s freelance sont souvent appelés pour leur capacité à débloquer des projets rapidement et efficacement. Ils livrent des outils bien documentés, testables, et faciles à maintenir par leurs client·e·s. La clarté du code, le respect des standards et l’éthique sont donc des éléments clés de leur pratique.
-
-Aujourd’hui, vous êtes engagé·e par **Marie-Pier**, directrice de recherche à l’Institut québécois pour les données durables. Elle souhaite explorer le portail [donnéesquebec.ca](https://www.donneesquebec.ca) pour identifier les jeux de données les plus récents et pertinents pour ses projets. Votre mission : **concevoir un outil de scraping fiable** pour extraire les titres, producteurs et catégories de jeux de données, tout en respectant les bonnes pratiques éthiques.
+Aujourd’hui, vous êtes engagé par Marie-Pier, directrice de recherche à l’Institut québécois pour les données durables. Elle souhaite explorer le portail [Données Québec](https://www.donneesquebec.ca) pour repérer des jeux de données récents et pertinents. Votre mission consiste à concevoir un outil de scraping fiable pour extraire les titres, producteurs et catégories des jeux de données, tout en respectant les bonnes pratiques techniques et éthiques.
 
 > **NOTE:**
 >
-> **Votre interlocutrice : Marie-Pier**
-> Elle vous accompagne tout au long de cette aventure : elle posera des questions clés, vérifiera vos résultats, et vous aidera à affiner vos livrables.
+> Votre interlocutrice : Marie-Pier
+>
+> Elle vous accompagne tout au long de cette aventure. Elle pose des questions clés, vérifie vos résultats et vous aide à clarifier vos livrables.
 
 ## Objectifs de l’aventure
 
@@ -21,20 +20,17 @@ Aujourd’hui, vous êtes engagé·e par **Marie-Pier**, directrice de recherche
 - Créer une fonction pour extraire des métadonnées depuis une page web.
 - Automatiser l’extraction sur plusieurs pages.
 - Explorer les tendances dans les données ouvertes du Québec.
-- Évaluer la faisabilité éthique et technique du scraping sur d’autres sites web.
+- Évaluer les limites éthiques et techniques d’une collecte automatisée.
 
-------------------------------------------------------------------------
-
-# Prérequis
+# Avant de scraper : vérifier le contexte
 
 > **IMPORTANT:**
 >
-> *« Que peut-on légalement extraire de ce portail ? Le scraping est-il autorisé ici ? »*
+> *Que peut-on extraire de ce portail? Le scraping est-il raisonnable ici?*
 
-Pour répondre à cette question, nous allons d’abord consulter le fichier `robots.txt` du site. Ce fichier indique les règles que les robots d’indexation (et donc de scraping) doivent suivre.
+Un premier réflexe consiste à consulter le fichier `robots.txt`. Ce fichier indique les chemins qu’un site demande aux robots d’éviter. Il ne remplace pas les conditions d’utilisation, le jugement éthique, ni le respect de la charge serveur, mais il donne un signal utile avant d’automatiser une collecte.
 
 ``` r
-# Affichez le robots.txt
 robots <- safe_read_lines(
   "https://www.donneesquebec.ca/robots.txt",
   fallback = c(
@@ -43,9 +39,9 @@ robots <- safe_read_lines(
     "Disallow: /dataset/rate/"
   )
 )
-cat("\nContenu du fichier robots.txt :\n")
-```
 
+cat("Contenu du fichier robots.txt :\n")
+```
 
     Contenu du fichier robots.txt :
 
@@ -67,11 +63,10 @@ writeLines(robots)
     Crawl-Delay: 10
 
 ``` r
-# Analyse rapide
 disinstructions <- robots[grepl("^Disallow", robots)]
-cat("\n\nChemins interdits aux robots :\n")
-```
 
+cat("\nChemins interdits aux robots :\n")
+```
 
 
     Chemins interdits aux robots :
@@ -90,20 +85,13 @@ writeLines(disinstructions)
     Disallow: /recherche/api/
     Disallow: /api/
 
-``` r
-# Note éthique
-cat("\n\nNote :\nLes jeux de données publics listés dans les pages de résultat ne sont pas explicitement restreints.\nLe scraping des pages principales de recherche est donc permis, tant qu'on évite les chemins /api/, /dataset/rate/, etc.\n")
-```
-
-
-
-    Note :
-    Les jeux de données publics listés dans les pages de résultat ne sont pas explicitement restreints.
-    Le scraping des pages principales de recherche est donc permis, tant qu'on évite les chemins /api/, /dataset/rate/, etc.
+> **WARNING:**
+>
+> Un `robots.txt` qui n’interdit pas explicitement une page ne signifie pas que tout est automatiquement acceptable. Pour ce module, nous limiterons la collecte à quelques pages de résultats publiques, avec une pause entre les requêtes et sans contourner de mécanisme de protection.
 
 # Comprendre le web scraping avec `rvest`
 
-Dans cette section, vous découvrirez les fonctions essentielles du package `rvest`. Votre objectif : apprendre à extraire du contenu HTML structuré depuis un site web.
+Dans cette section, vous découvrez les fonctions essentielles du package `rvest`. L’objectif est d’extraire du contenu HTML structuré depuis une page de recherche.
 
 ``` r
 url <- "https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1"
@@ -118,16 +106,14 @@ page
 
 La fonction `read_html()` télécharge et convertit la page web pour en permettre la manipulation.
 
-Marie-Pier vous demande :
-
 > **IMPORTANT:**
 >
-> *« Peux-tu me montrer à quoi ressemble la structure de cette page ? Est-ce que tu peux repérer un élément intéressant ? »*
+> *Peux-tu me montrer à quoi ressemble la structure de cette page? Est-ce que tu peux repérer un élément intéressant?*
 
-On peut maintenant cibler les éléments HTML avec `html_nodes()` (ou `html_elements()` dans les versions récentes) :
+On peut maintenant cibler les éléments HTML avec `html_elements()` :
 
 ``` r
-blocs <- html_nodes(page, ".dataset-content")
+blocs <- html_elements(page, ".dataset-content")
 length(blocs)
 ```
 
@@ -143,93 +129,107 @@ blocs[[1]]
     [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
     [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
     [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
-    [5] <div class="dqc-notes"> Localisation des avertissements tels que les ferm ...
+    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
 
-Pour extraire du texte d’un nœud HTML :
-
-``` r
-html_text(blocs[[1]])
-```
-
-    [1] "\n        \n  \n    \n    \n      \n    \n    \n      Avertissement routier\n    \n    \n      \n      \n\n    \n  \n  \n  \n\n  \n  \n  \n  \n  \n    \n      \n  \n \n  \n  \n\n\n        \n  \n  \n    Organisation : Ministère des Transports et de la Mobilité durable\n  \n  Catégories :\n      \n        Infrastructures;\n        Transport\n  \n     Localisation des avertissements tels que les fermetures de route et de pont ou d’incident empêchant le libre passage sur un segment routier ou sur une structure. \n  \n\n      "
-
-Maintenant, testons l’extraction du **titre** :
+Pour extraire le texte d’un élément HTML :
 
 ``` r
-html_nodes(blocs[[1]], ".dataset-heading a") %>% html_text(trim = TRUE)
+html_text2(blocs[[1]])
 ```
 
-    [1] "Avertissement routier"
+    [1] "Stations débit/niveau - Grand public\nOrganisation : Ministère de la Sécurité intérieure\nCatégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique\nMesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les..."
 
-Et pour les **producteurs** ? Il faut repérer une sous-structure contenant l’information :
+Maintenant, testons l’extraction du titre :
 
 ``` r
-orgs <- html_nodes(blocs[[1]], ".dqc-org-cat") %>% html_text(trim = TRUE)
-orgs
+html_elements(blocs[[1]], ".dataset-heading a") |>
+  html_text2()
 ```
 
-    [1] "Organisation : Ministère des Transports et de la Mobilité durable"
-    [2] "Catégories :\n      \n        Infrastructures;\n        Transport"
+    [1] "Stations débit/niveau - Grand public"
 
-On peut filtrer le bon élément avec `grepl()` puis nettoyer la chaîne avec `gsub()` :
+Et pour le producteur? Il faut repérer une sous-structure contenant l’information :
 
 ``` r
-org <- orgs[grepl("^Organisation", orgs)][1]
-org_clean <- gsub("^Organisation : ", "", org)
-org_clean
+infos <- html_elements(blocs[[1]], ".dqc-org-cat") |>
+  html_text2()
+
+infos
 ```
 
-    [1] "Ministère des Transports et de la Mobilité durable"
+    [1] "Organisation : Ministère de la Sécurité intérieure"
+    [2] "Catégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique"
+
+On peut filtrer le bon élément avec `grepl()` puis nettoyer la chaîne avec `sub()` :
+
+``` r
+producteur <- extraire_valeur(
+  infos,
+  "^(Organisation|Organisme|Producteur|Producer|Organization)\\s*:?\\s*"
+)
+
+producteur
+```
+
+    [1] "Ministère de la Sécurité intérieure"
 
 > **TIP:**
 >
-> **Pourquoi utiliser `map_chr()` ?**
-> `map_chr()` appartient au package **purrr**, qui fait partie du `tidyverse`. Cette fonction permet d’appliquer une fonction à chaque élément d’une liste (ici chaque bloc HTML), et de retourner un vecteur de caractères. C’est parfait lorsqu’on veut une valeur texte par bloc.
+> Pourquoi utiliser `map_chr()`?
 >
-> > Exemple :
-> >
-> > ``` r
-> > producteurs <- map_chr(blocs, function(bloc) {
-> >   orgs <- html_nodes(bloc, ".dqc-org-cat") %>% html_text(trim = TRUE)
-> >   org <- orgs[grepl("^Organisation", orgs)][1]
-> >   gsub("^Organisation : ", "", org)
-> > })
-> > ```
+> `map_chr()` appartient au package `purrr`, qui fait partie du `tidyverse`. Cette fonction applique une fonction à chaque élément d’une liste et retourne un vecteur de caractères. C’est exactement ce qu’il faut lorsqu’on veut une valeur texte par bloc HTML.
+>
+> ``` r
+> producteurs <- map_chr(blocs, function(bloc) {
+>   infos <- html_elements(bloc, ".dqc-org-cat") |>
+>     html_text2()
+>
+>   extraire_valeur(
+>     infos,
+>     "^(Organisation|Organisme|Producteur|Producer|Organization)\\s*:?\\s*"
+>   )
+> })
+> ```
 
 > **TIP:**
 >
-> **À vous de jouer** : À partir de ce même bloc HTML, trouvez comment extraire : - les **catégories** associées à chaque jeu de données
-
-------------------------------------------------------------------------
+> À vous de jouer : à partir de ce même bloc HTML, trouvez comment extraire les catégories associées à chaque jeu de données. Attention, le libellé observé peut être `Catégorie`, `Catégories`, `Category` ou `Categories`.
 
 # Création guidée de la fonction `scrape_page()`
 
-Marie-Pier souhaite que vous créiez une fonction réutilisable nommée `scrape_page()` qui prend en argument une URL et retourne un `data.frame` avec les colonnes : `titre`, `producteur`, `categorie`.
+Marie-Pier souhaite que vous créiez une fonction réutilisable nommée `scrape_page()`. Elle prend en argument une URL et retourne un `data.frame` avec exactement les colonnes suivantes :
+
+- `titre`;
+- `producteur`;
+- `categorie`.
+
+Ces noms de colonnes seront utilisés dans les tests automatiques.
 
 Voici un squelette à compléter :
 
 ``` r
 scrape_page <- function(url) {
-  # Lire le contenu HTML de la page
-  page <- read_html(url)
+  page <- rvest::read_html(url)
 
-  # Sélectionner les blocs de résultats individuels
-  blocs <- html_nodes(page, ".dataset-content")
+  blocs <- rvest::html_elements(page, ".dataset-content")
 
-  # Titre (déjà fait pour vous)
-  titres <- html_nodes(blocs, ".dataset-heading a") %>% html_text(trim = TRUE)
+  titres <- rvest::html_elements(blocs, ".dataset-heading a") |>
+    rvest::html_text2()
 
-  # Producteur (à compléter)
-  producteurs <- map_chr(blocs, function(bloc) {
-    # ... votre code ici ...
+  producteurs <- purrr::map_chr(blocs, function(bloc) {
+    infos <- rvest::html_elements(bloc, ".dqc-org-cat") |>
+      rvest::html_text2()
+
+    # Extraire l'organisation ou le producteur.
   })
 
-  # Catégorie (à compléter)
-  categories <- map_chr(blocs, function(bloc) {
-    # ... votre code ici ...
+  categories <- purrr::map_chr(blocs, function(bloc) {
+    infos <- rvest::html_elements(bloc, ".dqc-org-cat") |>
+      rvest::html_text2()
+
+    # Extraire la catégorie ou les catégories.
   })
 
-  # Créer un data.frame standard
   data.frame(
     titre = titres,
     producteur = producteurs,
@@ -241,33 +241,31 @@ scrape_page <- function(url) {
 
 > **NOTE:**
 >
-> **Testez votre fonction avec la page 3** : elle devrait retourner les 20 jeux de données de cette page.
-
-------------------------------------------------------------------------
+> Testez votre fonction avec la page 3. Elle devrait retourner 20 lignes et exactement les colonnes `titre`, `producteur`, `categorie`.
 
 # Répétition manuelle, puis boucle `for`
 
-Testez maintenant l’extraction des **5 premières pages** en appelant plusieurs fois votre fonction :
+Testez maintenant l’extraction des cinq premières pages en appelant plusieurs fois votre fonction :
 
 ``` r
-# Exemple manuel (à compléter)
-p1 <- scrape_page("...")
-p2 <- scrape_page("...")
-# etc.
+p1 <- scrape_page("https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1")
+p2 <- scrape_page("https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=2")
 ```
 
 > **TIP:**
 >
-> **Marie-Pier** : « Est-ce que tu as remarqué ce qui change dans l’URL à chaque fois ? Peux-tu généraliser ce comportement ? »
+> Marie-Pier : *Est-ce que tu as remarqué ce qui change dans l’URL à chaque fois? Peux-tu généraliser ce comportement?*
 
-Rappel du **module 1** : une boucle permet d’automatiser un comportement répétitif. Voici un début de boucle `for` à compléter :
+Rappel du module 1 : une boucle permet d’automatiser un comportement répétitif.
 
 ``` r
 resultats <- data.frame()
 
 for (i in 1:5) {
-  # Construire l'URL ici
-  url <- "..."
+  url <- paste0(
+    "https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=",
+    i
+  )
 
   cat("Page", i, "en cours...\n")
   page_data <- scrape_page(url)
@@ -277,19 +275,15 @@ for (i in 1:5) {
 }
 ```
 
-------------------------------------------------------------------------
-
 # Exploration guidée par Marie-Pier
 
-Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. Elle attend de vous des résultats précis, illustrés si nécessaire.
+Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. Elle attend des résultats précis et prudents.
 
 > **IMPORTANT:**
 >
-> 1.  Quelles sont les catégories de jeux de données les plus fréquentes ?
-> 2.  Quels organismes publient le plus ?
-> 3.  Observe-t-on une diversité de domaines ou une concentration sur quelques thèmes ?
-
-------------------------------------------------------------------------
+> 1.  Quelles sont les catégories de jeux de données les plus fréquentes?
+> 2.  Quels organismes publient le plus?
+> 3.  Observe-t-on une diversité de domaines ou une concentration sur quelques thèmes?
 
 # Réflexion éthique
 
@@ -297,25 +291,17 @@ Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. E
 >
 > Rendez compte brièvement :
 >
-> - Le site Données Québec permet-il explicitement le scraping ?
-> - Quels comportements avez-vous adoptés pour rester respectueux ?
-> - Choisissez **deux autres sites web** (ex: bonjourquebec.com, ulaval.ca) et vérifiez si le scraping semble autorisé ou non. Appuyez-vous sur les fichiers `robots.txt` ou les conditions d’utilisation.
-
-------------------------------------------------------------------------
+> - ce que le fichier `robots.txt` indique;
+> - les limites de cette vérification;
+> - les comportements adoptés pour rester respectueux, par exemple limiter le nombre de pages, ajouter une pause et ne pas contourner de protection;
+> - la situation de deux autres sites web, par exemple `bonjourquebec.com` ou `ulaval.ca`, en vous appuyant sur `robots.txt` ou les conditions d’utilisation.
 
 # Défi à remettre
 
-Vous devez remettre un **fichier `IDUL.R`** contenant votre fonction `scrape_page()`.
+Le défi associé à cette aventure est décrit dans la page [Défi 8 - Fonction de scraping](../module_08/defi.llms.md).
 
-- Ce fichier doit être placé dans votre dépôt GitHub à l’endroit indiqué.
-- Nous testerons automatiquement votre fonction avec plusieurs pages.
-
-Bonne chance — soyez rigoureux dans la conception de votre fonction !
-
-------------------------------------------------------------------------
+Vous devrez remettre un fichier `IDUL.R` contenant votre fonction `scrape_page()`. Le dépôt de départ est le template GitHub `STT-1100/aventure-8`.
 
 # Conclusion de l’aventure
 
-Vous avez conçu un outil de scraping fonctionnel et automatisé, utilisé une boucle `for`, extrait des métadonnées structurées, et approfondi votre compréhension de l’éthique du scraping.
-
-Bravo, consultant·e !
+Vous avez conçu un outil de scraping fonctionnel et automatisable, utilisé une boucle `for`, extrait des métadonnées structurées et approfondi votre compréhension de l’éthique du scraping.

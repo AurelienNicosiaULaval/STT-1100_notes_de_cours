@@ -84,6 +84,12 @@ Produce an ethics note, two responsible visualizations and an anonymized file.
 
 [View challenge 7](module_07/defi.llms.md)
 
+### Challenge 8
+
+Produce a testable `scrape_page()` function in an `IDUL.R` file.
+
+[View challenge 8](module_08/defi.llms.md)
+
 ## Types of productions
 
 Formats vary across modules, but they always remain connected to course skills.

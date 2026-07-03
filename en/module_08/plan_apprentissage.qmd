@@ -5,61 +5,57 @@ format:
   html:
     toc: true
     toc-title: Plan
-    self-contained: true
+    embed-resources: true
     link-external-newwindow: true
     css: [../css/base_css.css]
 editor: visual
 ---
 
-# Module objectives
+# Module Objectives
 
 At the end of this module, you should be able to:
 
-- Extract text data from a web page using `rvest`.
-- Automate repetitive tasks using loops and functions in R.
-- Identify the ethical aspects linked to the automated collection of online data.
+- extract text data from a web page with `rvest`;
+- turn HTML elements into a structured table;
+- automate repetitive tasks with functions and loops in R;
+- distinguish a technical check such as `robots.txt` from full permission to collect data;
+- explain the technical and ethical limits of automated collection.
 
 # Readings
 
 To prepare, check out the following resources:
 
--  [R for Data Science — Web scraping](https://r4ds.hadley.nz/webscraping.html)
--  [robots.txt documentation (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
+- [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html)
+- [Official rvest documentation](https://rvest.tidyverse.org/)
+- [robots.txt documentation, MDN](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
 
 # Adventure
 
-You play the role of a **freelance consultant** hired to develop an automated metadata extraction function from the Data Québec portal.\
-Link to the adventure:\
- [Adventure 8 — Quebec open data](aventure.qmd)
+You play the role of a data science consultant hired to develop an automated metadata extraction function from the Données Québec portal.
 
-# Challenge — Scraping function {.unnumbered}
+Link to the adventure: [Adventure 8 - Quebec Open Data](aventure.qmd)
 
-You will need to design a function `scrape_page(url)` which:
+# Challenge - Scraping Function {.unnumbered}
 
-- takes as input a URL from a Data Québec search page;
-- returns a `data.frame` with the columns `title`, `producer`, `category`.
+The challenge is to produce an `IDUL.R` file containing a `scrape_page(url)` function.
 
- You will put this function in an `IDUL.R` file in your GitHub repository. It will be tested automatically on several pages.
+The function must:
 
-# Consolidation exercises {.unnumbered}
+- take a Données Québec search page URL as input;
+- return a `data.frame` with exactly the columns `titre`, `producteur`, `categorie`;
+- handle the labels `Catégorie` and `Catégories`;
+- be loadable and testable in a fresh R session.
 
-These exercises use a **different page** of the Data Québec portal, in order to practice in another context.\
-Use the archived version of the IMDb Top 250 Movies page:  <https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/>
+Full instructions: [Challenge 8 - Scraping Function](defi.qmd)
 
-1. **Read the HTML page**\
-    Use `read_html()` then `html_nodes()` to observe the sections containing the movie titles.
+Starter repository: `STT-1100/aventure-8`
 
-2. **Extract movie titles**\
-    Try `html_nodes(..., ".titleColumn a") %>% html_text()`.
+# Consolidation Exercises {.unnumbered}
 
-3. **Extract the years**\
-    Use `html_nodes(..., ".titleColumn span")` to extract the years in parentheses.
+These exercises revisit the module's technical skills in another context. Use the archived version of the IMDb Top 250 Movies page: <https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/>
 
-4. **Extract notes**\
-    Use `html_nodes(..., ".imdbRating strong")` to get the ratings for each movie.
-
-5. **Build a table**\
-    Combine the three vectors (`title`, `year`, `note`) into a `data.frame`.
-
-6. **Ethical reflection**\
-    Check if the IMDb page archive (or IMDb directly) allows scraping by consulting their [robots.txt](https://www.imdb.com/robots.txt).
+1. Read the HTML page with `read_html()`.
+2. Locate the sections containing movie titles with a CSS selector.
+3. Extract the titles, years and ratings.
+4. Build a `data.frame` with these three variables.
+5. Check IMDb's `robots.txt` file and explain why this check is not sufficient on its own.

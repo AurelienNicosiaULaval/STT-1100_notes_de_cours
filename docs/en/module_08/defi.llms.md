@@ -1,0 +1,105 @@
+# Challenge 8 - Scraping Function
+
+STT-1100 Introduction to Data Science
+
+# Mission
+
+In adventure 8, you built the pieces needed to extract metadata from a Données Québec search page. The challenge now is to turn that work into a stable, testable and reusable function.
+
+Submit an `IDUL.R` file in the GitHub repository created from the `STT-1100/aventure-8` template.
+
+# Expected Contract
+
+Your `IDUL.R` file must define a function named exactly `scrape_page()`.
+
+``` r
+scrape_page <- function(url) {
+  # Your code here
+}
+```
+
+The function must respect the following contract:
+
+- it takes one argument, `url`, containing the address of a Données Québec search page;
+- it reads the page with `rvest`;
+- it returns a `data.frame`;
+- the returned table contains exactly the columns `titre`, `producteur`, `categorie`, in that order;
+- each row corresponds to one dataset displayed on the page;
+- missing values must be returned as `NA_character_`, not as an error;
+- the function must not open a window, ask for interactive input, print a long message or depend on an object created in the console.
+
+> **IMPORTANT:**
+>
+> The column names are intentionally in French because they will be checked automatically. Use exactly `titre`, `producteur`, `categorie`.
+
+# Minimal Robustness
+
+The portal may display slightly different labels. Your function must therefore be able to handle at least these forms:
+
+- `Organisation`, `Organisme`, `Producteur`, `Producer` or `Organization` for the producer;
+- `Catégorie`, `Catégories`, `Category` or `Categories` for the category.
+
+A reasonable approach is to create a small helper function that receives the text extracted from an HTML block and a search pattern, then returns the cleaned value or `NA_character_`.
+
+# Recommended Workflow
+
+1.  Work first in the console or in a draft file.
+2.  Locate dataset blocks with `.dataset-content`.
+3.  Extract titles with `.dataset-heading a`.
+4.  Locate metadata elements with `.dqc-org-cat`.
+5.  Build a helper function to clean labels.
+6.  Group everything in `scrape_page(url)`.
+7.  Test the function on a local page or on a public Données Québec page.
+8.  Place only the final required code in `IDUL.R`.
+
+# Local Tests
+
+The template repository contains a local test. After completing your function, run:
+
+``` bash
+Rscript tests/test_scrape_page.R
+```
+
+The test checks that:
+
+- `IDUL.R` can be loaded without error;
+- the `scrape_page()` function exists;
+- the result is a `data.frame`;
+- the columns are exactly `titre`, `producteur`, `categorie`;
+- a small local HTML page returns two complete rows.
+
+These tests do not replace the final assessment, but they detect the most common mistakes before submission.
+
+# Ethics and Server Load
+
+For the challenge, your function must scrape one page at a time. If you later write a loop over several pages, add a pause with `Sys.sleep(1)` between requests.
+
+Do not bypass protection mechanisms. Do not launch large automated collections. The `robots.txt` file provides a useful technical signal, but it does not replace terms of use, caution or respect for server load.
+
+# Deliverable
+
+Submit the GitHub repository generated from the `STT-1100/aventure-8` template.
+
+The repository must contain:
+
+- the `IDUL.R` file;
+- the `scrape_page(url)` function;
+- the test file provided in `tests/`;
+- no unnecessary downloaded data.
+
+# Assessment Criteria
+
+| Criterion | Expectation |
+|----|----|
+| Function | `scrape_page()` exists and can be called with a URL. |
+| Output | The output is a `data.frame` with the exact columns `titre`, `producteur`, `categorie`. |
+| Extraction | Titles, producers and categories match the datasets on the page. |
+| Robustness | Singular, plural and bilingual labels are handled. |
+| Reproducibility | `IDUL.R` can be loaded in a fresh R session. |
+| Sobriety | The code avoids unnecessary messages, global objects and large collections. |
+
+# Resources
+
+- Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund, 2023, R for Data Science, Web scraping chapter: <https://r4ds.hadley.nz/webscraping.html>
+- Official `rvest` documentation: <https://rvest.tidyverse.org/>
+- MDN documentation on `robots.txt`: <https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt>

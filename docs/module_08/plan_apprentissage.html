@@ -5801,7 +5801,7 @@ margin-bottom: .05rem;
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
   <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
   <li><a href="#aventure" id="toc-aventure" class="nav-link" data-scroll-target="#aventure">Aventure</a></li>
-  <li><a href="#défi-fonction-de-scraping" id="toc-défi-fonction-de-scraping" class="nav-link" data-scroll-target="#défi-fonction-de-scraping">Défi — Fonction de scraping</a></li>
+  <li><a href="#défi---fonction-de-scraping" id="toc-défi---fonction-de-scraping" class="nav-link" data-scroll-target="#défi---fonction-de-scraping">Défi - Fonction de scraping</a></li>
   <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a></li>
   </ul>
 </nav>
@@ -5833,51 +5833,49 @@ margin-bottom: .05rem;
 <h1>Objectifs du module</h1>
 <p>À la fin de ce module, vous devriez être capable de :</p>
 <ul>
-<li>Extraire des données textuelles d’une page web en utilisant <code>rvest</code>.</li>
-<li>Automatiser des tâches répétitives à l’aide de boucles et de fonctions en R.</li>
-<li>Identifier les aspects éthiques liés à la collecte automatisée de données en ligne.</li>
+<li>extraire des données textuelles d’une page web avec <code>rvest</code>;</li>
+<li>transformer des éléments HTML en tableau structuré;</li>
+<li>automatiser des tâches répétitives avec des fonctions et des boucles en R;</li>
+<li>distinguer un test technique comme <code>robots.txt</code> d’une autorisation complète de collecte;</li>
+<li>expliquer les limites techniques et éthiques d’une collecte automatisée.</li>
 </ul>
 </section>
 <section id="lectures" class="level1">
 <h1>Lectures</h1>
 <p>Pour vous préparer, consultez les ressources suivantes :</p>
 <ul>
-<li><a href="https://r4ds.hadley.nz/webscraping.html">R for Data Science — Web scraping</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt">robots.txt documentation (MDN)</a></li>
+<li><a href="https://r4ds.hadley.nz/webscraping.html">R for Data Science - Web scraping</a></li>
+<li><a href="https://rvest.tidyverse.org/">Documentation officielle de rvest</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt">robots.txt documentation, MDN</a></li>
 </ul>
 </section>
 <section id="aventure" class="level1">
 <h1>Aventure</h1>
-<p>Vous incarnez un·e <strong>consultant·e freelance</strong> engagé·e pour développer une fonction d’extraction automatisée de métadonnées à partir du portail Données Québec.<br>
-Lien vers l’aventure :<br>
-<a href="../module_08/aventure.html">Aventure 8 — Données ouvertes du Québec</a></p>
+<p>Vous incarnez une personne consultante en science des données engagée pour développer une fonction d’extraction automatisée de métadonnées à partir du portail Données Québec.</p>
+<p>Lien vers l’aventure : <a href="../module_08/aventure.html">Aventure 8 - Données ouvertes du Québec</a></p>
 </section>
-<section id="défi-fonction-de-scraping" class="level1 unnumbered">
-<h1 class="unnumbered">Défi — Fonction de scraping</h1>
-<p>Vous devrez concevoir une fonction <code>scrape_page(url)</code> qui :</p>
+<section id="défi---fonction-de-scraping" class="level1 unnumbered">
+<h1 class="unnumbered">Défi - Fonction de scraping</h1>
+<p>Le défi consiste à produire un fichier <code>IDUL.R</code> contenant une fonction <code>scrape_page(url)</code>.</p>
+<p>La fonction doit :</p>
 <ul>
-<li>prend en entrée une URL d’une page de recherche de Données Québec ;</li>
-<li>retourne un <code>data.frame</code> avec les colonnes <code>titre</code>, <code>producteur</code>, <code>categorie</code>.</li>
+<li>prendre en entrée l’URL d’une page de recherche de Données Québec;</li>
+<li>retourner un <code>data.frame</code> avec exactement les colonnes <code>titre</code>, <code>producteur</code>, <code>categorie</code>;</li>
+<li>gérer les libellés <code>Catégorie</code> et <code>Catégories</code>;</li>
+<li>pouvoir être chargée et testée dans une nouvelle session R.</li>
 </ul>
-<p>Vous remettrez cette fonction dans un fichier <code>IDUL.R</code> dans votre dépôt GitHub. Elle sera testée automatiquement sur plusieurs pages.</p>
+<p>Consigne complète : <a href="../module_08/defi.html">Défi 8 - Fonction de scraping</a></p>
+<p>Dépôt de départ : <code>STT-1100/aventure-8</code></p>
 </section>
 <section id="exercices-de-consolidation" class="level1 unnumbered">
 <h1 class="unnumbered">Exercices de consolidation</h1>
-<p>Ces exercices utilisent une <strong>page différente</strong> du portail Données Québec, afin de pratiquer dans un autre contexte.<br>
-Utilisez la version archivée de la page IMDb des 250 meilleurs films : <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
+<p>Ces exercices reprennent les gestes techniques du module dans un autre contexte. Utilisez la version archivée de la page IMDb des 250 meilleurs films : <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
 <ol type="1">
-<li><p><strong>Lire la page HTML</strong><br>
-Utilisez <code>read_html()</code> puis <code>html_nodes()</code> pour observer les sections contenant les titres des films.</p></li>
-<li><p><strong>Extraire les titres des films</strong><br>
-Essayez <code>html_nodes(..., &quot;.titleColumn a&quot;) %&gt;% html_text()</code>.</p></li>
-<li><p><strong>Extraire les années</strong><br>
-Utilisez <code>html_nodes(..., &quot;.titleColumn span&quot;)</code> pour extraire les années entre parenthèses.</p></li>
-<li><p><strong>Extraire les notes</strong><br>
-Utilisez <code>html_nodes(..., &quot;.imdbRating strong&quot;)</code> pour obtenir les cotes de chaque film.</p></li>
-<li><p><strong>Construire un tableau</strong><br>
-Combinez les trois vecteurs (<code>titre</code>, <code>année</code>, <code>note</code>) dans un <code>data.frame</code>.</p></li>
-<li><p><strong>Réflexion éthique</strong><br>
-Vérifiez si l’archive de la page IMDb (ou IMDb directement) autorise le scraping en consultant leur <a href="https://www.imdb.com/robots.txt">robots.txt</a>.</p></li>
+<li>Lire la page HTML avec <code>read_html()</code>.</li>
+<li>Repérer les sections contenant les titres des films avec un sélecteur CSS.</li>
+<li>Extraire les titres, les années et les notes.</li>
+<li>Construire un <code>data.frame</code> avec ces trois variables.</li>
+<li>Vérifier le fichier <code>robots.txt</code> d’IMDb et expliquer pourquoi cette vérification ne suffit pas à elle seule.</li>
 </ol>
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Automatisation et exploration du web – STT-1100 Introduction à la science des données</title>
+<title>Challenge 8 - Scraping Function – STT-1100 Introduction to Data Science</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -3980,17 +4015,17 @@ vertical-align: -.125em;
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -5656,22 +5691,22 @@ margin-bottom: .05rem;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">STT-1100 Introduction à la science des données</span>
+    <span class="navbar-title">STT-1100 Introduction to Data Science</span>
     </a>
   </div>
-            <div id="quarto-search" class title="Recherche"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html">
-<span class="menu-text">Accueil</span></a>
+<span class="menu-text">Home</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../demarrage.html">
-<span class="menu-text">Démarrage</span></a>
+<span class="menu-text">Start</span></a>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -5680,105 +5715,105 @@ margin-bottom: .05rem;
     <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
         <li>
     <a class="dropdown-item" href="../modules.html">
- <span class="dropdown-text">Vue d’ensemble</span></a>
+ <span class="dropdown-text">Overview</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_01/index.html">
- <span class="dropdown-text">Module 01 - Plongée en science des données</span></a>
+ <span class="dropdown-text">Module 01 - Data science dive</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_02/index.html">
- <span class="dropdown-text">Module 02 - GitHub et visualisation de données</span></a>
+ <span class="dropdown-text">Module 02 - GitHub and data visualization</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_03/index.html">
- <span class="dropdown-text">Module 03 - Les catégories sous toutes leurs formes</span></a>
+ <span class="dropdown-text">Module 03 - Categories in all their forms</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_04/index.html">
- <span class="dropdown-text">Module 04 - Facteurs et nettoyage de données</span></a>
+ <span class="dropdown-text">Module 04 - Factors and data cleaning</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_05/index.html">
- <span class="dropdown-text">Module 05 - Explorer et comprendre les relations entre les variables</span></a>
+ <span class="dropdown-text">Module 05 - Explore and understand relationships between variables</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_06/index.html">
- <span class="dropdown-text">Module 06 - Collaboration et reproductibilité dans GitHub</span></a>
+ <span class="dropdown-text">Module 06 - Collaboration and reproducibility in GitHub</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_07/index.html">
- <span class="dropdown-text">Module 07 - Visualisation, éthique et sécurisation des données</span></a>
+ <span class="dropdown-text">Module 07 - Visualization, ethics and data security</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_08/index.html">
- <span class="dropdown-text">Module 08 - Automatisation et exploration du web</span></a>
+ <span class="dropdown-text">Module 08 - Automation and web exploration</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_09/index.html">
- <span class="dropdown-text">Module 09 - Prédiction et biais</span></a>
+ <span class="dropdown-text">Module 09 - Prediction and bias</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../module_10/index.html">
- <span class="dropdown-text">Module 10 - Au-delà des données: texte et tableau de bord</span></a>
+ <span class="dropdown-text">Module 10 - Beyond data: text and dashboard</span></a>
   </li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-valuations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Évaluations</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assessments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Assessments</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-valuations">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assessments">
         <li>
     <a class="dropdown-item" href="../evaluations.html">
- <span class="dropdown-text">Vue d’ensemble</span></a>
+ <span class="dropdown-text">Overview</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../examen.html">
- <span class="dropdown-text">Examen</span></a>
+ <span class="dropdown-text">Exam</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../defis.html">
- <span class="dropdown-text">Défis</span></a>
+ <span class="dropdown-text">Challenges</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../projet_session/index.html">
- <span class="dropdown-text">Projet de session</span></a>
+ <span class="dropdown-text">Session project</span></a>
   </li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ressources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Ressources</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-ressources">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">
         <li>
     <a class="dropdown-item" href="../ressources.html">
- <span class="dropdown-text">Vue d’ensemble</span></a>
+ <span class="dropdown-text">Overview</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../livres.html">
- <span class="dropdown-text">Livres et lectures</span></a>
+ <span class="dropdown-text">Books and readings</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../packages.html">
- <span class="dropdown-text">Packages R</span></a>
+ <span class="dropdown-text">R packages</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../donnees.html">
- <span class="dropdown-text">Bases de données</span></a>
+ <span class="dropdown-text">Datasets</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../supports_classe.html">
- <span class="dropdown-text">Supports de classe</span></a>
+ <span class="dropdown-text">Class supports</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../ia.html">
- <span class="dropdown-text">IA et aide</span></a>
+ <span class="dropdown-text">AI and help</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../boite_outils.html">
- <span class="dropdown-text">Boîte à outils</span></a>
+ <span class="dropdown-text">Toolkit</span></a>
   </li>
     </ul>
   </li>
@@ -5795,14 +5830,18 @@ margin-bottom: .05rem;
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+    <h2 id="toc-title">Plan</h2>
 
   <ul>
-  <li><a href="#produit-fini-du-module" id="toc-produit-fini-du-module" class="nav-link active" data-scroll-target="#produit-fini-du-module">Produit fini du module</a></li>
-  <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
-  <li><a href="#plan-dapprentissage" id="toc-plan-dapprentissage" class="nav-link" data-scroll-target="#plan-dapprentissage">Plan d’apprentissage</a></li>
-  <li><a href="#données-et-outils" id="toc-données-et-outils" class="nav-link" data-scroll-target="#données-et-outils">Données et outils</a></li>
-  <li><a href="#révision-et-prolongement" id="toc-révision-et-prolongement" class="nav-link" data-scroll-target="#révision-et-prolongement">Révision et prolongement</a></li>
+  <li><a href="#mission" id="toc-mission" class="nav-link active" data-scroll-target="#mission">Mission</a></li>
+  <li><a href="#expected-contract" id="toc-expected-contract" class="nav-link" data-scroll-target="#expected-contract">Expected Contract</a></li>
+  <li><a href="#minimal-robustness" id="toc-minimal-robustness" class="nav-link" data-scroll-target="#minimal-robustness">Minimal Robustness</a></li>
+  <li><a href="#recommended-workflow" id="toc-recommended-workflow" class="nav-link" data-scroll-target="#recommended-workflow">Recommended Workflow</a></li>
+  <li><a href="#local-tests" id="toc-local-tests" class="nav-link" data-scroll-target="#local-tests">Local Tests</a></li>
+  <li><a href="#ethics-and-server-load" id="toc-ethics-and-server-load" class="nav-link" data-scroll-target="#ethics-and-server-load">Ethics and Server Load</a></li>
+  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable">Deliverable</a></li>
+  <li><a href="#assessment-criteria" id="toc-assessment-criteria" class="nav-link" data-scroll-target="#assessment-criteria">Assessment Criteria</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 </nav>
     </div>
@@ -5811,7 +5850,8 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Automatisation et exploration du web</h1>
+<h1 class="title">Challenge 8 - Scraping Function</h1>
+<p class="subtitle lead">STT-1100 Introduction to Data Science</p>
 </div>
 
 
@@ -5828,154 +5868,145 @@ margin-bottom: .05rem;
 </header>
 
 
-<div class="module-banner">
-<p class="module-banner-number">
-Module 08
-</p>
-<p class="module-banner-subtitle">
-Automatiser des tâches répétitives et extraire de l’information de pages web.
-</p>
+<section id="mission" class="level1">
+<h1>Mission</h1>
+<p>In adventure 8, you built the pieces needed to extract metadata from a Données Québec search page. The challenge now is to turn that work into a stable, testable and reusable function.</p>
+<p>Submit an <code>IDUL.R</code> file in the GitHub repository created from the <code>STT-1100/aventure-8</code> template.</p>
+</section>
+<section id="expected-contract" class="level1">
+<h1>Expected Contract</h1>
+<p>Your <code>IDUL.R</code> file must define a function named exactly <code>scrape_page()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>scrape_page <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="module-quick-facts three-facts">
-<div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span> <span><span class="fact-label">Fil principal</span><span class="fact-value">Boucles, fonctions et web scraping</span></span></p>
+<p>The function must respect the following contract:</p>
+<ul>
+<li>it takes one argument, <code>url</code>, containing the address of a Données Québec search page;</li>
+<li>it reads the page with <code>rvest</code>;</li>
+<li>it returns a <code>data.frame</code>;</li>
+<li>the returned table contains exactly the columns <code>titre</code>, <code>producteur</code>, <code>categorie</code>, in that order;</li>
+<li>each row corresponds to one dataset displayed on the page;</li>
+<li>missing values must be returned as <code>NA_character_</code>, not as an error;</li>
+<li>the function must not open a window, ask for interactive input, print a long message or depend on an object created in the console.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Données</span><span class="fact-value">Pages web et textes extraits</span></span></p>
-</div>
-<div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span> <span><span class="fact-label">Défi</span><span class="fact-value">Fonction <code>scrape_page()</code> testable</span></span></p>
+<div class="callout-title-container flex-fill">
+Important
 </div>
 </div>
-<section id="produit-fini-du-module" class="level2">
-<h2 class="anchored" data-anchor-id="produit-fini-du-module">Produit fini du module</h2>
-<div class="module-product-showcase">
-  <div class="product-copy">
-  <p class="showcase-kicker">Produit final</p>
-  <h3 class="anchored">Une fonction de scraping reproductible</h3>
-  <p>Le chapitre conduit à une extraction web rangée dans une fonction, avec des sorties contrôlées et une logique que l’on peut refaire.</p>
-  </div>
-  <div class="product-visual" aria-label="Aperçu visuel du produit fini">
-  <div class="mini-product-board">
-  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>scraping</strong></div>
-  <div class="mini-product-bars">
-  <div class="mini-bar-row"><span>sélecteurs</span><span class="mini-bar" style="--bar-width: 47%;"></span></div><div class="mini-bar-row"><span>fonction</span><span class="mini-bar" style="--bar-width: 78%;"></span></div><div class="mini-bar-row"><span>table finale</span><span class="mini-bar" style="--bar-width: 66%;"></span></div>
-  </div>
-  <div class="mini-product-checks">
-  <span><i class="bi bi-check2"></i>sélecteurs</span>
-  <span><i class="bi bi-check2"></i>fonction</span>
-  <span><i class="bi bi-check2"></i>table finale</span>
-  </div>
-  </div>
-  </div>
+<div class="callout-body-container callout-body">
+<p>The column names are intentionally in French because they will be checked automatically. Use exactly <code>titre</code>, <code>producteur</code>, <code>categorie</code>.</p>
+</div>
 </div>
 </section>
-<section id="objectifs-du-module" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
-<p>À la fin de ce module, vous devriez être capable de:</p>
+<section id="minimal-robustness" class="level1">
+<h1>Minimal Robustness</h1>
+<p>The portal may display slightly different labels. Your function must therefore be able to handle at least these forms:</p>
 <ul>
-<li>Extraire des données textuelles d’une page web en utilisant <code>rvest</code>.</li>
-<li>Automatiser des tâches répétitives à l’aide de boucles et de fonctions en R.</li>
-<li>Identifier les aspects éthiques liés à la collecte automatisée de données en ligne.</li>
+<li><code>Organisation</code>, <code>Organisme</code>, <code>Producteur</code>, <code>Producer</code> or <code>Organization</code> for the producer;</li>
+<li><code>Catégorie</code>, <code>Catégories</code>, <code>Category</code> or <code>Categories</code> for the category.</li>
+</ul>
+<p>A reasonable approach is to create a small helper function that receives the text extracted from an HTML block and a search pattern, then returns the cleaned value or <code>NA_character_</code>.</p>
+</section>
+<section id="recommended-workflow" class="level1">
+<h1>Recommended Workflow</h1>
+<ol type="1">
+<li>Work first in the console or in a draft file.</li>
+<li>Locate dataset blocks with <code>.dataset-content</code>.</li>
+<li>Extract titles with <code>.dataset-heading a</code>.</li>
+<li>Locate metadata elements with <code>.dqc-org-cat</code>.</li>
+<li>Build a helper function to clean labels.</li>
+<li>Group everything in <code>scrape_page(url)</code>.</li>
+<li>Test the function on a local page or on a public Données Québec page.</li>
+<li>Place only the final required code in <code>IDUL.R</code>.</li>
+</ol>
+</section>
+<section id="local-tests" class="level1">
+<h1>Local Tests</h1>
+<p>The template repository contains a local test. After completing your function, run:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> tests/test_scrape_page.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The test checks that:</p>
+<ul>
+<li><code>IDUL.R</code> can be loaded without error;</li>
+<li>the <code>scrape_page()</code> function exists;</li>
+<li>the result is a <code>data.frame</code>;</li>
+<li>the columns are exactly <code>titre</code>, <code>producteur</code>, <code>categorie</code>;</li>
+<li>a small local HTML page returns two complete rows.</li>
+</ul>
+<p>These tests do not replace the final assessment, but they detect the most common mistakes before submission.</p>
+</section>
+<section id="ethics-and-server-load" class="level1">
+<h1>Ethics and Server Load</h1>
+<p>For the challenge, your function must scrape one page at a time. If you later write a loop over several pages, add a pause with <code>Sys.sleep(1)</code> between requests.</p>
+<p>Do not bypass protection mechanisms. Do not launch large automated collections. The <code>robots.txt</code> file provides a useful technical signal, but it does not replace terms of use, caution or respect for server load.</p>
+</section>
+<section id="deliverable" class="level1">
+<h1>Deliverable</h1>
+<p>Submit the GitHub repository generated from the <code>STT-1100/aventure-8</code> template.</p>
+<p>The repository must contain:</p>
+<ul>
+<li>the <code>IDUL.R</code> file;</li>
+<li>the <code>scrape_page(url)</code> function;</li>
+<li>the test file provided in <code>tests/</code>;</li>
+<li>no unnecessary downloaded data.</li>
 </ul>
 </section>
-<section id="plan-dapprentissage" class="level2">
-<h2 class="anchored" data-anchor-id="plan-dapprentissage">Plan d’apprentissage</h2>
-<p>Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.</p>
-<div class="path-grid interactive-path module-path learning-plan-path">
-<details class="path-card learning-plan-card" id="lectures-a-faire">
-  <summary><span class="path-number">1</span>
-  <span class="path-title">Lectures à faire</span>
-  <span class="path-preview">Préparer HTML, sélecteurs CSS, fonctions et automatisation.</span>
-  <span class="path-resource path-note">Dans la carte</span>
-  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 id="lectures" class="anchored">Lectures</h3>
-<p>Pour vous préparer, consultez les ressources suivantes :</p>
-<ul>
-<li><a href="https://r4ds.hadley.nz/webscraping.html">R for Data Science - Web scraping</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt">robots.txt documentation (MDN)</a></li>
-</ul>
-      </div>
-    </div>
-  </details>
-<details class="path-card learning-plan-card" id="aventure">
-  <summary><span class="path-number">2</span>
-  <span class="path-title">Aventure</span>
-  <span class="path-preview">Extraire une page web et transformer le résultat en table.</span>
-  <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
-  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
-  <div class="step-detail">
-  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
-  <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
-  </div>
-  </details>
-<details class="path-card learning-plan-card" id="defi">
-  <summary><span class="path-number">3</span>
-  <span class="path-title">Défi</span>
-  <span class="path-preview">Construire une fonction de scraping claire et réutilisable.</span>
-  <span class="path-resource"><a class="summary-resource-link challenge-link" href="defi.html">Défi</a></span>
-  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 class="unnumbered anchored" id="défi-fonction-de-scraping">Défi - Fonction de scraping</h3>
-<p>Vous devrez concevoir une fonction <code>scrape_page(url)</code> qui :</p>
-<ul>
-<li>prend en entrée une URL d’une page de recherche de Données Québec ;</li>
-<li>retourne un <code>data.frame</code> avec les colonnes <code>titre</code>, <code>producteur</code>, <code>categorie</code>.</li>
-</ul>
-<p>Vous remettrez cette fonction dans un fichier <code>IDUL.R</code> dans le dépôt template <code>STT-1100/aventure-8</code>. La consigne complète est disponible dans la page <a href="defi.html">Défi 8</a>.</p>
-      </div>
-    </div>
-  </details>
-<details class="path-card learning-plan-card" id="exercices">
-  <summary><span class="path-number">4</span>
-  <span class="path-title">Exercices</span>
-  <span class="path-preview">Reprendre sélecteurs, boucles et nettoyage de texte web.</span>
-  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
-  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
-  <div class="step-detail">
-  <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
-  <p><span class="step-label">Pourquoi</span> Les exercices sont gardés dans une page autonome parce qu&#39;ils prennent plus de place.</p>
-  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
-  </div>
-  </details>
-</div>
+<section id="assessment-criteria" class="level1">
+<h1>Assessment Criteria</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Expectation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Function</td>
+<td><code>scrape_page()</code> exists and can be called with a URL.</td>
+</tr>
+<tr class="even">
+<td>Output</td>
+<td>The output is a <code>data.frame</code> with the exact columns <code>titre</code>, <code>producteur</code>, <code>categorie</code>.</td>
+</tr>
+<tr class="odd">
+<td>Extraction</td>
+<td>Titles, producers and categories match the datasets on the page.</td>
+</tr>
+<tr class="even">
+<td>Robustness</td>
+<td>Singular, plural and bilingual labels are handled.</td>
+</tr>
+<tr class="odd">
+<td>Reproducibility</td>
+<td><code>IDUL.R</code> can be loaded in a fresh R session.</td>
+</tr>
+<tr class="even">
+<td>Sobriety</td>
+<td>The code avoids unnecessary messages, global objects and large collections.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="données-et-outils" class="level2">
-<h2 class="anchored" data-anchor-id="données-et-outils">Données et outils</h2>
-<div class="module-resource-panel">
-  <div class="module-resource-section">
-  <h3 class="anchored">Bases de données</h3>
-  <div class="module-chip-list">
-  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-web-pages-module-08"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>Pages web analysées avec rvest</span></a>
-  </div>
-  </div>
-  <div class="module-resource-section">
-  <h3 class="anchored">Packages R</h3>
-  <div class="module-chip-list">
-  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#rvest"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>rvest</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#purrr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>purrr</span></a>
-  </div>
-  </div>
-</div>
-</section>
-<section id="révision-et-prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="révision-et-prolongement">Révision et prolongement</h2>
-<div class="closing-panel">
-  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
-  <div>
-  <h3 class="anchored">Finir le module avec l’IA du cours</h3>
-  <p>Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.</p>
-  <ul>
-  <li>Expliquez le produit fini en trois phrases.</li>
-  <li>Collez un extrait de code ou de sortie et demandez un diagnostic.</li>
-  <li>Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.</li>
-  </ul>
-  </div>
-</div>
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<ul>
+<li>Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund, 2023, R for Data Science, Web scraping chapter: <a href="https://r4ds.hadley.nz/webscraping.html" class="uri">https://r4ds.hadley.nz/webscraping.html</a></li>
+<li>Official <code>rvest</code> documentation: <a href="https://rvest.tidyverse.org/" class="uri">https://rvest.tidyverse.org/</a></li>
+<li>MDN documentation on <code>robots.txt</code>: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt" class="uri">https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt</a></li>
+</ul>
 
 
 </section>
@@ -6249,12 +6280,12 @@ font-size:.8rem;
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copié");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copié");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button,
           { trigger: "manual",
             customClass: "code-copy-button-tooltip",
@@ -6311,6 +6342,11 @@ font-size:.8rem;
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

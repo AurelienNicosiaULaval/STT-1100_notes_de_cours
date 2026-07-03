@@ -8,7 +8,7 @@ Fil principalBoucles, fonctions et web scraping
 
 DonnéesPages web et textes extraits
 
-DéfiExtraction ou automatisation reproductible
+DéfiFonction `scrape_page()` testable
 
 ## Produit fini du module
 
@@ -46,7 +46,7 @@ Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exerc
 
 Pour vous préparer, consultez les ressources suivantes :
 
-- [R for Data Science — Web scraping](https://r4ds.hadley.nz/webscraping.html)
+- [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html)
 - [robots.txt documentation (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
 
 2 Aventure Extraire une page web et transformer le résultat en table. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
@@ -61,16 +61,16 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Construire une fonction de scraping claire et réutilisable. Dans la carte Ouvrir la carteRéduire
+3 Défi Construire une fonction de scraping claire et réutilisable. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-### Défi — Fonction de scraping
+### Défi - Fonction de scraping
 
 Vous devrez concevoir une fonction `scrape_page(url)` qui :
 
 - prend en entrée une URL d’une page de recherche de Données Québec ;
 - retourne un `data.frame` avec les colonnes `titre`, `producteur`, `categorie`.
 
-Vous remettrez cette fonction dans un fichier `IDUL.R` dans votre dépôt GitHub. Elle sera testée automatiquement sur plusieurs pages.
+Vous remettrez cette fonction dans un fichier `IDUL.R` dans le dépôt template `STT-1100/aventure-8`. La consigne complète est disponible dans la page [Défi 8](defi.llms.md).
 
 4 Exercices Reprendre sélecteurs, boucles et nettoyage de texte web. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 

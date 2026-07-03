@@ -5798,7 +5798,7 @@ margin-bottom: .05rem;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link active" data-scroll-target="#consolidation-exercises">Consolidation exercises</a></li>
+  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link active" data-scroll-target="#consolidation-exercises">Consolidation Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -5825,22 +5825,16 @@ margin-bottom: .05rem;
 
 
 <section id="consolidation-exercises" class="level1 unnumbered">
-<h1 class="unnumbered">Consolidation exercises</h1>
-<p>These exercises use a <strong>different page</strong> of the Data Québec portal, in order to practice in another context.<br>
-Use the archived version of the IMDb Top 250 Movies page: <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
+<h1 class="unnumbered">Consolidation Exercises</h1>
+<p>These exercises revisit the adventure’s skills on a different page. Use the archived version of the IMDb Top 250 Movies page: <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
 <ol type="1">
-<li><p><strong>Read the HTML page</strong><br>
-Use <code>read_html()</code> then <code>html_nodes()</code> to observe the sections containing the movie titles.</p></li>
-<li><p><strong>Extract movie titles</strong><br>
-Try <code>html_nodes(..., &quot;.titleColumn a&quot;) %&gt;% html_text()</code>.</p></li>
-<li><p><strong>Extract the years</strong><br>
-Use <code>html_nodes(..., &quot;.titleColumn span&quot;)</code> to extract the years in parentheses.</p></li>
-<li><p><strong>Extract notes</strong><br>
-Use <code>html_nodes(..., &quot;.imdbRating strong&quot;)</code> to get the ratings for each movie.</p></li>
-<li><p><strong>Build a table</strong><br>
-Combine the three vectors (<code>title</code>, <code>year</code>, <code>note</code>) into a <code>data.frame</code>.</p></li>
-<li><p><strong>Ethical reflection</strong><br>
-Check if the IMDb page archive (or IMDb directly) allows scraping by consulting their <a href="https://www.imdb.com/robots.txt">robots.txt</a>.</p></li>
+<li>Read the HTML page with <code>read_html()</code>.</li>
+<li>Locate the sections containing movie titles with <code>html_elements()</code>.</li>
+<li>Extract titles with the <code>.titleColumn a</code> selector.</li>
+<li>Extract years with the <code>.titleColumn span</code> selector.</li>
+<li>Extract ratings with the <code>.imdbRating strong</code> selector.</li>
+<li>Combine the three vectors into a <code>data.frame</code>.</li>
+<li>Check IMDb’s <code>robots.txt</code> file and explain why this check is not sufficient on its own.</li>
 </ol>
 
 

@@ -134,11 +134,11 @@ Baseball tables used to combine several sources.R packageStructure to consultVie
 
 ### Module 08
 
-[Module 08 ](packages.llms.md#rvest)
+[Module 08 ](https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1)
 
-## Web pages analyzed with rvest
+## Données Québec search page
 
-[Data extracted from HTML pages during the activities.WebStructure to consultView documentation](packages.llms.md#rvest)
+[Public search page from the Données Québec portal used to practise HTML extraction.WebStructure to consultView documentation](https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1)
 
 ### Module 09
 

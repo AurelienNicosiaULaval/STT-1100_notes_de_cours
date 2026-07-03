@@ -1,8 +1,8 @@
 ---
-title: "Adventure 8 - Open data from Quebec"
+title: "Adventure 8 - Open Data from Quebec"
 subtitle: "STT-1100 Introduction to Data Science"
 author:
-  - institute: “Laval University”
+  - institute: "Université Laval"
 editor: visual
 editor_options:
   chunk_output_type: console
@@ -11,7 +11,7 @@ format:
     toc: true
     toc-title: Plan
     css: [../css/base_css.css]
-    self-contained: true
+    embed-resources: true
 ---
 
 ```{r setup, include=FALSE}
@@ -24,8 +24,8 @@ fallback_dataset_html <- '
   <body>
     <div class="dataset-content">
       <h3 class="dataset-heading"><a>Example public dataset</a></h3>
-      <div class="dqc-org-cat">Organization: Données Québec</div>
-      <div class="dqc-org-cat">Category: Health</div>
+      <div class="dqc-org-cat">Organisation : Données Québec</div>
+      <div class="dqc-org-cat">Catégories : Santé</div>
     </div>
   </body>
 </html>'
@@ -49,41 +49,45 @@ safe_read_html <- function(url) {
     }
   )
 }
+
+extract_value <- function(text, pattern) {
+  value <- text[grepl(pattern, text, ignore.case = TRUE)][1]
+  if (length(value) == 0 || is.na(value)) {
+    return(NA_character_)
+  }
+  trimws(sub(pattern, "", value, ignore.case = TRUE))
+}
 ```
 
-# Scenario: Immerse yourself in the shoes of a freelance consultant
+# Scenario
 
-You work as a **freelancer** in data science. Unlike a salaried position, you are mandated from time to time by clients to resolve specific problems. You must be autonomous, rigorous and capable of delivering effective, reusable and well-documented solutions.
+You work as an independent data science consultant. Unlike a salaried position, consulting work is organized around specific client mandates. You must be autonomous, rigorous and able to deliver effective, reusable and well-documented solutions.
 
-Freelance consultants are often called upon for their ability to unblock projects quickly and efficiently. They deliver tools that are well documented, testable, and easy to maintain by their customers. Clarity of the code, respect for standards and ethics are therefore key elements of their practice.
-
-Today, you are hired by **Marie-Pier**, research director at the Quebec Institute for Sustainable Data. She wishes to explore the [dataquebec.ca](https://www.donneesquebec.ca) portal to identify the most recent and relevant datasets for her projects. Your mission: **design a reliable scraping tool** to extract titles, producers and categories from datasets, while respecting good ethical practices.
+Today, you are hired by Marie-Pier, research director at the Quebec Institute for Sustainable Data. She wants to explore the [Données Québec](https://www.donneesquebec.ca) portal to identify recent and relevant datasets. Your mission is to design a reliable scraping tool that extracts dataset titles, producers and categories, while respecting good technical and ethical practices.
 
 ::: callout-note
-**Your contact: Marie-Pier**\
-She accompanies you throughout this adventure: she will ask key questions, check your results, and help you refine your deliverables.
+Your contact: Marie-Pier
+
+She accompanies you throughout this adventure. She asks key questions, checks your results and helps you clarify your deliverables.
 :::
 
 ## Adventure Objectives
 
 - Understand the basics of web scraping with `rvest`.
 - Create a function to extract metadata from a web page.
-- Automate extraction on multiple pages.
+- Automate extraction over several pages.
 - Explore trends in Quebec open data.
-- Evaluate the ethical and technical feasibility of scraping other websites.
+- Evaluate the ethical and technical limits of automated collection.
 
-----------------------------------------------------------------------------------
-
-# Prerequisites
+# Before Scraping: Check the Context
 
 ::: {.callout-important title="Question from Marie-Pier"}
-*“What can we legally extract from this portal? Is scraping allowed here? »*
+*What can we extract from this portal? Is scraping reasonable here?*
 :::
 
-To answer this question, we will first consult the site's `robots.txt` file. This file indicates the rules that indexing (and therefore scraping) robots must follow.
+A first reflex is to consult the site's `robots.txt` file. This file indicates the paths a site asks robots to avoid. It does not replace terms of use, ethical judgment or respect for server load, but it gives a useful signal before automating collection.
 
 ```{r exploration-ethics}
-# Show robots.txt
 robots <- safe_read_lines(
   "https://www.donneesquebec.ca/robots.txt",
   fallback = c(
@@ -92,22 +96,23 @@ robots <- safe_read_lines(
     "Disallow: /dataset/rate/"
   )
 )
-cat("\nContents of robots.txt file:\n")
+
+cat("Contents of robots.txt:\n")
 writeLines(robots)
 
-# Quick analysis
 disinstructions <- robots[grepl("^Disallow", robots)]
-cat("Paths prohibited for robots:\n")
+
+cat("\nPaths prohibited for robots:\n")
 writeLines(disinstructions)
-
-# Ethics note
-cat("\n\nNote:\nPublic datasets listed in the result pages are not explicitly restricted.\nScraping of main search pages is therefore permitted, as long as we avoid the paths /api/, /dataset/rate/, etc.\n")
-
 ```
 
-# Understanding web scraping with `rvest`
+::: callout-warning
+A `robots.txt` file that does not explicitly forbid a page does not mean that everything is automatically acceptable. In this module, we limit collection to a few public result pages, add a pause between requests and do not bypass protection mechanisms.
+:::
 
-In this section, you will discover the essential functions of the `rvest` package. Your goal: learn how to extract structured HTML content from a website.
+# Understanding Web Scraping with `rvest`
+
+In this section, you discover the essential functions of the `rvest` package. The goal is to extract structured HTML content from a search page.
 
 ```{r reading-html}
 url <- "https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1"
@@ -115,138 +120,148 @@ page <- safe_read_html(url)
 page
 ```
 
-The `read_html()` function downloads and converts the web page to allow manipulation.
-
-Marie-Pier asks you:
+The `read_html()` function downloads and converts the web page so it can be manipulated.
 
 ::: {.callout-important title="Question from Marie-Pier"}
-*“Can you show me what the structure of this page looks like? Can you spot anything interesting? »*
+*Can you show me what the structure of this page looks like? Can you spot an interesting element?*
 :::
 
-We can now target HTML elements with `html_nodes()` (or `html_elements()` in recent versions):
+We can now target HTML elements with `html_elements()`:
 
 ```{r test-nodes}
-blocks <- html_nodes(page, ".dataset-content")
+blocks <- html_elements(page, ".dataset-content")
 length(blocks)
 blocks[[1]]
 ```
 
-To extract text from an HTML node:
+To extract text from an HTML element:
 
 ```{r test-text}
-html_text(blocks[[1]])
+html_text2(blocks[[1]])
 ```
 
-Now, let's test the extraction of the **title**:
+Now, let us test extraction of the title:
 
 ```{r test-title}
-html_nodes(blocks[[1]], ".dataset-heading a") %>% html_text(trim = TRUE)
+html_elements(blocks[[1]], ".dataset-heading a") |>
+  html_text2()
 ```
 
-And for the **producers**? It is necessary to identify a substructure containing the information:
+And for the producer? We need to locate a substructure containing the information:
 
 ```{r test-producer}
-orgs <- html_nodes(blocks[[1]], ".dqc-org-cat") %>% html_text(trim = TRUE)
-orgs
+info <- html_elements(blocks[[1]], ".dqc-org-cat") |>
+  html_text2()
+
+info
 ```
 
-We can filter the good element with `grepl()` then clean the string with `gsub()`:
+The Données Québec page used here returns French labels. A robust function should therefore handle labels such as `Organisation`, `Catégorie` and `Catégories`, even when you are reading the English version of the course.
 
 ```{r extract-producer}
-org <- orgs[grepl("^Organization", orgs)][1]
-org_clean <- gsub("^Organization: ", "", org)
-org_clean
+producer <- extract_value(
+  info,
+  "^(Organisation|Organisme|Producteur|Producer|Organization)\\s*:?\\s*"
+)
+
+producer
 ```
 
 ::: callout-tip
- **Why use `map_chr()`?**\
-`map_chr()` belongs to the **purrr** package, which is part of the `tidyverse`. This function allows you to apply a function to each element of a list (here each HTML block), and to return a character vector. This is perfect when you want one text value per block.
+Why use `map_chr()`?
 
->  Example:
->
->  ``` r
->  producers <- map_chr(blocks, function(block) {
->  orgs <- html_nodes(block, ".dqc-org-cat") %>% html_text(trim = TRUE)
->  org <- orgs[grepl("^Organization", orgs)][1]
->  gsub("^Organization: ", "", org)
->  })
->  ```
+`map_chr()` belongs to the `purrr` package, which is part of the `tidyverse`. This function applies a function to each element of a list and returns a character vector. This is exactly what we need when we want one text value per HTML block.
+
+``` r
+producteurs <- map_chr(blocks, function(block) {
+  info <- html_elements(block, ".dqc-org-cat") |>
+    html_text2()
+
+  extract_value(
+    info,
+    "^(Organisation|Organisme|Producteur|Producer|Organization)\\s*:?\\s*"
+  )
+})
+```
 :::
 
 ::: callout-tip
- **It's up to you**: From this same HTML block, find how to extract: - the **categories** associated with each dataset
+Your turn: from this same HTML block, find how to extract the categories associated with each dataset. The observed label may be `Catégorie`, `Catégories`, `Category` or `Categories`.
 :::
 
-----------------------------------------------------------------------------------
+# Guided Creation of the `scrape_page()` Function
 
-# Guided creation of the `scrape_page()` function
+Marie-Pier wants you to create a reusable function named `scrape_page()`. It takes a URL as input and returns a `data.frame` with exactly the following columns:
 
-Marie-Pier wants you to create a reusable function named `scrape_page()` which takes a URL as an argument and returns a `data.frame` with the columns: `title`, `producer`, `category`.
+- `titre`;
+- `producteur`;
+- `categorie`.
+
+The column names remain in French because the automatic tests will check this exact contract.
 
 Here is a skeleton to complete:
 
 ```{r, eval=FALSE}
 scrape_page <- function(url) {
-  # Read the HTML content of the page
-  page <- read_html(url)
+  page <- rvest::read_html(url)
 
-  # Select individual result blocks
-  blocks <- html_nodes(page, ".dataset-content")
+  blocks <- rvest::html_elements(page, ".dataset-content")
 
-  # Title (already done for you)
-  titles <- html_nodes(blocks, ".dataset-heading a") %>% html_text(trim = TRUE)
+  titres <- rvest::html_elements(blocks, ".dataset-heading a") |>
+    rvest::html_text2()
 
-  # Producer (to be completed)
-  producers <- map_chr(blocks, function(block) {
-    #... your code here...
+  producteurs <- purrr::map_chr(blocks, function(block) {
+    info <- rvest::html_elements(block, ".dqc-org-cat") |>
+      rvest::html_text2()
+
+    # Extract the organization or producer.
   })
 
-  # Category (to be completed)
-  categories <- map_chr(blocks, function(block) {
-    #... your code here...
+  categories <- purrr::map_chr(blocks, function(block) {
+    info <- rvest::html_elements(block, ".dqc-org-cat") |>
+      rvest::html_text2()
+
+    # Extract the category or categories.
   })
 
-  # Create a standard data.frame
   data.frame(
-    title = titles,
-    producer = producers,
-    category = categories,
+    titre = titres,
+    producteur = producteurs,
+    categorie = categories,
     stringsAsFactors = FALSE
   )
 }
 ```
 
 ::: callout-note
- **Test your function with page 3**: it should return the 20 datasets on this page.
+Test your function with page 3. It should return 20 rows and exactly the columns `titre`, `producteur`, `categorie`.
 :::
 
-----------------------------------------------------------------------------------
+# Manual Repetition, Then a `for` Loop
 
-# Manual repeat, then `for` loop
-
-Now test the extraction of the **first 5 pages** by calling your function several times:
+Now test the extraction of the first five pages by calling your function several times:
 
 ```{r, eval=FALSE}
-# Manual example (to be completed)
-p1 <- scrape_page("...")
-p2 <- scrape_page("...")
-# etc.
+p1 <- scrape_page("https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1")
+p2 <- scrape_page("https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=2")
 ```
 
 ::: callout-tip
- **Marie-Pier**: “Have you noticed what changes in the URL each time? Can you generalize this behavior? »
+Marie-Pier: *Have you noticed what changes in the URL each time? Can you generalize this behavior?*
 :::
 
-Reminder of **module 1**: a loop allows you to automate repetitive behavior. Here is the start of a `for` loop to complete:
+Reminder from module 1: a loop automates repetitive behavior.
 
 ```{r, eval=FALSE}
 results <- data.frame()
 
 for (i in 1:5) {
-  # Build URL here
-  url <- "..."
+  url <- paste0(
+    "https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=",
+    i
+  )
 
-  cat("Page", i, "current...\n")
+  cat("Page", i, "in progress...\n")
   page_data <- scrape_page(url)
 
   results <- bind_rows(results, page_data)
@@ -254,45 +269,33 @@ for (i in 1:5) {
 }
 ```
 
-----------------------------------------------------------------------------------
+# Exploration Guided by Marie-Pier
 
-# Exploration guided by Marie-Pier
-
-Use the `results` table to answer your client's questions. She expects precise results from you, illustrated if necessary.
+Use the `results` table to answer your client's questions. She expects precise and careful results.
 
 ::: {.callout-important title="Questions from Marie-Pier"}
-1. What are the most common categories of datasets?
+1. What are the most common dataset categories?
 2. Which organizations publish the most?
-3. Are we observing a diversity of fields or a concentration on a few themes?
+3. Do we observe a diversity of fields or a concentration around a few themes?
 :::
 
-----------------------------------------------------------------------------------
+# Ethical Reflection
 
-# Ethical reflection
-
-::: {.callout-note title="For your report"}
+::: {.callout-note title="For your working notes"}
 Briefly report:
 
-- Does the Data Québec site explicitly allow scraping?
-- What behaviors have you adopted to remain respectful?
-- Choose **two other websites** (ex: bonjourquebec.com, ulaval.ca) and check if scraping seems authorized or not. Rely on the `robots.txt` files or terms of use.
+- what the `robots.txt` file indicates;
+- the limits of this check;
+- the behaviors you adopted to remain respectful, such as limiting the number of pages, adding a pause and not bypassing protection;
+- the situation for two other websites, for example `bonjourquebec.com` or `ulaval.ca`, using `robots.txt` or terms of use.
 :::
 
-----------------------------------------------------------------------------------
+# Challenge to Submit
 
-# Challenge to submit
+The challenge associated with this adventure is described on the page [Challenge 8 - Scraping Function](defi.qmd).
 
-You must submit a **file `IDUL.R`** containing your `scrape_page()` function.
+You must submit an `IDUL.R` file containing your `scrape_page()` function. The starter repository is the GitHub template `STT-1100/aventure-8`.
 
-- This file should be placed in your GitHub repository in the location indicated.
-- We will automatically test your function with multiple pages.
+# Conclusion of the Adventure
 
- Good luck — be rigorous in your function design!
-
-----------------------------------------------------------------------------------
-
-# Conclusion of the adventure
-
-You've designed a functional, automated scraping tool, used a `for` loop, extracted structured metadata, and deepened your understanding of the ethics of scraping.
-
-Well done, consultant!
+You have designed a functional and automatable scraping tool, used a `for` loop, extracted structured metadata and deepened your understanding of scraping ethics.

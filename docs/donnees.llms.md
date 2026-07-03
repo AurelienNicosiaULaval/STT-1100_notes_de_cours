@@ -134,11 +134,11 @@ Tables de baseball utilisées pour combiner plusieurs sources.Package RStructure
 
 ### Module 08
 
-[Module 08 ](packages.llms.md#rvest)
+[Module 08 ](https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1)
 
-## Pages web analysées avec rvest
+## Recherche Données Québec
 
-[Données extraites de pages HTML pendant les activités.WebStructure à consulterVoir la documentation](packages.llms.md#rvest)
+[Page de recherche publique du portail Données Québec utilisée pour pratiquer l’extraction HTML.WebStructure à consulterVoir la documentation](https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1)
 
 ### Module 09
 

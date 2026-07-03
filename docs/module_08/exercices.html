@@ -5826,21 +5826,15 @@ margin-bottom: .05rem;
 
 <section id="exercices-de-consolidation" class="level1 unnumbered">
 <h1 class="unnumbered">Exercices de consolidation</h1>
-<p>Ces exercices utilisent une <strong>page différente</strong> du portail Données Québec, afin de pratiquer dans un autre contexte.<br>
-Utilisez la version archivée de la page IMDb des 250 meilleurs films : <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
+<p>Ces exercices reprennent les gestes de l’aventure sur une page différente. Utilisez la version archivée de la page IMDb des 250 meilleurs films : <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
 <ol type="1">
-<li><p><strong>Lire la page HTML</strong><br>
-Utilisez <code>read_html()</code> puis <code>html_nodes()</code> pour observer les sections contenant les titres des films.</p></li>
-<li><p><strong>Extraire les titres des films</strong><br>
-Essayez <code>html_nodes(..., &quot;.titleColumn a&quot;) %&gt;% html_text()</code>.</p></li>
-<li><p><strong>Extraire les années</strong><br>
-Utilisez <code>html_nodes(..., &quot;.titleColumn span&quot;)</code> pour extraire les années entre parenthèses.</p></li>
-<li><p><strong>Extraire les notes</strong><br>
-Utilisez <code>html_nodes(..., &quot;.imdbRating strong&quot;)</code> pour obtenir les cotes de chaque film.</p></li>
-<li><p><strong>Construire un tableau</strong><br>
-Combinez les trois vecteurs (<code>titre</code>, <code>année</code>, <code>note</code>) dans un <code>data.frame</code>.</p></li>
-<li><p><strong>Réflexion éthique</strong><br>
-Vérifiez si l’archive de la page IMDb (ou IMDb directement) autorise le scraping en consultant leur <a href="https://www.imdb.com/robots.txt">robots.txt</a>.</p></li>
+<li>Lire la page HTML avec <code>read_html()</code>.</li>
+<li>Repérer les sections contenant les titres des films avec <code>html_elements()</code>.</li>
+<li>Extraire les titres avec le sélecteur <code>.titleColumn a</code>.</li>
+<li>Extraire les années avec le sélecteur <code>.titleColumn span</code>.</li>
+<li>Extraire les notes avec le sélecteur <code>.imdbRating strong</code>.</li>
+<li>Combiner les trois vecteurs dans un <code>data.frame</code>.</li>
+<li>Vérifier le fichier <code>robots.txt</code> d’IMDb et expliquer pourquoi cette vérification ne suffit pas à elle seule.</li>
 </ol>
 
 

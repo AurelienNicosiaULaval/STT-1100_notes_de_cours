@@ -8,7 +8,7 @@ Main threadLoops, functions and web scraping
 
 DataWeb pages and extracted texts
 
-ChallengeReproducible extraction or automation
+ChallengeTestable `scrape_page()` function
 
 ## Finished Product
 
@@ -46,7 +46,7 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 
 To prepare, check out the following resources:
 
-- [R for Data Science — Web scraping](https://r4ds.hadley.nz/webscraping.html)
+- [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html)
 - [robots.txt documentation (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
 
 2 Adventure Extract a web page and turn the result into a table. [Adventure](aventure.llms.md) Open cardCollapse
@@ -61,16 +61,16 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Build a clear and reusable scraping function. In this card Open cardCollapse
+3 Challenge Build a clear and reusable scraping function. [Challenge](defi.llms.md) Open cardCollapse
 
-### Challenge — Scraping function
+### Challenge - Scraping function
 
 You will need to design a function `scrape_page(url)` which:
 
 - takes as input a URL from a Data Québec search page;
-- returns a `data.frame` with the columns `title`, `producer`, `category`.
+- returns a `data.frame` with the columns `titre`, `producteur`, `categorie`.
 
-You will put this function in an `IDUL.R` file in your GitHub repository. It will be tested automatically on several pages.
+You will put this function in an `IDUL.R` file in the `STT-1100/aventure-8` template repository. The full instructions are available in the [Challenge 8](defi.llms.md) page.
 
 4 Exercises Revisit selectors, loops and web text cleaning. [Exercises](exercices.llms.md) Open cardCollapse
 

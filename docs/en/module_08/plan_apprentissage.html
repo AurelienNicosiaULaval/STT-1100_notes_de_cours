@@ -5798,11 +5798,11 @@ margin-bottom: .05rem;
     <h2 id="toc-title">Plan</h2>
 
   <ul>
-  <li><a href="#module-objectives" id="toc-module-objectives" class="nav-link active" data-scroll-target="#module-objectives">Module objectives</a></li>
+  <li><a href="#module-objectives" id="toc-module-objectives" class="nav-link active" data-scroll-target="#module-objectives">Module Objectives</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   <li><a href="#adventure" id="toc-adventure" class="nav-link" data-scroll-target="#adventure">Adventure</a></li>
-  <li><a href="#challenge-scraping-function" id="toc-challenge-scraping-function" class="nav-link" data-scroll-target="#challenge-scraping-function">Challenge — Scraping function</a></li>
-  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link" data-scroll-target="#consolidation-exercises">Consolidation exercises</a></li>
+  <li><a href="#challenge---scraping-function" id="toc-challenge---scraping-function" class="nav-link" data-scroll-target="#challenge---scraping-function">Challenge - Scraping Function</a></li>
+  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link" data-scroll-target="#consolidation-exercises">Consolidation Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -5830,54 +5830,52 @@ margin-bottom: .05rem;
 
 
 <section id="module-objectives" class="level1">
-<h1>Module objectives</h1>
+<h1>Module Objectives</h1>
 <p>At the end of this module, you should be able to:</p>
 <ul>
-<li>Extract text data from a web page using <code>rvest</code>.</li>
-<li>Automate repetitive tasks using loops and functions in R.</li>
-<li>Identify the ethical aspects linked to the automated collection of online data.</li>
+<li>extract text data from a web page with <code>rvest</code>;</li>
+<li>turn HTML elements into a structured table;</li>
+<li>automate repetitive tasks with functions and loops in R;</li>
+<li>distinguish a technical check such as <code>robots.txt</code> from full permission to collect data;</li>
+<li>explain the technical and ethical limits of automated collection.</li>
 </ul>
 </section>
 <section id="readings" class="level1">
 <h1>Readings</h1>
 <p>To prepare, check out the following resources:</p>
 <ul>
-<li><a href="https://r4ds.hadley.nz/webscraping.html">R for Data Science — Web scraping</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt">robots.txt documentation (MDN)</a></li>
+<li><a href="https://r4ds.hadley.nz/webscraping.html">R for Data Science - Web scraping</a></li>
+<li><a href="https://rvest.tidyverse.org/">Official rvest documentation</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt">robots.txt documentation, MDN</a></li>
 </ul>
 </section>
 <section id="adventure" class="level1">
 <h1>Adventure</h1>
-<p>You play the role of a <strong>freelance consultant</strong> hired to develop an automated metadata extraction function from the Data Québec portal.<br>
-Link to the adventure:<br>
-<a href="../module_08/aventure.html">Adventure 8 — Quebec open data</a></p>
+<p>You play the role of a data science consultant hired to develop an automated metadata extraction function from the Données Québec portal.</p>
+<p>Link to the adventure: <a href="../module_08/aventure.html">Adventure 8 - Quebec Open Data</a></p>
 </section>
-<section id="challenge-scraping-function" class="level1 unnumbered">
-<h1 class="unnumbered">Challenge — Scraping function</h1>
-<p>You will need to design a function <code>scrape_page(url)</code> which:</p>
+<section id="challenge---scraping-function" class="level1 unnumbered">
+<h1 class="unnumbered">Challenge - Scraping Function</h1>
+<p>The challenge is to produce an <code>IDUL.R</code> file containing a <code>scrape_page(url)</code> function.</p>
+<p>The function must:</p>
 <ul>
-<li>takes as input a URL from a Data Québec search page;</li>
-<li>returns a <code>data.frame</code> with the columns <code>title</code>, <code>producer</code>, <code>category</code>.</li>
+<li>take a Données Québec search page URL as input;</li>
+<li>return a <code>data.frame</code> with exactly the columns <code>titre</code>, <code>producteur</code>, <code>categorie</code>;</li>
+<li>handle the labels <code>Catégorie</code> and <code>Catégories</code>;</li>
+<li>be loadable and testable in a fresh R session.</li>
 </ul>
-<p>You will put this function in an <code>IDUL.R</code> file in your GitHub repository. It will be tested automatically on several pages.</p>
+<p>Full instructions: <a href="../module_08/defi.html">Challenge 8 - Scraping Function</a></p>
+<p>Starter repository: <code>STT-1100/aventure-8</code></p>
 </section>
 <section id="consolidation-exercises" class="level1 unnumbered">
-<h1 class="unnumbered">Consolidation exercises</h1>
-<p>These exercises use a <strong>different page</strong> of the Data Québec portal, in order to practice in another context.<br>
-Use the archived version of the IMDb Top 250 Movies page: <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
+<h1 class="unnumbered">Consolidation Exercises</h1>
+<p>These exercises revisit the module’s technical skills in another context. Use the archived version of the IMDb Top 250 Movies page: <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
 <ol type="1">
-<li><p><strong>Read the HTML page</strong><br>
-Use <code>read_html()</code> then <code>html_nodes()</code> to observe the sections containing the movie titles.</p></li>
-<li><p><strong>Extract movie titles</strong><br>
-Try <code>html_nodes(..., &quot;.titleColumn a&quot;) %&gt;% html_text()</code>.</p></li>
-<li><p><strong>Extract the years</strong><br>
-Use <code>html_nodes(..., &quot;.titleColumn span&quot;)</code> to extract the years in parentheses.</p></li>
-<li><p><strong>Extract notes</strong><br>
-Use <code>html_nodes(..., &quot;.imdbRating strong&quot;)</code> to get the ratings for each movie.</p></li>
-<li><p><strong>Build a table</strong><br>
-Combine the three vectors (<code>title</code>, <code>year</code>, <code>note</code>) into a <code>data.frame</code>.</p></li>
-<li><p><strong>Ethical reflection</strong><br>
-Check if the IMDb page archive (or IMDb directly) allows scraping by consulting their <a href="https://www.imdb.com/robots.txt">robots.txt</a>.</p></li>
+<li>Read the HTML page with <code>read_html()</code>.</li>
+<li>Locate the sections containing movie titles with a CSS selector.</li>
+<li>Extract the titles, years and ratings.</li>
+<li>Build a <code>data.frame</code> with these three variables.</li>
+<li>Check IMDb’s <code>robots.txt</code> file and explain why this check is not sufficient on its own.</li>
 </ol>
 
 

@@ -1,0 +1,105 @@
+# Défi 8 - Fonction de scraping
+
+STT-1100 Introduction à la science des données
+
+# Mission
+
+Dans l’aventure 8, vous avez construit les pièces nécessaires pour extraire des métadonnées à partir d’une page de recherche du portail Données Québec. Le défi consiste maintenant à transformer ce travail en une fonction stable, testable et réutilisable.
+
+Vous devez remettre un fichier `IDUL.R` dans le dépôt GitHub créé à partir du template `STT-1100/aventure-8`.
+
+# Contrat attendu
+
+Votre fichier `IDUL.R` doit définir une fonction nommée exactement `scrape_page()`.
+
+``` r
+scrape_page <- function(url) {
+  # Votre code ici
+}
+```
+
+La fonction doit respecter le contrat suivant :
+
+- elle prend un seul argument, `url`, qui contient l’adresse d’une page de recherche de Données Québec;
+- elle lit la page avec `rvest`;
+- elle retourne un `data.frame`;
+- le tableau retourné contient exactement les colonnes `titre`, `producteur`, `categorie`, dans cet ordre;
+- chaque ligne correspond à un jeu de données affiché sur la page;
+- les valeurs manquantes doivent être retournées comme `NA_character_`, pas comme une erreur;
+- la fonction ne doit pas ouvrir de fenêtre, demander une entrée interactive, imprimer un long message ou dépendre d’un objet créé dans la console.
+
+> **IMPORTANT:**
+>
+> Les noms de colonnes seront testés automatiquement. Utilisez exactement `titre`, `producteur`, `categorie`.
+
+# Robustesse minimale
+
+Le portail peut afficher des libellés légèrement différents. Votre fonction doit donc être capable de gérer au moins ces formes :
+
+- `Organisation`, `Organisme`, `Producteur`, `Producer` ou `Organization` pour le producteur;
+- `Catégorie`, `Catégories`, `Category` ou `Categories` pour la catégorie.
+
+Une approche raisonnable consiste à créer une petite fonction auxiliaire qui reçoit les textes extraits d’un bloc HTML et un motif de recherche, puis retourne la valeur nettoyée ou `NA_character_`.
+
+# Travail recommandé
+
+1.  Travaillez d’abord dans la console ou dans un brouillon.
+2.  Repérez les blocs de jeux de données avec `.dataset-content`.
+3.  Extrayez les titres avec `.dataset-heading a`.
+4.  Repérez les éléments de métadonnées avec `.dqc-org-cat`.
+5.  Construisez une fonction auxiliaire pour nettoyer les libellés.
+6.  Regroupez le tout dans `scrape_page(url)`.
+7.  Testez la fonction sur une page locale ou sur une page publique de Données Québec.
+8.  Placez seulement le code final nécessaire dans `IDUL.R`.
+
+# Tests locaux
+
+Le dépôt template contient un test local. Après avoir complété votre fonction, lancez :
+
+``` bash
+Rscript tests/test_scrape_page.R
+```
+
+Le test vérifie que :
+
+- le fichier `IDUL.R` peut être chargé sans erreur;
+- la fonction `scrape_page()` existe;
+- le résultat est un `data.frame`;
+- les colonnes sont exactement `titre`, `producteur`, `categorie`;
+- une petite page HTML de test retourne deux lignes complètes.
+
+Ces tests ne remplacent pas l’évaluation finale, mais ils permettent de détecter les erreurs les plus fréquentes avant la remise.
+
+# Éthique et charge serveur
+
+Pour le défi, votre fonction doit scraper une seule page à la fois. Si vous écrivez ensuite une boucle pour plusieurs pages, ajoutez une pause avec `Sys.sleep(1)` entre les requêtes.
+
+Ne contournez pas de mécanisme de protection. Ne lancez pas de collecte massive. Le fichier `robots.txt` donne un signal technique utile, mais il ne remplace pas les conditions d’utilisation, la prudence et le respect de la charge serveur.
+
+# Livrable
+
+Remettez le dépôt GitHub généré à partir du template `STT-1100/aventure-8`.
+
+Le dépôt doit contenir :
+
+- le fichier `IDUL.R`;
+- la fonction `scrape_page(url)`;
+- le fichier de test fourni dans `tests/`;
+- aucune donnée téléchargée inutilement.
+
+# Critères d’évaluation
+
+| Critère | Attente |
+|----|----|
+| Fonction | `scrape_page()` existe et peut être appelée avec une URL. |
+| Sortie | La sortie est un `data.frame` avec les colonnes exactes `titre`, `producteur`, `categorie`. |
+| Extraction | Les titres, producteurs et catégories correspondent aux jeux de données de la page. |
+| Robustesse | Les libellés singuliers, pluriels et bilingues sont gérés. |
+| Reproductibilité | `IDUL.R` peut être chargé dans une nouvelle session R. |
+| Sobriété | Le code évite les messages inutiles, les objets globaux et les collectes massives. |
+
+# Ressources
+
+- Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund, 2023, R for Data Science, chapitre Web scraping : <https://r4ds.hadley.nz/webscraping.html>
+- Documentation officielle de `rvest` : <https://rvest.tidyverse.org/>
+- Documentation MDN sur `robots.txt` : <https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt>
