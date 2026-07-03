@@ -1,0 +1,75 @@
+# Challenge 9 - Video Capsule
+
+STT-1100 Introduction to Data Science
+
+# Mission
+
+In adventure 9, you built a simple predictive model and examined a fictitious dataset where admission rates vary across groups. The challenge is to communicate one analysis clearly in a video capsule.
+
+Use the GitHub repository created from the `STT-1100/aventure-9` template.
+
+# Topic Choice
+
+Choose one option.
+
+Option A: predictive model
+
+- Present the `IMSE ~ SFR + Nbre_Eleves` model.
+- Explain what the coefficients mean.
+- Compare predicted and observed values for a few schools.
+- Explain one important limit of the model, especially the rows where `Diffusion == "NON"`.
+
+Option B: descriptive bias
+
+- Present the `eleves_fictifs.csv` dataset.
+- Compare admission rates by `Sexe`.
+- Add at least one other variable, for example `Acces_ressources`, `Langue_maternelle` or `Niveau_socio_economique`.
+- Explain why an observed difference must be interpreted carefully.
+
+# Deliverable
+
+Submit a video capsule of 180 seconds maximum.
+
+The repository must contain either:
+
+- a video file in the `video/` folder;
+- or a `LIEN_VIDEO.md` file containing an accessible link to the capsule, if the file is too large for GitHub.
+
+Your repository must also contain the datasets provided in the template.
+
+# Expected Structure
+
+Your capsule must include:
+
+1.  a short context;
+2.  a clear analysis question;
+3.  a brief methodology;
+4.  at least one visual result;
+5.  a careful interpretation;
+6.  a recommendation or an important limitation.
+
+# Assessment Criteria
+
+| Criterion | Expectation |
+|----|----|
+| Clarity | The question, data and main result are easy to understand. |
+| Accuracy | Calculations or the model match the variables used. |
+| Visualization | At least one graph or table supports the argument. |
+| Caution | The capsule distinguishes an association, a prediction and a causal conclusion. |
+| Ethics | Limits, missing values or possible biases are discussed. |
+| Format | The capsule lasts 180 seconds maximum and the link or file is accessible. |
+
+# Tips
+
+- Prepare an outline before recording.
+- Do not show too many results.
+- Explain one important result instead of rushing through several results.
+- Avoid saying that a model is right simply because it produces a prediction.
+- End with a concrete and careful recommendation.
+
+# Resources
+
+- Mine Cetinkaya-Rundel and Johanna Hardin, 2024, Introduction to Modern Statistics, chapter 7: <https://openintro-ims.netlify.app/model-slr>
+- Mine Cetinkaya-Rundel and Johanna Hardin, 2024, Introduction to Modern Statistics, chapter 8: <https://openintro-ims.netlify.app/model-mlr>
+- R documentation for `lm()`: <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html>
+- R documentation for `predict.lm()`: <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html>

@@ -5835,14 +5835,11 @@ margin-bottom: .05rem;
   <ul>
   <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link active" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a>
   <ul class="collapse">
-  <li><a href="#étude-de-la-masse-corporelle-des-manchots" id="toc-étude-de-la-masse-corporelle-des-manchots" class="nav-link" data-scroll-target="#étude-de-la-masse-corporelle-des-manchots">Étude de la masse corporelle des manchots</a>
-  <ul class="collapse">
-  <li><a href="#visualisation-et-hypothèse" id="toc-visualisation-et-hypothèse" class="nav-link" data-scroll-target="#visualisation-et-hypothèse">1. Visualisation et hypothèse</a></li>
+  <li><a href="#visualisation" id="toc-visualisation" class="nav-link" data-scroll-target="#visualisation">1. Visualisation</a></li>
   <li><a href="#régression-simple" id="toc-régression-simple" class="nav-link" data-scroll-target="#régression-simple">2. Régression simple</a></li>
   <li><a href="#régression-multiple" id="toc-régression-multiple" class="nav-link" data-scroll-target="#régression-multiple">3. Régression multiple</a></li>
-  <li><a href="#prédictions-ciblées" id="toc-prédictions-ciblées" class="nav-link" data-scroll-target="#prédictions-ciblées">4. Prédictions ciblées</a></li>
+  <li><a href="#prédiction-ciblée" id="toc-prédiction-ciblée" class="nav-link" data-scroll-target="#prédiction-ciblée">4. Prédiction ciblée</a></li>
   <li><a href="#réflexion-critique" id="toc-réflexion-critique" class="nav-link" data-scroll-target="#réflexion-critique">5. Réflexion critique</a></li>
-  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -5871,68 +5868,54 @@ margin-bottom: .05rem;
 
 <section id="exercices-de-consolidation" class="level1 unnumbered">
 <h1 class="unnumbered">Exercices de consolidation</h1>
-<p>Voici un exercice intégrateur basé sur le jeu de données <code>penguins</code> du package <code>palmerpenguins</code>. Il combine modélisation, interprétation et réflexion critique.</p>
-<section id="étude-de-la-masse-corporelle-des-manchots" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-la-masse-corporelle-des-manchots">Étude de la masse corporelle des manchots</h2>
-<p>Vous travaillez pour une ONG environnementale qui souhaite mieux comprendre les facteurs influençant la masse corporelle des manchots en Antarctique. Vous disposez du jeu de données <code>penguins</code>, nettoyé à l’aide de la fonction <code>drop_na()</code> pour éviter les valeurs manquantes.</p>
+<p>Ces exercices reprennent la régression linéaire avec le jeu de données <code>penguins</code> du package <code>palmerpenguins</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="visualisation-et-hypothèse" class="level3">
-<h3 class="anchored" data-anchor-id="visualisation-et-hypothèse">1. Visualisation et hypothèse</h3>
-<p>Tracez la relation entre <code>body_mass_g</code> et <code>flipper_length_mm</code>. Est-ce qu’une relation linéaire vous semble plausible ?</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>Utilisez <code>ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = &quot;lm&quot;)</code>. La relation est clairement linéaire.</p>
-</details>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(body_mass_g, flipper_length_mm, sex, species)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="visualisation" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation">1. Visualisation</h2>
+<p>Tracez la relation entre <code>body_mass_g</code> et <code>flipper_length_mm</code>. Est-ce qu’une relation linéaire semble plausible?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="régression-simple" class="level3">
-<h3 class="anchored" data-anchor-id="régression-simple">2. Régression simple</h3>
-<p>Ajustez un modèle <code>body_mass_g ~ flipper_length_mm</code>. Interprétez la pente.</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>Chaque mm supplémentaire de longueur de nageoire est associé à une augmentation moyenne de X grammes de masse corporelle (voir valeur exacte dans le modèle).</p>
-</details>
+<section id="régression-simple" class="level2">
+<h2 class="anchored" data-anchor-id="régression-simple">2. Régression simple</h2>
+<p>Ajustez un modèle qui prédit <code>body_mass_g</code> à partir de <code>flipper_length_mm</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>modele_simple <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm, <span class="at">data =</span> df)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele_simple)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Interprétez la pente dans vos mots.</p>
 </section>
-<section id="régression-multiple" class="level3">
-<h3 class="anchored" data-anchor-id="régression-multiple">3. Régression multiple</h3>
-<p>Ajustez maintenant <code>body_mass_g ~ flipper_length_mm + sex</code>. Quelle est la variable de référence ? Quelles différences observez-vous ?</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>R utilise la première modalité alphabétique comme référence (ici probablement “female”). Le coefficient de <code>sexmale</code> représente la différence moyenne de masse entre mâles et femelles, à longueur égale.</p>
-</details>
+<section id="régression-multiple" class="level2">
+<h2 class="anchored" data-anchor-id="régression-multiple">3. Régression multiple</h2>
+<p>Ajustez maintenant un modèle qui ajoute <code>sex</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>modele_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> sex, <span class="at">data =</span> df)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele_multiple)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questions :</p>
+<ul>
+<li>Quelle modalité de <code>sex</code> sert de référence?</li>
+<li>Comment interprétez-vous le coefficient de <code>sexmale</code>?</li>
+<li>La relation entre longueur de nageoire et masse change-t-elle beaucoup?</li>
+</ul>
 </section>
-<section id="prédictions-ciblées" class="level3">
-<h3 class="anchored" data-anchor-id="prédictions-ciblées">4. Prédictions ciblées</h3>
-<p>Prédisez la masse corporelle pour un manchot avec 200 mm de longueur de nageoire, mâle.</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>Créer une table <code>newdata &lt;- tibble(flipper_length_mm = 200, sex = &quot;male&quot;)</code> puis faire <code>predict(model, newdata)</code>.</p>
-</details>
+<section id="prédiction-ciblée" class="level2">
+<h2 class="anchored" data-anchor-id="prédiction-ciblée">4. Prédiction ciblée</h2>
+<p>Prédisez la masse corporelle d’un manchot mâle avec une nageoire de 200 mm.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nouveau_manchot <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">flipper_length_mm =</span> <span class="dv">200</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sex =</span> <span class="st">&quot;male&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(modele_multiple, <span class="at">newdata =</span> nouveau_manchot)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="réflexion-critique" class="level3">
-<h3 class="anchored" data-anchor-id="réflexion-critique">5. Réflexion critique</h3>
-<p>La variable <code>species</code> est-elle pertinente à inclure ? Quelle précaution devez-vous prendre si vous l’ajoutez ?</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>Oui, <code>species</code> est très corrélée avec la masse. Il faut faire attention à la multicolinéarité si elle est fortement liée aux autres prédicteurs.</p>
-</details>
-<p>Bonne exploration !</p>
+<section id="réflexion-critique" class="level2">
+<h2 class="anchored" data-anchor-id="réflexion-critique">5. Réflexion critique</h2>
+<p>La variable <code>species</code> pourrait-elle améliorer le modèle? Quelle précaution devez-vous prendre si elle est fortement liée à la longueur de nageoire?</p>
 
 
-</section>
 </section>
 </section>
 

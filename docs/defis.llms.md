@@ -90,6 +90,12 @@ Produire une fonction `scrape_page()` testable dans un fichier `IDUL.R`.
 
 [Consulter le défi 8](module_08/defi.llms.md)
 
+### Défi 9
+
+Présenter un modèle prédictif ou une analyse de biais dans une capsule vidéo courte.
+
+[Consulter le défi 9](module_09/defi.llms.md)
+
 ## Types de productions
 
 Les formats changent selon les modules, mais ils restent toujours reliés aux compétences du cours.

@@ -2,58 +2,66 @@
 
 # Exercices de consolidation
 
-Voici un exercice intégrateur basé sur le jeu de données `penguins` du package `palmerpenguins`. Il combine modélisation, interprétation et réflexion critique.
-
-## Étude de la masse corporelle des manchots
-
-Vous travaillez pour une ONG environnementale qui souhaite mieux comprendre les facteurs influençant la masse corporelle des manchots en Antarctique. Vous disposez du jeu de données `penguins`, nettoyé à l’aide de la fonction `drop_na()` pour éviter les valeurs manquantes.
+Ces exercices reprennent la régression linéaire avec le jeu de données `penguins` du package `palmerpenguins`.
 
 ``` r
 library(palmerpenguins)
 library(tidyverse)
 
-df <- penguins %>%
-  drop_na()
+df <- penguins |>
+  drop_na(body_mass_g, flipper_length_mm, sex, species)
 ```
 
-### 1. Visualisation et hypothèse
+## 1. Visualisation
 
-Tracez la relation entre `body_mass_g` et `flipper_length_mm`. Est-ce qu’une relation linéaire vous semble plausible ?
+Tracez la relation entre `body_mass_g` et `flipper_length_mm`. Est-ce qu’une relation linéaire semble plausible?
 
-Solution
+``` r
+ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+```
 
-Utilisez `ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = "lm")`. La relation est clairement linéaire.
+## 2. Régression simple
 
-### 2. Régression simple
+Ajustez un modèle qui prédit `body_mass_g` à partir de `flipper_length_mm`.
 
-Ajustez un modèle `body_mass_g ~ flipper_length_mm`. Interprétez la pente.
+``` r
+modele_simple <- lm(body_mass_g ~ flipper_length_mm, data = df)
+summary(modele_simple)
+```
 
-Solution
+Interprétez la pente dans vos mots.
 
-Chaque mm supplémentaire de longueur de nageoire est associé à une augmentation moyenne de X grammes de masse corporelle (voir valeur exacte dans le modèle).
+## 3. Régression multiple
 
-### 3. Régression multiple
+Ajustez maintenant un modèle qui ajoute `sex`.
 
-Ajustez maintenant `body_mass_g ~ flipper_length_mm + sex`. Quelle est la variable de référence ? Quelles différences observez-vous ?
+``` r
+modele_multiple <- lm(body_mass_g ~ flipper_length_mm + sex, data = df)
+summary(modele_multiple)
+```
 
-Solution
+Questions :
 
-R utilise la première modalité alphabétique comme référence (ici probablement “female”). Le coefficient de `sexmale` représente la différence moyenne de masse entre mâles et femelles, à longueur égale.
+- Quelle modalité de `sex` sert de référence?
+- Comment interprétez-vous le coefficient de `sexmale`?
+- La relation entre longueur de nageoire et masse change-t-elle beaucoup?
 
-### 4. Prédictions ciblées
+## 4. Prédiction ciblée
 
-Prédisez la masse corporelle pour un manchot avec 200 mm de longueur de nageoire, mâle.
+Prédisez la masse corporelle d’un manchot mâle avec une nageoire de 200 mm.
 
-Solution
+``` r
+nouveau_manchot <- tibble(
+  flipper_length_mm = 200,
+  sex = "male"
+)
 
-Créer une table `newdata <- tibble(flipper_length_mm = 200, sex = "male")` puis faire `predict(model, newdata)`.
+predict(modele_multiple, newdata = nouveau_manchot)
+```
 
-### 5. Réflexion critique
+## 5. Réflexion critique
 
-La variable `species` est-elle pertinente à inclure ? Quelle précaution devez-vous prendre si vous l’ajoutez ?
-
-Solution
-
-Oui, `species` est très corrélée avec la masse. Il faut faire attention à la multicolinéarité si elle est fortement liée aux autres prédicteurs.
-
-Bonne exploration !
+La variable `species` pourrait-elle améliorer le modèle? Quelle précaution devez-vous prendre si elle est fortement liée à la longueur de nageoire?

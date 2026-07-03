@@ -8,7 +8,7 @@ Main threadRegression, prediction and bias
 
 DataFictitious students and primary schools
 
-ChallengePredictive model with bias discussion
+Challenge180-second video capsule
 
 ## Finished Product
 
@@ -18,7 +18,7 @@ Final product
 
 The finished product explains what the model learns, what it misses and how bias can enter an automated decision.
 
-**prediction capsule**
+prediction capsule
 
 simple model
 
@@ -47,11 +47,11 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 
 To prepare, check out the following resources:
 
-- [Introduction to Modern Statistics – Chapter 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
+- [Introduction to Modern Statistics - Chapter 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
 
-- [Introduction to Modern Statistics – Chapter 8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
+- [Introduction to Modern Statistics - Chapter 8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
 
-- [Introduction to Modern Statistics – Chapter 25: Inference for linear regression with multiple predictors - section 1](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
+- [Introduction to Modern Statistics - Chapter 25: Inference for linear regression with multiple predictors](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
 
 2 Adventure Build a simple model and read its errors. [Adventure](aventure.llms.md) Open cardCollapse
 
@@ -65,11 +65,11 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Explain what the model learns and misses in a capsule. In this card Open cardCollapse
+3 Challenge Explain what the model learns and misses in a capsule. [Challenge](defi.llms.md) Open cardCollapse
 
-### Challenge — Video capsule
+### Challenge - Video capsule
 
-You must produce a **180-second video capsule** in which you present:
+You must produce a video capsule of 180 seconds maximum in which you present:
 
 - either a predictive model built in Mission 1;
 - or a critical analysis of a bias detected in Mission 2.
@@ -83,6 +83,8 @@ The capsule must include:
 - visual results (graphs, tables);
 
 - a conclusion with at least one recommendation.
+
+The full instructions are available in the [Challenge 9](defi.llms.md) page. The starter repository is `STT-1100/aventure-9`.
 
 4 Exercises Revisit variables, predictions and model limits. [Exercises](exercices.llms.md) Open cardCollapse
 

@@ -5833,16 +5833,13 @@ margin-bottom: .05rem;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link active" data-scroll-target="#consolidation-exercises">Consolidation exercises</a>
+  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link active" data-scroll-target="#consolidation-exercises">Consolidation Exercises</a>
   <ul class="collapse">
-  <li><a href="#study-of-penguin-body-mass" id="toc-study-of-penguin-body-mass" class="nav-link" data-scroll-target="#study-of-penguin-body-mass">Study of penguin body mass</a>
-  <ul class="collapse">
-  <li><a href="#visualization-and-hypothesis" id="toc-visualization-and-hypothesis" class="nav-link" data-scroll-target="#visualization-and-hypothesis">1. Visualization and hypothesis</a></li>
-  <li><a href="#simple-regression" id="toc-simple-regression" class="nav-link" data-scroll-target="#simple-regression">2. Simple regression</a></li>
-  <li><a href="#multiple-regression" id="toc-multiple-regression" class="nav-link" data-scroll-target="#multiple-regression">3. Multiple regression</a></li>
-  <li><a href="#targeted-predictions" id="toc-targeted-predictions" class="nav-link" data-scroll-target="#targeted-predictions">4. Targeted Predictions</a></li>
-  <li><a href="#critical-thinking" id="toc-critical-thinking" class="nav-link" data-scroll-target="#critical-thinking">5. Critical thinking</a></li>
-  </ul></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">1. Visualization</a></li>
+  <li><a href="#simple-regression" id="toc-simple-regression" class="nav-link" data-scroll-target="#simple-regression">2. Simple Regression</a></li>
+  <li><a href="#multiple-regression" id="toc-multiple-regression" class="nav-link" data-scroll-target="#multiple-regression">3. Multiple Regression</a></li>
+  <li><a href="#targeted-prediction" id="toc-targeted-prediction" class="nav-link" data-scroll-target="#targeted-prediction">4. Targeted Prediction</a></li>
+  <li><a href="#critical-reflection" id="toc-critical-reflection" class="nav-link" data-scroll-target="#critical-reflection">5. Critical Reflection</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5870,69 +5867,55 @@ margin-bottom: .05rem;
 
 
 <section id="consolidation-exercises" class="level1 unnumbered">
-<h1 class="unnumbered">Consolidation exercises</h1>
-<p>Here is an integrative exercise based on the <code>penguins</code> dataset from the <code>palmerpenguins</code> package. It combines modeling, interpretation and critical thinking.</p>
-<section id="study-of-penguin-body-mass" class="level2">
-<h2 class="anchored" data-anchor-id="study-of-penguin-body-mass">Study of penguin body mass</h2>
-<p>You work for an environmental NGO that wants to better understand the factors influencing the body mass of penguins in Antarctica. You have the <code>penguins</code> dataset, cleaned using the <code>drop_na()</code> function to avoid missing values.</p>
+<h1 class="unnumbered">Consolidation Exercises</h1>
+<p>These exercises revisit linear regression with the <code>penguins</code> dataset from the <code>palmerpenguins</code> package.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="visualization-and-hypothesis" class="level3">
-<h3 class="anchored" data-anchor-id="visualization-and-hypothesis">1. Visualization and hypothesis</h3>
-<p>Trace the relationship between <code>body_mass_g</code> and <code>flipper_length_mm</code>. Does a linear relationship seem plausible to you?</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>Use <code>ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = &quot;lm&quot;)</code>. The relationship is clearly linear.</p>
-</details>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(body_mass_g, flipper_length_mm, sex, species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization">1. Visualization</h2>
+<p>Plot the relationship between <code>body_mass_g</code> and <code>flipper_length_mm</code>. Does a linear relationship seem plausible?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="simple-regression" class="level3">
-<h3 class="anchored" data-anchor-id="simple-regression">2. Simple regression</h3>
-<p>Fit a <code>body_mass_g~flipper_length_mm</code> model. Interpret the slope.</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>Each additional mm of fin length is associated with an average increase of X grams of body mass (see exact value in the model).</p>
-</details>
+<section id="simple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="simple-regression">2. Simple Regression</h2>
+<p>Fit a model that predicts <code>body_mass_g</code> from <code>flipper_length_mm</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>simple_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm, <span class="at">data =</span> df)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(simple_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Interpret the slope in your own words.</p>
 </section>
-<section id="multiple-regression" class="level3">
-<h3 class="anchored" data-anchor-id="multiple-regression">3. Multiple regression</h3>
-<p>Now adjust <code>body_mass_g ~ flipper_length_mm + sex</code>. What is the reference variable? What differences do you observe?</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>R uses the first alphabetical modality as a reference (here probably “female”). The <code>sexmale</code> coefficient represents the average difference in mass between males and females, at equal length.</p>
-</details>
+<section id="multiple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-regression">3. Multiple Regression</h2>
+<p>Now fit a model that adds <code>sex</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>multiple_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> sex, <span class="at">data =</span> df)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(multiple_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questions:</p>
+<ul>
+<li>Which level of <code>sex</code> is the reference?</li>
+<li>How do you interpret the <code>sexmale</code> coefficient?</li>
+<li>Does the relationship between flipper length and body mass change much?</li>
+</ul>
 </section>
-<section id="targeted-predictions" class="level3">
-<h3 class="anchored" data-anchor-id="targeted-predictions">4. Targeted Predictions</h3>
-<p>Predict the body mass for a penguin with 200 mm fin length, male.</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>Create a table <code>newdata &lt;- tibble(flipper_length_mm = 200, sex = &quot;male&quot;)</code> then do <code>predict(model, newdata)</code>.</p>
-</details>
+<section id="targeted-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="targeted-prediction">4. Targeted Prediction</h2>
+<p>Predict the body mass of a male penguin with a 200 mm flipper.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>new_penguin <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">flipper_length_mm =</span> <span class="dv">200</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sex =</span> <span class="st">&quot;male&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(multiple_model, <span class="at">newdata =</span> new_penguin)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="critical-thinking" class="level3">
-<h3 class="anchored" data-anchor-id="critical-thinking">5. Critical thinking</h3>
-<p>Is the <code>species</code> variable relevant to include? What precaution should you take if you add it?</p>
-<details>
-<summary>
-Solution
-</summary>
-<p>Yes, <code>species</code> is highly correlated with mass. Attention should be paid to multicollinearity if it is strongly related to other predictors.</p>
-</details>
-<p>Happy exploring!</p>
+<section id="critical-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="critical-reflection">5. Critical Reflection</h2>
+<p>Could the <code>species</code> variable improve the model? What precaution should you take if it is strongly related to flipper length?</p>
 
 
-</section>
 </section>
 </section>
 

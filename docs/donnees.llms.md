@@ -443,9 +443,9 @@ Fichier CSV sur des écoles primaires du Québec.
 | Module | Module 09 |
 | Observations | 1 963 |
 | Variables | 11 |
-| Utilisation | Relier des indicateurs scolaires à des questions descriptives. |
-| Source | Fichier fourni avec le matériel du cours. |
-| Licence | Voir la source indiquée dans le matériel du module. |
+| Utilisation | Relier des indicateurs scolaires à des questions descriptives, prédire l’IMSE et discuter les limites liées aux données manquantes. |
+| Source | Portail Données Québec, indices de défavorisation. |
+| Licence | Voir les conditions du portail Données Québec. |
 
 #### Aperçu
 

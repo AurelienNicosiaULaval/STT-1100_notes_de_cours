@@ -438,14 +438,14 @@ CSV file about primary schools in Quebec.
 
 [Download ecoles_primaires_qc.csv](module_09/ecoles_primaires_qc.csv)
 
-| Information  | Value                                               |
-|:-------------|:----------------------------------------------------|
-| Module       | Module 09                                           |
-| Observations | 1,963                                               |
-| Variables    | 11                                                  |
-| Course use   | Connect school indicators to descriptive questions. |
-| Source       | File provided with the course material.             |
-| License      | See the source indicated in the module material.    |
+| Information | Value |
+|:---|:---|
+| Module | Module 09 |
+| Observations | 1,963 |
+| Variables | 11 |
+| Course use | Connect school indicators to descriptive questions, predict IMSE and discuss limits linked to missing data. |
+| Source | Données Québec portal, disadvantage indices. |
+| License | See the Données Québec portal terms. |
 
 #### Preview
 

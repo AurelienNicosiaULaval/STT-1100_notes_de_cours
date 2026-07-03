@@ -1,59 +1,67 @@
 # Consolidation Exercises
 
-# Consolidation exercises
+# Consolidation Exercises
 
-Here is an integrative exercise based on the `penguins` dataset from the `palmerpenguins` package. It combines modeling, interpretation and critical thinking.
-
-## Study of penguin body mass
-
-You work for an environmental NGO that wants to better understand the factors influencing the body mass of penguins in Antarctica. You have the `penguins` dataset, cleaned using the `drop_na()` function to avoid missing values.
+These exercises revisit linear regression with the `penguins` dataset from the `palmerpenguins` package.
 
 ``` r
 library(palmerpenguins)
 library(tidyverse)
 
-df <- penguins %>%
-  drop_na()
+df <- penguins |>
+  drop_na(body_mass_g, flipper_length_mm, sex, species)
 ```
 
-### 1. Visualization and hypothesis
+## 1. Visualization
 
-Trace the relationship between `body_mass_g` and `flipper_length_mm`. Does a linear relationship seem plausible to you?
+Plot the relationship between `body_mass_g` and `flipper_length_mm`. Does a linear relationship seem plausible?
 
-Solution
+``` r
+ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+```
 
-Use `ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = "lm")`. The relationship is clearly linear.
+## 2. Simple Regression
 
-### 2. Simple regression
+Fit a model that predicts `body_mass_g` from `flipper_length_mm`.
 
-Fit a `body_mass_g~flipper_length_mm` model. Interpret the slope.
+``` r
+simple_model <- lm(body_mass_g ~ flipper_length_mm, data = df)
+summary(simple_model)
+```
 
-Solution
+Interpret the slope in your own words.
 
-Each additional mm of fin length is associated with an average increase of X grams of body mass (see exact value in the model).
+## 3. Multiple Regression
 
-### 3. Multiple regression
+Now fit a model that adds `sex`.
 
-Now adjust `body_mass_g ~ flipper_length_mm + sex`. What is the reference variable? What differences do you observe?
+``` r
+multiple_model <- lm(body_mass_g ~ flipper_length_mm + sex, data = df)
+summary(multiple_model)
+```
 
-Solution
+Questions:
 
-R uses the first alphabetical modality as a reference (here probably “female”). The `sexmale` coefficient represents the average difference in mass between males and females, at equal length.
+- Which level of `sex` is the reference?
+- How do you interpret the `sexmale` coefficient?
+- Does the relationship between flipper length and body mass change much?
 
-### 4. Targeted Predictions
+## 4. Targeted Prediction
 
-Predict the body mass for a penguin with 200 mm fin length, male.
+Predict the body mass of a male penguin with a 200 mm flipper.
 
-Solution
+``` r
+new_penguin <- tibble(
+  flipper_length_mm = 200,
+  sex = "male"
+)
 
-Create a table `newdata <- tibble(flipper_length_mm = 200, sex = "male")` then do `predict(model, newdata)`.
+predict(multiple_model, newdata = new_penguin)
+```
 
-### 5. Critical thinking
+## 5. Critical Reflection
 
-Is the `species` variable relevant to include? What precaution should you take if you add it?
-
-Solution
-
-Yes, `species` is highly correlated with mass. Attention should be paid to multicollinearity if it is strongly related to other predictors.
-
-Happy exploring!
+Could the `species` variable improve the model? What precaution should you take if it is strongly related to flipper length?

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Adventure 9 - Algorithmic prediction and bias – STT-1100 Introduction to Data Science</title>
+<title>Adventure 9 - Prediction and Algorithmic Bias – STT-1100 Introduction to Data Science</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5833,26 +5833,26 @@ margin-bottom: .05rem;
     <h2 id="toc-title">Plan</h2>
 
   <ul>
-  <li><a href="#scenario-quality-control-in-education" id="toc-scenario-quality-control-in-education" class="nav-link active" data-scroll-target="#scenario-quality-control-in-education">Scenario: Quality control in education</a>
+  <li><a href="#scenario-quality-control-in-education" id="toc-scenario-quality-control-in-education" class="nav-link active" data-scroll-target="#scenario-quality-control-in-education">Scenario: Quality Control in Education</a>
   <ul class="collapse">
   <li><a href="#adventure-objectives" id="toc-adventure-objectives" class="nav-link" data-scroll-target="#adventure-objectives">Adventure Objectives</a></li>
   </ul></li>
-  <li><a href="#mission-1-predictive-model-at-school-level" id="toc-mission-1-predictive-model-at-school-level" class="nav-link" data-scroll-target="#mission-1-predictive-model-at-school-level">Mission 1: Predictive model at school level</a>
+  <li><a href="#mission-1-predictive-model-at-the-school-level" id="toc-mission-1-predictive-model-at-the-school-level" class="nav-link" data-scroll-target="#mission-1-predictive-model-at-the-school-level">Mission 1: Predictive Model at the School Level</a>
   <ul class="collapse">
-  <li><a href="#step-1-exploration-and-cleaning" id="toc-step-1-exploration-and-cleaning" class="nav-link" data-scroll-target="#step-1-exploration-and-cleaning">Step 1: Exploration and cleaning</a></li>
+  <li><a href="#step-1-exploration-and-cleaning" id="toc-step-1-exploration-and-cleaning" class="nav-link" data-scroll-target="#step-1-exploration-and-cleaning">Step 1: Exploration and Cleaning</a></li>
   <li><a href="#step-2-regression-model" id="toc-step-2-regression-model" class="nav-link" data-scroll-target="#step-2-regression-model">Step 2: Regression Model</a></li>
   <li><a href="#step-3-targeted-predictions" id="toc-step-3-targeted-predictions" class="nav-link" data-scroll-target="#step-3-targeted-predictions">Step 3: Targeted Predictions</a></li>
-  <li><a href="#step-4-missing-school-predictions" id="toc-step-4-missing-school-predictions" class="nav-link" data-scroll-target="#step-4-missing-school-predictions">Step 4: Missing School Predictions</a></li>
+  <li><a href="#step-4-non-disclosed-cases-and-model-limits" id="toc-step-4-non-disclosed-cases-and-model-limits" class="nav-link" data-scroll-target="#step-4-non-disclosed-cases-and-model-limits">Step 4: Non-Disclosed Cases and Model Limits</a></li>
   </ul></li>
-  <li><a href="#mission-2-detection-of-individual-biases" id="toc-mission-2-detection-of-individual-biases" class="nav-link" data-scroll-target="#mission-2-detection-of-individual-biases">Mission 2: Detection of individual biases</a>
+  <li><a href="#mission-2-detecting-a-descriptive-bias" id="toc-mission-2-detecting-a-descriptive-bias" class="nav-link" data-scroll-target="#mission-2-detecting-a-descriptive-bias">Mission 2: Detecting a Descriptive Bias</a>
   <ul class="collapse">
-  <li><a href="#step-1-overall-analysis" id="toc-step-1-overall-analysis" class="nav-link" data-scroll-target="#step-1-overall-analysis">Step 1: Overall analysis</a></li>
-  <li><a href="#step-2-analysis-by-group" id="toc-step-2-analysis-by-group" class="nav-link" data-scroll-target="#step-2-analysis-by-group">Step 2: Analysis by group</a></li>
-  <li><a href="#step-3-guided-discussion" id="toc-step-3-guided-discussion" class="nav-link" data-scroll-target="#step-3-guided-discussion">Step 3: Guided discussion</a></li>
-  <li><a href="#step-4-exploring-other-variables" id="toc-step-4-exploring-other-variables" class="nav-link" data-scroll-target="#step-4-exploring-other-variables">Step 4: Exploring other variables</a></li>
+  <li><a href="#step-1-overall-admission-rate" id="toc-step-1-overall-admission-rate" class="nav-link" data-scroll-target="#step-1-overall-admission-rate">Step 1: Overall Admission Rate</a></li>
+  <li><a href="#step-2-admission-rate-by-sex" id="toc-step-2-admission-rate-by-sex" class="nav-link" data-scroll-target="#step-2-admission-rate-by-sex">Step 2: Admission Rate by Sex</a></li>
+  <li><a href="#step-3-guided-discussion" id="toc-step-3-guided-discussion" class="nav-link" data-scroll-target="#step-3-guided-discussion">Step 3: Guided Discussion</a></li>
+  <li><a href="#step-4-other-variables" id="toc-step-4-other-variables" class="nav-link" data-scroll-target="#step-4-other-variables">Step 4: Other Variables</a></li>
   </ul></li>
-  <li><a href="#challenge-to-submit" id="toc-challenge-to-submit" class="nav-link" data-scroll-target="#challenge-to-submit">Challenge to submit</a></li>
-  <li><a href="#conclusion-of-the-adventure" id="toc-conclusion-of-the-adventure" class="nav-link" data-scroll-target="#conclusion-of-the-adventure">Conclusion of the adventure</a></li>
+  <li><a href="#challenge-to-submit" id="toc-challenge-to-submit" class="nav-link" data-scroll-target="#challenge-to-submit">Challenge to Submit</a></li>
+  <li><a href="#conclusion-of-the-adventure" id="toc-conclusion-of-the-adventure" class="nav-link" data-scroll-target="#conclusion-of-the-adventure">Conclusion of the Adventure</a></li>
   </ul>
 </nav>
     </div>
@@ -5861,7 +5861,7 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Adventure 9 - Algorithmic prediction and bias</h1>
+<h1 class="title">Adventure 9 - Prediction and Algorithmic Bias</h1>
 <p class="subtitle lead">STT-1100 Introduction to Data Science</p>
 </div>
 
@@ -5880,11 +5880,11 @@ margin-bottom: .05rem;
 
 
 <section id="scenario-quality-control-in-education" class="level1">
-<h1>Scenario: Quality control in education</h1>
-<p>You work as a <strong>junior data scientist</strong> in the quality control and equity department at the Quebec Ministry of Education. Your mandate: use real and fictitious data to identify, evaluate and mitigate algorithmic bias in educational decisions.</p>
-<p>Your superior, <strong>Michel Dufour</strong>, deputy director of the department, welcomes you with these words:</p>
+<h1>Scenario: Quality Control in Education</h1>
+<p>You work as a junior data scientist in the quality control and equity department at the Quebec Ministry of Education. Your mandate is to use real and fictitious data to build a first prediction, then examine the limits and possible biases of that prediction.</p>
+<p>Michel Dufour, deputy director of the department, gives you the following mandate:</p>
 <blockquote class="blockquote">
-<p>“Welcome to the team!” Our work is crucial: ensuring that every child has equal opportunities to succeed. To do this, we not only need to effectively predict certain indicators, but also understand and avoid biases in our models. »</p>
+<p>Welcome to the team. Our work is to produce useful analyses without giving a false impression of certainty. A model can help us understand a situation, but it can also hide important limits.</p>
 </blockquote>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5896,107 +5896,157 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Your contact: Michel Dufour</strong><br>
-He will accompany you on this adventure: he will ask key questions and await your results and detailed analyses.</p>
+<p>Your contact: Michel Dufour</p>
+<p>He accompanies you throughout this adventure. He asks key questions and expects you to explain your results in accessible language.</p>
 </div>
 </div>
 <section id="adventure-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="adventure-objectives">Adventure Objectives</h2>
 <ul>
-<li>Build a clear predictive model from real data.</li>
-<li>Identify and explain potential biases on fictitious data.</li>
-<li>Clearly present your analyzes and thoughts on these biases.</li>
-<li>Propose concrete recommendations to mitigate these biases.</li>
+<li>Fit a multiple linear regression model.</li>
+<li>Use <code>predict()</code> to produce targeted predictions.</li>
+<li>Compare predicted values with observed values.</li>
+<li>Detect a descriptive bias in a fictitious dataset.</li>
+<li>Formulate a careful recommendation from an analysis.</li>
 </ul>
-<hr>
 </section>
 </section>
-<section id="mission-1-predictive-model-at-school-level" class="level1">
-<h1>Mission 1: Predictive model at school level</h1>
-<p>Michel gives you a <a href="https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c">data file from the Data Québec portal</a>. These data contain information on disadvantage on primary schools in Quebec.</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Michel explains to you">
+<section id="mission-1-predictive-model-at-the-school-level" class="level1">
+<h1>Mission 1: Predictive Model at the School Level</h1>
+<p>Michel gives you the <code>ecoles_primaires_qc.csv</code> file. It contains information on disadvantage indices in Quebec primary schools.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel explains">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Michel explains to you
+<span class="screen-reader-only">Important</span>Michel explains
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>“I invite you to explore the data. But be careful: the column names are not always intuitive. Start by visiting the documentation page on Data Québec to fully understand their meaning. »</p>
+<p>Column names are not always intuitive. Before modeling, inspect the variables and check which rows are usable.</p>
 </div>
 </div>
 <section id="step-1-exploration-and-cleaning" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-exploration-and-cleaning">Step 1: Exploration and cleaning</h2>
-<ul>
-<li>Identify relevant variables.</li>
-<li>Do a summary cleanup if necessary (missing values, data types, etc.).</li>
-<li>Carry out a complete descriptive analysis of this data (refer to modules 2 to 4).</li>
-</ul>
+<h2 class="anchored" data-anchor-id="step-1-exploration-and-cleaning">Step 1: Exploration and Cleaning</h2>
+<p>Start by loading the data and inspecting its structure.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_schools <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;ecoles_primaires_qc.csv&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_schools)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_schools)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df_schools <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing_imse =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(IMSE)),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing_sfr =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(SFR)),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing_enrolment =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Nbre_Eleves))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To build the model, use only schools for which the required variables are available.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_model <span class="ot">&lt;-</span> df_schools <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    Diffusion <span class="sc">==</span> <span class="st">&quot;OUI&quot;</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(IMSE),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(SFR),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(Nbre_Eleves)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rows where <code>Diffusion == &quot;NON&quot;</code> do not contain <code>IMSE</code>, <code>SFR</code> or <code>Nbre_Eleves</code> in the local file. Therefore, the requested model cannot predict these rows without additional information.</p>
+</div>
 </div>
 </section>
 <section id="step-2-regression-model" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-regression-model">Step 2: Regression Model</h2>
-<div class="callout callout-style-default callout-important callout-titled" title="Michel asks you">
+<div class="callout callout-style-default callout-important callout-titled" title="Michel asks">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Michel asks you
+<span class="screen-reader-only">Important</span>Michel asks
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>“I would like you to build a linear regression model to predict the <strong>IMSE</strong> (Socio-Economic Environment Index), based on two variables: the proportion of low-income students (<strong>SFR</strong>) and the <strong>total number of students</strong> in the school. »</p>
+<p>Build a linear regression model to predict <code>IMSE</code> from <code>SFR</code> and <code>Nbre_Eleves</code>. Then explain the coefficients in simple language.</p>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>( ... , <span class="at">data =</span> ...)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(IMSE <span class="sc">~</span> SFR <span class="sc">+</span> Nbre_Eleves, <span class="at">data =</span> df_model)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Michel questions you">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Michel questions you
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>“Once the model is built, can you explain to me, in simple language, what the two coefficients mean? »</p>
-</div>
-</div>
+<p>Questions to answer:</p>
+<ul>
+<li>What does the coefficient associated with <code>SFR</code> mean, if <code>Nbre_Eleves</code> stays constant?</li>
+<li>What does the coefficient associated with <code>Nbre_Eleves</code> mean, if <code>SFR</code> stays constant?</li>
+<li>Does a statistical association allow us to conclude that there is a causal relationship?</li>
+</ul>
 </section>
 <section id="step-3-targeted-predictions" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-targeted-predictions">Step 3: Targeted Predictions</h2>
-<p>You will then use the <code>predict()</code> function to generate IMSE predictions from your model.</p>
+<p>Use <code>predict()</code> to produce predictions on observed schools.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model, <span class="at">newdata =</span> df_schools)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_predictions <span class="ot">&lt;-</span> df_model <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">predicted_imse =</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> df_model),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">error =</span> IMSE <span class="sc">-</span> predicted_imse</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled" title="Michel specifies">
+<p>Michel asks you for two targeted comparisons.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_predictions <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(Nbre_Eleves, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Nom_Org, IMSE, predicted_imse, error, SFR, Nbre_Eleves)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_predictions <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(SFR, <span class="at">n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Nom_Org, IMSE, predicted_imse, error, SFR, Nbre_Eleves)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Michel asks">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Michel specifies
+<span class="screen-reader-only">Important</span>Michel asks
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>“I would like you to use your template to:”</p>
-<p>- predict the IMSE for the <strong>10 largest schools</strong> (in number of students);</p>
-<p>- predict the IMSE for the <strong>10 schools with the highest SFRs</strong>.</p>
-<p>Compare predicted values ​​to actual values. Is your model good?</p>
+<p>Does the model seem equally reliable for all schools? Which schools have the largest errors? What does this tell you about the model’s limits?</p>
 </div>
 </div>
 </section>
-<section id="step-4-missing-school-predictions" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-missing-school-predictions">Step 4: Missing School Predictions</h2>
+<section id="step-4-non-disclosed-cases-and-model-limits" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-non-disclosed-cases-and-model-limits">Step 4: Non-Disclosed Cases and Model Limits</h2>
+<p>In the file, some rows have <code>Diffusion == &quot;NON&quot;</code>. These rows do not contain values for the variables required by the model.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_schools <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Diffusion)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df_schools <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Diffusion <span class="sc">==</span> <span class="st">&quot;NON&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing_imse =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(IMSE)),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing_sfr =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(SFR)),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing_enrolment =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Nbre_Eleves))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled" title="Michel adds">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6007,98 +6057,85 @@ He will accompany you on this adventure: he will ask key questions and await you
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>“Last thing: in the data, some schools have the variable <strong>Diffusion</strong> set to “NO”. These schools do not have a measured IMSE — often because they have fewer than 30 students. »</p>
-<p>“Can you use your model to <strong>predict the IMSE of all schools with fewer than 30 students</strong>? Next, I would like to know: what do you think about the validity of these predictions? Can we trust it? »</p>
+<p>Can we predict the IMSE of non-disclosed schools with this model? If not, what additional data would we need? And why would it be risky to automatically replace these missing values with a prediction?</p>
 </div>
 </div>
-<hr>
 </section>
 </section>
-<section id="mission-2-detection-of-individual-biases" class="level1">
-<h1>Mission 2: Detection of individual biases</h1>
-<p>Michel also provides you with a fictitious dataset of 1000 students. At first glance, this game seems neutral. But is this really the case?</p>
-<p>Load the data:</p>
+<section id="mission-2-detecting-a-descriptive-bias" class="level1">
+<h1>Mission 2: Detecting a Descriptive Bias</h1>
+<p>Michel also provides a fictitious dataset of 1000 students, <code>eleves_fictifs.csv</code>. At first glance, this dataset looks neutral. But is it really?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;eleves_fictifs.csv&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;eleves_fictifs.csv&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="step-1-overall-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-overall-analysis">Step 1: Overall analysis</h3>
-<p>Start by calculating and visualizing the <strong>overall admission rate</strong>.</p>
+<section id="step-1-overall-admission-rate" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-overall-admission-rate">Step 1: Overall Admission Rate</h2>
+<p>Start by calculating the overall admission rate.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_students <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Admission) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>overall_rate <span class="ot">&lt;-</span> df_students <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Admission) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>overall_rate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Discuss what you observe: is it balanced? Surprising?</p>
 </section>
-<section id="step-2-analysis-by-group" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-analysis-by-group">Step 2: Analysis by group</h3>
-<p>Now, explore admission rates <strong>by gender</strong>.</p>
+<section id="step-2-admission-rate-by-sex" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-admission-rate-by-sex">Step 2: Admission Rate by Sex</h2>
+<p>Then explore admission rates by <code>Sexe</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code to modify</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_students <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Admission) <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex) <span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rate_sex <span class="ot">&lt;-</span> df_students <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Sexe, Admission) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sexe) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>rate_sex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Produce a clear graph to illustrate potential differences.</p>
+<p>Produce a clear graph.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rate_sex, <span class="fu">aes</span>(<span class="at">x =</span> Sexe, <span class="at">y =</span> pct, <span class="at">fill =</span> Admission)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Admission Rate by Sex&quot;</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Sexe&quot;</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Proportion&quot;</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Admission&quot;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="step-3-guided-discussion" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-guided-discussion">Step 3: Guided discussion</h3>
+<section id="step-3-guided-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-guided-discussion">Step 3: Guided Discussion</h2>
+<p>Answer the following questions:</p>
 <ul>
-<li>Do you see a notable difference between the groups?</li>
-<li>Is this difference justified? What assumptions can you make?</li>
-<li>Can we talk about <strong>bias</strong> here? For what ?</li>
+<li>Do you observe a notable difference between groups?</li>
+<li>Is this difference enough to prove discrimination?</li>
+<li>What other variables should be examined before drawing a conclusion?</li>
+<li>Can we speak of a descriptive bias in this dataset? Why?</li>
 </ul>
 </section>
-<section id="step-4-exploring-other-variables" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-exploring-other-variables">Step 4: Exploring other variables</h3>
-<p>Then continue with the analysis according to other variables (mother tongue, socio-economic level, access to resources).</p>
-<p>You can reproduce the same logic: crosstab + graph + interpretation.</p>
-<p><strong>To be submitted:</strong> a brief summary presenting the bias(es) detected, with clear visual support and recommendations or avenues for improvement.</p>
-<hr>
+<section id="step-4-other-variables" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-other-variables">Step 4: Other Variables</h2>
+<p>Repeat the same logic for other variables, for example <code>Langue_maternelle</code>, <code>Niveau_socio_economique</code> or <code>Acces_ressources</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_students <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Acces_ressources, Admission) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Acces_ressources) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 </section>
 <section id="challenge-to-submit" class="level1">
-<h1>Challenge to submit</h1>
-<p>You will have to produce a <strong>video capsule of 180 seconds maximum</strong> in which you present:</p>
-<ul>
-<li>Or your predictive model based on real data (Mission 1).</li>
-<li>Either your analysis of the bias detected from the fictitious data (Mission 2).</li>
-</ul>
-<p>Your capsule must include:</p>
-<ul>
-<li>A short introduction (put into context).</li>
-<li>Your methodology briefly explained.</li>
-<li>Your results presented visually (tables, graphs).</li>
-<li>A clear conclusion with recommendations or avenues for improvement.</li>
-</ul>
-<p>Your video capsule must be uploaded to the indicated GitHub repository.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Tips for making your video successful:</strong></p>
-<ul>
-<li>Be concise and clear.</li>
-<li>Rely on readable graphics.</li>
-<li>Speak slowly, clearly, and be dynamic!</li>
-</ul>
-</div>
-</div>
-<hr>
+<h1>Challenge to Submit</h1>
+<p>The challenge associated with this adventure is described on the page <a href="../module_09/defi.html">Challenge 9 - Video Capsule</a>.</p>
+<p>You must produce a video capsule of 180 seconds maximum. You may present either your predictive model from Mission 1 or your bias analysis from Mission 2. The starter repository is the GitHub template <code>STT-1100/aventure-9</code>.</p>
 </section>
 <section id="conclusion-of-the-adventure" class="level1">
-<h1>Conclusion of the adventure</h1>
-<p>You have built a predictive model useful for decision making and learned to detect critical biases in individual data.</p>
-<p>Bravo for your rigor, your sense of observation and your ethical posture!</p>
+<h1>Conclusion of the Adventure</h1>
+<p>You built a first predictive model, produced targeted predictions and identified a descriptive bias in fictitious data. The central point of the adventure is caution: a model can be useful, but it must always be accompanied by a discussion of its limits, missing data and possible effects.</p>
 
 
 </section>

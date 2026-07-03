@@ -8,7 +8,7 @@ Fil principalRégression, prédiction et biais
 
 DonnéesÉlèves fictifs et écoles primaires
 
-DéfiModèle prédictif avec discussion des biais
+DéfiCapsule vidéo de 180 secondes
 
 ## Produit fini du module
 
@@ -18,7 +18,7 @@ Produit final
 
 Le produit fini raconte ce que le modèle apprend, ce qu’il ignore et comment les biais peuvent entrer dans une décision automatisée.
 
-**capsule prédiction**
+capsule prédiction
 
 modèle simple
 
@@ -47,11 +47,11 @@ Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exerc
 
 Pour vous préparer, consultez les ressources suivantes :
 
-- [Introduction to Modern Statistics – Chapitre 7 : Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
+- [Introduction to Modern Statistics - Chapitre 7 : Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
 
-- [Introduction to Modern Statistics – Chapitre 8 : Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
+- [Introduction to Modern Statistics - Chapitre 8 : Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
 
-- [Introduction to Modern Statistics – Chapitre 25 : Inference for linear regression with multiple predictors - section 1](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
+- [Introduction to Modern Statistics - Chapitre 25 : Inference for linear regression with multiple predictors](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
 
 2 Aventure Construire un modèle simple et lire ses erreurs. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
@@ -65,11 +65,11 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Expliquer en capsule ce que le modèle apprend et rate. Dans la carte Ouvrir la carteRéduire
+3 Défi Expliquer en capsule ce que le modèle apprend et rate. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-### Défi — Capsule vidéo
+### Défi - Capsule vidéo
 
-Vous devez réaliser une **capsule vidéo de 180 secondes** dans laquelle vous présentez :
+Vous devez réaliser une capsule vidéo de 180 secondes maximum dans laquelle vous présentez :
 
 - soit un modèle prédictif construit dans la Mission 1 ;
 - soit une analyse critique d’un biais détecté dans la Mission 2.
@@ -83,6 +83,8 @@ La capsule doit inclure :
 - des résultats visuels (graphiques, tableaux) ;
 
 - une conclusion avec au moins une recommandation.
+
+La consigne complète est disponible dans la page [Défi 9](defi.llms.md). Le dépôt de départ est `STT-1100/aventure-9`.
 
 4 Exercices Reprendre variables, prédictions et limites du modèle. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 

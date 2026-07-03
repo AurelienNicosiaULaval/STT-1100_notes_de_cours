@@ -1,103 +1,46 @@
-# Module 9 - Learning plan
+# Module 9 - Learning Plan
 
 STT-1100 Introduction to Data Science
 
-# Module objectives
+# Module Objectives
 
 At the end of this module, you should be able to:
 
-- Fit and interpret a simple linear regression model.
-- Use a simple linear regression model to obtain predictions.
-- Fit and interpret a multiple linear regression model.
-- Recognize and discuss potential biases, particularly those related to discrimination, in data or models.
+- fit and interpret a linear regression model;
+- use `predict()` to obtain predictions;
+- compare observed and predicted values;
+- identify limits linked to missing data;
+- discuss descriptive biases in data or models with caution.
 
 # Readings
 
-To prepare, check out the following resources:
+To prepare, consult the following resources:
 
-- [Introduction to Modern Statistics – Chapter 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
-
-- [Introduction to Modern Statistics – Chapter 8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
-
-- [Introduction to Modern Statistics – Chapter 25: Inference for linear regression with multiple predictors - section 1](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
+- [Introduction to Modern Statistics - Chapter 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
+- [Introduction to Modern Statistics - Chapter 8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
+- [Introduction to Modern Statistics - Chapter 25: Inference for linear regression with multiple predictors](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
 
 # Adventure
 
-You play the role of a **data scientist** within the Quebec Ministry of Education. Your mandate is twofold: build a predictive model from primary school data, then explore a fictitious dataset to detect bias.
+You play the role of a data scientist at the Quebec Ministry of Education. Your mandate is twofold: build a predictive model from primary school data, then explore a fictitious dataset to detect a descriptive bias.
 
-[Adventure 9 — Algorithmic prediction and bias](../module_09/aventure.llms.md)
+Link to the adventure: [Adventure 9 - Prediction and Algorithmic Bias](../module_09/aventure.llms.md)
 
-# Challenge — Video capsule
+# Challenge - Video Capsule
 
-You must produce a **180-second video capsule** in which you present:
+You must produce a video capsule of 180 seconds maximum. Choose either the predictive model from Mission 1 or the bias analysis from Mission 2.
 
-- either a predictive model built in Mission 1;
-- or a critical analysis of a bias detected in Mission 2.
+Full instructions: [Challenge 9 - Video Capsule](../module_09/defi.llms.md)
 
-The capsule must include:
+Starter repository: `STT-1100/aventure-9`
 
-- a clear introduction;
+# Consolidation Exercises
 
-- a brief methodology;
+The exercises revisit linear regression with the `penguins` dataset from the `palmerpenguins` package.
 
-- visual results (graphs, tables);
-
-- a conclusion with at least one recommendation.
-
-# Consolidation exercises
-
-Here is an integrative exercise based on the `penguins` dataset from the `palmerpenguins` package. It combines modeling, interpretation and critical thinking.
-
-## Study of penguin body mass
-
-You work for an environmental NGO that wants to better understand the factors influencing the body mass of penguins in Antarctica. You have the `penguins` dataset, cleaned using the `drop_na()` function to avoid missing values.
-
-``` r
-library(palmerpenguins)
-library(tidyverse)
-
-df <- penguins %>%
-  drop_na()
-```
-
-### 1. Visualization and hypothesis
-
-Trace the relationship between `body_mass_g` and `flipper_length_mm`. Does a linear relationship seem plausible to you?
-
-Solution
-
-Use `ggplot(df, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + geom_smooth(method = "lm")`. The relationship is clearly linear.
-
-### 2. Simple regression
-
-Fit a `body_mass_g~flipper_length_mm` model. Interpret the slope.
-
-Solution
-
-Each additional mm of fin length is associated with an average increase of X grams of body mass (see exact value in the model).
-
-### 3. Multiple regression
-
-Now adjust `body_mass_g ~ flipper_length_mm + sex`. What is the reference variable? What differences do you observe?
-
-Solution
-
-R uses the first alphabetical modality as a reference (here probably “female”). The `sexmale` coefficient represents the average difference in mass between males and females, at equal length.
-
-### 4. Targeted Predictions
-
-Predict the body mass for a penguin with 200 mm fin length, male.
-
-Solution
-
-Create a table `newdata <- tibble(flipper_length_mm = 200, sex = "male")` then do `predict(model, newdata)`.
-
-### 5. Critical thinking
-
-Is the `species` variable relevant to include? What precaution should you take if you add it?
-
-Solution
-
-Yes, `species` is highly correlated with mass. Attention should be paid to multicollinearity if it is strongly related to other predictors.
-
-Happy exploring!
+1.  Visualize the relationship between `body_mass_g` and `flipper_length_mm`.
+2.  Fit the model `body_mass_g ~ flipper_length_mm`.
+3.  Interpret the slope.
+4.  Fit the model `body_mass_g ~ flipper_length_mm + sex`.
+5.  Use `predict()` for a hypothetical observation.
+6.  Discuss one possible limitation if you add `species`.

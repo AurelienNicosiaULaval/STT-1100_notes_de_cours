@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 9 - Learning Plan – STT-1100 Introduction to Data Science</title>
+<title>Challenge 9 - Video Capsule – STT-1100 Introduction to Data Science</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5798,11 +5798,13 @@ margin-bottom: .05rem;
     <h2 id="toc-title">Plan</h2>
 
   <ul>
-  <li><a href="#module-objectives" id="toc-module-objectives" class="nav-link active" data-scroll-target="#module-objectives">Module Objectives</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
-  <li><a href="#adventure" id="toc-adventure" class="nav-link" data-scroll-target="#adventure">Adventure</a></li>
-  <li><a href="#challenge---video-capsule" id="toc-challenge---video-capsule" class="nav-link" data-scroll-target="#challenge---video-capsule">Challenge - Video Capsule</a></li>
-  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link" data-scroll-target="#consolidation-exercises">Consolidation Exercises</a></li>
+  <li><a href="#mission" id="toc-mission" class="nav-link active" data-scroll-target="#mission">Mission</a></li>
+  <li><a href="#topic-choice" id="toc-topic-choice" class="nav-link" data-scroll-target="#topic-choice">Topic Choice</a></li>
+  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable">Deliverable</a></li>
+  <li><a href="#expected-structure" id="toc-expected-structure" class="nav-link" data-scroll-target="#expected-structure">Expected Structure</a></li>
+  <li><a href="#assessment-criteria" id="toc-assessment-criteria" class="nav-link" data-scroll-target="#assessment-criteria">Assessment Criteria</a></li>
+  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 </nav>
     </div>
@@ -5811,7 +5813,7 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Module 9 - Learning Plan</h1>
+<h1 class="title">Challenge 9 - Video Capsule</h1>
 <p class="subtitle lead">STT-1100 Introduction to Data Science</p>
 </div>
 
@@ -5829,48 +5831,110 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="module-objectives" class="level1">
-<h1>Module Objectives</h1>
-<p>At the end of this module, you should be able to:</p>
+<section id="mission" class="level1">
+<h1>Mission</h1>
+<p>In adventure 9, you built a simple predictive model and examined a fictitious dataset where admission rates vary across groups. The challenge is to communicate one analysis clearly in a video capsule.</p>
+<p>Use the GitHub repository created from the <code>STT-1100/aventure-9</code> template.</p>
+</section>
+<section id="topic-choice" class="level1">
+<h1>Topic Choice</h1>
+<p>Choose one option.</p>
+<p>Option A: predictive model</p>
 <ul>
-<li>fit and interpret a linear regression model;</li>
-<li>use <code>predict()</code> to obtain predictions;</li>
-<li>compare observed and predicted values;</li>
-<li>identify limits linked to missing data;</li>
-<li>discuss descriptive biases in data or models with caution.</li>
+<li>Present the <code>IMSE ~ SFR + Nbre_Eleves</code> model.</li>
+<li>Explain what the coefficients mean.</li>
+<li>Compare predicted and observed values for a few schools.</li>
+<li>Explain one important limit of the model, especially the rows where <code>Diffusion == &quot;NON&quot;</code>.</li>
+</ul>
+<p>Option B: descriptive bias</p>
+<ul>
+<li>Present the <code>eleves_fictifs.csv</code> dataset.</li>
+<li>Compare admission rates by <code>Sexe</code>.</li>
+<li>Add at least one other variable, for example <code>Acces_ressources</code>, <code>Langue_maternelle</code> or <code>Niveau_socio_economique</code>.</li>
+<li>Explain why an observed difference must be interpreted carefully.</li>
 </ul>
 </section>
-<section id="readings" class="level1">
-<h1>Readings</h1>
-<p>To prepare, consult the following resources:</p>
+<section id="deliverable" class="level1">
+<h1>Deliverable</h1>
+<p>Submit a video capsule of 180 seconds maximum.</p>
+<p>The repository must contain either:</p>
 <ul>
-<li><a href="https://openintro-ims.netlify.app/model-slr">Introduction to Modern Statistics - Chapter 7: Linear regression with a single predictor</a></li>
-<li><a href="https://openintro-ims.netlify.app/model-mlr">Introduction to Modern Statistics - Chapter 8: Linear regression with multiple predictors</a></li>
-<li><a href="https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft">Introduction to Modern Statistics - Chapter 25: Inference for linear regression with multiple predictors</a></li>
+<li>a video file in the <code>video/</code> folder;</li>
+<li>or a <code>LIEN_VIDEO.md</code> file containing an accessible link to the capsule, if the file is too large for GitHub.</li>
 </ul>
+<p>Your repository must also contain the datasets provided in the template.</p>
 </section>
-<section id="adventure" class="level1">
-<h1>Adventure</h1>
-<p>You play the role of a data scientist at the Quebec Ministry of Education. Your mandate is twofold: build a predictive model from primary school data, then explore a fictitious dataset to detect a descriptive bias.</p>
-<p>Link to the adventure: <a href="../module_09/aventure.html">Adventure 9 - Prediction and Algorithmic Bias</a></p>
-</section>
-<section id="challenge---video-capsule" class="level1 unnumbered">
-<h1 class="unnumbered">Challenge - Video Capsule</h1>
-<p>You must produce a video capsule of 180 seconds maximum. Choose either the predictive model from Mission 1 or the bias analysis from Mission 2.</p>
-<p>Full instructions: <a href="../module_09/defi.html">Challenge 9 - Video Capsule</a></p>
-<p>Starter repository: <code>STT-1100/aventure-9</code></p>
-</section>
-<section id="consolidation-exercises" class="level1 unnumbered">
-<h1 class="unnumbered">Consolidation Exercises</h1>
-<p>The exercises revisit linear regression with the <code>penguins</code> dataset from the <code>palmerpenguins</code> package.</p>
+<section id="expected-structure" class="level1">
+<h1>Expected Structure</h1>
+<p>Your capsule must include:</p>
 <ol type="1">
-<li>Visualize the relationship between <code>body_mass_g</code> and <code>flipper_length_mm</code>.</li>
-<li>Fit the model <code>body_mass_g ~ flipper_length_mm</code>.</li>
-<li>Interpret the slope.</li>
-<li>Fit the model <code>body_mass_g ~ flipper_length_mm + sex</code>.</li>
-<li>Use <code>predict()</code> for a hypothetical observation.</li>
-<li>Discuss one possible limitation if you add <code>species</code>.</li>
+<li>a short context;</li>
+<li>a clear analysis question;</li>
+<li>a brief methodology;</li>
+<li>at least one visual result;</li>
+<li>a careful interpretation;</li>
+<li>a recommendation or an important limitation.</li>
 </ol>
+</section>
+<section id="assessment-criteria" class="level1">
+<h1>Assessment Criteria</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Expectation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Clarity</td>
+<td>The question, data and main result are easy to understand.</td>
+</tr>
+<tr class="even">
+<td>Accuracy</td>
+<td>Calculations or the model match the variables used.</td>
+</tr>
+<tr class="odd">
+<td>Visualization</td>
+<td>At least one graph or table supports the argument.</td>
+</tr>
+<tr class="even">
+<td>Caution</td>
+<td>The capsule distinguishes an association, a prediction and a causal conclusion.</td>
+</tr>
+<tr class="odd">
+<td>Ethics</td>
+<td>Limits, missing values or possible biases are discussed.</td>
+</tr>
+<tr class="even">
+<td>Format</td>
+<td>The capsule lasts 180 seconds maximum and the link or file is accessible.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tips" class="level1">
+<h1>Tips</h1>
+<ul>
+<li>Prepare an outline before recording.</li>
+<li>Do not show too many results.</li>
+<li>Explain one important result instead of rushing through several results.</li>
+<li>Avoid saying that a model is right simply because it produces a prediction.</li>
+<li>End with a concrete and careful recommendation.</li>
+</ul>
+</section>
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<ul>
+<li>Mine Cetinkaya-Rundel and Johanna Hardin, 2024, Introduction to Modern Statistics, chapter 7: <a href="https://openintro-ims.netlify.app/model-slr" class="uri">https://openintro-ims.netlify.app/model-slr</a></li>
+<li>Mine Cetinkaya-Rundel and Johanna Hardin, 2024, Introduction to Modern Statistics, chapter 8: <a href="https://openintro-ims.netlify.app/model-mlr" class="uri">https://openintro-ims.netlify.app/model-mlr</a></li>
+<li>R documentation for <code>lm()</code>: <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html</a></li>
+<li>R documentation for <code>predict.lm()</code>: <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html" class="uri">https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html</a></li>
+</ul>
 
 
 </section>

@@ -2,171 +2,219 @@
 
 STT-1100 Introduction à la science des données
 
-# Mise en situation : Contrôle de la qualité en éducation
+# Mise en situation : contrôle de la qualité en éducation
 
-Vous travaillez comme **scientifique de données junior** au département de contrôle de la qualité et de l’équité au Ministère de l’Éducation du Québec. Votre mandat : utiliser des données réelles et fictives pour identifier, évaluer et atténuer des biais algorithmiques dans les décisions éducatives.
+Vous travaillez comme scientifique de données junior au département de contrôle de la qualité et de l’équité au ministère de l’Éducation du Québec. Votre mandat consiste à utiliser des données réelles et fictives pour construire une première prédiction, puis pour examiner les limites et les biais possibles de cette prédiction.
 
-Votre supérieur, **Michel Dufour**, directeur adjoint du département, vous accueille avec ces mots :
+Michel Dufour, directeur adjoint du département, vous confie le mandat suivant :
 
-> « Bienvenue dans l’équipe ! Notre travail est crucial : assurer que chaque enfant ait des chances égales de réussite. Pour cela, nous devons non seulement prédire efficacement certains indicateurs, mais aussi comprendre et éviter les biais dans nos modèles. »
+> Bienvenue dans l’équipe. Notre travail est de produire des analyses utiles sans donner une fausse impression de certitude. Un modèle peut aider à comprendre une situation, mais il peut aussi masquer des limites importantes.
 
 > **NOTE:**
 >
-> **Votre interlocuteur : Michel Dufour**
-> Il vous accompagne dans cette aventure : il posera des questions clés et attendra vos résultats et analyses détaillées.
+> Votre interlocuteur : Michel Dufour
+>
+> Il vous accompagne tout au long de cette aventure. Il pose des questions clés et vous demande d’expliquer vos résultats dans un langage accessible.
 
 ## Objectifs de l’aventure
 
-- Construire un modèle prédictif clair à partir de données réelles.
-- Identifier et expliquer des biais potentiels sur des données fictives.
-- Présenter clairement vos analyses et réflexions sur ces biais.
-- Proposer des recommandations concrètes pour atténuer ces biais.
+- Ajuster un modèle de régression linéaire multiple.
+- Utiliser `predict()` pour produire des prédictions ciblées.
+- Comparer des valeurs prédites à des valeurs observées.
+- Détecter un biais descriptif dans un jeu de données fictif.
+- Formuler une recommandation prudente à partir d’une analyse.
 
-------------------------------------------------------------------------
+# Mission 1 : modèle prédictif à l’échelle des écoles
 
-# Mission 1 : Modèle prédictif à l’échelle des écoles
-
-Michel vous remet un [fichier de données issues du portail Données Québec](https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c). Ces données contiennent des informations de défavorisation sur les écoles primaires du Québec.
+Michel vous remet le fichier `ecoles_primaires_qc.csv`. Il contient des informations sur les indices de défavorisation dans des écoles primaires du Québec.
 
 > **IMPORTANT:**
 >
-> « Je vous invite à explorer les données. Mais attention : les noms des colonnes ne sont pas toujours intuitifs. Commencez par visiter la page de documentation sur Données Québec pour bien comprendre leur signification. »
+> Les noms de colonnes ne sont pas toujours intuitifs. Avant de modéliser, inspectez les variables et vérifiez quelles lignes sont utilisables.
 
-## Étape 1 : Exploration et nettoyage
+## Étape 1 : exploration et nettoyage
 
-- Identifiez les variables pertinentes.
-- Faites un nettoyage sommaire si nécessaire (valeurs manquantes, types de données, etc.).
-- Réalisez une analyse descriptive complète de ces données (référez-vous aux modules 2 à 4).
+Commencez par charger les données et inspecter leur structure.
 
 ``` r
 df_ecoles <- read_csv("ecoles_primaires_qc.csv")
+
 glimpse(df_ecoles)
+
+df_ecoles |>
+  summarise(
+    n = n(),
+    imse_manquant = sum(is.na(IMSE)),
+    sfr_manquant = sum(is.na(SFR)),
+    effectif_manquant = sum(is.na(Nbre_Eleves))
+  )
 ```
 
-## Étape 2 : Modèle de régression
+Pour construire le modèle, utilisez seulement les écoles dont les variables nécessaires sont disponibles.
+
+``` r
+df_modele <- df_ecoles |>
+  filter(
+    Diffusion == "OUI",
+    !is.na(IMSE),
+    !is.na(SFR),
+    !is.na(Nbre_Eleves)
+  )
+
+nrow(df_modele)
+```
+
+> **NOTE:**
+>
+> Les lignes où `Diffusion == "NON"` ne contiennent pas `IMSE`, `SFR` ni `Nbre_Eleves` dans le fichier local. On ne peut donc pas utiliser le modèle demandé pour prédire ces lignes sans information supplémentaire.
+
+## Étape 2 : modèle de régression
 
 > **IMPORTANT:**
 >
-> « J’aimerais que vous construisiez un modèle de régression linéaire pour prédire l’**IMSE** (Indice de Milieu Socio-Économique), à partir de deux variables : la proportion d’élèves à faible revenu (**SFR**) et le **nombre total d’élèves** dans l’école. »
+> Construisez un modèle de régression linéaire pour prédire `IMSE` à partir de `SFR` et de `Nbre_Eleves`. Ensuite, expliquez les coefficients en langage simple.
 
 ``` r
-modele <- lm( ... , data = ...)
+modele <- lm(IMSE ~ SFR + Nbre_Eleves, data = df_modele)
+
 summary(modele)
 ```
 
-> **IMPORTANT:**
->
-> « Une fois le modèle construit, pouvez-vous m’expliquer, en langage simple, ce que signifient les deux coefficients ? »
+Questions à traiter :
 
-## Étape 3 : Prédictions ciblées
+- Que signifie le coefficient associé à `SFR`, si `Nbre_Eleves` reste constant?
+- Que signifie le coefficient associé à `Nbre_Eleves`, si `SFR` reste constant?
+- Est-ce qu’une association statistique permet de conclure à une relation causale?
 
-Vous utiliserez ensuite la fonction `predict()` pour générer des prédictions d’IMSE à partir de votre modèle.
+## Étape 3 : prédictions ciblées
+
+Utilisez `predict()` pour produire des prédictions sur des écoles observées.
 
 ``` r
-predict(modele, newdata = df_ecoles)
+df_predictions <- df_modele |>
+  mutate(
+    imse_predit = predict(modele, newdata = df_modele),
+    erreur = IMSE - imse_predit
+  )
+```
+
+Michel vous demande deux comparaisons ciblées.
+
+``` r
+df_predictions |>
+  slice_max(Nbre_Eleves, n = 10) |>
+  select(Nom_Org, IMSE, imse_predit, erreur, SFR, Nbre_Eleves)
+```
+
+``` r
+df_predictions |>
+  slice_max(SFR, n = 10) |>
+  select(Nom_Org, IMSE, imse_predit, erreur, SFR, Nbre_Eleves)
 ```
 
 > **IMPORTANT:**
 >
-> « J’aimerais que vous utilisiez votre modèle pour : »
->
-> \- prédire l’IMSE pour les **10 écoles les plus grandes** (en nombre d’élèves);
->
-> \- prédire l’IMSE pour les **10 écoles ayant les SFR les plus élevés**.
->
-> Comparer les valeurs prédites aux valeurs réelles. Votre modèle est-il bon?
+> Le modèle semble-t-il aussi fiable pour toutes les écoles? Quelles écoles ont les plus grandes erreurs? Qu’est-ce que cela vous apprend sur les limites du modèle?
 
-## Étape 4 : Prédictions sur écoles manquantes
+## Étape 4 : cas non diffusés et limites du modèle
+
+Dans le fichier, certaines lignes ont `Diffusion == "NON"`. Ces lignes n’ont pas de valeurs disponibles pour les variables nécessaires au modèle.
+
+``` r
+df_ecoles |>
+  count(Diffusion)
+
+df_ecoles |>
+  filter(Diffusion == "NON") |>
+  summarise(
+    n = n(),
+    imse_manquant = sum(is.na(IMSE)),
+    sfr_manquant = sum(is.na(SFR)),
+    effectif_manquant = sum(is.na(Nbre_Eleves))
+  )
+```
 
 > **IMPORTANT:**
 >
-> « Dernière chose : dans les données, certaines écoles ont la variable **Diffusion** à “NON”. Ces écoles n’ont pas d’IMSE mesuré — souvent parce qu’elles comptent moins de 30 élèves. »
->
-> « Pouvez-vous utiliser votre modèle pour **prédire l’IMSE de toutes les écoles ayant moins de 30 élèves** ? Ensuite, j’aimerais savoir : que pensez-vous de la validité de ces prédictions ? Peut-on s’y fier ? »
+> Peut-on prédire l’IMSE des écoles non diffusées avec ce modèle? Si non, quelles données additionnelles faudrait-il obtenir? Et pourquoi serait-il risqué de remplacer automatiquement ces valeurs manquantes par une prédiction?
 
-------------------------------------------------------------------------
+# Mission 2 : détection d’un biais descriptif
 
-# Mission 2 : Détection des biais individuels
-
-Michel vous fournit également un jeu de données fictif de 1000 élèves. À première vue, ce jeu semble neutre. Mais est-ce vraiment le cas ?
-
-Chargez les données :
+Michel vous fournit aussi un jeu de données fictif de 1000 élèves, `eleves_fictifs.csv`. À première vue, ce jeu semble neutre. Mais est-ce vraiment le cas?
 
 ``` r
 df_eleves <- read_csv("eleves_fictifs.csv")
+
 glimpse(df_eleves)
 ```
 
-### Étape 1 : Analyse globale
+## Étape 1 : taux d’admission global
 
-Commencez par calculer et visualiser le **taux d’admission global**.
-
-``` r
-df_eleves %>%
-  count(Admission) %>%
-  mutate(pct = n / sum(n))
-```
-
-Discutez de ce que vous observez : est-ce équilibré ? Surprenant ?
-
-### Étape 2 : Analyse par groupe
-
-Maintenant, explorez les taux d’admission **selon le sexe**.
+Commencez par calculer le taux d’admission global.
 
 ``` r
-# code a modifier
-df_eleves %>%
-  count(Admission) %>%
-  group_by(Sexe) %>%
+taux_global <- df_eleves |>
+  count(Admission) |>
   mutate(pct = n / sum(n))
+
+taux_global
 ```
 
-Produisez un graphique clair pour illustrer les différences potentielles.
+## Étape 2 : taux d’admission selon le sexe
 
-### Étape 3 : Discussion guidée
+Explorez ensuite les taux d’admission selon `Sexe`.
 
-- Voyez-vous une différence notable entre les groupes ?
-- Cette différence est-elle justifiée ? Quelles hypothèses pouvez-vous faire ?
-- Peut-on parler de **biais** ici ? Pourquoi ?
+``` r
+taux_sexe <- df_eleves |>
+  count(Sexe, Admission) |>
+  group_by(Sexe) |>
+  mutate(pct = n / sum(n)) |>
+  ungroup()
 
-### Étape 4 : Exploration d’autres variables
+taux_sexe
+```
 
-Poursuivez ensuite avec l’analyse selon d’autres variables (langue maternelle, niveau socio-économique, accès aux ressources).
+Produisez un graphique clair.
 
-Vous pouvez reproduire la même logique : tableau croisé + graphique + interprétation.
+``` r
+ggplot(taux_sexe, aes(x = Sexe, y = pct, fill = Admission)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Taux d'admission selon le sexe",
+    x = "Sexe",
+    y = "Proportion",
+    fill = "Admission"
+  ) +
+  theme_minimal()
+```
 
-**À rendre :** une brève synthèse présentant le ou les biais détectés, avec un appui visuel clair et des recommandations ou pistes d’amélioration.
+## Étape 3 : discussion guidée
 
-------------------------------------------------------------------------
+Répondez aux questions suivantes :
+
+- Observez-vous une différence notable entre les groupes?
+- Cette différence suffit-elle à prouver une discrimination?
+- Quelles autres variables devraient être examinées avant de conclure?
+- Peut-on parler d’un biais descriptif dans ce jeu de données? Pourquoi?
+
+## Étape 4 : autres variables
+
+Répétez la même logique pour d’autres variables, par exemple `Langue_maternelle`, `Niveau_socio_economique` ou `Acces_ressources`.
+
+``` r
+df_eleves |>
+  count(Acces_ressources, Admission) |>
+  group_by(Acces_ressources) |>
+  mutate(pct = n / sum(n)) |>
+  ungroup()
+```
 
 # Défi à remettre
 
-Vous devrez réaliser une **capsule vidéo de 180 secondes maximum** dans laquelle vous présentez :
+Le défi associé à cette aventure est décrit dans la page [Défi 9 - Capsule vidéo](../module_09/defi.llms.md).
 
-- Soit votre modèle prédictif à partir des données réelles (Mission 1).
-- Soit votre analyse du biais détecté à partir des données fictives (Mission 2).
-
-Votre capsule doit inclure :
-
-- Une courte introduction (mise en contexte).
-- Votre méthodologie brièvement expliquée.
-- Vos résultats présentés de manière visuelle (tableaux, graphiques).
-- Une conclusion claire avec des recommandations ou pistes d’amélioration.
-
-Votre capsule vidéo devra être déposée sur le dépôt GitHub indiqué.
-
-> **TIP:**
->
-> **Conseils pour réussir votre vidéo :**
->
-> - Soyez concis et clair.
-> - Appuyez-vous sur des graphiques lisibles.
-> - Parlez lentement, distinctement, et soyez dynamique !
-
-------------------------------------------------------------------------
+Vous devrez produire une capsule vidéo de 180 secondes maximum. Vous pouvez présenter soit votre modèle prédictif de la Mission 1, soit votre analyse de biais de la Mission 2. Le dépôt de départ est le template GitHub `STT-1100/aventure-9`.
 
 # Conclusion de l’aventure
 
-Vous avez construit un modèle prédictif utile pour la prise de décision et appris à détecter des biais critiques dans des données individuelles.
-
-Bravo pour votre rigueur, votre sens de l’observation et votre posture éthique !
+Vous avez construit un premier modèle prédictif, produit des prédictions ciblées et identifié un biais descriptif dans des données fictives. Le point central de l’aventure est la prudence : un modèle peut être utile, mais il doit toujours être accompagné d’une discussion sur ses limites, ses données manquantes et ses effets possibles.
