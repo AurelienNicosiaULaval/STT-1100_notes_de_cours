@@ -2,33 +2,61 @@ Assessments
 
 # Understand the path
 
-STT-1100 assessments follow the same logic as the modules: practise a skill, produce a clear trace, receive feedback, then reuse what you learned in a more autonomous product.
+STT-1100 assessments follow the same logic as the modules: practise a skill, produce a clear trace, receive feedback, then reuse what you learned in a more autonomous product. This page explains the role of each piece; Brio remains the official reference for dates, submissions and weights.
 
 [Challenges](defis.llms.md) [Exam](examen.llms.md) [Session project](projet_session/index.llms.md)
 
 1
 
-Practise
+Practise in modules
 
 2
 
-Produce
+Submit a challenge
 
 3
 
-Receive feedback
+Integrate in the exam
 
 4
 
-Reuse
+Build the project
+
+## What is each piece for?
+
+The course combines formative activities and assessed deliverables. They support each other, but they do not play the same role.
+
+1
+
+### Adventures
+
+Guided in-class work. Adventures establish the context, data and technical skills.
+
+2
+
+### Mini-tests and exercises
+
+Consolidation. They help check readings, practise and vary datasets.
+
+3
+
+### Challenges
+
+Short deliverables. They extend the module adventure with more autonomy.
+
+4
+
+### Exam and project
+
+Integration. The exam checks individual autonomy; the project checks a complete team workflow.
 
 ## Session path
 
-This map shows how assessment pieces fit together. Deadlines, submission files and official weights are confirmed on Brio.
+This map shows how the main deliverables fit together during the session.
 
 01
 
-### Before submitting
+### Prepare
 
 Adventures, mini-tests and exercises are used for practice. They help prepare submissions, but do not replace official instructions.
 
@@ -64,11 +92,15 @@ The formats vary, but the core criteria stay stable.
 
 Produce a focused deliverable: report, cleaning workflow, function, short video, visualization or dashboard.
 
+Expected trace: a short, readable, rendered or verifiable product linked to the module.
+
 [See challengesRole, formats and links to instructions.](defis.llms.md)
 
 ### Exam
 
 Work independently in an applied situation and show reasonable autonomy with R, Quarto and data.
+
+Expected trace: a completed Quarto report that renders, is interpreted and matches the mission.
 
 [Understand the examFormat, modules and preparation.](examen.llms.md)
 
@@ -76,23 +108,25 @@ Work independently in an applied situation and show reasonable autonomy with R, 
 
 Build a complete team analysis, with a readable GitHub repository, a presentation and a final summary.
 
+Expected trace: a structured repository, proposal, presentation, final summary and visible team contribution.
+
 [Prepare the projectPath, grading and GitHub template.](projet_session/index.llms.md)
 
 ## Cross-cutting criteria
 
-These criteria come back in challenges, the exam and the project.
+These criteria come back in challenges, the exam and the project. They explain what is valued beyond the exact format of each submission.
 
-### Reproducibility
+### Verifiable trace
 
-The document or repository makes it possible to understand and rerun the essential steps.
+The file, render or repository makes it possible to see what was done and rerun the essential steps.
 
 ### Readable code
 
 Objects have clear names, transformations are structured and unnecessary code is removed.
 
-### Relevant graphs
+### Justified choices
 
-Visual choices serve the question: titles, axes, units, legends and scales are carefully handled.
+Filters, recoding choices, graphs and summaries are linked to the question rather than added by reflex.
 
 ### Careful interpretation
 
@@ -113,6 +147,10 @@ The course site explains the pedagogical logic of assessments. Brio remains the 
 ### Before starting
 
 Identify the expected product, data, format and submission location.
+
+### While working
+
+Build a simple version that works, then improve clarity and explanations.
 
 ### Before submitting
 

@@ -2,33 +2,61 @@
 
 # Comprendre le parcours
 
-Les évaluations de STT-1100 suivent la même logique que les modules: pratiquer un geste, produire une trace claire, recevoir une rétroaction, puis réinvestir ce qui a été appris dans une production plus autonome.
+Les évaluations de STT-1100 suivent la même logique que les modules: pratiquer un geste, produire une trace claire, recevoir une rétroaction, puis réinvestir ce qui a été appris dans une production plus autonome. Cette page explique le rôle de chaque pièce; Brio demeure la référence officielle pour les dates, les remises et les pondérations.
 
 [Défis](defis.llms.md) [Examen](examen.llms.md) [Projet de session](projet_session/index.llms.md)
 
 1
 
-Pratiquer
+Pratiquer en module
 
 2
 
-Produire
+Livrer un défi
 
 3
 
-Recevoir une rétroaction
+Intégrer à l'examen
 
 4
 
-Réinvestir
+Construire le projet
+
+## À quoi sert chaque pièce?
+
+Le cours combine des activités formatives et des livrables évalués. Elles se complètent, mais elles ne jouent pas le même rôle.
+
+1
+
+### Aventures
+
+Travail guidé en classe. Les aventures installent le contexte, les données et les gestes techniques.
+
+2
+
+### Mini-tests et exercices
+
+Consolidation. Ils servent à vérifier les lectures, pratiquer et varier les jeux de données.
+
+3
+
+### Défis
+
+Livrables courts. Ils prolongent l'aventure du module avec plus d'autonomie.
+
+4
+
+### Examen et projet
+
+Intégration. L'examen vérifie l'autonomie individuelle; le projet vérifie une démarche complète en équipe.
 
 ## Parcours d'une session
 
-Cette carte montre comment les pièces d'évaluation s'enchaînent. Les échéances, les fichiers à remettre et les pondérations officielles sont confirmés sur Brio.
+Cette carte montre comment les livrables principaux s'enchaînent au fil de la session.
 
 01
 
-### Avant de remettre
+### Préparer
 
 Les aventures, mini-tests et exercices servent à pratiquer. Ils aident à préparer les remises, mais ne remplacent pas les consignes officielles.
 
@@ -64,11 +92,15 @@ Les formats changent, mais les critères de fond restent stables.
 
 Produire un livrable ciblé: rapport, nettoyage, fonction, capsule, visualisation ou tableau de bord.
 
+Trace attendue: un produit court, lisible, rendu ou vérifiable, lié au module.
+
 [Voir les défisRôle, formats et liens vers les consignes.](defis.llms.md)
 
 ### Examen
 
 Travailler seul dans une situation appliquée et démontrer une autonomie raisonnable avec R, Quarto et les données.
+
+Trace attendue: un rapport Quarto complété, rendu, interprété et cohérent avec la mission.
 
 [Comprendre l'examenFormat, modules visés et préparation.](examen.llms.md)
 
@@ -76,23 +108,25 @@ Travailler seul dans une situation appliquée et démontrer une autonomie raison
 
 Construire une analyse complète en équipe, avec un dépôt GitHub lisible, une présentation et un résumé final.
 
+Trace attendue: un dépôt structuré, une proposition, une présentation, un résumé final et une contribution d'équipe visible.
+
 [Préparer le projetParcours, barème et template GitHub.](projet_session/index.llms.md)
 
 ## Critères transversaux
 
-Ces critères reviennent dans les défis, l'examen et le projet.
+Ces critères reviennent dans les défis, l'examen et le projet. Ils permettent de comprendre ce qui est valorisé au-delà du format précis de chaque remise.
 
-### Reproductibilité
+### Trace vérifiable
 
-Le document ou le dépôt permet de comprendre et de refaire les étapes essentielles.
+Le fichier, le rendu ou le dépôt permet de voir ce qui a été fait et de refaire les étapes essentielles.
 
 ### Code lisible
 
 Les objets ont des noms clairs, les transformations sont structurées et le code inutile est retiré.
 
-### Graphiques pertinents
+### Choix justifiés
 
-Les choix visuels servent la question posée: titres, axes, unités, légendes et échelles sont soignés.
+Les filtres, recodages, graphiques et résumés sont liés à la question plutôt qu'ajoutés par réflexe.
 
 ### Interprétation prudente
 
@@ -113,6 +147,10 @@ Le site de cours sert à comprendre la logique pédagogique des évaluations. Br
 ### Avant de commencer
 
 Identifier le produit attendu, les données, le format et le lieu de remise.
+
+### Pendant le travail
+
+Construire une version simple qui fonctionne, puis améliorer la clarté et les explications.
 
 ### Avant de remettre
 
