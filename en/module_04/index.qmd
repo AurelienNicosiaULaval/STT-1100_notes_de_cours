@@ -35,18 +35,18 @@ format:
   <div class="product-copy">
   <p class="showcase-kicker">Final product</p>
   <h3>A cleaned and documented table</h3>
-  <p>The chapter leads to a usable version of a real file, with cleaning choices explained and inconsistencies made visible.</p>
+  <p>The module leads to a usable version of an insurance file, with cleaning choices explained, anomalies made visible and a reproducible log.</p>
   </div>
   <div class="product-visual" aria-label="Visual preview of the finished product">
   <div class="mini-product-board">
   <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>clean data</strong></div>
   <div class="mini-product-bars">
-  <div class="mini-bar-row"><span>types corrected</span><span class="mini-bar" style="--bar-width: 44%;"></span></div><div class="mini-bar-row"><span>factors recoded</span><span class="mini-bar" style="--bar-width: 86%;"></span></div><div class="mini-bar-row"><span>list explored</span><span class="mini-bar" style="--bar-width: 67%;"></span></div>
+  <div class="mini-bar-row"><span>import checked</span><span class="mini-bar" style="--bar-width: 52%;"></span></div><div class="mini-bar-row"><span>variables cleaned</span><span class="mini-bar" style="--bar-width: 86%;"></span></div><div class="mini-bar-row"><span>log documented</span><span class="mini-bar" style="--bar-width: 72%;"></span></div>
   </div>
   <div class="mini-product-checks">
-  <span><i class="bi bi-check2"></i>types corrected</span>
-  <span><i class="bi bi-check2"></i>factors recoded</span>
-  <span><i class="bi bi-check2"></i>list explored</span>
+  <span><i class="bi bi-check2"></i>types checked</span>
+  <span><i class="bi bi-check2"></i>values recoded</span>
+  <span><i class="bi bi-check2"></i>decisions traced</span>
   </div>
   </div>
   </div>
@@ -57,45 +57,37 @@ format:
 
 At the end of this module, you should be able to
 
-- Import data from different formats (`txt`, `csv`, `excel`, `json`).
-- Clean and recode data to ensure its quality.
-- Use the `forcats` and `stringr` libraries to manipulate factors and character strings.
-- Create and use lists.
+- import data from different formats (`csv`, Excel, JSON);
+- inspect types, dimensions, missing values and anomalies;
+- clean column names, text amounts, factors and character strings;
+- transform tables with `pivot_longer()`, `pivot_wider()` and `unnest()`;
+- document cleaning decisions in a structured list.
 
 ## Learning Plan
 
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. The exercises are independent and practice the same techniques on other data.
 
 ```{=html}
 <div class="path-grid interactive-path module-path learning-plan-path">
 <details class="path-card learning-plan-card" id="lectures-a-faire">
   <summary><span class="path-number">1</span>
   <span class="path-title">Readings</span>
-  <span class="path-preview">Prepare import, cleaning, strings, factors and lists.</span>
+  <span class="path-preview">Prepare import, missing values, spreadsheets, JSON and lists.</span>
   <span class="path-resource path-note">In this card</span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
       <div class="step-detail plan-section-detail">
       <div class="plan-section-copy">
-<h3 id="initial-readings">Initial readings</h3>
-<h4 id="readings-to-do-before-the-adventure">Readings to do before the adventure</h4>
-<p>In this module, we will explore the basic concepts of data import and data cleansing. Here is some initial reading to prepare you:</p>
+<h3 id="initial-readings">Readings</h3>
+<p>These readings prepare the core module moves: import, tidy data, missing values, spreadsheets, JSON and lists.</p>
 <ul>
-<li><p><a href="https://r4ds.hadley.nz/data-import.html" target="_blank"><strong>R for Data Science – Data import</strong></a><br />
-This chapter introduces you to importing data with the <code>readr</code> package.<br />
-</p></li>
-<li><p><a href="https://r4ds.hadley.nz/data-tidy.html" target="_blank"><strong>R for Data Science – Data tidying</strong></a><br />
-This chapter introduces you to data manipulation with the <code>dplyr</code> package.<br />
-</p></li>
-<li><p><a href="https://r4ds.hadley.nz/factors.html" target="_blank"><strong>R for Data Science – Factors</strong></a><br />
-This chapter introduces you to <strong>factors</strong> in R, which are categorical variables.<br />
-&gt; <strong>Note</strong>: Although this chapter is more widely used in module 4, some useful functions like <code>factor()</code> or <code>fct_reorder()</code> can already help you manipulate categorical variables (module 3).</p></li>
-<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank"><strong>R for Data Science – Import spreadsheets</strong></a><br />
-This chapter introduces you to importing data from Excel files.<br />
-</p></li>
-<li><p><a href="https://r4ds.hadley.nz/rectangling.html#lists" target="_blank"><strong>R for Data Science – Lists</strong></a><br />
-This section introduces you to the concept of lists in programming.<br />
-</p></li>
+<li><a href="https://r4ds.hadley.nz/data-import.html" target="_blank" rel="noopener">R for Data Science - Data import</a>: importing delimited files with <code>readr</code>.</li>
+<li><a href="https://r4ds.hadley.nz/data-tidy.html" target="_blank" rel="noopener">R for Data Science - Data tidying</a>: reshaping tables with tidy data principles.</li>
+<li><a href="https://r4ds.hadley.nz/missing-values.html" target="_blank" rel="noopener">R for Data Science - Missing values</a>: distinguishing explicit, coded and implicit missing values.</li>
+<li><a href="https://r4ds.hadley.nz/factors.html" target="_blank" rel="noopener">R for Data Science - Factors</a>: manipulating categorical variables.</li>
+<li><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank" rel="noopener">R for Data Science - Spreadsheets</a>: importing Excel files cleanly.</li>
+<li><a href="https://r4ds.hadley.nz/rectangling.html" target="_blank" rel="noopener">R for Data Science - Hierarchical data</a>: understanding lists, JSON and nested data.</li>
 </ul>
+<p>After the readings, complete the <a href="mini_test.html">formative mini-test</a>. It is not graded; it checks the basics before the adventure.</p>
       </div>
     </div>
   </details>
@@ -106,8 +98,8 @@ This section introduces you to the concept of lists in programming.<br />
   <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Adventure</a></span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
   <div class="step-detail">
-  <p><span class="step-label">Goal</span> Move from reading to guided practice.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Follow the instructions, run the code and keep important outputs.</p><p><span class="step-label">Result</span> A first work object that you can explain.</p>
-  <div class="ae-box"><p class="ae-title">Pause after each important result and state what it shows.</p></div>
+  <p><span class="step-label">Goal</span> Diagnose an insurance archive with Alex and build a first cleaning log.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Adventure page</a></p><p><span class="step-label">Action</span> Import <code>dataset_pratique.csv</code>, spot anomalies and document decisions.</p><p><span class="step-label">Result</span> A first explainable version of <code>donnees_propres.csv</code> and <code>journal_nettoyage</code>.</p>
+  <div class="ae-box"><p class="ae-title">The story thread is guided: traceability matters more than perfection.</p></div>
   </div>
   </details>
 <details class="path-card learning-plan-card" id="defi">
@@ -117,19 +109,20 @@ This section introduces you to the concept of lists in programming.<br />
   <span class="path-resource"><a class="summary-resource-link challenge-link" href="defi.html">Challenge</a></span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
   <div class="step-detail">
-  <p><span class="step-label">Goal</span> Clean an insurance dataset and document the decisions.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link challenge-link" href="defi.html">Challenge page</a></p><p><span class="step-label">Submit</span> A <code>.qmd</code> file, <code>donnees_propres.csv</code> and <code>journal_nettoyage.Rdata</code>.</p>
+  <p><span class="step-label">Goal</span> Rework the same insurance file independently and deliver a clean version.</p><p><span class="step-label">Resource</span> <a class="summary-resource-link challenge-link" href="defi.html">Challenge page</a></p><p><span class="step-label">Submit</span> A <code>.qmd</code> file, <code>donnees_propres.csv</code> and <code>journal_nettoyage.Rdata</code>.</p>
   <div class="ae-box"><p class="ae-title">Check that the import produces 23 columns before cleaning.</p></div>
   </div>
   </details>
 <details class="path-card learning-plan-card" id="exercices">
   <summary><span class="path-number">4</span>
   <span class="path-title">Exercises</span>
-  <span class="path-preview">Redo imports, recoding and quality checks.</span>
+  <span class="path-preview">Practice technical moves on autonomous data.</span>
   <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercises</a></span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
   <div class="step-detail">
   <p><span class="step-label">Resource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Exercises page</a></p>
-  <p><span class="step-label">Why</span> Exercises stay on a separate page because they take more space.</p>
+  <p><span class="step-label">Scope</span> These exercises are not a continuation of the challenge. They use <code>policies.csv</code>, <code>coverage.json</code>, <code>quotes_2024.xlsx</code> and two distinct fictitious datasets.</p>
+  <p><span class="step-label">Cases</span> A university scholarship file and a municipal equipment inventory.</p>
   <div class="ae-box"><p class="ae-title">Redo at least one passage without looking at the solution immediately.</p></div>
   </div>
   </details>
@@ -147,6 +140,9 @@ This section introduces you to the concept of lists in programming.<br />
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-policies-module-04"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>policies.csv</span></a>
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-coverage-module-04"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>coverage.json</span></a>
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-quotes-module-04"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>quotes_2024.xlsx</span></a>
+  <a class="module-resource-chip data-chip" href="data/fictitious_scholarship_applications.csv"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>fictitious_scholarship_applications.csv</span></a>
+  <a class="module-resource-chip data-chip" href="data/fictitious_municipal_equipment.csv"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>fictitious_municipal_equipment.csv</span></a>
+  <a class="module-resource-chip data-chip" href="data/fictitious_equipment_rules.json"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>fictitious_equipment_rules.json</span></a>
   </div>
   </div>
   <div class="module-resource-section">
@@ -160,6 +156,8 @@ This section introduces you to the concept of lists in programming.<br />
   <a class="module-resource-chip package-chip" href="../packages.html#janitor"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>janitor</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#forcats"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>forcats</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#tibble"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tibble</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
   </div>
   </div>
 </div>

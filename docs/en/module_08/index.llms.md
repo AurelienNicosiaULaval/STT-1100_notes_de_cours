@@ -38,7 +38,7 @@ At the end of this module, you should be able to:
 
 ## Learning Plan
 
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and use local HTML pages to consolidate the same moves without depending on an external website.
 
 1 Readings Prepare HTML, CSS selectors, functions and automation. In this card Open cardCollapse
 
@@ -47,7 +47,13 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 To prepare, check out the following resources:
 
 - [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html)
+- [R for Data Science - Functions](https://r4ds.hadley.nz/functions.html)
+- [R for Data Science - Iteration](https://r4ds.hadley.nz/iteration.html)
+- [Official rvest documentation](https://rvest.tidyverse.org/)
 - [robots.txt documentation (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
+- [Google Search Central - Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
+
+Check After the readings, complete the [formative mini-test](mini_test.llms.md).
 
 2 Adventure Extract a web page and turn the result into a table. [Adventure](aventure.llms.md) Open cardCollapse
 
@@ -72,23 +78,23 @@ You will need to design a function `scrape_page(url)` which:
 
 You will put this function in an `IDUL.R` file in the `STT-1100/aventure-8` template repository. The full instructions are available in the [Challenge 8](defi.llms.md) page.
 
-4 Exercises Revisit selectors, loops and web text cleaning. [Exercises](exercices.llms.md) Open cardCollapse
+4 Exercises Practise selectors, functions, loops and collection limits. [Exercises](exercices.llms.md) Open cardCollapse
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises stay on a separate page because they take more space.
+Why Exercises use fictitious local HTML pages to remain reproducible and independent from the challenge.
 
-Redo at least one passage without looking at the solution immediately.
+Before opening a solution, name the CSS selector or output contract you want to test.
 
 ## Data and Tools
 
 ### Datasets
 
-[Web pages analyzed with rvest](../donnees.llms.md#dataset-card-web-pages-module-08)
+[Web pages analyzed with rvest](../donnees.llms.md#dataset-card-web-pages-module-08) [fictitious_data_catalog.html](../donnees.llms.md#dataset-card-module08-catalogue) [fictitious_irregular_catalog.html](../donnees.llms.md#dataset-card-module08-irregular) [fictitious_public_events.html](../donnees.llms.md#dataset-card-module08-evenements)
 
 ### R packages
 
-[tidyverse](../packages.llms.md#tidyverse) [rvest](../packages.llms.md#rvest) [purrr](../packages.llms.md#purrr)
+[tidyverse](../packages.llms.md#tidyverse) [rvest](../packages.llms.md#rvest) [purrr](../packages.llms.md#purrr) [dplyr](../packages.llms.md#dplyr) [stringr](../packages.llms.md#stringr) [robotstxt](../packages.llms.md#robotstxt)
 
 ## Review and Extension
 

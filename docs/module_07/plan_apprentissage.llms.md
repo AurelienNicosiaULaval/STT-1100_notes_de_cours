@@ -17,8 +17,14 @@ STT-1100 Introduction à la science des données
 
 Pour vous préparer, consultez les ressources suivantes :
 
-- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
-- [Guide de bonnes pratiques à l’usage des data scientists](https://mindigital.gouvernement.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
+- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html) : structurer un message statistique et rendre un résultat lisible.
+- [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html) : choisir un graphique adapté au type de comparaison.
+- [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf) : repères pour éviter les visualisations trompeuses.
+- [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation) : vocabulaire et enjeux liés aux renseignements personnels.
+- [CNIL - L’anonymisation de données personnelles](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles) : distinction entre anonymisation, pseudonymisation et risques résiduels.
+- [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618) : principes pour rendre les données trouvables, accessibles, interopérables et réutilisables.
+
+Après les lectures, faites le [mini-test formatif](../module_07/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
 # Aventure
 
@@ -34,6 +40,6 @@ Lien vers le défi : [Défi 7 - Note éthique et visualisations responsables](..
 
 # Exercices de consolidation
 
-Les exercices vous font pratiquer l’analyse de visualisations problématiques ou controversées avant la remise.
+Les exercices sont indépendants de l’aventure et du défi. Ils utilisent des données fictives différentes pour pratiquer les graphiques responsables, l’anonymisation, la vérification des petits effectifs et la rédaction d’une note éthique courte.
 
 Lien vers les exercices : [Exercices de consolidation](../module_07/exercices.llms.md)

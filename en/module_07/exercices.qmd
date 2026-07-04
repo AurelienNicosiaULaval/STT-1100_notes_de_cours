@@ -1,51 +1,394 @@
 ---
-title: "Consolidation Exercises"
+title: "Module 7 - Exercises"
+subtitle: "STT-1100 Introduction to Data Science"
 format:
   html:
     toc: true
+    toc-title: Plan
     embed-resources: true
+    link-external-newwindow: true
+    css: [../css/base_css.css]
+editor: visual
 ---
 
-# Consolidation Exercises {.unnumbered}
+# Consolidation Exercises
 
-Here are some examples of problematic or controversial visualizations to analyze.
+These exercises are independent from the adventure and the challenge. They consolidate the core moves of module 7: recognizing misleading visualization choices, rebuilding a defensible chart, reducing re-identification risks and writing a short ethics note.
 
-## 1. Truncated Axis in a Television Chart
+The data used here are fictitious and do not represent any real person, organization or municipality.
 
-The image shows a chart about the percentage of Americans who identify as Christians. The vertical axis does not start at zero, which visually amplifies the difference between 2009 and 2019.
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(scales)
+```
 
-![Television chart with a truncated vertical axis about religious identification in the United States](resources/clipboard-894012077.png)
+# Readings to Review
 
-**Question**: How can the axis shape mislead the reader? How could this comparison be represented more honestly?
+- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html){target="_blank"}
+- [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html){target="_blank"}
+- [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf){target="_blank"}
+- [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation){target="_blank"}
+- [CNIL - Anonymisation of personal data](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles){target="_blank"}
+- [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618){target="_blank"}
 
-## 2. Pie Chart Not Drawn to Scale
+After the readings, also complete the [formative mini-test](mini_test.qmd). It is not graded.
 
-The image shows a pie chart with angles written on it, but the drawing itself is not to scale. The chart also asks a median question, which is not natural to answer from a pie chart.
+# Block A - Diagnose a Visualization
 
-![Pie chart displaying angles and stating that the drawing is not to scale](resources/clipboard-2969921414.png)
+## Exercise 1 - Compare Two Axes
 
-**Question**: What might be misinterpreted from this chart? What chart type would better support comparisons across days or finding a median?
+Import the fictitious municipal reports, then produce two charts with the same data:
 
-## 3. Electoral Map and Area Perception
+- one chart with a truncated vertical axis;
+- one chart with an axis starting at zero.
 
-Large, sparsely populated areas can visually dominate a map, even if they represent few voters. A population-weighted map or cartogram can sometimes support the message better.
+How does the visual perception change?
 
-![United States electoral map illustrating visual distortion by geographic area](resources/clipboard-2149490763.png)
+::: {.callout-note collapse="true"}
+## Solution
 
-**Question**: Why can geographic size distort the perception of results? How could it be improved?
+```{r}
+reports <- read_csv(
+  "data/fictitious_municipal_reports.csv",
+  show_col_types = FALSE
+)
 
-## 4. Truncated Vertical Axis
+reports_neighbourhood <- reports |>
+  group_by(neighbourhood) |>
+  summarise(
+    total_reports = sum(n_reports),
+    .groups = "drop"
+  ) |>
+  arrange(desc(total_reports))
 
-Two versions of the same chart, one honest and one manipulated through axis truncation, reveal the impact of visual choices.
+reports_neighbourhood
+```
 
-![Two charts comparing the effect of a truncated vertical axis](https://giencprograms.blob.core.windows.net/lms/uploads/ceu-course/truncated-y.png)
+```{r}
+ggplot(reports_neighbourhood, aes(x = reorder(neighbourhood, total_reports), y = total_reports)) +
+  geom_col(fill = "#B33A3A") +
+  coord_flip(ylim = c(20, max(reports_neighbourhood$total_reports) * 1.05)) +
+  labs(
+    title = "Misleading version: truncated axis",
+    x = "Neighbourhood",
+    y = "Number of reports"
+  )
+```
 
-**Question**: What do you notice when comparing the two versions? What different messages are conveyed?
+```{r}
+ggplot(reports_neighbourhood, aes(x = reorder(neighbourhood, total_reports), y = total_reports)) +
+  geom_col(fill = "#3C6E71") +
+  coord_flip() +
+  scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, 0.05))) +
+  labs(
+    title = "More honest version: zero baseline",
+    x = "Neighbourhood",
+    y = "Number of reports"
+  )
+```
 
-## 5. Cambridge Analytica
+The truncated axis visually amplifies differences. For bars, length encodes quantity; starting the axis above zero can therefore suggest a stronger difference than the data support.
+:::
 
-Facebook data were used without users' knowledge for profiling and political persuasion.
+## Exercise 2 - Add Counts to the Message
 
-<https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal>
+Compute the total number of reports by type. Produce a chart that compares report types without creating an impression of individual risk.
 
-**Question**: Which ethical principles are violated here, such as transparency, consent, minimization or anonymization? How can this type of misuse be prevented?
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+reports_type <- reports |>
+  group_by(report_type) |>
+  summarise(
+    total_reports = sum(n_reports),
+    n_neighbourhoods = n_distinct(neighbourhood),
+    .groups = "drop"
+  ) |>
+  arrange(desc(total_reports))
+
+reports_type
+```
+
+```{r}
+ggplot(reports_type, aes(x = reorder(report_type, total_reports), y = total_reports)) +
+  geom_col(fill = "#4C78A8") +
+  geom_text(aes(label = total_reports), hjust = -0.15, size = 3.5) +
+  coord_flip() +
+  scale_y_continuous(limits = c(0, max(reports_type$total_reports) * 1.15)) +
+  labs(
+    title = "Fictitious municipal reports by type",
+    subtitle = "Numbers are aggregated; no individual address is published",
+    x = "Report type",
+    y = "Number of reports"
+  )
+```
+
+The chart publishes aggregated and readable information. It avoids individual addresses or details that could expose a person or household.
+:::
+
+## Exercise 3 - Avoid Unfair Comparisons
+
+Join reports with the fictitious neighbourhood population. Compute a rate per 10,000 people. Why is this rate more defensible than a raw comparison?
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+population <- read_csv(
+  "data/fictitious_neighbourhood_population.csv",
+  show_col_types = FALSE
+)
+
+rate_neighbourhood <- reports_neighbourhood |>
+  left_join(population, by = "neighbourhood") |>
+  mutate(
+    rate_per_10000 = total_reports / estimated_population * 10000
+  ) |>
+  arrange(desc(rate_per_10000))
+
+rate_neighbourhood
+```
+
+```{r}
+ggplot(rate_neighbourhood, aes(x = reorder(neighbourhood, rate_per_10000), y = rate_per_10000)) +
+  geom_col(fill = "#5B8E7D") +
+  coord_flip() +
+  labs(
+    title = "Fictitious reports per 10,000 people",
+    subtitle = "The comparison accounts for approximate neighbourhood size",
+    x = "Neighbourhood",
+    y = "Reports per 10,000 people"
+  )
+```
+
+Raw counts favor more populated neighbourhoods. A population rate makes the comparison more relevant, although it still does not explain causes.
+:::
+
+# Block B - Reduce Re-Identification Risks
+
+## Exercise 4 - Identify Sensitive Variables
+
+Import the fictitious student survey. Classify variables into three families:
+
+- direct identifier;
+- quasi-identifier or sensitive variable;
+- variable publishable after aggregation.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+survey <- read_csv(
+  "data/fictitious_student_survey.csv",
+  show_col_types = FALSE
+)
+
+glimpse(survey)
+
+tibble(
+  variable = names(survey),
+  diagnostic = c(
+    "direct identifier",
+    "quasi-identifier",
+    "quasi-identifier",
+    "quasi-identifier",
+    "sensitive variable",
+    "analysis variable",
+    "sensitive variable",
+    "use condition",
+    "risky free text"
+  )
+)
+```
+
+`respondent_id` directly identifies a row. Free-text comments can contain identifying details. Program, year level, age and gender may become identifying when combined.
+:::
+
+## Exercise 5 - Prepare an Anonymized Version
+
+Create a survey version that:
+
+- removes the direct identifier;
+- removes the free-text comment;
+- keeps only respondents who consented to publication;
+- groups age into classes;
+- keeps useful variables for aggregated analysis.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+survey_anonymous <- survey |>
+  filter(publication_consent == "yes") |>
+  mutate(
+    age_group = cut(
+      age,
+      breaks = c(17, 20, 23, 26, Inf),
+      labels = c("18-20", "21-23", "24-26", "27+"),
+      right = TRUE
+    )
+  ) |>
+  select(
+    program,
+    year_level,
+    age_group,
+    gender,
+    study_hours,
+    stress_score
+  )
+
+survey_anonymous
+```
+
+This version reduces risk, but it does not eliminate all re-identification risk. A rare combination such as program + year level + gender + age can still isolate a person.
+:::
+
+## Exercise 6 - Check Small Groups
+
+Find combinations of `program`, `year_level` and `gender` with fewer than three people. Why should these cells not be published in detail?
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+small_groups <- survey_anonymous |>
+  count(program, year_level, gender, name = "n") |>
+  filter(n < 3) |>
+  arrange(n, program)
+
+small_groups
+```
+
+Small groups increase the risk of recognizing a person, especially in a class where students know each other. One option is to group categories, suppress some cells or publish only more aggregated results.
+:::
+
+## Exercise 7 - Visualize Without Overexposing
+
+Produce a chart of average stress score by program. Also show counts and add a cautious interpretation.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+stress_program <- survey_anonymous |>
+  group_by(program) |>
+  summarise(
+    n = n(),
+    mean_stress = mean(stress_score),
+    .groups = "drop"
+  ) |>
+  arrange(desc(mean_stress))
+
+stress_program
+```
+
+```{r}
+ggplot(stress_program, aes(x = reorder(program, mean_stress), y = mean_stress)) +
+  geom_col(fill = "#6B5B95") +
+  geom_text(aes(label = paste0("n = ", n)), hjust = -0.1, size = 3.5) +
+  coord_flip() +
+  scale_y_continuous(limits = c(0, 10), breaks = 0:10) +
+  labs(
+    title = "Average stress score by program in a fictitious survey",
+    subtitle = "Counts are small; these values cannot rank programs",
+    x = "Program",
+    y = "Average stress score"
+  )
+```
+
+Cautious interpretation: in this small fictitious survey, some programs have a higher average score, but the counts are too small to conclude that the program causes stress.
+:::
+
+# Case Study 1 - Responsible Municipal Publication
+
+A fictitious city wants to publish a table of monthly reports. It wants to be transparent, but it does not want to stigmatize small areas or indirectly reveal individual situations.
+
+## Exercise 8 - Build a Publishable Version
+
+Starting from the municipal reports, create a table that suppresses cells where `public_detail_level` is `"suppress"`. Create a variable `n_public` that keeps the count when publication is acceptable and replaces other values with `NA`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+reports_public <- reports |>
+  mutate(
+    n_public = if_else(public_detail_level == "suppress", NA_integer_, n_reports),
+    publication_status = if_else(is.na(n_public), "suppressed", "published")
+  )
+
+reports_public |>
+  select(neighbourhood, report_type, n_reports, n_public, publication_status)
+```
+:::
+
+## Exercise 9 - Write a Short Ethics Note
+
+Write three sentences explaining:
+
+1. what is published;
+2. what is suppressed;
+3. the main interpretive limitation.
+
+::: {.callout-note collapse="true"}
+## Sample Answer
+
+The publication presents aggregated report counts by neighbourhood and type, without addresses or individual coordinates. Cells associated with very small counts are suppressed to reduce identification risk and local stigmatization. These data describe reports received and do not measure the true severity of situations or the causes of differences between neighbourhoods.
+:::
+
+# Case Study 2 - Student Survey and Careful Communication
+
+A fictitious teaching team wants to present results from a workload survey. The data can help improve the course, but free-text comments and small groups can make some people recognizable.
+
+## Exercise 10 - Prepare a Publishable Summary
+
+Create a table by year level with the number of responses, average study hours and average stress score.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+summary_level <- survey_anonymous |>
+  group_by(year_level) |>
+  summarise(
+    n = n(),
+    mean_study_hours = mean(study_hours),
+    mean_stress = mean(stress_score),
+    .groups = "drop"
+  )
+
+summary_level
+```
+:::
+
+## Exercise 11 - Produce a Defensible Chart
+
+Produce a chart showing average study hours by year level. The title must avoid turning a description into an accusation.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+ggplot(summary_level, aes(x = factor(year_level), y = mean_study_hours)) +
+  geom_col(fill = "#2F4B7C") +
+  geom_text(aes(label = paste0("n = ", n)), vjust = -0.4, size = 3.5) +
+  scale_y_continuous(limits = c(0, max(summary_level$mean_study_hours) * 1.25)) +
+  labs(
+    title = "Reported study hours in a fictitious survey",
+    subtitle = "Aggregated by year level; individual responses are not published",
+    x = "Year level",
+    y = "Study hours per week"
+  )
+```
+:::
+
+## Exercise 12 - Decide What Not to Publish
+
+Name two elements from the initial file that should not appear in an open publication. Explain why.
+
+::: {.callout-note collapse="true"}
+## Sample Answer
+
+The `respondent_id` field should not be published because it directly tracks an individual response. The `free_text_comment` field should not be published as is because it can contain a name, team, employer, personal situation or detail that makes a person recognizable.
+:::

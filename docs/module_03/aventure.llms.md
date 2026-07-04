@@ -467,7 +467,7 @@ Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
 - **Diagramme en tarte (Pie chart)** (moins recommandé, sauf usage très simple),
 
-- **Graphique de mosaïque (mosaic plot)** si on veut comparer plusieurs catégories croisées.
+- **Diagrammes à bandes groupées ou empilées standardisées** si on veut comparer plusieurs catégories croisées.
 
 ## Démonstration
 

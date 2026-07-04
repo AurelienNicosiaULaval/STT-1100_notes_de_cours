@@ -43,7 +43,7 @@ At the end of this module, you should be able to:
 
 ## Learning Plan
 
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and consolidate the same reflexes in other contexts.
 
 1 Readings Prepare responsible visualizations, confidentiality and ethics. In this card Open cardCollapse
 
@@ -52,7 +52,13 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 To prepare, check out the following resources:
 
 - [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
-- [Guide to good practices for data scientists (government of Luxembourg)](https://mindigital.gouvernement.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
+- [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
+- [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf)
+- [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation)
+- [CNIL - Anonymisation of personal data](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
+- [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618)
+
+Check After the readings, complete the [formative mini-test](mini_test.llms.md).
 
 2 Adventure Turn sensitive data into careful visual messages. [Adventure](aventure.llms.md) Open cardCollapse
 
@@ -79,23 +85,23 @@ You will turn the adventure audit into a reproducible ethics note:
 
 [View challenge 7](defi.llms.md)
 
-4 Exercises Check chart choices, limits and communication risks. [Exercises](exercices.llms.md) Open cardCollapse
+4 Exercises Practise responsible charts, anonymization and ethics notes. [Exercises](exercices.llms.md) Open cardCollapse
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises stay on a separate page because they take more space.
+Why Exercises use fictitious data different from the adventure so you can consolidate the principles without repeating the challenge.
 
-Redo at least one passage without looking at the solution immediately.
+Before opening a solution, state the ethical or visual risk you are trying to reduce.
 
 ## Data and Tools
 
 ### Datasets
 
-[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07)
+[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07) [fictitious_municipal_reports.csv](../donnees.llms.md#dataset-card-module07-signalements) [fictitious_neighbourhood_population.csv](../donnees.llms.md#dataset-card-module07-population) [fictitious_student_survey.csv](../donnees.llms.md#dataset-card-module07-sondage)
 
 ### R packages
 
-[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2) [lubridate](../packages.llms.md#lubridate) [scales](../packages.llms.md#scales) [leaflet](../packages.llms.md#leaflet)
+[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2) [dplyr](../packages.llms.md#dplyr) [readr](../packages.llms.md#readr) [lubridate](../packages.llms.md#lubridate) [scales](../packages.llms.md#scales)
 
 ## Review and Extension
 

@@ -1,4 +1,4 @@
-# Adventure 4 - Clean up to insure better
+# Adventure 4 - Cleaning data for better decisions
 
 STT-1100 Introduction to Data Science
 
@@ -6,7 +6,7 @@ STT-1100 Introduction to Data Science
 
 You have just started an internship as a **junior data engineer** at a large **insurance company**. You work with Alex, an experienced business analyst, who has entrusted you with an important mission.
 
-Alex has provided you with a database taken from an old archive system. This database contains key information on customers, insurance policies and claims. Unfortunately, the database is **riddled with potential errors**: missing values, inconsistencies, format errors, typos, outliers and possible duplicates to check.
+Alex has provided you with a dataset taken from an old archive system. This dataset contains key information on customers, insurance policies and claims. Unfortunately, it is full of potential errors: missing values, inconsistencies, format errors, typos, outliers and possible duplicates to check.
 
 Your role will be to ensure **data quality** to allow Alex to carry out a reliable analysis. Some errors will be corrected; others will only be flagged if the available information does not support a defensible correction.
 
@@ -26,16 +26,16 @@ Deliverable `donnees_propres.csv`, `journal_nettoyage.Rdata` and Quarto report
 
 # Adventure objectives
 
-- Import a raw database (`dataset_pratique.csv`).
+- Import a raw dataset (`dataset_pratique.csv`).
 - Identify different types of common errors.
 - Clean and transform data with `dplyr`, `forcats` and `stringr`.
-- Clearly document **all modifications made** to the database.
+- Clearly document **all modifications made** to the dataset.
 
 # How to succeed in this adventure?
 
 At the end of this adventure, you will:
 
-1.  Provide a **clean database** (`donnees_propres.csv`).
+1.  Provide a **clean dataset** (`donnees_propres.csv`).
 2.  Maintain a **structured R list** called `journal_nettoyage` in your script.
 3.  Save this list in a file named `journal_nettoyage.Rdata`.
 
@@ -47,10 +47,10 @@ Here is a reference table for the types of errors you may encounter:
 
 | Code | Error type | Description | Example |
 |----|----|----|----|
-| VM | Missing values ​​ | Essential fields not filled in | Lines with no value for `age` or `annual_income` |
+| VM | Missing values | Essential fields not filled in | Rows with no value for `age` or `annual_income` |
 | DF | Duplicates | Identical or very similar lines | Two lines with the same `client_id` |
 | IF | Format inconsistencies | Data of the same type but different formats | `birth_date` in mixed formats (`1980-01-01`, `01/01/1980`) |
-| VA | Outliers | Obviously extreme or unrealistic values ​​ | `annual_income = $99,999,999` |
+| VA | Outliers | Obviously extreme or unrealistic values | `annual_income = $99,999,999` |
 | FT | Typos | Typographical errors affecting consistency | Province listed as “Quebec”, “quebec”, “Quebec” |
 | RC | Recoding or grouping | Categories similar to merge | “unemployed”, “inactive”, “unemployed” |
 | TY | Ill-defined types | Wrong variable type for data | `annual_income` saved as text |
@@ -184,18 +184,18 @@ Each category (`VM`, `DF`, etc.) contains a **list of fixes**, where each fix is
 
 As for previous adventures:
 
-- **Clone** the module 4 GitHub repository from the course organization. You can use the course cheat sheet if you have a memory lapse.
+- **Clone** the module 4 GitHub repository from the course organization. You can use the course cheat sheet if you need a reminder.
 - Work in RStudio and **make commits regularly** to document your progress.
-- Your deposit must contain:
-  - the `.qmd` script for your adventure, that is to say a document where you do your tests and build your `journal_nettoyage` list;
+- Your repository must contain:
+  - the `.qmd` script for your adventure, meaning a document where you do your tests and build your `journal_nettoyage` list;
   - the `journal_nettoyage` list in a `.Rdata` object;
-  - the cleaned database in `.csv` format.
+  - the cleaned dataset in `.csv` format.
 
 Good luck, and may your data be clean!
 
 # Data import
 
-Before cleaning a database, you need to know how to import it correctly. For this mission, Alex has sent you the `dataset_pratique.csv` file. This file is separated by semicolons. He recommends that you:
+Before cleaning a dataset, you need to know how to import it correctly. For this mission, Alex has sent you the `dataset_pratique.csv` file. This file is separated by semicolons. He recommends that you:
 
 - load the data into R with the [`read_delim()`](https://readr.tidyverse.org/reference/read_delim.html) function of the `readr` package,
 - examine the first lines to spot obvious inconsistencies,
@@ -236,7 +236,7 @@ glimpse(base)
 
 ## Format of variables
 
-Now that you have imported the database, it is time to do a first exploration to identify potential errors. Here are some key steps to follow:
+Now that you have imported the dataset, it is time to do a first exploration to identify potential errors. Here are some key steps to follow:
 
 ``` downlit
 # Base dimensions
@@ -252,7 +252,7 @@ glimpse(base)
 
 > **Alex**: “You’ll see, some types of variables don’t make any sense… Keep track of everything you find weird so that we can decide together what to do with it.”
 
-One of the most useful functions here is [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) (from the `dplyr` package). It displays a preview of the first values ​​of each variable **as well as their type**: for example `chr` for a character string, `dbl` for a decimal number (double), `int` for an integer, or even `lgl` for a boolean.
+One of the most useful functions here is [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) (from the `dplyr` package). It displays a preview of the first values of each variable, as well as its type: for example `chr` for a character string, `dbl` for a decimal number (double), `int` for an integer, or `lgl` for a boolean.
 
 Here is a reminder of the main data types in R:
 
@@ -278,7 +278,7 @@ To transform a variable, you can use the following functions:
 
 Remember to always check the result of the transformation with [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) or [`summary()`](https://rdrr.io/r/base/summary.html).
 
-> Alex: “When we look at the types of variables with glimpse(), we must keep in mind that there are standards in data science. In general, variables containing text should be of type `character` or `factor` if they take a limited number of values ​​(for example, a gender or province column). Variables containing numbers should normally be of type `dbl` (for decimals) or `int` (for integers), as appropriate.
+> Alex: “When we look at variable types with [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html), we must keep data science conventions in mind. In general, variables containing text should be of type `character` or `factor` if they take a limited number of values, for example a gender or province column. Variables containing numbers should normally be of type `dbl` for decimals or `int` for integers.
 
 > A common pitfall is identifiers! Even if they appear to be numbers, like a `client_id` or `contract_number` column, they are not quantities on which we are going to do calculations. These are unique labels. We should therefore convert them to character. This prevents an identifier like 0012 from being transformed into 12 by mistake, or from R thinking that we want to do an average with that…
 
@@ -411,7 +411,7 @@ journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
 ))
 ```
 
-*These are just examples. It’s up to you to explore the database and choose what is consistent.*
+*These are just examples. It’s up to you to explore the dataset and choose what is consistent.*
 
 # Cleaning recipe — Deep dive
 
@@ -532,9 +532,9 @@ You have now acquired a solid methodology for cleaning data in a rigorous and pr
 
 **Before finishing**, don’t forget to **push to GitHub** the following three items:
 
-1.  The `.qmd` script of your adventure (where you carried out your tests, analyzes and cleaning)
+1.  The `.qmd` script of your adventure, where you carried out your tests, analyses and cleaning
 2.  The `journal_nettoyage` list saved in a `.Rdata` object
-3.  The cleaned database in `.csv` format
+3.  The cleaned dataset in `.csv` format
 
 To save your list in a `.Rdata` file, simply use this code at the end of your script:
 

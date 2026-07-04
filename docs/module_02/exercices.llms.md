@@ -2,300 +2,535 @@
 
 # Exercices de consolidation
 
-Pour mettre en pratique les apprentissages de ce module, vous trouverez ci‑dessous **13 exercices** couvrant l’ensemble des notions du module 2 (`ggplot2`, `dplyr`, EDA, données tidy, bonnes pratiques de style et statistique descriptive façon *IMS*).
-Nous utiliserons principalement le jeu de données **`mpg`** provenant du package `ggplot2` (performances de voitures commercialisées aux États-Unis, 1999-2008). Lorsque d’autres jeux de données sont utilisés, ils sont précisés dans l’énoncé.
+Ces exercices consolident les gestes du module 2: travailler dans un dépôt GitHub, importer un fichier Excel, inspecter les données, transformer un tableau avec `dplyr`, produire des graphiques lisibles avec `ggplot2` et interpréter des statistiques descriptives.
 
-### Jeu de données `mpg` – Description des variables
+Ils sont indépendants de l’aventure et du défi. Le fichier des manchots est utilisé ici comme fichier d’entraînement, pas comme consigne supplémentaire du défi.
 
-| Variable | Type | Description (français) |
-|----|----|----|
-| `manufacturer` | facteur | Constructeur automobile (ex. *toyota*, *audi*). |
-| `model` | facteur | Modèle spécifique du véhicule (ex. *corolla*, *a4*). |
-| `displ` | numérique | Cylindrée du moteur en litres (L). |
-| `year` | entier | Année du modèle (1999 ou 2008). |
-| `cyl` | entier | Nombre de cylindres du moteur. |
-| `trans` | facteur | Type de transmission : automatique (`auto`) ou manuelle (`manual`) ; suffixe = nombre de rapports. |
-| `drv` | facteur | Type de transmission finale : traction avant (`f`), propulsion (`r`) ou intégrale (`4`). |
-| `cty` | numérique | Consommation **ville** en miles par gallon (MPG). |
-| `hwy` | numérique | Consommation **autoroute** en miles par gallon (MPG). |
-| `fl` | facteur | Type de carburant : *c* (CNG), *d* (diesel), *e* (éthanol), *p* (premium), *r* (régulier). |
-| `class` | facteur | Catégorie de véhicule : *compact*, *suv*, *minivan*, etc. |
+Travaillez dans un fichier `.R`, un fichier `.qmd`, ou les deux. Les réponses sont repliées pour vous permettre d’essayer avant de comparer.
 
-> Source : base *Fuel Economy* de l’EPA, incluse dans **ggplot2** et documentée avec `?mpg`.
+Dans plusieurs exercices, le fichier Excel des manchots est lu avec le chemin `resources/manchots_donnees.xlsx`, car cette page se trouve dans le site du cours.
 
-------------------------------------------------------------------------
+# Bloc A - GitHub, projet et importation
 
-## Exercice 1 - Premier graphique *(visualisation rapide)*
+## Exercice 1 - Remettre les étapes dans l’ordre
 
-*Contexte :* vous découvrez la relation entre cylindrée (`displ`) et consommation sur autoroute (`hwy`) dans **`mpg`**. Tracez un nuage de points.
+Vous simulez une courte séance de travail dans un dépôt GitHub. Remettez les actions suivantes dans un ordre logique.
+
+- Modifier le journal de bord.
+- Cloner le dépôt GitHub dans RStudio.
+- Faire un commit avec un message clair.
+- Ouvrir le projet `.Rproj`.
+- Faire un push vers GitHub.
+- Rendre le journal de bord en HTML.
+
+> **TIP:**
+>
+> Un ordre possible:
+>
+> 1.  Cloner le dépôt GitHub dans RStudio.
+> 2.  Ouvrir le projet `.Rproj`.
+> 3.  Modifier le journal de bord.
+> 4.  Rendre le journal de bord en HTML.
+> 5.  Faire un commit avec un message clair.
+> 6.  Faire un push vers GitHub.
+>
+> L’idée importante est de produire une étape vérifiable avant de la committer, puis de pousser vers GitHub.
+
+## Exercice 2 - Importer le fichier Excel
+
+Importez le fichier des manchots dans un objet nommé `penguins_mission`.
 
 > **TIP:**
 >
 > ``` r
-> library(tidyverse)
+> library(readxl)
 >
-> mpg %>%
->   ggplot(aes(displ, hwy)) +
->   geom_point() +
->   labs(
->     title = "Consommation autoroute vs cylindrée",
->     x = "Cylindrée (L)",
->     y = "MPG autoroute"
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> penguins_mission
+> ```
+
+## Exercice 3 - Inspecter la structure
+
+Utilisez trois fonctions différentes pour comprendre la structure de `penguins_mission`.
+
+Votre objectif est de repérer les noms de variables, les types et les premières lignes.
+
+> **TIP:**
+>
+> ``` r
+> library(readxl)
+> library(dplyr)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> names(penguins_mission)
+> glimpse(penguins_mission)
+> head(penguins_mission)
+> ```
+
+## Exercice 4 - Repérer des valeurs problématiques
+
+Un contrôle de qualité signale que certaines observations semblent étranges. Trouvez les lignes où:
+
+- la longueur des nageoires dépasse 300 mm;
+- la masse corporelle dépasse 8000 g;
+- la longueur du bec est inférieure à 25 mm.
+
+> **TIP:**
+>
+> ``` r
+> library(readxl)
+> library(dplyr)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> observations_problematiques <- penguins_mission |>
+>   filter(
+>     flipper_length_mm > 300 |
+>       body_mass_g > 8000 |
+>       bill_length_mm < 25
 >   )
+>
+> observations_problematiques
 > ```
 
-------------------------------------------------------------------------
+# Bloc B - Manipuler les données avec `dplyr`
 
-## Exercice 2 - Ajout de couleur et thème *(esthétique)*
+## Exercice 5 - Sélectionner les variables utiles
 
-*Contexte :* améliorer la lisibilité du graphique précédent en distinguant les points par **catégorie de véhicule** (`class`) et en appliquant un thème minimaliste.
+Créez un tableau `penguins_subset` qui contient seulement `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` et `body_mass_g`.
 
 > **TIP:**
 >
 > ``` r
-> mpg %>%
->   ggplot(aes(displ, hwy, colour = class)) +
->   geom_point(alpha = 0.8, size = 2) +
->   theme_minimal() +
->   labs(
->     title  = "Consommation selon la catégorie",
->     colour = "Catégorie"
+> library(readxl)
+> library(dplyr)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> penguins_subset <- penguins_mission |>
+>   select(
+>     species,
+>     island,
+>     bill_length_mm,
+>     bill_depth_mm,
+>     flipper_length_mm,
+>     body_mass_g
 >   )
+>
+> glimpse(penguins_subset)
 > ```
 
-------------------------------------------------------------------------
+## Exercice 6 - Filtrer une espèce et une île
 
-## Exercice 3 - Filtrer avec `dplyr` *(extraction ciblée)*
-
-*Contexte :* la responsable marketing de **Toyota** souhaite connaître la dispersion de ses modèles. Sélectionnez uniquement les voitures *Toyota* et affichez `model`, `displ`, `hwy`.
+Gardez seulement les manchots de l’espèce `Adelie` observés sur l’île `Biscoe`. Combien de lignes restent dans le tableau?
 
 > **TIP:**
 >
 > ``` r
-> toyota <- mpg %>%
->   filter(manufacturer == "toyota") %>%
->   select(model, displ, hwy)
+> library(readxl)
+> library(dplyr)
 >
-> toyota
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> adelie_biscoe <- penguins_mission |>
+>   filter(species == "Adelie", island == "Biscoe")
+>
+> nrow(adelie_biscoe)
 > ```
 
-------------------------------------------------------------------------
+## Exercice 7 - Créer deux variables
 
-## Exercice 4 - Variable dérivée et résumé *(statistiques descriptives)*
+Ajoutez:
 
-*Contexte :* on définit une mesure d’**efficacité globale** `efficiency = hwy / cty`. Calculez, par catégorie (`class`), la moyenne et l’écart‑type de cette nouvelle variable.
+- `body_mass_kg`, la masse corporelle en kilogrammes;
+- `bill_ratio`, le ratio entre longueur et profondeur du bec.
+
+Affichez ensuite les cinq premières lignes de ces nouvelles variables.
 
 > **TIP:**
 >
 > ``` r
-> mpg %>%
->   mutate(efficiency = hwy / cty) %>%
->   group_by(class) %>%
+> library(readxl)
+> library(dplyr)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> penguins_variables <- penguins_mission |>
+>   mutate(
+>     body_mass_kg = body_mass_g / 1000,
+>     bill_ratio = bill_length_mm / bill_depth_mm
+>   )
+>
+> penguins_variables |>
+>   select(species, body_mass_g, body_mass_kg, bill_length_mm, bill_depth_mm, bill_ratio) |>
+>   head(5)
+> ```
+
+## Exercice 8 - Résumer par espèce
+
+Calculez, par espèce, le nombre d’observations, la moyenne et l’écart-type de `body_mass_g` et de `flipper_length_mm`.
+
+> **TIP:**
+>
+> ``` r
+> library(readxl)
+> library(dplyr)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> resume_especes <- penguins_mission |>
+>   group_by(species) |>
 >   summarise(
->     eff_mean = mean(efficiency, na.rm = TRUE),
->     eff_sd   = sd(efficiency,  na.rm = TRUE)
+>     n = n(),
+>     masse_moyenne_g = mean(body_mass_g, na.rm = TRUE),
+>     masse_ecart_type_g = sd(body_mass_g, na.rm = TRUE),
+>     nageoire_moyenne_mm = mean(flipper_length_mm, na.rm = TRUE),
+>     nageoire_ecart_type_mm = sd(flipper_length_mm, na.rm = TRUE),
+>     .groups = "drop"
 >   )
+>
+> resume_especes
 > ```
 
-------------------------------------------------------------------------
+## Exercice 9 - Construire une version nettoyée
 
-## Exercice 5 - Histogramme et densité *(distribution)*
-
-*Contexte :* la répartition de la cylindrée vous intrigue. Tracez l’histogramme de `displ` (largeur de classe 0,5 L) et superposez la densité.
+Créez un tableau `penguins_clean` qui retire les observations problématiques repérées à l’exercice 4, sans modifier le fichier Excel original.
 
 > **TIP:**
 >
 > ``` r
-> mpg %>%
->   ggplot(aes(displ)) +
->   geom_histogram(binwidth = 0.5, fill = "steelblue", colour = "white") +
->   geom_density(aes(y = ..count.. * 0.5), linewidth = 1) +
->   labs(x = "Cylindrée (L)")
+> library(readxl)
+> library(dplyr)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> penguins_clean <- penguins_mission |>
+>   filter(
+>     is.na(flipper_length_mm) | flipper_length_mm <= 300,
+>     is.na(body_mass_g) | body_mass_g <= 8000,
+>     is.na(bill_length_mm) | bill_length_mm >= 25
+>   )
+>
+> tibble(
+>   lignes_avant = nrow(penguins_mission),
+>   lignes_apres = nrow(penguins_clean),
+>   lignes_retirees = nrow(penguins_mission) - nrow(penguins_clean)
+> )
 > ```
 
-------------------------------------------------------------------------
+# Bloc C - Visualiser des variables numériques
 
-## Exercice 6 - Valeur extrême *(repérage d’outliers)*
+## Exercice 10 - Histogramme par espèce
 
-*Contexte :* un magazine veut savoir quel modèle possède la **meilleure consommation autoroute**. Trouvez‑le et affichez `manufacturer`, `model`, `year`, `hwy`.
+Avec `penguins_clean`, créez un histogramme de `bill_length_mm` par espèce.
 
 > **TIP:**
 >
 > ``` r
-> mpg %>%
->   filter(hwy == max(hwy)) %>%
->   select(manufacturer, model, year, hwy)
-> ```
-
-------------------------------------------------------------------------
-
-## Exercice 7 - Bonnes pratiques \#1 *(style tidyverse)*
-
-*Contexte :* vous recevez un script bâclé. Réécrivez‑le pour qu’il respecte le guide de style tidyverse.
-
-- Tout d’abord, exécutez le code pour voir ce que cela donne. C’est l’ancienne façon de faire un graphique avec `base R`.
-
-- Reproduisez le graphique avec `ggplot2` en respectant les bonnes pratiques de style.
-
-``` r
-plot(mpg$displ,mpg$hwy,col=as.factor(mpg$drv));title("plot")
-```
-
-> **TIP:**
+> library(readxl)
+> library(dplyr)
+> library(ggplot2)
 >
-> ``` r
-> mpg %>%
->   ggplot(aes(displ, hwy, colour = drv)) +
->   geom_point() +
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> penguins_clean <- penguins_mission |>
+>   filter(
+>     is.na(flipper_length_mm) | flipper_length_mm <= 300,
+>     is.na(body_mass_g) | body_mass_g <= 8000,
+>     is.na(bill_length_mm) | bill_length_mm >= 25
+>   )
+>
+> ggplot(penguins_clean, aes(x = bill_length_mm)) +
+>   geom_histogram(binwidth = 2, fill = "steelblue", colour = "white") +
+>   facet_wrap(~ species) +
 >   labs(
->     title  = "Consommation autoroute vs cylindrée",
->     x      = "Cylindrée (L)",
->     y      = "MPG autoroute",
->     colour = "Transmission"
+>     title = "Distribution de la longueur du bec par espèce",
+>     x = "Longueur du bec (mm)",
+>     y = "Nombre de manchots"
+>   ) +
+>   theme_minimal()
+> ```
+
+## Exercice 11 - Boîtes à moustaches
+
+Comparez la longueur des nageoires entre les espèces avec une boîte à moustaches.
+
+> **TIP:**
+>
+> ``` r
+> library(readxl)
+> library(dplyr)
+> library(ggplot2)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> penguins_clean <- penguins_mission |>
+>   filter(
+>     is.na(flipper_length_mm) | flipper_length_mm <= 300,
+>     is.na(body_mass_g) | body_mass_g <= 8000,
+>     is.na(bill_length_mm) | bill_length_mm >= 25
+>   )
+>
+> ggplot(penguins_clean, aes(x = species, y = flipper_length_mm, fill = species)) +
+>   geom_boxplot(alpha = 0.8) +
+>   labs(
+>     title = "Longueur des nageoires selon l'espèce",
+>     x = "Espèce",
+>     y = "Longueur des nageoires (mm)",
+>     fill = "Espèce"
+>   ) +
+>   theme_minimal()
+> ```
+
+## Exercice 12 - Nuage de points
+
+Créez `indice_grandeur = flipper_length_mm + bill_length_mm`, puis produisez un nuage de points entre `indice_grandeur` et `body_mass_g`, avec une couleur par espèce.
+
+> **TIP:**
+>
+> ``` r
+> library(readxl)
+> library(dplyr)
+> library(ggplot2)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> penguins_clean <- penguins_mission |>
+>   filter(
+>     is.na(flipper_length_mm) | flipper_length_mm <= 300,
+>     is.na(body_mass_g) | body_mass_g <= 8000,
+>     is.na(bill_length_mm) | bill_length_mm >= 25
+>   ) |>
+>   mutate(indice_grandeur = flipper_length_mm + bill_length_mm)
+>
+> ggplot(penguins_clean, aes(x = indice_grandeur, y = body_mass_g, colour = species)) +
+>   geom_point(alpha = 0.75, size = 2) +
+>   labs(
+>     title = "Indice de grandeur et masse corporelle",
+>     x = "Indice de grandeur (mm)",
+>     y = "Masse corporelle (g)",
+>     colour = "Espèce"
+>   ) +
+>   theme_minimal()
+> ```
+
+## Exercice 13 - Facettes par île
+
+Créez un histogramme de `body_mass_g` et comparez les distributions entre les îles avec `facet_wrap()`.
+
+> **TIP:**
+>
+> ``` r
+> library(readxl)
+> library(dplyr)
+> library(ggplot2)
+>
+> penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+>
+> penguins_clean <- penguins_mission |>
+>   filter(
+>     is.na(flipper_length_mm) | flipper_length_mm <= 300,
+>     is.na(body_mass_g) | body_mass_g <= 8000,
+>     is.na(bill_length_mm) | bill_length_mm >= 25
+>   )
+>
+> ggplot(penguins_clean, aes(x = body_mass_g)) +
+>   geom_histogram(binwidth = 250, fill = "darkseagreen", colour = "white") +
+>   facet_wrap(~ island) +
+>   labs(
+>     title = "Masse corporelle des manchots selon l'île",
+>     x = "Masse corporelle (g)",
+>     y = "Nombre de manchots"
+>   ) +
+>   theme_minimal()
+> ```
+
+# Bloc D - Statistiques, style et transfert
+
+## Exercice 14 - Sommaire complet avec `mpg`
+
+Le jeu de données `mpg` du package `ggplot2` contient des mesures de consommation de véhicules. Calculez la moyenne, la médiane, l’écart-type, l’IQR, le minimum et le maximum de `hwy`.
+
+> **TIP:**
+>
+> ``` r
+> library(ggplot2)
+> library(dplyr)
+>
+> mpg |>
+>   summarise(
+>     n = n(),
+>     moyenne = mean(hwy, na.rm = TRUE),
+>     mediane = median(hwy, na.rm = TRUE),
+>     ecart_type = sd(hwy, na.rm = TRUE),
+>     iqr = IQR(hwy, na.rm = TRUE),
+>     minimum = min(hwy, na.rm = TRUE),
+>     maximum = max(hwy, na.rm = TRUE)
 >   )
 > ```
 
-------------------------------------------------------------------------
+## Exercice 15 - Comparer des groupes avec `mpg`
 
-## Exercice 8 - Bonnes pratiques \#2 *(structure de script)*
-
-*Contexte :* créez un fichier `analyse_mpg.R` avec :
-
-- un en‑tête clair (auteur, date) ;
-
-- chargement de `tidyverse` ;
-
-- un pipeline qui calcule la moyenne de `hwy` par `class` et l’enregistre dans `mean_hwy`.
+Créez une boîte à moustaches de `hwy` par `class`, en triant les classes selon leur médiane.
 
 > **TIP:**
 >
 > ``` r
-> # analyse_mpg.R – A. Nicosia
-> # Date : 2025‑05‑20
+> library(ggplot2)
 >
-> library(tidyverse)
->
-> mean_hwy <- mpg %>%
->   group_by(class) %>%
->   summarise(mean_hwy = mean(hwy, na.rm = TRUE))
-> ```
-
-------------------------------------------------------------------------
-
-## Exercice 9 - Données « tidy » *(pivot_longer)*
-
-*Contexte :* vous passez des ventes annuelles d’un format large à long pour faciliter les visualisations.
-
-``` r
-sales <- tibble(
-  brand = c("A", "B"),
-  sales_2023 = c(120, 95),
-  sales_2024 = c(150, 110)
-)
-```
-
-> **TIP:**
->
-> ``` r
-> sales_long <- sales %>%
->   pivot_longer(
->     cols = starts_with("sales_"),
->     names_to = "year",
->     names_prefix = "sales_",
->     values_to = "units"
->   )
->
-> sales_long
-> ```
-
-------------------------------------------------------------------------
-
-## Exercice 10 - Sommaire numérique *(cinq‑nombre)*
-
-*Contexte :* résumé statistique rapide du MPG en ville (`cty`).
-
-> **TIP:**
->
-> ``` r
-> fivenum(mpg$cty)
-> # ou
-> summary(mpg$cty)
-> ```
-
-------------------------------------------------------------------------
-
-## Exercice 11 - Boxplot par catégorie *(comparaison de groupes)*
-
-*Contexte :* visualiser la distribution de `hwy` par `class`, classes triées par médiane décroissante.
-
-> **TIP:**
->
-> ``` r
-> mpg %>%
->   ggplot(aes(reorder(class, hwy, median, na.rm = TRUE), hwy)) +
->   geom_boxplot(fill = "orange") +
+> ggplot(mpg, aes(x = reorder(class, hwy, median), y = hwy)) +
+>   geom_boxplot(fill = "orange", alpha = 0.8) +
 >   coord_flip() +
 >   labs(
->     x = "Catégorie (triée)",
+>     title = "Consommation autoroute selon la catégorie de véhicule",
+>     x = "Catégorie de véhicule",
 >     y = "MPG autoroute"
->   )
+>   ) +
+>   theme_minimal()
 > ```
 
-------------------------------------------------------------------------
+## Exercice 16 - Réécrire du code avec style
 
-## Exercice 12 - Facettes *(distribution par transmission)*
+Réécrivez le code suivant pour le rendre plus lisible.
 
-*Contexte :* comparer les distributions de cylindrée (`displ`) selon le type de transmission (`drv`).
+``` r
+plot(mpg$displ,mpg$hwy,col=as.factor(mpg$class));title("plot")
+```
 
 > **TIP:**
 >
 > ``` r
-> mpg %>%
->   ggplot(aes(displ)) +
->   geom_histogram(binwidth = 0.5, fill = "darkseagreen") +
->   facet_wrap(~ drv, nrow = 1) +
->   labs(x = "Cylindrée (L)")
+> library(ggplot2)
+>
+> ggplot(mpg, aes(x = displ, y = hwy, colour = class)) +
+>   geom_point(alpha = 0.8) +
+>   labs(
+>     title = "Consommation autoroute selon la cylindrée",
+>     x = "Cylindrée (L)",
+>     y = "MPG autoroute",
+>     colour = "Catégorie"
+>   ) +
+>   theme_minimal()
 > ```
 
-------------------------------------------------------------------------
+# Études de cas
 
-## Exercice 13 - Analyse statistique complète *(inspiration IMS)*
+Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes du module avec d’autres contextes que les manchots.
 
-*Contexte :* comme dans le chapitre 5 d’*Introduction to Modern Statistics*, vous devez explorer en profondeur la variable **`hwy`**.
+## Étude de cas 1 - Arbres urbains
 
-1.  Calculez la moyenne, l’écart‑type, la médiane, l’IQR et le nombre d’observations.
-2.  Créez un histogramme de `hwy` avec la densité superposée.
-3.  Ajoutez un boxplot (horizontal) sous l’histogramme.
-4.  Interprétez : distribution symétrique ou asymétrique ? valeurs extrêmes ? que peut‑on conclure sur l’efficacité énergétique des voitures ?
+Fichier: `data/arbres_urbains_fictif.csv`
+
+Vous aidez une équipe municipale à préparer un aperçu de la canopée urbaine. Le fichier contient des observations fictives sur des arbres dans quelques villes québécoises.
+
+Réalisez les tâches suivantes:
+
+1.  Importez le fichier avec `readr::read_csv()`.
+2.  Inspectez la structure du tableau.
+3.  Calculez, par essence, la hauteur moyenne, le diamètre moyen et le nombre d’arbres.
+4.  Produisez une boîte à moustaches de `hauteur_m` par `essence`.
+5.  Produisez un nuage de points entre `age_estime_ans` et `diametre_cm`, coloré par `etat_sante`.
+6.  Rédigez deux phrases qui résument ce que vous observez.
 
 > **TIP:**
 >
 > ``` r
-> # 1. Statistiques
-> mpg %>%
+> library(readr)
+> library(dplyr)
+> library(ggplot2)
+>
+> arbres <- read_csv("data/arbres_urbains_fictif.csv")
+>
+> glimpse(arbres)
+>
+> resume_arbres <- arbres |>
+>   group_by(essence) |>
 >   summarise(
->     n        = n(),
->     mean_hwy = mean(hwy),
->     sd_hwy   = sd(hwy),
->     median_hwy = median(hwy),
->     IQR_hwy    = IQR(hwy)
+>     n = n(),
+>     hauteur_moyenne_m = mean(hauteur_m, na.rm = TRUE),
+>     diametre_moyen_cm = mean(diametre_cm, na.rm = TRUE),
+>     .groups = "drop"
 >   )
 >
-> # 2‑3. Histogramme + boxplot
-> library(patchwork)  # pour l’assemblage (facultatif)
+> resume_arbres
 >
-> p1 <- mpg %>%
->   ggplot(aes(hwy)) +
->   geom_histogram(binwidth = 2, fill = "steelblue", colour = "white") +
->   geom_density(aes(y = ..count.. * 2), linewidth = 1) +
->   labs(title = "Distribution de MPG autoroute")
+> ggplot(arbres, aes(x = essence, y = hauteur_m, fill = essence)) +
+>   geom_boxplot(alpha = 0.8) +
+>   labs(
+>     title = "Hauteur des arbres selon l'essence",
+>     x = "Essence",
+>     y = "Hauteur (m)",
+>     fill = "Essence"
+>   ) +
+>   theme_minimal()
 >
-> p2 <- mpg %>%
->   ggplot(aes(y = hwy)) +
->   geom_boxplot(fill = "orange", width = 0.4) +
->   theme_void()
->
-> p1 / p2  # patchwork empile les deux graphiques
+> ggplot(arbres, aes(x = age_estime_ans, y = diametre_cm, colour = etat_sante)) +
+>   geom_point(size = 2, alpha = 0.8) +
+>   labs(
+>     title = "Diamètre et âge estimé des arbres",
+>     x = "Âge estimé (années)",
+>     y = "Diamètre (cm)",
+>     colour = "État de santé"
+>   ) +
+>   theme_minimal()
 > ```
+
+## Étude de cas 2 - Vélo-partage
+
+Fichier: `data/velo_partage_fictif.csv`
+
+Vous préparez un court diagnostic pour un service fictif de vélo-partage. Le fichier contient des observations agrégées par station, mois et type de jour.
+
+Réalisez les tâches suivantes:
+
+1.  Importez le fichier.
+2.  Calculez le nombre moyen de trajets par ville et par type de jour.
+3.  Créez une variable `jour_pluvieux` qui vaut `TRUE` si `precipitation_mm` est supérieure ou égale à 5.
+4.  Produisez un nuage de points entre `temperature_c` et `trajets`, coloré par ville.
+5.  Comparez `duree_mediane_min` entre les types de jour avec une boîte à moustaches.
+6.  Rédigez une recommandation courte pour l’équipe de planification.
+
+> **TIP:**
 >
-> *Interprétation :* la distribution est légèrement asymétrique à droite ; quelques véhicules très efficaces (\> 40 MPG) apparaissent comme valeurs extrêmes. Globalement, la médiane autour de 24 MPG indique qu’une majorité de voitures reste modérément efficace.
+> ``` r
+> library(readr)
+> library(dplyr)
+> library(ggplot2)
+>
+> velo <- read_csv("data/velo_partage_fictif.csv")
+>
+> resume_velo <- velo |>
+>   group_by(ville, jour_type) |>
+>   summarise(
+>     trajets_moyens = mean(trajets, na.rm = TRUE),
+>     duree_mediane_typique = median(duree_mediane_min, na.rm = TRUE),
+>     .groups = "drop"
+>   )
+>
+> resume_velo
+>
+> velo_prepare <- velo |>
+>   mutate(jour_pluvieux = precipitation_mm >= 5)
+>
+> ggplot(velo_prepare, aes(x = temperature_c, y = trajets, colour = ville)) +
+>   geom_point(size = 2, alpha = 0.8) +
+>   labs(
+>     title = "Trajets de vélo-partage selon la température",
+>     x = "Température (°C)",
+>     y = "Nombre de trajets",
+>     colour = "Ville"
+>   ) +
+>   theme_minimal()
+>
+> ggplot(velo_prepare, aes(x = jour_type, y = duree_mediane_min, fill = jour_type)) +
+>   geom_boxplot(alpha = 0.8) +
+>   labs(
+>     title = "Durée médiane des trajets selon le type de jour",
+>     x = "Type de jour",
+>     y = "Durée médiane (minutes)",
+>     fill = "Type de jour"
+>   ) +
+>   theme_minimal()
+> ```

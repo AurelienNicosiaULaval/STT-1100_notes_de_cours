@@ -1,265 +1,384 @@
 ---
-title: "Exercices de consolidation"
+title: "Module 6 - Exercices"
+subtitle: "STT-1100 Introduction à la science des données"
 format:
   html:
     toc: true
+    toc-title: Plan
     embed-resources: true
+    link-external-newwindow: true
+    css: [../css/base_css.css]
+editor: visual
 ---
 
-# Exercices de consolidation {.unnumbered}
+# Exercices de consolidation
 
->  **Objectif général – Maîtriser les différentes jointures `dplyr` (`inner_join()`, `left_join()`, `right_join()`, `full_join()`, `semi_join()`, `anti_join()`) sur des jeux de données variés.**
+Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, résumer une activité collaborative et formuler une revue constructive.
 
-------------------------------------------------------------------------
+Les données utilisées ici sont fictives et ne représentent aucun dépôt GitHub réel.
 
-## 1. Penguins & Islands
-
-*Jeux de données :* `palmerpenguins::penguins` et `palmerpenguins::penguins_raw` (package **palmerpenguins**). Ajoute à chaque manchot la latitude (`lat`) et la longitude (`long`) de son île en faisant correspondre la variable `island`.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(palmerpenguins)
-
-islands <- penguins_raw |>
-  distinct(island, lat = latitude, long = longitude)
-
-penguins_loc <- penguins |>
-  left_join(islands, by = "island")
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
 ```
-:::
 
-------------------------------------------------------------------------
+# Lectures à revoir
 
-## 2. Gapminder × Code ISO-3
+- [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world){target="_blank"}
+- [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues){target="_blank"}
+- [GitHub Docs - Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue){target="_blank"}
+- [GitHub Docs - About pull requests](https://docs.github.com/en/pull-requests){target="_blank"}
+- [GitHub Docs - About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts){target="_blank"}
+- [Quarto Docs - Inline code](https://quarto.org/docs/computations/inline-code.html){target="_blank"}
+- [Quarto Docs - Execution options](https://quarto.org/docs/computations/execution-options.html){target="_blank"}
+- [R for Data Science - Joins](https://r4ds.hadley.nz/joins.html){target="_blank"}
 
-*Jeux de données :* `gapminder::gapminder` (package **gapminder**) et `countrycode::codelist` (package **countrycode**). Récupère le code ISO‑3 (`iso3c`) et la région de la FAO pour chaque pays dans `gapminder`. *Indice :* clé = `country`.
+Après les lectures, faites aussi le [mini-test formatif](mini_test.qmd). Il n'est pas noté.
 
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(gapminder)
-library(countrycode)
+# Bloc A - Comprendre les clés de jointure
 
-gap_iso <- gapminder |>
-  inner_join(
-    select(countrycode::codelist, country = country.name.en, iso3c, region_fao),
-    by = "country"
-  )
-```
-:::
+## Exercice 1 - Importer les tables de collaboration
 
-------------------------------------------------------------------------
+Importez `membres_equipe_fictif.csv` et `contributions_git_fictif.csv`, puis inspectez leurs dimensions.
 
-## 3. Star Wars – Espèces & Classifications
+::: {.callout-note collapse="true"}
+## Solution
 
-*Jeu de données :* `dplyr::starwars` (package **dplyr**). Crée un tibble `species_class` listant quelques espèces et leur **classification** (`mammal`, `reptilian`, etc.). Fais une **`left_join()`** pour ajouter la colonne `classification` et calcule la taille moyenne (`height`) par classification.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-
-species_class <- tibble::tribble(
-  ~species, ~classification,
-  "Human",  "mammal",
-  "Droid",  "artificial",
-  "Gungan", "amphibian",
-  "Wookiee","mammal"
+```{r}
+membres <- read_csv(
+  "data/membres_equipe_fictif.csv",
+  show_col_types = FALSE
 )
 
-starwars_cls <- starwars |>
-  left_join(species_class, by = "species") |>
-  group_by(classification) |>
-  summarise(mean_height = mean(height, na.rm = TRUE))
-```
-:::
-
-------------------------------------------------------------------------
-
-## 4. Baseball – Joueurs canadiens
-
-*Jeux de données :* `Lahman::People`, `Lahman::Batting` (package **Lahman**).
-
-1.  Obtiens la liste des joueurs nés au *Canada* (`birthCountry`).
-2.  Calcule leur moyenne au bâton (`H/AB`) en fusionnant People <-> Batting sur `playerID`.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(Lahman)
-
-can_players <- People |>
-  filter(birthCountry == "Canada") |>
-  select(playerID, nameFirst, nameLast)
-
-can_stats <- can_players |>
-  inner_join(select(Batting, playerID, H, AB), by = "playerID") |>
-  group_by(playerID, nameFirst, nameLast) |>
-  summarise(avg = sum(H, na.rm = TRUE) / sum(AB, na.rm = TRUE),
-            .groups = "drop")
-```
-:::
-
-------------------------------------------------------------------------
-
-## 5. Prénoms & Première lettre
-
-*Jeu de données :* `babynames::babynames` (package **babynames**). Crée un tibble `alphabet` comportant la première lettre (`initial`) et sa catégorie (« A‑M », « N‑Z »). Ajoute la catégorie à `babynames`, puis compte les naissances par catégorie en 2010.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(babynames)
-
-alphabet <- tibble::tibble(
-  initial = LETTERS,
-  group   = if_else(initial <= "M", "A-M", "N-Z")
+contributions <- read_csv(
+  "data/contributions_git_fictif.csv",
+  show_col_types = FALSE
 )
 
-babynames_2010 <- babynames |>
-  filter(year == 2010) |>
-  mutate(initial = substr(name, 1, 1)) |>
-  inner_join(alphabet, by = "initial") |>
-  group_by(group) |>
-  summarise(total = sum(n))
-```
-:::
+glimpse(membres)
+glimpse(contributions)
 
-------------------------------------------------------------------------
-
-## 6. Météo canadienne – Stations & Observations
-
-*Jeux de données :* `weathercan::stations_meta()` et `weathercan::weather_dl()` (package **weathercan**). Télécharge les données quotidiennes de Québec‑Jean‑Lesage (station #7025250) pour 2024 et joins‑les aux métadonnées de station pour ajouter `province` et `elevation`.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(weathercan)
-library(dplyr)
-
-meta <- stations_meta() |>
-  filter(station_id == 7025250) |>
-  select(station_id, province, elev = elevation)
-
-qc24 <- weather_dl(station_ids = 7025250,
-                   start = "2024-01-01", end = "2024-12-31",
-                   interval = "day")
-
-qc24_full <- qc24 |>
-  left_join(meta, by = "station_id")
-```
-:::
-
-------------------------------------------------------------------------
-
-## 7. Pizza Ratings
-
-*Jeux de données :* `fivethirtyeight::pizza` et `fivethirtyeight::pizza_places` (package **fivethirtyeight**). Associe chaque évaluation (`pizza`) à son restaurant (`pizza_places`) via `place_id` et trouve la note moyenne (`rating`) par **state**.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(fivethirtyeight)
-
-pizza_avg_state <- pizza |>
-  inner_join(pizza_places, by = "place_id") |>
-  group_by(state) |>
-  summarise(mean_rating = mean(rating, na.rm = TRUE))
-```
-:::
-
-------------------------------------------------------------------------
-
-## 8. ONU – Votes & Résolutions
-
-*Jeux de données :* `unvotes::un_votes`, `unvotes::un_roll_calls` (package **unvotes**). Relie chaque vote (`un_votes`) à la description de la résolution (`un_roll_calls`) via `rcid`. Énumère les cinq pays ayant voté le plus souvent « no » entre 2000 et 2010.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(unvotes)
-
-votes_desc <- un_votes |>
-  inner_join(un_roll_calls, by = "rcid") |>
-  filter(year >= 2000, year <= 2010, vote == "no") |>
-  count(country, sort = TRUE) |>
-  slice_head(n = 5)
-```
-:::
-
-------------------------------------------------------------------------
-
-## 9. Films & Oscars
-
-*Jeux de données :* `ggplot2movies::movies` (package **ggplot2movies**) et un tibble `oscars` listant quelques titres et l’année de l’Oscar du meilleur film. Fais une **`full_join()`** puis repère les films présents dans un seul des deux ensembles.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(ggplot2movies)
-
-oscars <- tibble::tribble(
-  ~title,            ~oscar_year,
-  "The Hurt Locker", 2010,
-  "Argo",            2013,
-  "Parasite",        2020,
-  "Nomadland",       2021
+tibble(
+  table = c("membres", "contributions"),
+  lignes = c(nrow(membres), nrow(contributions)),
+  colonnes = c(ncol(membres), ncol(contributions))
 )
-
-movies_oscar <- full_join(
-  select(movies, title, year, rating),
-  oscars,
-  by = "title",
-  keep = TRUE
-)
-
-only_one_side <- movies_oscar |>
-  filter(is.na(year) | is.na(oscar_year))
 ```
 :::
 
-------------------------------------------------------------------------
+## Exercice 2 - Ajouter l'information sur les membres
 
-## 10. **Mini-projet EDA** - Vols à JFK
+Utilisez `left_join()` pour ajouter le nom, le rôle et l'équipe à chaque contribution.
 
-*Jeux de données :* `nycflights23::flights`, `nycflights23::airlines` et `nycflights23::weather` (package **nycflights23**).
+::: {.callout-note collapse="true"}
+## Solution
 
-1.  **Jointures :** relie `flights`, `airlines` et `weather`.
-2.  Filtre uniquement les vols au départ de JFK.
-3.  Calcule le retard moyen au départ par transporteur.
-4.  Visualise la relation entre les rafales de vent (`wind_gust`) et les retards au départ (`dep_delay`).
+```{r}
+contributions_detail <- contributions |>
+  left_join(membres, by = "membre_id")
 
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(ggplot2)
-library(nycflights23)
+contributions_detail |>
+  select(commit_id, membre_id, nom, role, equipe, type_contribution, fichier) |>
+  arrange(commit_id)
+```
+:::
 
-vols_jfk <- flights |>
-  filter(origin == "JFK") |>
-  left_join(airlines, by = "carrier") |>
-  left_join(
-    weather,
-    by = c("origin", "year", "month", "day", "hour")
-  )
+## Exercice 3 - Repérer les contributions sans membre connu
 
-resume_transporteurs <- vols_jfk |>
-  group_by(name) |>
+Utilisez `anti_join()` pour repérer les contributions dont `membre_id` n'apparaît pas dans la table des membres.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+contributions |>
+  anti_join(membres, by = "membre_id")
+```
+
+Cette vérification est utile avant de résumer le travail par personne. Une clé absente peut indiquer une erreur de saisie ou un membre non documenté.
+:::
+
+## Exercice 4 - Identifier les membres qui ont contribué
+
+Utilisez `semi_join()` pour obtenir la liste des membres qui ont au moins une contribution.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+membres |>
+  semi_join(contributions, by = "membre_id") |>
+  arrange(equipe, role)
+```
+:::
+
+# Bloc B - Résumer un travail collaboratif
+
+## Exercice 5 - Résumer les contributions par membre
+
+Créez un tableau qui donne, pour chaque membre connu, le nombre de commits et le nombre total de lignes modifiées.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+resume_membres <- contributions_detail |>
+  filter(!is.na(nom)) |>
+  group_by(equipe, nom, role) |>
   summarise(
-    n_vols = n(),
-    retard_moyen = mean(dep_delay, na.rm = TRUE),
+    n_commits = n(),
+    lignes_modifiees = sum(lignes_modifiees),
+    .groups = "drop"
+  ) |>
+  arrange(equipe, desc(n_commits))
+
+resume_membres
+```
+:::
+
+## Exercice 6 - Visualiser l'activité de l'équipe
+
+Produisez un graphique du nombre de commits par rôle.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+resume_membres |>
+  ggplot(aes(x = role, y = n_commits, fill = equipe)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  labs(
+    title = "Nombre de commits par rôle",
+    x = "Rôle",
+    y = "Nombre de commits",
+    fill = "Équipe"
+  )
+```
+:::
+
+## Exercice 7 - Vérifier les fichiers attendus
+
+Importez `fichiers_rapport_fictif.csv`. Pour chaque équipe, calculez le nombre de fichiers attendus présents et le nombre de fichiers manquants.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+fichiers <- read_csv(
+  "data/fichiers_rapport_fictif.csv",
+  show_col_types = FALSE
+)
+
+resume_fichiers <- fichiers |>
+  mutate(present_logique = present == "oui") |>
+  group_by(equipe) |>
+  summarise(
+    fichiers_presents = sum(present_logique),
+    fichiers_manquants = sum(!present_logique),
+    taille_totale_ko = sum(taille_ko),
     .groups = "drop"
   )
 
-vols_jfk |>
-  filter(!is.na(wind_gust), !is.na(dep_delay)) |>
-  slice_sample(n = 5000) |>
-  ggplot(aes(x = wind_gust, y = dep_delay)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    title = "Rafales de vent et retards au départ à JFK",
-    x = "Rafales de vent",
-    y = "Retard au départ (minutes)"
-  )
+resume_fichiers
 ```
+:::
+
+## Exercice 8 - Trouver les équipes avec un rapport HTML manquant
+
+Filtrez les lignes où `fichier_attendu == "rapport.html"` et où le fichier est absent.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+fichiers |>
+  filter(fichier_attendu == "rapport.html", present == "non")
+```
+:::
+
+# Bloc C - Issues et revue constructive
+
+## Exercice 9 - Joindre les issues aux membres
+
+Importez `issues_revue_fictif.csv`, puis ajoutez le nom et l'équipe de l'auteur de chaque issue.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+issues <- read_csv(
+  "data/issues_revue_fictif.csv",
+  show_col_types = FALSE
+)
+
+issues_detail <- issues |>
+  left_join(membres, by = c("auteur_id" = "membre_id"))
+
+issues_detail |>
+  select(issue_id, equipe_revisee, auteur_id, nom, equipe, dimension, statut, priorite)
+```
+:::
+
+## Exercice 10 - Résumer les issues par équipe révisée
+
+Calculez le nombre d'issues ouvertes, fermées et de priorité élevée pour chaque équipe révisée.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+issues_detail |>
+  group_by(equipe_revisee) |>
+  summarise(
+    n_issues = n(),
+    n_ouvertes = sum(statut == "ouverte"),
+    n_fermees = sum(statut == "fermee"),
+    n_priorite_elevee = sum(priorite == "elevee"),
+    .groups = "drop"
+  ) |>
+  arrange(desc(n_ouvertes))
+```
+:::
+
+## Exercice 11 - Repérer les issues sans équipe connue
+
+Les équipes A et B sont dans la table des membres. Utilisez une jointure ou une logique équivalente pour repérer les issues qui visent une équipe absente de la liste des équipes connues.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+equipes_connues <- membres |>
+  distinct(equipe)
+
+issues |>
+  anti_join(equipes_connues, by = c("equipe_revisee" = "equipe"))
+```
+:::
+
+## Exercice 12 - Rédiger une issue utile
+
+Choisissez une issue ouverte et rédigez une version améliorée avec trois sections: aspect réussi, suggestion, justification.
+
+::: {.callout-note collapse="true"}
+## Exemple de réponse
+
+```markdown
+## Aspect réussi
+
+Le rapport indique clairement les packages utilisés et les principales étapes de préparation.
+
+## Suggestion
+
+Ajouter une phrase qui explique la clé de jointure utilisée entre les contributions et les membres.
+
+## Pourquoi cette suggestion est utile
+
+La revue devient plus facile à reproduire, car une autre équipe peut comprendre pourquoi `membre_id` est la bonne clé.
+```
+:::
+
+# Études de cas
+
+## Étude de cas 1 - Audit fictif d'un dépôt de projet
+
+Utilisez `membres_equipe_fictif.csv`, `contributions_git_fictif.csv`, `issues_revue_fictif.csv` et `fichiers_rapport_fictif.csv`.
+
+Réalisez les tâches suivantes:
+
+1. joindre les contributions aux membres;
+2. repérer les contributions sans membre connu;
+3. produire un résumé par équipe;
+4. joindre les issues aux auteurs;
+5. repérer les équipes qui ont un `rapport.html` manquant;
+6. écrire une conclusion prudente sur la reproductibilité du dépôt.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+audit_contributions <- contributions |>
+  left_join(membres, by = "membre_id")
+
+contributions_sans_membre <- contributions |>
+  anti_join(membres, by = "membre_id")
+
+resume_equipes <- audit_contributions |>
+  filter(!is.na(equipe)) |>
+  group_by(equipe) |>
+  summarise(
+    n_commits = n(),
+    n_membres_actifs = n_distinct(membre_id),
+    lignes_modifiees = sum(lignes_modifiees),
+    .groups = "drop"
+  )
+
+audit_issues <- issues |>
+  left_join(membres, by = c("auteur_id" = "membre_id"))
+
+rapports_manquants <- fichiers |>
+  filter(fichier_attendu == "rapport.html", present == "non")
+
+contributions_sans_membre
+resume_equipes
+audit_issues
+rapports_manquants
+```
+
+Une conclusion prudente pourrait indiquer que l'équipe B semble avoir une trace de données présente, mais un rapport HTML manquant. Cette observation ne suffit pas à juger tout le projet; il faudrait aussi tenter de rendre le fichier `rapport.qmd`.
+:::
+
+## Étude de cas 2 - Revue fictive d'un portail de données
+
+Utilisez `portail_donnees_fictif.csv`, `producteurs_fictif.csv` et `commentaires_revue_fictif.csv`.
+
+Réalisez les tâches suivantes:
+
+1. joindre les jeux de données aux producteurs;
+2. repérer les jeux de données sans producteur connu;
+3. joindre les commentaires aux jeux de données;
+4. compter les commentaires par dimension et sévérité;
+5. repérer les jeux de données avec licence inconnue;
+6. rédiger une issue de revue constructive pour un problème prioritaire.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+portail <- read_csv(
+  "data/portail_donnees_fictif.csv",
+  show_col_types = FALSE
+)
+
+producteurs <- read_csv(
+  "data/producteurs_fictif.csv",
+  show_col_types = FALSE
+)
+
+commentaires <- read_csv(
+  "data/commentaires_revue_fictif.csv",
+  show_col_types = FALSE
+)
+
+portail_producteurs <- portail |>
+  left_join(producteurs, by = "producteur_id")
+
+jeux_sans_producteur <- portail |>
+  anti_join(producteurs, by = "producteur_id")
+
+commentaires_detail <- commentaires |>
+  left_join(portail, by = "jeu_id")
+
+resume_commentaires <- commentaires_detail |>
+  count(dimension, severite, sort = TRUE)
+
+licences_inconnues <- portail_producteurs |>
+  filter(licence == "Inconnue" | is.na(organisation))
+
+jeux_sans_producteur
+resume_commentaires
+licences_inconnues
+```
+
+Une issue prioritaire pourrait demander de clarifier la licence du jeu `Travaux routiers` avant diffusion. La justification est que la réutilisation des données dépend directement de la licence annoncée.
 :::

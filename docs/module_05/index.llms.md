@@ -39,7 +39,7 @@ corrélation dates nuages de points
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à consolider les mêmes gestes sur d’autres données.
 
 1 Lectures à faire Préparer dates, corrélations et relations entre variables. Dans la carte Ouvrir la carteRéduire
 
@@ -53,15 +53,22 @@ Dans ce module, nous allons explorer les concepts de base de l’analyse explora
 - [**R for Data Science – Dates and Times**](https://r4ds.hadley.nz/datetimes.html)
   Ce chapitre vous introduit à la manipulation des dates et heures avec le package `lubridate`.
 
-Vous pouvez aussi aller réviser le chapitre suivant:
+Vous pouvez aussi aller réviser les chapitres suivants:
 
-- [**R for Data Science – Tidy Data**](https://r4ds.hadley.nz/data-tidy.html)
-  Ce chapitre vous rappelle les principes de la structure des données « tidy » et comment les appliquer avec `tidyr`.
+- [**R for Data Science – Data visualization**](https://r4ds.hadley.nz/data-visualize.html)
+  Ce chapitre vous aide à choisir et annoter des graphiques adaptés aux questions exploratoires.
+
+- [**R for Data Science – Missing values**](https://r4ds.hadley.nz/missing-values.html)
+  Ce chapitre rappelle pourquoi les valeurs manquantes doivent être repérées avant d'interpréter un résumé.
 
 Dans le libre **IMS**:
 
+- [**Introduction to modern statistics – Exploring numerical data**](https://openintro-ims.netlify.app/explore-numerical)
+  Ce chapitre renforce les résumés numériques, les graphiques et les comparaisons descriptives.
 - [**Introduction to modern statistics – Applications: Explore**](https://openintro-ims.netlify.app/explore-applications)
   Ce chapitre vous introduit aux bonnes pratiques de modélisation exploratoire des données.
+
+Après les lectures, faites le [mini-test formatif](mini_test.llms.md). Il n'est pas noté; il sert à vérifier les bases avant l'aventure.
 
 2 Aventure Explorer retards, dates et associations dans un grand tableau. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
@@ -89,7 +96,7 @@ Distinguez clairement association et causalité dans vos conclusions.
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+Portée Ces exercices ne sont pas la suite du défi. Ils utilisent des données fictives d'ateliers, de bibliothèque et de services campus pour pratiquer les mêmes gestes dans d'autres contextes.
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 

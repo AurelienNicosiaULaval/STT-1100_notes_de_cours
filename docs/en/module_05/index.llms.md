@@ -39,7 +39,7 @@ At the end of this module, you should be able to:
 
 ## Learning Plan
 
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are independent and consolidate the same moves on other data.
 
 1 Readings Prepare dates, correlations and relationships between variables. In this card Open cardCollapse
 
@@ -53,15 +53,22 @@ In this module, we will explore the basic concepts of exploratory data analysis 
 - [**R for Data Science – Dates and Times**](https://r4ds.hadley.nz/datetimes.html)
   This chapter introduces you to the manipulation of dates and times with the `lubridate` package.
 
-You can also review the following chapter:
+You can also review the following chapters:
 
-- [**R for Data Science – Tidy Data**](https://r4ds.hadley.nz/data-tidy.html)
-  This chapter reminds you of the principles of the “tidy” data structure and how to apply them with `tidyr`.
+- [**R for Data Science – Data visualization**](https://r4ds.hadley.nz/data-visualize.html)
+  This chapter helps you choose and annotate graphs suited to exploratory questions.
+
+- [**R for Data Science – Missing values**](https://r4ds.hadley.nz/missing-values.html)
+  This chapter reviews why missing values should be identified before interpreting a summary.
 
 In the free **IMS**:
 
+- [**Introduction to modern statistics – Exploring numerical data**](https://openintro-ims.netlify.app/explore-numerical)
+  This chapter reinforces numerical summaries, graphs and descriptive comparisons.
 - [**Introduction to modern statistics – Applications: Explore**](https://openintro-ims.netlify.app/explore-applications)
   This chapter introduces you to best practices for exploratory data modeling.
+
+After the readings, complete the [formative mini-test](mini_test.llms.md). It is not graded; it checks the basics before the adventure.
 
 2 Adventure Explore delays, dates and associations in a large table. [Adventure](aventure.llms.md) Open cardCollapse
 
@@ -89,7 +96,7 @@ Clearly distinguish association from causation in your conclusions.
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises stay on a separate page because they take more space.
+Scope These exercises are not the continuation of the challenge. They use fictitious workshop, library and campus-service data to practise the same moves in other contexts.
 
 Redo at least one passage without looking at the solution immediately.
 

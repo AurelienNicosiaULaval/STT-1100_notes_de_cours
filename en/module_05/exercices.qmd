@@ -11,251 +11,397 @@ format:
 editor: visual
 ---
 
-# Module Objectives
+# Consolidation Exercises
 
-At the end of this module, you should be able to:
+These exercises are independent from the adventure and challenge. They consolidate the technical moves from module 5: manipulate dates, summarize groups, visualize associations, calculate simple correlations and write cautious conclusions.
 
-- prepare date variables with `lubridate`;
-- summarize delays by group while accounting for the number of observations;
-- visualize relationships between numerical or categorical variables;
-- calculate and interpret a simple correlation;
-- formulate exploratory conclusions without overclaiming.
+The data used here are fictitious and do not represent any real system.
+
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(lubridate)
+```
 
 # Readings to Review
 
 - [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html){target="_blank"}
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html){target="_blank"}
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html){target="_blank"}
-- [Introduction to Modern Statistics - Exploratory data analysis](https://openintro-ims.netlify.app/explore-data){target="_blank"}
+- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html){target="_blank"}
+- [Introduction to Modern Statistics - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical){target="_blank"}
+- [Introduction to Modern Statistics - Applications: Explore](https://openintro-ims.netlify.app/explore-applications){target="_blank"}
 
-# Adventure
+After the readings, also complete the [formative mini-test](mini_test.qmd). It is not graded.
 
-[Adventure 5](aventure.qmd)
+# Block A - Dates, Structure and Missing Values
 
-# Challenge
+The file `data/fictitious_support_workshops.csv` describes fake university support workshops.
 
-[Challenge 5](defi.qmd)
+## Exercise 1 - Import and Inspect
 
-# Setup
-
-The exercises use the `flights_merged_2023.rds` file.
-
-```r
-library(tidyverse)
-library(lubridate)
-
-flights <- readRDS("flights_merged_2023.rds")
-```
-
-# Consolidation Exercises
-
-## Exercise 1 - Check the Structure
-
-Load the data, display the structure and verify the number of rows and columns.
+Import the file, display its structure and check its dimensions.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Solution
 
-```r
-glimpse(flights)
+```{r}
+workshops <- read_csv(
+  "data/fictitious_support_workshops.csv",
+  show_col_types = FALSE
+)
 
-flights |>
-  summarise(
-    n_flights = n(),
-    n_columns = ncol(flights)
-  )
+glimpse(workshops)
+
+tibble(
+  rows = nrow(workshops),
+  columns = ncol(workshops)
+)
 ```
 :::
 
-## Exercise 2 - Create Temporal Variables
+## Exercise 2 - Prepare Temporal Variables
 
-Create the `date`, `weekday` and `moment_day` variables.
+Transform `workshop_date` into a date, then create `weekday`, `month` and `time_of_day`.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Solution
 
-```r
-flights <- flights |>
+```{r}
+workshops_dates <- workshops |>
   mutate(
-    date = make_date(year, month, day),
-    weekday = wday(date, label = TRUE, abbr = FALSE),
-    moment_day = case_when(
-      hour < 6 ~ "night",
-      hour < 12 ~ "morning",
-      hour < 18 ~ "afternoon",
+    workshop_date = ymd(workshop_date),
+    weekday = wday(workshop_date, label = TRUE, abbr = FALSE),
+    month = month(workshop_date, label = TRUE, abbr = FALSE),
+    time_of_day = case_when(
+      start_hour < 12 ~ "morning",
+      start_hour < 17 ~ "afternoon",
       TRUE ~ "evening"
     )
   )
 
-flights |>
-  select(date, weekday, hour, moment_day) |>
-  slice_head(n = 10)
+workshops_dates |>
+  select(workshop_id, workshop_date, weekday, month, start_hour, time_of_day) |>
+  slice_head(n = 8)
 ```
 :::
 
-## Exercise 3 - Identify Important Missing Values
+## Exercise 3 - Identify Missing Values
 
-Calculate the number of missing values in `dep_time`, `dep_delay`, `plane_year`, `wind_gust`, `visib` and `precip`.
+Calculate the number of missing values in `participants`, `rain_mm` and `mean_satisfaction`.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Solution
 
-```r
-flights |>
+```{r}
+workshops_dates |>
   summarise(
-    dep_time_missing = sum(is.na(dep_time)),
-    dep_delay_missing = sum(is.na(dep_delay)),
-    plane_year_missing = sum(is.na(plane_year)),
-    wind_gust_missing = sum(is.na(wind_gust)),
-    visib_missing = sum(is.na(visib)),
-    precip_missing = sum(is.na(precip))
+    participants_missing = sum(is.na(participants)),
+    rain_missing = sum(is.na(rain_mm)),
+    satisfaction_missing = sum(is.na(mean_satisfaction))
   )
 ```
 :::
 
-## Exercise 4 - Mean Delay by Hour
+## Exercise 4 - Summarize by Time of Day
 
-Calculate the mean departure delay by scheduled departure hour. Also include the number of flights by hour.
+Calculate the number of workshops, mean participation and mean satisfaction by `time_of_day`.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Solution
 
-```r
-hourly_delays <- flights |>
-  group_by(hour) |>
+```{r}
+summary_time <- workshops_dates |>
+  group_by(time_of_day) |>
   summarise(
-    n_flights = n(),
-    mean_delay = mean(dep_delay, na.rm = TRUE),
+    n_workshops = n(),
+    mean_participants = mean(participants, na.rm = TRUE),
+    mean_satisfaction = mean(mean_satisfaction, na.rm = TRUE),
     .groups = "drop"
   )
 
-hourly_delays |>
-  arrange(desc(mean_delay))
+summary_time
 ```
 :::
 
-## Exercise 5 - Visualize Delays by Time Slot
+# Block B - Associations and Visualizations
 
-Produce a boxplot of `dep_delay` by `moment_day`. To keep the graph readable, limit the display to delays between -30 and 180 minutes.
+## Exercise 5 - Visualize Participants
+
+Produce a column chart of the mean number of participants by time of day.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Solution
 
-```r
-flights |>
-  filter(!is.na(dep_delay), between(dep_delay, -30, 180)) |>
-  ggplot(aes(x = moment_day, y = dep_delay)) +
-  geom_boxplot() +
+```{r}
+summary_time |>
+  ggplot(aes(x = time_of_day, y = mean_participants)) +
+  geom_col(fill = "#2c7fb8") +
   labs(
-    title = "Distribution of delays by time of day",
+    title = "Mean participation by time of day",
     x = "Time of day",
-    y = "Departure delay (minutes)"
+    y = "Mean number of participants"
   )
 ```
 :::
 
-## Exercise 6 - Weather Correlation
+## Exercise 6 - Compare Topics
 
-Calculate the correlation between `dep_delay`, `wind_gust`, `visib` and `precip`.
+For each workshop topic, calculate the number of workshops, mean participation and mean satisfaction.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Solution
 
-```r
-flights |>
-  select(dep_delay, wind_gust, visib, precip) |>
+```{r}
+summary_topic <- workshops_dates |>
+  group_by(topic) |>
+  summarise(
+    n_workshops = n(),
+    mean_participants = mean(participants, na.rm = TRUE),
+    mean_satisfaction = mean(mean_satisfaction, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(mean_participants))
+
+summary_topic
+```
+:::
+
+## Exercise 7 - Calculate a Correlation Matrix
+
+Calculate the correlations between `duration_minutes`, `participants`, `temperature_c`, `rain_mm` and `mean_satisfaction`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+workshops_dates |>
+  select(duration_minutes, participants, temperature_c, rain_mm, mean_satisfaction) |>
   cor(use = "complete.obs") |>
   round(2)
 ```
 
-A weak correlation does not prove that a variable is useless. It only indicates that the global linear relationship is weak in this summary.
+Correlation summarizes a linear association. It is not enough to establish cause and effect.
 :::
 
-## Exercise 7 - Weather Scatterplot
+## Exercise 8 - Make a Scatterplot
 
-Create a scatterplot between `wind_gust` and `dep_delay`. Use a sample of 5,000 flights to keep the graph readable.
+Create a graph of `duration_minutes` and `participants`. Add a trend line.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Solution
 
-```r
-flights |>
-  filter(!is.na(wind_gust), !is.na(dep_delay)) |>
-  slice_sample(n = 5000) |>
-  ggplot(aes(x = wind_gust, y = dep_delay)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "lm", se = FALSE, color = "red") +
+```{r}
+workshops_dates |>
+  ggplot(aes(x = duration_minutes, y = participants)) +
+  geom_point(aes(color = topic), size = 2.5, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
   labs(
-    title = "Wind gusts and departure delays",
-    x = "Wind gusts (mph)",
-    y = "Departure delay (minutes)"
+    title = "Workshop duration and participation",
+    x = "Workshop duration (minutes)",
+    y = "Number of participants",
+    color = "Topic"
   )
 ```
 :::
 
-## Exercise 8 - Plane Age
+## Exercise 9 - Compare Rainy and Non-Rainy Days
 
-Create `plane_age`, group flights into age bands and calculate mean delay and cancellation rate.
+Create a `rainy_day` variable, then compare mean participation by that variable.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Solution
 
-```r
-flights |>
+```{r}
+workshops_rain <- workshops_dates |>
   mutate(
-    plane_age = 2023 - plane_year,
-    age_group = cut(
-      plane_age,
-      breaks = c(-Inf, 5, 10, 15, 20, Inf),
-      labels = c("0-5", "6-10", "11-15", "16-20", "21+")
+    rainy_day = case_when(
+      is.na(rain_mm) ~ "unknown rain",
+      rain_mm > 0 ~ "rain",
+      TRUE ~ "no rain"
     )
-  ) |>
-  filter(!is.na(age_group)) |>
-  group_by(age_group) |>
+  )
+
+workshops_rain |>
+  group_by(rainy_day) |>
   summarise(
-    n_flights = n(),
-    mean_delay = mean(dep_delay, na.rm = TRUE),
-    cancellation_rate = mean(is.na(dep_time)),
+    n_workshops = n(),
+    mean_participants = mean(participants, na.rm = TRUE),
     .groups = "drop"
   )
 ```
 :::
 
-## Exercise 9 - Compare Airlines
+# Block C - Cautious Interpretation
 
-Identify the ten airlines with the most flights, then compare their mean delay.
+## Exercise 10 - Write a Descriptive Conclusion
+
+Using one of the previous tables, write two sentences:
+
+1. one sentence that describes the observed result;
+2. one sentence that states a limitation.
 
 ::: {.callout-note collapse="true"}
-### Answer
+## Example Answer
 
-```r
-top_airlines <- flights |>
-  count(name, sort = TRUE) |>
-  slice_head(n = 10)
+Evening workshops seem to have higher mean participation in this small fictitious file. This comparison remains descriptive because evening workshops do not always cover the same topics and the number of observations is limited.
+:::
 
-flights |>
-  semi_join(top_airlines, by = "name") |>
-  group_by(name) |>
+## Exercise 11 - Choose an Appropriate Visualization
+
+Choose one of the two questions below, then produce an appropriate graph.
+
+1. Does mean satisfaction vary by topic?
+2. Does participation vary with temperature?
+
+::: {.callout-note collapse="true"}
+## Possible Solution
+
+```{r}
+workshops_dates |>
+  filter(!is.na(mean_satisfaction)) |>
+  ggplot(aes(x = topic, y = mean_satisfaction)) +
+  geom_point(size = 2.5, alpha = 0.8) +
+  labs(
+    title = "Mean satisfaction by topic",
+    x = "Topic",
+    y = "Mean satisfaction"
+  )
+```
+:::
+
+## Exercise 12 - Build a Small Summary Table
+
+Create a summary table by campus with the number of workshops, total participation, mean participation and mean satisfaction.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+workshops_dates |>
+  group_by(campus) |>
   summarise(
-    n_flights = n(),
-    mean_delay = mean(dep_delay, na.rm = TRUE),
+    n_workshops = n(),
+    total_participation = sum(participants, na.rm = TRUE),
+    mean_participation = mean(participants, na.rm = TRUE),
+    mean_satisfaction = mean(mean_satisfaction, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+:::
+
+# Case Studies
+
+## Case Study 1 - Fictitious Library Visits
+
+The file `data/fictitious_library_visits.csv` describes fake library-area visit observations.
+
+Complete the following tasks:
+
+1. import the file;
+2. transform `visit_date` into a date;
+3. create `weekday` and `time_of_day`;
+4. summarize visitors by area and time of day;
+5. calculate correlations between `visitors`, `temperature_c` and `rain_mm`;
+6. produce a useful visualization;
+7. write a cautious conclusion.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+library_visits <- read_csv(
+  "data/fictitious_library_visits.csv",
+  show_col_types = FALSE
+) |>
+  mutate(
+    visit_date = ymd(visit_date),
+    weekday = wday(visit_date, label = TRUE, abbr = FALSE),
+    time_of_day = case_when(
+      hour < 12 ~ "morning",
+      hour < 17 ~ "afternoon",
+      TRUE ~ "evening"
+    )
+  )
+
+library_visits |>
+  group_by(area, time_of_day) |>
+  summarise(
+    n_observations = n(),
+    mean_visitors = mean(visitors),
+    .groups = "drop"
+  )
+
+library_visits |>
+  select(visitors, temperature_c, rain_mm) |>
+  cor(use = "complete.obs") |>
+  round(2)
+
+library_visits |>
+  ggplot(aes(x = time_of_day, y = visitors, color = area)) +
+  geom_point(size = 2.5, alpha = 0.8) +
+  labs(
+    title = "Fictitious visits by time of day",
+    x = "Time of day",
+    y = "Number of visitors",
+    color = "Area"
+  )
+```
+
+A cautious conclusion could state that evening observations seem busier in this file, especially in the computer area. This conclusion remains descriptive because exam week, area and campus vary at the same time.
+:::
+
+## Case Study 2 - Fictitious Campus Service Requests
+
+The file `data/fictitious_campus_service_requests.csv` describes fake requests sent to campus services.
+
+Complete the following tasks:
+
+1. import the file;
+2. transform `request_date` into a date;
+3. summarize delays by service and priority;
+4. calculate correlations between `delay_hours`, `satisfaction` and `estimated_cost`;
+5. produce a useful visualization;
+6. write a cautious conclusion.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+requests <- read_csv(
+  "data/fictitious_campus_service_requests.csv",
+  show_col_types = FALSE
+) |>
+  mutate(
+    request_date = ymd(request_date),
+    weekday = wday(request_date, label = TRUE, abbr = FALSE)
+  )
+
+requests |>
+  group_by(service, priority) |>
+  summarise(
+    n_requests = n(),
+    mean_delay = mean(delay_hours, na.rm = TRUE),
+    mean_satisfaction = mean(satisfaction, na.rm = TRUE),
     .groups = "drop"
   ) |>
   arrange(desc(mean_delay))
+
+requests |>
+  select(delay_hours, satisfaction, estimated_cost) |>
+  cor(use = "complete.obs") |>
+  round(2)
+
+requests |>
+  ggplot(aes(x = delay_hours, y = satisfaction, color = service)) +
+  geom_point(size = 2.5, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(
+    title = "Processing delay and satisfaction",
+    x = "Processing delay (hours)",
+    y = "Satisfaction",
+    color = "Service"
+  )
 ```
-:::
 
-## Exercise 10 - Write a Cautious Conclusion
-
-Choose one result from the previous exercises and write two sentences:
-
-1. one sentence that describes the observed result;
-2. one sentence that states a limitation or an alternative explanation.
-
-::: {.callout-note collapse="true"}
-### Example Answer
-
-If mean delays appear higher in the evening, you could write:
-
-> Flights scheduled in the evening show higher mean delays in these data. This comparison remains descriptive because it does not control for destination, airline, weather or delay accumulation throughout the day.
+A cautious conclusion could state that requests with longer delays seem associated with lower satisfaction in this fictitious file. However, we cannot conclude that delay directly causes satisfaction because priority, service type and request complexity may also matter.
 :::

@@ -11,251 +11,397 @@ format:
 editor: visual
 ---
 
-# Objectifs du module
+# Exercices de consolidation
 
-À la fin de ce module, vous devriez être capable de :
+Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 5: manipuler des dates, résumer des groupes, visualiser des associations, calculer des corrélations simples et formuler des conclusions prudentes.
 
-- préparer des variables de dates avec `lubridate`;
-- résumer des retards par groupe en tenant compte du nombre d'observations;
-- visualiser des relations entre variables numériques ou catégorielles;
-- calculer et interpréter une corrélation simple;
-- formuler des conclusions exploratoires sans surinterpréter.
+Les données utilisées ici sont fictives et ne représentent aucun système réel.
+
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(lubridate)
+```
 
 # Lectures à revoir
 
 - [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html){target="_blank"}
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html){target="_blank"}
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html){target="_blank"}
-- [Introduction to Modern Statistics - Exploratory data analysis](https://openintro-ims.netlify.app/explore-data){target="_blank"}
+- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html){target="_blank"}
+- [Introduction to Modern Statistics - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical){target="_blank"}
+- [Introduction to Modern Statistics - Applications: Explore](https://openintro-ims.netlify.app/explore-applications){target="_blank"}
 
-# Aventure
+Après les lectures, faites aussi le [mini-test formatif](mini_test.qmd). Il n'est pas noté.
 
-[Aventure 5](aventure.qmd)
+# Bloc A - Dates, structure et valeurs manquantes
 
-# Défi
+Le fichier `data/ateliers_soutien_fictif.csv` décrit de faux ateliers de soutien universitaire.
 
-[Défi 5](defi.qmd)
+## Exercice 1 - Importer et inspecter
 
-# Préparation
-
-Les exercices utilisent le fichier `flights_merged_2023.rds`.
-
-```r
-library(tidyverse)
-library(lubridate)
-
-flights <- readRDS("flights_merged_2023.rds")
-```
-
-# Exercices de consolidation
-
-## Exercice 1 - Vérifier la structure
-
-Chargez les données, affichez la structure et vérifiez le nombre de lignes et de colonnes.
+Importez le fichier, affichez sa structure et vérifiez ses dimensions.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-```r
-glimpse(flights)
+```{r}
+ateliers <- read_csv(
+  "data/ateliers_soutien_fictif.csv",
+  show_col_types = FALSE
+)
 
-flights |>
-  summarise(
-    n_vols = n(),
-    n_colonnes = ncol(flights)
-  )
+glimpse(ateliers)
+
+tibble(
+  lignes = nrow(ateliers),
+  colonnes = ncol(ateliers)
+)
 ```
 :::
 
-## Exercice 2 - Créer des variables temporelles
+## Exercice 2 - Préparer les variables temporelles
 
-Créez les variables `date`, `jour_semaine` et `moment_journee`.
+Transformez `date_atelier` en date, puis créez `jour_semaine`, `mois` et `moment_journee`.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-```r
-flights <- flights |>
+```{r}
+ateliers_dates <- ateliers |>
   mutate(
-    date = make_date(year, month, day),
-    jour_semaine = wday(date, label = TRUE, abbr = FALSE),
+    date_atelier = ymd(date_atelier),
+    jour_semaine = wday(date_atelier, label = TRUE, abbr = FALSE),
+    mois = month(date_atelier, label = TRUE, abbr = FALSE),
     moment_journee = case_when(
-      hour < 6 ~ "nuit",
-      hour < 12 ~ "matin",
-      hour < 18 ~ "après-midi",
+      heure_debut < 12 ~ "matin",
+      heure_debut < 17 ~ "après-midi",
       TRUE ~ "soir"
     )
   )
 
-flights |>
-  select(date, jour_semaine, hour, moment_journee) |>
-  slice_head(n = 10)
+ateliers_dates |>
+  select(atelier_id, date_atelier, jour_semaine, mois, heure_debut, moment_journee) |>
+  slice_head(n = 8)
 ```
 :::
 
-## Exercice 3 - Repérer les valeurs manquantes importantes
+## Exercice 3 - Repérer les valeurs manquantes
 
-Calculez le nombre de valeurs manquantes dans `dep_time`, `dep_delay`, `plane_year`, `wind_gust`, `visib` et `precip`.
+Calculez le nombre de valeurs manquantes dans `participants`, `pluie_mm` et `satisfaction_moyenne`.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-```r
-flights |>
+```{r}
+ateliers_dates |>
   summarise(
-    dep_time_manquant = sum(is.na(dep_time)),
-    dep_delay_manquant = sum(is.na(dep_delay)),
-    plane_year_manquant = sum(is.na(plane_year)),
-    wind_gust_manquant = sum(is.na(wind_gust)),
-    visib_manquant = sum(is.na(visib)),
-    precip_manquant = sum(is.na(precip))
+    participants_manquants = sum(is.na(participants)),
+    pluie_manquante = sum(is.na(pluie_mm)),
+    satisfaction_manquante = sum(is.na(satisfaction_moyenne))
   )
 ```
 :::
 
-## Exercice 4 - Retard moyen selon l'heure
+## Exercice 4 - Résumer par moment de la journée
 
-Calculez le retard moyen au départ par heure prévue de départ. Ajoutez aussi le nombre de vols par heure.
+Calculez le nombre d'ateliers, le nombre moyen de participantes et participants, et la satisfaction moyenne selon `moment_journee`.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-```r
-retards_heure <- flights |>
-  group_by(hour) |>
+```{r}
+resume_moment <- ateliers_dates |>
+  group_by(moment_journee) |>
   summarise(
-    n_vols = n(),
-    retard_moyen = mean(dep_delay, na.rm = TRUE),
+    n_ateliers = n(),
+    participants_moyens = mean(participants, na.rm = TRUE),
+    satisfaction_moyenne = mean(satisfaction_moyenne, na.rm = TRUE),
     .groups = "drop"
   )
 
-retards_heure |>
-  arrange(desc(retard_moyen))
+resume_moment
 ```
 :::
 
-## Exercice 5 - Visualiser les retards par créneau
+# Bloc B - Associations et visualisations
 
-Produisez un boxplot de `dep_delay` selon `moment_journee`. Pour rendre le graphique lisible, limitez l'affichage aux retards entre -30 et 180 minutes.
+## Exercice 5 - Visualiser les participantes et participants
+
+Produisez un diagramme en colonnes du nombre moyen de participantes et participants selon le moment de la journée.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-```r
-flights |>
-  filter(!is.na(dep_delay), between(dep_delay, -30, 180)) |>
-  ggplot(aes(x = moment_journee, y = dep_delay)) +
-  geom_boxplot() +
+```{r}
+resume_moment |>
+  ggplot(aes(x = moment_journee, y = participants_moyens)) +
+  geom_col(fill = "#2c7fb8") +
   labs(
-    title = "Distribution des retards selon le moment de la journée",
+    title = "Participation moyenne selon le moment de la journée",
     x = "Moment de la journée",
-    y = "Retard au départ (minutes)"
+    y = "Nombre moyen de participantes et participants"
   )
 ```
 :::
 
-## Exercice 6 - Corrélation météo
+## Exercice 6 - Comparer les thèmes
 
-Calculez la corrélation entre `dep_delay`, `wind_gust`, `visib` et `precip`.
+Pour chaque thème d'atelier, calculez le nombre d'ateliers, la participation moyenne et la satisfaction moyenne.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-```r
-flights |>
-  select(dep_delay, wind_gust, visib, precip) |>
+```{r}
+resume_theme <- ateliers_dates |>
+  group_by(theme) |>
+  summarise(
+    n_ateliers = n(),
+    participants_moyens = mean(participants, na.rm = TRUE),
+    satisfaction_moyenne = mean(satisfaction_moyenne, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(participants_moyens))
+
+resume_theme
+```
+:::
+
+## Exercice 7 - Calculer une matrice de corrélation
+
+Calculez les corrélations entre `duree_minutes`, `participants`, `temperature_c`, `pluie_mm` et `satisfaction_moyenne`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+ateliers_dates |>
+  select(duree_minutes, participants, temperature_c, pluie_mm, satisfaction_moyenne) |>
   cor(use = "complete.obs") |>
   round(2)
 ```
 
-Une corrélation faible ne prouve pas qu'une variable est inutile. Elle indique seulement que la relation linéaire globale est faible dans ce résumé.
+La corrélation résume une association linéaire. Elle ne suffit pas à établir une relation de cause à effet.
 :::
 
-## Exercice 7 - Nuage de points météo
+## Exercice 8 - Faire un nuage de points
 
-Créez un nuage de points entre `wind_gust` et `dep_delay`. Utilisez un échantillon de 5 000 vols pour garder le graphique lisible.
+Créez un graphique de `duree_minutes` et `participants`. Ajoutez une droite de tendance.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-```r
-flights |>
-  filter(!is.na(wind_gust), !is.na(dep_delay)) |>
-  slice_sample(n = 5000) |>
-  ggplot(aes(x = wind_gust, y = dep_delay)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "lm", se = FALSE, color = "red") +
+```{r}
+ateliers_dates |>
+  ggplot(aes(x = duree_minutes, y = participants)) +
+  geom_point(aes(color = theme), size = 2.5, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
   labs(
-    title = "Rafales de vent et retards au départ",
-    x = "Rafales de vent (mph)",
-    y = "Retard au départ (minutes)"
+    title = "Durée des ateliers et participation",
+    x = "Durée de l'atelier (minutes)",
+    y = "Nombre de participantes et participants",
+    color = "Thème"
   )
 ```
 :::
 
-## Exercice 8 - Âge des avions
+## Exercice 9 - Comparer les jours pluvieux et non pluvieux
 
-Créez `age_avion`, regroupez les vols en tranches d'âge et calculez le retard moyen ainsi que le taux d'annulation.
+Créez une variable `jour_pluvieux`, puis comparez la participation moyenne selon cette variable.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-```r
-flights |>
+```{r}
+ateliers_pluie <- ateliers_dates |>
   mutate(
-    age_avion = 2023 - plane_year,
-    tranche_age = cut(
-      age_avion,
-      breaks = c(-Inf, 5, 10, 15, 20, Inf),
-      labels = c("0-5", "6-10", "11-15", "16-20", "21+")
+    jour_pluvieux = case_when(
+      is.na(pluie_mm) ~ "pluie inconnue",
+      pluie_mm > 0 ~ "pluie",
+      TRUE ~ "pas de pluie"
     )
-  ) |>
-  filter(!is.na(tranche_age)) |>
-  group_by(tranche_age) |>
+  )
+
+ateliers_pluie |>
+  group_by(jour_pluvieux) |>
   summarise(
-    n_vols = n(),
-    retard_moyen = mean(dep_delay, na.rm = TRUE),
-    taux_annulation = mean(is.na(dep_time)),
+    n_ateliers = n(),
+    participants_moyens = mean(participants, na.rm = TRUE),
     .groups = "drop"
   )
 ```
 :::
 
-## Exercice 9 - Comparer les compagnies
+# Bloc C - Interprétation prudente
 
-Identifiez les dix compagnies ayant le plus de vols, puis comparez leur retard moyen.
+## Exercice 10 - Écrire une conclusion descriptive
 
-::: {.callout-note collapse="true"}
-### Réponse
-
-```r
-top_compagnies <- flights |>
-  count(name, sort = TRUE) |>
-  slice_head(n = 10)
-
-flights |>
-  semi_join(top_compagnies, by = "name") |>
-  group_by(name) |>
-  summarise(
-    n_vols = n(),
-    retard_moyen = mean(dep_delay, na.rm = TRUE),
-    .groups = "drop"
-  ) |>
-  arrange(desc(retard_moyen))
-```
-:::
-
-## Exercice 10 - Formuler une conclusion prudente
-
-Choisissez un résultat des exercices précédents et rédigez deux phrases :
+À partir de l'un des tableaux précédents, écrivez deux phrases:
 
 1. une phrase qui décrit le résultat observé;
-2. une phrase qui précise une limite ou une explication alternative.
+2. une phrase qui précise une limite.
 
 ::: {.callout-note collapse="true"}
-### Exemple de réponse
+## Exemple de réponse
 
-Si les retards moyens semblent plus élevés en soirée, on peut écrire :
+Les ateliers du soir semblent avoir une participation moyenne plus élevée dans ce petit fichier fictif. Cette comparaison reste descriptive, car les ateliers du soir ne portent pas toujours sur les mêmes thèmes et le nombre d'observations est limité.
+:::
 
-> Les vols prévus en soirée présentent des retards moyens plus élevés dans ces données. Cette comparaison reste descriptive, car elle ne contrôle pas la destination, la compagnie, la météo ou les effets d'accumulation des retards dans la journée.
+## Exercice 11 - Choisir une visualisation adaptée
+
+Choisissez une question parmi les deux suivantes, puis produisez un graphique adapté.
+
+1. La satisfaction moyenne varie-t-elle selon le thème?
+2. La participation varie-t-elle selon la température?
+
+::: {.callout-note collapse="true"}
+## Solution possible
+
+```{r}
+ateliers_dates |>
+  filter(!is.na(satisfaction_moyenne)) |>
+  ggplot(aes(x = theme, y = satisfaction_moyenne)) +
+  geom_point(size = 2.5, alpha = 0.8) +
+  labs(
+    title = "Satisfaction moyenne selon le thème",
+    x = "Thème",
+    y = "Satisfaction moyenne"
+  )
+```
+:::
+
+## Exercice 12 - Construire un petit tableau de synthèse
+
+Créez un tableau de synthèse par campus avec le nombre d'ateliers, la participation totale, la participation moyenne et la satisfaction moyenne.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+ateliers_dates |>
+  group_by(campus) |>
+  summarise(
+    n_ateliers = n(),
+    participation_totale = sum(participants, na.rm = TRUE),
+    participation_moyenne = mean(participants, na.rm = TRUE),
+    satisfaction_moyenne = mean(satisfaction_moyenne, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+:::
+
+# Études de cas
+
+## Étude de cas 1 - Fréquentation fictive d'une bibliothèque
+
+Le fichier `data/frequentation_bibliotheque_fictive.csv` décrit de fausses observations de fréquentation dans des zones de bibliothèque.
+
+Réalisez les tâches suivantes:
+
+1. importez le fichier;
+2. transformez `date_visite` en date;
+3. créez `jour_semaine` et `moment_journee`;
+4. résumez le nombre de visiteurs par zone et par moment de la journée;
+5. calculez les corrélations entre `visiteurs`, `temperature_c` et `pluie_mm`;
+6. produisez une visualisation utile;
+7. rédigez une conclusion prudente.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+bibliotheque <- read_csv(
+  "data/frequentation_bibliotheque_fictive.csv",
+  show_col_types = FALSE
+) |>
+  mutate(
+    date_visite = ymd(date_visite),
+    jour_semaine = wday(date_visite, label = TRUE, abbr = FALSE),
+    moment_journee = case_when(
+      heure < 12 ~ "matin",
+      heure < 17 ~ "après-midi",
+      TRUE ~ "soir"
+    )
+  )
+
+bibliotheque |>
+  group_by(zone, moment_journee) |>
+  summarise(
+    n_observations = n(),
+    visiteurs_moyens = mean(visiteurs),
+    .groups = "drop"
+  )
+
+bibliotheque |>
+  select(visiteurs, temperature_c, pluie_mm) |>
+  cor(use = "complete.obs") |>
+  round(2)
+
+bibliotheque |>
+  ggplot(aes(x = moment_journee, y = visiteurs, color = zone)) +
+  geom_point(size = 2.5, alpha = 0.8) +
+  labs(
+    title = "Fréquentation fictive selon le moment de la journée",
+    x = "Moment de la journée",
+    y = "Nombre de visiteurs",
+    color = "Zone"
+  )
+```
+
+Une conclusion prudente pourrait indiquer que les observations du soir semblent plus fréquentées dans ce fichier, surtout dans la zone des ordinateurs. Cette conclusion reste descriptive, car la semaine d'examens, la zone et le campus varient en même temps.
+:::
+
+## Étude de cas 2 - Demandes fictives de services campus
+
+Le fichier `data/demandes_services_campus_fictif.csv` décrit de fausses demandes adressées à des services de campus.
+
+Réalisez les tâches suivantes:
+
+1. importez le fichier;
+2. transformez `date_demande` en date;
+3. résumez les délais par service et par priorité;
+4. calculez les corrélations entre `delai_heures`, `satisfaction` et `cout_estime`;
+5. produisez une visualisation utile;
+6. rédigez une conclusion prudente.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+demandes <- read_csv(
+  "data/demandes_services_campus_fictif.csv",
+  show_col_types = FALSE
+) |>
+  mutate(
+    date_demande = ymd(date_demande),
+    jour_semaine = wday(date_demande, label = TRUE, abbr = FALSE)
+  )
+
+demandes |>
+  group_by(service, priorite) |>
+  summarise(
+    n_demandes = n(),
+    delai_moyen = mean(delai_heures, na.rm = TRUE),
+    satisfaction_moyenne = mean(satisfaction, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(delai_moyen))
+
+demandes |>
+  select(delai_heures, satisfaction, cout_estime) |>
+  cor(use = "complete.obs") |>
+  round(2)
+
+demandes |>
+  ggplot(aes(x = delai_heures, y = satisfaction, color = service)) +
+  geom_point(size = 2.5, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(
+    title = "Délai de traitement et satisfaction",
+    x = "Délai de traitement (heures)",
+    y = "Satisfaction",
+    color = "Service"
+  )
+```
+
+Une conclusion prudente pourrait indiquer que les demandes avec de longs délais semblent associées à une satisfaction plus faible dans ce fichier fictif. On ne peut toutefois pas conclure que le délai cause directement la satisfaction, car la priorité, le type de service et la complexité des demandes peuvent aussi intervenir.
 :::

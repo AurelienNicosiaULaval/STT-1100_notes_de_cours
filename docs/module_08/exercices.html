@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exercices de consolidation – STT-1100 Introduction à la science des données</title>
+<title>Module 8 - Exercices – STT-1100 Introduction à la science des données</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5846,10 +5881,38 @@ margin-bottom: .05rem;
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+    <h2 id="toc-title">Plan</h2>
 
   <ul>
   <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link active" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a></li>
+  <li><a href="#lectures-à-revoir" id="toc-lectures-à-revoir" class="nav-link" data-scroll-target="#lectures-à-revoir">Lectures à revoir</a></li>
+  <li><a href="#bloc-a---lire-une-page-html-locale" id="toc-bloc-a---lire-une-page-html-locale" class="nav-link" data-scroll-target="#bloc-a---lire-une-page-html-locale">Bloc A - Lire une page HTML locale</a>
+  <ul class="collapse">
+  <li><a href="#exercice-1---importer-une-page-html" id="toc-exercice-1---importer-une-page-html" class="nav-link" data-scroll-target="#exercice-1---importer-une-page-html">Exercice 1 - Importer une page HTML</a></li>
+  <li><a href="#exercice-2---extraire-un-premier-vecteur" id="toc-exercice-2---extraire-un-premier-vecteur" class="nav-link" data-scroll-target="#exercice-2---extraire-un-premier-vecteur">Exercice 2 - Extraire un premier vecteur</a></li>
+  <li><a href="#exercice-3---construire-un-tableau" id="toc-exercice-3---construire-un-tableau" class="nav-link" data-scroll-target="#exercice-3---construire-un-tableau">Exercice 3 - Construire un tableau</a></li>
+  </ul></li>
+  <li><a href="#bloc-b---transformer-lextraction-en-fonction" id="toc-bloc-b---transformer-lextraction-en-fonction" class="nav-link" data-scroll-target="#bloc-b---transformer-lextraction-en-fonction">Bloc B - Transformer l’extraction en fonction</a>
+  <ul class="collapse">
+  <li><a href="#exercice-4---créer-une-fonction-auxiliaire" id="toc-exercice-4---créer-une-fonction-auxiliaire" class="nav-link" data-scroll-target="#exercice-4---créer-une-fonction-auxiliaire">Exercice 4 - Créer une fonction auxiliaire</a></li>
+  <li><a href="#exercice-5---créer-une-fonction-dextraction" id="toc-exercice-5---créer-une-fonction-dextraction" class="nav-link" data-scroll-target="#exercice-5---créer-une-fonction-dextraction">Exercice 5 - Créer une fonction d’extraction</a></li>
+  <li><a href="#exercice-6---tester-une-page-irrégulière" id="toc-exercice-6---tester-une-page-irrégulière" class="nav-link" data-scroll-target="#exercice-6---tester-une-page-irrégulière">Exercice 6 - Tester une page irrégulière</a></li>
+  <li><a href="#exercice-7---automatiser-sur-plusieurs-pages" id="toc-exercice-7---automatiser-sur-plusieurs-pages" class="nav-link" data-scroll-target="#exercice-7---automatiser-sur-plusieurs-pages">Exercice 7 - Automatiser sur plusieurs pages</a></li>
+  </ul></li>
+  <li><a href="#bloc-c---sobriété-et-éthique-de-collecte" id="toc-bloc-c---sobriété-et-éthique-de-collecte" class="nav-link" data-scroll-target="#bloc-c---sobriété-et-éthique-de-collecte">Bloc C - Sobriété et éthique de collecte</a>
+  <ul class="collapse">
+  <li><a href="#exercice-8---interpréter-un-robots.txt" id="toc-exercice-8---interpréter-un-robots.txt" class="nav-link" data-scroll-target="#exercice-8---interpréter-un-robots.txt">Exercice 8 - Interpréter un <code>robots.txt</code></a></li>
+  </ul></li>
+  <li><a href="#étude-de-cas-1---catalogue-municipal-fictif" id="toc-étude-de-cas-1---catalogue-municipal-fictif" class="nav-link" data-scroll-target="#étude-de-cas-1---catalogue-municipal-fictif">Étude de cas 1 - Catalogue municipal fictif</a>
+  <ul class="collapse">
+  <li><a href="#exercice-9---résumer-les-catégories" id="toc-exercice-9---résumer-les-catégories" class="nav-link" data-scroll-target="#exercice-9---résumer-les-catégories">Exercice 9 - Résumer les catégories</a></li>
+  <li><a href="#exercice-10---produire-une-note-de-collecte" id="toc-exercice-10---produire-une-note-de-collecte" class="nav-link" data-scroll-target="#exercice-10---produire-une-note-de-collecte">Exercice 10 - Produire une note de collecte</a></li>
+  </ul></li>
+  <li><a href="#étude-de-cas-2---page-dévénements-publics" id="toc-étude-de-cas-2---page-dévénements-publics" class="nav-link" data-scroll-target="#étude-de-cas-2---page-dévénements-publics">Étude de cas 2 - Page d’événements publics</a>
+  <ul class="collapse">
+  <li><a href="#exercice-11---extraire-les-événements" id="toc-exercice-11---extraire-les-événements" class="nav-link" data-scroll-target="#exercice-11---extraire-les-événements">Exercice 11 - Extraire les événements</a></li>
+  <li><a href="#exercice-12---vérifier-le-résultat" id="toc-exercice-12---vérifier-le-résultat" class="nav-link" data-scroll-target="#exercice-12---vérifier-le-résultat">Exercice 12 - Vérifier le résultat</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -5858,7 +5921,8 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercices de consolidation</h1>
+<h1 class="title">Module 8 - Exercices</h1>
+<p class="subtitle lead">STT-1100 Introduction à la science des données</p>
 </div>
 
 
@@ -5875,20 +5939,524 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="exercices-de-consolidation" class="level1 unnumbered">
-<h1 class="unnumbered">Exercices de consolidation</h1>
-<p>Ces exercices reprennent les gestes de l’aventure sur une page différente. Utilisez la version archivée de la page IMDb des 250 meilleurs films : <a href="https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/" class="uri">https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/</a></p>
-<ol type="1">
-<li>Lire la page HTML avec <code>read_html()</code>.</li>
-<li>Repérer les sections contenant les titres des films avec <code>html_elements()</code>.</li>
-<li>Extraire les titres avec le sélecteur <code>.titleColumn a</code>.</li>
-<li>Extraire les années avec le sélecteur <code>.titleColumn span</code>.</li>
-<li>Extraire les notes avec le sélecteur <code>.imdbRating strong</code>.</li>
-<li>Combiner les trois vecteurs dans un <code>data.frame</code>.</li>
-<li>Vérifier le fichier <code>robots.txt</code> d’IMDb et expliquer pourquoi cette vérification ne suffit pas à elle seule.</li>
-</ol>
+<section id="exercices-de-consolidation" class="level1">
+<h1>Exercices de consolidation</h1>
+<p>Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 8: lire une page HTML, cibler des éléments avec des sélecteurs CSS, transformer une extraction en fonction, automatiser une extraction répétée et documenter les limites d’une collecte.</p>
+<p>Les pages HTML utilisées ici sont fictives et locales. Elles ne dépendent d’aucun site web externe.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="lectures-à-revoir" class="level1">
+<h1>Lectures à revoir</h1>
+<ul>
+<li><a href="https://r4ds.hadley.nz/webscraping.html" target="_blank">R for Data Science - Web scraping</a></li>
+<li><a href="https://r4ds.hadley.nz/functions.html" target="_blank">R for Data Science - Functions</a></li>
+<li><a href="https://r4ds.hadley.nz/iteration.html" target="_blank">R for Data Science - Iteration</a></li>
+<li><a href="https://rvest.tidyverse.org/" target="_blank">Documentation officielle de rvest</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt" target="_blank">MDN - robots.txt</a></li>
+<li><a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro" target="_blank">Google Search Central - Introduction to robots.txt</a></li>
+</ul>
+<p>Après les lectures, faites aussi le <a href="../module_08/mini_test.html">mini-test formatif</a>. Il n’est pas noté.</p>
+</section>
+<section id="bloc-a---lire-une-page-html-locale" class="level1">
+<h1>Bloc A - Lire une page HTML locale</h1>
+<section id="exercice-1---importer-une-page-html" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1---importer-une-page-html">Exercice 1 - Importer une page HTML</h2>
+<p>Lisez <code>catalogue_donnees_fictif.html</code> avec <code>read_html()</code>. Repérez les cartes de jeux de données avec le sélecteur <code>.dataset-card</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>page_catalogue <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;data/catalogue_donnees_fictif.html&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cartes <span class="ot">&lt;-</span> page_catalogue <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_elements</span>(<span class="st">&quot;.dataset-card&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(cartes)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cartes[[<span class="dv">1</span>]]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{html_node}
+&lt;article class=&quot;dataset-card&quot;&gt;
+[1] &lt;h2 class=&quot;dataset-title&quot;&gt;Comptages cyclistes mensuels&lt;/h2&gt;
+[2] &lt;p class=&quot;dataset-producer&quot;&gt;Ville fictive de Saint-Laurent&lt;/p&gt;
+[3] &lt;p class=&quot;dataset-category&quot;&gt;Transport&lt;/p&gt;
+[4] &lt;p class=&quot;dataset-updated&quot;&gt;2026-01-15&lt;/p&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-2---extraire-un-premier-vecteur" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2---extraire-un-premier-vecteur">Exercice 2 - Extraire un premier vecteur</h2>
+<p>Extrayez les titres des jeux de données avec le sélecteur <code>.dataset-title</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>titres <span class="ot">&lt;-</span> cartes <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_element</span>(<span class="st">&quot;.dataset-title&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>titres</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;Comptages cyclistes mensuels&quot;      &quot;Inventaire des arbres publics&quot;
+[3] &quot;Permis de construction anonymises&quot; &quot;Qualite de l&#39;air par secteur&quot;
+[5] &quot;Frequentation des bibliotheques&quot;  </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-3---construire-un-tableau" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-3---construire-un-tableau">Exercice 3 - Construire un tableau</h2>
+<p>Extrayez les producteurs, les catégories et les dates de mise à jour. Combinez le tout dans un tibble.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>catalogue <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">titre =</span> <span class="fu">html_element</span>(cartes, <span class="st">&quot;.dataset-title&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">html_text2</span>(),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">producteur =</span> <span class="fu">html_element</span>(cartes, <span class="st">&quot;.dataset-producer&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">html_text2</span>(),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">categorie =</span> <span class="fu">html_element</span>(cartes, <span class="st">&quot;.dataset-category&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">html_text2</span>(),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">date_mise_a_jour =</span> <span class="fu">html_element</span>(cartes, <span class="st">&quot;.dataset-updated&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_text2</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.Date</span>()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>catalogue</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  titre                             producteur        categorie date_mise_a_jour
+  &lt;chr&gt;                             &lt;chr&gt;             &lt;chr&gt;     &lt;date&gt;
+1 Comptages cyclistes mensuels      Ville fictive de… Transport 2026-01-15
+2 Inventaire des arbres publics     Service fictif d… Environn… 2026-01-22
+3 Permis de construction anonymises Direction fictiv… Urbanisme 2026-02-02
+4 Qualite de l&#39;air par secteur      Observatoire fic… Environn… 2026-02-08
+5 Frequentation des bibliotheques   Reseau fictif de… Culture   2026-02-12      </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="bloc-b---transformer-lextraction-en-fonction" class="level1">
+<h1>Bloc B - Transformer l’extraction en fonction</h1>
+<section id="exercice-4---créer-une-fonction-auxiliaire" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-4---créer-une-fonction-auxiliaire">Exercice 4 - Créer une fonction auxiliaire</h2>
+<p>Créez une fonction <code>extraire_texte()</code> qui reçoit un noeud HTML et un sélecteur CSS, puis retourne le texte correspondant. Si l’élément manque, la fonction doit retourner <code>NA_character_</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>extraire_texte <span class="ot">&lt;-</span> <span class="cf">function</span>(noeud, selecteur) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  element <span class="ot">&lt;-</span> <span class="fu">html_element</span>(noeud, selecteur)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  texte <span class="ot">&lt;-</span> <span class="fu">html_text2</span>(element)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(texte) <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> <span class="fu">is.na</span>(texte) <span class="sc">||</span> <span class="sc">!</span><span class="fu">nzchar</span>(texte)) {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  texte</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">extraire_texte</span>(cartes[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-title&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;Comptages cyclistes mensuels&quot;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extraire_texte</span>(cartes[[<span class="dv">1</span>]], <span class="st">&quot;.champ-inexistant&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-5---créer-une-fonction-dextraction" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-5---créer-une-fonction-dextraction">Exercice 5 - Créer une fonction d’extraction</h2>
+<p>Écrivez une fonction <code>extraire_catalogue(fichier)</code> qui lit une page HTML locale et retourne un tibble avec les colonnes <code>titre</code>, <code>producteur</code>, <code>categorie</code>, <code>date_mise_a_jour</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>extraire_catalogue <span class="ot">&lt;-</span> <span class="cf">function</span>(fichier) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(fichier)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  cartes <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, <span class="st">&quot;.dataset-card&quot;</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">titre =</span> <span class="fu">map_chr</span>(cartes, extraire_texte, <span class="st">&quot;.dataset-title&quot;</span>),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">producteur =</span> <span class="fu">map_chr</span>(cartes, extraire_texte, <span class="st">&quot;.dataset-producer&quot;</span>),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">categorie =</span> <span class="fu">map_chr</span>(cartes, extraire_texte, <span class="st">&quot;.dataset-category&quot;</span>),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_mise_a_jour =</span> <span class="fu">map_chr</span>(cartes, extraire_texte, <span class="st">&quot;.dataset-updated&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.Date</span>()</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">extraire_catalogue</span>(<span class="st">&quot;data/catalogue_donnees_fictif.html&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  titre                             producteur        categorie date_mise_a_jour
+  &lt;chr&gt;                             &lt;chr&gt;             &lt;chr&gt;     &lt;date&gt;
+1 Comptages cyclistes mensuels      Ville fictive de… Transport 2026-01-15
+2 Inventaire des arbres publics     Service fictif d… Environn… 2026-01-22
+3 Permis de construction anonymises Direction fictiv… Urbanisme 2026-02-02
+4 Qualite de l&#39;air par secteur      Observatoire fic… Environn… 2026-02-08
+5 Frequentation des bibliotheques   Reseau fictif de… Culture   2026-02-12      </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-6---tester-une-page-irrégulière" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-6---tester-une-page-irrégulière">Exercice 6 - Tester une page irrégulière</h2>
+<p>Utilisez la même fonction sur <code>catalogue_irregulier_fictif.html</code>. Quelles valeurs manquent?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>catalogue_irregulier <span class="ot">&lt;-</span> <span class="fu">extraire_catalogue</span>(<span class="st">&quot;data/catalogue_irregulier_fictif.html&quot;</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>catalogue_irregulier</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  titre                          producteur           categorie date_mise_a_jour
+  &lt;chr&gt;                          &lt;chr&gt;                &lt;chr&gt;     &lt;date&gt;
+1 Stations de recharge publiques Bureau fictif de la… Transport 2026-03-01
+2 Subventions communautaires     &lt;NA&gt;                 Administ… 2026-03-04
+3 Espaces publics accessibles    Service fictif de l… &lt;NA&gt;      2026-03-08
+4 Travaux routiers planifies     Direction fictive d… Transport 2026-03-12      </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>catalogue_irregulier <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">producteurs_manquants =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(producteur)),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">categories_manquantes =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(categorie))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  producteurs_manquants categories_manquantes
+                  &lt;int&gt;                 &lt;int&gt;
+1                     1                     1</code></pre>
+</div>
+</div>
+<p>La fonction ne s’arrête pas lorsqu’un champ manque. Elle retourne <code>NA</code>, ce qui permet de diagnostiquer le problème dans un tableau.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-7---automatiser-sur-plusieurs-pages" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-7---automatiser-sur-plusieurs-pages">Exercice 7 - Automatiser sur plusieurs pages</h2>
+<p>Utilisez <code>purrr::imap_dfr()</code> pour appliquer <code>extraire_catalogue()</code> aux deux pages de catalogue et ajouter une colonne <code>source</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fichiers_catalogue <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">regulier =</span> <span class="st">&quot;data/catalogue_donnees_fictif.html&quot;</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">irregulier =</span> <span class="st">&quot;data/catalogue_irregulier_fictif.html&quot;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>catalogues_combines <span class="ot">&lt;-</span> <span class="fu">imap_dfr</span>(</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  fichiers_catalogue,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(fichier, source) {</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">extraire_catalogue</span>(fichier) <span class="sc">|&gt;</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">source =</span> source, <span class="at">.before =</span> <span class="dv">1</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>catalogues_combines</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 5
+  source     titre                         producteur categorie date_mise_a_jour
+  &lt;chr&gt;      &lt;chr&gt;                         &lt;chr&gt;      &lt;chr&gt;     &lt;date&gt;
+1 regulier   Comptages cyclistes mensuels  Ville fic… Transport 2026-01-15
+2 regulier   Inventaire des arbres publics Service f… Environn… 2026-01-22
+3 regulier   Permis de construction anony… Direction… Urbanisme 2026-02-02
+4 regulier   Qualite de l&#39;air par secteur  Observato… Environn… 2026-02-08
+5 regulier   Frequentation des bibliotheq… Reseau fi… Culture   2026-02-12
+6 irregulier Stations de recharge publiqu… Bureau fi… Transport 2026-03-01
+7 irregulier Subventions communautaires    &lt;NA&gt;       Administ… 2026-03-04
+8 irregulier Espaces publics accessibles   Service f… &lt;NA&gt;      2026-03-08
+9 irregulier Travaux routiers planifies    Direction… Transport 2026-03-12      </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="bloc-c---sobriété-et-éthique-de-collecte" class="level1">
+<h1>Bloc C - Sobriété et éthique de collecte</h1>
+<section id="exercice-8---interpréter-un-robots.txt" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-8---interpréter-un-robots.txt">Exercice 8 - Interpréter un <code>robots.txt</code></h2>
+<p>Voici un exemple fictif de fichier <code>robots.txt</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>robots_exemple <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;User-agent: *&quot;</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Disallow: /admin/&quot;</span>,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Disallow: /api/privee/&quot;</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Crawl-delay: 1&quot;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(robots_exemple)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>User-agent: *
+Disallow: /admin/
+Disallow: /api/privee/
+Crawl-delay: 1</code></pre>
+</div>
+</div>
+<p>Identifiez les chemins à éviter et expliquez pourquoi ce fichier ne constitue pas une autorisation complète de collecte.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>chemins_interdits <span class="ot">&lt;-</span> robots_exemple <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_subset</span>(<span class="st">&quot;^Disallow:&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_remove</span>(<span class="st">&quot;^Disallow:</span><span class="sc">\\</span><span class="st">s*&quot;</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>chemins_interdits</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;/admin/&quot;      &quot;/api/privee/&quot;</code></pre>
+</div>
+</div>
+<p><code>robots.txt</code> donne des consignes techniques aux robots. Il ne remplace pas les conditions d’utilisation, le jugement éthique, la prudence sur la charge serveur ou une autorisation écrite lorsque la collecte et la redistribution sont sensibles.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="étude-de-cas-1---catalogue-municipal-fictif" class="level1">
+<h1>Étude de cas 1 - Catalogue municipal fictif</h1>
+<p>Une municipalité fictive vous demande de produire un court résumé des jeux de données visibles dans son mini-catalogue.</p>
+<section id="exercice-9---résumer-les-catégories" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-9---résumer-les-catégories">Exercice 9 - Résumer les catégories</h2>
+<p>À partir des deux pages de catalogue combinées, calculez le nombre de jeux de données par catégorie.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>resume_categories <span class="ot">&lt;-</span> catalogues_combines <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">categorie =</span> <span class="fu">replace_na</span>(categorie, <span class="st">&quot;Non indiquee&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(categorie, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>resume_categories</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  categorie          n
+  &lt;chr&gt;          &lt;int&gt;
+1 Transport          3
+2 Environnement      2
+3 Administration     1
+4 Culture            1
+5 Non indiquee       1
+6 Urbanisme          1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-10---produire-une-note-de-collecte" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-10---produire-une-note-de-collecte">Exercice 10 - Produire une note de collecte</h2>
+<p>Écrivez trois phrases qui expliquent ce que votre code collecte, comment il limite les risques et ce qu’il faudrait vérifier avant de l’appliquer à un vrai site.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exemple de réponse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le code lit seulement des pages HTML locales préparées pour l’exercice et extrait des champs publics agrégés. Dans un vrai contexte, il faudrait limiter le nombre de pages, ajouter des pauses entre les requêtes et éviter toute collecte massive ou contourner des protections. Il faudrait aussi vérifier <code>robots.txt</code>, les conditions d’utilisation, la licence des données et les règles de redistribution avant de publier une table dérivée.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="étude-de-cas-2---page-dévénements-publics" class="level1">
+<h1>Étude de cas 2 - Page d’événements publics</h1>
+<p>Une association fictive publie une petite page d’événements. Vous voulez extraire les titres, les dates, les lieux et les thèmes pour produire un calendrier.</p>
+<section id="exercice-11---extraire-les-événements" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-11---extraire-les-événements">Exercice 11 - Extraire les événements</h2>
+<p>Créez une fonction <code>extraire_evenements(fichier)</code> qui retourne un tibble avec les colonnes <code>titre</code>, <code>date</code>, <code>lieu</code>, <code>theme</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>extraire_evenements <span class="ot">&lt;-</span> <span class="cf">function</span>(fichier) {</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(fichier)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  evenements <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(page, <span class="st">&quot;.event-card&quot;</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">titre =</span> <span class="fu">map_chr</span>(evenements, extraire_texte, <span class="st">&quot;.event-title&quot;</span>),</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">html_element</span>(evenements, <span class="st">&quot;.event-date&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">html_attr</span>(<span class="st">&quot;datetime&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.Date</span>(),</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">lieu =</span> <span class="fu">map_chr</span>(evenements, extraire_texte, <span class="st">&quot;.event-location&quot;</span>),</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">theme =</span> <span class="fu">map_chr</span>(evenements, extraire_texte, <span class="st">&quot;.event-theme&quot;</span>)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>evenements <span class="ot">&lt;-</span> <span class="fu">extraire_evenements</span>(<span class="st">&quot;data/evenements_publics_fictif.html&quot;</span>)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>evenements</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  titre                            date       lieu                     theme
+  &lt;chr&gt;                            &lt;date&gt;     &lt;chr&gt;                    &lt;chr&gt;
+1 Atelier de donnees ouvertes      2026-02-18 Bibliotheque centrale    Numerique
+2 Consultation sur la mobilite     2026-02-24 Maison citoyenne         Transport
+3 Rencontre climat quartier        2026-03-03 Centre communautaire Est Environn…
+4 Formation cartographie citoyenne 2026-03-10 Laboratoire urbain       Numerique</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-12---vérifier-le-résultat" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-12---vérifier-le-résultat">Exercice 12 - Vérifier le résultat</h2>
+<p>Produisez un résumé du nombre d’événements par thème et formulez une vérification simple qui pourrait servir de test.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>evenements <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(theme, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  theme             n
+  &lt;chr&gt;         &lt;int&gt;
+1 Numerique         2
+2 Environnement     1
+3 Transport         1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopifnot</span>(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>(evenements) <span class="sc">==</span> <span class="dv">4</span>,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">identical</span>(<span class="fu">names</span>(evenements), <span class="fu">c</span>(<span class="st">&quot;titre&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;lieu&quot;</span>, <span class="st">&quot;theme&quot;</span>)),</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">all</span>(<span class="sc">!</span><span class="fu">is.na</span>(evenements<span class="sc">$</span>titre))</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Ces tests sont simples, mais ils détectent déjà des erreurs fréquentes: mauvais nombre de lignes, colonnes mal nommées ou titres non extraits.</p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -6222,6 +6790,11 @@ font-size:.8rem;
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

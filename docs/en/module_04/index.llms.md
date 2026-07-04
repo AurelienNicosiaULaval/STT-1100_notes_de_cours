@@ -16,70 +16,62 @@ Final product
 
 ### A cleaned and documented table
 
-The chapter leads to a usable version of a real file, with cleaning choices explained and inconsistencies made visible.
+The module leads to a usable version of an insurance file, with cleaning choices explained, anomalies made visible and a reproducible log.
 
 **clean data**
 
-types corrected
+import checked
 
-factors recoded
+variables cleaned
 
-list explored
+log documented
 
-types corrected factors recoded list explored
+types checked values recoded decisions traced
 
 ## Module Objectives
 
 At the end of this module, you should be able to
 
-- Import data from different formats (`txt`, `csv`, `excel`, `json`).
-- Clean and recode data to ensure its quality.
-- Use the `forcats` and `stringr` libraries to manipulate factors and character strings.
-- Create and use lists.
+- import data from different formats (`csv`, Excel, JSON);
+- inspect types, dimensions, missing values and anomalies;
+- clean column names, text amounts, factors and character strings;
+- transform tables with `pivot_longer()`, `pivot_wider()` and `unnest()`;
+- document cleaning decisions in a structured list.
 
 ## Learning Plan
 
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. The exercises are independent and practice the same techniques on other data.
 
-1 Readings Prepare import, cleaning, strings, factors and lists. In this card Open cardCollapse
+1 Readings Prepare import, missing values, spreadsheets, JSON and lists. In this card Open cardCollapse
 
-### Initial readings
+### Readings
 
-#### Readings to do before the adventure
+These readings prepare the core module moves: import, tidy data, missing values, spreadsheets, JSON and lists.
 
-In this module, we will explore the basic concepts of data import and data cleansing. Here is some initial reading to prepare you:
+- [R for Data Science - Data import](https://r4ds.hadley.nz/data-import.html): importing delimited files with `readr`.
+- [R for Data Science - Data tidying](https://r4ds.hadley.nz/data-tidy.html): reshaping tables with tidy data principles.
+- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html): distinguishing explicit, coded and implicit missing values.
+- [R for Data Science - Factors](https://r4ds.hadley.nz/factors.html): manipulating categorical variables.
+- [R for Data Science - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html): importing Excel files cleanly.
+- [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html): understanding lists, JSON and nested data.
 
-- [**R for Data Science – Data import**](https://r4ds.hadley.nz/data-import.html)
-  This chapter introduces you to importing data with the `readr` package.
-
-- [**R for Data Science – Data tidying**](https://r4ds.hadley.nz/data-tidy.html)
-  This chapter introduces you to data manipulation with the `dplyr` package.
-
-- [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html)
-  This chapter introduces you to **factors** in R, which are categorical variables.
-  \> **Note**: Although this chapter is more widely used in module 4, some useful functions like `factor()` or `fct_reorder()` can already help you manipulate categorical variables (module 3).
-
-- [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html)
-  This chapter introduces you to importing data from Excel files.
-
-- [**R for Data Science – Lists**](https://r4ds.hadley.nz/rectangling.html#lists)
-  This section introduces you to the concept of lists in programming.
+After the readings, complete the [formative mini-test](mini_test.llms.md). It is not graded; it checks the basics before the adventure.
 
 2 Adventure Diagnose a real file and correct fragile variables. [Adventure](aventure.llms.md) Open cardCollapse
 
-Goal Move from reading to guided practice.
+Goal Diagnose an insurance archive with Alex and build a first cleaning log.
 
 Resource [Adventure page](aventure.llms.md)
 
-Action Follow the instructions, run the code and keep important outputs.
+Action Import `dataset_pratique.csv`, spot anomalies and document decisions.
 
-Result A first work object that you can explain.
+Result A first explainable version of `donnees_propres.csv` and `journal_nettoyage`.
 
-Pause after each important result and state what it shows.
+The story thread is guided: traceability matters more than perfection.
 
 3 Challenge Deliver a cleaned table with justified transformations. [Challenge](defi.llms.md) Open cardCollapse
 
-Goal Clean an insurance dataset and document the decisions.
+Goal Rework the same insurance file independently and deliver a clean version.
 
 Resource [Challenge page](defi.llms.md)
 
@@ -87,11 +79,13 @@ Submit A `.qmd` file, `donnees_propres.csv` and `journal_nettoyage.Rdata`.
 
 Check that the import produces 23 columns before cleaning.
 
-4 Exercises Redo imports, recoding and quality checks. [Exercises](exercices.llms.md) Open cardCollapse
+4 Exercises Practice technical moves on autonomous data. [Exercises](exercices.llms.md) Open cardCollapse
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises stay on a separate page because they take more space.
+Scope These exercises are not a continuation of the challenge. They use `policies.csv`, `coverage.json`, `quotes_2024.xlsx` and two distinct fictitious datasets.
+
+Cases A university scholarship file and a municipal equipment inventory.
 
 Redo at least one passage without looking at the solution immediately.
 
@@ -99,11 +93,11 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04)
+[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [fictitious_scholarship_applications.csv](data/fictitious_scholarship_applications.csv) [fictitious_municipal_equipment.csv](data/fictitious_municipal_equipment.csv) [fictitious_equipment_rules.json](data/fictitious_equipment_rules.json)
 
 ### R packages
 
-[readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [stringr](../packages.llms.md#stringr) [forcats](../packages.llms.md#forcats)
+[readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [stringr](../packages.llms.md#stringr) [forcats](../packages.llms.md#forcats) [tibble](../packages.llms.md#tibble) [ggplot2](../packages.llms.md#ggplot2)
 
 ## Review and Extension
 

@@ -43,16 +43,22 @@ message clair risques notés données protégées
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et servent à consolider les mêmes réflexes dans d’autres contextes.
 
-1 Lectures à faire Préparer visualisations responsables, confidentialité et éthique. [Défi](defi.llms.md) Ouvrir la carteRéduire
+1 Lectures à faire Préparer visualisations responsables, confidentialité et éthique. Dans la carte Ouvrir la carteRéduire
 
 ### Lectures
 
 Pour vous préparer, consultez les ressources suivantes :
 
 - [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
-- [Guide de bonnes pratiques à l’usage des data scientists (gouvernement du Luxembourg)](https://mindigital.gouvernement.lu/dam-assets/publications/guide-manuel/guide-data-scientists/fr-guide-de-bonnes-pratiques.pdf)
+- [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
+- [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf)
+- [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation)
+- [CNIL - L'anonymisation de données personnelles](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
+- [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618)
+
+Vérification Après les lectures, faites le [mini-test formatif](mini_test.llms.md).
 
 2 Aventure Transformer des données sensibles en messages visuels prudents. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
@@ -79,23 +85,23 @@ Vous transformerez l'audit de l'aventure en note éthique reproductible :
 
 [Consulter le défi 7](defi.llms.md)
 
-4 Exercices Vérifier choix graphiques, limites et risques de communication. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+4 Exercices Pratiquer graphiques responsables, anonymisation et notes éthiques. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+Pourquoi Les exercices utilisent des données fictives différentes de l'aventure afin de consolider les principes sans répéter le défi.
 
-Refaites au moins un passage sans regarder la solution immédiatement.
+Avant d'ouvrir une solution, formulez le risque éthique ou visuel que vous cherchez à réduire.
 
 ## Données et outils
 
 ### Bases de données
 
-[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07)
+[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07) [signalements_municipaux_fictif.csv](../donnees.llms.md#dataset-card-module07-signalements) [population_quartiers_fictif.csv](../donnees.llms.md#dataset-card-module07-population) [sondage_etudiant_fictif.csv](../donnees.llms.md#dataset-card-module07-sondage)
 
 ### Packages R
 
-[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2) [lubridate](../packages.llms.md#lubridate) [scales](../packages.llms.md#scales) [leaflet](../packages.llms.md#leaflet)
+[tidyverse](../packages.llms.md#tidyverse) [ggplot2](../packages.llms.md#ggplot2) [dplyr](../packages.llms.md#dplyr) [readr](../packages.llms.md#readr) [lubridate](../packages.llms.md#lubridate) [scales](../packages.llms.md#scales)
 
 ## Révision et prolongement
 

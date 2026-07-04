@@ -1,0 +1,138 @@
+---
+title: "Mini-test formatif - Lectures du module 8"
+subtitle: "STT-1100 Introduction à la science des données"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+# Mini-test formatif
+
+Ce mini-test sert à vérifier les lectures du module 8. Il n'est pas noté. Répondez d'abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.
+
+## Question 1
+
+Quelle fonction sert à lire une page HTML avec `rvest`?
+
+a. `read_html()`
+b. `read_csv()`
+c. `geom_html()`
+d. `left_join()`
+
+::: {.callout-tip collapse="true"}
+Réponse: a. `read_html()` lit une page web ou un fichier HTML et crée un objet que `rvest` peut interroger.
+:::
+
+## Question 2
+
+Vrai ou faux: un sélecteur CSS sert à cibler des éléments précis dans une page HTML.
+
+::: {.callout-tip collapse="true"}
+Vrai. Par exemple, `.dataset-card` cible les éléments qui ont la classe `dataset-card`.
+:::
+
+## Question 3
+
+Quelle fonction extrait le texte propre d'un noeud HTML?
+
+a. `html_text2()`
+b. `html_table2()`
+c. `text_join()`
+d. `parse_css()`
+
+::: {.callout-tip collapse="true"}
+Réponse: a. `html_text2()` retourne le texte en gérant mieux les espaces que `html_text()`.
+:::
+
+## Question 4
+
+Vrai ou faux: une fonction de scraping testable doit dépendre d'objets créés manuellement dans la console.
+
+::: {.callout-tip collapse="true"}
+Faux. Une fonction testable doit recevoir ses entrées par ses arguments et fonctionner dans une nouvelle session R.
+:::
+
+## Question 5
+
+Pourquoi transformer une extraction en fonction?
+
+a. Pour pouvoir la réutiliser et la tester
+b. Pour éviter d'écrire un nom de variable
+c. Pour rendre le code moins lisible
+d. Pour contourner les conditions d'utilisation
+
+::: {.callout-tip collapse="true"}
+Réponse: a. Une fonction regroupe une logique, rend le code réutilisable et permet de tester le contrat de sortie.
+:::
+
+## Question 6
+
+Vrai ou faux: `map_chr()` est utile lorsqu'on veut appliquer une extraction à plusieurs blocs HTML et obtenir un vecteur de textes.
+
+::: {.callout-tip collapse="true"}
+Vrai. `map_chr()` applique une fonction à chaque élément et garantit un résultat de type caractère.
+:::
+
+## Question 7
+
+Que devrait retourner une fonction robuste lorsqu'un champ facultatif manque?
+
+a. `NA_character_`
+b. Une erreur volontaire
+c. Une fenêtre interactive
+d. Le contenu complet de la page
+
+::: {.callout-tip collapse="true"}
+Réponse: a. `NA_character_` permet de représenter une information manquante sans casser toute l'extraction.
+:::
+
+## Question 8
+
+Vrai ou faux: `robots.txt` donne une autorisation complète de collecte et de redistribution.
+
+::: {.callout-tip collapse="true"}
+Faux. `robots.txt` donne des consignes techniques aux robots. Il ne remplace pas les conditions d'utilisation, la licence, l'éthique ou une autorisation écrite.
+:::
+
+## Question 9
+
+Quelle pratique réduit la charge sur un serveur lorsqu'on extrait plusieurs pages?
+
+a. Ajouter une pause avec `Sys.sleep()`
+b. Lancer plusieurs milliers de requêtes en même temps
+c. Ignorer les erreurs de connexion
+d. Cacher son identité dans le code
+
+::: {.callout-tip collapse="true"}
+Réponse: a. Une pause limite la pression exercée sur le serveur.
+:::
+
+## Question 10
+
+Vrai ou faux: un test simple peut vérifier les noms de colonnes retournés par une fonction.
+
+::: {.callout-tip collapse="true"}
+Vrai. Par exemple, `identical(names(resultat), c("titre", "producteur", "categorie"))` vérifie le contrat de sortie.
+:::
+
+## Question 11
+
+Quel comportement est le plus sobre pour le défi?
+
+a. Scraper une page à la fois
+b. Télécharger tout le site
+c. Contourner les protections
+d. Publier des copies brutes sans vérifier les droits
+
+::: {.callout-tip collapse="true"}
+Réponse: a. Le défi demande une fonction qui traite une page à la fois; c'est plus contrôlable et plus respectueux.
+:::
+
+## Question 12
+
+Vrai ou faux: une page HTML locale de test aide à rendre un exercice reproductible.
+
+::: {.callout-tip collapse="true"}
+Vrai. Une page locale reste disponible même si un site externe change, bloque une requête ou devient indisponible.
+:::

@@ -18,7 +18,11 @@ Before the adventure, review the following resources:
 - [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html)
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html)
-- [Introduction to Modern Statistics - Exploratory data analysis](https://openintro-ims.netlify.app/explore-data)
+- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html)
+- [Introduction to Modern Statistics - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical)
+- [Introduction to Modern Statistics - Applications: Explore](https://openintro-ims.netlify.app/explore-applications)
+
+After the readings, complete the [formative mini-test](../module_05/mini_test.llms.md). It is not graded; it only checks the basic ideas before the adventure.
 
 # Adventure
 
@@ -36,4 +40,11 @@ The challenge asks you to submit a `rapport.qmd` report and its rendered `rappor
 
 [Module 5 exercises](../module_05/exercices.llms.md)
 
-The exercises rehearse the skills needed for the challenge: date preparation, missing values, grouped summaries, correlations, visualizations and cautious conclusions.
+The exercises are independent from the adventure and challenge. They use small fictitious datasets to consolidate technical skills:
+
+1.  prepare dates and times of day;
+2.  check missing values;
+3.  summarize groups while showing sample sizes;
+4.  calculate simple correlations;
+5.  visualize associations;
+6.  write descriptive and cautious conclusions.

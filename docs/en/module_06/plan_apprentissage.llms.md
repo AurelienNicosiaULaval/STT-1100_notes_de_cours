@@ -17,9 +17,15 @@ By the end of this module, you should be able to:
 Before the activity, consult the following resources.
 
 - [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world): a first complete project with a repository, branch, pull request and merge.
+- [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues): understand the role of issues in tracking work.
+- [GitHub Docs - Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue): write a clear, localized and actionable issue.
 - [GitHub Docs - About pull requests](https://docs.github.com/en/pull-requests): code review, comments and conflict resolution.
+- [GitHub Docs - About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts): understand why a conflict occurs and how to resolve it.
 - [Quarto Docs - Inline Code](https://quarto.org/docs/computations/inline-code.html): inserting R code directly into text.
+- [Quarto Docs - Execution options](https://quarto.org/docs/computations/execution-options.html): options that affect chunk execution and display.
 - [R for Data Science (2nd ed.) - Chapter 20: Joins](https://r4ds.hadley.nz/joins.html): combining data from different sources with `dplyr`.
+
+After the readings, complete the [formative mini-test](../module_06/mini_test.llms.md). It is not graded; it only checks the basic ideas before the adventure.
 
 # Adventure
 
@@ -37,4 +43,11 @@ The challenge asks you to peer-review another team’s report in GitHub. You mus
 
 [Consolidation exercises](../module_06/exercices.llms.md)
 
-The exercises let you practise `inner_join()`, `left_join()`, `full_join()`, `semi_join()` and `anti_join()` on several datasets.
+The exercises are independent from the adventure and challenge. They use small fictitious datasets to consolidate technical skills:
+
+1.  choose a join key;
+2.  use `left_join()`, `inner_join()`, `semi_join()` and `anti_join()`;
+3.  find unmatched rows;
+4.  summarize collaborative activity;
+5.  check whether expected files are present;
+6.  write a constructive issue.

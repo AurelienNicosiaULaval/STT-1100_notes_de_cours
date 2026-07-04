@@ -6,302 +6,538 @@ format:
     embed-resources: true
 ---
 
-# Consolidation exercises
+# Consolidation Exercises
 
-To put into practice what you have learned from this module, you will find below **13 exercises** covering all the concepts of module 2 (`ggplot2`, `dplyr`, EDA, tidy data, good style practices and *IMS* style descriptive statistics).\
-We will mainly use the **`mpg`** dataset from the `ggplot2` library (performance of cars sold in the United States, 1999‑2008). When other datasets are used, they are specified in the statement.
+These exercises consolidate the practical moves of module 2: working in a GitHub repository, importing an Excel file, inspecting data, transforming a table with `dplyr`, producing readable charts with `ggplot2` and interpreting descriptive statistics.
 
-### Dataset `mpg` – Description of variables
+They are independent from the adventure and challenge. The penguin file is used here as a training file, not as an extra challenge instruction.
 
-| Variable | Type | Description |
-|-----------------|-----------------|--------------------------------------|
-| `manufacturer` | character | Car manufacturer (e.g. *toyota*, *audi*). |
-| `model` | character | Specific vehicle model (e.g. *corolla*, *a4*). |
-| `displ` | numeric | Engine displacement in liters (L). |
-| `year` | integer | Model year (1999 or 2008). |
-| `cyl` | integer | Number of engine cylinders. |
-| `trans` | character | Transmission type: automatic (`auto`) or manual (`manual`). |
-| `drv` | character | Final drive type: front-wheel drive (`f`), rear-wheel drive (`r`) or all-wheel drive (`4`). |
-| `cty` | numeric | **City** consumption in miles per gallon (MPG). |
-| `hwy` | numeric | **Highway** consumption in miles per gallon (MPG). |
-| `fl` | character | Fuel type: *c* (CNG), *d* (diesel), *e* (ethanol), *p* (premium), *r* (regular). |
-| `class` | character | Vehicle category: *compact*, *suv*, *minivan*, etc. |
+Work in a `.R` file, a `.qmd` file, or both. The answers are collapsed so you can try before comparing.
 
->   Source: EPA *Fuel Economy* database, included in **ggplot2** and documented with `?mpg`.
+In several exercises, the penguin Excel file is read with the path `resources/manchots_donnees.xlsx`, because this page belongs to the course site.
 
-----------------------------------------------------------------------------------
+# Block A - GitHub, Project and Import
 
-## Exercise 1 — First graph *(quick view)*
+## Exercise 1 - Put the steps in order
 
-*Context:* you discover the relationship between engine capacity (`displ`) and highway consumption (`hwy`) in **`mpg`**. Draw a scatterplot.
+You are simulating a short work session in a GitHub repository. Put the following actions in a logical order.
+
+- Edit the logbook.
+- Clone the GitHub repository in RStudio.
+- Make a commit with a clear message.
+- Open the `.Rproj` project.
+- Push to GitHub.
+- Render the logbook as HTML.
 
 ::: {.callout-tip collapse="true"}
-``` r
-library(tidyverse)
+One possible order:
 
-mpg %>%
-  ggplot(aes(displ, hwy)) +
-  geom_point() +
-  labs(
-    title = "Highway consumption vs displacement",
-    x = "Cylinder capacity (L)",
-    y = "Highway MPG"
+1. Clone the GitHub repository in RStudio.
+2. Open the `.Rproj` project.
+3. Edit the logbook.
+4. Render the logbook as HTML.
+5. Make a commit with a clear message.
+6. Push to GitHub.
+
+The important idea is to produce a verifiable step before committing it, then push to GitHub.
+:::
+
+## Exercise 2 - Import the Excel File
+
+Import the penguin file into an object named `penguins_mission`.
+
+::: {.callout-tip collapse="true"}
+```r
+library(readxl)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+penguins_mission
+```
+
+:::
+
+## Exercise 3 - Inspect the Structure
+
+Use three different functions to understand the structure of `penguins_mission`.
+
+Your goal is to identify variable names, types and first rows.
+
+::: {.callout-tip collapse="true"}
+```r
+library(readxl)
+library(dplyr)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+names(penguins_mission)
+glimpse(penguins_mission)
+head(penguins_mission)
+```
+:::
+
+## Exercise 4 - Identify Problematic Values
+
+A quality check flags some observations as strange. Find rows where:
+
+- flipper length is greater than 300 mm;
+- body mass is greater than 8000 g;
+- bill length is less than 25 mm.
+
+::: {.callout-tip collapse="true"}
+```r
+library(readxl)
+library(dplyr)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+problematic_observations <- penguins_mission |>
+  filter(
+    flipper_length_mm > 300 |
+      body_mass_g > 8000 |
+      bill_length_mm < 25
   )
+
+problematic_observations
 ```
 :::
 
-----------------------------------------------------------------------------------
+# Block B - Manipulate Data with `dplyr`
 
-## Exercise 2 — Adding color and theme *(aesthetic)*
+## Exercise 5 - Select Useful Variables
 
-*Context:* improve the readability of the previous graph by distinguishing points by **vehicle category** (`class`) and applying a minimalist theme.
+Create a table `penguins_subset` containing only `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` and `body_mass_g`.
 
 ::: {.callout-tip collapse="true"}
-``` r
-mpg %>%
-  ggplot(aes(displ, hwy, color = class)) +
-  geom_point(alpha = 0.8, size = 2) +
-  theme_minimal() +
-  labs(
-    title = "Consumption according to category",
-    color = "Category"
+```r
+library(readxl)
+library(dplyr)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+penguins_subset <- penguins_mission |>
+  select(
+    species,
+    island,
+    bill_length_mm,
+    bill_depth_mm,
+    flipper_length_mm,
+    body_mass_g
   )
+
+glimpse(penguins_subset)
 ```
 :::
 
-----------------------------------------------------------------------------------
+## Exercise 6 - Filter One Species and One Island
 
-## Exercise 3 — Filter with `dplyr` *(targeted extraction)*
-
-*Context:* the marketing manager of **Toyota** wants to know the dispersion of its models. Select only *Toyota* cars and display `model`, `displ`, `hwy`.
+Keep only `Adelie` penguins observed on `Biscoe` island. How many rows remain?
 
 ::: {.callout-tip collapse="true"}
-``` r
-toyota <- mpg %>%
-  filter(manufacturer == "toyota") %>%
-  select(model, displ, hwy)
+```r
+library(readxl)
+library(dplyr)
 
-toyota
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+adelie_biscoe <- penguins_mission |>
+  filter(species == "Adelie", island == "Biscoe")
+
+nrow(adelie_biscoe)
 ```
 :::
 
-----------------------------------------------------------------------------------
+## Exercise 7 - Create Two Variables
 
-## Exercise 4 — Derived variable and summary *(descriptive statistics)*
+Add:
 
-*Context:* we define a measure of **overall efficiency** `efficiency = hwy / cty`. Calculate, by category (`class`), the mean and standard deviation of this new variable.
+- `body_mass_kg`, the body mass in kilograms;
+- `bill_ratio`, the ratio between bill length and bill depth.
+
+Then display the first five rows of these new variables.
 
 ::: {.callout-tip collapse="true"}
-``` r
-mpg %>%
-  mutate(efficiency = hwy / cty) %>%
-  group_by(class) %>%
-  summarize(
-    eff_mean = mean(efficiency, na.rm = TRUE),
-    eff_sd = sd(efficiency, na.rm = TRUE)
+```r
+library(readxl)
+library(dplyr)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+penguins_variables <- penguins_mission |>
+  mutate(
+    body_mass_kg = body_mass_g / 1000,
+    bill_ratio = bill_length_mm / bill_depth_mm
   )
+
+penguins_variables |>
+  select(species, body_mass_g, body_mass_kg, bill_length_mm, bill_depth_mm, bill_ratio) |>
+  head(5)
 ```
 :::
 
-----------------------------------------------------------------------------------
+## Exercise 8 - Summarise by Species
 
-## Exercise 5 — Histogram and density *(distribution)*
-
-*Background:* You are intrigued by the displacement distribution. Plot the histogram of `displ` (class width 0.5L) and overlay the density.
+For each species, compute the number of observations, the mean and the standard deviation of `body_mass_g` and `flipper_length_mm`.
 
 ::: {.callout-tip collapse="true"}
-``` r
-mpg %>%
-  ggplot(aes(displ)) +
-  geom_histogram(binwidth = 0.5, fill = "steelblue", color = "white") +
-  geom_density(aes(y = ..count.. * 0.5), linewidth = 1) +
-  labs(x = "Displacement (L)")
-```
-:::
+```r
+library(readxl)
+library(dplyr)
 
-----------------------------------------------------------------------------------
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
 
-## Exercise 6 — Extreme value *(outlier identification)*
-
-*Context:* a magazine wants to know which model has the **best highway consumption**. Find it and display `manufacturer`, `model`, `year`, `hwy`.
-
-::: {.callout-tip collapse="true"}
-``` r
-mpg %>%
-  filter(hwy == max(hwy)) %>%
-  select(manufacturer, model, year, hwy)
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## Exercise 7 — Best practices #1 *(tidyverse style)*
-
-*Background:* you receive a sloppy script. Rewrite it to follow the tidyverse style guide.
-
-- First run the code to see what it gives. \> This is the old way of making a graph with `base R`.
-
-- Reproduce the graph with `ggplot2` respecting good style practices.
-
-``` r
-plot(mpg$displ,mpg$hwy,col=as.factor(mpg$drv));title("plot")
-```
-
-::: {.callout-tip collapse="true"}
-``` r
-mpg %>%
-  ggplot(aes(displ, hwy, color = drv)) +
-  geom_point() +
-  labs(
-    title = "Highway consumption vs displacement",
-    x = "Cylinder capacity (L)",
-    y = "Highway MPG",
-    color = "Transmission"
+species_summary <- penguins_mission |>
+  group_by(species) |>
+  summarise(
+    n = n(),
+    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+    sd_body_mass_g = sd(body_mass_g, na.rm = TRUE),
+    mean_flipper_length_mm = mean(flipper_length_mm, na.rm = TRUE),
+    sd_flipper_length_mm = sd(flipper_length_mm, na.rm = TRUE),
+    .groups = "drop"
   )
+
+species_summary
 ```
 :::
 
-----------------------------------------------------------------------------------
+## Exercise 9 - Build a Cleaned Version
 
-## Exercise 8 — Best practices #2 *(script structure)*
-
-*Context:* create a file `analyse_mpg.R` with:
-
-- a clear header (author, date);
-
-- loading `tidyverse`;
-
-- a pipeline that calculates the average of `hwy` by `class` and saves it in `mean_hwy`.
+Create a table `penguins_clean` that removes the problematic observations identified in Exercise 4, without modifying the original Excel file.
 
 ::: {.callout-tip collapse="true"}
-``` r
-#analyse_mpg.R – A. Nicosia
-# Date: 2025‑05‑20
+```r
+library(readxl)
+library(dplyr)
 
-library(tidyverse)
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
 
-mean_hwy <- mpg %>%
-  group_by(class) %>%
-  summarize(mean_hwy = mean(hwy, na.rm = TRUE))
-```
-:::
+penguins_clean <- penguins_mission |>
+  filter(
+    is.na(flipper_length_mm) | flipper_length_mm <= 300,
+    is.na(body_mass_g) | body_mass_g <= 8000,
+    is.na(bill_length_mm) | bill_length_mm >= 25
+  )
 
-----------------------------------------------------------------------------------
-
-## Exercise 9 — “tidy” data *(pivot_longer)*
-
-*Context:* you are moving annual sales from wide to long format for easier visualizations.
-
-``` r
-dirty <- tibble(
-  brand = c("A", "B"),
-  sales_2023 = c(120, 95),
-  sales_2024 = c(150, 110)
+tibble(
+  rows_before = nrow(penguins_mission),
+  rows_after = nrow(penguins_clean),
+  rows_removed = nrow(penguins_mission) - nrow(penguins_clean)
 )
 ```
+:::
+
+# Block C - Visualize Numerical Variables
+
+## Exercise 10 - Histogram by Species
+
+Using `penguins_clean`, create a histogram of `bill_length_mm` by species.
 
 ::: {.callout-tip collapse="true"}
-``` r
-sales_long <- dirty %>%
-  pivot_longer(
-    cols = starts_with("sales_"),
-    names_to = "year",
-    names_prefix = "sales_",
-    values_to = "units"
+```r
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+penguins_clean <- penguins_mission |>
+  filter(
+    is.na(flipper_length_mm) | flipper_length_mm <= 300,
+    is.na(body_mass_g) | body_mass_g <= 8000,
+    is.na(bill_length_mm) | bill_length_mm >= 25
   )
 
-sales_long
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## Exercise 10 — Numerical summary *(five‑number)*
-
-*Context:* quick statistical summary of city MPG (`cty`).
-
-::: {.callout-tip collapse="true"}
-``` r
-fivenum(mpg$cty)
-# or
-summary(mpg$cty)
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## Exercise 11 — Boxplot by category *(comparison of groups)*
-
-*Context:* visualize the distribution of `hwy` by `class`, classes sorted by decreasing median.
-
-::: {.callout-tip collapse="true"}
-``` r
-mpg %>%
-  ggplot(aes(x = reorder(class, hwy, median, na.rm = TRUE), y = hwy)) +
-  geom_boxplot(fill = "orange") +
-  coordinate_flip() +
+ggplot(penguins_clean, aes(x = bill_length_mm)) +
+  geom_histogram(binwidth = 2, fill = "steelblue", colour = "white") +
+  facet_wrap(~ species) +
   labs(
-    x = "Category (sorted)",
-    y = "Highway MPG"
+    title = "Bill length distribution by species",
+    x = "Bill length (mm)",
+    y = "Number of penguins"
+  ) +
+  theme_minimal()
+```
+:::
+
+## Exercise 11 - Box Plots
+
+Compare flipper length between species with a box plot.
+
+::: {.callout-tip collapse="true"}
+```r
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+penguins_clean <- penguins_mission |>
+  filter(
+    is.na(flipper_length_mm) | flipper_length_mm <= 300,
+    is.na(body_mass_g) | body_mass_g <= 8000,
+    is.na(bill_length_mm) | bill_length_mm >= 25
   )
+
+ggplot(penguins_clean, aes(x = species, y = flipper_length_mm, fill = species)) +
+  geom_boxplot(alpha = 0.8) +
+  labs(
+    title = "Flipper length by species",
+    x = "Species",
+    y = "Flipper length (mm)",
+    fill = "Species"
+  ) +
+  theme_minimal()
 ```
 :::
 
-----------------------------------------------------------------------------------
+## Exercise 12 - Scatterplot
 
-## Exercise 12 — Facets *(transmission distribution)*
-
-*Context:* compare displacement distributions (`displ`) according to transmission type (`drv`).
+Create `indice_grandeur = flipper_length_mm + bill_length_mm`, then produce a scatterplot of `indice_grandeur` and `body_mass_g`, with one color per species.
 
 ::: {.callout-tip collapse="true"}
-``` r
-mpg %>%
-  ggplot(aes(displ)) +
-  geom_histogram(binwidth = 0.5, fill = "darkseagreen") +
-  facet_wrap(~ drv, nrow = 1) +
-  labs(x = "Displacement (L)")
+```r
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+penguins_clean <- penguins_mission |>
+  filter(
+    is.na(flipper_length_mm) | flipper_length_mm <= 300,
+    is.na(body_mass_g) | body_mass_g <= 8000,
+    is.na(bill_length_mm) | bill_length_mm >= 25
+  ) |>
+  mutate(indice_grandeur = flipper_length_mm + bill_length_mm)
+
+ggplot(penguins_clean, aes(x = indice_grandeur, y = body_mass_g, colour = species)) +
+  geom_point(alpha = 0.75, size = 2) +
+  labs(
+    title = "Size indicator and body mass",
+    x = "Size indicator (mm)",
+    y = "Body mass (g)",
+    colour = "Species"
+  ) +
+  theme_minimal()
 ```
 :::
 
-----------------------------------------------------------------------------------
+## Exercise 13 - Facets by Island
 
-## Exercise 13 — Complete statistical analysis *(IMS inspiration)*
-
-*Background:* As in Chapter 5 of *Introduction to Modern Statistics*, you need to explore the **`hwy`** variable in depth.
-
-1. Calculate the mean, standard deviation, median, IQR and number of observations.
-2. Create a histogram of `hwy` with density overlaid.
-3. Add a (horizontal) boxplot below the histogram.
-4. Interpret: symmetric or asymmetric distribution? extreme values? What can we conclude about the energy efficiency of cars?
+Create a histogram of `body_mass_g` and compare distributions between islands with `facet_wrap()`.
 
 ::: {.callout-tip collapse="true"}
-``` r
-#1. Statistics
-mpg %>%
-  summarize(
+```r
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
+
+penguins_clean <- penguins_mission |>
+  filter(
+    is.na(flipper_length_mm) | flipper_length_mm <= 300,
+    is.na(body_mass_g) | body_mass_g <= 8000,
+    is.na(bill_length_mm) | bill_length_mm >= 25
+  )
+
+ggplot(penguins_clean, aes(x = body_mass_g)) +
+  geom_histogram(binwidth = 250, fill = "darkseagreen", colour = "white") +
+  facet_wrap(~ island) +
+  labs(
+    title = "Penguin body mass by island",
+    x = "Body mass (g)",
+    y = "Number of penguins"
+  ) +
+  theme_minimal()
+```
+:::
+
+# Block D - Statistics, Style and Transfer
+
+## Exercise 14 - Complete Summary with `mpg`
+
+The `mpg` dataset from `ggplot2` contains vehicle fuel economy measurements. Compute the mean, median, standard deviation, IQR, minimum and maximum of `hwy`.
+
+::: {.callout-tip collapse="true"}
+```r
+library(ggplot2)
+library(dplyr)
+
+mpg |>
+  summarise(
     n = n(),
-    mean_hwy = mean(hwy),
-    sd_hwy = sd(hwy),
-    median_hwy = median(hwy),
-    IQR_hwy = IQR(hwy)
+    mean = mean(hwy, na.rm = TRUE),
+    median = median(hwy, na.rm = TRUE),
+    sd = sd(hwy, na.rm = TRUE),
+    iqr = IQR(hwy, na.rm = TRUE),
+    minimum = min(hwy, na.rm = TRUE),
+    maximum = max(hwy, na.rm = TRUE)
   )
+```
+:::
 
-#2‑3. Histogram + boxplot
-library(patchwork) # for assembly (optional)
+## Exercise 15 - Compare Groups with `mpg`
 
-p1 <- mpg %>%
-  ggplot(aes(hwy)) +
-  geom_histogram(binwidth = 2, fill = "steelblue", color = "white") +
-  geom_density(aes(y = ..count.. * 2), linewidth = 1) +
-  labs(title = "Highway MPG Distribution")
+Create a box plot of `hwy` by `class`, ordering classes by their median.
 
-p2 <- mpg %>%
-  ggplot(aes(y = hwy)) +
-  geom_boxplot(fill = "orange", width = 0.4) +
-  theme_void()
+::: {.callout-tip collapse="true"}
+```r
+library(ggplot2)
 
-p1 / p2 # patchwork stacks both graphics
+ggplot(mpg, aes(x = reorder(class, hwy, median), y = hwy)) +
+  geom_boxplot(fill = "orange", alpha = 0.8) +
+  coord_flip() +
+  labs(
+    title = "Highway fuel economy by vehicle class",
+    x = "Vehicle class",
+    y = "Highway MPG"
+  ) +
+  theme_minimal()
+```
+:::
+
+## Exercise 16 - Rewrite Code with Style
+
+Rewrite the following code to make it more readable.
+
+```r
+plot(mpg$displ,mpg$hwy,col=as.factor(mpg$class));title("plot")
 ```
 
-*Interpretation:* the distribution is slightly right-skewed; a few very efficient vehicles (\>40 MPG) appear as outliers. Overall, the median around 24 MPG indicates that a majority of cars remain moderately efficient.
+::: {.callout-tip collapse="true"}
+```r
+library(ggplot2)
+
+ggplot(mpg, aes(x = displ, y = hwy, colour = class)) +
+  geom_point(alpha = 0.8) +
+  labs(
+    title = "Highway fuel economy by engine displacement",
+    x = "Displacement (L)",
+    y = "Highway MPG",
+    colour = "Class"
+  ) +
+  theme_minimal()
+```
+:::
+
+# Case Studies
+
+The following two case studies use small fictitious files. They do not represent real data; they only help practise module skills in contexts other than penguins.
+
+## Case Study 1 - Urban Trees
+
+File: `data/fictitious_urban_trees.csv`
+
+You are helping a municipal team prepare an overview of the urban canopy. The file contains fictitious observations on trees in a few Quebec cities.
+
+Complete the following tasks:
+
+1. Import the file with `readr::read_csv()`.
+2. Inspect the table structure.
+3. For each tree species, compute mean height, mean diameter and number of trees.
+4. Produce a box plot of `height_m` by `species`.
+5. Produce a scatterplot of `estimated_age_years` and `diameter_cm`, colored by `health_status`.
+6. Write two sentences summarizing what you observe.
+
+::: {.callout-tip collapse="true"}
+```r
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+trees <- read_csv("data/fictitious_urban_trees.csv")
+
+glimpse(trees)
+
+tree_summary <- trees |>
+  group_by(species) |>
+  summarise(
+    n = n(),
+    mean_height_m = mean(height_m, na.rm = TRUE),
+    mean_diameter_cm = mean(diameter_cm, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+tree_summary
+
+ggplot(trees, aes(x = species, y = height_m, fill = species)) +
+  geom_boxplot(alpha = 0.8) +
+  labs(
+    title = "Tree height by species",
+    x = "Species",
+    y = "Height (m)",
+    fill = "Species"
+  ) +
+  theme_minimal()
+
+ggplot(trees, aes(x = estimated_age_years, y = diameter_cm, colour = health_status)) +
+  geom_point(size = 2, alpha = 0.8) +
+  labs(
+    title = "Tree diameter and estimated age",
+    x = "Estimated age (years)",
+    y = "Diameter (cm)",
+    colour = "Health status"
+  ) +
+  theme_minimal()
+```
+:::
+
+## Case Study 2 - Bike Share
+
+File: `data/fictitious_bike_share.csv`
+
+You are preparing a short diagnostic for a fictitious bike-share service. The file contains aggregated observations by station, month and day type.
+
+Complete the following tasks:
+
+1. Import the file.
+2. Compute the mean number of trips by city and day type.
+3. Create a variable `rainy_day` equal to `TRUE` when `precipitation_mm` is greater than or equal to 5.
+4. Produce a scatterplot of `temperature_c` and `trips`, colored by city.
+5. Compare `median_duration_min` between day types with a box plot.
+6. Write a short recommendation for the planning team.
+
+::: {.callout-tip collapse="true"}
+```r
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+bike <- read_csv("data/fictitious_bike_share.csv")
+
+bike_summary <- bike |>
+  group_by(city, day_type) |>
+  summarise(
+    mean_trips = mean(trips, na.rm = TRUE),
+    typical_median_duration = median(median_duration_min, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+bike_summary
+
+bike_prepared <- bike |>
+  mutate(rainy_day = precipitation_mm >= 5)
+
+ggplot(bike_prepared, aes(x = temperature_c, y = trips, colour = city)) +
+  geom_point(size = 2, alpha = 0.8) +
+  labs(
+    title = "Bike-share trips by temperature",
+    x = "Temperature (°C)",
+    y = "Number of trips",
+    colour = "City"
+  ) +
+  theme_minimal()
+
+ggplot(bike_prepared, aes(x = day_type, y = median_duration_min, fill = day_type)) +
+  geom_boxplot(alpha = 0.8) +
+  labs(
+    title = "Median trip duration by day type",
+    x = "Day type",
+    y = "Median duration (minutes)",
+    fill = "Day type"
+  ) +
+  theme_minimal()
+```
 :::

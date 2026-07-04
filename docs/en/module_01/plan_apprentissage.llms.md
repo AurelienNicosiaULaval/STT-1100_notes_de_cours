@@ -76,7 +76,7 @@ In this first challenge, you create a Quarto report in HTML format. The report a
 
 # Consolidation exercises
 
-Exercises are grouped on a standalone page so there is room for folded solutions and case studies.
+Exercises are grouped on a standalone page. They consolidate module techniques and are not a step in the challenge.
 
 [Module 1 exercises](../module_01/exercices.llms.md)
 

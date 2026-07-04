@@ -8,219 +8,528 @@ format:
 
 # Exercices de consolidation
 
-```{r warning=FALSE, message=FALSE}
-# Charger les librairies nécessaires
+Ces exercices servent à stabiliser les gestes du module: reconnaître une variable catégorique, compter des modalités, nettoyer des chaînes de caractères, extraire des motifs et construire des graphiques lisibles.
+
+Ils sont indépendants de l'aventure et du défi. Ils pratiquent les mêmes compétences, mais sans préparer directement l'article sur les infractions alimentaires.
+
+```{r setup, warning=FALSE, message=FALSE}
 library(tidyverse)
-library(stringr)
 ```
 
-------------------------------------------------------------------------
+# Bloc A - Variables catégoriques et fréquences
 
-### Exercice 1 – Identifier les variables catégoriques
+## Exercice 1 - Reconnaître le type des variables
 
-Voici un petit jeu de données :
+Voici un petit jeu de données.
 
 ```{r}
-data <- tibble::tibble(
-  sexe = c("Homme", "Femme", "Femme", "Homme", "Homme"),
-  age = c(25, 32, 29, 40, 23),
-  région = c("Est", "Ouest", "Est", "Nord", "Sud")
+sondage <- tibble(
+  programme = c("Statistique", "Économie", "Statistique", "Biologie", "Économie"),
+  age = c(21, 24, 22, 20, 27),
+  campus = c("Québec", "Québec", "Montréal", "Québec", "Montréal"),
+  satisfaction = c("Élevée", "Moyenne", "Élevée", "Faible", "Moyenne")
 )
 ```
 
->  Parmi les trois variables ci-dessus, lesquelles sont catégorielles ?
+Indiquez quelles variables sont catégoriques et quelles variables sont numériques.
 
 ::: {.callout-note collapse="true"}
-### Réponse
+## Solution
 
-Les variables `sexe` et `région` sont **catégorielles**. `age` est **numérique**.
+`programme`, `campus` et `satisfaction` sont catégoriques. `age` est numérique.
 :::
 
-------------------------------------------------------------------------
+## Exercice 2 - Créer une table de fréquences
 
-### Exercice 2 – Tableau de fréquence
-
-Crée un tableau de fréquence pour la variable `sexe`.
+Calculez le nombre d’étudiants par programme.
 
 ::: {.callout-tip collapse="true"}
-### Piste
+## Piste
 
-Utilise `count()` du package `dplyr`.
+Utilisez `count()`.
 :::
 
 ::: {.callout-note collapse="true"}
-### Solution
+## Solution
 
 ```{r}
-data %>% count(sexe)
+sondage |>
+  count(programme, sort = TRUE)
 ```
 :::
 
-------------------------------------------------------------------------
+## Exercice 3 - Ajouter des proportions
 
-### Exercice 3 – Proportions
-
-Calcule les pourcentages pour chaque modalité de la variable `région`.
-
-::: {.callout-tip collapse="true"}
-### Piste
-
-Ajoute une colonne avec `mutate(n / sum(n))`.
-:::
+À partir du résultat précédent, ajoutez une proportion et un pourcentage.
 
 ::: {.callout-note collapse="true"}
-### Solution
+## Solution
 
 ```{r}
-data %>% count(région) %>% mutate(pourcentage = n / sum(n) * 100)
+sondage |>
+  count(programme, sort = TRUE) |>
+  mutate(
+    proportion = n / sum(n),
+    pourcentage = 100 * proportion
+  )
 ```
 :::
 
-------------------------------------------------------------------------
+## Exercice 4 - Construire un tableau croisé
 
-### Exercice 4 – Barplot d'une variable catégorielle
-
-Fais un barplot représentant la variable `région`.
-
-::: {.callout-tip collapse="true"}
-### Piste
-
-Utilise `geom_bar()` avec `aes(x = région)`.
-:::
+Construisez un tableau croisé entre `programme` et `campus`.
 
 ::: {.callout-note collapse="true"}
-### Solution
+## Solution
 
 ```{r}
-ggplot(data, aes(x = région)) + geom_bar()
+sondage |>
+  count(programme, campus) |>
+  pivot_wider(
+    names_from = campus,
+    values_from = n,
+    values_fill = 0
+  )
 ```
 :::
 
-------------------------------------------------------------------------
+# Bloc B - Chaînes de caractères et motifs
 
-### Exercice 5 – Comparaison de deux variables catégorielles
+## Exercice 5 - Harmoniser des réponses
 
-Ajoute une couleur par `sexe` dans le graphique précédent.
-
-::: {.callout-note collapse="true"}
-### Solution
+Voici une variable de réponses saisies avec des formats différents.
 
 ```{r}
-ggplot(data, aes(x = région, fill = sexe)) + geom_bar(position = "dodge")
-```
-:::
-
-------------------------------------------------------------------------
-
-### Exercice 6 – Nettoyer une variable catégorielle
-
-Voici une variable catégorielle incohérente :
-
-```{r}
-reponses <- c("Oui", "oui", "Non", "non", "OUI", "NON")
-```
-
-Nettoie cette variable pour que toutes les réponses soient en minuscules **et sans doublons**.
-
-::: {.callout-note collapse="true"}
-### Solution
-
-```{r}
-unique(str_to_lower(reponses))
-```
-:::
-
-------------------------------------------------------------------------
-
-### Exercice 7 – Tableau croisé
-
-Voici un autre jeu de données :
-
-```{r}
-data2 <- tibble(
-  fumeur = c("Oui", "Non", "Non", "Oui", "Oui", "Non", "Non"),
-  sport = c("Oui", "Oui", "Non", "Non", "Oui", "Non", "Non")
+reponses <- tibble(
+  reponse = c(" Oui", "oui", "OUI ", "Non", " non", "NON", "Je ne sais pas")
 )
 ```
 
-Crée un tableau croisé (contingence) entre les deux variables.
+Créez une variable `reponse_propre` en minuscules, sans espaces superflus.
 
 ::: {.callout-note collapse="true"}
-### Solution
+## Solution
 
 ```{r}
-data2 %>% count(fumeur, sport) %>% pivot_wider(names_from = sport, values_from = n, values_fill = 0)
+reponses |>
+  mutate(reponse_propre = str_squish(str_to_lower(reponse)))
 ```
 :::
 
-------------------------------------------------------------------------
+## Exercice 6 - Détecter un mot-clé
 
-### Exercice 8 – Pour aller plus loin : Mosaic plot
-
-Utilise le package `ggplot2` (ou `ggmosaic` si disponible) pour représenter visuellement la relation entre `fumeur` et `sport`.
-
-::: {.callout-note collapse="true"}
-### Solution avec ggplot2
+Dans le vecteur suivant, détectez les textes qui contiennent le mot `"retard"`, peu importe la casse.
 
 ```{r}
-# En regroupant en barres groupées pour une approximation
-ggplot(data2, aes(x = fumeur, fill = sport)) +
-  geom_bar(position = "fill") +
-  ylab("Proportion")
+commentaires <- tibble(
+  texte = c(
+    "Retard du service",
+    "Service rapide",
+    "retard important",
+    "Aucun problème",
+    "RETARD répété"
+  )
+)
+```
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+commentaires |>
+  mutate(contient_retard = str_detect(str_to_lower(texte), "retard"))
 ```
 :::
 
-------------------------------------------------------------------------
+## Exercice 7 - Extraire des codes postaux
 
-## Problèmes
-
-### Exercice 9 – Palmer Penguins
-
-On utilise le jeu de données `penguins` du package `palmerpenguins`.
-
--   Variable catégorielle : `species`, `island`, `sex`
--   Variable numérique : `flipper_length_mm`, `body_mass_g`
-
-Questions : 1. Crée un tableau de fréquence pour `species` 2. Visualise la distribution des espèces par île 3. Compare les sexes pour chaque espèce
-
-::: {.callout-note collapse="true"}
-### Solution
+À partir des adresses suivantes, extrayez un code postal canadien simplifié.
 
 ```{r}
-library(palmerpenguins)
+adresses <- tibble(
+  adresse = c(
+    "2500 boul. Laurier, Québec G1V 2L1",
+    "475 rue Sherbrooke Ouest, Montréal H3A 2L9",
+    "100 rue Wellington, Gatineau J8X 2J1",
+    "Adresse inconnue"
+  )
+)
+```
 
-penguins %>% count(species)
+::: {.callout-note collapse="true"}
+## Solution
 
-ggplot(penguins, aes(x = island, fill = species)) + geom_bar(position = "dodge")
-
-ggplot(penguins, aes(x = species, fill = sex)) + geom_bar(position = "fill")
+```{r}
+adresses |>
+  mutate(
+    code_postal = str_extract(
+      adresse,
+      "[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]"
+    )
+  )
 ```
 :::
 
-------------------------------------------------------------------------
+## Exercice 8 - Transformer un montant textuel
 
-### Exercice 10 – Données Titanic
-
-Utilise `titanic::titanic_train`
-
-Variables catégoriques : `Sex`, `Embarked`, `Survived`
-
-Questions : 1. Tableau croisé entre `Sex` et `Survived` 2. Proportion de survie par port d’embarquement (`Embarked`) 3. Représentation graphique croisée `Sex` × `Embarked` × `Survived`
-
-::: {.callout-note collapse="true"}
-### Solution
+Convertissez les montants suivants en valeurs numériques.
 
 ```{r}
-library(titanic)
-titanic_train <- titanic::titanic_train
-
-titanic_train %>% count(Sex, Survived)
-
-titanic_train %>% count(Embarked, Survived) %>%
-  group_by(Embarked) %>% mutate(p = n / sum(n))
-
-ggplot(titanic_train, aes(x = Embarked, fill = factor(Survived))) +
-  geom_bar(position = "fill") +
-  facet_wrap(~Sex)
+amendes <- tibble(
+  montant = c("1 000 $", "500$", "2 250 $", "750 dollars")
+)
 ```
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+amendes |>
+  mutate(amende_num = parse_number(
+    montant,
+    locale = locale(grouping_mark = " ")
+  ))
+```
+:::
+
+# Bloc C - Pratiquer sur des demandes de services fictives
+
+Les exercices 9 à 12 utilisent un petit jeu fictif de demandes de services sur un campus. Le contexte est distinct de l'aventure et du défi.
+
+## Exercice 9 - Construire une base propre
+
+Voici les données brutes.
+
+```{r}
+services_campus_brut <- tibble(
+  id = paste0("REQ-", str_pad(1:12, 2, pad = "0")),
+  campus = c("Québec", "Quebec", "Montréal", "Montreal", "Lévis", "Levis",
+             "Québec", "Montréal", "Lévis", "Québec", "Montreal", "Levis"),
+  service = c("Bibliotheque", "Bibliothèque", "Wi-Fi", "wifi", "Stationnement",
+              "stationnement", "Navette", "navette", "Impression", "impression",
+              "Bibliotheque", "Wi-Fi"),
+  description = c(
+    "Retard de navette signalé",
+    "Salle de lecture bruyante",
+    "wifi instable au pavillon",
+    "Connexion WiFi absente",
+    "Paiement impossible",
+    "stationnement complet",
+    "Retard de la navette du soir",
+    "Navette saturée",
+    "Imprimante sans papier",
+    "Impression bloquée",
+    "livres mal rangés",
+    "Connexion lente"
+  ),
+  statut = c("ouvert", "Ouvert ", "ferme", "Fermé", "ouvert", "en cours",
+             "En cours", "ferme", "ouvert", "Fermé", "en cours", "ouvert"),
+  cout = c("0 $", "150 $", "0$", "300 $", "1 200 $", "0 $",
+           "850 $", "0 $", "75 $", "90 $", "0 $", "200 $")
+)
+
+services_campus_brut
+```
+
+Créez une table `services_campus` contenant:
+
+- un campus harmonisé;
+- un service harmonisé;
+- un statut harmonisé;
+- un coût numérique `cout_num`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+services_campus <- services_campus_brut |>
+  mutate(
+    campus = str_squish(campus),
+    campus = recode(
+      campus,
+      "Quebec" = "Québec",
+      "Montreal" = "Montréal",
+      "Levis" = "Lévis"
+    ),
+    service = str_to_lower(str_squish(service)),
+    service = case_when(
+      str_detect(service, "biblio") ~ "bibliothèque",
+      str_detect(service, "wi-fi|wifi") ~ "wi-fi",
+      str_detect(service, "stationnement") ~ "stationnement",
+      str_detect(service, "navette") ~ "navette",
+      str_detect(service, "impression") ~ "impression",
+      TRUE ~ service
+    ),
+    statut = str_to_lower(str_squish(statut)),
+    statut = recode(statut, "fermé" = "ferme"),
+    cout_num = parse_number(cout, locale = locale(grouping_mark = " "))
+  )
+
+services_campus |>
+  select(id, campus, service, statut, cout_num)
+```
+:::
+
+## Exercice 10 - Compter les services demandés
+
+Calculez le nombre de demandes par campus et par service.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+services_campus |>
+  count(campus, service, sort = TRUE)
+```
+:::
+
+## Exercice 11 - Comparer les statuts par campus
+
+Calculez la proportion de demandes dans chaque statut pour chaque campus.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+services_campus |>
+  count(campus, statut) |>
+  group_by(campus) |>
+  mutate(proportion = n / sum(n)) |>
+  ungroup() |>
+  arrange(campus, desc(proportion))
+```
+:::
+
+## Exercice 12 - Détecter des mots-clés
+
+Créez deux variables logiques:
+
+- `contient_retard`, qui vaut `TRUE` si la description contient `"retard"`;
+- `contient_connexion`, qui vaut `TRUE` si la description contient `"wifi"` ou `"connexion"`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+services_campus <- services_campus |>
+  mutate(
+    description_min = str_to_lower(description),
+    contient_retard = str_detect(description_min, "retard"),
+    contient_connexion = str_detect(description_min, "wifi|connexion")
+  )
+
+services_campus |>
+  select(id, service, contient_retard, contient_connexion)
+```
+:::
+
+# Bloc D - Visualiser des catégories
+
+## Exercice 13 - Ordonner un diagramme à bandes
+
+Produisez un diagramme à bandes du nombre de demandes par service. Ordonnez les services de la plus fréquente à la moins fréquente.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+services_campus |>
+  count(service, sort = TRUE) |>
+  ggplot(aes(x = fct_reorder(service, n), y = n)) +
+  geom_col(fill = "#2F6C8F") +
+  coord_flip() +
+  labs(
+    x = "Service",
+    y = "Nombre de demandes",
+    title = "Demandes de services fictives par catégorie"
+  ) +
+  theme_minimal()
+```
+:::
+
+## Exercice 14 - Comparer des proportions avec `position = "fill"`
+
+Comparez la composition des statuts entre les campus.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+services_campus |>
+  count(campus, statut) |>
+  group_by(campus) |>
+  mutate(proportion = n / sum(n)) |>
+  ungroup() |>
+  ggplot(aes(x = campus, y = proportion, fill = statut)) +
+  geom_col(position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = "Campus",
+    y = "Proportion",
+    fill = "Statut",
+    title = "Composition des statuts selon le campus"
+  ) +
+  theme_minimal()
+```
+:::
+
+## Exercice 15 - Comparer les coûts par service
+
+Créez un graphique comparant les coûts déclarés selon le service.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+services_campus |>
+  filter(cout_num > 0) |>
+  ggplot(aes(x = service, y = cout_num)) +
+  geom_boxplot(fill = "#D8A24A") +
+  coord_flip() +
+  scale_y_continuous(labels = scales::dollar) +
+  labs(
+    x = "Service",
+    y = "Coût déclaré",
+    title = "Coûts associés aux demandes de services fictives"
+  ) +
+  theme_minimal()
+```
+:::
+
+## Exercice 16 - Améliorer le message d’un graphique
+
+Reprenez un graphique précédent et améliorez-le pour un lecteur non spécialiste:
+
+- titre informatif;
+- axes lisibles;
+- catégories ordonnées;
+- unités ou pourcentages clairement indiqués;
+- court commentaire de deux phrases sous le graphique.
+
+::: {.callout-note collapse="true"}
+## Exemple de solution
+
+```{r}
+graphique_services <- services_campus |>
+  count(service, sort = TRUE) |>
+  mutate(part = n / sum(n)) |>
+  ggplot(aes(x = fct_reorder(service, part), y = part)) +
+  geom_col(fill = "#2F6C8F") +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = NULL,
+    y = "Part des demandes",
+    title = "Les demandes se répartissent entre quelques services récurrents"
+  ) +
+  theme_minimal()
+
+graphique_services
+```
+
+Commentaire possible: le graphique montre les services qui reviennent le plus souvent dans cet échantillon fictif. Il faut toutefois rappeler que le fichier sert à pratiquer les méthodes et ne mesure pas un vrai volume de demandes.
+:::
+
+# Études de cas
+
+## Étude de cas 1 - Requêtes 311 fictives
+
+Le fichier `data/requetes_311_fictif.csv` contient des requêtes 311 fictives pour quelques villes québécoises. Il ne provient pas d’une ville réelle et sert uniquement à pratiquer.
+
+Réalisez les tâches suivantes:
+
+1. importez le fichier;
+2. nettoyez la variable `type_requete`;
+3. calculez le nombre de requêtes par ville et par type;
+4. calculez la proportion de requêtes ouvertes selon la priorité;
+5. produisez un graphique des types de requêtes les plus fréquents;
+6. rédigez deux phrases qui pourraient apparaître dans un court rapport.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+requetes_311 <- read_csv(
+  "data/requetes_311_fictif.csv",
+  show_col_types = FALSE
+) |>
+  mutate(
+    type_requete = str_replace(type_requete, "Denegement", "Déneigement"),
+    type_requete = str_squish(type_requete)
+  )
+
+requetes_311 |>
+  count(ville, type_requete, sort = TRUE)
+
+requetes_311 |>
+  count(priorite, statut) |>
+  group_by(priorite) |>
+  mutate(proportion = n / sum(n)) |>
+  ungroup()
+
+requetes_311 |>
+  count(type_requete, sort = TRUE) |>
+  ggplot(aes(x = fct_reorder(type_requete, n), y = n)) +
+  geom_col(fill = "#4B8B3B") +
+  coord_flip() +
+  labs(
+    x = "Type de requête",
+    y = "Nombre de requêtes",
+    title = "Les requêtes 311 fictives se concentrent dans quelques catégories"
+  ) +
+  theme_minimal()
+```
+
+Commentaire possible: les requêtes liées au déneigement et aux nids-de-poule ressortent fortement dans cet échantillon fictif. La priorité doit être interprétée avec prudence, car les villes ne codent pas nécessairement les demandes de la même manière.
+:::
+
+## Étude de cas 2 - Plaintes de transport collectif fictives
+
+Le fichier `data/plaintes_transport_fictif.csv` contient des plaintes fictives pour différents réseaux de transport collectif.
+
+Réalisez les tâches suivantes:
+
+1. importez le fichier;
+2. calculez le total de plaintes par réseau;
+3. identifiez les types de plaintes les plus fréquents;
+4. comparez la gravité des plaintes entre les réseaux avec un graphique en proportions;
+5. proposez une recommandation opérationnelle appuyée par un chiffre.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+plaintes_transport <- read_csv(
+  "data/plaintes_transport_fictif.csv",
+  show_col_types = FALSE
+)
+
+plaintes_transport |>
+  group_by(reseau) |>
+  summarise(total_plaintes = sum(nb_plaintes), .groups = "drop") |>
+  arrange(desc(total_plaintes))
+
+plaintes_transport |>
+  group_by(type_plainte) |>
+  summarise(total_plaintes = sum(nb_plaintes), .groups = "drop") |>
+  arrange(desc(total_plaintes))
+
+plaintes_transport |>
+  count(reseau, gravite, wt = nb_plaintes, name = "total") |>
+  group_by(reseau) |>
+  mutate(proportion = total / sum(total)) |>
+  ungroup() |>
+  ggplot(aes(x = reseau, y = proportion, fill = gravite)) +
+  geom_col(position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = "Réseau",
+    y = "Proportion des plaintes",
+    fill = "Gravité",
+    title = "Composition des plaintes fictives par réseau"
+  ) +
+  theme_minimal()
+```
+
+Recommandation possible: il faut cibler les catégories de plaintes qui combinent un volume élevé et une gravité élevée. Dans un rapport, on citerait le total par réseau et la part de plaintes de gravité élevée avant de proposer une action.
 :::

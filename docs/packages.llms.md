@@ -34,11 +34,11 @@ Texte, web et tableaux de bord
 
 ### Module 03
 
-[`tidyverse`](#tidyverse) [`stringr`](#stringr) [`palmerpenguins`](#palmerpenguins) [`titanic`](#titanic) [`UlavalSSD`](#ulavalssd) [`ggplot2`](#ggplot2) [`tidygeocoder`](#tidygeocoder) [`viridis`](#viridis) [`scales`](#scales)
+[`tidyverse`](#tidyverse) [`stringr`](#stringr) [`forcats`](#forcats) [`palmerpenguins`](#palmerpenguins) [`titanic`](#titanic) [`UlavalSSD`](#ulavalssd) [`ggplot2`](#ggplot2) [`tidygeocoder`](#tidygeocoder) [`viridis`](#viridis) [`scales`](#scales)
 
 ### Module 04
 
-[`readr`](#readr) [`readxl`](#readxl) [`dplyr`](#dplyr) [`tidyr`](#tidyr) [`jsonlite`](#jsonlite) [`janitor`](#janitor) [`stringr`](#stringr) [`forcats`](#forcats) [`messy`](#messy)
+[`readr`](#readr) [`readxl`](#readxl) [`dplyr`](#dplyr) [`tidyr`](#tidyr) [`jsonlite`](#jsonlite) [`janitor`](#janitor) [`stringr`](#stringr) [`forcats`](#forcats) [`tibble`](#tibble) [`ggplot2`](#ggplot2) [`messy`](#messy)
 
 ### Module 05
 
@@ -46,15 +46,15 @@ Texte, web et tableaux de bord
 
 ### Module 06
 
-[`tidyverse`](#tidyverse) [`nycflights23`](#nycflights23) [`dplyr`](#dplyr) [`palmerpenguins`](#palmerpenguins) [`gapminder`](#gapminder) [`countrycode`](#countrycode) [`tibble`](#tibble) [`Lahman`](#lahman) [`babynames`](#babynames) [`weathercan`](#weathercan) [`fivethirtyeight`](#fivethirtyeight) [`unvotes`](#unvotes) [`ggplot2movies`](#ggplot2movies) [`ggplot2`](#ggplot2)
+[`tidyverse`](#tidyverse) [`nycflights23`](#nycflights23) [`dplyr`](#dplyr) [`readr`](#readr) [`ggplot2`](#ggplot2)
 
 ### Module 07
 
-[`tidyverse`](#tidyverse) [`ggplot2`](#ggplot2) [`lubridate`](#lubridate) [`scales`](#scales) [`leaflet`](#leaflet)
+[`tidyverse`](#tidyverse) [`ggplot2`](#ggplot2) [`dplyr`](#dplyr) [`readr`](#readr) [`lubridate`](#lubridate) [`scales`](#scales)
 
 ### Module 08
 
-[`tidyverse`](#tidyverse) [`rvest`](#rvest) [`purrr`](#purrr)
+[`tidyverse`](#tidyverse) [`rvest`](#rvest) [`purrr`](#purrr) [`dplyr`](#dplyr) [`stringr`](#stringr) [`robotstxt`](#robotstxt)
 
 ### Module 09
 
@@ -170,7 +170,11 @@ Importation de fichiers Excel.Documentation externe [REM ](https://CRAN.R-projec
 
 ## remotes
 
-Installation de packages depuis GitHub ou d’autres sources de développement.Documentation externe [RVE ](https://CRAN.R-project.org/package=rvest)
+Installation de packages depuis GitHub ou d’autres sources de développement.Documentation externe [ROB ](https://CRAN.R-project.org/package=robotstxt)
+
+## robotstxt
+
+Vérification programmatique des consignes robots.txt avant une collecte automatisée.Documentation externe [RVE ](https://CRAN.R-project.org/package=rvest)
 
 ## rvest
 

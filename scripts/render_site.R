@@ -100,6 +100,8 @@ sync_source_to_render_root <- function(source_root, render_root) {
   should_skip <- function(rel_path, is_dir) {
     parts <- strsplit(rel_path, "/", fixed = TRUE)[[1]]
     base <- tail(parts, 1)
+    is_module_data_html <- !is_dir &&
+      grepl("(^|/)module_08/data/[^/]+\\.html$", rel_path)
 
     if (parts[1] %in% c(".git", "docs")) return(TRUE)
     if (grepl("^docs [0-9]+$", parts[1])) return(TRUE)
@@ -114,7 +116,7 @@ sync_source_to_render_root <- function(source_root, render_root) {
     if (!is_dir && grepl("\\.rmarkdown$", base)) return(TRUE)
     if (!is_dir && grepl("\\.llms\\.md$", base)) return(TRUE)
     if (!is_dir && identical(base, "llms.txt")) return(TRUE)
-    if (!is_dir && grepl("\\.html$", base) && !identical(base, "language-switch.html")) {
+    if (!is_dir && grepl("\\.html$", base) && !identical(base, "language-switch.html") && !is_module_data_html) {
       return(TRUE)
     }
 
@@ -175,6 +177,72 @@ remove_generated_duplicates <- function() {
   remove_paths(duplicate_paths)
 }
 
+merge_directory_contents <- function(source, target) {
+  dir.create(target, recursive = TRUE, showWarnings = FALSE)
+
+  entries <- list.files(
+    source,
+    all.files = TRUE,
+    no.. = TRUE,
+    full.names = TRUE
+  )
+
+  for (entry in entries) {
+    destination <- file.path(target, basename(entry))
+
+    if (dir.exists(entry)) {
+      merge_directory_contents(entry, destination)
+      next
+    }
+
+    dir.create(dirname(destination), recursive = TRUE, showWarnings = FALSE)
+    copied <- file.copy(
+      entry,
+      destination,
+      overwrite = TRUE,
+      copy.mode = TRUE,
+      copy.date = TRUE
+    )
+
+    if (!copied) {
+      stop("Failed to merge generated file: ", entry, call. = FALSE)
+    }
+  }
+
+  remove_paths(source)
+}
+
+normalize_numbered_directories <- function(root = "docs") {
+  if (!dir.exists(root)) {
+    return(invisible())
+  }
+
+  directories <- list.dirs(root, recursive = TRUE, full.names = TRUE)
+  numbered_directories <- directories[grepl(" [0-9]+$", basename(directories))]
+
+  if (length(numbered_directories) == 0) {
+    return(invisible())
+  }
+
+  depths <- lengths(strsplit(numbered_directories, .Platform$file.sep, fixed = TRUE))
+  numbered_directories <- numbered_directories[order(depths, decreasing = TRUE)]
+
+  for (path in numbered_directories) {
+    target <- file.path(dirname(path), sub(" [0-9]+$", "", basename(path)))
+
+    if (dir.exists(target)) {
+      merge_directory_contents(path, target)
+      next
+    }
+
+    if (!file.rename(path, target)) {
+      stop("Failed to normalize generated directory: ", path, call. = FALSE)
+    }
+  }
+
+  invisible()
+}
+
 find_generated_source_paths <- function(root) {
   old_wd <- getwd()
   setwd(root)
@@ -210,6 +278,7 @@ find_generated_source_paths <- function(root) {
 
   paths <- system2("find", shQuote(args), stdout = TRUE)
   paths <- paths[basename(paths) != "language-switch.html"]
+  paths <- paths[!grepl("^\\./(en/)?module_08/data/[^/]+\\.html$", paths)]
   paths
 }
 
@@ -317,6 +386,7 @@ if (!identical(copy_exit, 0L)) {
   stop("Failed to copy English render output to docs/en.", call. = FALSE)
 }
 
+normalize_numbered_directories("docs")
 remove_paths(c("en/docs", "site_libs", "en/site_libs"))
 
 duplicate_outputs <- list.files(

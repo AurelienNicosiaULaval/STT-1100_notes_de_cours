@@ -6,253 +6,78 @@ format:
     toc: true
     toc-title: Plan
     embed-resources: true
-    link-external-newwindow: true
-# number-sections: true
+    link-external-newwindow: false
     css: [../css/base_css.css]
 editor: visual
 ---
 
 # Module objectives
 
-At the end of this module, you should be able to
+By the end of this module, you should be able to:
 
-- Import data from different formats (`txt`, `csv`, `excel`, `json`).
-- Clean and recode data to ensure its quality.
-- Use the `forcats` and `stringr` libraries to manipulate factors and character strings.
-- Create and use lists.
+- import delimited, Excel and JSON files with the right tools;
+- check dimensions, column names and types after import;
+- clean column names, coded missing values and text amounts;
+- recode categories with `stringr` and `forcats`;
+- transform tables between long and wide formats;
+- transform a simple list or JSON file into a table;
+- document a cleaning decision in a structured list.
 
-# Initial readings
+# Readings
 
-## Readings to do before the adventure
+These readings prepare the core moves of the module: import, clean, transform and document.
 
-In this module, we will explore the basic concepts of data import and data cleansing. Here is some initial reading to prepare you:
+- [R for Data Science - Data import](https://r4ds.hadley.nz/data-import.html){target="_blank"}
+  To import rectangular files, control types and identify import problems.
 
-- [**R for Data Science – Data import**](https://r4ds.hadley.nz/data-import.html){target="_blank"}\
-    This chapter introduces you to importing data with the `readr` package.\
+- [`readr::read_delim()` documentation](https://readr.tidyverse.org/reference/read_delim.html){target="_blank"}
+  To understand the delimiter argument, especially when a file is not comma-separated.
 
-- [**R for Data Science – Data tidying**](https://r4ds.hadley.nz/data-tidy.html){target="_blank"}\
-    This chapter introduces you to data manipulation with the `dplyr` package.\
+- [R for Data Science - Data tidying](https://r4ds.hadley.nz/data-tidy.html){target="_blank"}
+  To review tidy data and long-wide transformations.
 
-- [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html){target="_blank"}\
-    This chapter introduces you to **factors** in R, which are categorical variables.\
-    \>  **Note**: Although this chapter is more widely used in module 4, some useful functions like `factor()` or `fct_reorder()` can already help you manipulate categorical variables (module 3).
+- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html){target="_blank"}
+  To distinguish explicit missing values, coded missing values and implicit missing values.
 
-- [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}\
-    This chapter introduces you to importing data from Excel files.\
+- [R for Data Science - Factors](https://r4ds.hadley.nz/factors.html){target="_blank"}
+  To recode, lump and order categorical variables.
 
-- [**R for Data Science – Lists**](https://r4ds.hadley.nz/rectangling.html#lists){target="_blank"}\
-    This section introduces you to the concept of lists in programming.\
+- [R for Data Science - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html){target="_blank"}
+  To import Excel files and select a specific sheet.
+
+- [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html){target="_blank"}
+  To understand lists, nested data and first rectangling moves.
+
+After the readings, complete the [formative mini-test](mini_test.qmd). It is not graded; it only checks the basics before the adventure.
 
 # Adventure
 
 [Adventure 4](aventure.qmd)
 
+You play the role of a junior data engineer. The adventure guides you through importing an insurance archive, detecting anomalies and documenting cleaning decisions.
+
 # Challenge
 
 [Challenge 4](defi.qmd)
 
-At the end of the adventure, you should be able to place the following elements in your GitHub folder:
+The challenge is the direct continuation of the adventure. You work in the same insurance setting, with more autonomy, to produce:
 
-- the `.qmd` script for your challenge, that is, a document where you do your tests and build your `journal_nettoyage` list;
+- `defi_04.qmd`;
+- `donnees_propres.csv`;
+- `journal_nettoyage.Rdata`.
 
-- the `journal_nettoyage` list in a `.Rdata` object;
-
-- the cleaned database in `.csv` format.
+The goal is not to correct everything that is debatable. The goal is to show that your corrections are cautious, reproducible and documented.
 
 # Consolidation exercises
 
-### Exercise 1 – Controlled reading of a CSV (Data import, § readr)
+[Module 4 exercises](exercices.qmd)
 
-Import `policies.csv` as:
+The exercises are independent from the adventure and challenge. They use other small fictitious datasets to consolidate technical skills:
 
-- forcing `policy_id` to **character**;
+1. import CSV, Excel and JSON files;
+2. clean types, names and missing values;
+3. recode categories;
+4. manipulate lists and JSON files;
+5. document cleaning decisions in a list.
 
-- leaving `premium_amount` as **double**
-
-then display the structure of the object.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-library(readr)
-library(dplyr)
-
-policies <- read_csv(
-  "policies.csv",
-  col_types = cols(
-    policy_id = col_character(),
-    premium_amount = col_double()
-  )
-)
-glimpse(policies)
-```
-:::
-
-### Exercise 2 – Recoding categorical values
-
-The variable `vehicle_use` contains the values `"Pleasure"`, `"pleasure"`, `"Commute"` and `"Com.mute"`.\
-Recode this variable to keep only the levels `"Pleasure"` and `"Commute"`.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-library(readr)
-library(dplyr)
-library(forcats)
-
-policies <- read_csv("policies.csv", show_col_types = FALSE) %>%
-  mutate(
-    vehicle_use = fct_collapse(
-      as.factor(vehicle_use),
-      Pleasure = c("Pleasure", "pleasure"),
-      Commute = c("Commute", "Com.mute")
-    )
-  )
-
-table(policies$vehicle_use)
-```
-:::
-
-### Exercise 3 – Long <-> wide passage (Data tidy, § pivot)
-
-The `q1_claims:q4_claims` columns represent the number of claims per quarter.
-
-1. Put them in *long* (`quarter`, `claims`).
-
-2. Then return to *wide*.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-library(tidyr)
-library(dplyr)
-
-pol_long <- policies %>%
-  pivot_longer(
-    cols = q1_claims:q4_claims,
-    names_to = "quarter",
-    values_to = "claims"
-  )
-
-pol_wide <- pol_long %>%
-  pivot_wider(names_from = quarter, values_from = claims)
-```
-:::
-
-### Exercise 4 – Controlled import of the main file
-
-Import `dataset_pratique.csv`, clean the column names and verify that the table contains 23 columns.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-library(readr)
-library(dplyr)
-library(janitor)
-
-base <- read_delim(
-  "dataset_pratique.csv",
-  delim = ";",
-  trim_ws = TRUE,
-  show_col_types = FALSE
-) %>%
-  clean_names()
-
-ncol(base)
-glimpse(base)
-```
-:::
-
-### Exercise 5 – Read a specific Excel sheet (Import spreadsheets, ex. 3)
-
-The workbook `quotes_2024.xlsx` has a sheet “Q3” where the labels start on the 2nd line.\
-Import it and check the types.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-library(readxl)
-library(dplyr)
-
-q3 <- read_excel(
-  "resources/quotes_2024.xlsx",
-  sheet = "Q3",
-  skip = 1 # we skip the first line
-)
-glimpse(q3)
-```
-:::
-
-### Exercise 6 – Parse numbers with locale (Data import, ex. 5)
-
-The `euro_premium` column contains `"1 234,56"` (decimal comma, space as thousands separator).\
-Parse it correctly as a `double`.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-library(readr)
-
-parse_number("1 234,56", locale = locale(decimal_mark = ",", grouping_mark = " "))
-```
-:::
-
-### Exercise 7 – Rectangling a JSON list (Lists, ex. 1-2)
-
-You have a list `lst <- jsonlite::read_json("coverage.json")`.
-
-1. Get `lst$coverage$collision$limit`.
-
-2. Transform `lst` into a rectangular tibble.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-library(jsonlite)
-library(tidyr)
-library(dplyr)
-library(tibble)
-
-lst <- read_json("coverage.json")
-limit <- lst$coverage$collision$limit
-
-tbl <- tibble(
-  coverage_type = names(lst$coverage),
-  details = lst$coverage
-) %>%
-  unnest_wider(details)
-
-limit
-tbl
-```
-:::
-
-### Exercise 8 – Express pipeline (Summary)
-
-In three lines:
-
-1. import `policies.csv`;
-
-2. clean names (`janitor::clean_names`);
-
-3. return the **5** largest `claim_amount` by `vehicle_type`.
-
-::: {.callout-note collapse="true"}
-### Reply
-
-``` r
-library(readr); library(dplyr); library(janitor)
-
-read_csv("policies.csv", show_col_types = FALSE) %>%
-  clean_names() %>%
-  group_by(vehicle_type) %>%
-  slice_max(claim_amount, n = 5, with_ties = FALSE)
-```
-:::
+The series ends with two standalone case studies: fictitious scholarship applications and fictitious municipal equipment records.

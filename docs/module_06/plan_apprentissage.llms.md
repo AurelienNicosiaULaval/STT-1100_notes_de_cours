@@ -17,9 +17,15 @@ STT-1100 Introduction à la science des données
 Avant l’activité, consultez les ressources suivantes.
 
 - [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world) : premier projet complet avec dépôt, branche, pull request et fusion.
+- [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) : comprendre le rôle des issues dans le suivi du travail.
+- [GitHub Docs - Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue) : écrire une issue claire, localisée et actionnable.
 - [GitHub Docs - About pull requests](https://docs.github.com/en/pull-requests) : revue de code, commentaires et résolution de conflits.
+- [GitHub Docs - About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) : comprendre pourquoi un conflit survient et comment le résoudre.
 - [Quarto Docs - Inline Code](https://quarto.org/docs/computations/inline-code.html) : insertion de code R directement dans le texte.
+- [Quarto Docs - Execution options](https://quarto.org/docs/computations/execution-options.html) : options qui influencent l’exécution et l’affichage des chunks.
 - [R for Data Science (2e éd.) - Chapitre 20 : Joins](https://r4ds.hadley.nz/joins.html) : combiner des données de différentes sources avec `dplyr`.
+
+Après les lectures, faites le [mini-test formatif](../module_06/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
 # Aventure
 
@@ -37,4 +43,11 @@ Le défi consiste à faire une revue croisée du rapport d’une autre équipe d
 
 [Exercices de consolidation](../module_06/exercices.llms.md)
 
-Les exercices permettent de pratiquer les jointures `inner_join()`, `left_join()`, `full_join()`, `semi_join()` et `anti_join()` sur plusieurs jeux de données.
+Les exercices sont indépendants de l’aventure et du défi. Ils utilisent de petits jeux de données fictifs pour consolider les compétences techniques:
+
+1.  choisir une clé de jointure;
+2.  utiliser `left_join()`, `inner_join()`, `semi_join()` et `anti_join()`;
+3.  repérer les lignes sans correspondance;
+4.  résumer une activité de collaboration;
+5.  vérifier la présence des fichiers attendus;
+6.  rédiger une issue constructive.

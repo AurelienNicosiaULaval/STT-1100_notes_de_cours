@@ -106,23 +106,35 @@ Lookup table between carrier codes and full carrier names.R package14 observatio
 
 ## nycflights23::weather
 
-Hourly weather conditions for New York airports in 2023.R package26,207 observations / 15 variablesView documentation [Module 06 ](packages.llms.md#gapminder)
+Hourly weather conditions for New York airports in 2023.R package26,207 observations / 15 variablesView documentation [Module 06 ](#module06-members)
 
-## gapminder::gapminder
+## fictitious_team_members.csv
 
-Country-year data commonly used in data science.R packageStructure to consultView documentation [Module 06 ](packages.llms.md#dplyr)
+Fictitious members from two project teams.Local file8 observations / 4 variablesView profile [Module 06 ](#module06-contributions)
 
-## dplyr::starwars
+## fictitious_git_contributions.csv
 
-Demonstration dataset provided by dplyr.R packageStructure to consultView documentation [Module 06 ](packages.llms.md#lahman)
+Fictitious Git contributions linked to members.Local file12 observations / 6 variablesView profile [Module 06 ](#module06-issues)
 
-## Lahman::People and Lahman::Batting
+## fictitious_review_issues.csv
 
-Baseball tables used to combine several sources.R packageStructure to consultView documentation [Module 06 ](packages.llms.md#weathercan)
+Fictitious issues produced during peer review.Local file7 observations / 7 variablesView profile [Module 06 ](#module06-report-files)
 
-## weathercan
+## fictitious_report_files.csv
 
-[Canadian weather data and station metadata.R packageStructure to consultView documentation](packages.llms.md#weathercan)
+Expected files in fake report repositories.Local file12 observations / 4 variablesView profile [Module 06 ](#module06-data-portal)
+
+## fictitious_data_portal.csv
+
+Fictitious datasets from an open-data portal.Local file6 observations / 5 variablesView profile [Module 06 ](#module06-producers)
+
+## fictitious_producers.csv
+
+Fictitious producers associated with a data portal.Local file4 observations / 4 variablesView profile [Module 06 ](#module06-review-comments)
+
+## fictitious_review_comments.csv
+
+[Fictitious review comments on datasets.Local file6 observations / 6 variablesView profile](#module06-review-comments)
 
 ### Module 07
 
@@ -130,7 +142,19 @@ Baseball tables used to combine several sources.R packageStructure to consultVie
 
 ## covid_module7_douteux.csv
 
-[Simulated CSV file deliberately containing quality, confidentiality and re-identification issues.Web120 observations / 25 variablesView documentation](https://github.com/STT-1100/aventure-7)
+Simulated CSV file deliberately containing quality, confidentiality and re-identification issues.Web120 observations / 25 variablesView documentation [Module 07 ](#module07-signalements)
+
+## fictitious_municipal_reports.csv
+
+Fictitious municipal reports aggregated by neighbourhood and type.Local file12 observations / 6 variablesView profile [Module 07 ](#module07-population)
+
+## fictitious_neighbourhood_population.csv
+
+Fictitious neighbourhood population used to normalize reports.Local file7 observations / 4 variablesView profile [Module 07 ](#module07-sondage)
+
+## fictitious_student_survey.csv
+
+[Fictitious student survey with useful variables and fields that should not be published.Local file16 observations / 9 variablesView profile](#module07-sondage)
 
 ### Module 08
 
@@ -138,7 +162,19 @@ Baseball tables used to combine several sources.R packageStructure to consultVie
 
 ## Données Québec search page
 
-[Public search page from the Données Québec portal used to practise HTML extraction.WebStructure to consultView documentation](https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1)
+Public search page from the Données Québec portal used to practise HTML extraction.WebStructure to consultView documentation [Module 08 ](#module08-catalogue)
+
+## fictitious_data_catalog.html
+
+Local HTML page containing a small fictitious open-data catalog.Local file5 observations / 4 variablesView profile [Module 08 ](#module08-irregular)
+
+## fictitious_irregular_catalog.html
+
+Local HTML page with deliberately missing fields.Local file4 observations / 4 variablesView profile [Module 08 ](#module08-evenements)
+
+## fictitious_public_events.html
+
+[Local HTML page describing fictitious public events.Local file4 observations / 4 variablesView profile](#module08-evenements)
 
 ### Module 09
 
@@ -401,6 +437,376 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | dest_tz_code | numeric | 0 | 5 | -8 |
 | dest_dst | character | 0 | 2 | A |
 | dest_tz | character | 0 | 7 | America/Los_Angeles |
+
+### fictitious_team_members.csv
+
+Fictitious members from two project teams.
+
+[Download fictitious_team_members.csv](module_06/data/fictitious_team_members.csv)
+
+| Information  | Value                                     |
+|:-------------|:------------------------------------------|
+| Module       | Module 06                                 |
+| Observations | 8                                         |
+| Variables    | 4                                         |
+| Course use   | Practice join keys and summaries by role. |
+| Source       | Fictitious data created for the course.   |
+| License      | Simulated course data.                    |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| member_id | character | 0 | 8 | M01 |
+| name | character | 0 | 8 | Amina |
+| role | character | 0 | 4 | Repository lead |
+| team | character | 0 | 2 | Team A |
+
+### fictitious_git_contributions.csv
+
+Fictitious Git contributions linked to members.
+
+[Download fictitious_git_contributions.csv](module_06/data/fictitious_git_contributions.csv)
+
+| Information  | Value                                             |
+|:-------------|:--------------------------------------------------|
+| Module       | Module 06                                         |
+| Observations | 12                                                |
+| Variables    | 6                                                 |
+| Course use   | Join commits to people and identify missing keys. |
+| Source       | Fictitious data created for the course.           |
+| License      | Simulated course data.                            |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| commit_id | character | 0 | 12 | C001 |
+| member_id | character | 0 | 9 | M01 |
+| commit_date | Date | 0 | 5 | 2026-02-10 |
+| contribution_type | character | 0 | 7 | structure |
+| file | character | 0 | 4 | README.md |
+| changed_lines | numeric | 0 | 12 | 32 |
+
+### fictitious_review_issues.csv
+
+Fictitious issues produced during peer review.
+
+[Download fictitious_review_issues.csv](module_06/data/fictitious_review_issues.csv)
+
+| Information  | Value                                          |
+|:-------------|:-----------------------------------------------|
+| Module       | Module 06                                      |
+| Observations | 7                                              |
+| Variables    | 7                                              |
+| Course use   | Summarize issues by team, status and priority. |
+| Source       | Fictitious data created for the course.        |
+| License      | Simulated course data.                         |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| issue_id | character | 0 | 7 | I001 |
+| reviewed_team | character | 0 | 3 | Team A |
+| author_id | character | 0 | 7 | M05 |
+| issue_date | Date | 0 | 2 | 2026-02-15 |
+| dimension | character | 0 | 6 | Reproducibility |
+| status | character | 0 | 2 | open |
+| priority | character | 0 | 3 | high |
+
+### fictitious_report_files.csv
+
+Expected files in fake report repositories.
+
+[Download fictitious_report_files.csv](module_06/data/fictitious_report_files.csv)
+
+| Information  | Value                                            |
+|:-------------|:-------------------------------------------------|
+| Module       | Module 06                                        |
+| Observations | 12                                               |
+| Variables    | 4                                                |
+| Course use   | Check deliverables and diagnose reproducibility. |
+| Source       | Fictitious data created for the course.          |
+| License      | Simulated course data.                           |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| team | character | 0 | 3 | Team A |
+| expected_file | character | 0 | 4 | README.md |
+| present | character | 0 | 2 | yes |
+| size_kb | numeric | 0 | 9 | 8 |
+
+### fictitious_data_portal.csv
+
+Fictitious datasets from an open-data portal.
+
+[Download fictitious_data_portal.csv](module_06/data/fictitious_data_portal.csv)
+
+| Information  | Value                                                        |
+|:-------------|:-------------------------------------------------------------|
+| Module       | Module 06                                                    |
+| Observations | 6                                                            |
+| Variables    | 5                                                            |
+| Course use   | Practice joins with producers, licenses and review comments. |
+| Source       | Fictitious data created for the course.                      |
+| License      | Simulated course data.                                       |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| dataset_id | character | 0 | 6 | D001 |
+| title | character | 0 | 6 | Bike stations |
+| producer_id | character | 0 | 5 | P01 |
+| license | character | 0 | 3 | CC-BY |
+| updated_at | Date | 0 | 6 | 2026-01-12 |
+
+### fictitious_producers.csv
+
+Fictitious producers associated with a data portal.
+
+[Download fictitious_producers.csv](module_06/data/fictitious_producers.csv)
+
+| Information  | Value                                   |
+|:-------------|:----------------------------------------|
+| Module       | Module 06                               |
+| Observations | 4                                       |
+| Variables    | 4                                       |
+| Course use   | Identify missing producers in a join.   |
+| Source       | Fictitious data created for the course. |
+| License      | Simulated course data.                  |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| producer_id | character | 0 | 4 | P01 |
+| organization | character | 0 | 4 | City of Quebec |
+| organization_type | character | 0 | 3 | Municipal |
+| public_contact | character | 0 | 2 | yes |
+
+### fictitious_review_comments.csv
+
+Fictitious review comments on datasets.
+
+[Download fictitious_review_comments.csv](module_06/data/fictitious_review_comments.csv)
+
+| Information  | Value                                         |
+|:-------------|:----------------------------------------------|
+| Module       | Module 06                                     |
+| Observations | 6                                             |
+| Variables    | 6                                             |
+| Course use   | Summarize problems by dimension and severity. |
+| Source       | Fictitious data created for the course.       |
+| License      | Simulated course data.                        |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| comment_id | character | 0 | 6 | R001 |
+| dataset_id | character | 0 | 6 | D001 |
+| author_id | character | 0 | 6 | M01 |
+| dimension | character | 0 | 5 | Documentation |
+| severity | character | 0 | 3 | low |
+| recommended_action | character | 0 | 6 | clarify variables |
+
+### fictitious_municipal_reports.csv
+
+Fictitious municipal reports aggregated by neighbourhood and type.
+
+[Download fictitious_municipal_reports.csv](module_07/data/fictitious_municipal_reports.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 07 |
+| Observations | 12 |
+| Variables | 6 |
+| Course use | Compare raw counts, population rates and small-count suppression rules. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| neighbourhood | character | 0 | 7 | Saint-Roch |
+| report_type | character | 0 | 5 | noise |
+| month | character | 0 | 1 | 2026-01 |
+| n_reports | numeric | 0 | 12 | 42 |
+| public_detail_level | character | 0 | 2 | neighbourhood |
+| public_comment | character | 0 | 11 | Increase observed near several construction sites. |
+
+### fictitious_neighbourhood_population.csv
+
+Fictitious neighbourhood population used to normalize reports.
+
+[Download fictitious_neighbourhood_population.csv](module_07/data/fictitious_neighbourhood_population.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 07 |
+| Observations | 7 |
+| Variables | 4 |
+| Course use | Compute rates per 10,000 people and discuss limits of comparisons. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| neighbourhood | character | 0 | 7 | Saint-Roch |
+| estimated_population | numeric | 0 | 7 | 18200 |
+| area_km2 | numeric | 0 | 7 | 3.1 |
+| vulnerability_index | numeric | 0 | 7 | 0.64 |
+
+### fictitious_student_survey.csv
+
+Fictitious student survey with useful variables and fields that should not be published.
+
+[Download fictitious_student_survey.csv](module_07/data/fictitious_student_survey.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 07 |
+| Observations | 16 |
+| Variables | 9 |
+| Course use | Practise anonymization, small-count checks and careful communication. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| respondent_id | character | 0 | 16 | E001 |
+| program | character | 0 | 4 | Statistics |
+| year_level | numeric | 0 | 3 | 1 |
+| age | numeric | 0 | 10 | 19 |
+| gender | character | 0 | 3 | F |
+| study_hours | numeric | 0 | 15 | 12 |
+| stress_score | numeric | 0 | 6 | 6 |
+| publication_consent | character | 0 | 2 | yes |
+| free_text_comment | character | 0 | 10 | Prefers not to be quoted. |
+
+### fictitious_data_catalog.html
+
+Local HTML page containing a small fictitious open-data catalog.
+
+[Download fictitious_data_catalog.html](module_08/data/fictitious_data_catalog.llms.md)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 08 |
+| Observations | 5 |
+| Variables | 4 |
+| Course use | Practise CSS selectors, field extraction and tibble construction. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| message | character | 0 | 1 | No preview is available for this file type. |
+
+### fictitious_irregular_catalog.html
+
+Local HTML page with deliberately missing fields.
+
+[Download fictitious_irregular_catalog.html](module_08/data/fictitious_irregular_catalog.llms.md)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 08 |
+| Observations | 4 |
+| Variables | 4 |
+| Course use | Test a robust extraction function and represent missing fields as NA. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| message | character | 0 | 1 | No preview is available for this file type. |
+
+### fictitious_public_events.html
+
+Local HTML page describing fictitious public events.
+
+[Download fictitious_public_events.html](module_08/data/fictitious_public_events.llms.md)
+
+| Information  | Value                                                        |
+|:-------------|:-------------------------------------------------------------|
+| Module       | Module 08                                                    |
+| Observations | 4                                                            |
+| Variables    | 4                                                            |
+| Course use   | Build an extraction function for a second type of HTML page. |
+| Source       | Fictitious data created for the course.                      |
+| License      | Simulated course data.                                       |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| message | character | 0 | 1 | No preview is available for this file type. |
 
 ### eleves_fictifs.csv
 

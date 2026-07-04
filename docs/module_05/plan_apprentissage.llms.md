@@ -18,7 +18,11 @@ Avant l’aventure, révisez les ressources suivantes :
 - [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html)
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html)
-- [Introduction to Modern Statistics - Exploratory data analysis](https://openintro-ims.netlify.app/explore-data)
+- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html)
+- [Introduction to Modern Statistics - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical)
+- [Introduction to Modern Statistics - Applications: Explore](https://openintro-ims.netlify.app/explore-applications)
+
+Après les lectures, faites le [mini-test formatif](../module_05/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
 # Aventure
 
@@ -36,4 +40,11 @@ Le défi consiste à remettre un rapport `rapport.qmd` et sa version `rapport.ht
 
 [Exercices du module 5](../module_05/exercices.llms.md)
 
-Les exercices reprennent les gestes nécessaires au défi : préparation des dates, valeurs manquantes, résumés par groupe, corrélations, visualisations et conclusion prudente.
+Les exercices sont indépendants de l’aventure et du défi. Ils utilisent de petits jeux de données fictifs pour consolider les compétences techniques:
+
+1.  préparer des dates et des moments de la journée;
+2.  vérifier les valeurs manquantes;
+3.  résumer des groupes en affichant les tailles d’échantillon;
+4.  calculer des corrélations simples;
+5.  visualiser des associations;
+6.  rédiger des conclusions descriptives et prudentes.

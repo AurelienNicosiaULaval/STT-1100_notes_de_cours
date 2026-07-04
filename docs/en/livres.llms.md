@@ -86,6 +86,105 @@ Official documentation for repositories, commits, branches, issues and GitHub wo
 
 [Open the documentation](https://docs.github.com/)
 
+rvest
+Docs
+
+Tidyverse
+
+### rvest Documentation
+
+Official documentation for reading an HTML page, selecting elements, extracting text and converting tables.
+
+[Open the documentation](https://rvest.tidyverse.org/)
+
+MDN
+robots
+
+MDN Web Docs
+
+### robots.txt
+
+Technical reference for understanding the role of a robots.txt file in the instructions given to crawlers.
+
+[Open the resource](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
+
+Google
+robots
+
+Google Search Central
+
+### Introduction to robots.txt
+
+Complementary guide for situating what robots.txt can and cannot control in web crawling.
+
+[Open the resource](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
+
+robotstxt
+R
+
+rOpenSci
+
+### robotstxt Documentation
+
+Documentation for the R package used to check whether a path is allowed by a site's robots.txt rules.
+
+[Open the documentation](https://docs.ropensci.org/robotstxt/)
+
+Data
+Viz
+
+Wilke
+
+### Fundamentals of Data Visualization
+
+Open reference for choosing suitable charts and identifying fragile visual choices.
+
+[Open the book](https://clauswilke.com/dataviz/)
+
+RSS
+Guide
+
+Royal Statistical Society
+
+### Best Practices for Data Visualisation
+
+Practical guide for making charts readable, honest and aligned with the statistical message.
+
+[Open the guide](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf)
+
+QC
+Data
+
+Gouvernement du Québec
+
+### Anonymisation
+
+Institutional guidance for discussing personal information, protection and data publication.
+
+[Open the resource](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation)
+
+CNIL
+Guide
+
+CNIL
+
+### Anonymisation of Personal Data
+
+Useful reference for distinguishing anonymization, pseudonymization and residual risks.
+
+[Open the resource](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
+
+FAIR
+Data
+
+Wilkinson et al.
+
+### FAIR Guiding Principles
+
+Reference article on the Findable, Accessible, Interoperable and Reusable principles.
+
+[Open the article](https://www.nature.com/articles/sdata201618)
+
 ## Module Readings
 
 This summary helps you quickly find the references called by the learning plans.
@@ -100,27 +199,27 @@ R for Data Science: visualization, transformation, exploration, spreadsheets and
 
 ### Module 03
 
-R for Data Science: strings and recoding guidance for categorical variables.
+R for Data Science: strings, factors, recoding and guidance for categorical variables.
 
 ### Module 04
 
-R for Data Science: import, tidy data, factors, spreadsheets and nested data.
+R for Data Science: import, tidy data, missing values, factors, spreadsheets, JSON and nested data.
 
 ### Module 05
 
-Exploratory data analysis, dates and tidy organization for studying relationships between variables.
+R for Data Science: EDA, dates, visualization and missing values; Introduction to Modern Statistics: numerical exploration and exploratory applications.
 
 ### Module 06
 
-[GitHub Docs](#github-docs), Quarto inline code and joins with R for Data Science.
+[GitHub Docs](#github-docs) for issues, pull requests and conflicts; Quarto for inline code and execution options; R for Data Science for joins.
 
 ### Module 07
 
-Communication with R for Data Science and reflection on the limits of visualization.
+[R for Data Science](#r4ds) for communication, [Wilke](#wilke-dataviz) and the [RSS guide](#rss-dataviz) for responsible visualization, then [Québec](#quebec-anonymisation), [CNIL](#cnil-anonymisation) and [FAIR](#fair-principles) for anonymization and data reuse.
 
 ### Module 08
 
-Web scraping with R for Data Science to understand HTML, CSS and extraction.
+[R for Data Science](#r4ds) for HTML, functions and iteration, [rvest](#rvest-docs) for extraction, then [MDN](#mdn-robots), [Google Search Central](#google-robots) and [robotstxt](#robotstxt-docs) for collection limits.
 
 ### Module 09
 

@@ -5884,7 +5884,7 @@ margin-bottom: .05rem;
 Module 02
 </p>
 <p class="module-banner-subtitle">
-Organiser un travail de données et produire des visualisations lisibles.
+Organiser un travail de données, importer un fichier Excel et produire des visualisations lisibles.
 </p>
 </div>
 <div class="module-quick-facts three-facts">
@@ -5892,7 +5892,7 @@ Organiser un travail de données et produire des visualisations lisibles.
 <p><span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span> <span><span class="fact-label">Fil principal</span><span class="fact-value">GitHub, importation et graphiques</span></span></p>
 </div>
 <div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Données</span><span class="fact-value">Manchots et tableaux Excel</span></span></p>
+<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Données</span><span class="fact-value">Manchots, Excel et cas fictifs</span></span></p>
 </div>
 <div class="module-fact">
 <p><span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span> <span><span class="fact-label">Défi</span><span class="fact-value">Journal de bord et rapport GitHub</span></span></p>
@@ -5904,18 +5904,18 @@ Organiser un travail de données et produire des visualisations lisibles.
   <div class="product-copy">
   <p class="showcase-kicker">Produit final</p>
   <h3 class="anchored">Un dépôt GitHub lisible avec un rapport d&#39;analyse</h3>
-  <p>Le produit attendu combine un projet rangé, un journal de bord, un rapport Quarto et des messages de versionnement qui racontent le travail.</p>
+  <p>Le produit attendu combine un projet rangé, un journal de bord, un rapport Quarto reproductible et des messages de versionnement qui racontent le travail.</p>
   </div>
   <div class="product-visual" aria-label="Aperçu visuel du produit fini">
   <div class="mini-product-board">
-      <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>dépôt GitHub</strong></div>
+  <div class="mini-product-toolbar"><span></span><span></span><span></span><strong>dépôt GitHub</strong></div>
   <div class="mini-product-bars">
-  <div class="mini-bar-row"><span>commit propre</span><span class="mini-bar" style="--bar-width: 68%;"></span></div><div class="mini-bar-row"><span>graphique annoté</span><span class="mini-bar" style="--bar-width: 84%;"></span></div><div class="mini-bar-row"><span>projet partagé</span><span class="mini-bar" style="--bar-width: 58%;"></span></div>
+  <div class="mini-bar-row"><span>import Excel</span><span class="mini-bar" style="--bar-width: 62%;"></span></div><div class="mini-bar-row"><span>graphique annoté</span><span class="mini-bar" style="--bar-width: 84%;"></span></div><div class="mini-bar-row"><span>rapport rendu</span><span class="mini-bar" style="--bar-width: 76%;"></span></div>
   </div>
   <div class="mini-product-checks">
   <span><i class="bi bi-check2"></i>commit propre</span>
   <span><i class="bi bi-check2"></i>graphique annoté</span>
-  <span><i class="bi bi-check2"></i>projet partagé</span>
+  <span><i class="bi bi-check2"></i>rapport rendu</span>
   </div>
   </div>
   </div>
@@ -5925,66 +5925,62 @@ Organiser un travail de données et produire des visualisations lisibles.
 <h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
 <p>À la fin de ce module, vous devriez être capable de</p>
 <ul>
-<li><p>Utiliser GitHub via RStudio pour cloner un dépôt et faire des commits et des push.</p></li>
-<li><p>Lire un fichier <code>xlsx</code> dans RStudio.</p></li>
-<li><p>Gérer et transformer des données numériques à l’aide de <code>dplyr</code> (<code>glimpse</code>, <code>select</code>, <code>mutate</code>, <code>filter</code>).</p></li>
-<li><p>Calculer et interpréter des statistiques descriptives pour des variables numériques (<code>moyenne</code>, <code>médiane</code>, <code>écart-type</code>, <code>variance</code>, <code>étendue</code>, <code>quantiles</code>), incluant pour des sous-groupes de données.</p></li>
-<li><p>Visualiser des variables numériques avec <code>ggplot2</code> (<code>histogramme</code>, <code>boîte à moustaches</code>, <code>nuage de points</code>) et interpréter les graphiques obtenus.</p></li>
-<li><p>Produire et interpréter des graphiques comparant la distribution de variables continues entre des groupes (<code>histogrammes superposés</code>, <code>diagrammes en boîtes juxtaposés</code>, <code>densités empilées (ridge plots)</code>, <code>visualisation en facettes</code>).</p></li>
-<li><p>Utiliser les options de <code>ggplot2</code> pour améliorer la qualité de graphiques (titres, légendes, axes lisibles, cohérence graphique, <code>facets</code>).</p></li>
+<li><p>Utiliser GitHub via RStudio pour cloner un dépôt, faire des commits et pousser vos changements.</p></li>
+<li><p>Lire un fichier <code>xlsx</code> dans RStudio et documenter l’importation dans un rapport Quarto.</p></li>
+<li><p>Gérer et transformer des données numériques avec <code>dplyr</code> (<code>glimpse</code>, <code>select</code>, <code>mutate</code>, <code>filter</code>, <code>group_by</code>, <code>summarise</code>).</p></li>
+<li><p>Calculer et interpréter des statistiques descriptives pour des variables numériques, incluant pour des sous-groupes de données.</p></li>
+<li><p>Visualiser des variables numériques avec <code>ggplot2</code> (<code>histogramme</code>, <code>boîte à moustaches</code>, <code>nuage de points</code>, <code>facettes</code>) et interpréter les graphiques obtenus.</p></li>
+<li><p>Améliorer la qualité de graphiques avec des titres, des légendes, des axes lisibles, des unités et une cohérence graphique.</p></li>
 </ul>
 </section>
 <section id="plan-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="plan-dapprentissage">Plan d’apprentissage</h2>
-<p>Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.</p>
+<p>Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et servent à consolider les gestes techniques.</p>
 <div class="path-grid interactive-path module-path learning-plan-path">
 <details class="path-card learning-plan-card" id="lectures-a-faire">
   <summary><span class="path-number">1</span>
   <span class="path-title">Lectures à faire</span>
-  <span class="path-preview">Préparer GitHub, projets RStudio et grammaire graphique.</span>
-  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-preview">Préparer GitHub, l&#39;importation Excel, dplyr et ggplot2.</span>
+  <span class="path-resource"><a class="summary-resource-link" href="mini_test.html">Mini-test</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
       <div class="step-detail plan-section-detail">
       <div class="plan-section-copy">
 <h3 id="lectures-initiales" class="anchored">Lectures initiales</h3>
-<p>Comme le module 2 est étalé sur 2 semaines, il y a un peu plus de lecture. Pour vous préparer à la première partie du module, vous pouvez survoler les lectures et y revenir de façon plus précise en préparation de la partie 2.</p>
-<p>On commence par quelques chapitres dans le fameux R4DS de Hadley Wickham et Garrett Grolemund:</p>
+<p>Le module 2 se fait sur deux semaines. La première semaine prépare le dépôt GitHub, l&#39;importation Excel et les premiers graphiques. La deuxième semaine consolide l&#39;exploration numérique et la comparaison de distributions.</p>
+<h4 id="semaine-1" class="anchored">Semaine 1</h4>
 <ul>
-<li><p><a href="https://r4ds.hadley.nz/data-visualize.html" target="_blank">Data visualization</a><br>
-<em>Découvrez comment utiliser <code>ggplot2</code> pour créer vos premiers graphiques. Cette introduction à la visualisation de données vous montre comment représenter efficacement des variables numériques et comment personnaliser vos graphiques.</em></p></li>
-<li><p><a href="https://r4ds.hadley.nz/data-transform.html" target="_blank">Data transformation</a><br>
-<em>Apprenez à transformer vos jeux de données avec <code>dplyr</code> : filtrer, trier, créer de nouvelles colonnes et résumer l’information. Ce chapitre pose les bases de la manipulation de données dans le style du tidyverse.</em></p></li>
-<li><p><a href="https://r4ds.hadley.nz/EDA.html" target="_blank">Exploratory Data Analysis (EDA)</a><br>
-<em>Explorez vos données pour en dégager des tendances, détecter des valeurs extrêmes et formuler des hypothèses. Ce chapitre présente des techniques simples mais puissantes d’analyse visuelle et statistique.</em></p></li>
-<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank">Tidy data (spreadsheets)</a><br>
-<em>Découvrez comment organiser vos données pour les rendre exploitables. Ce chapitre aborde le concept de “données propres” et vous montre comment reconnaître les structures de table communes dans des fichiers Excel ou CSV.</em></p></li>
+<li><p><a href="../autre_materiel/Aide mémoire Rstudio et Github.html">Aide-mémoire RStudio et GitHub</a><br>
+<em>Cloner un dépôt, faire des commits et pousser vers GitHub.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/data-visualize.html" target="_blank">R4DS - Data visualization</a><br>
+<em>Construire les premiers graphiques avec <code>ggplot2</code>.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/data-transform.html" target="_blank">R4DS - Data transformation</a><br>
+<em>Manipuler des tableaux avec les verbes <code>dplyr</code>.</em></p></li>
+<li><p><a href="https://readxl.tidyverse.org/" target="_blank">Documentation readxl</a><br>
+<em>Importer des fichiers Excel avec <code>read_excel()</code>.</em></p></li>
 </ul>
-<h5 id="guide-de-style-du-tidyverse" class="anchored">Guide de style du tidyverse</h5>
+<h4 id="semaine-2" class="anchored">Semaine 2</h4>
 <ul>
-<li><a href="https://style.tidyverse.org/ggplot2.html" target="_blank">Bonnes pratiques de visualisation avec ggplot2 (Tidyverse Style Guide)</a><br>
-</li>
+<li><p><a href="https://r4ds.hadley.nz/EDA.html" target="_blank">R4DS - Exploratory Data Analysis</a><br>
+<em>Explorer les distributions et repérer les valeurs extrêmes.</em></p></li>
+<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank">R4DS - Spreadsheets</a><br>
+<em>Comprendre les structures de données utiles dans les feuilles de calcul.</em></p></li>
+<li><p><a href="https://openintro-ims.netlify.app/explore-numerical" target="_blank">IMS - Exploring numerical data</a><br>
+<em>Interpréter des résumés numériques, histogrammes et boîtes à moustaches.</em></p></li>
+<li><p><a href="https://style.tidyverse.org/ggplot2.html" target="_blank">Tidyverse Style Guide - ggplot2</a><br>
+<em>Écrire du code graphique plus lisible.</em></p></li>
 </ul>
-<h5 id="un-nouveau-livre-de-référence" class="anchored">Un nouveau livre de référence</h5>
-<p>Dans ce module, nous introduisons un second ouvrage de référence : <strong>Introduction to Modern Statistics</strong> (<em>par Mine Çetinkaya-Rundel et Johanna Hardin</em>).</p>
-<blockquote class="blockquote">
-<p>Note : on abrègera souvent par <strong>IMS</strong></p>
-</blockquote>
-<p>Ce livre, également accessible gratuitement en ligne, propose une <strong>approche moderne et appliquée de la statistique</strong>. Il met l’accent sur la visualisation, l’intuition statistique et les bonnes pratiques en science des données. Il constitue un excellent complément à R4DS, notamment pour approfondir les aspects statistiques des analyses exploratoires.</p>
-<ul>
-<li><a href="https://openintro-ims.netlify.app/explore-numerical" target="_blank">Introduction to Modern Statistics – Chapitre 5 : Exploring numerical data</a><br>
-<em>Dans ce chapitre, vous apprendrez à explorer des données numériques à l’aide d’outils statistiques comme les résumés numériques, les histogrammes, et les boxplots. Il propose une vision claire et rigoureuse de la distribution des données.</em></li>
-</ul>
+<p><a href="mini_test.html">Faire le mini-test formatif des lectures</a>.</p>
       </div>
     </div>
   </details>
 <details class="path-card learning-plan-card" id="aventure">
   <summary><span class="path-number">2</span>
   <span class="path-title">Aventure</span>
-  <span class="path-preview">Construire des graphiques et suivre les versions du projet.</span>
+  <span class="path-preview">Explorer les données de manchots et suivre le travail dans GitHub.</span>
   <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
   <div class="step-detail">
-  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
+  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Importer les données, exécuter le code, produire les graphiques et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un journal de bord que vous pouvez expliquer.</p>
   <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
   </div>
   </details>
@@ -5997,12 +5993,12 @@ Organiser un travail de données et produire des visualisations lisibles.
       <div class="step-detail plan-section-detail">
       <div class="plan-section-copy">
 <h3 id="défi" class="anchored">Défi</h3>
-<p>Le défi du module 2 se fait dans le même dépôt GitHub que l’aventure. Vous devez remettre le journal de bord et un rapport d’analyse Quarto sur les données des manchots.</p>
+<p>Le défi du module 2 se fait dans le même dépôt GitHub que l&#39;aventure. Vous devez remettre le journal de bord et un rapport d&#39;analyse Quarto sur les données des manchots.</p>
 <p><a href="defi.html">Consulter le défi du module 2</a></p>
 <ul>
-<li><p>Partie 1 : compléter et rendre le journal de bord.</p></li>
-<li><p>Partie 2 : créer <code>rapport_analyse.qmd</code> et rendre <code>rapport_analyse.html</code>.</p></li>
-<li><p>GitHub : faire plusieurs commits clairs et pousser les changements.</p></li>
+<li><p>Partie 1: compléter et rendre le journal de bord.</p></li>
+<li><p>Partie 2: créer <code>rapport_analyse.qmd</code> et rendre <code>rapport_analyse.html</code>.</p></li>
+<li><p>GitHub: faire plusieurs commits clairs et pousser les changements.</p></li>
 </ul>
       </div>
     </div>
@@ -6010,13 +6006,13 @@ Organiser un travail de données et produire des visualisations lisibles.
 <details class="path-card learning-plan-card" id="exercices">
   <summary><span class="path-number">4</span>
   <span class="path-title">Exercices</span>
-  <span class="path-preview">Pratiquer graphiques, commits et interprétations courtes.</span>
+  <span class="path-preview">Pratiquer import, dplyr, graphiques, statistiques et cas de transfert.</span>
   <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
   <div class="step-detail">
   <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
-  <p><span class="step-label">Pourquoi</span> Les exercices sont gardés dans une page autonome parce qu&#39;ils prennent plus de place.</p>
-  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
+  <p><span class="step-label">Portée</span> Ces exercices ne sont pas une étape du défi. Ils pratiquent GitHub, l&#39;importation Excel, les graphiques et deux cas fictifs.</p>
+  <div class="ae-box"><p class="ae-title">Essayez chaque exercice avant d’ouvrir la solution, surtout quand le graphique semble presque fonctionner.</p></div>
   </div>
   </details>
 </div>
@@ -6029,6 +6025,8 @@ Organiser un travail de données et produire des visualisations lisibles.
   <div class="module-chip-list">
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-manchots-donnees"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>manchots_donnees.xlsx</span></a>
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-penguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>palmerpenguins::penguins</span></a>
+  <a class="module-resource-chip data-chip" href="data/arbres_urbains_fictif.csv"><span class="chip-icon" aria-hidden="true"><i class="bi bi-filetype-csv"></i></span><span>Arbres urbains fictifs</span></a>
+  <a class="module-resource-chip data-chip" href="data/velo_partage_fictif.csv"><span class="chip-icon" aria-hidden="true"><i class="bi bi-filetype-csv"></i></span><span>Vélo-partage fictif</span></a>
   </div>
   </div>
   <div class="module-resource-section">
@@ -6036,7 +6034,7 @@ Organiser un travail de données et produire des visualisations lisibles.
   <div class="module-chip-list">
   <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>UlavalSSD</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#readxl"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readxl</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#patchwork"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>patchwork</span></a>

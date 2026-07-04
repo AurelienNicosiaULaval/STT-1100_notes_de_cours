@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
-
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-}
-pre.numberSource { margin-left: 3em; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -5887,28 +5852,14 @@ margin-bottom: .05rem;
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
   <li><a href="#lectures-initiales" id="toc-lectures-initiales" class="nav-link" data-scroll-target="#lectures-initiales">Lectures initiales</a>
   <ul class="collapse">
-  <li><a href="#guide-de-style-du-tidyverse" id="toc-guide-de-style-du-tidyverse" class="nav-link" data-scroll-target="#guide-de-style-du-tidyverse">Guide de style du tidyverse</a></li>
-  <li><a href="#un-nouveau-livre-de-référence" id="toc-un-nouveau-livre-de-référence" class="nav-link" data-scroll-target="#un-nouveau-livre-de-référence">Un nouveau livre de référence</a></li>
+  <li><a href="#semaine-1---projet-importation-et-premiers-graphiques" id="toc-semaine-1---projet-importation-et-premiers-graphiques" class="nav-link" data-scroll-target="#semaine-1---projet-importation-et-premiers-graphiques">Semaine 1 - Projet, importation et premiers graphiques</a></li>
+  <li><a href="#semaine-2---exploration-et-comparaison-de-distributions" id="toc-semaine-2---exploration-et-comparaison-de-distributions" class="nav-link" data-scroll-target="#semaine-2---exploration-et-comparaison-de-distributions">Semaine 2 - Exploration et comparaison de distributions</a></li>
+  <li><a href="#lecture-optionnelle" id="toc-lecture-optionnelle" class="nav-link" data-scroll-target="#lecture-optionnelle">Lecture optionnelle</a></li>
+  <li><a href="#mini-test-de-lecture" id="toc-mini-test-de-lecture" class="nav-link" data-scroll-target="#mini-test-de-lecture">Mini-test de lecture</a></li>
   </ul></li>
   <li><a href="#aventure" id="toc-aventure" class="nav-link" data-scroll-target="#aventure">Aventure</a></li>
   <li><a href="#défi" id="toc-défi" class="nav-link" data-scroll-target="#défi">Défi</a></li>
-  <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a>
-  <ul class="collapse">
-  <li><a href="#jeu-de-données-mpg-description-des-variables" id="toc-jeu-de-données-mpg-description-des-variables" class="nav-link" data-scroll-target="#jeu-de-données-mpg-description-des-variables">Jeu de données <code>mpg</code> – Description des variables</a></li>
-  <li><a href="#exercice-1---premier-graphique-visualisation-rapide" id="toc-exercice-1---premier-graphique-visualisation-rapide" class="nav-link" data-scroll-target="#exercice-1---premier-graphique-visualisation-rapide">Exercice 1 - Premier graphique <em>(visualisation rapide)</em></a></li>
-  <li><a href="#exercice-2---ajout-de-couleur-et-thème-esthétique" id="toc-exercice-2---ajout-de-couleur-et-thème-esthétique" class="nav-link" data-scroll-target="#exercice-2---ajout-de-couleur-et-thème-esthétique">Exercice 2 - Ajout de couleur et thème <em>(esthétique)</em></a></li>
-  <li><a href="#exercice-3---filtrer-avec-dplyr-extraction-ciblée" id="toc-exercice-3---filtrer-avec-dplyr-extraction-ciblée" class="nav-link" data-scroll-target="#exercice-3---filtrer-avec-dplyr-extraction-ciblée">Exercice 3 - Filtrer avec <code>dplyr</code> <em>(extraction ciblée)</em></a></li>
-  <li><a href="#exercice-4---variable-dérivée-et-résumé-statistiques-descriptives" id="toc-exercice-4---variable-dérivée-et-résumé-statistiques-descriptives" class="nav-link" data-scroll-target="#exercice-4---variable-dérivée-et-résumé-statistiques-descriptives">Exercice 4 - Variable dérivée et résumé <em>(statistiques descriptives)</em></a></li>
-  <li><a href="#exercice-5---histogramme-et-densité-distribution" id="toc-exercice-5---histogramme-et-densité-distribution" class="nav-link" data-scroll-target="#exercice-5---histogramme-et-densité-distribution">Exercice 5 - Histogramme et densité <em>(distribution)</em></a></li>
-  <li><a href="#exercice-6---valeur-extrême-repérage-doutliers" id="toc-exercice-6---valeur-extrême-repérage-doutliers" class="nav-link" data-scroll-target="#exercice-6---valeur-extrême-repérage-doutliers">Exercice 6 - Valeur extrême <em>(repérage d’outliers)</em></a></li>
-  <li><a href="#exercice-7---bonnes-pratiques-1-style-tidyverse" id="toc-exercice-7---bonnes-pratiques-1-style-tidyverse" class="nav-link" data-scroll-target="#exercice-7---bonnes-pratiques-1-style-tidyverse">Exercice 7 - Bonnes pratiques #1 <em>(style tidyverse)</em></a></li>
-  <li><a href="#exercice-8---bonnes-pratiques-2-structure-de-script" id="toc-exercice-8---bonnes-pratiques-2-structure-de-script" class="nav-link" data-scroll-target="#exercice-8---bonnes-pratiques-2-structure-de-script">Exercice 8 - Bonnes pratiques #2 <em>(structure de script)</em></a></li>
-  <li><a href="#exercice-9---données-tidy-pivot_longer" id="toc-exercice-9---données-tidy-pivot_longer" class="nav-link" data-scroll-target="#exercice-9---données-tidy-pivot_longer">Exercice 9 - Données « tidy » <em>(pivot_longer)</em></a></li>
-  <li><a href="#exercice-10---sommaire-numérique-cinqnombre" id="toc-exercice-10---sommaire-numérique-cinqnombre" class="nav-link" data-scroll-target="#exercice-10---sommaire-numérique-cinqnombre">Exercice 10 - Sommaire numérique <em>(cinq‑nombre)</em></a></li>
-  <li><a href="#exercice-11---boxplot-par-catégorie-comparaison-de-groupes" id="toc-exercice-11---boxplot-par-catégorie-comparaison-de-groupes" class="nav-link" data-scroll-target="#exercice-11---boxplot-par-catégorie-comparaison-de-groupes">Exercice 11 - Boxplot par catégorie <em>(comparaison de groupes)</em></a></li>
-  <li><a href="#exercice-12---facettes-distribution-par-transmission" id="toc-exercice-12---facettes-distribution-par-transmission" class="nav-link" data-scroll-target="#exercice-12---facettes-distribution-par-transmission">Exercice 12 - Facettes <em>(distribution par transmission)</em></a></li>
-  <li><a href="#exercice-13---analyse-statistique-complète-inspiration-ims" id="toc-exercice-13---analyse-statistique-complète-inspiration-ims" class="nav-link" data-scroll-target="#exercice-13---analyse-statistique-complète-inspiration-ims">Exercice 13 - Analyse statistique complète <em>(inspiration IMS)</em></a></li>
-  </ul></li>
+  <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a></li>
   </ul>
 </nav>
     </div>
@@ -5939,536 +5890,70 @@ margin-bottom: .05rem;
 <h1>Objectifs du module</h1>
 <p>À la fin de ce module, vous devriez être capable de</p>
 <ul>
-<li><p>Utiliser GitHub via RStudio pour cloner un dépôt et faire des commits et des push.</p></li>
-<li><p>Lire un fichier <code>xlsx</code> dans RStudio.</p></li>
-<li><p>Gérer et transformer des données numériques à l’aide de <code>dplyr</code> (<code>glimpse</code>, <code>select</code>, <code>mutate</code>, <code>filter</code>).</p></li>
-<li><p>Calculer et interpréter des statistiques descriptives pour des variables numériques (<code>moyenne</code>, <code>médiane</code>, <code>écart-type</code>, <code>variance</code>, <code>étendue</code>, <code>quantiles</code>), incluant pour des sous-groupes de données.</p></li>
-<li><p>Visualiser des variables numériques avec <code>ggplot2</code> (<code>histogramme</code>, <code>boîte à moustaches</code>, <code>nuage de points</code>) et interpréter les graphiques obtenus.</p></li>
-<li><p>Produire et interpréter des graphiques comparant la distribution de variables continues entre des groupes (<code>histogrammes superposés</code>, <code>diagrammes en boîtes juxtaposés</code>, <code>densités empilées (ridge plots)</code>, <code>visualisation en facettes</code>).</p></li>
-<li><p>Utiliser les options de <code>ggplot2</code> pour améliorer la qualité de graphiques (titres, légendes, axes lisibles, cohérence graphique, <code>facets</code>).</p></li>
+<li>utiliser GitHub via RStudio pour cloner un dépôt, faire des commits et pousser vos changements;</li>
+<li>lire un fichier <code>xlsx</code> dans RStudio et documenter l’importation dans un rapport Quarto;</li>
+<li>gérer et transformer des données numériques avec <code>dplyr</code>, notamment <code>glimpse()</code>, <code>select()</code>, <code>mutate()</code>, <code>filter()</code>, <code>group_by()</code> et <code>summarise()</code>;</li>
+<li>calculer et interpréter des statistiques descriptives pour des variables numériques, incluant par sous-groupes;</li>
+<li>visualiser des variables numériques avec <code>ggplot2</code>, notamment avec des histogrammes, des boîtes à moustaches, des nuages de points et des facettes;</li>
+<li>améliorer la lisibilité d’un graphique avec des titres, des axes, des unités, des légendes et un thème cohérent;</li>
+<li>produire un court rapport d’analyse reproductible dans un dépôt GitHub.</li>
 </ul>
 </section>
 <section id="lectures-initiales" class="level1">
 <h1>Lectures initiales</h1>
-<p>Comme le module 2 est étalé sur 2 semaines, il y a un peu plus de lecture. Pour vous préparer à la première partie du module, vous pouvez survoler les lectures et y revenir de façon plus précise en préparation de la partie 2.</p>
-<p>On commence par quelques chapitres dans le fameux R4DS de Hadley Wickham et Garrett Grolemund:</p>
+<p>Le module 2 est étalé sur deux semaines. La première semaine installe le flux de travail GitHub, l’importation Excel et les premiers verbes <code>dplyr</code>. La deuxième semaine consolide l’analyse exploratoire, les statistiques descriptives et la visualisation de variables numériques.</p>
+<section id="semaine-1---projet-importation-et-premiers-graphiques" class="level2">
+<h2 class="anchored" data-anchor-id="semaine-1---projet-importation-et-premiers-graphiques">Semaine 1 - Projet, importation et premiers graphiques</h2>
 <ul>
-<li><p><a href="https://r4ds.hadley.nz/data-visualize.html" target="_blank">Data visualization</a><br>
-<em>Découvrez comment utiliser <code>ggplot2</code> pour créer vos premiers graphiques. Cette introduction à la visualisation de données vous montre comment représenter efficacement des variables numériques et comment personnaliser vos graphiques.</em></p></li>
-<li><p><a href="https://r4ds.hadley.nz/data-transform.html" target="_blank">Data transformation</a><br>
-<em>Apprenez à transformer vos jeux de données avec <code>dplyr</code> : filtrer, trier, créer de nouvelles colonnes et résumer l’information. Ce chapitre pose les bases de la manipulation de données dans le style du tidyverse.</em></p></li>
-<li><p><a href="https://r4ds.hadley.nz/EDA.html" target="_blank">Exploratory Data Analysis (EDA)</a><br>
-<em>Explorez vos données pour en dégager des tendances, détecter des valeurs extrêmes et formuler des hypothèses. Ce chapitre présente des techniques simples mais puissantes d’analyse visuelle et statistique.</em></p></li>
-<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank">Tidy data (spreadsheets)</a><br>
-<em>Découvrez comment organiser vos données pour les rendre exploitables. Ce chapitre aborde le concept de “données propres” et vous montre comment reconnaître les structures de table communes dans des fichiers Excel ou CSV.</em></p></li>
-</ul>
-<section id="guide-de-style-du-tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="guide-de-style-du-tidyverse">Guide de style du tidyverse</h3>
-<ul>
-<li><a href="https://style.tidyverse.org/ggplot2.html" target="_blank">Bonnes pratiques de visualisation avec ggplot2 (Tidyverse Style Guide)</a><br>
-</li>
+<li><p><a href="../autre_materiel/Aide mémoire Rstudio et Github.html">Aide-mémoire RStudio et GitHub</a> Cloner un dépôt, ouvrir un projet RStudio, comprendre commits et push, et reconnaître les problèmes d’authentification les plus fréquents.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/data-visualize.html" target="_blank">R for Data Science - Data visualization</a> Premiers repères pour construire des graphiques avec <code>ggplot2</code>.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/data-transform.html" target="_blank">R for Data Science - Data transformation</a> Introduction aux verbes <code>dplyr</code> qui reviennent dans l’aventure et dans le défi.</p></li>
+<li><p><a href="https://readxl.tidyverse.org/" target="_blank">readxl - Documentation officielle</a> Référence courte pour importer des fichiers Excel avec <code>read_excel()</code>.</p></li>
 </ul>
 </section>
-<section id="un-nouveau-livre-de-référence" class="level3">
-<h3 class="anchored" data-anchor-id="un-nouveau-livre-de-référence">Un nouveau livre de référence</h3>
-<p>Dans ce module, nous introduisons un second ouvrage de référence : <strong>Introduction to Modern Statistics</strong> (<em>par Mine Çetinkaya-Rundel et Johanna Hardin</em>).</p>
-<blockquote class="blockquote">
-<p>Note : on abrègera souvent par <strong>IMS</strong></p>
-</blockquote>
-<p>Ce livre, également accessible gratuitement en ligne, propose une <strong>approche moderne et appliquée de la statistique</strong>. Il met l’accent sur la visualisation, l’intuition statistique et les bonnes pratiques en science des données. Il constitue un excellent complément à R4DS, notamment pour approfondir les aspects statistiques des analyses exploratoires.</p>
+<section id="semaine-2---exploration-et-comparaison-de-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="semaine-2---exploration-et-comparaison-de-distributions">Semaine 2 - Exploration et comparaison de distributions</h2>
 <ul>
-<li><a href="https://openintro-ims.netlify.app/explore-numerical" target="_blank">Introduction to Modern Statistics – Chapitre 5 : Exploring numerical data</a><br>
-<em>Dans ce chapitre, vous apprendrez à explorer des données numériques à l’aide d’outils statistiques comme les résumés numériques, les histogrammes, et les boxplots. Il propose une vision claire et rigoureuse de la distribution des données.</em></li>
+<li><p><a href="https://r4ds.hadley.nz/EDA.html" target="_blank">R for Data Science - Exploratory Data Analysis</a> Explorer les distributions, repérer des valeurs extrêmes et formuler des hypothèses à partir des graphiques.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank">R for Data Science - Spreadsheets</a> Reconnaître les structures de tableaux qui facilitent l’analyse et éviter les pièges fréquents des feuilles de calcul.</p></li>
+<li><p><a href="https://openintro-ims.netlify.app/explore-numerical" target="_blank">Introduction to Modern Statistics - Exploring numerical data</a> Résumer et interpréter des variables numériques avec les outils de statistique descriptive.</p></li>
+<li><p><a href="https://style.tidyverse.org/ggplot2.html" target="_blank">Tidyverse Style Guide - ggplot2</a> Quelques repères pour écrire du code graphique lisible.</p></li>
 </ul>
+</section>
+<section id="lecture-optionnelle" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-optionnelle">Lecture optionnelle</h2>
+<ul>
+<li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989" target="_blank">Broman et Woo (2018) - Data Organization in Spreadsheets</a> Une référence utile pour comprendre pourquoi on conserve les données brutes intactes et pourquoi les corrections doivent être documentées dans le code.</li>
+</ul>
+</section>
+<section id="mini-test-de-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="mini-test-de-lecture">Mini-test de lecture</h2>
+<p>Après les lectures essentielles, complétez le <a href="../module_02/mini_test.html">mini-test formatif du module 2</a>. Il n’est pas noté, mais il vérifie les points qui reviennent dans l’aventure et dans le défi.</p>
 </section>
 </section>
 <section id="aventure" class="level1">
 <h1>Aventure</h1>
-<p><a href="../module_02/aventure.html">Aventure 2</a></p>
+<p>Ce module vous place dans le rôle d’un ou d’une scientifique de données qui aide la Dre Adélie Fortier à explorer des mesures physiques de manchots. Vous devez importer un fichier Excel, documenter votre démarche dans un journal de bord, produire des graphiques et garder une trace du travail dans GitHub.</p>
+<p><a href="../module_02/aventure.html">Aventure du module 2</a></p>
 </section>
 <section id="défi" class="level1">
 <h1>Défi</h1>
-<p>Le défi du module 2 se fait dans le même dépôt GitHub que l’aventure.</p>
-<p><a href="../module_02/defi.html">Défi du module 2</a></p>
-<p>Vous devrez remettre :</p>
+<p>Le défi du module 2 se fait dans le même dépôt GitHub que l’aventure. Vous devez remettre:</p>
 <ul>
-<li><p><code>journal de bord.qmd</code> ;</p></li>
-<li><p><code>journal de bord.html</code> ;</p></li>
-<li><p><code>rapport_analyse.qmd</code> ;</p></li>
-<li><p><code>rapport_analyse.html</code>.</p></li>
+<li><code>journal de bord.qmd</code>;</li>
+<li><code>journal de bord.html</code>;</li>
+<li><code>rapport_analyse.qmd</code>;</li>
+<li><code>rapport_analyse.html</code>.</li>
 </ul>
-<p>Le rapport d’analyse doit répondre à la demande de la Dre Adélie Fortier : comprendre comment les caractéristiques physiques des manchots varient selon les espèces.</p>
+<p>Le rapport d’analyse doit répondre à la demande de la Dre Adélie Fortier: comprendre comment les caractéristiques physiques des manchots varient selon les espèces.</p>
+<p><a href="../module_02/defi.html">Défi du module 2</a></p>
 </section>
 <section id="exercices-de-consolidation" class="level1">
 <h1>Exercices de consolidation</h1>
-<p>Pour mettre en pratique les apprentissages de ce module, vous trouverez ci‑dessous <strong>13 exercices</strong> couvrant l’ensemble des notions du module 2 (<code>ggplot2</code>, <code>dplyr</code>, EDA, données tidy, bonnes pratiques de style et statistique descriptive façon <em>IMS</em>).<br>
-Nous utiliserons principalement le jeu de données <strong><code>mpg</code></strong> provenant du package <code>ggplot2</code> (performances de voitures commercialisées aux États-Unis, 1999-2008). Lorsque d’autres jeux de données sont utilisés, ils sont précisés dans l’énoncé.</p>
-<section id="jeu-de-données-mpg-description-des-variables" class="level3">
-<h3 class="anchored" data-anchor-id="jeu-de-données-mpg-description-des-variables">Jeu de données <code>mpg</code> – Description des variables</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 52%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description (français)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>manufacturer</code></td>
-<td>facteur</td>
-<td>Constructeur automobile (ex. <em>toyota</em>, <em>audi</em>).</td>
-</tr>
-<tr class="even">
-<td><code>model</code></td>
-<td>facteur</td>
-<td>Modèle spécifique du véhicule (ex. <em>corolla</em>, <em>a4</em>).</td>
-</tr>
-<tr class="odd">
-<td><code>displ</code></td>
-<td>numérique</td>
-<td>Cylindrée du moteur en litres (L).</td>
-</tr>
-<tr class="even">
-<td><code>year</code></td>
-<td>entier</td>
-<td>Année du modèle (1999 ou 2008).</td>
-</tr>
-<tr class="odd">
-<td><code>cyl</code></td>
-<td>entier</td>
-<td>Nombre de cylindres du moteur.</td>
-</tr>
-<tr class="even">
-<td><code>trans</code></td>
-<td>facteur</td>
-<td>Type de transmission : automatique (<code>auto</code>) ou manuelle (<code>manual</code>) ; suffixe = nombre de rapports.</td>
-</tr>
-<tr class="odd">
-<td><code>drv</code></td>
-<td>facteur</td>
-<td>Type de transmission finale : traction avant (<code>f</code>), propulsion (<code>r</code>) ou intégrale (<code>4</code>).</td>
-</tr>
-<tr class="even">
-<td><code>cty</code></td>
-<td>numérique</td>
-<td>Consommation <strong>ville</strong> en miles par gallon (MPG).</td>
-</tr>
-<tr class="odd">
-<td><code>hwy</code></td>
-<td>numérique</td>
-<td>Consommation <strong>autoroute</strong> en miles par gallon (MPG).</td>
-</tr>
-<tr class="even">
-<td><code>fl</code></td>
-<td>facteur</td>
-<td>Type de carburant : <em>c</em> (CNG), <em>d</em> (diesel), <em>e</em> (éthanol), <em>p</em> (premium), <em>r</em> (régulier).</td>
-</tr>
-<tr class="odd">
-<td><code>class</code></td>
-<td>facteur</td>
-<td>Catégorie de véhicule : <em>compact</em>, <em>suv</em>, <em>minivan</em>, etc.</td>
-</tr>
-</tbody>
-</table>
-<blockquote class="blockquote">
-<p>Source : base <em>Fuel Economy</em> de l’EPA, incluse dans <strong>ggplot2</strong> et documentée avec <code>?mpg</code>.</p>
-</blockquote>
-<hr>
-</section>
-<section id="exercice-1---premier-graphique-visualisation-rapide" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1---premier-graphique-visualisation-rapide">Exercice 1 - Premier graphique <em>(visualisation rapide)</em></h2>
-<p><em>Contexte :</em> vous découvrez la relation entre cylindrée (<code>displ</code>) et consommation sur autoroute (<code>hwy</code>) dans <strong><code>mpg</code></strong>. Tracez un nuage de points.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Consommation autoroute vs cylindrée&quot;</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Cylindrée (L)&quot;</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;MPG autoroute&quot;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-2---ajout-de-couleur-et-thème-esthétique" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---ajout-de-couleur-et-thème-esthétique">Exercice 2 - Ajout de couleur et thème <em>(esthétique)</em></h2>
-<p><em>Contexte :</em> améliorer la lisibilité du graphique précédent en distinguant les points par <strong>catégorie de véhicule</strong> (<code>class</code>) et en appliquant un thème minimaliste.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> class)) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">&quot;Consommation selon la catégorie&quot;</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Catégorie&quot;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-3---filtrer-avec-dplyr-extraction-ciblée" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---filtrer-avec-dplyr-extraction-ciblée">Exercice 3 - Filtrer avec <code>dplyr</code> <em>(extraction ciblée)</em></h2>
-<p><em>Contexte :</em> la responsable marketing de <strong>Toyota</strong> souhaite connaître la dispersion de ses modèles. Sélectionnez uniquement les voitures <em>Toyota</em> et affichez <code>model</code>, <code>displ</code>, <code>hwy</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>toyota <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(manufacturer <span class="sc">==</span> <span class="st">&quot;toyota&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(model, displ, hwy)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>toyota</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-4---variable-dérivée-et-résumé-statistiques-descriptives" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---variable-dérivée-et-résumé-statistiques-descriptives">Exercice 4 - Variable dérivée et résumé <em>(statistiques descriptives)</em></h2>
-<p><em>Contexte :</em> on définit une mesure d’<strong>efficacité globale</strong> <code>efficiency = hwy / cty</code>. Calculez, par catégorie (<code>class</code>), la moyenne et l’écart‑type de cette nouvelle variable.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">efficiency =</span> hwy <span class="sc">/</span> cty) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">eff_mean =</span> <span class="fu">mean</span>(efficiency, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">eff_sd   =</span> <span class="fu">sd</span>(efficiency,  <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-5---histogramme-et-densité-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-5---histogramme-et-densité-distribution">Exercice 5 - Histogramme et densité <em>(distribution)</em></h2>
-<p><em>Contexte :</em> la répartition de la cylindrée vous intrigue. Tracez l’histogramme de <code>displ</code> (largeur de classe 0,5 L) et superposez la densité.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(displ)) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..count.. <span class="sc">*</span> <span class="fl">0.5</span>), <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Cylindrée (L)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-6---valeur-extrême-repérage-doutliers" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6---valeur-extrême-repérage-doutliers">Exercice 6 - Valeur extrême <em>(repérage d’outliers)</em></h2>
-<p><em>Contexte :</em> un magazine veut savoir quel modèle possède la <strong>meilleure consommation autoroute</strong>. Trouvez‑le et affichez <code>manufacturer</code>, <code>model</code>, <code>year</code>, <code>hwy</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(hwy <span class="sc">==</span> <span class="fu">max</span>(hwy)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(manufacturer, model, year, hwy)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-7---bonnes-pratiques-1-style-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7---bonnes-pratiques-1-style-tidyverse">Exercice 7 - Bonnes pratiques #1 <em>(style tidyverse)</em></h2>
-<p><em>Contexte :</em> vous recevez un script bâclé. Réécrivez‑le pour qu’il respecte le guide de style tidyverse.</p>
-<ul>
-<li><p>Tout d’abord, exécutez le code pour voir ce que cela donne. C’est l’ancienne façon de faire un graphique avec <code>base R</code>.</p></li>
-<li><p>Reproduisez le graphique avec <code>ggplot2</code> en respectant les bonnes pratiques de style.</p></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg<span class="sc">$</span>displ,mpg<span class="sc">$</span>hwy,<span class="at">col=</span><span class="fu">as.factor</span>(mpg<span class="sc">$</span>drv));<span class="fu">title</span>(<span class="st">&quot;plot&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(displ, hwy, <span class="at">colour =</span> drv)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">&quot;Consommation autoroute vs cylindrée&quot;</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x      =</span> <span class="st">&quot;Cylindrée (L)&quot;</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y      =</span> <span class="st">&quot;MPG autoroute&quot;</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Transmission&quot;</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-8---bonnes-pratiques-2-structure-de-script" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8---bonnes-pratiques-2-structure-de-script">Exercice 8 - Bonnes pratiques #2 <em>(structure de script)</em></h2>
-<p><em>Contexte :</em> créez un fichier <code>analyse_mpg.R</code> avec :</p>
-<ul>
-<li><p>un en‑tête clair (auteur, date) ;</p></li>
-<li><p>chargement de <code>tidyverse</code> ;</p></li>
-<li><p>un pipeline qui calcule la moyenne de <code>hwy</code> par <code>class</code> et l’enregistre dans <code>mean_hwy</code>.</p></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># analyse_mpg.R – A. Nicosia</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Date : 2025‑05‑20</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>mean_hwy <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_hwy =</span> <span class="fu">mean</span>(hwy, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-9---données-tidy-pivot_longer" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9---données-tidy-pivot_longer">Exercice 9 - Données « tidy » <em>(pivot_longer)</em></h2>
-<p><em>Contexte :</em> vous passez des ventes annuelles d’un format large à long pour faciliter les visualisations.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">brand =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sales_2023 =</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">95</span>),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sales_2024 =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">110</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sales_long <span class="ot">&lt;-</span> sales <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;sales_&quot;</span>),</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_prefix =</span> <span class="st">&quot;sales_&quot;</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;units&quot;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>sales_long</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-10---sommaire-numérique-cinqnombre" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-10---sommaire-numérique-cinqnombre">Exercice 10 - Sommaire numérique <em>(cinq‑nombre)</em></h2>
-<p><em>Contexte :</em> résumé statistique rapide du MPG en ville (<code>cty</code>).</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fivenum</span>(mpg<span class="sc">$</span>cty)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ou</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mpg<span class="sc">$</span>cty)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-11---boxplot-par-catégorie-comparaison-de-groupes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-11---boxplot-par-catégorie-comparaison-de-groupes">Exercice 11 - Boxplot par catégorie <em>(comparaison de groupes)</em></h2>
-<p><em>Contexte :</em> visualiser la distribution de <code>hwy</code> par <code>class</code>, classes triées par médiane décroissante.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(class, hwy, median, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), hwy)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Catégorie (triée)&quot;</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;MPG autoroute&quot;</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-12---facettes-distribution-par-transmission" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-12---facettes-distribution-par-transmission">Exercice 12 - Facettes <em>(distribution par transmission)</em></h2>
-<p><em>Contexte :</em> comparer les distributions de cylindrée (<code>displ</code>) selon le type de transmission (<code>drv</code>).</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(displ)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">&quot;darkseagreen&quot;</span>) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Cylindrée (L)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="exercice-13---analyse-statistique-complète-inspiration-ims" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-13---analyse-statistique-complète-inspiration-ims">Exercice 13 - Analyse statistique complète <em>(inspiration IMS)</em></h2>
-<p><em>Contexte :</em> comme dans le chapitre 5 d’<em>Introduction to Modern Statistics</em>, vous devez explorer en profondeur la variable <strong><code>hwy</code></strong>.</p>
-<ol type="1">
-<li>Calculez la moyenne, l’écart‑type, la médiane, l’IQR et le nombre d’observations.</li>
-<li>Créez un histogramme de <code>hwy</code> avec la densité superposée.</li>
-<li>Ajoutez un boxplot (horizontal) sous l’histogramme.</li>
-<li>Interprétez : distribution symétrique ou asymétrique ? valeurs extrêmes ? que peut‑on conclure sur l’efficacité énergétique des voitures ?</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Statistiques</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n        =</span> <span class="fu">n</span>(),</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_hwy =</span> <span class="fu">mean</span>(hwy),</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_hwy   =</span> <span class="fu">sd</span>(hwy),</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_hwy =</span> <span class="fu">median</span>(hwy),</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">IQR_hwy    =</span> <span class="fu">IQR</span>(hwy)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2‑3. Histogramme + boxplot</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)  <span class="co"># pour l’assemblage (facultatif)</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(hwy)) <span class="sc">+</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..count.. <span class="sc">*</span> <span class="dv">2</span>), <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribution de MPG autoroute&quot;</span>)</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>, <span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2  <span class="co"># patchwork empile les deux graphiques</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p><em>Interprétation :</em> la distribution est légèrement asymétrique à droite ; quelques véhicules très efficaces (&gt; 40 MPG) apparaissent comme valeurs extrêmes. Globalement, la médiane autour de 24 MPG indique qu’une majorité de voitures reste modérément efficace.</p>
-</div>
-</div>
-</div>
+<p>La série d’exercices est indépendante de l’aventure et du défi. Elle comprend des exercices sur GitHub, l’importation Excel, <code>dplyr</code>, <code>ggplot2</code>, les statistiques descriptives, le style de code et deux études de cas finales avec de petits fichiers fictifs.</p>
+<p><a href="../module_02/exercices.html">Exercices de consolidation du module 2</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Consolidation Exercises – STT-1100 Introduction to Data Science</title>
+<title>Consolidation exercises – STT-1100 Introduction to Data Science</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5833,16 +5833,39 @@ margin-bottom: .05rem;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link active" data-scroll-target="#consolidation-exercises">Consolidation exercises</a>
+  <li><a href="#consolidation-exercises" id="toc-consolidation-exercises" class="nav-link active" data-scroll-target="#consolidation-exercises">Consolidation exercises</a></li>
+  <li><a href="#block-a---import-and-inspect" id="toc-block-a---import-and-inspect" class="nav-link" data-scroll-target="#block-a---import-and-inspect">Block A - Import and inspect</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-controlled-reading-of-a-csv-data-import-readr" id="toc-exercise-1-controlled-reading-of-a-csv-data-import-readr" class="nav-link" data-scroll-target="#exercise-1-controlled-reading-of-a-csv-data-import-readr">Exercise 1 – Controlled reading of a CSV (Data import, § readr)</a></li>
-  <li><a href="#exercise-2-recoding-categorical-values" id="toc-exercise-2-recoding-categorical-values" class="nav-link" data-scroll-target="#exercise-2-recoding-categorical-values">Exercise 2 – Recoding categorical values</a></li>
-  <li><a href="#exercise-3-long---wide-passage-data-tidy-pivot" id="toc-exercise-3-long---wide-passage-data-tidy-pivot" class="nav-link" data-scroll-target="#exercise-3-long---wide-passage-data-tidy-pivot">Exercise 3 – Long &lt;-&gt; wide passage (Data tidy, § pivot)</a></li>
-  <li><a href="#exercise-4-controlled-import-of-the-main-file" id="toc-exercise-4-controlled-import-of-the-main-file" class="nav-link" data-scroll-target="#exercise-4-controlled-import-of-the-main-file">Exercise 4 – Controlled import of the main file</a></li>
-  <li><a href="#exercise-5-read-a-specific-excel-sheet-import-spreadsheets-ex.-3" id="toc-exercise-5-read-a-specific-excel-sheet-import-spreadsheets-ex.-3" class="nav-link" data-scroll-target="#exercise-5-read-a-specific-excel-sheet-import-spreadsheets-ex.-3">Exercise 5 – Read a specific Excel sheet (Import spreadsheets, ex. 3)</a></li>
-  <li><a href="#exercise-6-parse-numbers-with-locale-data-import-ex.-5" id="toc-exercise-6-parse-numbers-with-locale-data-import-ex.-5" class="nav-link" data-scroll-target="#exercise-6-parse-numbers-with-locale-data-import-ex.-5">Exercise 6 – Parse numbers with locale (Data import, ex. 5)</a></li>
-  <li><a href="#exercise-7-rectangling-a-json-list-lists-ex.-1-2" id="toc-exercise-7-rectangling-a-json-list-lists-ex.-1-2" class="nav-link" data-scroll-target="#exercise-7-rectangling-a-json-list-lists-ex.-1-2">Exercise 7 – Rectangling a JSON list (Lists, ex. 1-2)</a></li>
-  <li><a href="#exercise-8-express-pipeline-summary" id="toc-exercise-8-express-pipeline-summary" class="nav-link" data-scroll-target="#exercise-8-express-pipeline-summary">Exercise 8 – Express pipeline (Summary)</a></li>
+  <li><a href="#exercise-1---read-a-csv-with-controlled-types" id="toc-exercise-1---read-a-csv-with-controlled-types" class="nav-link" data-scroll-target="#exercise-1---read-a-csv-with-controlled-types">Exercise 1 - Read a CSV with controlled types</a></li>
+  <li><a href="#exercise-2---check-dimensions-and-names" id="toc-exercise-2---check-dimensions-and-names" class="nav-link" data-scroll-target="#exercise-2---check-dimensions-and-names">Exercise 2 - Check dimensions and names</a></li>
+  <li><a href="#exercise-3---clean-column-names" id="toc-exercise-3---clean-column-names" class="nav-link" data-scroll-target="#exercise-3---clean-column-names">Exercise 3 - Clean column names</a></li>
+  <li><a href="#exercise-4---move-from-wide-to-long-format" id="toc-exercise-4---move-from-wide-to-long-format" class="nav-link" data-scroll-target="#exercise-4---move-from-wide-to-long-format">Exercise 4 - Move from wide to long format</a></li>
+  </ul></li>
+  <li><a href="#block-b---clean-values-and-categories" id="toc-block-b---clean-values-and-categories" class="nav-link" data-scroll-target="#block-b---clean-values-and-categories">Block B - Clean values and categories</a>
+  <ul class="collapse">
+  <li><a href="#exercise-5---return-to-wide-format" id="toc-exercise-5---return-to-wide-format" class="nav-link" data-scroll-target="#exercise-5---return-to-wide-format">Exercise 5 - Return to wide format</a></li>
+  <li><a href="#exercise-6---recode-similar-categories" id="toc-exercise-6---recode-similar-categories" class="nav-link" data-scroll-target="#exercise-6---recode-similar-categories">Exercise 6 - Recode similar categories</a></li>
+  <li><a href="#exercise-7---parse-an-amount" id="toc-exercise-7---parse-an-amount" class="nav-link" data-scroll-target="#exercise-7---parse-an-amount">Exercise 7 - Parse an amount</a></li>
+  <li><a href="#exercise-8---detect-invalid-fsa-codes" id="toc-exercise-8---detect-invalid-fsa-codes" class="nav-link" data-scroll-target="#exercise-8---detect-invalid-fsa-codes">Exercise 8 - Detect invalid FSA codes</a></li>
+  </ul></li>
+  <li><a href="#block-c---document-cleaning" id="toc-block-c---document-cleaning" class="nav-link" data-scroll-target="#block-c---document-cleaning">Block C - Document cleaning</a>
+  <ul class="collapse">
+  <li><a href="#exercise-9---create-a-log-structure" id="toc-exercise-9---create-a-log-structure" class="nav-link" data-scroll-target="#exercise-9---create-a-log-structure">Exercise 9 - Create a log structure</a></li>
+  <li><a href="#exercise-10---add-a-correction-entry" id="toc-exercise-10---add-a-correction-entry" class="nav-link" data-scroll-target="#exercise-10---add-a-correction-entry">Exercise 10 - Add a correction entry</a></li>
+  <li><a href="#exercise-11---flag-without-correcting" id="toc-exercise-11---flag-without-correcting" class="nav-link" data-scroll-target="#exercise-11---flag-without-correcting">Exercise 11 - Flag without correcting</a></li>
+  <li><a href="#exercise-12---save-a-log-to-a-temporary-file" id="toc-exercise-12---save-a-log-to-a-temporary-file" class="nav-link" data-scroll-target="#exercise-12---save-a-log-to-a-temporary-file">Exercise 12 - Save a log to a temporary file</a></li>
+  </ul></li>
+  <li><a href="#block-d---excel-json-and-validation-rules" id="toc-block-d---excel-json-and-validation-rules" class="nav-link" data-scroll-target="#block-d---excel-json-and-validation-rules">Block D - Excel, JSON and validation rules</a>
+  <ul class="collapse">
+  <li><a href="#exercise-13---read-a-specific-excel-sheet" id="toc-exercise-13---read-a-specific-excel-sheet" class="nav-link" data-scroll-target="#exercise-13---read-a-specific-excel-sheet">Exercise 13 - Read a specific Excel sheet</a></li>
+  <li><a href="#exercise-14---read-a-simple-json-file" id="toc-exercise-14---read-a-simple-json-file" class="nav-link" data-scroll-target="#exercise-14---read-a-simple-json-file">Exercise 14 - Read a simple JSON file</a></li>
+  <li><a href="#exercise-15---rectangle-a-json-object" id="toc-exercise-15---rectangle-a-json-object" class="nav-link" data-scroll-target="#exercise-15---rectangle-a-json-object">Exercise 15 - Rectangle a JSON object</a></li>
+  <li><a href="#exercise-16---use-a-validation-rule" id="toc-exercise-16---use-a-validation-rule" class="nav-link" data-scroll-target="#exercise-16---use-a-validation-rule">Exercise 16 - Use a validation rule</a></li>
+  </ul></li>
+  <li><a href="#case-studies" id="toc-case-studies" class="nav-link" data-scroll-target="#case-studies">Case studies</a>
+  <ul class="collapse">
+  <li><a href="#case-study-1---fictitious-scholarship-applications" id="toc-case-study-1---fictitious-scholarship-applications" class="nav-link" data-scroll-target="#case-study-1---fictitious-scholarship-applications">Case study 1 - Fictitious scholarship applications</a></li>
+  <li><a href="#case-study-2---fictitious-municipal-equipment-records" id="toc-case-study-2---fictitious-municipal-equipment-records" class="nav-link" data-scroll-target="#case-study-2---fictitious-municipal-equipment-records">Case study 2 - Fictitious municipal equipment records</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5852,7 +5875,7 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Consolidation Exercises</h1>
+<h1 class="title">Consolidation exercises</h1>
 </div>
 
 
@@ -5871,260 +5894,940 @@ margin-bottom: .05rem;
 
 <section id="consolidation-exercises" class="level1">
 <h1>Consolidation exercises</h1>
-<section id="exercise-1-controlled-reading-of-a-csv-data-import-readr" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1-controlled-reading-of-a-csv-data-import-readr">Exercise 1 – Controlled reading of a CSV (Data import, § readr)</h3>
-<p>Import <code>policies.csv</code> as:</p>
-<ul>
-<li><p>forcing <code>policy_id</code> to <strong>character</strong>;</p></li>
-<li><p>leaving <code>premium_amount</code> as <strong>double</strong></p></li>
-</ul>
-<p>then display the structure of the object.</p>
+<p>These exercises are independent from the adventure and challenge. They consolidate the technical moves of module 4: importing files, checking types, cleaning values, manipulating factors, reading JSON and documenting cleaning decisions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="block-a---import-and-inspect" class="level1">
+<h1>Block A - Import and inspect</h1>
+<section id="exercise-1---read-a-csv-with-controlled-types" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1---read-a-csv-with-controlled-types">Exercise 1 - Read a CSV with controlled types</h2>
+<p>Import <code>policies.csv</code>, forcing <code>policy_id</code> to text and <code>premium_amount</code> to numeric.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Reply
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;policies.csv&quot;</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">policy_id =</span> <span class="fu">col_character</span>(),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">premium_amount =</span> <span class="fu">col_double</span>()</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(policies)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;policies.csv&quot;</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">policy_id =</span> <span class="fu">col_character</span>(),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">premium_amount =</span> <span class="fu">col_double</span>(),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="fu">col_guess</span>()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(policies)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 15
+Columns: 9
+$ policy_id      &lt;chr&gt; &quot;P001&quot;, &quot;P002&quot;, &quot;P003&quot;, &quot;P004&quot;, &quot;P005&quot;, &quot;P006&quot;, &quot;P007&quot;,…
+$ premium_amount &lt;dbl&gt; 750.50, 820.00, 640.25, 910.80, 500.75, 1020.00, 780.20…
+$ vehicle_type   &lt;chr&gt; &quot;car&quot;, &quot;truck&quot;, &quot;truck&quot;, &quot;car&quot;, &quot;car&quot;, &quot;truck&quot;, &quot;car&quot;, …
+$ vehicle_use    &lt;chr&gt; &quot;Pleasure&quot;, &quot;pleasure&quot;, &quot;Commute&quot;, &quot;Com.mute&quot;, &quot;Pleasur…
+$ q1_claims      &lt;dbl&gt; 2, 0, 1, 3, 0, 2, 1, 0, 3, 1, 0, 1, 2, 0, 1
+$ q2_claims      &lt;dbl&gt; 1, 1, 0, 2, 0, 1, 1, 0, 2, 1, 1, 0, 1, 0, 2
+$ q3_claims      &lt;dbl&gt; 0, 2, 1, 1, 0, 0, 2, 1, 0, 1, 0, 1, 2, 1, 0
+$ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2
+$ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 900,…</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-2-recoding-categorical-values" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2-recoding-categorical-values">Exercise 2 – Recoding categorical values</h3>
-<p>The variable <code>vehicle_use</code> contains the values <code>&quot;Pleasure&quot;</code>, <code>&quot;pleasure&quot;</code>, <code>&quot;Commute&quot;</code> and <code>&quot;Com.mute&quot;</code>.<br>
-Recode this variable to keep only the levels <code>&quot;Pleasure&quot;</code> and <code>&quot;Commute&quot;</code>.</p>
+<section id="exercise-2---check-dimensions-and-names" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2---check-dimensions-and-names">Exercise 2 - Check dimensions and names</h2>
+<p>Check the number of rows, number of columns and variable names in <code>policies</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Reply
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;policies.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">vehicle_use =</span> <span class="fu">fct_collapse</span>(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.factor</span>(vehicle_use),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">Pleasure =</span> <span class="fu">c</span>(<span class="st">&quot;Pleasure&quot;</span>, <span class="st">&quot;pleasure&quot;</span>),</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">Commute =</span> <span class="fu">c</span>(<span class="st">&quot;Commute&quot;</span>, <span class="st">&quot;Com.mute&quot;</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(policies<span class="sc">$</span>vehicle_use)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">rows =</span> <span class="fu">nrow</span>(policies),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">columns =</span> <span class="fu">ncol</span>(policies)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+   rows columns
+  &lt;int&gt;   &lt;int&gt;
+1    15       9</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(policies)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;policy_id&quot;      &quot;premium_amount&quot; &quot;vehicle_type&quot;   &quot;vehicle_use&quot;
+[5] &quot;q1_claims&quot;      &quot;q2_claims&quot;      &quot;q3_claims&quot;      &quot;q4_claims&quot;
+[9] &quot;claim_amount&quot;  </code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-3-long---wide-passage-data-tidy-pivot" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3-long---wide-passage-data-tidy-pivot">Exercise 3 – Long &lt;-&gt; wide passage (Data tidy, § pivot)</h3>
-<p>The <code>q1_claims:q4_claims</code> columns represent the number of claims per quarter.</p>
-<ol type="1">
-<li><p>Put them in <em>long</em> (<code>quarter</code>, <code>claims</code>).</p></li>
-<li><p>Then return to <em>wide</em>.</p></li>
-</ol>
+<section id="exercise-3---clean-column-names" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3---clean-column-names">Exercise 3 - Clean column names</h2>
+<p>Create a small table with inconvenient column names, then clean them with <code>clean_names()</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Reply
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pol_long <span class="ot">&lt;-</span> policies <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> q1_claims<span class="sc">:</span>q4_claims,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;quarter&quot;</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;claims&quot;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>pol_wide <span class="ot">&lt;-</span> pol_long <span class="sc">%&gt;%</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> quarter, <span class="at">values_from =</span> claims)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>raw_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Program Name&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Statistics&quot;</span>, <span class="st">&quot;Computer Science&quot;</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Requested Amount ($)&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2500</span>, <span class="dv">1800</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>clean_table <span class="ot">&lt;-</span> raw_table <span class="sc">|&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(clean_table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;program_name&quot;     &quot;requested_amount&quot;</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-4-controlled-import-of-the-main-file" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4-controlled-import-of-the-main-file">Exercise 4 – Controlled import of the main file</h3>
-<p>Import <code>dataset_pratique.csv</code>, clean the column names and verify that the table contains 23 columns.</p>
+<section id="exercise-4---move-from-wide-to-long-format" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4---move-from-wide-to-long-format">Exercise 4 - Move from wide to long format</h2>
+<p>In <code>policies</code>, columns <code>q1_claims</code> to <code>q4_claims</code> represent quarterly claims. Transform them into two columns: <code>quarter</code> and <code>claims</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Reply
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dataset_pratique.csv&quot;</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(base)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(base)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>policies_long <span class="ot">&lt;-</span> policies <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> q1_claims<span class="sc">:</span>q4_claims,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;quarter&quot;</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;claims&quot;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>policies_long <span class="sc">|&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(policy_id, quarter, claims) <span class="sc">|&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+  policy_id quarter   claims
+  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;
+1 P001      q1_claims      2
+2 P001      q2_claims      1
+3 P001      q3_claims      0
+4 P001      q4_claims      1
+5 P002      q1_claims      0
+6 P002      q2_claims      1
+7 P002      q3_claims      2
+8 P002      q4_claims      0</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-5-read-a-specific-excel-sheet-import-spreadsheets-ex.-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5-read-a-specific-excel-sheet-import-spreadsheets-ex.-3">Exercise 5 – Read a specific Excel sheet (Import spreadsheets, ex. 3)</h3>
-<p>The workbook <code>quotes_2024.xlsx</code> has a sheet “Q3” where the labels start on the 2nd line.<br>
-Import it and check the types.</p>
+</section>
+<section id="block-b---clean-values-and-categories" class="level1">
+<h1>Block B - Clean values and categories</h1>
+<section id="exercise-5---return-to-wide-format" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5---return-to-wide-format">Exercise 5 - Return to wide format</h2>
+<p>Starting from <code>policies_long</code>, return to wide format.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Reply
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>q3 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;resources/quotes_2024.xlsx&quot;</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">sheet =</span> <span class="st">&quot;Q3&quot;</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">skip =</span> <span class="dv">1</span> <span class="co"># we skip the first line</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(q3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>policies_wide <span class="ot">&lt;-</span> policies_long <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> quarter,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> claims</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(policies_wide)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 15
+Columns: 9
+$ policy_id      &lt;chr&gt; &quot;P001&quot;, &quot;P002&quot;, &quot;P003&quot;, &quot;P004&quot;, &quot;P005&quot;, &quot;P006&quot;, &quot;P007&quot;,…
+$ premium_amount &lt;dbl&gt; 750.50, 820.00, 640.25, 910.80, 500.75, 1020.00, 780.20…
+$ vehicle_type   &lt;chr&gt; &quot;car&quot;, &quot;truck&quot;, &quot;truck&quot;, &quot;car&quot;, &quot;car&quot;, &quot;truck&quot;, &quot;car&quot;, …
+$ vehicle_use    &lt;chr&gt; &quot;Pleasure&quot;, &quot;pleasure&quot;, &quot;Commute&quot;, &quot;Com.mute&quot;, &quot;Pleasur…
+$ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 900,…
+$ q1_claims      &lt;dbl&gt; 2, 0, 1, 3, 0, 2, 1, 0, 3, 1, 0, 1, 2, 0, 1
+$ q2_claims      &lt;dbl&gt; 1, 1, 0, 2, 0, 1, 1, 0, 2, 1, 1, 0, 1, 0, 2
+$ q3_claims      &lt;dbl&gt; 0, 2, 1, 1, 0, 0, 2, 1, 0, 1, 0, 1, 2, 1, 0
+$ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-6-parse-numbers-with-locale-data-import-ex.-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-6-parse-numbers-with-locale-data-import-ex.-5">Exercise 6 – Parse numbers with locale (Data import, ex. 5)</h3>
-<p>The <code>euro_premium</code> column contains <code>&quot;1 234,56&quot;</code> (decimal comma, space as thousands separator).<br>
-Parse it correctly as a <code>double</code>.</p>
+<section id="exercise-6---recode-similar-categories" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6---recode-similar-categories">Exercise 6 - Recode similar categories</h2>
+<p>The <code>vehicle_use</code> variable contains variants such as <code>&quot;Pleasure&quot;</code>, <code>&quot;pleasure&quot;</code> and <code>&quot;Com.mute&quot;</code>. Clean it to keep only <code>&quot;Pleasure&quot;</code> and <code>&quot;Commute&quot;</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Reply
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_number</span>(<span class="st">&quot;1 234,56&quot;</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>, <span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>policies_use_clean <span class="ot">&lt;-</span> policies <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">vehicle_use =</span> <span class="fu">str_squish</span>(vehicle_use),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">vehicle_use =</span> <span class="fu">fct_collapse</span>(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as_factor</span>(vehicle_use),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">Pleasure =</span> <span class="fu">c</span>(<span class="st">&quot;Pleasure&quot;</span>, <span class="st">&quot;pleasure&quot;</span>),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">Commute =</span> <span class="fu">c</span>(<span class="st">&quot;Commute&quot;</span>, <span class="st">&quot;Com.mute&quot;</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>policies_use_clean <span class="sc">|&gt;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(vehicle_use)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  vehicle_use     n
+  &lt;fct&gt;       &lt;int&gt;
+1 Pleasure        7
+2 Commute         8</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-7-rectangling-a-json-list-lists-ex.-1-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-7-rectangling-a-json-list-lists-ex.-1-2">Exercise 7 – Rectangling a JSON list (Lists, ex. 1-2)</h3>
-<p>You have a list <code>lst &lt;- jsonlite::read_json(&quot;coverage.json&quot;)</code>.</p>
-<ol type="1">
-<li><p>Get <code>lst$coverage$collision$limit</code>.</p></li>
-<li><p>Transform <code>lst</code> into a rectangular tibble.</p></li>
-</ol>
+<section id="exercise-7---parse-an-amount" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7---parse-an-amount">Exercise 7 - Parse an amount</h2>
+<p>Transform the following text amounts into numbers.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>amounts <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">amount =</span> <span class="fu">c</span>(<span class="st">&quot;1 234.56&quot;</span>, <span class="st">&quot;950.00&quot;</span>, <span class="st">&quot;-999&quot;</span>, <span class="st">&quot;2 500.25&quot;</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Reply
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>lst <span class="ot">&lt;-</span> <span class="fu">read_json</span>(<span class="st">&quot;coverage.json&quot;</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>limit <span class="ot">&lt;-</span> lst<span class="sc">$</span>coverage<span class="sc">$</span>collision<span class="sc">$</span>limit</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">coverage_type =</span> <span class="fu">names</span>(lst<span class="sc">$</span>coverage),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">details =</span> lst<span class="sc">$</span>coverage</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_wider</span>(details)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>limit</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>tbl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>amounts <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">amount_num =</span> <span class="fu">parse_number</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      amount,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;.&quot;</span>, <span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">amount_num =</span> <span class="fu">na_if</span>(amount_num, <span class="sc">-</span><span class="dv">999</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  amount   amount_num
+  &lt;chr&gt;         &lt;dbl&gt;
+1 1 234.56      1235.
+2 950.00         950
+3 -999            NA
+4 2 500.25      2500.</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-8-express-pipeline-summary" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-8-express-pipeline-summary">Exercise 8 – Express pipeline (Summary)</h3>
-<p>In three lines:</p>
-<ol type="1">
-<li><p>import <code>policies.csv</code>;</p></li>
-<li><p>clean names (<code>janitor::clean_names</code>);</p></li>
-<li><p>return the <strong>5</strong> largest <code>claim_amount</code> by <code>vehicle_type</code>.</p></li>
-</ol>
+<section id="exercise-8---detect-invalid-fsa-codes" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8---detect-invalid-fsa-codes">Exercise 8 - Detect invalid FSA codes</h2>
+<p>An FSA code should contain three characters. In the following table, identify invalid rows.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fsa_codes <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fsa_code =</span> <span class="fu">c</span>(<span class="st">&quot;G1V&quot;</span>, <span class="st">&quot;H2X&quot;</span>, <span class="st">&quot;G1V1234&quot;</span>, <span class="cn">NA</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Reply
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr); <span class="fu">library</span>(dplyr); <span class="fu">library</span>(janitor)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;policies.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vehicle_type) <span class="sc">%&gt;%</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(claim_amount, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fsa_codes <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fsa_invalid =</span> <span class="fu">is.na</span>(fsa_code) <span class="sc">|</span> <span class="fu">nchar</span>(fsa_code) <span class="sc">!=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fsa_invalid)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  id    fsa_code fsa_invalid
+  &lt;chr&gt; &lt;chr&gt;    &lt;lgl&gt;
+1 C     G1V1234  TRUE
+2 D     &lt;NA&gt;     TRUE       </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="block-c---document-cleaning" class="level1">
+<h1>Block C - Document cleaning</h1>
+<section id="exercise-9---create-a-log-structure" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9---create-a-log-structure">Exercise 9 - Create a log structure</h2>
+<p>Create a list <code>cleaning_log</code> with categories <code>VM</code>, <code>VA</code>, <code>FT</code>, <code>RC</code> and <code>TY</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>cleaning_log <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">VM =</span> <span class="fu">list</span>(),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">VA =</span> <span class="fu">list</span>(),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">FT =</span> <span class="fu">list</span>(),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">RC =</span> <span class="fu">list</span>(),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">TY =</span> <span class="fu">list</span>()</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(cleaning_log)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 5
+ $ VM: list()
+ $ VA: list()
+ $ FT: list()
+ $ RC: list()
+ $ TY: list()</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-10---add-a-correction-entry" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10---add-a-correction-entry">Exercise 10 - Add a correction entry</h2>
+<p>Add an entry indicating that <code>-999</code> was replaced by <code>NA</code> in an amount variable.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>cleaning_log<span class="sc">$</span>VM <span class="ot">&lt;-</span> <span class="fu">append</span>(cleaning_log<span class="sc">$</span>VM, <span class="fu">list</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;exercise-7&quot;</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;amount&quot;</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Missing value coded as -999&quot;</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Replace with NA&quot;</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;The value -999 is not a real amount&quot;</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>cleaning_log<span class="sc">$</span>VM</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[[1]]$id
+[1] &quot;exercise-7&quot;
+
+[[1]]$variables
+[1] &quot;amount&quot;
+
+[[1]]$probleme
+[1] &quot;Missing value coded as -999&quot;
+
+[[1]]$action
+[1] &quot;Replace with NA&quot;
+
+[[1]]$justification
+[1] &quot;The value -999 is not a real amount&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-11---flag-without-correcting" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-11---flag-without-correcting">Exercise 11 - Flag without correcting</h2>
+<p>Add an entry indicating that an invalid FSA code was flagged, but not corrected automatically.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>cleaning_log<span class="sc">$</span>FT <span class="ot">&lt;-</span> <span class="fu">append</span>(cleaning_log<span class="sc">$</span>FT, <span class="fu">list</span>(</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;C&quot;</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;fsa_code&quot;</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Invalid FSA code length&quot;</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Flag without automatic correction&quot;</span>,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;The correct code cannot be inferred defensibly&quot;</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>cleaning_log<span class="sc">$</span>FT</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[[1]]$id
+[1] &quot;C&quot;
+
+[[1]]$variables
+[1] &quot;fsa_code&quot;
+
+[[1]]$probleme
+[1] &quot;Invalid FSA code length&quot;
+
+[[1]]$action
+[1] &quot;Flag without automatic correction&quot;
+
+[[1]]$justification
+[1] &quot;The correct code cannot be inferred defensibly&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-12---save-a-log-to-a-temporary-file" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-12---save-a-log-to-a-temporary-file">Exercise 12 - Save a log to a temporary file</h2>
+<p>Save <code>cleaning_log</code> to a temporary file, then check that the file exists.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>temp_path <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.Rdata&quot;</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(cleaning_log, <span class="at">file =</span> temp_path)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">file.exists</span>(temp_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="block-d---excel-json-and-validation-rules" class="level1">
+<h1>Block D - Excel, JSON and validation rules</h1>
+<section id="exercise-13---read-a-specific-excel-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-13---read-a-specific-excel-sheet">Exercise 13 - Read a specific Excel sheet</h2>
+<p>The file <code>resources/quotes_2024.xlsx</code> contains a sheet named <code>Q3</code>. Import it while skipping the first row.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>quotes_q3 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;resources/quotes_2024.xlsx&quot;</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sheet =</span> <span class="st">&quot;Q3&quot;</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">skip =</span> <span class="dv">1</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(quotes_q3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 4
+Columns: 3
+$ policy_id    &lt;chr&gt; &quot;P005&quot;, &quot;P008&quot;, &quot;P012&quot;, &quot;P015&quot;
+$ quote_date   &lt;chr&gt; &quot;2024-04-15&quot;, &quot;2024-05-03&quot;, &quot;2024-06-20&quot;, &quot;2024-07-01&quot;
+$ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-14---read-a-simple-json-file" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-14---read-a-simple-json-file">Exercise 14 - Read a simple JSON file</h2>
+<p>Read <code>coverage.json</code>, then retrieve the collision coverage limit.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">&lt;-</span> <span class="fu">read_json</span>(<span class="st">&quot;coverage.json&quot;</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>coverage<span class="sc">$</span>coverage<span class="sc">$</span>collision<span class="sc">$</span>limit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10000</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-15---rectangle-a-json-object" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-15---rectangle-a-json-object">Exercise 15 - Rectangle a JSON object</h2>
+<p>Transform the <code>coverage</code> section of the JSON file into a table.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>coverage_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">coverage_type =</span> <span class="fu">names</span>(coverage<span class="sc">$</span>coverage),</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">details =</span> coverage<span class="sc">$</span>coverage</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_wider</span>(details)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>coverage_tbl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  coverage_type  limit deductible
+  &lt;chr&gt;          &lt;int&gt;      &lt;int&gt;
+1 collision      10000        500
+2 liability     100000         NA</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-16---use-a-validation-rule" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-16---use-a-validation-rule">Exercise 16 - Use a validation rule</h2>
+<p>The file <code>data/fictitious_equipment_rules.json</code> gives plausible installation years. Read this file and display the accepted bounds.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">&quot;data/fictitious_equipment_rules.json&quot;</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">year_min =</span> rules<span class="sc">$</span>installation_year<span class="sc">$</span>min,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">year_max =</span> rules<span class="sc">$</span>installation_year<span class="sc">$</span>max</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  year_min year_max
+     &lt;int&gt;    &lt;int&gt;
+1     1990     2026</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="case-studies" class="level1">
+<h1>Case studies</h1>
+<section id="case-study-1---fictitious-scholarship-applications" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-1---fictitious-scholarship-applications">Case study 1 - Fictitious scholarship applications</h2>
+<p>The file <code>data/fictitious_scholarship_applications.csv</code> contains fictitious student scholarship applications. It does not represent a real system.</p>
+<p>Complete the following tasks:</p>
+<ol type="1">
+<li>import the file;</li>
+<li>clean column names;</li>
+<li>transform <code>requested_amount</code> into a number;</li>
+<li>replace <code>annual_income = -999</code> with <code>NA</code>;</li>
+<li>standardize program names;</li>
+<li>identify invalid FSA codes;</li>
+<li>create at least two cleaning-log entries.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>scholarships <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/fictitious_scholarship_applications.csv&quot;</span>,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">requested_amount_num =</span> <span class="fu">parse_number</span>(</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>      requested_amount,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;.&quot;</span>, <span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">annual_income =</span> <span class="fu">na_if</span>(annual_income, <span class="sc">-</span><span class="dv">999</span>),</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">program_clean =</span> <span class="fu">str_to_lower</span>(<span class="fu">str_squish</span>(program)),</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">program_clean =</span> <span class="fu">case_when</span>(</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(program_clean, <span class="st">&quot;data|sci&quot;</span>) <span class="sc">~</span> <span class="st">&quot;data science&quot;</span>,</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(program_clean, <span class="st">&quot;math&quot;</span>) <span class="sc">~</span> <span class="st">&quot;mathematics&quot;</span>,</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> program_clean</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">status_clean =</span> <span class="fu">str_to_lower</span>(<span class="fu">str_squish</span>(status)),</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">fsa_invalid =</span> <span class="fu">is.na</span>(fsa_code) <span class="sc">|</span> <span class="fu">nchar</span>(fsa_code) <span class="sc">!=</span> <span class="dv">3</span></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>scholarships <span class="sc">|&gt;</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(program_clean, status_clean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+  program_clean status_clean     n
+  &lt;chr&gt;         &lt;chr&gt;        &lt;int&gt;
+1 data science  complete         5
+2 data science  incomplete       2
+3 data science  pending          1
+4 mathematics   complete         3
+5 mathematics   incomplete       1
+6 statistics    complete         2
+7 statistics    pending          1
+8 statistics    rejected         1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>scholarships <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fsa_invalid) <span class="sc">|&gt;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(application_id, fsa_code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  application_id fsa_code
+  &lt;chr&gt;          &lt;chr&gt;
+1 B-010          G1V1234 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>scholarship_log <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">VM =</span> <span class="fu">list</span>(), <span class="at">FT =</span> <span class="fu">list</span>(), <span class="at">RC =</span> <span class="fu">list</span>(), <span class="at">VA =</span> <span class="fu">list</span>())</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>scholarship_log<span class="sc">$</span>VM <span class="ot">&lt;-</span> <span class="fu">append</span>(scholarship_log<span class="sc">$</span>VM, <span class="fu">list</span>(</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;B-004&quot;</span>,</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;annual_income&quot;</span>,</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Missing value coded as -999&quot;</span>,</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Replace with NA&quot;</span>,</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;The value -999 is not a real annual income&quot;</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>scholarship_log<span class="sc">$</span>FT <span class="ot">&lt;-</span> <span class="fu">append</span>(scholarship_log<span class="sc">$</span>FT, <span class="fu">list</span>(</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;B-010&quot;</span>,</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;fsa_code&quot;</span>,</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Invalid FSA code length&quot;</span>,</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Flag without automatic correction&quot;</span>,</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;The correct code cannot be inferred from the file&quot;</span></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>scholarship_log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$VM
+$VM[[1]]
+$VM[[1]]$id
+[1] &quot;B-004&quot;
+
+$VM[[1]]$variables
+[1] &quot;annual_income&quot;
+
+$VM[[1]]$probleme
+[1] &quot;Missing value coded as -999&quot;
+
+$VM[[1]]$action
+[1] &quot;Replace with NA&quot;
+
+$VM[[1]]$justification
+[1] &quot;The value -999 is not a real annual income&quot;
+
+
+
+$FT
+$FT[[1]]
+$FT[[1]]$id
+[1] &quot;B-010&quot;
+
+$FT[[1]]$variables
+[1] &quot;fsa_code&quot;
+
+$FT[[1]]$probleme
+[1] &quot;Invalid FSA code length&quot;
+
+$FT[[1]]$action
+[1] &quot;Flag without automatic correction&quot;
+
+$FT[[1]]$justification
+[1] &quot;The correct code cannot be inferred from the file&quot;
+
+
+
+$RC
+list()
+
+$VA
+list()</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="case-study-2---fictitious-municipal-equipment-records" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-2---fictitious-municipal-equipment-records">Case study 2 - Fictitious municipal equipment records</h2>
+<p>The file <code>data/fictitious_municipal_equipment.csv</code> contains fictitious municipal equipment records. The file <code>data/fictitious_equipment_rules.json</code> contains validation rules.</p>
+<p>Complete the following tasks:</p>
+<ol type="1">
+<li>import the CSV and JSON files;</li>
+<li>clean <code>equipment_type</code> and <code>status</code>;</li>
+<li>transform <code>maintenance_cost</code> into a number;</li>
+<li>use the JSON rules to identify impossible years;</li>
+<li>identify unexpected statuses, if any;</li>
+<li>create a summary table by city;</li>
+<li>document at least two decisions.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>rules <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">&quot;data/fictitious_equipment_rules.json&quot;</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>equipment <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/fictitious_municipal_equipment.csv&quot;</span>,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">equipment_type =</span> <span class="fu">str_to_lower</span>(<span class="fu">str_squish</span>(equipment_type)),</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">equipment_type =</span> <span class="fu">case_when</span>(</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(equipment_type, <span class="st">&quot;bus&quot;</span>) <span class="sc">~</span> <span class="st">&quot;bus shelter&quot;</span>,</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(equipment_type, <span class="st">&quot;play&quot;</span>) <span class="sc">~</span> <span class="st">&quot;play module&quot;</span>,</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> equipment_type</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="fu">str_to_lower</span>(<span class="fu">str_squish</span>(status)),</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">maintenance_cost_num =</span> <span class="fu">parse_number</span>(</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>      maintenance_cost,</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;.&quot;</span>, <span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">maintenance_cost_num =</span> <span class="fu">na_if</span>(</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>      maintenance_cost_num,</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>      rules<span class="sc">$</span>maintenance_cost<span class="sc">$</span>coded_missing_value</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">year_invalid =</span> installation_year <span class="sc">&lt;</span> rules<span class="sc">$</span>installation_year<span class="sc">$</span>min <span class="sc">|</span></span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a>      installation_year <span class="sc">&gt;</span> rules<span class="sc">$</span>installation_year<span class="sc">$</span>max,</span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">status_invalid =</span> <span class="sc">!</span>status <span class="sc">%in%</span> rules<span class="sc">$</span>accepted_statuses,</span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">month_invalid =</span> <span class="sc">!</span>inspection_month <span class="sc">%in%</span> rules<span class="sc">$</span>expected_inspection_months</span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a>equipment <span class="sc">|&gt;</span></span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year_invalid <span class="sc">|</span> status_invalid <span class="sc">|</span> month_invalid) <span class="sc">|&gt;</span></span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(equipment_id, installation_year, status, inspection_month)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  equipment_id installation_year status inspection_month
+  &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
+1 EQ-004                    1890 active April
+2 EQ-006                    2028 active June            </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>city_summary <span class="ot">&lt;-</span> equipment <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(city) <span class="sc">|&gt;</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_equipment =</span> <span class="fu">n</span>(),</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_cost =</span> <span class="fu">median</span>(maintenance_cost_num, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_invalid_years =</span> <span class="fu">sum</span>(year_invalid),</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>city_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  city           n_equipment median_cost n_invalid_years
+  &lt;chr&gt;                &lt;int&gt;       &lt;dbl&gt;           &lt;int&gt;
+1 Gatineau                 3       1280                0
+2 Levis                    3       1100                0
+3 Quebec City              5       1250                1
+4 Sherbrooke               3       1500                1
+5 Trois-Rivieres           2        598.               0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>equipment_log <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">VM =</span> <span class="fu">list</span>(), <span class="at">VA =</span> <span class="fu">list</span>(), <span class="at">RC =</span> <span class="fu">list</span>())</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>equipment_log<span class="sc">$</span>VA <span class="ot">&lt;-</span> <span class="fu">append</span>(equipment_log<span class="sc">$</span>VA, <span class="fu">list</span>(</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> equipment<span class="sc">$</span>equipment_id[equipment<span class="sc">$</span>year_invalid],</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;installation_year&quot;</span>,</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Installation year outside JSON bounds&quot;</span>,</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Flag without automatic correction&quot;</span>,</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;The correct year cannot be inferred from the file&quot;</span></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>equipment_log<span class="sc">$</span>VM <span class="ot">&lt;-</span> <span class="fu">append</span>(equipment_log<span class="sc">$</span>VM, <span class="fu">list</span>(</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;EQ-010&quot;</span>,</span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;maintenance_cost&quot;</span>,</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Missing value coded as -999&quot;</span>,</span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Replace with NA&quot;</span>,</span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;The JSON rules state that -999 codes a missing value&quot;</span></span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>equipment_log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$VM
+$VM[[1]]
+$VM[[1]]$id
+[1] &quot;EQ-010&quot;
+
+$VM[[1]]$variables
+[1] &quot;maintenance_cost&quot;
+
+$VM[[1]]$probleme
+[1] &quot;Missing value coded as -999&quot;
+
+$VM[[1]]$action
+[1] &quot;Replace with NA&quot;
+
+$VM[[1]]$justification
+[1] &quot;The JSON rules state that -999 codes a missing value&quot;
+
+
+
+$VA
+$VA[[1]]
+$VA[[1]]$id
+[1] &quot;EQ-004&quot; &quot;EQ-006&quot;
+
+$VA[[1]]$variables
+[1] &quot;installation_year&quot;
+
+$VA[[1]]$probleme
+[1] &quot;Installation year outside JSON bounds&quot;
+
+$VA[[1]]$action
+[1] &quot;Flag without automatic correction&quot;
+
+$VA[[1]]$justification
+[1] &quot;The correct year cannot be inferred from the file&quot;
+
+
+
+$RC
+list()</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -16,70 +16,62 @@ Produit final
 
 ### Un tableau nettoyé et documenté
 
-Le chapitre aboutit à une version utilisable d’un fichier réel, avec les choix de nettoyage expliqués et les incohérences visibles.
+Le module aboutit à une version utilisable d'un fichier d'assurance, avec les choix de nettoyage expliqués, les anomalies visibles et un journal reproductible.
 
 **données nettoyées**
 
-types corrigés
+import validé
 
-facteurs recodés
+variables nettoyées
 
-liste explorée
+journal documenté
 
-types corrigés facteurs recodés liste explorée
+types vérifiés valeurs recodées décisions tracées
 
 ## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de
 
-- Importer des données de différents formats (`txt`, `csv`, `excel`, `json`).
-- Nettoyer et recoder des données pour assurer leur qualité.
-- Utiliser les librairies `forcats` et `stringr` pour manipuler des facteurs et des chaînes de caractères.
-- Créer et utiliser des listes.
+- importer des données de différents formats (`csv`, Excel, JSON);
+- inspecter les types, les dimensions, les valeurs manquantes et les anomalies;
+- nettoyer des noms de colonnes, des montants textuels, des facteurs et des chaînes de caractères;
+- transformer des tableaux avec `pivot_longer()`, `pivot_wider()` et `unnest()`;
+- documenter les décisions de nettoyage dans une liste structurée.
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à pratiquer les mêmes gestes sur d’autres données.
 
-1 Lectures à faire Préparer importation, nettoyage, chaînes, facteurs et listes. Dans la carte Ouvrir la carteRéduire
+1 Lectures à faire Préparer importation, valeurs manquantes, tableurs, JSON et listes. Dans la carte Ouvrir la carteRéduire
 
-### Lectures initiales
+### Lectures à faire
 
-#### Lectures à faire avant l’aventure
+Ces lectures préparent les gestes du module: importer, mettre en ordre, traiter les valeurs manquantes, lire des tableurs, lire du JSON et manipuler des listes.
 
-Dans ce module, nous allons explorer les concepts de base de l’importation et du nettoyage de données. Voici quelques lectures initiales pour vous préparer :
+- [R for Data Science - Data import](https://r4ds.hadley.nz/data-import.html): importer des fichiers délimités avec `readr`.
+- [R for Data Science - Data tidying](https://r4ds.hadley.nz/data-tidy.html): restructurer un tableau avec les principes des données tidy.
+- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html): distinguer les valeurs manquantes explicites, codées et implicites.
+- [R for Data Science - Factors](https://r4ds.hadley.nz/factors.html): manipuler des variables catégorielles.
+- [R for Data Science - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html): importer des fichiers Excel proprement.
+- [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html): comprendre les listes, le JSON et les données imbriquées.
 
-- [**R for Data Science – Data import**](https://r4ds.hadley.nz/data-import.html)
-  Ce chapitre vous introduit à l’importation de données avec le package `readr`.
-
-- [**R for Data Science – Data tidying**](https://r4ds.hadley.nz/data-tidy.html)
-  Ce chapitre vous introduit à la manipulation de données avec le package `dplyr`.
-
-- [**R for Data Science – Factors**](https://r4ds.hadley.nz/factors.html)
-  Ce chapitre vous introduit aux **facteurs** en R, qui sont des variables catégoriques.
-  \> **Note** : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme `factor()` ou `fct_reorder()` peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).
-
-- [**R for Data Science – Import spreadsheets**](https://r4ds.hadley.nz/spreadsheets.html)
-  Ce chapitre vous introduit à l’importation de données à partir de fichiers Excel.
-
-- [**R for Data Science – Lists**](https://r4ds.hadley.nz/rectangling.html#lists)
-  Cette section vous introduit au concept de liste en programmation.
+Après les lectures, faites le [mini-test formatif](mini_test.llms.md). Il n'est pas noté; il sert à vérifier les bases avant l'aventure.
 
 2 Aventure Diagnostiquer un fichier réel et corriger les variables fragiles. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
-Objectif Passer de la lecture à la pratique guidée.
+Objectif Diagnostiquer une archive d'assurance avec Alex et construire un premier journal de nettoyage.
 
 Ressource [Page Aventure](aventure.llms.md)
 
-Action Suivre les consignes, exécuter le code et garder les sorties importantes.
+Action Importer `dataset_pratique.csv`, repérer les anomalies et documenter les décisions.
 
-Résultat Un premier objet de travail que vous pouvez expliquer.
+Résultat Une première version explicable de `donnees_propres.csv` et de `journal_nettoyage`.
 
-Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
+Le fil narratif est guidé: on cherche moins la perfection que la traçabilité.
 
 3 Défi Livrer un tableau nettoyé avec transformations justifiées. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-Objectif Nettoyer une base d'assurance et documenter les décisions.
+Objectif Reprendre le même fichier d'assurance en autonomie et livrer une version propre.
 
 Ressource [Page Défi](defi.llms.md)
 
@@ -87,11 +79,13 @@ Ressource [Page Défi](defi.llms.md)
 
 Vérifiez que l'importation donne 23 colonnes avant de nettoyer.
 
-4 Exercices Refaire les imports, recodages et contrôles de qualité. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+4 Exercices Pratiquer les gestes techniques sur des données autonomes. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+Portée Ces exercices ne sont pas la suite du défi. Ils utilisent `policies.csv`, `coverage.json`, `quotes_2024.xlsx` et deux jeux de données fictifs distincts.
+
+Cas Une bourse universitaire et un parc d'équipements municipaux.
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
@@ -99,11 +93,11 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04)
+[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [demandes_bourses_fictif.csv](data/demandes_bourses_fictif.csv) [equipements_municipaux_fictif.csv](data/equipements_municipaux_fictif.csv) [regles_equipements_fictif.json](data/regles_equipements_fictif.json)
 
 ### Packages R
 
-[readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [stringr](../packages.llms.md#stringr) [forcats](../packages.llms.md#forcats)
+[readr](../packages.llms.md#readr) [readxl](../packages.llms.md#readxl) [dplyr](../packages.llms.md#dplyr) [tidyr](../packages.llms.md#tidyr) [jsonlite](../packages.llms.md#jsonlite) [janitor](../packages.llms.md#janitor) [stringr](../packages.llms.md#stringr) [forcats](../packages.llms.md#forcats) [tibble](../packages.llms.md#tibble) [ggplot2](../packages.llms.md#ggplot2)
 
 ## Révision et prolongement
 

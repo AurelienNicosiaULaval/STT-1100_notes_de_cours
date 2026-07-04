@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Adventure 4 - Clean up to insure better – STT-1100 Introduction to Data Science</title>
+<title>Adventure 4 - Cleaning data for better decisions – STT-1100 Introduction to Data Science</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5854,7 +5854,7 @@ margin-bottom: .05rem;
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Adventure 4 - Clean up to insure better</h1>
+<h1 class="title">Adventure 4 - Cleaning data for better decisions</h1>
 <p class="subtitle lead">STT-1100 Introduction to Data Science</p>
 </div>
 
@@ -5871,7 +5871,7 @@ margin-bottom: .05rem;
 
 </header><section id="scenario" class="level1"><h1>Scenario</h1>
 <p>You have just started an internship as a <strong>junior data engineer</strong> at a large <strong>insurance company</strong>. You work with Alex, an experienced business analyst, who has entrusted you with an important mission.</p>
-<p>Alex has provided you with a database taken from an old archive system. This database contains key information on customers, insurance policies and claims. Unfortunately, the database is <strong>riddled with potential errors</strong>: missing values, inconsistencies, format errors, typos, outliers and possible duplicates to check.</p>
+<p>Alex has provided you with a dataset taken from an old archive system. This dataset contains key information on customers, insurance policies and claims. Unfortunately, it is full of potential errors: missing values, inconsistencies, format errors, typos, outliers and possible duplicates to check.</p>
 <p>Your role will be to ensure <strong>data quality</strong> to allow Alex to carry out a reliable analysis. Some errors will be corrected; others will only be flagged if the available information does not support a defensible correction.</p>
 <!-- adventure-brief:start -->
 <div class="adventure-brief">
@@ -5902,14 +5902,14 @@ Character card
 <!-- adventure-brief:end -->
 </section><section id="adventure-objectives" class="level1"><h1>Adventure objectives</h1>
 <ul>
-<li>Import a raw database (<code>dataset_pratique.csv</code>).</li>
+<li>Import a raw dataset (<code>dataset_pratique.csv</code>).</li>
 <li>Identify different types of common errors.</li>
 <li>Clean and transform data with <code>dplyr</code>, <code>forcats</code> and <code>stringr</code>.</li>
-<li>Clearly document <strong>all modifications made</strong> to the database.</li>
+<li>Clearly document <strong>all modifications made</strong> to the dataset.</li>
 </ul></section><section id="how-to-succeed-in-this-adventure" class="level1"><h1>How to succeed in this adventure?</h1>
 <p>At the end of this adventure, you will:</p>
 <ol type="1">
-<li>Provide a <strong>clean database</strong> (<code>donnees_propres.csv</code>).</li>
+<li>Provide a <strong>clean dataset</strong> (<code>donnees_propres.csv</code>).</li>
 <li>Maintain a <strong>structured R list</strong> called <code>journal_nettoyage</code> in your script.</li>
 <li>Save this list in a file named <code>journal_nettoyage.Rdata</code>.</li>
 </ol>
@@ -5934,9 +5934,9 @@ Character card
 <tbody>
 <tr class="odd">
 <td>VM</td>
-<td>Missing values ​​</td>
+<td>Missing values</td>
 <td>Essential fields not filled in</td>
-<td>Lines with no value for <code>age</code> or <code>annual_income</code>
+<td>Rows with no value for <code>age</code> or <code>annual_income</code>
 </td>
 </tr>
 <tr class="even">
@@ -5956,7 +5956,7 @@ Character card
 <tr class="even">
 <td>VA</td>
 <td>Outliers</td>
-<td>Obviously extreme or unrealistic values ​​</td>
+<td>Obviously extreme or unrealistic values</td>
 <td><code>annual_income = $99,999,999</code></td>
 </tr>
 <tr class="odd">
@@ -6130,19 +6130,19 @@ list()</code></pre>
 <p>As for previous adventures:</p>
 <ul>
 <li>
-<strong>Clone</strong> the module 4 GitHub repository from the course organization. You can use the course cheat sheet if you have a memory lapse.</li>
+<strong>Clone</strong> the module 4 GitHub repository from the course organization. You can use the course cheat sheet if you need a reminder.</li>
 <li>Work in RStudio and <strong>make commits regularly</strong> to document your progress.</li>
-<li>Your deposit must contain:
+<li>Your repository must contain:
 <ul>
-<li>the <code>.qmd</code> script for your adventure, that is to say a document where you do your tests and build your <code>journal_nettoyage</code> list;</li>
+<li>the <code>.qmd</code> script for your adventure, meaning a document where you do your tests and build your <code>journal_nettoyage</code> list;</li>
 <li>the <code>journal_nettoyage</code> list in a <code>.Rdata</code> object;</li>
-<li>the cleaned database in <code>.csv</code> format.</li>
+<li>the cleaned dataset in <code>.csv</code> format.</li>
 </ul>
 </li>
 </ul>
 <p>Good luck, and may your data be clean!</p>
 </section><section id="data-import" class="level1"><h1>Data import</h1>
-<p>Before cleaning a database, you need to know how to import it correctly. For this mission, Alex has sent you the <code>dataset_pratique.csv</code> file. This file is separated by semicolons. He recommends that you:</p>
+<p>Before cleaning a dataset, you need to know how to import it correctly. For this mission, Alex has sent you the <code>dataset_pratique.csv</code> file. This file is separated by semicolons. He recommends that you:</p>
 <ul>
 <li>load the data into R with the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code> function of the <code>readr</code> package,</li>
 <li>examine the first lines to spot obvious inconsistencies,</li>
@@ -6178,7 +6178,7 @@ list()</code></pre>
 </blockquote>
 <hr></section><section id="initial-exploration-of-potential-issues" class="level1"><h1>Initial exploration of potential issues</h1>
 <section id="format-of-variables" class="level2"><h2 class="anchored" data-anchor-id="format-of-variables">Format of variables</h2>
-<p>Now that you have imported the database, it is time to do a first exploration to identify potential errors. Here are some key steps to follow:</p>
+<p>Now that you have imported the dataset, it is time to do a first exploration to identify potential errors. Here are some key steps to follow:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Base dimensions</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span></span>
@@ -6191,7 +6191,7 @@ list()</code></pre>
 <blockquote class="blockquote">
 <p><strong>Alex</strong>: “You’ll see, some types of variables don’t make any sense… Keep track of everything you find weird so that we can decide together what to do with it.”</p>
 </blockquote>
-<p>One of the most useful functions here is <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> (from the <code>dplyr</code> package). It displays a preview of the first values ​​of each variable <strong>as well as their type</strong>: for example <code>chr</code> for a character string, <code>dbl</code> for a decimal number (double), <code>int</code> for an integer, or even <code>lgl</code> for a boolean.</p>
+<p>One of the most useful functions here is <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> (from the <code>dplyr</code> package). It displays a preview of the first values of each variable, as well as its type: for example <code>chr</code> for a character string, <code>dbl</code> for a decimal number (double), <code>int</code> for an integer, or <code>lgl</code> for a boolean.</p>
 <p>Here is a reminder of the main data types in R:</p>
 <ul>
 <li><p><code>character</code> (<code>chr</code>): text</p></li>
@@ -6209,7 +6209,7 @@ as.logical(base$column)
 as.factor(base$column)</code></pre>
 <p>Remember to always check the result of the transformation with <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> or <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</p>
 <blockquote class="blockquote">
-<p>Alex: “When we look at the types of variables with glimpse(), we must keep in mind that there are standards in data science. In general, variables containing text should be of type <code>character</code> or <code>factor</code> if they take a limited number of values ​​(for example, a gender or province column). Variables containing numbers should normally be of type <code>dbl</code> (for decimals) or <code>int</code> (for integers), as appropriate.</p>
+<p>Alex: “When we look at variable types with <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code>, we must keep data science conventions in mind. In general, variables containing text should be of type <code>character</code> or <code>factor</code> if they take a limited number of values, for example a gender or province column. Variables containing numbers should normally be of type <code>dbl</code> for decimals or <code>int</code> for integers.</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>A common pitfall is identifiers! Even if they appear to be numbers, like a <code>client_id</code> or <code>contract_number</code> column, they are not quantities on which we are going to do calculations. These are unique labels. We should therefore convert them to character. This prevents an identifier like 0012 from being transformed into 12 by mistake, or from R thinking that we want to do an average with that…</p>
@@ -6319,7 +6319,7 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><em>These are just examples. It’s up to you to explore the database and choose what is consistent.</em></p>
+<p><em>These are just examples. It’s up to you to explore the dataset and choose what is consistent.</em></p>
 </section></section><section id="cleaning-recipe-deep-dive" class="level1"><h1>Cleaning recipe — Deep dive</h1>
 <p>Well done! You’ve already fixed the variable types and cleaned up the most visible factors. Now, we push the cleaning further, by crossing <strong>statistics</strong>, <strong>logical relationships</strong> and <strong>aberrant behaviors</strong>. Here is your <strong>advanced cleaning recipe</strong>.</p>
 <section id="step-1-descriptive-statistics-on-numerical-variables" class="level2"><h2 class="anchored" data-anchor-id="step-1-descriptive-statistics-on-numerical-variables">Step 1 – Descriptive statistics on numerical variables</h2>
@@ -6426,11 +6426,11 @@ You have now acquired a solid methodology for cleaning data in a rigorous and pr
 </ul>
 <p><strong>Before finishing</strong>, don’t forget to <strong>push to GitHub</strong> the following three items:</p>
 <ol type="1">
-<li>The <code>.qmd</code> script of your adventure (where you carried out your tests, analyzes and cleaning)<br>
+<li>The <code>.qmd</code> script of your adventure, where you carried out your tests, analyses and cleaning<br>
 </li>
 <li>The <code>journal_nettoyage</code> list saved in a <code>.Rdata</code> object<br>
 </li>
-<li>The cleaned database in <code>.csv</code> format</li>
+<li>The cleaned dataset in <code>.csv</code> format</li>
 </ol>
 <p>To save your list in a <code>.Rdata</code> file, simply use this code at the end of your script:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">journal_nettoyage</span>, file <span class="op">=</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

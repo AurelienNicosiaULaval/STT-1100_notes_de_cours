@@ -4,6 +4,8 @@
 
 These exercises consolidate the first practical moves of the course: using RStudio, writing code in a script, creating a Quarto report, loading packages, inspecting data and producing a small reproducible analysis.
 
+They are independent from the adventure and challenge. Some questions use `MeteoQuebec` because it is the first table in the course, but they are not a step to submit in the challenge.
+
 Work in a `.R` file, a `.qmd` file, or both. Answers are folded so you can try first and compare afterwards.
 
 ## Exercise 1 - Console or script?

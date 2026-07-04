@@ -1,19 +1,306 @@
 ---
-title: "Exercices de consolidation"
+title: "Module 8 - Exercices"
+subtitle: "STT-1100 Introduction à la science des données"
 format:
   html:
     toc: true
+    toc-title: Plan
     embed-resources: true
+    link-external-newwindow: true
+    css: [../css/base_css.css]
+editor: visual
 ---
 
-# Exercices de consolidation {.unnumbered}
+# Exercices de consolidation
 
-Ces exercices reprennent les gestes de l'aventure sur une page différente. Utilisez la version archivée de la page IMDb des 250 meilleurs films : <https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/>
+Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 8: lire une page HTML, cibler des éléments avec des sélecteurs CSS, transformer une extraction en fonction, automatiser une extraction répétée et documenter les limites d'une collecte.
 
-1. Lire la page HTML avec `read_html()`.
-2. Repérer les sections contenant les titres des films avec `html_elements()`.
-3. Extraire les titres avec le sélecteur `.titleColumn a`.
-4. Extraire les années avec le sélecteur `.titleColumn span`.
-5. Extraire les notes avec le sélecteur `.imdbRating strong`.
-6. Combiner les trois vecteurs dans un `data.frame`.
-7. Vérifier le fichier `robots.txt` d'IMDb et expliquer pourquoi cette vérification ne suffit pas à elle seule.
+Les pages HTML utilisées ici sont fictives et locales. Elles ne dépendent d'aucun site web externe.
+
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(rvest)
+library(purrr)
+```
+
+# Lectures à revoir
+
+- [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html){target="_blank"}
+- [R for Data Science - Functions](https://r4ds.hadley.nz/functions.html){target="_blank"}
+- [R for Data Science - Iteration](https://r4ds.hadley.nz/iteration.html){target="_blank"}
+- [Documentation officielle de rvest](https://rvest.tidyverse.org/){target="_blank"}
+- [MDN - robots.txt](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt){target="_blank"}
+- [Google Search Central - Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro){target="_blank"}
+
+Après les lectures, faites aussi le [mini-test formatif](mini_test.qmd). Il n'est pas noté.
+
+# Bloc A - Lire une page HTML locale
+
+## Exercice 1 - Importer une page HTML
+
+Lisez `catalogue_donnees_fictif.html` avec `read_html()`. Repérez les cartes de jeux de données avec le sélecteur `.dataset-card`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+page_catalogue <- read_html("data/catalogue_donnees_fictif.html")
+
+cartes <- page_catalogue |>
+  html_elements(".dataset-card")
+
+length(cartes)
+cartes[[1]]
+```
+:::
+
+## Exercice 2 - Extraire un premier vecteur
+
+Extrayez les titres des jeux de données avec le sélecteur `.dataset-title`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+titres <- cartes |>
+  html_element(".dataset-title") |>
+  html_text2()
+
+titres
+```
+:::
+
+## Exercice 3 - Construire un tableau
+
+Extrayez les producteurs, les catégories et les dates de mise à jour. Combinez le tout dans un tibble.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+catalogue <- tibble(
+  titre = html_element(cartes, ".dataset-title") |> html_text2(),
+  producteur = html_element(cartes, ".dataset-producer") |> html_text2(),
+  categorie = html_element(cartes, ".dataset-category") |> html_text2(),
+  date_mise_a_jour = html_element(cartes, ".dataset-updated") |>
+    html_text2() |>
+    as.Date()
+)
+
+catalogue
+```
+:::
+
+# Bloc B - Transformer l'extraction en fonction
+
+## Exercice 4 - Créer une fonction auxiliaire
+
+Créez une fonction `extraire_texte()` qui reçoit un noeud HTML et un sélecteur CSS, puis retourne le texte correspondant. Si l'élément manque, la fonction doit retourner `NA_character_`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+extraire_texte <- function(noeud, selecteur) {
+  element <- html_element(noeud, selecteur)
+  texte <- html_text2(element)
+
+  if (length(texte) == 0 || is.na(texte) || !nzchar(texte)) {
+    return(NA_character_)
+  }
+
+  texte
+}
+
+extraire_texte(cartes[[1]], ".dataset-title")
+extraire_texte(cartes[[1]], ".champ-inexistant")
+```
+:::
+
+## Exercice 5 - Créer une fonction d'extraction
+
+Écrivez une fonction `extraire_catalogue(fichier)` qui lit une page HTML locale et retourne un tibble avec les colonnes `titre`, `producteur`, `categorie`, `date_mise_a_jour`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+extraire_catalogue <- function(fichier) {
+  page <- read_html(fichier)
+  cartes <- html_elements(page, ".dataset-card")
+
+  tibble(
+    titre = map_chr(cartes, extraire_texte, ".dataset-title"),
+    producteur = map_chr(cartes, extraire_texte, ".dataset-producer"),
+    categorie = map_chr(cartes, extraire_texte, ".dataset-category"),
+    date_mise_a_jour = map_chr(cartes, extraire_texte, ".dataset-updated") |>
+      as.Date()
+  )
+}
+
+extraire_catalogue("data/catalogue_donnees_fictif.html")
+```
+:::
+
+## Exercice 6 - Tester une page irrégulière
+
+Utilisez la même fonction sur `catalogue_irregulier_fictif.html`. Quelles valeurs manquent?
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+catalogue_irregulier <- extraire_catalogue("data/catalogue_irregulier_fictif.html")
+
+catalogue_irregulier
+
+catalogue_irregulier |>
+  summarise(
+    producteurs_manquants = sum(is.na(producteur)),
+    categories_manquantes = sum(is.na(categorie))
+  )
+```
+
+La fonction ne s'arrête pas lorsqu'un champ manque. Elle retourne `NA`, ce qui permet de diagnostiquer le problème dans un tableau.
+:::
+
+## Exercice 7 - Automatiser sur plusieurs pages
+
+Utilisez `purrr::imap_dfr()` pour appliquer `extraire_catalogue()` aux deux pages de catalogue et ajouter une colonne `source`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+fichiers_catalogue <- c(
+  regulier = "data/catalogue_donnees_fictif.html",
+  irregulier = "data/catalogue_irregulier_fictif.html"
+)
+
+catalogues_combines <- imap_dfr(
+  fichiers_catalogue,
+  function(fichier, source) {
+    extraire_catalogue(fichier) |>
+      mutate(source = source, .before = 1)
+  }
+)
+
+catalogues_combines
+```
+:::
+
+# Bloc C - Sobriété et éthique de collecte
+
+## Exercice 8 - Interpréter un `robots.txt`
+
+Voici un exemple fictif de fichier `robots.txt`.
+
+```{r}
+robots_exemple <- c(
+  "User-agent: *",
+  "Disallow: /admin/",
+  "Disallow: /api/privee/",
+  "Crawl-delay: 1"
+)
+
+writeLines(robots_exemple)
+```
+
+Identifiez les chemins à éviter et expliquez pourquoi ce fichier ne constitue pas une autorisation complète de collecte.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+chemins_interdits <- robots_exemple |>
+  str_subset("^Disallow:") |>
+  str_remove("^Disallow:\\s*")
+
+chemins_interdits
+```
+
+`robots.txt` donne des consignes techniques aux robots. Il ne remplace pas les conditions d'utilisation, le jugement éthique, la prudence sur la charge serveur ou une autorisation écrite lorsque la collecte et la redistribution sont sensibles.
+:::
+
+# Étude de cas 1 - Catalogue municipal fictif
+
+Une municipalité fictive vous demande de produire un court résumé des jeux de données visibles dans son mini-catalogue.
+
+## Exercice 9 - Résumer les catégories
+
+À partir des deux pages de catalogue combinées, calculez le nombre de jeux de données par catégorie.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+resume_categories <- catalogues_combines |>
+  mutate(categorie = replace_na(categorie, "Non indiquee")) |>
+  count(categorie, sort = TRUE)
+
+resume_categories
+```
+:::
+
+## Exercice 10 - Produire une note de collecte
+
+Écrivez trois phrases qui expliquent ce que votre code collecte, comment il limite les risques et ce qu'il faudrait vérifier avant de l'appliquer à un vrai site.
+
+::: {.callout-note collapse="true"}
+## Exemple de réponse
+
+Le code lit seulement des pages HTML locales préparées pour l'exercice et extrait des champs publics agrégés. Dans un vrai contexte, il faudrait limiter le nombre de pages, ajouter des pauses entre les requêtes et éviter toute collecte massive ou contourner des protections. Il faudrait aussi vérifier `robots.txt`, les conditions d'utilisation, la licence des données et les règles de redistribution avant de publier une table dérivée.
+:::
+
+# Étude de cas 2 - Page d'événements publics
+
+Une association fictive publie une petite page d'événements. Vous voulez extraire les titres, les dates, les lieux et les thèmes pour produire un calendrier.
+
+## Exercice 11 - Extraire les événements
+
+Créez une fonction `extraire_evenements(fichier)` qui retourne un tibble avec les colonnes `titre`, `date`, `lieu`, `theme`.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+extraire_evenements <- function(fichier) {
+  page <- read_html(fichier)
+  evenements <- html_elements(page, ".event-card")
+
+  tibble(
+    titre = map_chr(evenements, extraire_texte, ".event-title"),
+    date = html_element(evenements, ".event-date") |>
+      html_attr("datetime") |>
+      as.Date(),
+    lieu = map_chr(evenements, extraire_texte, ".event-location"),
+    theme = map_chr(evenements, extraire_texte, ".event-theme")
+  )
+}
+
+evenements <- extraire_evenements("data/evenements_publics_fictif.html")
+
+evenements
+```
+:::
+
+## Exercice 12 - Vérifier le résultat
+
+Produisez un résumé du nombre d'événements par thème et formulez une vérification simple qui pourrait servir de test.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+evenements |>
+  count(theme, sort = TRUE)
+
+stopifnot(
+  nrow(evenements) == 4,
+  identical(names(evenements), c("titre", "date", "lieu", "theme")),
+  all(!is.na(evenements$titre))
+)
+```
+
+Ces tests sont simples, mais ils détectent déjà des erreurs fréquentes: mauvais nombre de lignes, colonnes mal nommées ou titres non extraits.
+:::

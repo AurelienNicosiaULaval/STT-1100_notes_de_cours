@@ -86,6 +86,105 @@ Documentation officielle pour les dépôts, commits, branches, issues et workflo
 
 [Ouvrir la documentation](https://docs.github.com/)
 
+rvest
+Docs
+
+Tidyverse
+
+### Documentation rvest
+
+Documentation officielle pour lire une page HTML, sélectionner des éléments, extraire du texte et convertir des tableaux.
+
+[Ouvrir la documentation](https://rvest.tidyverse.org/)
+
+MDN
+robots
+
+MDN Web Docs
+
+### robots.txt
+
+Repère technique pour comprendre le rôle d'un fichier robots.txt dans les consignes données aux robots d'exploration.
+
+[Ouvrir la ressource](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
+
+Google
+robots
+
+Google Search Central
+
+### Introduction to robots.txt
+
+Guide complémentaire pour situer ce que robots.txt peut et ne peut pas contrôler dans l'exploration web.
+
+[Ouvrir la ressource](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
+
+robotstxt
+R
+
+rOpenSci
+
+### Documentation robotstxt
+
+Documentation du package R utilisé pour vérifier si un chemin est autorisé par les règles robots.txt d'un site.
+
+[Ouvrir la documentation](https://docs.ropensci.org/robotstxt/)
+
+Data
+Viz
+
+Wilke
+
+### Fundamentals of Data Visualization
+
+Référence ouverte pour choisir des graphiques adaptés et repérer les choix visuels fragiles.
+
+[Ouvrir le livre](https://clauswilke.com/dataviz/)
+
+RSS
+Guide
+
+Royal Statistical Society
+
+### Best Practices for Data Visualisation
+
+Guide pratique pour rendre les graphiques lisibles, honnêtes et adaptés au message statistique.
+
+[Ouvrir le guide](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf)
+
+QC
+Données
+
+Gouvernement du Québec
+
+### Anonymisation
+
+Repères institutionnels pour discuter les renseignements personnels, la protection et la publication de données.
+
+[Ouvrir la ressource](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation)
+
+CNIL
+Guide
+
+CNIL
+
+### L'anonymisation de données personnelles
+
+Référence utile pour distinguer anonymisation, pseudonymisation et risques résiduels.
+
+[Ouvrir la ressource](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
+
+FAIR
+Data
+
+Wilkinson et al.
+
+### FAIR Guiding Principles
+
+Article de référence sur les principes Findable, Accessible, Interoperable et Reusable.
+
+[Ouvrir l'article](https://www.nature.com/articles/sdata201618)
+
 ## Lectures par module
 
 Cette synthèse aide à retrouver rapidement les références appelées dans les plans d'apprentissage.
@@ -100,27 +199,27 @@ R for Data Science: visualisation, transformation, exploration, tableurs et prem
 
 ### Module 03
 
-R for Data Science: chaînes de caractères et repères de recodage pour les variables catégorielles.
+R for Data Science: chaînes de caractères, facteurs, recodage et repères pour les variables catégorielles.
 
 ### Module 04
 
-R for Data Science: importation, données tidy, facteurs, tableurs et données imbriquées.
+R for Data Science: importation, données tidy, valeurs manquantes, facteurs, tableurs, JSON et données imbriquées.
 
 ### Module 05
 
-Exploration des données, dates et organisation tidy pour étudier les relations entre variables.
+R for Data Science: EDA, dates, visualisation et valeurs manquantes; Introduction to Modern Statistics: exploration numérique et applications exploratoires.
 
 ### Module 06
 
-[GitHub Docs](#github-docs), code inline Quarto et jointures avec R for Data Science.
+[GitHub Docs](#github-docs) pour issues, pull requests et conflits; Quarto pour code inline et options d'exécution; R for Data Science pour les jointures.
 
 ### Module 07
 
-Communication avec R for Data Science et réflexion sur les limites de la visualisation.
+[R for Data Science](#r4ds) pour la communication, [Wilke](#wilke-dataviz) et le [guide RSS](#rss-dataviz) pour la visualisation responsable, puis [Québec](#quebec-anonymisation), [CNIL](#cnil-anonymisation) et [FAIR](#fair-principles) pour l'anonymisation et la réutilisation des données.
 
 ### Module 08
 
-Web scraping avec R for Data Science pour comprendre HTML, CSS et extraction.
+[R for Data Science](#r4ds) pour HTML, fonctions et itération, [rvest](#rvest-docs) pour l'extraction, puis [MDN](#mdn-robots), [Google Search Central](#google-robots) et [robotstxt](#robotstxt-docs) pour les limites de collecte.
 
 ### Module 09
 

@@ -48,7 +48,7 @@ données chargées résumés clairs rendu reproductible
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et servent à consolider les gestes techniques.
 
 1 Lectures à faire Installer les repères R, RStudio, Quarto, dplyr et reproductibilité. [Mini-test](mini_test.llms.md) Ouvrir la carteRéduire
 
@@ -133,7 +133,7 @@ Une fois les bases posées, il est essentiel d’adopter dès le départ des **h
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi La page contient les exercices gradués, les solutions repliables et deux études de cas avec données fictives.
+Portée Ces exercices ne sont pas une étape du défi. Ils permettent de pratiquer RStudio, Quarto, les premiers objets R et deux cas fictifs.
 
 Essayez chaque exercice avant d’ouvrir la solution, même si ça tire un peu sur les neurones.
 

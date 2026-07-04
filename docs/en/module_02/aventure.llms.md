@@ -1,4 +1,4 @@
-# Adventure 2 - Github and digital data visualization
+# Adventure 2 - GitHub and Numerical Data Visualization
 
 STT-1100 Introduction to Data Science
 
@@ -68,13 +68,13 @@ To succeed in this adventure, here are some essential tips:
 
 This adventure will allow you to develop your skills in data manipulation, visualization and analysis with `dplyr` and `ggplot2`. These are essential skills for a data scientist. Take the time to explore the different steps and have fun learning!
 
-# Working on Github
+# Working on GitHub
 
 The researcher has prepared a repository on GitHub where she wants you to save all your work. For her part, she submitted the database she collected as well as a detailed description of the variables. In particular, she would like you to complete a model logbook in Quarto format.
 
 Before you start analyzing the data, you need to grab the GitHub repository containing the necessary files.
 
-1.  Clone the “Adventure-2-IDENTIFIANT_GITHUB” repository, to do this create a new Rstudio project and copy paste the HTTPS link of your Github repo (see help sheet).
+1.  Clone the `aventure-2-IDENTIFIANT_GITHUB` repository. To do this, create a new RStudio project and paste the SSH link to your GitHub repository, following the course quick reference.
 
 Tip: If you want to come back to this project later, you can open the project directly by double-clicking the `.Rproj` file in your file explorer.
 

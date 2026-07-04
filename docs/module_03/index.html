@@ -5884,15 +5884,15 @@ margin-bottom: .05rem;
 Module 03
 </p>
 <p class="module-banner-subtitle">
-Comprendre, recoder et visualiser des variables catégorielles.
+Nettoyer, compter et visualiser des variables catégoriques.
 </p>
 </div>
 <div class="module-quick-facts three-facts">
 <div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span> <span><span class="fact-label">Fil principal</span><span class="fact-value">Catégories, chaînes et graphiques</span></span></p>
+<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-signpost-split"></i></span> <span><span class="fact-label">Fil principal</span><span class="fact-value">Chaînes, catégories et graphiques</span></span></p>
 </div>
 <div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Données</span><span class="fact-value">Infractions alimentaires au Québec</span></span></p>
+<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Données</span><span class="fact-value">Infractions alimentaires et données fictives</span></span></p>
 </div>
 <div class="module-fact">
 <p><span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span> <span><span class="fact-label">Défi</span><span class="fact-value">Article journalistique reproductible</span></span></p>
@@ -5923,83 +5923,82 @@ Comprendre, recoder et visualiser des variables catégorielles.
 </section>
 <section id="objectifs-du-module" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
-<p>À la fin de ce module, vous devriez être capable de</p>
+<p>À la fin de ce module, vous devriez être capable de:</p>
 <ul>
-<li>Manipuler des chaînes de caractères avec <code>stringr</code>.</li>
-<li>Reconnaitre des motifs avec des expressions régulières.</li>
-<li>Utiliser les expressions régulières pour sélectionner, manipuler et modifier des chaînes de caractères.</li>
-<li>Calculer et interpréter des statistiques descriptives pour des variables catégoriques (tableaux de fréquences, proportions, incluant par groupes, tableau croisé).</li>
-<li>Produire et interpréter des visualisations de variables catégoriques avec <code>ggplot2</code> (diagramme à bandes, en bâtons empilés, en bâtons empilés standardisé, en bâtons empilés groupés, en mosaïque, en secteurs et en gaufre).</li>
+<li>manipuler des chaînes de caractères avec <code>stringr</code>;</li>
+<li>reconnaître des motifs simples avec des expressions régulières;</li>
+<li>nettoyer des montants, des codes postaux et des catégories de manière reproductible;</li>
+<li>calculer et interpréter des fréquences, des proportions et des tableaux croisés;</li>
+<li>recoder, regrouper et ordonner des catégories avec <code>dplyr</code> et <code>forcats</code>;</li>
+<li>produire et interpréter des diagrammes à bandes, des bandes empilées et des bandes empilées standardisées avec <code>ggplot2</code>.</li>
 </ul>
 </section>
 <section id="plan-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="plan-dapprentissage">Plan d’apprentissage</h2>
-<p>Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.</p>
 <div class="path-grid interactive-path module-path learning-plan-path">
 <details class="path-card learning-plan-card" id="lectures-a-faire">
   <summary><span class="path-number">1</span>
-  <span class="path-title">Lectures à faire</span>
-  <span class="path-preview">Revoir catégories, facteurs et représentations adaptées.</span>
-  <span class="path-resource path-note">Dans la carte</span>
+  <span class="path-title">Lectures et mini-test</span>
+  <span class="path-preview">Revoir chaînes, facteurs, fréquences et proportions.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="mini_test.html">Mini-test</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 id="lectures-initiales" class="anchored">Lectures initiales</h3>
-<h4 id="lectures-à-faire-avant-laventure" class="anchored">Lectures à faire avant l’aventure</h4>
-<p>Dans ce module, nous allons explorer les variables <strong>catégoriques</strong> et la <strong>visualisation adaptée</strong> à ce type de données. Deux lectures sont proposées pour vous préparer :</p>
-<ul>
-<li><p><a href="https://r4ds.hadley.nz/strings.html" target="_blank"><strong>R for Data Science – Strings</strong></a><br>
-Ce chapitre vous introduit à la manipulation des chaînes de caractères avec le package <code>stringr</code>.<br>
-&gt; <strong>Note</strong> : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme <code>str_detect()</code> ou <code>str_to_lower()</code> peuvent déjà vous aider pour nettoyer ou préparer des variables catégoriques.</p></li>
-<li><p><a href="https://openintro-ims.netlify.app/explore-categorical" target="_blank"><strong>Introduction to Modern Statistics – Chapitre 6 : Explore categorical data</strong></a><br>
-Ce chapitre de <strong>IMS</strong> présente les concepts statistiques associés aux données catégoriques. On y parle notamment de tableaux de fréquence, de proportions et des façons de représenter visuellement ce type de variables.</p></li>
-</ul>
-<p>Prenez le temps de parcourir ces deux ressources. Elles vous seront utiles pour comprendre comment traiter les <strong>données qualitatives</strong>, tant du point de vue <strong>statistique</strong> que <strong>pratique</strong>.</p>
-      </div>
-    </div>
-  </details>
+  <div class="step-detail plan-section-detail">
+  <div class="plan-section-copy">
+  <p>À lire avant l’aventure:</p>
+  <ul>
+  <li><a href="https://r4ds.hadley.nz/strings.html" target="_blank">R for Data Science - Strings</a></li>
+  <li><a href="https://r4ds.hadley.nz/factors.html" target="_blank">R for Data Science - Factors</a></li>
+  <li><a href="https://openintro-ims.netlify.app/explore-categorical" target="_blank">Introduction to Modern Statistics - Explore categorical data</a></li>
+  <li><a href="https://forcats.tidyverse.org/" target="_blank">Documentation de forcats</a></li>
+  </ul>
+  <p>Après les lectures, complétez le <a href="mini_test.html">mini-test formatif</a>.</p>
+  </div>
+  </div>
+</details>
 <details class="path-card learning-plan-card" id="aventure">
   <summary><span class="path-number">2</span>
   <span class="path-title">Aventure</span>
-  <span class="path-preview">Recoder des modalités et comparer des groupes sans les déformer.</span>
+  <span class="path-preview">Nettoyer les infractions alimentaires et extraire des faits saillants.</span>
   <span class="path-resource"><a class="summary-resource-link adventure-link" href="aventure.html">Aventure</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
   <div class="step-detail">
-  <p><span class="step-label">Objectif</span> Passer de la lecture à la pratique guidée.</p><p><span class="step-label">Ressource</span> <a class="summary-resource-link adventure-link" href="aventure.html">Page Aventure</a></p><p><span class="step-label">Action</span> Suivre les consignes, exécuter le code et garder les sorties importantes.</p><p><span class="step-label">Résultat</span> Un premier objet de travail que vous pouvez expliquer.</p>
-  <div class="ae-box"><p class="ae-title">Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.</p></div>
+  <p><span class="step-label">Rôle</span> Journaliste de données pour Le Courrier Gourmand.</p>
+  <p><span class="step-label">Action</span> Nettoyer les catégories, extraire les codes postaux et produire de premiers résultats.</p>
+  <div class="ae-box"><p class="ae-title">Gardez les sorties qui pourraient devenir des chiffres narratifs dans l’article.</p></div>
   </div>
-  </details>
+</details>
 <details class="path-card learning-plan-card" id="defi">
   <summary><span class="path-number">3</span>
   <span class="path-title">Défi</span>
   <span class="path-preview">Rédiger un article Quarto à partir des infractions alimentaires.</span>
   <span class="path-resource"><a class="summary-resource-link challenge-link" href="defi.html">Défi</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
-      <div class="step-detail plan-section-detail">
-      <div class="plan-section-copy">
-<h3 id="défi" class="anchored">Défi</h3>
-<p>Vous endosserez le rôle de journaliste de données pour <em>Le Courrier Gourmand</em>. Votre mission est de nettoyer <code>listecondamnation</code>, d’en extraire des faits marquants et de rédiger un article Quarto reproductible.</p>
-<p><a href="defi.html">Consulter le défi du module 3</a></p>
-<ul>
-<li><p>Livrables : <code>template_article.qmd</code> complété et HTML rendu.</p></li>
-<li><p>Analyse : au moins deux chiffres narratifs et deux visuels, dont un graphique de catégories.</p></li>
-<li><p>GitHub : plusieurs commits clairs et un dépôt complet.</p></li>
-</ul>
-      </div>
-    </div>
-  </details>
+  <div class="step-detail plan-section-detail">
+  <div class="plan-section-copy">
+  <p>Votre mission consiste à nettoyer <code>listecondamnation</code>, à extraire des faits marquants et à rédiger un article Quarto reproductible.</p>
+  <p><a href="defi.html">Consulter le défi du module 3</a></p>
+  <ul>
+  <li>Livrables: <code>template_article.qmd</code> complété et HTML rendu.</li>
+  <li>Analyse: au moins deux chiffres narratifs et deux visuels, dont un graphique de catégories.</li>
+  <li>Extension optionnelle: carte des amendes, avec une note sur la reproductibilité du géocodage.</li>
+  <li>GitHub: plusieurs commits clairs et un dépôt complet.</li>
+  </ul>
+  </div>
+  </div>
+</details>
 <details class="path-card learning-plan-card" id="exercices">
   <summary><span class="path-number">4</span>
   <span class="path-title">Exercices</span>
-  <span class="path-preview">Stabiliser tableaux de fréquences, facteurs et regroupements.</span>
+  <span class="path-preview">Pratiquer fréquences, nettoyage, graphiques et deux études de cas.</span>
   <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
   <div class="step-detail">
   <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
-  <p><span class="step-label">Pourquoi</span> Les exercices sont gardés dans une page autonome parce qu&#39;ils prennent plus de place.</p>
-  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
+  <p><span class="step-label">Portée</span> Ces exercices ne sont pas une étape du défi. Ils pratiquent les catégories, les chaînes, les graphiques et trois contextes fictifs.</p>
+  <p><span class="step-label">Études de cas</span> Requêtes 311 fictives et plaintes de transport collectif fictives.</p>
+  <div class="ae-box"><p class="ae-title">Refaites au moins un bloc sans regarder la solution immédiatement.</p></div>
   </div>
-  </details>
+</details>
 </div>
 </section>
 <section id="données-et-outils" class="level2">
@@ -6009,6 +6008,8 @@ Ce chapitre de <strong>IMS</strong> présente les concepts statistiques associé
   <h3 class="anchored">Bases de données</h3>
   <div class="module-chip-list">
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-listecondamnation"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>UlavalSSD::listecondamnation</span></a>
+  <a class="module-resource-chip data-chip" href="data/requetes_311_fictif.csv"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>requetes_311_fictif.csv</span></a>
+  <a class="module-resource-chip data-chip" href="data/plaintes_transport_fictif.csv"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>plaintes_transport_fictif.csv</span></a>
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-penguins-raw"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>palmerpenguins::penguins_raw</span></a>
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-titanic-train"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>titanic::titanic_train</span></a>
   </div>
@@ -6018,12 +6019,10 @@ Ce chapitre de <strong>IMS</strong> présente les concepts statistiques associé
   <div class="module-chip-list">
   <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#palmerpenguins"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>palmerpenguins</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#titanic"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>titanic</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#forcats"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>forcats</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#ggplot2"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ggplot2</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#tidygeocoder"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidygeocoder</span></a>
-  <a class="module-resource-chip package-chip" href="../packages.html#viridis"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>viridis</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#scales"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>scales</span></a>
   </div>
   </div>

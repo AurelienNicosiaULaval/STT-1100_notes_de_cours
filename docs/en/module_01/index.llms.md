@@ -48,7 +48,7 @@ At the end of this module, you should be able to
 
 ## Learning Plan
 
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
+The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills.
 
 1 Readings Set up the R, RStudio, Quarto, dplyr and reproducibility landmarks. [Mini-test](mini_test.llms.md) Open cardCollapse
 
@@ -133,7 +133,7 @@ Once the foundations have been laid, it is essential to adopt **clear, reproduci
 
 Resource [Exercises page](exercices.llms.md)
 
-Why The page contains graded exercises, folded solutions and two case studies with fictitious data.
+Scope These exercises are not a step in the challenge. They practise RStudio, Quarto, first R objects and two fictitious cases.
 
 Try each exercise before opening the solution, even when it gives your brain a little workout.
 

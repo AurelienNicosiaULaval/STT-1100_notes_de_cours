@@ -106,23 +106,35 @@ Table de correspondance entre codes de transporteurs et noms complets.Package R1
 
 ## nycflights23::weather
 
-Conditions météo horaires pour les aéroports de New York en 2023.Package R26 207 observations / 15 variablesVoir la documentation [Module 06 ](packages.llms.md#gapminder)
+Conditions météo horaires pour les aéroports de New York en 2023.Package R26 207 observations / 15 variablesVoir la documentation [Module 06 ](#module06-members)
 
-## gapminder::gapminder
+## membres_equipe_fictif.csv
 
-Données pays-années utilisées en science des données.Package RStructure à consulterVoir la documentation [Module 06 ](packages.llms.md#dplyr)
+Membres fictifs de deux équipes de projet.Fichier local8 observations / 4 variablesVoir la fiche [Module 06 ](#module06-contributions)
 
-## dplyr::starwars
+## contributions_git_fictif.csv
 
-Jeu de données de démonstration fourni par dplyr.Package RStructure à consulterVoir la documentation [Module 06 ](packages.llms.md#lahman)
+Contributions Git fictives liées aux membres.Fichier local12 observations / 6 variablesVoir la fiche [Module 06 ](#module06-issues)
 
-## Lahman::People et Lahman::Batting
+## issues_revue_fictif.csv
 
-Tables de baseball utilisées pour combiner plusieurs sources.Package RStructure à consulterVoir la documentation [Module 06 ](packages.llms.md#weathercan)
+Issues fictives produites pendant une revue croisée.Fichier local7 observations / 7 variablesVoir la fiche [Module 06 ](#module06-report-files)
 
-## weathercan
+## fichiers_rapport_fictif.csv
 
-[Données météorologiques canadiennes et métadonnées de stations.Package RStructure à consulterVoir la documentation](packages.llms.md#weathercan)
+Fichiers attendus dans de faux dépôts de rapport.Fichier local12 observations / 4 variablesVoir la fiche [Module 06 ](#module06-data-portal)
+
+## portail_donnees_fictif.csv
+
+Jeux de données fictifs d’un portail ouvert.Fichier local6 observations / 5 variablesVoir la fiche [Module 06 ](#module06-producers)
+
+## producteurs_fictif.csv
+
+Producteurs fictifs associés à un portail de données.Fichier local4 observations / 4 variablesVoir la fiche [Module 06 ](#module06-review-comments)
+
+## commentaires_revue_fictif.csv
+
+[Commentaires fictifs de revue sur des jeux de données.Fichier local6 observations / 6 variablesVoir la fiche](#module06-review-comments)
 
 ### Module 07
 
@@ -130,7 +142,19 @@ Tables de baseball utilisées pour combiner plusieurs sources.Package RStructure
 
 ## covid_module7_douteux.csv
 
-[Fichier CSV simulé contenant volontairement des problèmes de qualité, de confidentialité et de ré-identification.Web120 observations / 25 variablesVoir la documentation](https://github.com/STT-1100/aventure-7)
+Fichier CSV simulé contenant volontairement des problèmes de qualité, de confidentialité et de ré-identification.Web120 observations / 25 variablesVoir la documentation [Module 07 ](#module07-signalements)
+
+## signalements_municipaux_fictif.csv
+
+Signalements municipaux fictifs agrégés par quartier et type.Fichier local12 observations / 6 variablesVoir la fiche [Module 07 ](#module07-population)
+
+## population_quartiers_fictif.csv
+
+Population fictive de quartiers utilisée pour normaliser des signalements.Fichier local7 observations / 4 variablesVoir la fiche [Module 07 ](#module07-sondage)
+
+## sondage_etudiant_fictif.csv
+
+[Sondage étudiant fictif contenant des variables utiles et des champs à ne pas publier.Fichier local16 observations / 9 variablesVoir la fiche](#module07-sondage)
 
 ### Module 08
 
@@ -138,7 +162,19 @@ Tables de baseball utilisées pour combiner plusieurs sources.Package RStructure
 
 ## Recherche Données Québec
 
-[Page de recherche publique du portail Données Québec utilisée pour pratiquer l’extraction HTML.WebStructure à consulterVoir la documentation](https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1)
+Page de recherche publique du portail Données Québec utilisée pour pratiquer l’extraction HTML.WebStructure à consulterVoir la documentation [Module 08 ](#module08-catalogue)
+
+## catalogue_donnees_fictif.html
+
+Page HTML locale contenant un mini-catalogue fictif de données ouvertes.Fichier local5 observations / 4 variablesVoir la fiche [Module 08 ](#module08-irregular)
+
+## catalogue_irregulier_fictif.html
+
+Page HTML locale avec des champs volontairement manquants.Fichier local4 observations / 4 variablesVoir la fiche [Module 08 ](#module08-evenements)
+
+## evenements_publics_fictif.html
+
+[Page HTML locale décrivant des événements publics fictifs.Fichier local4 observations / 4 variablesVoir la fiche](#module08-evenements)
 
 ### Module 09
 
@@ -401,6 +437,376 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | dest_tz_code | numeric | 0 | 5 | -8 |
 | dest_dst | character | 0 | 2 | A |
 | dest_tz | character | 0 | 7 | America/Los_Angeles |
+
+### membres_equipe_fictif.csv
+
+Membres fictifs de deux équipes de projet.
+
+[Télécharger membres_equipe_fictif.csv](module_06/data/membres_equipe_fictif.csv)
+
+| Information  | Valeur                                                  |
+|:-------------|:--------------------------------------------------------|
+| Module       | Module 06                                               |
+| Observations | 8                                                       |
+| Variables    | 4                                                       |
+| Utilisation  | Pratiquer les clés de jointure et les résumés par rôle. |
+| Source       | Données fictives créées pour le cours.                  |
+| Licence      | Données simulées pour le cours.                         |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| membre_id | character | 0 | 8 | M01 |
+| nom | character | 0 | 8 | Amina |
+| role | character | 0 | 5 | Responsable depot |
+| equipe | character | 0 | 2 | Equipe A |
+
+### contributions_git_fictif.csv
+
+Contributions Git fictives liées aux membres.
+
+[Télécharger contributions_git_fictif.csv](module_06/data/contributions_git_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 06 |
+| Observations | 12 |
+| Variables | 6 |
+| Utilisation | Joindre des commits aux personnes et repérer les clés absentes. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| commit_id | character | 0 | 12 | C001 |
+| membre_id | character | 0 | 9 | M01 |
+| date_commit | Date | 0 | 5 | 2026-02-10 |
+| type_contribution | character | 0 | 7 | structure |
+| fichier | character | 0 | 4 | README.md |
+| lignes_modifiees | numeric | 0 | 12 | 32 |
+
+### issues_revue_fictif.csv
+
+Issues fictives produites pendant une revue croisée.
+
+[Télécharger issues_revue_fictif.csv](module_06/data/issues_revue_fictif.csv)
+
+| Information  | Valeur                                             |
+|:-------------|:---------------------------------------------------|
+| Module       | Module 06                                          |
+| Observations | 7                                                  |
+| Variables    | 7                                                  |
+| Utilisation  | Résumer des issues par équipe, statut et priorité. |
+| Source       | Données fictives créées pour le cours.             |
+| Licence      | Données simulées pour le cours.                    |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| issue_id | character | 0 | 7 | I001 |
+| equipe_revisee | character | 0 | 3 | Equipe A |
+| auteur_id | character | 0 | 7 | M05 |
+| date_issue | Date | 0 | 2 | 2026-02-15 |
+| dimension | character | 0 | 6 | Reproductibilite |
+| statut | character | 0 | 2 | ouverte |
+| priorite | character | 0 | 3 | elevee |
+
+### fichiers_rapport_fictif.csv
+
+Fichiers attendus dans de faux dépôts de rapport.
+
+[Télécharger fichiers_rapport_fictif.csv](module_06/data/fichiers_rapport_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 06 |
+| Observations | 12 |
+| Variables | 4 |
+| Utilisation | Vérifier la présence des livrables et diagnostiquer la reproductibilité. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| equipe | character | 0 | 3 | Equipe A |
+| fichier_attendu | character | 0 | 4 | README.md |
+| present | character | 0 | 2 | oui |
+| taille_ko | numeric | 0 | 9 | 8 |
+
+### portail_donnees_fictif.csv
+
+Jeux de données fictifs d’un portail ouvert.
+
+[Télécharger portail_donnees_fictif.csv](module_06/data/portail_donnees_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 06 |
+| Observations | 6 |
+| Variables | 5 |
+| Utilisation | Pratiquer les jointures avec producteurs, licences et commentaires de revue. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| jeu_id | character | 0 | 6 | D001 |
+| titre | character | 0 | 6 | Stations velo |
+| producteur_id | character | 0 | 5 | P01 |
+| licence | character | 0 | 3 | CC-BY |
+| mis_a_jour | Date | 0 | 6 | 2026-01-12 |
+
+### producteurs_fictif.csv
+
+Producteurs fictifs associés à un portail de données.
+
+[Télécharger producteurs_fictif.csv](module_06/data/producteurs_fictif.csv)
+
+| Information  | Valeur                                               |
+|:-------------|:-----------------------------------------------------|
+| Module       | Module 06                                            |
+| Observations | 4                                                    |
+| Variables    | 4                                                    |
+| Utilisation  | Repérer les producteurs manquants dans une jointure. |
+| Source       | Données fictives créées pour le cours.               |
+| Licence      | Données simulées pour le cours.                      |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| producteur_id | character | 0 | 4 | P01 |
+| organisation | character | 0 | 4 | Ville de Quebec |
+| type_organisation | character | 0 | 3 | Municipal |
+| contact_public | character | 0 | 2 | oui |
+
+### commentaires_revue_fictif.csv
+
+Commentaires fictifs de revue sur des jeux de données.
+
+[Télécharger commentaires_revue_fictif.csv](module_06/data/commentaires_revue_fictif.csv)
+
+| Information  | Valeur                                           |
+|:-------------|:-------------------------------------------------|
+| Module       | Module 06                                        |
+| Observations | 6                                                |
+| Variables    | 6                                                |
+| Utilisation  | Résumer les problèmes par dimension et sévérité. |
+| Source       | Données fictives créées pour le cours.           |
+| Licence      | Données simulées pour le cours.                  |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| commentaire_id | character | 0 | 6 | R001 |
+| jeu_id | character | 0 | 6 | D001 |
+| auteur_id | character | 0 | 6 | M01 |
+| dimension | character | 0 | 5 | Documentation |
+| severite | character | 0 | 3 | basse |
+| action_recommandee | character | 0 | 6 | preciser les variables |
+
+### signalements_municipaux_fictif.csv
+
+Signalements municipaux fictifs agrégés par quartier et type.
+
+[Télécharger signalements_municipaux_fictif.csv](module_07/data/signalements_municipaux_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 07 |
+| Observations | 12 |
+| Variables | 6 |
+| Utilisation | Comparer nombres bruts, taux par population et règles de masquage des petits effectifs. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| quartier | character | 0 | 7 | Saint-Roch |
+| type_signalement | character | 0 | 5 | bruit |
+| mois | character | 0 | 1 | 2026-01 |
+| nb_signalements | numeric | 0 | 12 | 42 |
+| niveau_detail_public | character | 0 | 2 | quartier |
+| commentaire_public | character | 0 | 11 | Hausse observee pres de plusieurs chantiers. |
+
+### population_quartiers_fictif.csv
+
+Population fictive de quartiers utilisée pour normaliser des signalements.
+
+[Télécharger population_quartiers_fictif.csv](module_07/data/population_quartiers_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 07 |
+| Observations | 7 |
+| Variables | 4 |
+| Utilisation | Calculer des taux par 10 000 personnes et discuter les limites des comparaisons. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| quartier | character | 0 | 7 | Saint-Roch |
+| population_estimee | numeric | 0 | 7 | 18200 |
+| superficie_km2 | numeric | 0 | 7 | 3.1 |
+| indice_vulnerabilite | numeric | 0 | 7 | 0.64 |
+
+### sondage_etudiant_fictif.csv
+
+Sondage étudiant fictif contenant des variables utiles et des champs à ne pas publier.
+
+[Télécharger sondage_etudiant_fictif.csv](module_07/data/sondage_etudiant_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 07 |
+| Observations | 16 |
+| Variables | 9 |
+| Utilisation | Pratiquer l’anonymisation, les petits effectifs et la communication prudente. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| repondant_id | character | 0 | 16 | E001 |
+| programme | character | 0 | 4 | Statistique |
+| niveau | numeric | 0 | 3 | 1 |
+| age | numeric | 0 | 10 | 19 |
+| genre | character | 0 | 3 | F |
+| heures_etude | numeric | 0 | 15 | 12 |
+| score_stress | numeric | 0 | 6 | 6 |
+| consentement_publication | character | 0 | 2 | oui |
+| commentaire_libre | character | 0 | 10 | Prefere ne pas etre citee. |
+
+### catalogue_donnees_fictif.html
+
+Page HTML locale contenant un mini-catalogue fictif de données ouvertes.
+
+[Télécharger catalogue_donnees_fictif.html](module_08/data/catalogue_donnees_fictif.llms.md)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 08 |
+| Observations | 5 |
+| Variables | 4 |
+| Utilisation | Pratiquer les sélecteurs CSS, l’extraction de champs et la construction d’un tibble. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| message | character | 0 | 1 | Aucun aperçu disponible pour ce type de fichier. |
+
+### catalogue_irregulier_fictif.html
+
+Page HTML locale avec des champs volontairement manquants.
+
+[Télécharger catalogue_irregulier_fictif.html](module_08/data/catalogue_irregulier_fictif.llms.md)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 08 |
+| Observations | 4 |
+| Variables | 4 |
+| Utilisation | Tester une fonction d’extraction robuste et représenter les champs manquants par NA. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| message | character | 0 | 1 | Aucun aperçu disponible pour ce type de fichier. |
+
+### evenements_publics_fictif.html
+
+Page HTML locale décrivant des événements publics fictifs.
+
+[Télécharger evenements_publics_fictif.html](module_08/data/evenements_publics_fictif.llms.md)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 08 |
+| Observations | 4 |
+| Variables | 4 |
+| Utilisation | Construire une fonction d’extraction pour un second type de page HTML. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| message | character | 0 | 1 | Aucun aperçu disponible pour ce type de fichier. |
 
 ### eleves_fictifs.csv
 

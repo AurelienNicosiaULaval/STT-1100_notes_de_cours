@@ -1,265 +1,384 @@
 ---
-title: "Consolidation Exercises"
+title: "Module 6 - Exercises"
+subtitle: "STT-1100 Introduction to Data Science"
 format:
   html:
     toc: true
+    toc-title: Plan
     embed-resources: true
+    link-external-newwindow: true
+    css: [../css/base_css.css]
+editor: visual
 ---
 
-# Consolidation exercises {.unnumbered}
+# Consolidation Exercises
 
->  **General objective – Master the different `dplyr` joins (`inner_join()`, `left_join()`, `right_join()`, `full_join()`, `semi_join()`, `anti_join()`) on various datasets.**
+These exercises are independent from the adventure and challenge. They consolidate the technical moves from module 6: join several tables, check keys, find unmatched rows, summarize collaborative activity and write constructive review comments.
 
-----------------------------------------------------------------------------------
+The data used here are fictitious and do not represent any real GitHub repository.
 
-## 1. Penguins & Islands
+```{r setup, warning=FALSE, message=FALSE}
+library(tidyverse)
+```
 
-*Datasets:* `palmerpenguins::penguins` and `palmerpenguins::penguins_raw` (package **palmerpenguins**). Add to each penguin the latitude (`lat`) and longitude (`long`) of its island by matching the variable `island`.
+# Readings to Review
 
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(palmerpenguins)
+- [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world){target="_blank"}
+- [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues){target="_blank"}
+- [GitHub Docs - Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue){target="_blank"}
+- [GitHub Docs - About pull requests](https://docs.github.com/en/pull-requests){target="_blank"}
+- [GitHub Docs - About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts){target="_blank"}
+- [Quarto Docs - Inline code](https://quarto.org/docs/computations/inline-code.html){target="_blank"}
+- [Quarto Docs - Execution options](https://quarto.org/docs/computations/execution-options.html){target="_blank"}
+- [R for Data Science - Joins](https://r4ds.hadley.nz/joins.html){target="_blank"}
 
-islands <- penguins_raw |>
-  distinct(island, lat = latitude, long = longitude)
+After the readings, also complete the [formative mini-test](mini_test.qmd). It is not graded.
 
-penguins_loc <- penguins |>
-  left_join(islands, by = "island")
+# Block A - Understand Join Keys
+
+## Exercise 1 - Import Collaboration Tables
+
+Import `fictitious_team_members.csv` and `fictitious_git_contributions.csv`, then inspect their dimensions.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+members <- read_csv(
+  "data/fictitious_team_members.csv",
+  show_col_types = FALSE
+)
+
+contributions <- read_csv(
+  "data/fictitious_git_contributions.csv",
+  show_col_types = FALSE
+)
+
+glimpse(members)
+glimpse(contributions)
+
+tibble(
+  table = c("members", "contributions"),
+  rows = c(nrow(members), nrow(contributions)),
+  columns = c(ncol(members), ncol(contributions))
+)
 ```
 :::
 
-----------------------------------------------------------------------------------
+## Exercise 2 - Add Member Information
 
-## 2. Gapminder × ISO-3 Code
+Use `left_join()` to add the name, role and team to each contribution.
 
-*Datasets:* `gapminder::gapminder` (package **gapminder**) and `countrycode::codelist` (package **countrycode**). Retrieves the ISO‑3 code (`iso3c`) and FAO region for each country in `gapminder`. *Hint:* key = `country`.
+::: {.callout-note collapse="true"}
+## Solution
 
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(gapminder)
-library(countrycode)
+```{r}
+contribution_details <- contributions |>
+  left_join(members, by = "member_id")
 
-gap_iso <- gapminder |>
-  inner_join(
-    select(countrycode::codelist, country = country.name.en, iso3c, region_fao),
-    by = "country"
+contribution_details |>
+  select(commit_id, member_id, name, role, team, contribution_type, file) |>
+  arrange(commit_id)
+```
+:::
+
+## Exercise 3 - Find Contributions Without a Known Member
+
+Use `anti_join()` to find contributions whose `member_id` does not appear in the member table.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+contributions |>
+  anti_join(members, by = "member_id")
+```
+
+This check is useful before summarizing work by person. A missing key may indicate a data-entry error or an undocumented member.
+:::
+
+## Exercise 4 - Identify Members Who Contributed
+
+Use `semi_join()` to get the list of members who have at least one contribution.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+members |>
+  semi_join(contributions, by = "member_id") |>
+  arrange(team, role)
+```
+:::
+
+# Block B - Summarize Collaborative Work
+
+## Exercise 5 - Summarize Contributions by Member
+
+Create a table giving, for each known member, the number of commits and the total number of changed lines.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+member_summary <- contribution_details |>
+  filter(!is.na(name)) |>
+  group_by(team, name, role) |>
+  summarise(
+    n_commits = n(),
+    changed_lines = sum(changed_lines),
+    .groups = "drop"
+  ) |>
+  arrange(team, desc(n_commits))
+
+member_summary
+```
+:::
+
+## Exercise 6 - Visualize Team Activity
+
+Produce a chart of the number of commits by role.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+member_summary |>
+  ggplot(aes(x = role, y = n_commits, fill = team)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  labs(
+    title = "Number of commits by role",
+    x = "Role",
+    y = "Number of commits",
+    fill = "Team"
   )
 ```
 :::
 
-----------------------------------------------------------------------------------
+## Exercise 7 - Check Expected Files
 
-## 3. Star Wars – Species & Classifications
+Import `fictitious_report_files.csv`. For each team, calculate the number of expected files present and missing.
 
-*Dataset:* `dplyr::starwars` (package **dplyr**). Creates a `species_class` tibble listing some species and their **classification** (`mammal`, `reptilian`, etc.). Do a **`left_join()`** to add the `classification` column and calculate the average size (`height`) by classification.
+::: {.callout-note collapse="true"}
+## Solution
 
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-
-species_class <- tibble::tribble(
-  ~species, ~classification,
-  "Human", "mammal",
-  "Droid", "artificial",
-  "Gungan", "amphibian",
-  "Wookiee", "mammal"
+```{r}
+files <- read_csv(
+  "data/fictitious_report_files.csv",
+  show_col_types = FALSE
 )
 
-starwars_cls <- starwars |>
-  left_join(species_class, by = "species") |>
-  group_by(classification) |>
-  summarise(mean_height = mean(height, na.rm = TRUE))
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## 4. Baseball – Canadian players
-
-*Datasets:* `Lahman::People`, `Lahman::Batting` (package **Lahman**).
-
-1. Obtain the list of players born in *Canada* (`birthCountry`).
-2. Calculate their batting average (`H/AB`) by merging People <-> Batting on `playerID`.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(Lahman)
-
-can_players <- People |>
-  filter(birthCountry == "Canada") |>
-  select(playerID, nameFirst, nameLast)
-
-can_stats <- can_players |>
-  inner_join(select(Batting, playerID, H, AB), by = "playerID") |>
-  group_by(playerID, nameFirst, nameLast) |>
-  summarise(avg = sum(H, na.rm = TRUE) / sum(AB, na.rm = TRUE),
-            .groups = "drop")
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## 5. First names & First letter
-
-*Dataset:* `babynames::babynames` (package **babynames**). Creates an `alphabet` tibble with the first letter (`initial`) and its category (“A‑M”, “N‑Z”). Adds the category to `babynames`, then counts births by category in 2010.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(babynames)
-
-alphabet <- tibble::tibble(
-  initial = LETTERS,
-  group = if_else(initial <= "M", "A-M", "N-Z")
-)
-
-babynames_2010 <- babynames |>
-  filter(year == 2010) |>
-  mutate(initial = substr(name, 1, 1)) |>
-  inner_join(alphabet, by = "initial") |>
-  group_by(group) |>
-  summarize(total = sum(n))
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## 6. Canadian Weather – Stations & Observations
-
-*Datasets:* `weathercan::stations_meta()` and `weathercan::weather_dl()` (package **weathercan**). Download daily data for Québec‑Jean‑Lesage (station #7025250) for 2024 and attach it to station metadata to add `province` and `elevation`.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(weathercan)
-library(dplyr)
-
-meta <- stations_meta() |>
-  filter(station_id == 7025250) |>
-  select(station_id, province, elev = elevation)
-
-qc24 <- weather_dl(station_ids = 7025250,
-                   start="2024-01-01", end="2024-12-31",
-                   interval = "day")
-
-qc24_full <- qc24 |>
-  left_join(meta, by = "station_id")
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## 7. Pizza Ratings
-
-*Datasets:* `fivethirtyeight::pizza` and `fivethirtyeight::pizza_places` (package **fivethirtyeight**). Associate each rating (`pizza`) with its restaurant (`pizza_places`) via `place_id` and find the average rating (`rating`) by **state**.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(fivethirtyeight)
-
-pizza_avg_state <- pizza |>
-  inner_join(pizza_places, by = "place_id") |>
-  group_by(state) |>
-  summarise(mean_rating = mean(rating, na.rm = TRUE))
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## 8. UN – Votes & Resolutions
-
-*Datasets:* `unvotes::un_votes`, `unvotes::un_roll_calls` (package **unvotes**). Links each vote (`un_votes`) to the description of the resolution (`un_roll_calls`) via `rcid`. Lists the five countries that voted "no" most often between 2000 and 2010.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(unvotes)
-
-votes_desc <- un_votes |>
-  inner_join(un_roll_calls, by = "rcid") |>
-  filter(year >= 2000, year <= 2010, vote == "no") |>
-  count(country, sort = TRUE) |>
-  slice_head(n = 5)
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## 9. Movies & Oscars
-
-*Datasets:* `ggplot2movies::movies` (package **ggplot2movies**) and an `oscars` tibble listing some titles and the year of the Best Picture Oscar. Do a **`full_join()`** then locate the films present in only one of the two sets.
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(ggplot2movies)
-
-oscars <- tibble::tribble(
-  ~title, ~oscar_year,
-  "The Hurt Locker", 2010,
-  "Argo", 2013,
-  "Parasite", 2020,
-  "Nomadland", 2021
-)
-
-movies_oscar <- full_join(
-  select(movies, title, year, rating),
-  oscars,
-  by = "title",
-  keep = TRUE
-)
-
-only_one_side <- movies_oscar |>
-  filter(is.na(year) | is.na(oscar_year))
-```
-:::
-
-----------------------------------------------------------------------------------
-
-## 10. **EDA mini-project** - JFK flights
-
-*Datasets:* `nycflights23::flights`, `nycflights23::airlines` and `nycflights23::weather` (package **nycflights23**).
-
-1. **Joins:** connect `flights`, `airlines` and `weather`.
-2. Filter on JFK flights only.
-3. Calculate the average departure delay by carrier.
-4. Visualize the relationship between wind gusts (`wind_gust`) and departure delays (`dep_delay`).
-
-::: {.callout-tip collapse="true"}
-``` r
-library(dplyr)
-library(ggplot2)
-library(nycflights23)
-
-flights_jfk <- flights |>
-  filter(origin == "JFK") |>
-  left_join(airlines, by = "carrier") |>
-  left_join(
-    weather,
-    by = c("origin", "year", "month", "day", "hour")
-  )
-
-summary_tbl <- flights_jfk |>
-  group_by(name) |>
-  summarize(
-    n_flights = n(),
-    mean_delay = mean(dep_delay, na.rm = TRUE),
+file_summary <- files |>
+  mutate(is_present = present == "yes") |>
+  group_by(team) |>
+  summarise(
+    files_present = sum(is_present),
+    files_missing = sum(!is_present),
+    total_size_kb = sum(size_kb),
     .groups = "drop"
   )
 
-flights_jfk |>
-  filter(!is.na(wind_gust), !is.na(dep_delay)) |>
-  slice_sample(n = 5000) |>
-  ggplot(aes(x = wind_gust, y = dep_delay)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    title = "Wind gusts and departure delays at JFK",
-    x = "Wind gusts",
-    y = "Departure delay (minutes)"
-  )
+file_summary
 ```
+:::
+
+## Exercise 8 - Find Teams Missing an HTML Report
+
+Filter rows where `expected_file == "rapport.html"` and the file is absent.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+files |>
+  filter(expected_file == "rapport.html", present == "no")
+```
+:::
+
+# Block C - Issues and Constructive Review
+
+## Exercise 9 - Join Issues to Members
+
+Import `fictitious_review_issues.csv`, then add the name and team of the author of each issue.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+issues <- read_csv(
+  "data/fictitious_review_issues.csv",
+  show_col_types = FALSE
+)
+
+issue_details <- issues |>
+  left_join(members, by = c("author_id" = "member_id"))
+
+issue_details |>
+  select(issue_id, reviewed_team, author_id, name, team, dimension, status, priority)
+```
+:::
+
+## Exercise 10 - Summarize Issues by Reviewed Team
+
+Calculate the number of open, closed and high-priority issues for each reviewed team.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+issue_details |>
+  group_by(reviewed_team) |>
+  summarise(
+    n_issues = n(),
+    n_open = sum(status == "open"),
+    n_closed = sum(status == "closed"),
+    n_high_priority = sum(priority == "high"),
+    .groups = "drop"
+  ) |>
+  arrange(desc(n_open))
+```
+:::
+
+## Exercise 11 - Find Issues Without a Known Team
+
+Teams A and B are in the member table. Use a join or equivalent logic to identify issues targeting a team absent from the known team list.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+known_teams <- members |>
+  distinct(team)
+
+issues |>
+  anti_join(known_teams, by = c("reviewed_team" = "team"))
+```
+:::
+
+## Exercise 12 - Write a Useful Issue
+
+Choose one open issue and rewrite it with three sections: successful aspect, suggestion, justification.
+
+::: {.callout-note collapse="true"}
+## Example Answer
+
+```markdown
+## Successful aspect
+
+The report clearly lists the packages used and the main preparation steps.
+
+## Suggestion
+
+Add one sentence explaining the join key used between contributions and members.
+
+## Why this suggestion is useful
+
+The review becomes easier to reproduce because another team can understand why `member_id` is the correct key.
+```
+:::
+
+# Case Studies
+
+## Case Study 1 - Fictitious Project Repository Audit
+
+Use `fictitious_team_members.csv`, `fictitious_git_contributions.csv`, `fictitious_review_issues.csv` and `fictitious_report_files.csv`.
+
+Complete the following tasks:
+
+1. join contributions to members;
+2. find contributions without a known member;
+3. produce a summary by team;
+4. join issues to authors;
+5. identify teams missing `rapport.html`;
+6. write a cautious conclusion about repository reproducibility.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+audit_contributions <- contributions |>
+  left_join(members, by = "member_id")
+
+contributions_without_member <- contributions |>
+  anti_join(members, by = "member_id")
+
+team_summary <- audit_contributions |>
+  filter(!is.na(team)) |>
+  group_by(team) |>
+  summarise(
+    n_commits = n(),
+    n_active_members = n_distinct(member_id),
+    changed_lines = sum(changed_lines),
+    .groups = "drop"
+  )
+
+audit_issues <- issues |>
+  left_join(members, by = c("author_id" = "member_id"))
+
+missing_reports <- files |>
+  filter(expected_file == "rapport.html", present == "no")
+
+contributions_without_member
+team_summary
+audit_issues
+missing_reports
+```
+
+A cautious conclusion could state that Team B appears to have its data trace present, but an HTML report is missing. This observation is not enough to judge the whole project; the next step would be to try rendering `rapport.qmd`.
+:::
+
+## Case Study 2 - Fictitious Data Portal Review
+
+Use `fictitious_data_portal.csv`, `fictitious_producers.csv` and `fictitious_review_comments.csv`.
+
+Complete the following tasks:
+
+1. join datasets to producers;
+2. find datasets without a known producer;
+3. join comments to datasets;
+4. count comments by dimension and severity;
+5. identify datasets with an unknown license;
+6. write a constructive review issue for a priority problem.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+```{r}
+portal <- read_csv(
+  "data/fictitious_data_portal.csv",
+  show_col_types = FALSE
+)
+
+producers <- read_csv(
+  "data/fictitious_producers.csv",
+  show_col_types = FALSE
+)
+
+comments <- read_csv(
+  "data/fictitious_review_comments.csv",
+  show_col_types = FALSE
+)
+
+portal_producers <- portal |>
+  left_join(producers, by = "producer_id")
+
+datasets_without_producer <- portal |>
+  anti_join(producers, by = "producer_id")
+
+comment_details <- comments |>
+  left_join(portal, by = "dataset_id")
+
+comment_summary <- comment_details |>
+  count(dimension, severity, sort = TRUE)
+
+unknown_licenses <- portal_producers |>
+  filter(license == "Unknown" | is.na(organization))
+
+datasets_without_producer
+comment_summary
+unknown_licenses
+```
+
+A priority issue could ask the team to clarify the license for the `Road work` dataset before publishing. The justification is that data reuse directly depends on the stated license.
 :::

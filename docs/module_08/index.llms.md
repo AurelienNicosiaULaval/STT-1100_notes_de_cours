@@ -38,7 +38,7 @@ sélecteurs fonction table finale
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et utilisent des pages HTML locales pour consolider les mêmes gestes sans dépendre d’un site externe.
 
 1 Lectures à faire Préparer HTML, sélecteurs CSS, fonctions et automatisation. Dans la carte Ouvrir la carteRéduire
 
@@ -47,7 +47,13 @@ Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exerc
 Pour vous préparer, consultez les ressources suivantes :
 
 - [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html)
+- [R for Data Science - Functions](https://r4ds.hadley.nz/functions.html)
+- [R for Data Science - Iteration](https://r4ds.hadley.nz/iteration.html)
+- [Documentation officielle de rvest](https://rvest.tidyverse.org/)
 - [robots.txt documentation (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
+- [Google Search Central - Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
+
+Vérification Après les lectures, faites le [mini-test formatif](mini_test.llms.md).
 
 2 Aventure Extraire une page web et transformer le résultat en table. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
@@ -72,23 +78,23 @@ Vous devrez concevoir une fonction `scrape_page(url)` qui :
 
 Vous remettrez cette fonction dans un fichier `IDUL.R` dans le dépôt template `STT-1100/aventure-8`. La consigne complète est disponible dans la page [Défi 8](defi.llms.md).
 
-4 Exercices Reprendre sélecteurs, boucles et nettoyage de texte web. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+4 Exercices Pratiquer sélecteurs, fonctions, boucles et limites de collecte. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+Pourquoi Les exercices utilisent des pages HTML fictives et locales pour rester reproductibles et indépendants du défi.
 
-Refaites au moins un passage sans regarder la solution immédiatement.
+Avant d'ouvrir une solution, nommez le sélecteur CSS ou le contrat de sortie que vous voulez tester.
 
 ## Données et outils
 
 ### Bases de données
 
-[Pages web analysées avec rvest](../donnees.llms.md#dataset-card-web-pages-module-08)
+[Pages web analysées avec rvest](../donnees.llms.md#dataset-card-web-pages-module-08) [catalogue_donnees_fictif.html](../donnees.llms.md#dataset-card-module08-catalogue) [catalogue_irregulier_fictif.html](../donnees.llms.md#dataset-card-module08-irregular) [evenements_publics_fictif.html](../donnees.llms.md#dataset-card-module08-evenements)
 
 ### Packages R
 
-[tidyverse](../packages.llms.md#tidyverse) [rvest](../packages.llms.md#rvest) [purrr](../packages.llms.md#purrr)
+[tidyverse](../packages.llms.md#tidyverse) [rvest](../packages.llms.md#rvest) [purrr](../packages.llms.md#purrr) [dplyr](../packages.llms.md#dplyr) [stringr](../packages.llms.md#stringr) [robotstxt](../packages.llms.md#robotstxt)
 
 ## Révision et prolongement
 

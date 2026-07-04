@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
-
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-}
-pre.numberSource { margin-left: 3em; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -5885,23 +5850,10 @@ margin-bottom: .05rem;
 
   <ul>
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
-  <li><a href="#lectures-initiales" id="toc-lectures-initiales" class="nav-link" data-scroll-target="#lectures-initiales">Lectures initiales</a>
-  <ul class="collapse">
-  <li><a href="#lectures-à-faire-avant-laventure" id="toc-lectures-à-faire-avant-laventure" class="nav-link" data-scroll-target="#lectures-à-faire-avant-laventure">Lectures à faire avant l’aventure</a></li>
-  </ul></li>
+  <li><a href="#lectures-à-faire" id="toc-lectures-à-faire" class="nav-link" data-scroll-target="#lectures-à-faire">Lectures à faire</a></li>
   <li><a href="#aventure" id="toc-aventure" class="nav-link" data-scroll-target="#aventure">Aventure</a></li>
   <li><a href="#défi" id="toc-défi" class="nav-link" data-scroll-target="#défi">Défi</a></li>
-  <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a>
-  <ul class="collapse">
-  <li><a href="#exercice-1-lecture-contrôlée-dun-csv-data-import-readr" id="toc-exercice-1-lecture-contrôlée-dun-csv-data-import-readr" class="nav-link" data-scroll-target="#exercice-1-lecture-contrôlée-dun-csv-data-import-readr">Exercice 1 – Lecture contrôlée d’un CSV (Data import, § readr)</a></li>
-  <li><a href="#exercice-2-recodage-de-valeurs-catégorielles" id="toc-exercice-2-recodage-de-valeurs-catégorielles" class="nav-link" data-scroll-target="#exercice-2-recodage-de-valeurs-catégorielles">Exercice 2 – Recodage de valeurs catégorielles</a></li>
-  <li><a href="#exercice-3-passage-long---large-data-tidy-pivot" id="toc-exercice-3-passage-long---large-data-tidy-pivot" class="nav-link" data-scroll-target="#exercice-3-passage-long---large-data-tidy-pivot">Exercice 3 – Passage long &lt;-&gt; large (Data tidy, § pivot)</a></li>
-  <li><a href="#exercice-4-importation-contrôlée-du-fichier-principal" id="toc-exercice-4-importation-contrôlée-du-fichier-principal" class="nav-link" data-scroll-target="#exercice-4-importation-contrôlée-du-fichier-principal">Exercice 4 – Importation contrôlée du fichier principal</a></li>
-  <li><a href="#exercice-5-lire-une-feuille-excel-précise-import-spreadsheets-ex.-3" id="toc-exercice-5-lire-une-feuille-excel-précise-import-spreadsheets-ex.-3" class="nav-link" data-scroll-target="#exercice-5-lire-une-feuille-excel-précise-import-spreadsheets-ex.-3">Exercice 5 – Lire une feuille Excel précise (Import spreadsheets, ex. 3)</a></li>
-  <li><a href="#exercice-6-parse-de-nombres-avec-locale-data-import-ex.-5" id="toc-exercice-6-parse-de-nombres-avec-locale-data-import-ex.-5" class="nav-link" data-scroll-target="#exercice-6-parse-de-nombres-avec-locale-data-import-ex.-5">Exercice 6 – Parse de nombres avec locale (Data import, ex. 5)</a></li>
-  <li><a href="#exercice-7-rectangling-dune-liste-json-lists-ex.-1-2" id="toc-exercice-7-rectangling-dune-liste-json-lists-ex.-1-2" class="nav-link" data-scroll-target="#exercice-7-rectangling-dune-liste-json-lists-ex.-1-2">Exercice 7 – Rectangling d’une liste JSON (Lists, ex. 1-2)</a></li>
-  <li><a href="#exercice-8-pipeline-express-synthèse" id="toc-exercice-8-pipeline-express-synthèse" class="nav-link" data-scroll-target="#exercice-8-pipeline-express-synthèse">Exercice 8 – Pipeline express (Synthèse)</a></li>
-  </ul></li>
+  <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a></li>
   </ul>
 </nav>
     </div>
@@ -5930,314 +5882,61 @@ margin-bottom: .05rem;
 
 <section id="objectifs-du-module" class="level1">
 <h1>Objectifs du module</h1>
-<p>À la fin de ce module, vous devriez être capable de</p>
+<p>À la fin de ce module, vous devriez être capable de:</p>
 <ul>
-<li>Importer des données de différents formats (<code>txt</code>, <code>csv</code>, <code>excel</code>, <code>json</code>).</li>
-<li>Nettoyer et recoder des données pour assurer leur qualité.</li>
-<li>Utiliser les librairies <code>forcats</code> et <code>stringr</code> pour manipuler des facteurs et des chaînes de caractères.</li>
-<li>Créer et utiliser des listes.</li>
+<li>importer des fichiers délimités, Excel et JSON avec les bons outils;</li>
+<li>vérifier les dimensions, les noms de colonnes et les types après importation;</li>
+<li>nettoyer des noms de colonnes, des valeurs manquantes codées et des montants textuels;</li>
+<li>recoder des catégories avec <code>stringr</code> et <code>forcats</code>;</li>
+<li>transformer des tableaux entre formats long et large;</li>
+<li>transformer une liste ou un JSON simple en tableau;</li>
+<li>documenter une décision de nettoyage dans une liste structurée.</li>
 </ul>
 </section>
-<section id="lectures-initiales" class="level1">
-<h1>Lectures initiales</h1>
-<section id="lectures-à-faire-avant-laventure" class="level2">
-<h2 class="anchored" data-anchor-id="lectures-à-faire-avant-laventure">Lectures à faire avant l’aventure</h2>
-<p>Dans ce module, nous allons explorer les concepts de base de l’importation et du nettoyage de données. Voici quelques lectures initiales pour vous préparer :</p>
+<section id="lectures-à-faire" class="level1">
+<h1>Lectures à faire</h1>
+<p>Ces lectures préparent les gestes du module: importer, nettoyer, transformer et documenter.</p>
 <ul>
-<li><p><a href="https://r4ds.hadley.nz/data-import.html" target="_blank"><strong>R for Data Science – Data import</strong></a><br>
-Ce chapitre vous introduit à l’importation de données avec le package <code>readr</code>.<br>
-</p></li>
-<li><p><a href="https://r4ds.hadley.nz/data-tidy.html" target="_blank"><strong>R for Data Science – Data tidying</strong></a><br>
-Ce chapitre vous introduit à la manipulation de données avec le package <code>dplyr</code>.<br>
-</p></li>
-<li><p><a href="https://r4ds.hadley.nz/factors.html" target="_blank"><strong>R for Data Science – Factors</strong></a><br>
-Ce chapitre vous introduit aux <strong>facteurs</strong> en R, qui sont des variables catégoriques.<br>
-&gt; <strong>Note</strong> : Bien que ce chapitre soit plus largement utilisé au module 4, certaines fonctions utiles comme <code>factor()</code> ou <code>fct_reorder()</code> peuvent déjà vous aider pour manipuler des variables catégoriques (module 3).</p></li>
-<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank"><strong>R for Data Science – Import spreadsheets</strong></a><br>
-Ce chapitre vous introduit à l’importation de données à partir de fichiers Excel.<br>
-</p></li>
-<li><p><a href="https://r4ds.hadley.nz/rectangling.html#lists" target="_blank"><strong>R for Data Science – Lists</strong></a><br>
-Cette section vous introduit au concept de liste en programmation.<br>
-</p></li>
+<li><p><a href="https://r4ds.hadley.nz/data-import.html" target="_blank">R for Data Science - Data import</a> Pour importer des fichiers rectangulaires, contrôler les types et repérer les problèmes d’importation.</p></li>
+<li><p><a href="https://readr.tidyverse.org/reference/read_delim.html" target="_blank">Documentation <code>readr::read_delim()</code></a> Pour comprendre le rôle du séparateur, très important lorsque le fichier n’est pas séparé par des virgules.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/data-tidy.html" target="_blank">R for Data Science - Data tidying</a> Pour revoir la logique des données tidy et les transformations long-large.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/missing-values.html" target="_blank">R for Data Science - Missing values</a> Pour distinguer les valeurs manquantes explicites, les valeurs codées comme manquantes et les valeurs implicites.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/factors.html" target="_blank">R for Data Science - Factors</a> Pour recoder, regrouper et ordonner des variables catégoriques.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank">R for Data Science - Spreadsheets</a> Pour importer des fichiers Excel et sélectionner une feuille précise.</p></li>
+<li><p><a href="https://r4ds.hadley.nz/rectangling.html" target="_blank">R for Data Science - Hierarchical data</a> Pour comprendre les listes, les données imbriquées et les premiers gestes de rectangling.</p></li>
 </ul>
-</section>
+<p>Après les lectures, faites le <a href="../module_04/mini_test.html">mini-test formatif</a>. Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.</p>
 </section>
 <section id="aventure" class="level1">
 <h1>Aventure</h1>
 <p><a href="../module_04/aventure.html">Aventure 4</a></p>
+<p>Vous jouez le rôle d’un ou d’une ingénieur·e de données junior. L’aventure vous guide dans l’importation d’une archive d’assurance, la détection d’anomalies et la documentation des décisions de nettoyage.</p>
 </section>
 <section id="défi" class="level1">
 <h1>Défi</h1>
 <p><a href="../module_04/defi.html">Défi 4</a></p>
-<p>À la fin de l’aventure, vous devez déposer dans votre dossier GitHub les éléments suivants :</p>
+<p>Le défi est la suite directe de l’aventure. Vous travaillez dans le même univers d’assurance, avec davantage d’autonomie, pour produire:</p>
 <ul>
-<li><p>le script <code>.qmd</code> de votre défi, c’est-à-dire un document où vous faites vos tests et construisez votre liste <code>journal_nettoyage</code> ;</p></li>
-<li><p>la liste <code>journal_nettoyage</code> dans un objet <code>.Rdata</code> ;</p></li>
-<li><p>la base de données nettoyée au format <code>.csv</code>.</p></li>
+<li><code>defi_04.qmd</code>;</li>
+<li><code>donnees_propres.csv</code>;</li>
+<li><code>journal_nettoyage.Rdata</code>.</li>
 </ul>
+<p>Le but n’est pas de corriger tout ce qui est discutable. Le but est de montrer que vos corrections sont prudentes, reproductibles et documentées.</p>
 </section>
 <section id="exercices-de-consolidation" class="level1">
 <h1>Exercices de consolidation</h1>
-<section id="exercice-1-lecture-contrôlée-dun-csv-data-import-readr" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-1-lecture-contrôlée-dun-csv-data-import-readr">Exercice 1 – Lecture contrôlée d’un CSV (Data import, § readr)</h3>
-<p>Importez <code>policies.csv</code> en :</p>
-<ul>
-<li><p>forçant <code>policy_id</code> en <strong>character</strong> ;</p></li>
-<li><p>laissant <code>premium_amount</code> en <strong>double</strong></p></li>
-</ul>
-<p>puis affichez la structure de l’objet.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Réponse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;policies.csv&quot;</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">policy_id      =</span> <span class="fu">col_character</span>(),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">premium_amount =</span> <span class="fu">col_double</span>()</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(policies)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-2-recodage-de-valeurs-catégorielles" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-2-recodage-de-valeurs-catégorielles">Exercice 2 – Recodage de valeurs catégorielles</h3>
-<p>La variable <code>vehicle_use</code> contient les valeurs <code>&quot;Pleasure&quot;</code>, <code>&quot;pleasure&quot;</code>, <code>&quot;Commute&quot;</code> et <code>&quot;Com.mute&quot;</code>.<br>
-Recoder cette variable pour obtenir seulement les niveaux <code>&quot;Pleasure&quot;</code> et <code>&quot;Commute&quot;</code>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Réponse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;policies.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">vehicle_use =</span> <span class="fu">fct_collapse</span>(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.factor</span>(vehicle_use),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">Pleasure =</span> <span class="fu">c</span>(<span class="st">&quot;Pleasure&quot;</span>, <span class="st">&quot;pleasure&quot;</span>),</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">Commute =</span> <span class="fu">c</span>(<span class="st">&quot;Commute&quot;</span>, <span class="st">&quot;Com.mute&quot;</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(policies<span class="sc">$</span>vehicle_use)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-3-passage-long---large-data-tidy-pivot" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-3-passage-long---large-data-tidy-pivot">Exercice 3 – Passage long &lt;-&gt; large (Data tidy, § pivot)</h3>
-<p>Les colonnes <code>q1_claims:q4_claims</code> représentent le nombre de réclamations par trimestre.</p>
+<p><a href="../module_04/exercices.html">Exercices du module 4</a></p>
+<p>Les exercices sont indépendants de l’aventure et du défi. Ils utilisent d’autres petits jeux de données fictifs pour consolider les compétences techniques:</p>
 <ol type="1">
-<li><p>Mettez-les en <em>long</em> (<code>quarter</code>, <code>claims</code>).</p></li>
-<li><p>Revenez ensuite en <em>wide</em>.</p></li>
+<li>importer des fichiers CSV, Excel et JSON;</li>
+<li>nettoyer des types, des noms et des valeurs manquantes;</li>
+<li>recoder des catégories;</li>
+<li>manipuler des listes et des fichiers JSON;</li>
+<li>documenter des décisions de nettoyage dans une liste.</li>
 </ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Réponse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pol_long <span class="ot">&lt;-</span> policies <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> q1_claims<span class="sc">:</span>q4_claims,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to  =</span> <span class="st">&quot;quarter&quot;</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;claims&quot;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>pol_wide <span class="ot">&lt;-</span> pol_long <span class="sc">%&gt;%</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> quarter, <span class="at">values_from =</span> claims)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-4-importation-contrôlée-du-fichier-principal" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-4-importation-contrôlée-du-fichier-principal">Exercice 4 – Importation contrôlée du fichier principal</h3>
-<p>Importez <code>dataset_pratique.csv</code>, nettoyez les noms de colonnes et vérifiez que le tableau contient 23 colonnes.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Réponse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dataset_pratique.csv&quot;</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(base)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(base)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-5-lire-une-feuille-excel-précise-import-spreadsheets-ex.-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-5-lire-une-feuille-excel-précise-import-spreadsheets-ex.-3">Exercice 5 – Lire une feuille Excel précise (Import spreadsheets, ex. 3)</h3>
-<p>Le classeur <code>quotes_2024.xlsx</code> possède une feuille « Q3 » où les libellés commencent à la 2ᵉ ligne.<br>
-Importez-la et vérifiez les types.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Réponse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>q3 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;resources/quotes_2024.xlsx&quot;</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">sheet =</span> <span class="st">&quot;Q3&quot;</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">skip  =</span> <span class="dv">1</span>   <span class="co"># on saute la première ligne</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(q3)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-6-parse-de-nombres-avec-locale-data-import-ex.-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-6-parse-de-nombres-avec-locale-data-import-ex.-5">Exercice 6 – Parse de nombres avec locale (Data import, ex. 5)</h3>
-<p>La colonne <code>euro_premium</code> contient « 1 234,56 » (virgule décimale, espace 000).<br>
-Parsez-la correctement en <code>double</code>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Réponse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_number</span>(<span class="st">&quot;1 234,56&quot;</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>, <span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-7-rectangling-dune-liste-json-lists-ex.-1-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-7-rectangling-dune-liste-json-lists-ex.-1-2">Exercice 7 – Rectangling d’une liste JSON (Lists, ex. 1-2)</h3>
-<p>Vous disposez d’une liste <code>lst &lt;- jsonlite::read_json(&quot;coverage.json&quot;)</code>.</p>
-<ol type="1">
-<li><p>Récupérez <code>lst$collision$limit</code>.</p></li>
-<li><p>Transformez <code>lst</code> en tibble rectangulaire.</p></li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Réponse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>lst   <span class="ot">&lt;-</span> <span class="fu">read_json</span>(<span class="st">&quot;coverage.json&quot;</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>limit <span class="ot">&lt;-</span> lst<span class="sc">$</span>coverage<span class="sc">$</span>collision<span class="sc">$</span>limit</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">couverture =</span> <span class="fu">names</span>(lst<span class="sc">$</span>coverage),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">details =</span> lst<span class="sc">$</span>coverage</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_wider</span>(details)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>limit</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>tbl</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercice-8-pipeline-express-synthèse" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-8-pipeline-express-synthèse">Exercice 8 – Pipeline express (Synthèse)</h3>
-<p>En trois lignes :</p>
-<ol type="1">
-<li><p>importez <code>policies.csv</code> ;</p></li>
-<li><p>nettoyez les noms (<code>janitor::clean_names</code>) ;</p></li>
-<li><p>renvoyez les <strong>5</strong> plus grosses <code>claim_amount</code> par <code>vehicle_type</code>.</p></li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Réponse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr); <span class="fu">library</span>(dplyr); <span class="fu">library</span>(janitor)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;policies.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vehicle_type) <span class="sc">%&gt;%</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(claim_amount, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
+<p>La série se termine par deux études de cas autonomes: des demandes de bourses fictives et des équipements municipaux fictifs.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -6571,11 +6270,6 @@ font-size:.8rem;
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -7,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exercices de consolidation – STT-1100 Introduction à la science des données</title>
+<title>Module 6 - Exercices – STT-1100 Introduction à la science des données</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5881,22 +5883,45 @@ margin-bottom: .05rem;
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+    <h2 id="toc-title">Plan</h2>
 
   <ul>
-  <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link active" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a>
+  <li><a href="#exercices-de-consolidation" id="toc-exercices-de-consolidation" class="nav-link active" data-scroll-target="#exercices-de-consolidation">Exercices de consolidation</a></li>
+  <li><a href="#lectures-%C3%A0-revoir" id="toc-lectures-à-revoir" class="nav-link" data-scroll-target="#lectures-à-revoir">Lectures à revoir</a></li>
+  <li>
+<a href="#bloc-a---comprendre-les-cl%C3%A9s-de-jointure" id="toc-bloc-a---comprendre-les-clés-de-jointure" class="nav-link" data-scroll-target="#bloc-a---comprendre-les-clés-de-jointure">Bloc A - Comprendre les clés de jointure</a>
   <ul class="collapse">
-  <li><a href="#penguins-islands" id="toc-penguins-islands" class="nav-link" data-scroll-target="#penguins-islands">1. Penguins &amp; Islands</a></li>
-  <li><a href="#gapminder-code-iso-3" id="toc-gapminder-code-iso-3" class="nav-link" data-scroll-target="#gapminder-code-iso-3">2. Gapminder × Code ISO-3</a></li>
-  <li><a href="#star-wars-espèces-classifications" id="toc-star-wars-espèces-classifications" class="nav-link" data-scroll-target="#star-wars-espèces-classifications">3. Star Wars – Espèces &amp; Classifications</a></li>
-  <li><a href="#baseball-joueurs-canadiens" id="toc-baseball-joueurs-canadiens" class="nav-link" data-scroll-target="#baseball-joueurs-canadiens">4. Baseball – Joueurs canadiens</a></li>
-  <li><a href="#prénoms-première-lettre" id="toc-prénoms-première-lettre" class="nav-link" data-scroll-target="#prénoms-première-lettre">5. Prénoms &amp; Première lettre</a></li>
-  <li><a href="#météo-canadienne-stations-observations" id="toc-météo-canadienne-stations-observations" class="nav-link" data-scroll-target="#météo-canadienne-stations-observations">6. Météo canadienne – Stations &amp; Observations</a></li>
-  <li><a href="#pizza-ratings" id="toc-pizza-ratings" class="nav-link" data-scroll-target="#pizza-ratings">7. Pizza Ratings</a></li>
-  <li><a href="#onu-votes-résolutions" id="toc-onu-votes-résolutions" class="nav-link" data-scroll-target="#onu-votes-résolutions">8. ONU – Votes &amp; Résolutions</a></li>
-  <li><a href="#films-oscars" id="toc-films-oscars" class="nav-link" data-scroll-target="#films-oscars">9. Films &amp; Oscars</a></li>
-  <li><a href="#mini-projet-eda---vols-à-jfk" id="toc-mini-projet-eda---vols-à-jfk" class="nav-link" data-scroll-target="#mini-projet-eda---vols-à-jfk">10. <strong>Mini-projet EDA</strong> - Vols à JFK</a></li>
-  </ul></li>
+  <li><a href="#exercice-1---importer-les-tables-de-collaboration" id="toc-exercice-1---importer-les-tables-de-collaboration" class="nav-link" data-scroll-target="#exercice-1---importer-les-tables-de-collaboration">Exercice 1 - Importer les tables de collaboration</a></li>
+  <li><a href="#exercice-2---ajouter-linformation-sur-les-membres" id="toc-exercice-2---ajouter-linformation-sur-les-membres" class="nav-link" data-scroll-target="#exercice-2---ajouter-linformation-sur-les-membres">Exercice 2 - Ajouter l’information sur les membres</a></li>
+  <li><a href="#exercice-3---rep%C3%A9rer-les-contributions-sans-membre-connu" id="toc-exercice-3---repérer-les-contributions-sans-membre-connu" class="nav-link" data-scroll-target="#exercice-3---repérer-les-contributions-sans-membre-connu">Exercice 3 - Repérer les contributions sans membre connu</a></li>
+  <li><a href="#exercice-4---identifier-les-membres-qui-ont-contribu%C3%A9" id="toc-exercice-4---identifier-les-membres-qui-ont-contribué" class="nav-link" data-scroll-target="#exercice-4---identifier-les-membres-qui-ont-contribué">Exercice 4 - Identifier les membres qui ont contribué</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#bloc-b---r%C3%A9sumer-un-travail-collaboratif" id="toc-bloc-b---résumer-un-travail-collaboratif" class="nav-link" data-scroll-target="#bloc-b---résumer-un-travail-collaboratif">Bloc B - Résumer un travail collaboratif</a>
+  <ul class="collapse">
+  <li><a href="#exercice-5---r%C3%A9sumer-les-contributions-par-membre" id="toc-exercice-5---résumer-les-contributions-par-membre" class="nav-link" data-scroll-target="#exercice-5---résumer-les-contributions-par-membre">Exercice 5 - Résumer les contributions par membre</a></li>
+  <li><a href="#exercice-6---visualiser-lactivit%C3%A9-de-l%C3%A9quipe" id="toc-exercice-6---visualiser-lactivité-de-léquipe" class="nav-link" data-scroll-target="#exercice-6---visualiser-lactivité-de-léquipe">Exercice 6 - Visualiser l’activité de l’équipe</a></li>
+  <li><a href="#exercice-7---v%C3%A9rifier-les-fichiers-attendus" id="toc-exercice-7---vérifier-les-fichiers-attendus" class="nav-link" data-scroll-target="#exercice-7---vérifier-les-fichiers-attendus">Exercice 7 - Vérifier les fichiers attendus</a></li>
+  <li><a href="#exercice-8---trouver-les-%C3%A9quipes-avec-un-rapport-html-manquant" id="toc-exercice-8---trouver-les-équipes-avec-un-rapport-html-manquant" class="nav-link" data-scroll-target="#exercice-8---trouver-les-équipes-avec-un-rapport-html-manquant">Exercice 8 - Trouver les équipes avec un rapport HTML manquant</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#bloc-c---issues-et-revue-constructive" id="toc-bloc-c---issues-et-revue-constructive" class="nav-link" data-scroll-target="#bloc-c---issues-et-revue-constructive">Bloc C - Issues et revue constructive</a>
+  <ul class="collapse">
+  <li><a href="#exercice-9---joindre-les-issues-aux-membres" id="toc-exercice-9---joindre-les-issues-aux-membres" class="nav-link" data-scroll-target="#exercice-9---joindre-les-issues-aux-membres">Exercice 9 - Joindre les issues aux membres</a></li>
+  <li><a href="#exercice-10---r%C3%A9sumer-les-issues-par-%C3%A9quipe-r%C3%A9vis%C3%A9e" id="toc-exercice-10---résumer-les-issues-par-équipe-révisée" class="nav-link" data-scroll-target="#exercice-10---résumer-les-issues-par-équipe-révisée">Exercice 10 - Résumer les issues par équipe révisée</a></li>
+  <li><a href="#exercice-11---rep%C3%A9rer-les-issues-sans-%C3%A9quipe-connue" id="toc-exercice-11---repérer-les-issues-sans-équipe-connue" class="nav-link" data-scroll-target="#exercice-11---repérer-les-issues-sans-équipe-connue">Exercice 11 - Repérer les issues sans équipe connue</a></li>
+  <li><a href="#exercice-12---r%C3%A9diger-une-issue-utile" id="toc-exercice-12---rédiger-une-issue-utile" class="nav-link" data-scroll-target="#exercice-12---rédiger-une-issue-utile">Exercice 12 - Rédiger une issue utile</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#%C3%A9tudes-de-cas" id="toc-études-de-cas" class="nav-link" data-scroll-target="#études-de-cas">Études de cas</a>
+  <ul class="collapse">
+  <li><a href="#%C3%A9tude-de-cas-1---audit-fictif-dun-d%C3%A9p%C3%B4t-de-projet" id="toc-étude-de-cas-1---audit-fictif-dun-dépôt-de-projet" class="nav-link" data-scroll-target="#étude-de-cas-1---audit-fictif-dun-dépôt-de-projet">Étude de cas 1 - Audit fictif d’un dépôt de projet</a></li>
+  <li><a href="#%C3%A9tude-de-cas-2---revue-fictive-dun-portail-de-donn%C3%A9es" id="toc-étude-de-cas-2---revue-fictive-dun-portail-de-données" class="nav-link" data-scroll-target="#étude-de-cas-2---revue-fictive-dun-portail-de-données">Étude de cas 2 - Revue fictive d’un portail de données</a></li>
+  </ul>
+</li>
   </ul>
 </nav>
     </div>
@@ -5905,7 +5930,8 @@ margin-bottom: .05rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercices de consolidation</h1>
+<h1 class="title">Module 6 - Exercices</h1>
+<p class="subtitle lead">STT-1100 Introduction à la science des données</p>
 </div>
 
 
@@ -5922,353 +5948,756 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="exercices-de-consolidation" class="level1 unnumbered">
-<h1 class="unnumbered">Exercices de consolidation</h1>
-<blockquote class="blockquote">
-<p><strong>Objectif général – Maîtriser les différentes jointures <code>dplyr</code> (<code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code>, <code>full_join()</code>, <code>semi_join()</code>, <code>anti_join()</code>) sur des jeux de données variés.</strong></p>
-</blockquote>
-<hr>
-<section id="penguins-islands" class="level2">
-<h2 class="anchored" data-anchor-id="penguins-islands">1. Penguins &amp; Islands</h2>
-<p><em>Jeux de données :</em> <code>palmerpenguins::penguins</code> et <code>palmerpenguins::penguins_raw</code> (package <strong>palmerpenguins</strong>). Ajoute à chaque manchot la latitude (<code>lat</code>) et la longitude (<code>long</code>) de son île en faisant correspondre la variable <code>island</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="exercices-de-consolidation" class="level1">
+<h1>Exercices de consolidation</h1>
+<p>Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, résumer une activité collaborative et formuler une revue constructive.</p>
+<p>Les données utilisées ici sont fictives et ne représentent aucun dépôt GitHub réel.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</div>
+</section>
+<section id="lectures-à-revoir" class="level1">
+<h1>Lectures à revoir</h1>
+<ul>
+<li><a href="https://docs.github.com/en/get-started/quickstart/hello-world" target="_blank">GitHub Docs - Hello World</a></li>
+<li><a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues" target="_blank">GitHub Docs - About issues</a></li>
+<li><a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue" target="_blank">GitHub Docs - Creating an issue</a></li>
+<li><a href="https://docs.github.com/en/pull-requests" target="_blank">GitHub Docs - About pull requests</a></li>
+<li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts" target="_blank">GitHub Docs - About merge conflicts</a></li>
+<li><a href="https://quarto.org/docs/computations/inline-code.html" target="_blank">Quarto Docs - Inline code</a></li>
+<li><a href="https://quarto.org/docs/computations/execution-options.html" target="_blank">Quarto Docs - Execution options</a></li>
+<li><a href="https://r4ds.hadley.nz/joins.html" target="_blank">R for Data Science - Joins</a></li>
+</ul>
+<p>Après les lectures, faites aussi le <a href="../module_06/mini_test.html">mini-test formatif</a>. Il n’est pas noté.</p>
+</section>
+<section id="bloc-a---comprendre-les-clés-de-jointure" class="level1">
+<h1>Bloc A - Comprendre les clés de jointure</h1>
+<section id="exercice-1---importer-les-tables-de-collaboration" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1---importer-les-tables-de-collaboration">Exercice 1 - Importer les tables de collaboration</h2>
+<p>Importez <code>membres_equipe_fictif.csv</code> et <code>contributions_git_fictif.csv</code>, puis inspectez leurs dimensions.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>islands <span class="ot">&lt;-</span> penguins_raw <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(island, <span class="at">lat =</span> latitude, <span class="at">long =</span> longitude)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>penguins_loc <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(islands, <span class="at">by =</span> <span class="st">&quot;island&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>membres <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/membres_equipe_fictif.csv"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>contributions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/contributions_git_fictif.csv"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(membres)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 8
+Columns: 4
+$ membre_id &lt;chr&gt; "M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08"
+$ nom       &lt;chr&gt; "Amina", "Leo", "Noah", "Emma", "Zoe", "Thomas", "Ines", "Ma…
+$ role      &lt;chr&gt; "Responsable depot", "Analyste donnees", "Responsable reprod…
+$ equipe    &lt;chr&gt; "Equipe A", "Equipe A", "Equipe A", "Equipe A", "Equipe B", …</code></pre>
+</div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(contributions)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 12
+Columns: 6
+$ commit_id         &lt;chr&gt; "C001", "C002", "C003", "C004", "C005", "C006", "C00…
+$ membre_id         &lt;chr&gt; "M01", "M02", "M03", "M04", "M02", "M03", "M09", "M0…
+$ date_commit       &lt;date&gt; 2026-02-10, 2026-02-10, 2026-02-11, 2026-02-11, 202…
+$ type_contribution &lt;chr&gt; "structure", "donnees", "reproductibilite", "interpr…
+$ fichier           &lt;chr&gt; "README.md", "rapport.qmd", "rapport.qmd", "rapport.…
+$ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</code></pre>
+</div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">table =</span> <span class="fu">c</span>(<span class="st">"membres"</span>, <span class="st">"contributions"</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">lignes =</span> <span class="fu">c</span>(<span class="fu">nrow</span>(membres), <span class="fu">nrow</span>(contributions)),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">colonnes =</span> <span class="fu">c</span>(<span class="fu">ncol</span>(membres), <span class="fu">ncol</span>(contributions))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  table         lignes colonnes
+  &lt;chr&gt;          &lt;int&gt;    &lt;int&gt;
+1 membres            8        4
+2 contributions     12        6</code></pre>
 </div>
 </div>
 </div>
-<hr>
+</div>
+</div>
 </section>
-<section id="gapminder-code-iso-3" class="level2">
-<h2 class="anchored" data-anchor-id="gapminder-code-iso-3">2. Gapminder × Code ISO-3</h2>
-<p><em>Jeux de données :</em> <code>gapminder::gapminder</code> (package <strong>gapminder</strong>) et <code>countrycode::codelist</code> (package <strong>countrycode</strong>). Récupère le code ISO‑3 (<code>iso3c</code>) et la région de la FAO pour chaque pays dans <code>gapminder</code>. <em>Indice :</em> clé = <code>country</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="exercice-2---ajouter-linformation-sur-les-membres" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2---ajouter-linformation-sur-les-membres">Exercice 2 - Ajouter l’information sur les membres</h2>
+<p>Utilisez <code>left_join()</code> pour ajouter le nom, le rôle et l’équipe à chaque contribution.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(countrycode)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>gap_iso <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(countrycode<span class="sc">::</span>codelist, <span class="at">country =</span> country.name.en, iso3c, region_fao),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">&quot;country&quot;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>contributions_detail <span class="ot">&lt;-</span> contributions <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(membres, <span class="at">by =</span> <span class="st">"membre_id"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>contributions_detail <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(commit_id, membre_id, nom, role, equipe, type_contribution, fichier) <span class="sc">|&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(commit_id)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 7
+   commit_id membre_id nom    role              equipe type_contribution fichier
+   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;             &lt;chr&gt;  &lt;chr&gt;             &lt;chr&gt;
+ 1 C001      M01       Amina  Responsable depot Equip… structure         README…
+ 2 C002      M02       Leo    Analyste donnees  Equip… donnees           rappor…
+ 3 C003      M03       Noah   Responsable repr… Equip… reproductibilite  rappor…
+ 4 C004      M04       Emma   Communicatrice    Equip… interpretation    rappor…
+ 5 C005      M02       Leo    Analyste donnees  Equip… visualisation     rappor…
+ 6 C006      M03       Noah   Responsable repr… Equip… rendu             rappor…
+ 7 C007      M09       &lt;NA&gt;   &lt;NA&gt;              &lt;NA&gt;   donnees           notes_…
+ 8 C008      M01       Amina  Responsable depot Equip… merge             README…
+ 9 C009      M06       Thomas Analyste donnees  Equip… donnees           rappor…
+10 C010      M07       Ines   Responsable repr… Equip… reproductibilite  rappor…
+11 C011      M08       Malik  Communicateur     Equip… interpretation    rappor…
+12 C012      M05       Zoe    Responsable depot Equip… structure         README…</code></pre>
 </div>
 </div>
 </div>
-<hr>
+</div>
+</div>
 </section>
-<section id="star-wars-espèces-classifications" class="level2">
-<h2 class="anchored" data-anchor-id="star-wars-espèces-classifications">3. Star Wars – Espèces &amp; Classifications</h2>
-<p><em>Jeu de données :</em> <code>dplyr::starwars</code> (package <strong>dplyr</strong>). Crée un tibble <code>species_class</code> listant quelques espèces et leur <strong>classification</strong> (<code>mammal</code>, <code>reptilian</code>, etc.). Fais une <strong><code>left_join()</code></strong> pour ajouter la colonne <code>classification</code> et calcule la taille moyenne (<code>height</code>) par classification.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="exercice-3---repérer-les-contributions-sans-membre-connu" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-3---repérer-les-contributions-sans-membre-connu">Exercice 3 - Repérer les contributions sans membre connu</h2>
+<p>Utilisez <code>anti_join()</code> pour repérer les contributions dont <code>membre_id</code> n’apparaît pas dans la table des membres.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>species_class <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>species, <span class="sc">~</span>classification,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Human&quot;</span>,  <span class="st">&quot;mammal&quot;</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Droid&quot;</span>,  <span class="st">&quot;artificial&quot;</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Gungan&quot;</span>, <span class="st">&quot;amphibian&quot;</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Wookiee&quot;</span>,<span class="st">&quot;mammal&quot;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>starwars_cls <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(species_class, <span class="at">by =</span> <span class="st">&quot;species&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(classification) <span class="sc">|&gt;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>contributions <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(membres, <span class="at">by =</span> <span class="st">"membre_id"</span>)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  commit_id membre_id date_commit type_contribution fichier     lignes_modifiees
+  &lt;chr&gt;     &lt;chr&gt;     &lt;date&gt;      &lt;chr&gt;             &lt;chr&gt;                  &lt;dbl&gt;
+1 C007      M09       2026-02-12  donnees           notes_temp…                7</code></pre>
+</div>
+</div>
+<p>Cette vérification est utile avant de résumer le travail par personne. Une clé absente peut indiquer une erreur de saisie ou un membre non documenté.</p>
 </div>
 </div>
 </div>
-<hr>
 </section>
-<section id="baseball-joueurs-canadiens" class="level2">
-<h2 class="anchored" data-anchor-id="baseball-joueurs-canadiens">4. Baseball – Joueurs canadiens</h2>
-<p><em>Jeux de données :</em> <code>Lahman::People</code>, <code>Lahman::Batting</code> (package <strong>Lahman</strong>).</p>
-<ol type="1">
-<li>Obtiens la liste des joueurs nés au <em>Canada</em> (<code>birthCountry</code>).</li>
-<li>Calcule leur moyenne au bâton (<code>H/AB</code>) en fusionnant People &lt;-&gt; Batting sur <code>playerID</code>.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="exercice-4---identifier-les-membres-qui-ont-contribué" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-4---identifier-les-membres-qui-ont-contribué">Exercice 4 - Identifier les membres qui ont contribué</h2>
+<p>Utilisez <code>semi_join()</code> pour obtenir la liste des membres qui ont au moins une contribution.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Lahman)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>can_players <span class="ot">&lt;-</span> People <span class="sc">|&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(birthCountry <span class="sc">==</span> <span class="st">&quot;Canada&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(playerID, nameFirst, nameLast)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>can_stats <span class="ot">&lt;-</span> can_players <span class="sc">|&gt;</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">select</span>(Batting, playerID, H, AB), <span class="at">by =</span> <span class="st">&quot;playerID&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(playerID, nameFirst, nameLast) <span class="sc">|&gt;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg =</span> <span class="fu">sum</span>(H, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(AB, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>membres <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(contributions, <span class="at">by =</span> <span class="st">"membre_id"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(equipe, role)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 4
+  membre_id nom    role                         equipe
+  &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                        &lt;chr&gt;
+1 M02       Leo    Analyste donnees             Equipe A
+2 M04       Emma   Communicatrice               Equipe A
+3 M01       Amina  Responsable depot            Equipe A
+4 M03       Noah   Responsable reproductibilite Equipe A
+5 M06       Thomas Analyste donnees             Equipe B
+6 M08       Malik  Communicateur                Equipe B
+7 M05       Zoe    Responsable depot            Equipe B
+8 M07       Ines   Responsable reproductibilite Equipe B</code></pre>
 </div>
 </div>
 </div>
-<hr>
+</div>
+</div>
 </section>
-<section id="prénoms-première-lettre" class="level2">
-<h2 class="anchored" data-anchor-id="prénoms-première-lettre">5. Prénoms &amp; Première lettre</h2>
-<p><em>Jeu de données :</em> <code>babynames::babynames</code> (package <strong>babynames</strong>). Crée un tibble <code>alphabet</code> comportant la première lettre (<code>initial</code>) et sa catégorie (« A‑M », « N‑Z »). Ajoute la catégorie à <code>babynames</code>, puis compte les naissances par catégorie en 2010.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+</section>
+<section id="bloc-b---résumer-un-travail-collaboratif" class="level1">
+<h1>Bloc B - Résumer un travail collaboratif</h1>
+<section id="exercice-5---résumer-les-contributions-par-membre" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-5---résumer-les-contributions-par-membre">Exercice 5 - Résumer les contributions par membre</h2>
+<p>Créez un tableau qui donne, pour chaque membre connu, le nombre de commits et le nombre total de lignes modifiées.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>alphabet <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">initial =</span> LETTERS,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">group   =</span> <span class="fu">if_else</span>(initial <span class="sc">&lt;=</span> <span class="st">&quot;M&quot;</span>, <span class="st">&quot;A-M&quot;</span>, <span class="st">&quot;N-Z&quot;</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>babynames_2010 <span class="ot">&lt;-</span> babynames <span class="sc">|&gt;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2010</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">initial =</span> <span class="fu">substr</span>(name, <span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(alphabet, <span class="at">by =</span> <span class="st">&quot;initial&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(n))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>resume_membres <span class="ot">&lt;-</span> contributions_detail <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(nom)) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(equipe, nom, role) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_commits =</span> <span class="fu">n</span>(),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lignes_modifiees =</span> <span class="fu">sum</span>(lignes_modifiees),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(equipe, <span class="fu">desc</span>(n_commits))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>resume_membres</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 5
+  equipe   nom    role                         n_commits lignes_modifiees
+  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                            &lt;int&gt;            &lt;dbl&gt;
+1 Equipe A Amina  Responsable depot                    2               44
+2 Equipe A Leo    Analyste donnees                     2               92
+3 Equipe A Noah   Responsable reproductibilite         2               31
+4 Equipe A Emma   Communicatrice                       1               36
+5 Equipe B Ines   Responsable reproductibilite         1               26
+6 Equipe B Malik  Communicateur                        1               33
+7 Equipe B Thomas Analyste donnees                     1               51
+8 Equipe B Zoe    Responsable depot                    1               29</code></pre>
 </div>
 </div>
 </div>
-<hr>
+</div>
+</div>
 </section>
-<section id="météo-canadienne-stations-observations" class="level2">
-<h2 class="anchored" data-anchor-id="météo-canadienne-stations-observations">6. Météo canadienne – Stations &amp; Observations</h2>
-<p><em>Jeux de données :</em> <code>weathercan::stations_meta()</code> et <code>weathercan::weather_dl()</code> (package <strong>weathercan</strong>). Télécharge les données quotidiennes de Québec‑Jean‑Lesage (station #7025250) pour 2024 et joins‑les aux métadonnées de station pour ajouter <code>province</code> et <code>elevation</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="exercice-6---visualiser-lactivité-de-léquipe" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-6---visualiser-lactivité-de-léquipe">Exercice 6 - Visualiser l’activité de l’équipe</h2>
+<p>Produisez un graphique du nombre de commits par rôle.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(weathercan)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">stations_meta</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(station_id <span class="sc">==</span> <span class="dv">7025250</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(station_id, province, <span class="at">elev =</span> elevation)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>qc24 <span class="ot">&lt;-</span> <span class="fu">weather_dl</span>(<span class="at">station_ids =</span> <span class="dv">7025250</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">start =</span> <span class="st">&quot;2024-01-01&quot;</span>, <span class="at">end =</span> <span class="st">&quot;2024-12-31&quot;</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">interval =</span> <span class="st">&quot;day&quot;</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>qc24_full <span class="ot">&lt;-</span> qc24 <span class="sc">|&gt;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(meta, <span class="at">by =</span> <span class="st">&quot;station_id&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>resume_membres <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> role, <span class="at">y =</span> n_commits, <span class="at">fill =</span> equipe)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Nombre de commits par rôle"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Rôle"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Nombre de commits"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Équipe"</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img role="img" src="data:image/png;base64,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3umOESBAgAABAgQGWkAP0IFuHoUjQGA+C5x99tllww037P284x3vmDLHO9/5zt71hx9++JSvXxwu2HvvvXt1PPXUUxeHIi/SMt5xxx09nzxPf//73xfp/d1sMAXa3w0nnHDCmIU85ZRTxjzmwOALvOENbyg77LBD72eLLbYoN9xww6QK/sY3vrH33fH1r399Utc4iQABAgQIECAwqAICoIPaMspFgACBjsARRxxRvvvd73b22iRAgMDsC1x88cXluc99btlxxx1nP3M5LhKB//7v/y5NcHuttdaq73nVVVfVwdC77757kZTBTQgQIECAAAECgyIgADooLaEcBAgQmEBgZGSkvP71ry8Z0igRIEBgYQlcd9115YlPfGJJL3Rp8RT40Y9+VPbZZ5+68Msss0w5/fTTy0477VRvn3POOb1ji2ftlJoAAQIECBAgMHUBAdCpm7mCAAECcyaQ+S4zdFUiQIDATAR233338rnPfa7+2WqrrUZl9Y9//KPkR1o8Bf785z+X7bffvtx11111BQ488MCSOaQPPfTQ8tCHPrTelylRjjvuuMWzgkpNgAABAgQIEJiGgEWQpoHmEgIECMylwJFHHlle/vKXl2c961lzWQz3JkBgMRbYbLPNSn6k4RP45S9/WXbddde6YksvvXTJPMlJK664YjnppJPKueeeW2//5S9/KRkKv+SS/jlQg/hFgAABAgQIDLWA/+MZ6uZVOQIEhkXgIQ95SLn//e9fsnJzMxT+F7/4Rb1vWOqoHgQIECAwc4HnPOc5JT/9ksB3PxX7CBAgQIAAgfkgIAA6H1pZHQkQWOwFlltuufKpT32qZAXfBEAvv/zyklXhs8jFbKZrrrmm/OQnPym//vWvy29+85t6uOQTnvCEkp/11luv3Oc+48+cctFFF5UMv0zadNNNy1JLLVXuueeecuaZZ5bvfe975eqrr657ISWvV77yleVBD3rQqOKnbskjcw9eeOGF5RGPeEQ9dHPbbbct6ck02ZSVz3/84x+X8847r/zud78rG2ywQXnGM55RnvSkJ5XMhzdeSmD5r3/9a33KM5/5zLp31AUXXFBOO+200syN+KpXvao88IEPXCCbW2+9tS53yp58HvzgB9f3zH3XXXfdCf0WyHCSO77//e/XvboyRcLKK69c9+zbZJNN6vtPMoveaXNVh5tvvrk2/u1vf1v+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7/u9ySJp/+f//J9RhwaxB+ii/DzM1ffGqEawQYAAAQIECBCYooAA6BTBnE6AAIFBFmiGwje9rcYra4Ic6VXXpCOOOKJ84hOfaDZHvV5++eX1wkrNP/zXWGONsuOOO446ZxA27rrrrrLFFluU9lD9plwJjP7bv/1bs1l22223MpMeoDHOCtLNUN6vfe1r5V3veteoOVKbmyX489rXvra3OEyuaffWbc6bzGuufd/73tc79bDDDitf+MIXetvNm7TVXnvt1Rvq2+xvv85VHVKGLIrTPKfpWXzssce2i9Z7/9Of/rTsv//+ve2ddtqpfj+Mz2+vknP8pr1IVYKXP/vZzxYo0Q477NDblx6e+ePDWOmggw7qBUCzYFi+P2Yjvf71r+/7Wc/UEK985St7i3xlbs92L8/M89mkb37zm+Waa65pNke9Zvh+AovdRZ3yB6NBS4vy8zCX3xuD5q48BAgQIECAwOIjsOTiU1QlJUCAAIHJCGRIZ4JrCTBNlNIrKgHDb33rWyXBw8zbl0DGtttuW/duTGAgC5ckyHbzzTfX2eUfvwlYrbDCChNlv8iPZ5XnzCmZ3oUJdiZ4kfJmheqPfOQjvcVMMiz3gAMOmHH50hvzNa95TTnuuOPqvNKLNkPOE5hJL6lMEfDLX/6ybosLL7ywd7/3v//9Zb311uttT/XN6173ujromeBNeui9+tWvru+bYb6PetSjSuYk/cxnPlPOPffcuv4pxx133NH3NnNVh6c85Skl9fjUpz5VB4133nnneuGcF7/4xWWDDTYo6XkXyzx7//jHP+qy55x2z+Nhe377NtAc7EwwLSuhZ+qBpHxHbLrppnVv3bRXeiA/5znPqRcSSuA/QdI8e/nMZX7WzAGa75P84STB0TynSel1nc9I80eDeucMfl100UXlqU99annb295Wr9SerL7//e+XDM/PUPukBzzgAeXII4+s3ze/tttuu7pndD47md8zdclncqONNipLL710/X3xne98p2RKjSzolPLmuyU9rpOavJv8BuV1UX4e5up7Y1CslYMAAQIECBBYDAWqXikSAQIECAygwKmnnjpS/Wel/qmGDE+phLfffvtINSdc7/rk8453vKNvHrfccstItWr8qHOb+3Zfq0WPRqrVnfvmk51V8KOXz1FHHTXmeTnwuMc9rnduFYAd89wqkNI7L+VJedupCpj1jlfD2xeod7cO1bD1kao3aDuLUe+r3mK9/KpeiaOO9duogigjVc/PkWqBld513Xu2t/fdd99+2Ux5XxWMGanmAx33ntXq1iPVPIgjVa+73nlVIHSBe81VHe68886Rt771rSNVgKlXvrZV+3019H0k53fT4v78zsVnJoZVD86eeRVk7rKO7Lfffr3j7Xao/kDSO7daHX3Us9U+r/t+5ZVXHqnmrO1dO503basqeD5SBWL7lrG598Me9rCR6g8PfW+VOjfnjfeacn/1q18dqXpT986vAq4L5DnV740FMuizYzp5zubn4dnPfnavztX8xQuUcK6+NxYoiB0ECBAgQIAAgUkIGAJf/V+vRIAAgWETSA+uzNfZDDEer37pIZVeWplTLz3vmpWS29dUQYB6VfkLLrigPP/5z28fGqj3a621Vt17K2VMT652So/VPfbYo17QpD1Pavuc6bzPfTKHZRZK2XjjjcdcGGrrrbeuzznkkEOmc5sFrkmPtC9/+cslUxdkTs1uyqIoX/rSl0p7qHL3nGZ7ruqQnqnpmZseyBmW3O/ZW3PNNUsWj0pv0H6Lbg3T89u0xyC8ZpqFKjjdm2+2KVPm/mzSgx70oJIpCtLbfKxh7elJmh6Xma+zCqg1l874NYuJZT7drbbaaoHPep6Jvffeuz7+hCc8oe+90ks+33nVH2L6Hs9zVwWBSxY4e+ELXzjqey/PY3q9DmJalJ+HufreGER3ZSJAgAABAgQGX2CJBEkHv5hKSIAAAQKLSqDqZVeygEgWN0mQLcG1rPTcDSguqvJM9z6pR4Iuf/rTn8qGG25Y2qskTzfPyVyXRX0y32iG52YezrXXXrselr7SSitN5vJpnZP75H65b9opw1Or3rrTyisXzUUdct+02a9//ev6J+XPfJEJRE1lyPSwPL/xGJSUqTDyk7YY67nKM5jpJ6666qr6J9NMZJqD1VZbbdaqkSHeVc/4Or+qh3k9j2820ubnn39+fd983vJ9lUDgZFICmVdeeWXJIm9ZHKm5fjYWaprM/Rf2OYvy8zBX3xsL21D+BAgQIECAwHAICIAORzuqBQECBAgQIEBgqAXGCoAOdaVVjgABAgQIECBAYFYEDIGfFUaZECBAgAABAgQIECBAgAABAgQIECAwiAICoIPYKspEgAABAgQIECBAgAABAgQIECBAgMCsCAiAzgqjTAgQIECAAAECBAgQIECAAAECBAgQGEQBAdBBbBVlIkCAAAECBAgQIECAAAECBAgQIEBgVgSWnJVcZEKAAAECBAgQIEBgIQssscQSC/kOsidAgAABAgQIEBhGAavAD2OrqhMBAgQIECBAgAABAgQIECBAgAABArWAIfAeBAIECBAgQIAAAQIECBAgQIAAAQIEhlZAAHRom1bFCBAgQIAAAQIECBAgQIAAAQIECBAQAPUMECBAgAABAgQIECBAgAABAgQIECAwtAICoEPbtCpGgAABAgQIECBAgAABAgQIECBAgIAAqGeAAAECBAgQIECAAAECBAgQIECAAIGhFRAAHdqmVTECBAgQIECAAAECBAgQIECAAAECBARAPQMECBAgQIAAAQIECBAgQIAAAQIECAytgADo0DatihEgQIAAAQIECBAgQIAAAQIECBAgIADqGSBAgAABAgQIECBAgAABAgQIECBAYGgFBECHtmlVjAABAgQIECBAgAABAgQIECBAgAABAVDPAAECBAgQIECAAAECBAgQIECAAAECQysgADq0TatiBAgQIECAAAECBAgQIECAAAECBAgIgHoGCBAgQIAAAQIECBAgQIAAAQIECBAYWgEB0KFtWhUjQIAAAQIECBAgQIAAAQIECBAgQGBJBAQIECAwWAI33nhjufPOO+e0UA9+8IPLcsstV5fhhhtuKHffffeclmeYbr7qqquWW2+9tdx2223DVK05rcsKK6xQll122boM119/fbnnnnvmtDzDdPPVVlut3HzzzeX2228fpmrNaV1WXHHFsswyy9RluO6668q99947p+UZlpsvscQSJd+vN910U7njjjuGpVpzXo+VVlqpLL300nU5rr322jIyMjLnZRqGAjTP6yD8P98weDZ1WHnllctSSy1Vb15zzTXN7jl7zX9DJQIEBkdAD9DBaQslIUCAAAECBAgQIECAAAECBAgQIEBglgUEQGcZVHYECBAgQIAAAQIECBAgQIAAAQIECAyOgADo4LSFkhAgQIAAAQIECBAgQIAAAQIECBAgMMsCAqCzDCo7AgQIECBAgAABAgQIECBAgAABAgQGR0AAdHDaQkkIECBAgAABAgQIECBAgAABAgQIEJhlAQHQWQaVHQECBAgQIECAAAECBAgQIECAAAECgyMgADo4baEkBAgQIECAAAECBAgQIECAAAECBAjMsoAA6CyDyo4AAQIECBAgQIAAAQIECBAgQIAAgcEREAAdnLZQEgIECBAgQIAAAQIECBAgQIAAAQIEZllAAHSWQWVHgAABAgQIECBAgAABAgQIECBAgMDgCAiADk5bKAkBAgQIECBAgAABAgQIECBAgAABArMsIAA6y6CyI0CAAAECBAgQIECAAAECBAgQIEBgcAQEQAenLZSEAAECBAgQIECAAAECBAgQIECAAIFZFhAAnWVQ2REgQIAAAQIECBAgQIAAAQIECBAgMDgCAqCD0xZKQoAAAQIECBAgQIAAAQIECBAgQIDALAsIgM4yqOwIECBAgAABAgQIECBAgAABAgQIEBgcAQHQwWkLJSFAgAABAgQIECBAgAABAgQIECBAYJYFBEBnGVR2BAgQIECAAAECBAgQIECAAAECBAgMjoAA6OC0hZIQIECAAAECBAgQIECAAAECBAgQIDDLAgKgswwqOwIECBAgQIAAAQIECBAgQIAAAQIEBkdAAHRw2kJJCBAgQIAAAQIECBAgQIAAAQIECBCYZQEB0FkGlR0BAgQIECBAgAABAgQIECBAgAABAoMjsOTgFEVJCBAgQGDQBFb96tcGrUhDUJ4Lh6AOqjB/BDyvC6utr33R1gsra/kSIECAAAECBAh0BPQA7YDYJECAAAECBAgQIECAAAECBAgQIEBgeAQEQIenLdWEAAECBAgQIECAAAECBAgQIECAAIGOgABoB8QmAQIECBAgQIAAAQIECBAgQIAAAQLDIyAAOjxtqSYECBAgQIAAAQIECBAgQIAAAQIECHQEBEA7IDYJECBAgAABAgQIECBAgAABAgQIEBgeAQHQ4WlLNSFAgAABAgQIECBAgAABAgQIECBAoCMgANoBsUmAAAECBAgQIECAAAECBAgQIECAwPAICIAOT1uqCQECBAgQIECAAAECBAgQIECAAAECHQEB0A6ITQIECBAgQIAAAQIECBAgQIAAAQIEhkdAAHR42lJNCBAgQIAAAQIECBAgQIAAAQIECBDoCAiAdkBsEiBAgAABAgQIECBAgAABAgQIECAwPAICoMPTlmpCgAABAgQIECBAgAABAgQIECBAgEBHQAC0A2KTAAECBAgQIECAAAECBAgQIECAAIHhERAAHZ62VBMCBAgQIECAAAECBAgQIECAAAECBDoCAqAdEJsECBAgQIAAAQIECBAgQIAAAQIECAyPgADo8LSlmhAgQIAAAQIECBAgQIAAAQIECBAg0BEQAO2A2CRAgAABAgQIECBAgAABAgQIECBAYHgEBECHpy3VhAABAgQIECBAgAABAgQIECBAgACBjoAAaAfEJgECBAgQIECAAAECBAgQIECAAAECwyMgADo8bakmBAgQIECAAAECBAgQIECAAAECBAh0BARAOyA2CRAgQIAAAQIECBAgQIAAAQIECBAYHgEB0OFpSzUhQIAAAQIECBAgQIAAAQIECBAgQKAjIADaAbFJgAABAgQIECBAgAABAgQIECBAgMDwCAiADk9bqgkBAgQIECBAgAABAgQIECBAgAABAh0BAdAOiE0CBAgQIECAAAECBAgQIECAAAECBIZHQAB0eNpSTQgQIECAAAECBAgQIECAAAECBAgQ6AgIgHZAbBIgQIAAAQIECBAgQIAAAQIECBAgMDwCAqDD05ZqQoAAAQIECBAgQIAAAQIECBAgQIBAR0AAtANikwABAgQIECBAgAABAgQIECBAgACB4REQAB2etlQTAgQIECBAgAABAgQIECBAgAABAgQ6AgKgHRCbBAgQIECAAAECBAgQIECAAAECBAgMj4AA6PC0pZoQIECAAAECBAgQIECAAAECBAgQINAREADtgNgkQIAAAQIECBAgQIAAAQIECBAgQGB4BARAh6ct1YQAAQIECBAgQIAAAQIECBAgQIAAgY6AAGgHxCYBAgQIECBAgAABAgQIECBAgAABAsMjIAA6PG2pJgQIECBAgAABAgQIECBAgAABAgQIdAQEQDsgNgkQIECAAAECBAgQIECAAAECBAgQGB4BAdDhaUs1IUCAAAECBAgQIECAAAECBAgQIECgIyAA2gGxSYAAAQIECBAgQIAAAQIECBAgQIDA8AgIgA5PW6oJAQIECBAgQIAAAQIECBAgQIAAAQIdAQHQDohNAgQIECBAgAABAgQIECBAgAABAgSGR0AAdHjaUk0IECBAgAABAgQIECBAgAABAgQIEOgICIB2QGwSIECAAAECBAgQIECAAAECBAgQIDA8AgKgw9OWakKAAAECBAgQIECAAAECBAgQIECAQEdAALQDYpMAAQIECBAgQIAAAQIECBAgQIAAgeEREAAdnrZUEwIECBAgQIAAAQIECBAgQIAAAQIEOgICoB0QmwQIECBAgAABAgQIECBAgAABAgQIDI+AAOjwtKWaECBAgAABAgQIECBAgAABAgQIECDQERAA7YDYJECAAAECBAgQIECAAAECBAgQIEBgeAQEQIenLdWEAAECBAgQIECAAAECBAgQIECAAIGOgABoB8QmAQIECBAgQIAAAQIECBAgQIAAAQLDIyAAOjxtqSYECBAgQIAAAQIECBAgQIAAAQIECHQEBEA7IDYJECBAgAABAgQIECBAgAABAgQIEBgeAQHQ4WlLNSFAgAABAgQIECBAgAABAgQIECBAoCMgANoBsUmAAAECBAgQIECAAAECBAgQIECAwPAICIAOT1uqCQECBAgQIECAAAECBAgQIECAAAECHQEB0A6ITQIECBAgQIAAAQIECBAgQIAAAQIEhkdAAHR42lJNCBAgQIAAAQIECBAgQIAAAQIECBDoCAiAdkBsEiBAgAABAgQIECBAgAABAgQIECAwPAICoMPTlmpCgAABAgQIECBAgAABAgQIECBAgEBHQAC0A2KTAAECBAgQIECAAAECBAgQIECAAIHhERAAHZ62VBMCBAgQIECAAAECBAgQIECAAAECBDoCS3a2F9vNa6+9trznPe8Zs/z3ve99y/3ud7+yyiqrlKc85Sllq622KkssscSY5zuwcAR222238o9//KN85CMfKQ960IMmdZNddtmlPu/www+v23BSFzlpUgJHHHFEufDCC0uMN9poo0ldM5sn/eEPfyhrrrnmqCz32GOPcscdd5T//M//LCuttFJ9bDrPTb98vvKVr5T8bLnlluVf//Vf67zPOuuscuKJJ5ZNN920vO51rxtVlnvuuadcd911ZfXVVx+13wYBAgQIECBAgAABAgQIECCw+AgMTQD0rrvuKpdeeumk5M8888zygx/8oLz73e8uyyyzzKSucdLsCPzmN78paasEQSebmnZNMEqaXYE//vGP9efm1ltvnd2MJ8gtbfnJT36ynHrqqeUb3/jGqLPzjNx+++3l7rvv7u2fznPTL58///nPdX032GCDXt5//etf631rr712b1/eXHLJJeXggw8uW2yxRdlxxx1HHbNBgAABAgQIECBAgAABAgQILD4CQxMAbZOfdNJJ5QEPeEB7Vx1wu+GGG8p3v/vd8oUvfKGcffbZZbnllivvete7Rp1ngwCBhS/wt7/9rRx//PFlySUX/Arabrvt6iB5emzPJE02n8c85jHlZS97WXnc4x436nb5Q8lll11WB0BHHbBBgAABAgQIECBAgAABAgQILFYCC0YfFqvi9y/s/e9//5Kfbnrwgx9cHv3oR9fDajMEO71AR0ZGDIXvQtkmMIcCb3rTm2bl7pPN58lPfnLJj0SAAAECBAgQIECAAAECBAgMp8BQBkAnaqpnPetZ9RyUN910U93Da5111lngkgwJ/t3vflcyR2Hm/0vgdLw5KzOM9uKLLy4ZYvvQhz60rLXWWmXVVVddIN8rr7yy3Oc+9ykPf/jD616pGd59+eWX10HZzE2aXqljpQwJTo+0K664omRO05Q78yf260XXvk+CvFdddVX59a9/XR74wAeWddddt6y88sp9b5Nzc17qnZR6POIRjxi3XH//+9/r83NNevatscYadf3Gukdz41yX+qdsj3zkI2vjpZdeujk86deptlW/jBvTtMs111xTz4v5hCc8YYG5Hyd7r5tvvrnkmcgcljG//vrry0UXXVT3bMyz1B1u3ZRpsuXIc5bnM/nGO/klwD9eyrDyn/zkJ/UpqdtY5994440ln42Uu5mDs51v5sRMXplPd/nll28fqt/fe++95be//W3dtrn+sY99bFlxxRV756XsV199db2d5y11Tspzls/G73//+5I8xnq2J/vcTJRPfdPqV9NW6TWeZzbD8/NM3nLLLfUpaceUMZ//dj1ycLLPQ52RXwQIECBAgAABAgQIECBAgMCcCMzLAGjmPWxSdw7QBD8+97nPlc985jN1IKQ5L4GZ17zmNWWnnXZaIOD43//93+WUU04ZNWdhrnv6059eD7FvBwLf+MY31tdnQZ999tmnDpI190gAZr/99ivPfOYzm1291x/+8Icl1zSByeZAAnaZy7Q7fDf3STD1mGOOqe/TBJma6zKn4c4771wHUpt9CagdcMABdfCn2ZfX5LPXXnuVbbbZpr27fv/Vr361ZCGdBMTaKQtMveQlLynphdc1znm514c//OF6gZnmugSY9t9//9qt2Tfe63Taaqz8Xv/619fBrT333LP8x3/8Rx2Ay7lvfvOb68VypnqvDJ8+8sgjy1ve8pa6zb70pS+NuvXGG29c3ve+95VuwHeiciTglrkzv/zlL/fKmIzzfGZRn7RpN8+0zYEHHlh+/OMfj3pGd91111FlajZS1k9/+tPl5S9/eYlHNx166KG9OXS33nrrUYfzLJxxxhl1ILw5kPK84hWvKG94wxvq3tbHHXdcOe200+rDcc3nKunrX/96vchVnt2U+eSTT67/mFAf/OevqTw34+XTzvNrX/tayWc4z3emxEjgsylTzks58pM67L777vWlU30e2vfzngABAgQIECBAgAABAgQIEFi0AvMuAHrbbbfVwc0wpwdbes+1UwJwmSc0veMSUEoPyAQdEwBJUDSBxASumvR//+//rVeQTi/RV73qVXXAJouvfPvb3y7nn39+2XfffetgUnN+Xu+8886SFapXWGGFOkCYHqPnnXdeOeGEE8pBBx1Ujj766Pq+zTU///nP63yy/dznPrdssskm9dD9lPPcc88tWSE7Q/qf+tSnNpfUr1lJO8fSyy6BsdTpZz/7WT3/aYK8q622Wnnxi19cn5uA09ve9rbyl7/8pWy77bblGc94Rt1bMXXIKtkf/OAH63lVN9tss949EiQ79thj655xuSa9CtNzMFMLZGXxLHCTXrCvfOUre9c0b975zneWhzzkIXWALe2QaxI4Sxlyr6zIPVGaaltNlF+z8ngCdumlmd6pzcro071XnNOjMsHEzTffvPb97Gc/W7d3Aolx6KaxypF2fM973lO3YXpWbr/99nUvyfT2zby3mds2vXcTKE8AOinX5HnN85VeoglKZ27NPDcf//jHy1JLLdW9/bS389x+8YtfrJ/rBFfTgzNB1zw/cci9ssr6c57znPqzl0BuArdNULEbuO1XkNl4bvrl294XnwSuzznnnPKLX/yiJFj9tKc9rWSu0CZN93lors9r/nCR74J+Ke204YYb9ju0yPZNpj0WWWHciAABAkMqkNEW0uwK5L/j/f74Prt3mT+5ZdRZk8YbDdec43VqApm2bdlll53aRc4eU6D9vI412m3Mix0gQGDoBYYyAJqeZN2h5AlCZdhthgBniHMCROmBmQBMk9LLMkHFDHNNcK893PUFL3hB2WWXXcp3vvOdOrCZ3p1J3/zmN+vXBGaaeQQTNHvhC19YB1DTYy3DgRNQa1JWQE/Q7xOf+ERvsaYnPelJdUAygcz0Ak3AKF/gCUx+4AMfqC9teiM2+aT3XQKQKWuuS8+6dtAigbT0Ps05zX9Y/+Vf/qUk8JZefum92QRAL7jggjo4l3IkaNukLbfcsh4KfeKJJ9YByiYAmmHICXAm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CBAgQIDAjAUEQGdMKAMCBAgQIECAAAECBAgQIECAAAECBAZVQAB0UFtGuQgQIECAAAECBAgQIECAAAECBAgQmLGAAOiMCWVAgAABAgQIECBAgAABAgQIECBAgMCgCgiADmrLKBcBAgQIECBAgAABAgQIECBAgAABAjMWEACdMaEMCBAgQIAAAQIECBAgQIAAAQIECBAYVAEB0EFtGeUiQIAAAQIECBAgQIAAAQIECBAgQGDGAgKgMyaUAQECBAgQIECAAAECBAgQIECAAAECgyogADqoLaNcBAgQIECAAAECBAgQIECAAAECBAjMWEAAdMaEMiBAgAABAgQIECBAgAABAgQIECBAYFAFBEAHtWWUiwABAgQIECBAgAABAgQIECBAgACBGQsIgM6YUAYECBAgQIAAAQIECBAgQIAAAQIECAyqgADooLaMchEgQIAAAQIECBAgQIAAAQIECBAgMGMBAdAZE8qAAAECBAgQIECAAAECBAgQIECAAIFBFRAAHdSWUS4CBAgQIECAAAECBAgQIECAAAECBGYsIAA6Y0IZECBAgAABAgQIECBAgAABAgQIECAwqAICoIPaMspFgAABAgQIECBAgAABAgQIECBAgMCMBQRAZ0woAwIECBAgQIAAAQIECBAgQIAAAQIEBlVAAHRQW0a5CBAgQIAAAQIECBAgQIAAAQIECBCYsYAA6IwJZUCAAAECBAgQIECAAAECBAgQIECAwKAKCIAOassoFwECBAgQIECAAAECBAgQIECAAAECMxYQAJ0xoQwIECBAgAABAgQIECBAgAABAgQIEBhUAQHQQW0Z5SJAgAABAgQIECBAgAABAgQIECBAYMYCAqAzJpQBAQIECBAgQIAAAQIECBAgQIAAAQKDKiAAOqgto1wECBAgQIAAAQIECBAgQIAAAQIECMxYQAB0xoQyIECAAAECBAgQIECAAAECBAgQIEBgUAUEQAe1ZZSLAAECBAgQIECAAAECBAgQIECAAIEZCwiAzphQBgQIECBAgAABAgQIECBAgAABAgQIDKqAAOigtoxyESBAgAABAgQIECBAgAABAgQIECAwYwEB0BkTyoAAAQIECBAgQIAAAQIECBAgQIAAgUEVEAAd1JZRLgIECBAgQIAAAQIECBAgQIAAAQIEZiwgADpjQhkQIECAAAECBAgQIECAAAECBAgQIDCoAgKgg9oyykWAAAECBAgQIECAAAECBAgQIECAwIwFBEBnTCgDAgQIECBAgAABAgQIECBAgAABAgQGVUAAdFBbRrkIECBAgAABAgQIECBAgAABAgQIEJixgADojAllQIAAAQIECBAgQIAAAQIECBAgQIDAoAoIgA5qyygXAQIECBAgQIAAAQIECBAgQIAAAQIzFlhyxjnIgAABAgSGVmD5444vN9xwQ7n77ruHto6LumKrrrpqufXWW8ttt922qG89tPdbYYUVyrLLLlvX7/rrry/33HPP0NZ1UVdstdVWKzfffHO5/fbbF/Wth/Z+K664YllmmWXq+l133XXl3nvvHdq6LsqKLbHEEiXfrzfddFO54447FuWth/peK620Ull66aXrOl577bVlZGRkqOu7qCrXPK833nhjufPOOxfVbYf+PiuvvHJZaqmlhr6eKkiAwPQE9ACdnpurCBAgQIAAAQIECBAgQIAAAQIECBBYDAQEQBeDRlJEAgQIECBAgAABAgQIECBAgAABAgSmJyAAOj03VxEgQIAAAQIECBAgQIAAAQIECBAgsBgICIAuBo2kiAQIECBAgAABAgQIECBAgAABAgQITE9AAHR6bq4iQIAAAQIECBAgQIAAAQIECBAgQGAxEBAAXQwaSREJECBAgAABAgQIECBAgAABAgQIEJiegADo9NxcRYAAAQIECBAgQIAAAQIECBAgQIDAYiAgALoYNJIiEiBAgAABAgQIECBAgAABAgQIECAwPQEB0Om5uYoAAQIECBAgQIAAAQIECBAgQIAAgcVAQAB0MWgkRSRAgAABAgQIECBAgAABAgQIECBAYHoCAqDTc3MVAQIECBAgQIAAAQIECBAgQIAAAQKLgYAA6GLQSIpIgAABAgQIECBAgAABAgQIECBAgMD0BARAp+fmKgIECBAgQIAAAQIECBAgQIAAAQIEFgMBAdDFoJEUkQABAgQIECBAgAABAgQIECBAgACB6QkIgE7PzVUECBAgQIAAAQIECBAgQIAAAQIECCwGAksuBmVURAIECBCYI4FVv/q1ObrzMN/2wmGunLoNnYDndWE16bUv2nphZS1fAgQIECBAgACBjoAeoB0QmwQIECBAgAABAgQIECBAgAABAgQIDI+AAOjwtKWaECBAgAABAgQIECBAgAABAgQIECDQERAA7YDYJECAAAECBAgQIECAAAECBAgQIEBgeAQEQIenLdWEAAECBAgQIECAAAECBAgQIECAAIGOgABoB8QmAQIECBAgQIAAAQIECBAgQIAAAQLDIyAAOjxtqSYECBAgQIAAAQIECBAgQIAAAQIECHQEBEA7IDYJECBAgAABAgQIECBAgAABAgQIEBgeAQHQ4WlLNSFAgAABAgQIECBAgAABAgQIECBAoCMgANoBsUmAAAECBAgQIECAAAECBAgQIECAwPAICIAOT1uqCQECBAgQIECAAAECBAgQIECAAAECHQEB0A6ITQIECBAgQIAAAQIECBAgQIAAAQIEhkdAAHR42lJNCBAgQIAAAQIECBAgQIAAAQIECBDoCAiAdkBsEiBAgAABAgQIECBAgAABAgQIECAwPAICoMPTlmpCgAABAgQIECBAgAABAgQIECBAgEBHQAC0A2KTAAECBAgQIECAAAECBAgQIECAAIHhERAAHZ62VBMCBAgQIECAAAECBAgQIECAAAECBDoCAqAdEJsECBAgQIAAAQIECBAgQIAAAQIECAyPgADo8LSlmhAgQIAAAQIECBAgQIAAAQIECBAg0BEQAO2A2CRAgAABAgQIECBAgAABAgQIECBAYHgEBECHpy3VhAABAgQIECBAgAABAgQIECBAgACBjoAAaAfEJgECBAgQIECAAAECBAgQIECAAAECwyMgADo8bakmBAgQIECAAAECBAgQIECAAAECBAh0BARAOyA2CRAgQIAAAQIECBAgQIAAAQIECBAYHgEB0OFpSzUhQIAAAQIECBAgQIAAAQIECBAgQKAjIADaAbFJgAABAgQIECBAgAABAgQIECBAgMDwCAiADk9bqgkBAgQIECBAgAABAgQIECBAgAABAh0BAdAOiE0CBAgQIECAAAECBAgQIECAAAECBIZHQAB0eNpSTQgQIECAAAECBAgQIECAAAECBAgQ6AgIgHZAbBIgQIAAAQIECBAgQIAAAQIECBAgMDwCAqDD05ZqQoAAAQIECBAgQIAAAQIECBAgQIBAR0AAtANikwABAgQIECBAgAABAgQIECBAgACB4REQAB2etlQTAgQIECBAgAABAgQIECBAgAABAgQ6AgKgHRCbBAgQIECAAAECBAgQIECAAAECBAgMj4AA6PC0pZoQIECAAAECBAgQIECAAAECBAgQINAREADtgNgkQIAAAQIECBAgQIAAAQIECBAgQGB4BARAh6ct1YQAAQIECBAgQIAAAQIECBAgQIAAgY6AAGgHxCYBAgQIECBAgAABAgQIECBAgAABAsMjIAA6PG2pJgQIECBAgAABAgQIECBAgAABAgQIdAQEQDsgNgkQIECAAAECBAgQIECAAAECBAgQGB4BAdDhaUs1IUCAAAECBAgQIECAAAECBAgQIECgIyAA2gGxSYAAAQIECBAgQIAAAQIECBAgQIDA8AgIgA5PW6oJAQIECBAgQIAAAQIECBAgQIAAAQIdAQHQDohNAgQIECBAgAABAgQIECBAgAABAgSGR0AAdHjaUk0IECBAgAABAgQIECBAgAABAgQIEOgICIB2QGwSIECAAAECBAgQIECAAAECBAgQIDA8AgKgw9OWakKAAAECBAgQIECAAAECBAgQIECAQEdAALQDYpMAAQIECBAgQIAAAQIECBAgQIAAgeEREAAdnrZUEwIECBAgQIAAAQIECBAgQIAAAQIEOgICoB0QmwQIECBAgAABAgQIECBAgAABAgQIDI+AAOjwtKWaECBAgAABAgQIECBAgAABAgQIECDQERAA7YDYJECAAAECBAgQIECAAAECBAgQIEBgeAQEQIenLdWEAAECBAgQIECAAAECBAgQIECAAIGOgABoB8QmAQIECBAgQIAAAQIECBAgQIAAAQLDIyAAOjxtqSYECBAgQIAAAQIECBAgQIAAAQIECHQEBEA7IDYJECBAgAABAgQIECBAgAABAgQIEBgeAQHQ4WlLNSFAgAABAgQIECBAgAABAgQIECBAoCMgANoBsUmAAAECBAgQIECAAAECBAgQIECAwPAICIAOT1uqCQECBAgQIECAAAECBAgQIECAAAECHQEB0A6ITQIECBAgQIAAAQIECBAgQIAAAQIEhkdAAHR42lJNCBAgQIAAAQIECBAgQIAAAQIECBDoCAiAdkBsEiBAgAABAgQIECBAgAABAgQIECAwPAJLDk9V1GQuBI4++uhy/vnnj3nrZZddttz//vcv66yzTtl6663LmmuuOea5Diw8gd1226384x//KB/5yEfKgx70oEndaJdddqnPO/zww8v97ne/SV0zmycdccQR5cILLywpx0YbbTSbWS/UvO65555y3XXXldVXX32h3kfmBAgQIECAAAECBAgQIECAwOQEBEAn5+SsMQSuvvrqcumll45x9H93/+AHPyinnnpqed/73lc23HDD/z3g3SIR+M1vflPuuuuuOgg62Rs27ZqA3lykP/7xj/Wzdeutt87F7ad1z0suuaQcfPDBZYsttig77rjjtPJwEQECBAgQIECAAAECBAgQIDC7AgKgs+s5b3PbbrvtSnoZttPIyEi55ZZbyhVXXFE++9nPll//+tdln332KV/4whf0jmtDeT80AmeeeWa57LLL6gDo0FRKRQgQIECAAAECBAgQIECAwGIuYA7QxbwBB6X4Sy21VD3UPcPdm5/ll1++DnRuuumm5aMf/Wj9Pr0Jf/jDHw5KsZWDAAECBAgQIECAAAECBAgQIEBgyAX0AB3yBh6U6i233HLl6U9/ejnttNPKT37yk/LSl750gaLde++95Q9/+EP53e9+VxIoffSjH10e/vCHl/ve974LnJsd6WGaXqW5JmmttdYqj3jEI0ru1U1XXnlluc997lPnl7kwM7z78ssvLyuttFJ5ylOe0veaJo+777677tWXnqwpS+YzzVymSy654MenfZ+U76qrrqrL+MAHPrCsu+66ZeWVV26yHfU6lbo0F/7973+v6576/+1vfytrrLFGXb+x7tG+LvVP2R75yEfWzksvvXRzeFKvU22riTK9/fbb6+ci5z3hCU8oD37wgye6pEylDO12WRjtn+c1nunxnPTXv/617vmc+VZXXHHFCeviBAIECBAgQIAAAQIECBAgQGDhCSwYwVl495LzPBfInI5JyyyzzAISCS6+973vrQON7YMJ0O2///510LG9P0HSAw44oA46tfcn+LnXXnuVbbbZpr27vPGNb6wDllnQJ8PwE6Bq0gMe8ICy3377lWc+85nNrt5reqvmmibI2hxIYPbd7353edzjHtfsql9zn5ThmGOOqe+TerVT5oXceeedRwV1p1qX5PfVr361ZJGgBA7baYklligveclLypve9Ka+zrnXhz/84XqRnua6BOlinAD1ZNJU22q8PFP+Aw88sPz4xz8uCTQ3adddd23e9n2dahkWdvsn8Pma17ymV9aTTz655OcVr3hF2X333Xv7vSFAgAABAgQIECBAgAABAgQWvYAA6KI3n5d3/P73v19+/vOf13V/8pOfPMrg4osvroNEWaTnWc96Vv2TQN6PfvSj8rWvfa0OXn7sYx+re1DmwgTN3va2t5W//OUv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BAgQIECAAAECBAgQIECAAAEC81FAAHQ+tro6EyBAgAABAgQIECBAgAABAgQIEJgnAgKg86ShVZMAAQIECBAgQIAAAQIECBAgQIDAfBQQAJ2Pra7OBAgQIECAAAECBAgQIECAAAECBOaJgADoPGlo1SRAgAABAgQIECBAgAABAgQIECAwHwUEQOdjq6szAQIECBAgQIAAAQIECBAgQIAAgXkiIAA6TxpaNQkQIECAAAECBAgQIECAAAECBAjMRwEB0PnY6upMgAABAgQIECBAgAABAgQIECBAYJ4ICIDOk4ZWTQIECBAgQIAAAQIECBAgQIAAAQLzUUAAdD62ujoTIECAAAECBAgQIECAAAECBAgQmCcCAqDzpKFVkwABAgQIECBAgAABAgQIECBAgMB8FBAAnY+trs4ECBAgQIAAAQIECBAgQIAAAQIE5omAAOg8aWjVJECAAAECBAgQIECAAAECBAgQIDAfBQRA52OrqzMBAgQIECBAgAABAgQIECBAgACBeSIgADpPGlo1CRAgQIAAAQIECBAgQIAAAQIECMxHAQHQ+djq6kyAAAECBAgQIECAAAECBAgQIEBgnggIgM6ThlZNAgQIECBAgAABAgQIECBAgAABAvNRQAB0Pra6OhMgQIAAAQIECBAgQIAAAQIECBCYJwICoPOkoVWTAAECBAgQIECAAAECBAgQIECAwHwUEACdj62uzgQIECBAgAABAgQIECBAgAABAgTmiYAA6DxpaNUkQIAAAQIECBAgQIAAAQIECBAgMB8FBEDnY6urMwECBAgQIECAAAECBAgQIECAAIF5IiAAOk8aWjUJECBAgAABAgQIECBAgAABAgQIzEcBAdD52OrqTIAAAQIECBAgQIAAAQIECBAgQGCeCAiAzpOGVs3/x96dwNs6FfwDX+bpkjnzkCkkyVQoeqWIKNWrSJQpRCkqFeJNpCIq9JYMjUpJMqSSQoYolCFkyjyEDBku/n7r33Peffc98z3Dvmd/1+dz7tnDM6z1fc7d5+zfXgMBAgQIECBAgAABAgQIECBAgACBbhQQgHbjVddmAgQIECBAgAABAgQIECBAgAABAl0iIADtkgutmQQIECBAgAABAgQIECBAgAABAgS6UUAA2o1XXZsJECBAgAABAgQIECBAgAABAgQIdImAALRLLrRmEiBAgAABAgQIECBAgAABAgQIEOhGAQFoN151bSZAgAABAgQIECBAgAABAgQIECDQJQIC0C650JpJgAABAgQIECBAgAABAgQIECBAoBsFBKDdeNW1mQABAgQIECBAgAABAgQIECBAgECXCAhAu+RCayYBAgQIECBAgAABAgQIECBAgACBbhQQgHbjVddmAgQIECBAgAABAgQIECBAgAABAl0iIADtkgutmQQIECBAgAABAgQIECBAgAABAgS6UUAA2o1XXZsJECBAgAABAgQIECBAgAABAgQIdImAALRLLrRmEiBAgAABAgQIECBAgAABAgQIEOhGAQFoN151bSZAgAABAgQIECBAgAABAgQIECDQJQIC0C650JpJgAABAgQIECBAgAABAgQIECBAoBsFBKDdeNW1mQABAgQIECBAgAABAgQIECBAgECXCAhAu+RCayYBAgQIECBAgAABAgQIECBAgACBbhQQgHbjVddmAgQIECBAgAABAgQIECBAgAABAl0iIADtkgutmQQIECBAgAABAgQIECBAgAABAgS6UUAA2o1XXZsJECBAgAABAgQIECBAgAABAgQIdImAALRLLrRmEiBAgAABAgQIECBAgAABAgQIEOhGAQFoN151bSZAgAABAgQIECBAgAABAgQIECDQJQIC0C650JpJgAABAgQIECBAgAABAgQIECBAoBsFBKDdeNW1mQABAgQIECBAgAABAgQIECBAgECXCAhAu+RCayYBAgQIECBAgAABAgQIECBAgACBbhQQgHbjVddmAgQIECBAgAABAgQIECBAgAABAl0iIADtkgutmQQIECBAgAABAgQIECBAgAABAgS6UUAA2o1XXZsJECBAgAABAgQIECBAgAABAgQIdImAALRLLrRmEiBAgAABAgQIECBAgAABAgQIEOhGgZm7sdHaTIAAAQKDE5h08vfKAw88UCZPnjy4HWw1oMAiiyxSHnvssfLEE08MuK0NBicw33zzldlnn71ufP/995fnnntucDvaakCBRRddtDz66KPlySefHHBbGwxOYP755y+zzTZb3fi+++4rzz///OB2tFW/AjPMMEPJ6+sjjzxS/v3vf/e7rScHL7DAAguUWWedte5w7733lhdeeGHwO9uyT4Hm5/Xhhx8uTz31VJ/beWJoAgsuuGCZZZZZhraTrQkQ6BoBPUC75lJrKAECBAgQIECAAAECBAgQIECAAIHuExCAdt8112ICBAgQIECAAAECBAgQIECAAAECXSMgAO2aS62hBAgQIECAAAECBAgQIECAAAECBLpPQADafddciwkQIECAAAECBAgQIECAAAECBAh0jYAAtGsutYYSIECAAAECBAgQIECAAAECBAgQ6D4BAWj3XXMtJkCAAAECBAgQIECAAAECBAgQINA1AgLQrrnUGkqAAAECBAgQIECAAAECBAgQIECg+wQEoN13zbWYAAECBAgQIECAAAECBAgQIECAQNcICEC75lJrKAECBAgQIECAAAECBAgQIECAAIHuExCAdt8112ICBAgQIECAAAECBAgQIECAAAECXSMgAO2aS62hBAgQIECAAAECBAgQIECAAAECBLpPQADafddciwkQIECAAAECBAgQIECAAAECBAh0jYAAtGsutYYSIECAAAECBAgQIECAAAECBAgQ6D4BAWj3XXMtJkCAAAECBAgQIECAAAECBAgQINA1AjN3TUs1lAABAgSGLPD4DtuVOYa8lx36E3jixSfz6ePc/W3kuSEJTH5x68f/s8ecQ9rTxgMJxHWmF7/8vA4kNfjnn31x03xNOvl7g9/JlgQIECBAgAABAtMkoAfoNPHZmQABAgQIECBAgAABAgQIECBAgACBThbQA7STr466ESBAgAABAgQIECBAgAABAgQ6QOCaa64pd9xxR63JwgsvXNZZZ50OqJUqEBicgAB0cE62IkCAAAECBAgQIECAAAECBAh0pcDTTz9dNttss3L33XeXWWaZpVxwwQVd6aDR06+AIfDT77VTcwIECBAgQIAAAQIECBAgQIDAqAucfPLJNfzMiY488siy3nrrjfo5nYDASAoIQEdS07EIECBAgAABAgQIECBAgAABAhNI4LnnnitHHHFEbdH2229fPvShD02g1mlKtwgYAt8tV1o7CRAgQIAAAQIECBAgQIAAAQJDFLjqqqvKiiuuWOf8/MY3vjHEvW1OoDMEBKCdcR3UggABAgQIECBAgAABAgQIECDQcQJrrrlmOfvsszuuXipEYCgChsAPRcu2BAgQIECAAAECBAgQIECAAIEJKPCXv/ylzDDDDMP+6jSSxx57rKctn/rUpzqteuozxgIC0DEGdzoCBAgQIECAAAECBAgQIECAAAECBMZOwBD4sbN2JgIECBAgQIAAAQIECBAgQIBAxwusvfba5W1ve1vH17O/CqY36+yzz143mXlm8Vd/Vt3wnJ+AbrjK2kiAAAECBAgQIECAAAECBAgQGKTAGmusUab3YeOTJk0q//73vwfZYptNdAFD4Cf6FdY+AgQIECBAgAABAgQIECBAgAABAl0soAdoF198TSdAgAABAgQIECBAgAABAgQIjLbA5ZdfXi677LLy4IMPlqwqv/7665cFFligPPPMM+Wqq66qp1911VXLXHPN1VOVW2+9tTzwwANlpplmqvv0PNF245prrilPPfVUmXfeecuKK67Y8+zzzz9frrjiinp/scUWK0sssUTPc3fccUe59957S3qJrrLKKuWFF14o119/fbn44ovLnXfeWZZddtmyySablMUXX7xnn75uZN+bbrqpXH311eXaa68tOderXvWqstpqq5U55pijr908PsYCAtAxBnc6AgQIECBAgAABAgQIECBAgEA3CCQY3GGHHcoll1wyRXMzP+dhhx1Wtttuu7LuuuvW5xKSZu7RphxyyCHlpJNOqqHo448/3jw81ffMVZqw9C1veUs566yzep5/4okneo69//77l89//vM9zx155JHl6KOPrs+fffbZZfPNNy+XXnppz/O5Meuss5add965HHXUUfX2FE/+587NN99c3vve99Zwt/35hRdeuJxwwglliy22aH/K/XEQEICOA7pTEiBAgAABAgQIECBAgAABAgQmssBf//rXstFGG5WHHnqoNvN1r3tdDRwTVv7qV78qn/zkJ2uPyfE0+Oc//1le//rX13qk9+ib3vSmMnny5HLeeeeVW265pRx77LElIWeC1faFlH7605+W973vfSVBawLdhLfpxfqPf/yjJMy9//77y1vf+tby8Y9/vHzhC18Yz2Y694sCAlA/BgQIECBAgAABAgQIECBAgAABAj0CWTwoAd5gy/zzzz9FQJhh4bvssksNP9OT8pvf/GYNC5vjJVxMz8jvfOc7zUPj8j09VFN22mmnctxxx5VZZpml3k/73//+95dTTz21hqF5bq+99qrP5Z+HH3647LrrrjX8XHLJJWs7Ntxww57nE/q+5z3vqUHvEUccUbbccss67L9nAzfGXMAiSGNO7oQECBAgQIAAAQIECBAgQIAAgc4VSDD50pe+dNBff/rTn6ZozEUXXdQzpHyPPfaYIvzMhi972cvKmWeeWef3nGLHcbiTIfjf+ta3esLPVCFzd8Zg6aWXrjU69NBDp6jZgQceWMPdGWecsfzwhz8sreFnNsz8phlav9JKK9X99t5775I5SZXxExCAjp+9MxMgQIAAAQIECBAgQIAAAQIEJpxAE4hmAaN999231/Ytt9xyZdttt+31ubF88LOf/Wyvp0tv0P32268+d99999XFkXLnueeeqz1ac3uzzTYr6623Xm5OVTJkPsFnSjwyJYAyfgKGwI+fvTMTIECAAAECBAgQIECAAAECBDpOIHN37rjjjoOuV3p0tpYmAF100UX7XUn9zW9+87gOg08Pzo033ri16lPcbhZoyoN//vOf60ryWUH+6aefrtutvvrqdTj8FDu13GldlT7D7V/5yle2POvmWAoIQMdS27kIECBAgAABAgQIECBAgAABAh0ukOAuq7cPtyQsTMn8mP2VpZZaqr+nR/25xRZbbIqh7+0nbK3fVVddVRc1uvHGG3s2y8ryravL9zzRy41mvtFenvLQGAgYAj8GyE5BgAABAgQIECBAgAABAgQIEOgWgXvuuac2dd555+23yekhOp4l85z2V+aZZ56ep9PzM+XOO+/seWwoN7I6vDJ+AnqAjp+9MxMgQIAAAQIECBAgQIAAAQIEJpxAhsQ/+OCD5a677uq3bdlmoDLQ4kFZsX24JXN79lda67/QQgvVTZdYYomeXU455ZTytre9red+fzdmnXXW/p723CgLCEBHGdjhCRAgQIAAAQIECBAgQIAAAQLdJLDCCiuUyy+/vNx+++39Nru/5zM/Z8qzzz7b5zFeeOGFfufg7HPH/zyRnqqTJ08uWbCot9L0+sxzyyyzTN0kbWvK3/72tzL33HM3d33vYAFD4Dv44qgaAQIECBAgQIAAAQIECBAgQGB6E1httdVqlR999NHyy1/+ss/qn3322X0+N8ccc9TnElDmOL2Vq6++umdBot6eH+ixrOh+7rnn9rnZj370o57nsuJ7SoLQ2Wefvd4+66yzSn89VH/84x+XLJS01VZblYsuuqju45/xERCAjo+7sxIgQIAAAQIECBAgQIAAAQIEJqTABz/4wdIMGT/wwANrL8v2ht5www3le9/7XvvDPfeXXnrpntvHHXdcz+3mRoa+77777s3dYX8/+OCDS4LQ9nLrrbeWb3/72/Xh17/+9T0LOqVn6oc//OH6eBZG6q1uefLxxx8vafs111xTzjvvvPLyl7+87uOf8RHovY/v+NTFWQkQIECAAAECBAgQIECAAAECBMZZIKu4D3Z186aqG264YVl//fXr3Ze85CXlf/7nf0qC0AyF32STTcp3vvOd0syf+dvf/rZsu+22vQaPzfHe/e53l/33379uk5Ay+26++eZlzjnnLBdffHH5whe+UC699NIy22yzTVMv0CuuuKJsuummJfN5Nosy/e53vyvvec97yjPPPFOHxx9zzDFNter3z3zmM+W73/1uneM0Yejdd99dPvWpT5W55pqr1uX8888vhx12WEnIm7LHHnuUBRdcsN72z/gICEDHx91ZCRAgQIAAAQIECBAgQIAAAQIdKfDHP/6x5Gso5ZBDDukJQLPfzjvvXK677rqS8PCCCy6oPSizONK//vWvukDSDDPMUF772teWSy65pNfTLLnkkmW33XYrxx57bHnqqafK9ttvX8PIWWaZpTQLH+X59N781re+1esxBvPgmmuuWX7961+XxRZbrCy//PJ1TtGHHnqo7ppz5dgZxt5aJk2aVH74wx/WEDeruycsPvzww0vmB83CSen92ZStt966HHHEEc1d38dJwBD4cYJ3WgIECBAgQIAAAQIECBAgQIDARBWYaaaZytFHH10yD2YznP2WW26p4efiiy9eMr9meoj2V77+9a/XIebNcPrMB5rwM71BE7gef/zxJeeZlpLenh/4wAfqvJ4333xzacLPN7zhDTW4fd/73tfr4TfYYIPy17/+teyyyy5lnnnmqXOBZlGkJvxcdtllyze/+c1y6qmnTnMde62AB4ckMMOLK2a9MKQ9bEyAAAECoyrw8MMP1084R/UkAxx83nnnLZl0/PEdthtgS08TIECAwHAEJp38vXLffff1u3DCcI7brfukF9EiiyxSHnnkkZ5eQd1qMZLtXmCBBcqss85aD3nvvfcWbx1HRrf5ee2Ev/lGpkWdcZQML05vvZSs7D3epRlKPd716KTz53Ukc2aml+Ryyy1Xq5Zh5zvssEO9naHya6+9dp9Vzorx6VG68sor14WI+txwEE985CMfqeFsNk0P0szrmeHuV155ZQ0wV1pppbLUUksN4kj/t0l6gl577bU1SE1P14S0zUr2/7eVW+MlYAj8eMk7LwECBAgQIECAAAECBAgQIECgSwTyQVXm2hxuSS/SpifpcI/R3375wCdD8odbMmQ/X0pnChgC35nXRa0IECBAgAABAgQIECBAgAABAgQIEBgBAQHoCCA6BAECBAgQIECAAAECBAgQIECAAAECnSkgAO3M66JWBAgQIECAAAECBAgQIECAAAECBAiMgIA5QEcA0SEIECBAgAABAgQIECBAgAABAgSGJpDFV1ddddW6UxZhHauS+Uib847VOZ1nfAUEoOPr7+wECBAgQIAAAQIECBAgQIAAga4U2HLLLUu+xrp88pOfLPlSukfAEPjuudZaSoAAAQIECBAgQIAAAQIECBAgQKDrBASgXXfJNZgAAQIECBAgQIAAAQIECBAgQIBA9wgIQLvnWmspAQIECBAgQIAAAQIECBAgQIAAga4TEIB23SXXYAIECBAgQIAAAQIECBAgQIAAAQLdIyAA7Z5rraUECBAgQIAAAQIECBAgQIAAAQIEuk5AANp1l1yDCRAgQIAAAQIECBAgQIAAAQIECHSPwJgGoE888UR5/PHHu0dXSwkQIECAAAECBAgQIECAAAECBAgQGFeBUQ1AH3jggbLvvvuWDTfcsCy22GJl0qRJ5aCDDqoNvvXWW8vrXve6ctppp5Xnn39+XBGcnAABAgQIECBAgAABAgQIECBAgACBiSkw82g064UXXihHH310Ofjgg8sjjzzS6yluu+22ctFFF9Wvbbfdtpx00klllllm6XVbDxIgQIAAAQIECBAgQIAAAQIECBAgQGA4AqPSA/QrX/lK2WeffWr4OfPMM5c11lijLL/88lPUb/LkyT2B5/e///2y++67T/G8OwQIECBAgAABAgQIECBAgAABAgQIEJhWgRHvAfqXv/yl7L///rVem2++eTn22GPLUkstVT7ykY/UXqFNhTfZZJPy97//vWy33XblwgsvrD1A99tvv7LSSis1m/hOgAABAgQIECBAgAABAgQIECAwygL33HPPKJ9hdA6/6KKLjs6BHXXCCYx4D9CjjjqqPP3007XX549//OMafvaltuSSS5Zf/vKXZf755y/PPfdcOeGEE/ra1OMECBAgQIAAAQIECBAgQIAAAQIECBAYssCI9wC96qqraiXSC3SOOeYYsELZJj1Fv/Od75SbbrppwO1tQIAAAQIECBAgQIAAAQIECBAgMPICc39y35E/6Cgc8bHDvzQKR3XIiSwwoj1A04vz2muvrV5rrrnmoN023XTTuu0dd9wx6H1sSIAAAQIECBAgQIAAAQIECBAgQIAAgYEERjQAnWmmmcqkSZPqOR999NGBzt3z/AMPPFBvL7bYYj2PuUGAAAECBAgQIECAAAECBAgQIECAAIFpFRjRADSVWX311WudfvOb3wy6bpkHNOUVr3jFoPexIQECBAgQIECAAAECBAgQIECAAAECBAYSGPEAdN11163nPOSQQ8rNN9880PnLiSeeWM4555y63VCGzQ94YBsQIECAAAECBAgQIECAAAECBAgQIND1AiMegH7iE58oWd39scceK2uttVY5/vjjy3333TcV9O2331523nnnstNOO9XnNthgg7L11ltPtZ0HCBAgQIAAAQIECBAgQIAAAQIECBAgMFyBEQ9A55133nLyySeXGWecsWQe0N13370sssgiNQhNJX/wgx+UhRZaqCyzzDLlhBNOKC+88EKZc845a0/Q7KMQIECAAAECBAgQIECAAAECBAgQIEBgpARGJXF8wxveUC699NLymte8pqeeTz/9dL19zz33lAcffLDn8Y033rhcccUVZfnll+95zA0CBAgQIECAAAECBAgQIECAAAECBAiMhMDMI3GQ3o6x9tprlz/84Q/ltNNOq99vuummkq/0+FxxxRXLCiusUBKUbrnllr3t7jECBAgQIECAAAECBAgQIECAAAECBAhMs8CoBaCp2QwzzFDe9a531a9prqkDECBAgAABAgQIECBAgAABAgQIECBAYIgCozIEfoh1sDkBAgQIECBAgAABAgQIECBAgAABAgRGRWDYPUAvueSScvHFF49opdZbb72SL4UAAQIECBAgQIAAAQIECBAgQIAAAQIjITDsAPS8gIHeaAAAQABJREFU884rn/3sZ0eiDj3HyPEEoD0cbhAgQIAAAQIECBAgQIAAAQIECBAgMI0Cww5Ap/G8didAgAABAgQIECBAgAABAgQIECAwbgIHHHBAOeeccwZ9/l133bXkayzL97///XLkkUfWRcQPPPDAsTz1kM+1xx57lMsvv7zMNddc5Ve/+lWZddZZh3yM0dph2AHoRz7ykbLjjjuOaL3mnXfeET2egxF48skny5xzzgmCAAECBAgQIECAAAECBAgQIDCFwK233lquvPLKKR7r787dd9/d39Oj8tx9991X6/jKV75yVI4/Uge95557yv/+7/+W5557rh7y9NNPL9tss81IHX6ajzPsAPQlL3lJyZdCoJMEHnnkkXLuuefWTxruuOOO8tRTT5XZZ5+9LL744uWNb3xj2XrrrQWiI3jB9tprr/Lvf/+7fOELXygLLLDACB554EPlRTW/CBZbbLGBN/7PFvkE6tRTTy3rr79+ef/73z/o/WxIgAABAgQIECBAgAABAhNXIEHd/vvvP2ADF1lkkQG3GekN1lhjjZL33uuuu+5IH3pEj3fKKafU8PNd73pX+fGPf1yOO+64iRGADlXp8ccfL3//+9/LbLPNVhZeeOEy33zzlRlmmGGoh7E9gT4F/vCHP5TPfe5z5bHHHqvbJPhccskly4MPPlh/9vLzl/DrqKOOKssvv3yfx/HE4AVuvPHGkl62kydPHvxOI7DlDTfcUA4//PCy8cYbl+23337QR/znP/9Z/va3v5Xllltu0PvYkAABAgQIECBAgAABAgQmtsCCCy5YVl999Y5s5EYbbVTy1enl29/+dq3iYYcdVi688MLyu9/9rlx33XVllVVW6Yiqzziatbj22mvL2972thpCzT333OVVr3pVWXnllWtPsYUWWqjssssuQ+pqPJp1dezpW+D8888vn/jEJ2r4ucEGG5T8x0tvv8yVkQW7vv71r5eVVlqppIfoPvvsU+66667pu8EdUvutttqqvOMd7xjzXrWZoyWB9lDLiiuuWOu75pprDnVX2xMgQIAAAQIECBAgQIAAgV4F0hHrZz/7Wf164IEH6jb5nlzs0Ucf7dmneezee+/teaz1Rkaytu/z0EMP1cfah99ff/31tYNP9n/mmWfKJZdcUoeg/+IXvyhPPPFE62Gnuv3888+XdCxKJ7Hvfe979fjN0PWpNh7EAxdddFFJB6m8506Ho/QCTTn++OMHsffYbDIqAWh6gyWMSjfdM844o9x5551TtSYX8Fvf+lZ5zWteU4444oipnvcAgcEK3H///eWLX/xi3Twh+6GHHlpWWGGFKXbPXBnp+bnUUkvVELT5ZGKKjdwZskAmOM58wPmAY3ooeU1Kfd/0pjdND9VVRwIECBAgQIAAAQIECBDoYIEEjVtssUXt6Pf2t7+95CujnpNLJPx7xSteUX7+85/3tODYY4+tj2VEY2/lQx/60FT7ZGh5jvOZz3xmil3WWWedst5665Wrr766LL300vX2brvtVt761rfW7KP1vK07JmB99atfXTso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cPNolEwZl+Obfm1wutPcAzSTpn7rW9+qc/1l8taEoJnnL3P0HXrooXUe0L6qkhWhs/BJJopVCBAgQIAAAQIECBAgQIAAAQIECEwEgY9//OOj2oyTTz55VI8/0Q4+TT1AM9dAgs7dd9+9LjqTMDTzwtx6660li69kMtXews3MzbPTTjvVhVhan+9rfsCJhq49BAgQIECAAAECBAgQIECAAAECBAiMjcA0BaCf+cxnyq9+9auemibAzEIrTckkujvuuGNpndz9hhtuKOuss0759re/3WxW5/376U9/Wvbcc8+ex9wgQIAAAQIECBAgQIAAAQIECBAgQIDAtAoMOwDNXJ/HHntsPf8888xTTjvttHL//ffXhYxuvPHGstFGG9XnLr744nL66afX2+eee255zWteU2666aZ6P6vfffCDHyzXXXddefvb314f8w8BAgQIECBAgAABAgQIECBAgAABAgRGSmDYc4Bedtll5dlnn631OOigg6ZYvT0raJ966qlljTXWKHfffXftJZqVmrfYYos6R2h2WnHFFcsJJ5xQMimsQoAAAQIECBAgQIAAAQIECBAgQIAAgdEQGHYP0FtuuaWnPrvuumvP7ebGwgsvXHbZZZd697zzzquLHWWBpPT63GeffeqcocLPRst3AgQIECBAgAABAgQIECBAgAABAgRGQ2DYPUAfffTRWp/M+zlp0qRe67b66qvXx7MoUsqcc85ZfvzjH9eFk+oD/iFAgAABAgQIECBAgAABAgQIECBAgMAoCgw7AM0K8CkvfelL+6zevPPO2/PcHHPMUc4666yeuUF7nnCDAAECBAgQIECAAAECBAgQIEBg3AUeO/xL414HFSAwGgLDHgL/wgsv1PpkSHtfZbbZZut5arfddhN+9mi4QYAAAQIECBAgQIAAAQIECBAgQIDAWAgMOwAdauW23HLLoe5iewIECBAgQIAAAQIECBAgQIAAAQIECEyTwJgFoPPNN980VdTOBAgQIECAAAECBAgQIECAAAECBAgQGKrAsOcAHeqJZppppqHuYnsCBAgQIECAAAECBAgQIECAAIExEljjyqvH6EzTdpo/r/n/F92etqPYu5sExqwHaDehaisBAgQIECBAgAABAgQIECBAgAABAp0hMM09QCdPnlweeOCBXlvz8MMP9zye231t12w011xzlTnnnLO56zsBAgQIECBAgAABAgQIECBAgAABAgSmSWCaA9Drr7++LLzwwgNWYsMNNxxwm89+9rPloIMOGnA7GxAgQIAAAQIECBAgQIAAAQIECBAgQGAwAobAD0bJNgQIECBAgAABAgQIECBAgAABAgQITJcCw+4ButJKK5Utt9xyRBudYyoECBAgQIAAAQIECBAgQIAAAQIECBAYKYFhB6Dvfve7S74UAgQIECBAgAABAgQIECBAgAABAgQIdKqAIfCdemXUiwABAgQIECBAgAABAgQIECBAgACBaRYQgE4zoQMQIECAAAECBAgQIECAAAECBAgQINCpAgLQTr0y6kWAAAECBAgQIECAAAECBAgQIECAwDQLCECnmdABCBAgQIAAAQIECBAgQIAAAQIECBDoVAEBaKdeGfUiQIAAAQIECBAgQIAAAQIECBAgQGCaBQSg00zoAAQIECBAgAABAgQIECBAgAABAgQIdKrAzJ1aMfUiQIAAAQIECBAgQIAAAQIECBAgMFoCBxxwQDnnnHMGffhdd9215Gssy/e///1y5JFHli233LIceOCBY3nqfs91ySWXlL322qvXbRZaaKGyyiqr1K+tttqqLLjggr1uN5YPCkDHUtu5CBAgQIAAAQIECBAgQIAAAQIEOkLg1ltvLVdeeeWg63L33XcPetuR2vC+++6rdXzlK185UocckeP861//6tfu3HPPref5/Oc/X84666zy8pe/fETOO9yDCECHK2c/AgQIECBAgAABAgQIECBAgACB6V5gm222Kfvvv/+A7VhkkUUG3GakN1hjjTVqT8t11113pA89IsebNGlSueiii3qO9fzzz5cnn3yy3HLLLeV//ud/yk033VTWX3/9ctddd5XZZ5+9Z7uxviEAHWtx5yNAgAABAgQIECBAgAABAgQIEOgYgQzRXn311TumPq0V2WijjUq+OrXMOOOMvdol9Mzw92WWWab885//LOeff355y1veMm7NEICOG70TEyBAgAABAgQIECBAgAABAgQITO8Cjz32WPnNb35Tm5HgL3NgPvDAA+X+++8vSyyxRHnJS15Sn2seW2CBBUpvvUnvuOOOkmO17vPQQw+Ve++9t8w333xlscUW66G6/vrrS8LHlVZaqTzzzDN1OPpf/vKXus0b3vCGMtdcc/Vs234jvTRvvPHGcvXVV5fJkyeXV73qVXWI+kwzzdS+6TTdn2eeecqGG25Yfvazn5U//OEP4xqAWgV+mi6lnQkQIECAAAECBAgQIECAAAECBLpR4IknnihbbLFFSaD59re/vX4tvPDC5dBDDy3HH398ecUrXlF+/vOf99Ace+yx9bHDDz+857HWGx/60Iem2ueUU06pj33mM59p3bSss846Zb311qsh5tJLL11v77bbbuWtb31rWWqppaY4b+uO1157bXn1q19dVl555fLud7+7vPe9763HTwh6zTXXtG46Irczz2rKeA/h1wN0RC6ngxAgQIAAAQIECBAgQIAAAQIECHSLwAsvvFDDwyzwk3DvYx/7WJl33nnLqaeeWhJWphfnaJcEsBken9D1i1/8Yg0+U58vfelLtW6XXXZZDTqbevzxj38sr3/968tTTz1V3vGOd5Stt9669iLNgkUnn3xyDVUvvvjisuaaaza7DPv7c889V7785S/XgDbD4DfeeONhH2skdhSAjoSiYxAgQIAAAQIECBAgQIAAAQIECEyXAgkA3/Wud/Vb94SMX//613u2OfLII+vQ7vSm/N3vfldmm222+twmm2xSFl988XLIIYf0bDtaN55++ul6rksvvbQOkc95EnAuu+yyZffddy9ve9vbynXXXVcytD2B7d57713Dz4MPPrgceOCBPdVKT9DVVlut7LvvvnWbhKCDLQlhW8PNnCcBaxZBygr2a621VvnFL35R5pxzzsEeclS2E4COCquDEiBAgAABAgQIECBAgAABAgQITA8Cf//730u++ivpxdhafvnLX9a7n/70p3vCz+b5T3ziE+W4446r84A2j43W9wMOOKAn/GzOscsuu5QjjjiizvN5ww03lFVXXbVccMEFJUFpwtnUub3suuuutedq5urMdq95zWvaN+n1fnp6ZoGjvkqC4UcffbS89KUv7WuTMXlcADomzE5CgAABAgQIECBAgAABAgQIECDQiQKbb755+eAHP9hv1dp7MP7pT3+q27/2ta+dar9sm56YP/nJT6Z6bqQf2HTTTac6ZHp8JsDM/Jt//vOfawCanqApCXIvvPDCqfbJA5mz9IorrigJTQcbgGaxpbPPPnuK42Xhpn/84x/lvPPOKxmSv/rqq5djjjmmJJgdryIAHS955yVAgAABAgQIECBAgAABAgQIEBh3gYSCWcxosOXOO+8sCflmnnnmPns2ZiGi0S6zzz57n+dfcskl6+mz0nsWOrrpppvq/Qxvzyrx/ZWbb765v6eneC5ha8Le3kqG3KeH6uc+97ny4Q9/uGy11VZ1vtLeth3txwSgoy3s+AQIECBAgAABAgQIECBAgAABAhNGoOkNmuHfkydPLrPOOutUbUs4OtSSOT2HUjLfZl/lySefrE/NP//89XuzbcLPrBTfX1ljjTX6e3pIz2Vl+0MPPbT8+9//LpdcckkNQYd0gBHaeOhXY4RO7DAECBAgQIAAAQIECBAgQIAAAQIEpjeBhIr5+uc//1mHei+33HJTNeH222+f6rH0lkx59tlnp3ouD2ThoKGUBKb3339/r71A77jjjnqoZkX3FVdcsd6fe+65yz777DOU00zTtnHKPKBZGKkJYafpgMPcecZh7mc3AgQIECBAgAABAgQIECBAgAABAl0p0ASLP/rRj6Zqf3pfZtGh9jLvvPPWh7I6envJauq33XZb+8MD3s8K6+0lwexvf/vb+nBWqU/J/J4pv//978uDDz5Yb7f+kzqvu+66JXOaNvu2Pj/c27/61a9q+Jn9e5svdbjHHep+AtChitmeAAECBAgQIECAAAECBAgQIECgqwUyr+UMM8xQvvSlL5W//OUvPRbp5ZhV1tMzs72stNJK9aEzzjijXHXVVT1PZyj9NttsU4fT9zw4yBuHHHJIaXp7ZpcMyf/oRz9aHnvssfLf//3fZcEFF6xH2nDDDctGG21UHnnkkbLbbrvVIemtp/jkJz9ZLr/88vLXv/61NOFu6/NDuR2DzJF68skn1/lHs+/GG2/ca0/VoRx3WrY1BH5a9OxLgAABAgQIECBAgAABAgQIECAwXQsce+yx5Rvf+MaAbVh88cV7emmus846dWGfr3zlK7Vn47bbbluy8FFWPs8q6xlqnhCytbzxjW8sGYp+44031oWD3vzmN9ft0ksyweRmm21WzjnnnNZdBryd3pwJLN/znvfUYfnpEXrllVeW1O+kk06aYv+vfe1rJUHoT3/607oy+5ZbbllmmWWWcuaZZ5Zrr722zDjjjOWEE04o88wzzxT79XfnX//6Vz1G6zYJdFuHu8fl+9//fusmY35bADrm5E5IgAABAgQIECBAgAABAgQIECDQKQIJ69JzcqDSvs1RRx1VVltttfKJT3yifPOb36y7zzfffOXEE0+sIWOCxdaSHqO/+93vyvvf//4alJ522mn16VVWWaWcfvrp9bGhBqDZft999y1f/epX67EWXnjhsuOOO5bDDjuszDHHHK2nL6uuumoNOvfcc88aen75y1/ueT4LH2WxooSwQy3tLlkkarHFFitLLLFEeec731nb2ywcNdRjj9T2M7x4kfteMmqkzuI4BAgQIDBogYcffrhnjpRB7zTCG2ZumvyyfHyH7Ub4yA5HgAABAhGYdPL3Sub/ev7554GMgEDeUC6yyCK190xWmVVGRmCBBRboWdn43nvvnaI3z8icoTuP0vy8dsLffBPpCmSYb3qypdxzzz3j3rRFF1103OswlAo0ZmtcefVQdhu3bf+85ur13J3kfPPNN9dh5QkZ05MyvSsTgJ5yyill++23n8rq8ccfr2FkFlBqhqlPtVE/D6SHaY5x5513lvRMzZD7u+66q/bszPkHKgktb7rppvq7c9lll62/RwfaZ3p+Xg/Q6fnqqTsBAgQIECBAgAABAgQIECBAgMC4Cyy//PJDqsOkSZPqokND2qmfjdPzM1+DLTPPPHNZeeWVB7v5dL/dwJHwdN9EDSBAgAABAgQIECBAgAABAgQIECBAoFsFBKDdeuW1mwABAgQIECBAgAABAgQIECBAgEAXCBgC3wUXWRMJECBAgAABAgQIECBAgAABAgTGTmCDDTao6yosvfTSo3LSrbfeuq4d0b7Q0aicbAIcVAA6AS6iJhAgQIAAAQIECBAgQIAAAQIECHSOwMc//vFRrczJJ588qsefaAc3BH6iXVHtIUCAAAECBAgQIECAAAECBAgQIECgR0AA2kPhBgECBAgQIECAAAECBAgQIECAAAECE01AADrRrqj2ECBAgAABAgQIECBAgAABAgQIECDQIyAA7aFwgwABAgQIECBAgAABAgQIECBAgACBiSYgAJ1oV1R7CBAgQIAAAQIECBAgQIAAAQIECBDoERCA9lC4QYAAAQIECBAgQIAAAQIECBAgQIDARBOYeaI1SHsIECBAgAABAgQIECBAgAABAgSGLvDnNVcf+k72IDAdCOgBOh1cJFUkQIAAAQIECBAgQIAAAQIECBAgQGB4AnqADs/NXgQIECBAgAABAgQIECBAgACBCSGw6KKLToh2aASBvgT0AO1LxuMECBAgQIAAAQIECBAgQIAAAQIECEz3AgLQ6f4SagABAgQIECBAgAABAgQIECBAgAABAn0JGALfl4zHCRAgQKBMOvl75YEHHiiTJ0+mMUICiyyySHnsscfKE088MUJHdJj55puvzD777BXi/vvvL8899xyUERLIcLhHH320PPnkkyN0RIeZf/75y2yzzQaCAAECBAgQIEBgDAX0AB1DbKciQIAAAQIECBAgQIAAAQIECBAgQGBsBQSgY+vtbAQIECBAgAABAgQIECBAgAABAgQIjKGAAHQMsZ2KAAECBAgQIECAAAECBAgQIECAAIGxFRCAjq23sxEgQIAAAQIECBAgQIAAAQIECBAgMIYCAtAxxHYqAgQIECBAgAABAgQIECBAgAABAgTGVkAAOrbezkaAAAECBAgQIECAAAECBAgQIECAwBgKCEDHENupCBAgQIAAAQIECBAgQIAAAQIECBAYWwEB6Nh6OxsBAgQIECBAgAABAgQIECBAgAABAmMoIAAdQ2ynIkCAAAECBAgQIECAAAECBAgQIEBgbAUEoGPr7WwECBAgQIAAAQIECBAgQIAAAQIECIyhgAB0DLGdigABAgQIECBAgAABAgQIECBAgACBsRUQgI6tt7MRIECAAAECBAgQIECAAAECBAgQIDCGAgLQMcR2KgIECBAgQIAAAQIECBAgQIAAAQIExlZAADq23s5GgAABAgQIECBAgAABAgQIECBAgMAYCghAxxDbqQgQIECAAAECBAgQIECAAAECBAgQGFuBmcf2dM5GgAABAtOTwCK/OHd6qu50Uterp5N6qiaBCPh5Ha2fg3u32HS0Du24BAgQIECAAAECbQJ6gLaBuEuAAAECBAgQIECAAAECBAgQIECAwMQREIBOnGupJQQIECBAgAABAgQIECBAgAABAgQItAkIQNtA3CVAgAABAgQIECBAgAABAgQIECBAYOIICEAnzrXUEgIECBAgQIAAAQIECBAgQIAAAQIE2gQEoG0g7hIgQIAAAQIECBAgQIAAAQIECBAgMHEEBKAT51pqCQECBAgQIECAAAECBAgQIECAAAECbQIC0DYQdwkQIECAAAECBAgQIECAAAECBAgQmDgCAtCJcy21hAABAgQIECBAgAABAgQIECBAgACBNgEBaBuIuwQIECBAgAABAgQIECBAgAABAgQITBwBAejEuZZaQoAAAQIECBAgQIAAAQIECBAgQIBAm4AAtA3EXQIECBAgQIAAAQIECBAgQIAAAQIEJo6AAHTiXEstIUCAAAECBAgQIECAAAECBAgQIECgTUAA2gbiLgECBAgQIECAAAECBAgQIECAAAECE0dAADpxrqWWECBAgAABAgQIECBAgAABAgQIECDQJiAAbQNxlwABAgQIECBAgAABAgQIECBAgACBiSMgAJ0411JLCBAgQIAAAQIECBAgQIAAAQIECBBoExCAtoG4S4AAAQIECBAgQIAAAQIECBAgQIDAxBEQgE6ca6klBAgQIECAAAECBAgQIECAAAECBAi0CQhA20DcJUCAAAECBAgQIECAAAECBAgQIEBg4ggIQCfOtdQSAgQIECBAgAABAgQIECBAgAABAgTaBASgbSDuEiBAgAABAgQIECBAgAABAgQIECAwcQQEoBPnWmoJAQIECBAgQIAAAQIECBAgQIAAAQJtAgLQNhB3CRAgQIAAAQIECBAgQIAAAQIECBCYOAIC0IlzLbWEAAECBAgQIECAAAECBAgQIECAAIE2AQFoG4i7BAgQIECAAAECBAgQIECAAAECBAhMHAEB6MS5llpCgAABAgQIECBAgAABAgQIECBAgECbgAC0DcRdAgQIECBAgAABAgQIECBAgAABAgQmjoAAdOJcSy0hQIAAAQIECBAgQIAAAQIECBAgQKBNQADaBuIuAQIECBAgQIAAAQIECBAgQIAAAQITR0AAOnGupZYQIECAAAECBAgQIECAAAECBAgQINAmIABtA3GXAAECBAgQIECAAAECBAgQIECAAIGJIyAAnTjXUksIECBAgAABAgQIECBAgAABAgQIEGgTEIC2gbhLgAABAgQIECBAgAABAgQIECBAgMDEERCATpxrqSUECBAgQIAAAQIECBAgQIAAAQIECLQJCEDbQNwlQIAAAQIECBAgQIAAAQIECBAgQGDiCAhAJ8611BICBAgQIECAAAECBAgQIECAAAECBNoEBKBtIO4SIECAAAECBAgQIECAAAECBAgQIDBxBASgE+daagkBAgQIECBAgAABAgQIECBAgAABAm0CAtA2EHcJECBAgAABAgQIECBAgAABAgQIEJg4AgLQiXMttYQAAQIECBAgQIAAAQIECBAgQIAAgTYBAWgbiLsECBAgQIAAAQIECBAgQIAAAQIECEwcAQHoxLmWWkKAAAECBAgQIECAAAECBAgQIECAQJuAALQNxF0CBAgQIECAAAECBAgQIECAAAECBCaOgAB04lxLLSFAgAABAgQIECBAgAABAgQIECBAoE1AANoG4i4BAgQIECBAgAABAgQIECBAgAABAhNHQAA6ca6llhAgQIAAAQIECBAgQIAAAQIECBAg0CYgAG0DcZcAAQIECBAgQIAAAQIECBAgQIAAgYkjIACdONdSSwgQIECAAAECBAgQIECAAAECBAgQaBMQgLaBuEuAAAECBAgQIECAAAECBAgQIECAwMQREIBOnGupJQQIECBAgAABAgQIECBAgAABAgQItAkIQNtA3CVAgAABAgQIECBAgAABAgQIECBAYOIICEAnzrXUEgIECBAgQIAAAQIECBAgQIAAAQIE2gQEoG0g7hIgQIAAAQIECBAgQIAAAQIECBAgMHEEBKAT51pqCQECBAgQIECAAAECBAgQIECAAAECbQIC0DYQdwkQIECAAAECBAgQIECAAAECBAgQmDgCAtCJcy21hAABAgQIECBAgAABAgQIECBAgACBNgEBaBuIuwQIECBAgAABAgQIECBAgAABAgQITBwBAejEuZZaQoAAAQIECBAgQIAAAQIECBAgQIBAm4AAtA3EXQIECBAgQIAAAQIECBAgQIAAAQIEJo6AAHTiXEstIUCAAAECBAgQIECAAAECBAgQIECgTUAA2gbi7sQWePLJJyd2A7WOAAECBAgQIECAAAECBAgQIEBgCoGZp7jnDoEJJvDII4+Uc889t/zqV78qd9xxR3nqqafK7LPPXhZffPHyxje+sWy99dZlzjnnnGCtHr/m7LXXXuXf//53+cIXvlAWWGCBMa3Ic889V+67776y2GKLjel5nYwAAQIECBAgQIAAAQIECBDobAE9QDv7+qjdNAj84Q9/KNtuu235+te/Xm688cZ6pCWXXLLMMMMM5e9//3v5xje+UbbZZpty8803T8NZ7NoqEOe//e1vZfLkya0Pj/rtG264oey0007lN7/5zaifywkIECBAgAABAgQIECBAgACB6UtAD9Dp63qp7SAFzj///HLQQQfVrTfYYIPygQ98oKywwgo9e19zzTXlmGOOqWHdPvvsU44//vjaK7RnAzeGJbDVVluVZ555Zsx71Z5zzjk11N54442HVW87ESBAgAABAgQIECBAgAABAhNXQA/QiXttu7Zl999/f/niF79Y2/+qV72qHHrooVOEn3nila98ZTnqqKPKUkstVTJM/tvf/nbXeo1kw/fYY4/ykY98pMw999wjeVjHIkCAAAECBAgQIECAAAECBAgMW0AP0GHT2bFTBU477bTy+OOPl3nmmacceOCBZcYZe8/5E9LtvPPOdZuLL764PPbYY1MFdxnKneHyt956a5lpppnK8ssvXzKMfuaZp/6vc9ttt9VzJVR94YUXSu5ff/31ZZlllikrrbRS3b8xy1yVf/7zn8tss81WVllllfLSl760eap+f/TRR8s///nPsuCCC9Y6pT1XX3117V2ZUHe++ebr2T49Lq+99tpy5513liWWWKKsvvrqU7U59U9Zeumlp3ru6aefLnfffXdtU9rWlPb2ZA7V6667rrqmPalbe7n99tvL888/36dR2pV2Zy7WnCttz5QEvZXU6x//+Ef9Svszb2tsW8+beT9Tr3/961/1EDFLW1/ykpeU+eeff4rD5vpmuoMcM/OEpkdwtmsvDz/8cA3F8/PT2zymuXZZTGuhhRYqkyZNqrsnRM9+qVvmmL3yyivrz8Caa65ZZp111vZTuE+AAAECBAgQIECAAAECBAiMocDUKc4YntypCIy0QILHX//61/Ww2223XQ2p+jvHhhtuWOcCXXHFFacKNS+99NI6TD6BWWtJCPfpT3+6hnetj++6665lrrnmqnOOfvSjHy133XVXz9MJ04477rgadCaUzfykTUlAtvfee5cMH29KhnRn7tKPf/zjJT1aTznllBosNs9n8aYM3U8dc7wsPNSUlVdeuS5C1BqSvu9976tPn3322VOFvAk6EwQnFDz11FObw5S0Z4455ijf+ta3ysc+9rEaLPY8+eKN7bffvs67mWC4Kdkn4WBC6NZQN8Hj5z73uRomN9vme9z333//Giy3Pv6LX/yifPWrX63Han08Yenb3/72kp6mCY8TfDZty3Y5b74yt+uHPvShumtC0u985zvlpJNOKrndlATj2XeHHXaY4tqffvrp5cQTTyzvfOc7y4c//OFm857vRx55ZL1++RnYdNNN6+Nnnnlm+d///d/qlGuXoDhl3nnnLT/5yU+EoFXDPwQIECBAgAABAgQIECBAYHwEBKDj4+6soyRwzz33lAceeKAe/WUve9mAZ0kIll6I7SW9FPfbb7/68H/913+V9dZbr/bo+/3vf18uvPDCsvvuu5cvf/nLZa211ppi1yeeeKKG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qquuqt/XW2+9qcLPPHHjjTfW59vDyaaXansw2py/CU7rzi3/nHnmmXVxpvQ6bUpj1Tr0vnkuQ+qa8Lt5zHcCBAgQIECAAAECBAgQIECgswUEoJ19fdRuGAJLL7102Wabbeqen//858uJJ55Y7rrrrimOlF58+++/f7n22mvrvEZ77713z/PpQbrCCiuUhx56qHz961+viwk1T6YH5THHHFPDvGWWWaYulNQ818nfm4WMYtFasjDQj370o9aHRvT2SiutVFdXz2rnxx9//BQ9NxMmfvOb36zn23jjjev3ZlGnBKPtvVXTU/d73/te3a59wahmgaX2cDKrv6f84Ac/KE24Wh948Z9s+9WvfrUusNQ6P09jddFFF5VmDtPsk9D1oIMOmuLnoTmW7wQIECBAgAABAgQIECBAgEDnChgC37nXRs2mQWC33XYr6an585//vHz729+uX1mgJoFchrbffPPNNWBLT9GEWquuumrP2dKb8GMf+1jZZ599yumnn15D0nXXXbeGd+n5mYV5EpIdffTRIzavZM/JR+lGVlZPL8wLLrig7LDDDrV3ZdqRx9LbslldfTROv9dee5U99tijXosEiuuss04NH3//+9/XRQpe+cpXlne961311AlCE1ZmyHyu4ete97o6kXnCyyuvvLIG06l3JovP9W16azaLD5111lnl+uuvr9Mg7LzzzmWNNdYoW221VTnjjDNKQu6NNtqozieanqR//OMf6/nT+3fbbbftafpaa61Vspr7P/7xj7LnnnuWXPsEs9k+58z9yy67rGd7NwgQIECAAAECBAgQIECAAIHOFhCAdvb1UbthCiTE3G+//ercj6eddlpJj8L0+mzmb0zw+cY3vrEkJGvmqWw9VQLRU045pXzxi1+swVsz9DqL8rz5zW8uWVRn/vnnb92lo2+/6U1vqoFverRmyHu+ssJ3wsEEg00PzNFoRHrKxjIrsV9++eU1oMx5cg0yXcFOO+3UEyRn+oEMR8/UBDFv3LMieULUrbfeunz0ox+t1yQB6lve8pZa5Xy/4ooryoUXXlgD6qYnaZ7cd999y+qrr16OO+648tvf/rZ+5fEsWJTzp5do62rnmUc2PUMPO+ywWt+ExilpR3oUpw0C0EriHwIECBAgQIAAAQIECBAgMF0IzPDiqssvTBc1VUkC0yDw5JNPlvvuu6888sgjdZX4DHke7KrgGW59++2315CsWSBpGqoy7rtmOoB4JGxMCDmWJZa33XZbSUCdXpbN0PX2OmS4ea7Xgw8+WNK7c8EFF2zfpNf7mdc1UxcssMACtedo+0ZZEOmOO+4oWSApPwN9nb/ZL0633nprDckTwo5VyVyt6eU6niXtTTC8yC/6nkd3POvn3AQIEJjeBe7dYtP6u659/urpvV3jVf98gLnIIovUv/UyzY4yMgL5myofGqdk+iBvHUfGtfl57YS/+UamRZ1xlLxnmGWWWWpl+lvQdqxq2zrN1lid03kIEOhbQA/Qvm08M4EE0iOwWRBnqM3KH32ZE3SilN56vI5V22K54oorDni6BLMJPpuh7QPu8J8N8gdP3vz0VV7ykpeU1VZbra+np3o8Pzet0yNMtYEHCBAgQIAAAQIECBAgQIAAgY4XsAhSx18iFSRAgAABAgQIECBAgAABAgQIECBAYLgCAtDhytmPAAECBAgQIECAAAECBAgQIECAAIGOFxCAdvwlUkECBAgQIECAAAECBAgQIECAAAECBIYrIAAdrpz9CBAgQIAAAQIECBAgQIAAAQIECBDoeAEBaMdfIhUkQIAAAQIECBAgQIAAAQIECBAgQGC4AgLQ4crZjwABAgQIECBAgAABAgQIECBAgACBjhcQgHb8JVJBAgQIECBAgAABAgQIECBAgAABAgSGKyAAHa6c/QgQIECAAAECBAgQIECAAAECBAgQ6HgBAWjHXyIVJECAAAECBAgQIECAAAECBAgQIEBguAIC0OHK2Y8AAQIECBAgQIAAAQIECBAgQIAAgY4XEIB2/CVSQQIECBAgQIAAAQIECBAgQIAAAQIEhisgAB2unP0IECBAgAABAgQIECBAgAABAgQIEOh4AQFox18iFSRAgAABAgQIECBAgAABAgQIECBAYLgCAtDhytmPAAECBAgQIECAAAECBAgQIECAAIGOFxCAdvwlUkECBAgQIECAAAECBAgQIECAAAECBIYrIAAdrpz9CBAgQIAAAQIECBAgQIAAAQIECBDoeAEBaMdfIhUkQIAAAQIECBAgQIAAAQIECBAgQGC4AgLQ4crZjwABAgQIECBAgAABAgQIECBAgACBjhcQgHb8JVJBAgQIECBAgAABAgQIECBAgAABAgSGKyAAHa6c/QgQIECAAAECBAgQIECAAAECBAgQ6HgBAWjHXyIVJECAAAECBAgQIECAAAECBAgQIEBguAIC0OHK2Y8AAQIECBAgQIAAAQIECBAgQIAAgY4XEIB2/CVSQQIECBAgQIAAAQIECBAgQIAAAQIEhisgAB2unP0IECBAgAABAgQIECBAgAABAgQIEOh4AQFox18iFSRAgAABAgQIECBAgAABAgQIECBAYLgCAtDhytmPAAECBAgQIECAAAECBAgQIECAAIGOFxCAdvwlUkECBAgQIECAAAECBAgQIECAAAECBIYrIAAdrpz9CBAgQIAAAQIECBAgQIAAAQIECBDoeAEBaMdfIhUkQIAAAQIECBAgQIAAAQIECBAgQGC4AgLQ4crZjwABAgQIECBAgAABAgQIECBAgACBjhcQgHb8JVJBAgQIECBAgAABAgQIECBAgAABAgSGKyAAHa6c/QgQIECAAAECBAgQIECAAAECBAgQ6HgBAWjHXyIVJECAAAECBAgQIECAAAECBAgQIEBguAIC0OHK2Y8AAQIECBAgQIAAAQIECBAgQIAAgY4XEIB2/CVSQQIECBAgQIAAAQIECBAgQIAAAQIEhisgAB2unP0IECBAgAABAgQIECBAgAABAgQIEOh4AQFox18iFSRAgAABAgQIECBAgAABAgQIECBAYLgCAtDhytmPAAECBAgQIECAAAECBAgQIECAAIGOFxCAdvwlUkECBAgQIECAAAECBAgQIECAAAECBIYrIAAdrpz9CBAgQIAAAQIECBAgQIAAAQIECBDoeAEBaMdfIhUkQIAAAQIECBAgQIAAAQIECBAgQGC4AgLQ4crZjwABAgQIECBAgAABAgQIECBAgACBjhcQgHb8JVJBAgQIECBAgAABAgQIECBAgAABAgSGKyAAHa6c/QgQIECAAAECBAgQIECAAAECBAgQ6HgBAWjHXyIVJECAAAECBAgQIECAAAECBAgQIEBguAIC0OHK2Y8AAQIECBAgQIAAAQIECBAgQIAAgY4XEIB2/CVSQQIECBAgQIAAAQIECBAgQIAAAQIEhisgAB2unP0IECBAgAABAgQIECBAgAABAgQIEOh4AQFox18iFSRAgAABAgQIECBAgAABAgQIECBAYLgCAtDhytmPAAECBAgQIECAAAECBAgQIECAAIGOFxCAdvwlUkECBAgQIECAAAECBAgQIECAAAECBIYrIAAdrpz9CBAgQIAAAQIECBAgQIAAAQIECBDoeAEBaMdfIhUkQIDA/2vvPsDkrOrFAR9KSIAgVQy9F0UQVIqIIEXAi4qCiBiULlwpShFRuCjlKogKioioqEiRoo8oYBQQFKUbAZEmTaoQQgkk1MD853f+9xtnv53ZOrs7zLzneTb71fOd854vk81vTyFAgAABAgQIECBAgAABAgQIDFVAAHSocu4jQIAAAQIECBAgQIAAAQIECBAgQKDtBQRA276JFJAAAQIECBAgQIAAAQIECBAgQIAAgaEKCIAOVc59BAgQIECAAAECBAgQIECAAAECBAi0vYAAaNs3kQISIECAAAECBAgQIECAAAECBAgQIDBUAQHQocq5jwABAgQIECBAgAABAgQIECBAgACBthcQAG37JlJAAgQIECBAgAABAgQIECBAgAABAgSGKiAAOlQ59xEgQIAAAQIECBAgQIAAAQIECBAg0PYCc7d9CRWQAAECBMZM4LEPbJ2eeOKJNHv27DErQ6c9eNKkSem5555Ls2bN6rSqjVl9Fl544TRhwoT8/GnTpqVXX311zMrSaQ9eYokl0owZM9Lzzz/faVUbs/osssgiafz48WP2fA8mQIAAAQIECHSjgB6g3djq6kyAAAECBAgQIECAAAECBAgQIECgSwQEQLukoVWTAAECBAgQIECAAAECBAgQIECAQDcKCIB2Y6urMwECBAgQIECAAAECBAgQIECAAIEuERAA7ZKGVk0CBAgQIECAAAECBAgQIECAAAEC3SggANqNra7OBAgQIECAAAECBAgQIECAAAECBLpEQAC0SxpaNQkQIECAAAECBAgQIECAAAECBAh0o4AAaDe2ujoTIECAAAECBAgQIECAAAECBAgQ6BIBAdAuaWjVJECAAAECBAgQIECAAAECBAgQINCNAgKg3djq6kyAAAECBAgQIECAAAECBAgQIECgSwQEQLukoVWTAAECBAgQIECAAAECBAgQIECAQDcKCIB2Y6urMwECBAgQIECAAAECBAgQIECAAIEuERAA7ZKGVk0CBAgQIECAAAECBAgQIECAAAEC3SggANqNra7OBAgQIECAAAECBAgQIECAAAECBLpEQAC0SxpaNQkQIECAAAECBAgQIECAAAECBAh0o4AAaDe2ujoTIECAAAECBAgQIECAAAECBAgQ6BKBubuknqpJgAABAkMQmHTx74Zwl1v6Fril79POEmgrAe/rSDXHYx/YeqSyli8BAgQIECBAgEBJQA/QEohdAgQIECBAgAABAgQIECBAgAABAgQ6R0AAtHPaUk0IECBAgAABAgQIECBAgAABAgQIECgJCICWQOwSIECAAAECBAgQIECAAAECBAgQINA5AgKgndOWakKAAAECBAgQIECAAAECBAgQIECAQElAALQEYpcAAQIECBAgQIAAAQIECBAgQIAAgc4READtnLZUEwIECBAgQIAAAQIECBAgQIAAAQIESgICoCUQuwQIECBAgAABAgQIECBAgAABAgQIdI6AAGjntKWaECBAgAABAgQIECBAgAABAgQIECBQEhAALYHYJUCAAAECBAgQIECAAAECBAgQIECgcwQEQDunLdWEAAECBAgQIECAAAECBAgQIECAAIGSgABoCcQuAQIECBAgQIAAAQIECBAgQIAAAQKdIyAA2jltqSYECBAgQIAAAQIECBAgQIAAAQIECJQEBEBLIHYJECBAgAABAgQIECBAgAABAgQIEOgcAQHQzmlLNSFAgAABAgQIECBAgAABAgQIECBAoCQgAFoCsUuAAAECBAgQIECAAAECBAgQIECAQOcICIB2TluqCQECBAgQIECAAAECBAgQIECAAAECJQEB0BKIXQIECBAgQIAAAQIECBAgQIAAAQIEOkdAALRz2lJNCBAgQIAAAQIECBAgQIAAAQIECBAoCQiAlkDsEiBAgAABAgQIECBAgAABAgQIECDQOQICoJ3TlmpCgAABAgQIECBAgAABAgQIECBAgEBJQAC0BGKXAAECBAgQIECAAAECBAgQIECAAIHOERAA7Zy2VBMCBAgQIECAAAECBAgQIECAAAECBEoCAqAlELsECBAgQIAAAQIECBAgQIAAAQIECHSOgABo57SlmhAgQIAAAQIECBAgQIAAAQIECBAgUBIQAC2B2CVAgAABAgQIECBAgAABAgQIECBAoHMEBEA7py3VhAABAgQIECBAgAABAgQIECBAgACBkoAAaAnELgECBAgQIECAAAECBAgQIECAAAECnSMgANo5bakmBAgQIECAAAECBAgQIECAAAECBAiUBARASyB2CRAgQIAAAQIECBAgQIAAAQIECBDoHAEB0M5pSzUhQIAAAQIECBAgQIAAAQIECBAgQKAkIABaArFLgAABAgQIECBAgAABAgQIECBAgEDnCAiAdk5bqgkBAgQIECBAgAABAgQIECBAgAABAiUBAdASiF0CBAgQIECAAAECBAgQIECAAAECBDpHQAC0c9pSTQgQIECAAAECBAgQIECAAAECBAgQKAkIgJZA7BIgQIAAAQIECBAgQIAAAQIECBAg0DkCAqCd05ZqQoAAAQIECBAgQIAAAQIECBAgQIBASUAAtARilwABAgQIECBAgAABAgQIECBAgACBzhEQAO2ctlQTAgQIECBAgAABAgQIECBAgAABAgRKAgKgJRC7BAgQIECAAAECBAgQIECAAAECBAh0joAAaOe0pZoQIECAAAECBAgQIECAAAECBAgQIFASEAAtgdglQIAAAQIECBAgQIAAAQIECBAgQKBzBARAO6ct1YQAAQIECBAgQIAAAQIECBAgQIAAgZKAAGgJxC4BAgQIECBAgAABAgQIECBAgAABAp0jIADaOW2pJgQIECBAgAABAgQIECBAgAABAgQIlAQEQEsgdgkQIECAAAECBAgQIECAAAECBAgQ6BwBAdDOaUs1IUCAAAECBAgQIECAAAECBAgQIECgJCAAWgKxS4AAAQIECBAgQIAAAQIECBAgQIBA5wgIgHZOW6oJAQIECBAgQIAAAQIECBAgQIAAAQIlAQHQEohdAgQIECBAgAABAgQIECBAgAABAgQ6R0AAtHPaUk0IECBAgAABAgQIECBAgAABAgQIECgJCICWQOwSIECAAAECBAgQIECAAAECBAgQINA5AgKgndOWakKAAAECBAgQIECAAAECBAgQIECAQElAALQEYpcAAQIECBAgQIAAAQIECBAgQIAAgc4READtnLZUEwIECBAgQIAAAQIECBAgQIAAAQIESgICoCUQuwQIECBAgAABAgQIECBAgAABAgQIdI6AAGjntKWaECBAgAABAgQIECBAgAABAgQIECBQEhAALYHYJUCAAAECBAgQIECAAAECBAgQIECgcwQEQDunLdWEAAECBAgQIECAAAECBAgQIECAAIGSgABoCcQuAQIECBAgQIAAAQIECBAgQIAAAQKdIyAA2jltqSYECBAgQIAAAQIECBAgQIAAAQIECJQEBEBLIHYJECBAgAABAgQIECBAgAABAgQIEOgcAQHQzmnLjqjJ3Xffnfbcc8/8dckll7RFnX7zm9/k8px77rmjXp6HHnpo1J9Z/8CTTz451/26666rP2ybAAECBAgQIECAAAECBAgQIPC6ERAAfd00VXcU9KKLLkp33XVX/jrnnHPaotLTp0/P5Xn88cdHrTyvvvpq+v73v5/22GOPUXtmowc9/PDDue7PPfdco9OOESBAgAABAgQIECBAgAABAgTaXkAAtO2bqHsK+NJLL6XLLrssLbzwwmmttdZKDz74YLrpppu6B6CupjNnzkxnn312euWVV+qO2iRAgAABAgQIECBAgAABAgQIEBisgADoYMVcP2ICV111VYrA33rrrZe22GKL/Jxf/epXI/Y8GRMgQIAAAQIECBAgQIAAAQIECHS+wNydX0U1fL0I/Pa3v81FXX/99dM73/nOdNJJJ6UIij711FNpkUUW6VWNGTNm5HOLLbZYWmCBBdKsWbPSHXfckWKo+korrZS/xo0b1+u+4kAMbX/ggQfSI488kt7whjekpZdeOi233HKpr3vi3hieHr1TIy2zzDJp7rl7/zV67bXXct5xzQorrBDfcoq6RBnj2W9605vS8ssvnyZNmlSczt/j3KOPPpq3K5VKuv/++/N2lG3OOf/zO4t4RswRes899+QyrbLKKmnZZZdNc801V4/8Brrz/PPPp7/+9a/58uiBu9BCC/V7a5Q1nj9t2rS01FJLZfNG9w2lrYZyT32BY9h+lC2MllxyyRQ+Cy64YP0lvbYHe89A2rPXQxwgQIAAAQIECBAgQIAAAQIERlWgd+RmVB/vYQT+v8C///3vHHyL4OMGG2yQA5rveMc70o033pguvvji9KlPfaoX1ZQpU9Ipp5ySDjnkkPTiiy/m7QgYFimCk0cffXRaeeWVi0P5ewTrjj/++HTDDTf0OB47ESj74he/mNZee+1e54oDEYQ87LDDcpDyK1/5Stp8882LU7XvUe4o1xprrJHn8owT3/3ud9Mvf/nLNHv27Np1sRE9XuOZEciNdMYZZ6QLL7wwb0ewtaj773//+zTffPPl4xEUPeqoo9K9996b94s/Ith65JFH9qpzcb7R9wh8Rj2izPVl22effRpdno9FoPCHP/xh+vWvf50iEFuksPn4xz+e5y6dZ555isNpKG01lHvigWF25plnpp/+9Kd5uyhElC0sd9lll15B66HcM9D2LJ7vOwECBAgQIECAAAECBAgQIDA2AgKgY+PuqSWBCHZF2mijjXLwM7bf//7356BcrMK+88479+j9GOeLFEHFCAhGIDICl0888USKYGH0/PvCF76Qzj///FqvyAjc7brrrim+x7URfIyei3/729/SNddck4OaRxxxRA5Ujh8/vnhEj+9zzDFHLtvpp5+eLr300oYB0N/97nf5nqhDpFhB/rzzzssB1k984hO59+c///nPdMUVV+RA7Oc///n0k5/8JF+76aabpje+8Y05wBhBu/322y8fLwKK0YM0jr388stpk002yV9Rpuuvvz7Fcz/96U+nU089Na222mr5vr7+iIDxsccem6699trce/MjH/lIDrL++c9/zoHbRr1h454wCrNFF1007bDDDrkn7L/+9a90wQUXpFi86vbbb0/f+c53UpSrPg2mrYr7BntPBICj53D0RI1g7PLVXrbxLvziF7/IQdF4V6LO9Wmw9wymPeufU78d706zOV6jB3P0EB7LNNSexGNZZs8mQIDA600gftao/+Xt66387VTe4meO+NmFaetaJn4WLdKECRPYFhjD/F7/vg4zK7fXCRSucSjeV4kAAQL1AgKg9Rq2x0QgehAWw9//67/+q1aGjTfeOM0///x5SHsE6N797nfXztVvREDr0EMPTR/84Adrh7fZZpsc6IzenjGsO4bVR7rkkkty8HPFFVfMQ+yLIM9mm22Wh9N/+MMfTjH0OoKJ8fxmKQKbP/7xj/N1zzzzTI/h4tGjMgJwEbAseodefvnlOavoObrOOuvk7ejpGuWMIF0M1b777rvzMO23v/3tORgZPSzjh84IMBYpfqCPqQEi+Ln77run3XbbrTiV502NwFn0io1rIgjaX4qgbAQ7V1111Xxf8YPC+973vnTaaaels846q1cWEZCM4Gf0lo2V6mPRqkjhFS4RgL355ptzm0b96tNg2qq4bzD3XHfdddk+pkyIgHL91AlRtj333DP96U9/ykHnCH5HGso9g2nPoh7l7/EuxLQNjdL//u//ptVXX73RKccIECBAoIMEGk0b00HVG5OqxM+O8SW1XsD72nrTiRMntj5TOWaB4v8oOAgQIFAICIAWEr6PmcDUqVNzkDN6E6677rq1ckSviAggRg/QGBLeLAAagbgPfOADtftiI47F0Pdbb701xfD6IsWxvfbaK8Xw+iL4WZyLYNlb3/rWfE/0EO0rRe+8yCOCq9GLc7vttqtdfuWVV+YAZZS9+KEmhlhH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AQIECBAgQIAAAQIECLSVgABoWzWHwhAgQIAAAQIECBAgQIAAAQIECBAg0EoBAdBWasqLAAECBAgQIECAAAECBAgQIECAAIG2EhAAbavmUBgCBAgQIECAAAECBAgQIECAAAECBFopIADaSk15ESBAgAABAgQIECBAgAABAgQIECDQVgICoG3VHApDgAABAgQIECBAgAABAgQIECBAgEArBQRAW6kpLwIECBAgQIAAAQIECBAgQIAAAQIE2kpAALStmkNhCBAgQIAAAQIECBAgQIAAAQIECBBopYAAaCs15UWAAAECBAgQIECAAAECBAgQIECAQFsJCIC2VXMoDAECBAgQIECAAAECBAgQIECAAAECrRQQAG2lprwIECBAgAABAgQIECBAgAABAgQIEGgrAQHQtmoOhSFAgAABAgQIECBAgAABAgQIECBAoJUCAqCt1JQXAQIECBAgQIAAAQIECBAgQIAAAQJtJSAA2lbNoTAECBAgQIAAAQIECBAgQIAAAQIECLRSQAC0lZryIkCAAAECBAgQIECAAAECBAgQIECgrQQEQNuqORSGAAECBAgQIECAAAECBAgQIECAAIFWCgiAtlJTXgQIECBAgAABAgQIECBAgAABAgQItJWAAGhbNYfCECBAgAABAgQIECBAgAABAgQIECDQSgEB0FZqyosAAQIECBAgQIAAAQIECBAgQIAAgbYSEABtq+ZQGAIECBAgQIAAAQIECBAgQIAAAQIEWikgANpKTXkRIECAAAECBAgQIECAAAECBAgQINBWAgKgbdUcCkOAAAECBAgQIECAAAECBAgQIECAQCsFBEBbqSkvAgQIECBAgAABAgQIECBAgAABAgTaSkAAtK2aQ2EIECBAgAABAgQIECBAgAABAgQIEGilgABoKzXlRYAAAQIECBAgQIAAAQIECBAgQIBAWwkIgLZVcygMAQIECBAgQIAAAQIECBAgQIAAAQKtFBAAbaWmvAgQIECAAAECBAgQIECAAAECBAgQaCsBAdC2ag6FIUCAAAECBAgQIECAAAECBAgQIECglQICoK3UlBcBAgQIECBAgAABAgQIECBAgAABAm0lIADaVs2hMAQIECBAgAABAgQIECBAgAABAgQItFJAALSVmvIiQIAAAQIECBAgQIAAAQIECBAgQKCtBARA26o5FIYAAQIECBAgQIAAAQIECBAgQIAAgVYKCIC2UlNeBAgQIECAAAECBAgQIECAAAECBAi0lYAAaFs1h8IQIECAAAECBAgQIECAAAECBAgQINBKAQHQVmrKiwABAgQIECBAgAABAgQIECBAgACBthIQAG2r5lAYAgQIECBAgAABAgQIECBAgAABAgRaKSAA2kpNeREgQIAAAQIECBAgQIAAAQIECBAg0FYCAqBt1RwKQ4AAAQIECBAgQIAAAQIECBAgQIBAKwUEQFupKS8CBAgQIECAAAECBAgQIECAAAECBNpKQAC0rZpDYQgQIECAAAECBAgQIECAAAECBAgQaKWAAGgrNeVFgAABAgQIECBAgAABAgQIECBAgEBbCQiAtlVzKAwBAgQIECBAgAABAgQIECBAgAABAq0UEABtpaa8CBAgQIAAAQIECBAgQIAAAQIECBBoKwEB0LZqDoUhQIAAAQIECBAgQIAAAQIECBAgQKCVAgKgrdSUFwECBAgQIECAAAECBAgQIECAAAECbSUgANpWzaEwBAgQIECAAAECBAgQIECAAAECBAi0UkAAtJWa8iJAgAABAgQIECBAgAABAgQIECBAoK0EBEDbqjkUhgABAgQIECBAgAABAgQIECBAgACBVgoIgLZSU14ECBAgQIAAAQIECBAgQIAAAQIECLSVgABoWzWHwhAgQIAAAQIECBAgQIAAAQIECBAg0EoBAdBWasqLAAECBAgQIECAAAECBAgQIECAAIG2EhAAbavmUBgCBAgQIECAAAECBAgQIECAAAECBFopIADaSk15ESBAgAABAgQIECBAgAABAgQIECDQVgICoG3VHApDgAABAgQIECBAgAABAgQIECBAgEArBeZuZWbyIkCAAIHOEph4xtnpiSeeSLNnz+6sio1hbSZNmpSee+65NGvWrDEsRWc9euGFF04TJkzIlZo2bVp69dVXO6uCY1ibJZZYIs2YMSM9//zzY1iKznr0IossksaPH58r9fjjj6fXXnutsyo4RrWZY445Uny+PvPMM+mFF14Yo1J03mMXXXTRNM888+SKPfbYY6lSqXReJcegRsX7+vTTT6cXX3xxDErQmY9cbLHF0rhx4zqzcmpFgMCwBfQAHTahDAgQIECAAAECBAgQIECAAAECBAgQaFcBAdB2bRnlIkCAAAECBAgQIECAAAECBAgQIEBg2AICoMMmlAEBAgQIECBAgAABAgQIECBAgAABAu0qIADari2jXAQIECBAgAABAgQIECBAgAABAgQIDFtAAHTYhDIgQIAAAQIECBAgQIAAAQIECBAgQKBdBQRA27VllIsAAQIECBAgQIAAAQIECBAgQIAAgWELCIAOm1AGBAgQIECAAAECBAgQIECAAAECBAi0q4AAaLu2jHIRIECAAAECBAgQIECAAAECBAgQIDBsAQHQYRPKgAABAgQIECBAgAABAgQIECBAgACBdhUQAG3XllEuAgQIECBAgAABAgQIECBAgAABAgSGLSAAOmxCGRAgQIAAAQIECBAgQIAAAQIECBAg0K4CAqDt2jLKRYAAAQIECBAgQIAAAQIECBAgQIDAsAUEQIdNKAMCBAgQIECAAAECBAgQIECAAAECBNpVQAC0XVtGuQgQIECAAAECBAgQIECAAAECBAgQGLaAAOiwCWVAgAABAgQIECBAgAABAgQIECBAgEC7CgiAtmvLKBcBAgQIECBAgAABAgQIECBAgAABAsMWEAAdNqEMCBAgQIAAAQIECBAgQIAAAQIECBBoVwEB0HZtGeUiQIAAAQIECBAgQIAAAQIECBAgQGDYAgKgwyaUAQECBAgQIECAAAECBAgQIECAAAEC7SogANquLaNcBAgQIECAAAECBAgQIECAAAECBAgMW0AAdNiEMiBAgAABAgQIECBAgAABAgQIECBAoF0FBEDbtWWUiwABAgQIECBAgAABAgQIECBAgACBYQvMUammYeciAwIECBDoKIEDDzwwXXbZZblOF154YVp55ZU7qn4q01kC++67b/rTn/6UKzVlypS0zDLLdFYF1aajBPbYY490/fXX5zpdccUVafHFF++o+qlMZwlMnjw53XLLLblSV199dVpwwQU7q4Jq01ECH/3oR9Odd96Z6zR16tQ0fvz4jqqfyhAgMDyBuYd3u7sJECBAoBMFZs+enV555ZVctddee60Tq6hOHSQQ72rxvvq9bgc1bIdWpf7z1fvaoY3cQdXyvnZQY3ZBVbyvXdDIqkhgGAKGwA8Dz60ECBAgQIAAAQIECBAgQIAAAQIECLS3gABoe7eP0hEgQIAAAQIECBAgQIAAAQIECBAgMAwBAdBh4LmVAAECBAgQIECAAAECBAgQIECAAIH2FhAAbe/2UToCBAgQIECAAAECBAgQIECAAAECBIYhIAA6DDy3EiBAgAABAgQIECBAgAABAgQIECDQ3gJzVFefrLR3EZWOAAECBEZb4Oabb06PPfZYfuxGG22UJk6cONpF8DwCAxaYOnVqeuKJJ/L1G2+8cZpvvvkGfK8LCYy2wI033piefPLJ/NhNN900jR8/frSL4HkEBixw3XXXpWeeeSZfv/nmm6dx48YN+F4XEhhtgWuuuSY9++yz+bFbbrllmnNO/b1Guw08j0A7CwiAtnPrKBsBAgQIECBAgAABAgQIECBAgAABAsMS8CuRYfG5mQABAgQIECBAgAABAgQIECBAgACBdhYQAG3n1lE2AgQIECBAgAABAgQIECBAgAABAgSGJSAAOiw+NxMgQIAAAQIECBAgQIAAAQIECBAg0M4CAqDt3DrKRoAAAQIECBAgQIAAAQIECBAgQIDAsATmHtbdbiZAgACB14XASy+9lH7xi1+kv/71r+npp59Oq6yySlp77bXT1ltvneaaa65B16HV+Q26AG7oaIFWvl9XXnll+vvf/97Ua7HFFkuTJ09uet4JAoMReP7559MhhxySJk2alI488sjB3Fq79s4770wXXHBBeuCBB9L888+f1lxzzbTZZpulFVdcsXaNDQKtEBju++rztRWtII++BJ588sl0/vnnp3vvvTc9/vjjafHFF08rrLBC2nHHHdMb3/jGvm5teM7na0MWBwl0jYBV4LumqVWUAIFuFXjmmWfSZz7zmfTQQw9lgkUWWSQ99dRTeXvjjTdOX/7yl9M888wzYJ5W5zfgB7uwKwRa/X597nOfS1OnTm1qF0GlM844o+l5JwgMVKBSqaQvfvGL6eqrr07rrLNO+s53vjPQW2vXxS+qvv3tb+f9iRMnppdffjl/zTvvvOm4445Lb3/722vX2iAwHIFWvK8+X4fTAu7tT+CPf/xj+upXv5peeOGF/Mv6RRddNEVA9NVXX03xmfiFL3whbb755v1lUzvv87VGYYNA1wroAdq1Ta/iBAh0i8AxxxyTg5/rr79++p//+Z+04IILpkceeSQdfvjh6aqrrsr/SY8eSwNNrc5voM91XXcItPr9uvvuuzPcAQcckMaPH98LcYEFFuh1zAECgxWI/6BH4DKCn0NNt956a/48jl9IxS+m3vOe96TZs2enCy+8sPY5fc455+TepUN9hvsIhEAr3tfIx+drKEgjIRA/pxbBz9122y2P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BAgQIECAAAECBAgQIECAAAECBEZUQAB0RHllToAAAQIECBDoKfCe97wnzTHHHPnre9/7Xs+Tfewtu+yy+Z4NN9ywj6va89T06dNrdT766KPbs5AtLtWKK66Y67ztttu2OGfZjbTAIYccUntfX3755YaPu+aaaxoed5AAAQIECBBoTwFIOCvoAAAVuUlEQVQB0PZsF6UiQIAAAQIEukDg0EMPTffff38X1PQ/VaxUKv/ZsUWgDQX6ekcff/zx9MlPfjJtvvnmbVhyRSJAgAABAgSaCQiANpNxnAABAgQIECAwwgKzZs1Ku+++e+or4DLCRZA9AQIlgXHjxqUJEybkr9Kp9JWvfCWdddZZ/s6WYewTIECAAIE2FxAAbfMGUjwCBAgQIECgswX++Mc/plNOOaWzK6l2BF5HAscdd1x64YUX8tc888zzOiq5ohIgQIAAAQLNBARAm8k4ToAAAQIECBAYQYH5558/zTfffPkJhx12WLr33ntH8GmyJkCAAAECBAgQINC9AnN3b9XVnAABAgQIECAwdgILLrhg+sIXvpA++9nPpmIofPQGjQWShpNeffXVNHXq1HT77ben++67L8XiSWuttVZac80107zzztsw6wcffDA99thjKcq02mqr5WtirsMoz913353e9a53pVh8qXz/tGnT8jW33XZbikV/Ntpoo7TSSis1fEb54JNPPpmuu+66XNYo43rrrZdWX331NOecjX8//69//SvF84oyxvZvfvObfCzK9t73vrf8iDRjxox0yy235K/YDoe11147m/S6eAgHIs9LLrkk3XPPPWnRRRfN9Q/nZnVo9IiRLmM88y9/+Uu6+eab07///e80adKktMoqq+Q5LGOod18prv/b3/6W7rjjjvTSSy9lvzBcbrnlmt420u9S8X5HAd7ylrekiRMnptmzZ+dy/ulPf0qLLLJIfhfK72FxX7zTc801V3rzm9+cttxyyzT33L3/O/TQQw9lq3jGuuuum/9OPvroo+nhhx/O71scj2krbrjhhtjMpvEO16f4exPn4xcbMZw+yhpfK6ywwrD/jtc/xzYBAgQIECAwQIHqP94SAQIECBAgQIDAKAlUg4SxClBlySWXrLz22muVjTfeOO/HsW9/+9tNS7HMMsvk66rByKbX/OEPf6i89a1vreUXeRZfiy22WOX8889veG81CJuv22yz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FnGKle4jUBspVsmOMg417bfffjkg9cMf/jB/j8BvBK1ioZ6YG7RI0ZvzkksuqQUKi+P9fZ9//vlzD9YIrsY8jh//+MfzPKNLLbVUrR6xwE30pGw2jHykyxhzT8b7EL0zo4y77757iqBvzPEZw9sj4BwpgnARrC16Ncaxww8/PDvFEP8I7kVQdIkllshD/+uDoTFFQdw7fvz4uK1rUkybEH8vI8j5jW98I39FIPzXv/51Dn5Hz+JY7T2Gt4fRkksumeLvZ7TD448/np3C81e/+lWKv48SAQIECBAgMDoC/tUdHWdPIUCAAAECBAgMSWD55ZdPJ5xwQr/3brPNNnmRlehdGcG9GKJ722235eBnBFpiMZYrr7wyffGLX+w3r5G8IAKcl112WVpppZVyj9Q777wzBz9jhfWvfe1rOSg52NXf68sbPVt/8IMf5KkAIgAVdX/66adrwc8Yqrzzzjunm266acg98CLYeemll6att946P/q5555LUY949gc/+ME8P2ZMTdAsjUYZN9poo3TrrbemT3ziE/l9iN62sR/BzzD49Kc/nd+PeL/qUwR4L7jgghTzycY0DJFi4aoi+Dlp0qQ8J230rF1xxRXrb+2K7Y033jgvHBWBzSLV9/SMd+/UU09N4RpB0kceeSS/axH8jB7H8X789a9/zT2yi/t9J0CAAAECBEZeYI7qP8yVkX+MJxAgQIAAAQIECIyWQPSmjIBVBOWi92P0/BurVd/7qnP0iot5KmMhpwiIjkR6/vnn81DkeNayyy6bg3axOnyrUgS4wjl6fEbPz/relAN9xkiXMd6He+65J/dQjeBtLHZULObUXxljWH8ETuN79NaNqQnGavqE/so62ucjMBxtt/TSS/fqCRvmDz/8cHrwwQdz0DmC8UVAebTL6XkECBAgQIBASgKg3gICBAgQIECAAAECBAgQIECAAAECBDpWwBD4jm1aFSNAgAABAgQIECBAgAABAgQIECBAQADUO0CAAAECBAgQIECAAAECBAgQIECAQMcKCIB2bNOqGAECBAgQIECAAAECBAgQIECAAAECAqDeAQIECBAgQIAAAQIECBAgQIAAAQIEOlZAALRjm1bFCBAgQIAAAQIECBAgQIAAAQIECBAQAPUOECBAgAABAgQIECBAgAABAgQIECDQsQICoB3btCpGgAABAgQIECBAgAABAgQIECBAgIAAqHeAAAECBAgQIECAAAECBAgQIECAAIGOFRAA7dimVTECBAgQIECAAAECBAgQIECAAAECBARAvQMECBAgQIAAAQIECBAgQIAAAQIECHSsgABoxzatihEgQIAAAQIECBAgQIAAAQIECBAgIADqHSBAgAABAgQIECBAgAABAgQIECBAoGMFBEA7tmlVjAABAgQIECBAgAABAgQIECBAgAABAVDvAAECBAgQIECAAAECBAgQIECAAAECHSsgANqxTatiBAgQIECAAAECBAgQIECAAAECBAgIgHoHCBAgQIAAAQIECBAgQIAAAQIECBDoWAEB0I5tWhUjQIAAAQIECBAgQIAAAQIECBAgQEAA1DtAgAABAgQIECBAgAABAgQIECBAgEDHCvw/hjSPNO1XFTwAAAAASUVORK5CYII=" class="img-fluid figure-img" width="672" alt="Sortie visuelle générée par le code de la page."></p>
+</figure>
 </div>
 </div>
 </div>
-<hr>
+</div>
+</div>
+</div>
 </section>
-<section id="pizza-ratings" class="level2">
-<h2 class="anchored" data-anchor-id="pizza-ratings">7. Pizza Ratings</h2>
-<p><em>Jeux de données :</em> <code>fivethirtyeight::pizza</code> et <code>fivethirtyeight::pizza_places</code> (package <strong>fivethirtyeight</strong>). Associe chaque évaluation (<code>pizza</code>) à son restaurant (<code>pizza_places</code>) via <code>place_id</code> et trouve la note moyenne (<code>rating</code>) par <strong>state</strong>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="exercice-7---vérifier-les-fichiers-attendus" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-7---vérifier-les-fichiers-attendus">Exercice 7 - Vérifier les fichiers attendus</h2>
+<p>Importez <code>fichiers_rapport_fictif.csv</code>. Pour chaque équipe, calculez le nombre de fichiers attendus présents et le nombre de fichiers manquants.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fivethirtyeight)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>pizza_avg_state <span class="ot">&lt;-</span> pizza <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(pizza_places, <span class="at">by =</span> <span class="st">&quot;place_id&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_rating =</span> <span class="fu">mean</span>(rating, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fichiers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/fichiers_rapport_fictif.csv"</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>resume_fichiers <span class="ot">&lt;-</span> fichiers <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">present_logique =</span> present <span class="sc">==</span> <span class="st">"oui"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(equipe) <span class="sc">|&gt;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">fichiers_presents =</span> <span class="fu">sum</span>(present_logique),</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">fichiers_manquants =</span> <span class="fu">sum</span>(<span class="sc">!</span>present_logique),</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">taille_totale_ko =</span> <span class="fu">sum</span>(taille_ko),</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>resume_fichiers</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  equipe   fichiers_presents fichiers_manquants taille_totale_ko
+  &lt;chr&gt;                &lt;int&gt;              &lt;int&gt;            &lt;dbl&gt;
+1 Equipe A                 3                  1              870
+2 Equipe B                 3                  1              586
+3 Equipe C                 2                  2              515</code></pre>
 </div>
 </div>
 </div>
-<hr>
+</div>
+</div>
 </section>
-<section id="onu-votes-résolutions" class="level2">
-<h2 class="anchored" data-anchor-id="onu-votes-résolutions">8. ONU – Votes &amp; Résolutions</h2>
-<p><em>Jeux de données :</em> <code>unvotes::un_votes</code>, <code>unvotes::un_roll_calls</code> (package <strong>unvotes</strong>). Relie chaque vote (<code>un_votes</code>) à la description de la résolution (<code>un_roll_calls</code>) via <code>rcid</code>. Énumère les cinq pays ayant voté le plus souvent « no » entre 2000 et 2010.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="exercice-8---trouver-les-équipes-avec-un-rapport-html-manquant" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-8---trouver-les-équipes-avec-un-rapport-html-manquant">Exercice 8 - Trouver les équipes avec un rapport HTML manquant</h2>
+<p>Filtrez les lignes où <code>fichier_attendu == "rapport.html"</code> et où le fichier est absent.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unvotes)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>votes_desc <span class="ot">&lt;-</span> un_votes <span class="sc">|&gt;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(un_roll_calls, <span class="at">by =</span> <span class="st">&quot;rcid&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">2000</span>, year <span class="sc">&lt;=</span> <span class="dv">2010</span>, vote <span class="sc">==</span> <span class="st">&quot;no&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(country, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fichiers <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fichier_attendu <span class="sc">==</span> <span class="st">"rapport.html"</span>, present <span class="sc">==</span> <span class="st">"non"</span>)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  equipe   fichier_attendu present taille_ko
+  &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;       &lt;dbl&gt;
+1 Equipe B rapport.html    non             0
+2 Equipe C rapport.html    non             0</code></pre>
 </div>
 </div>
 </div>
-<hr>
+</div>
+</div>
 </section>
-<section id="films-oscars" class="level2">
-<h2 class="anchored" data-anchor-id="films-oscars">9. Films &amp; Oscars</h2>
-<p><em>Jeux de données :</em> <code>ggplot2movies::movies</code> (package <strong>ggplot2movies</strong>) et un tibble <code>oscars</code> listant quelques titres et l’année de l’Oscar du meilleur film. Fais une <strong><code>full_join()</code></strong> puis repère les films présents dans un seul des deux ensembles.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+</section>
+<section id="bloc-c---issues-et-revue-constructive" class="level1">
+<h1>Bloc C - Issues et revue constructive</h1>
+<section id="exercice-9---joindre-les-issues-aux-membres" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-9---joindre-les-issues-aux-membres">Exercice 9 - Joindre les issues aux membres</h2>
+<p>Importez <code>issues_revue_fictif.csv</code>, puis ajoutez le nom et l’équipe de l’auteur de chaque issue.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2movies)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>oscars <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>title,            <span class="sc">~</span>oscar_year,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;The Hurt Locker&quot;</span>, <span class="dv">2010</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Argo&quot;</span>,            <span class="dv">2013</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Parasite&quot;</span>,        <span class="dv">2020</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Nomadland&quot;</span>,       <span class="dv">2021</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>movies_oscar <span class="ot">&lt;-</span> <span class="fu">full_join</span>(</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(movies, title, year, rating),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  oscars,</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">&quot;title&quot;</span>,</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep =</span> <span class="cn">TRUE</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>only_one_side <span class="ot">&lt;-</span> movies_oscar <span class="sc">|&gt;</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(year) <span class="sc">|</span> <span class="fu">is.na</span>(oscar_year))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>issues <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/issues_revue_fictif.csv"</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>issues_detail <span class="ot">&lt;-</span> issues <span class="sc">|&gt;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(membres, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"auteur_id"</span> <span class="ot">=</span> <span class="st">"membre_id"</span>))</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>issues_detail <span class="sc">|&gt;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(issue_id, equipe_revisee, auteur_id, nom, equipe, dimension, statut, priorite)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 8
+  issue_id equipe_revisee auteur_id nom    equipe   dimension    statut priorite
+  &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;
+1 I001     Equipe A       M05       Zoe    Equipe B Reproductib… ouver… elevee
+2 I002     Equipe A       M06       Thomas Equipe B Jointures    fermee elevee
+3 I003     Equipe A       M07       Ines   Equipe B Visualisati… ouver… normale
+4 I004     Equipe B       M01       Amina  Equipe A Clarte       fermee normale
+5 I005     Equipe B       M02       Leo    Equipe A Interpretat… ouver… elevee
+6 I006     Equipe B       M03       Noah   Equipe A GitHub       fermee basse
+7 I007     Equipe C       M04       Emma   Equipe A Reproductib… ouver… normale </code></pre>
 </div>
 </div>
 </div>
-<hr>
+</div>
+</div>
 </section>
-<section id="mini-projet-eda---vols-à-jfk" class="level2">
-<h2 class="anchored" data-anchor-id="mini-projet-eda---vols-à-jfk">10. <strong>Mini-projet EDA</strong> - Vols à JFK</h2>
-<p><em>Jeux de données :</em> <code>nycflights23::flights</code>, <code>nycflights23::airlines</code> et <code>nycflights23::weather</code> (package <strong>nycflights23</strong>).</p>
-<ol type="1">
-<li><strong>Jointures :</strong> relie <code>flights</code>, <code>airlines</code> et <code>weather</code>.</li>
-<li>Filtre uniquement les vols au départ de JFK.</li>
-<li>Calcule le retard moyen au départ par transporteur.</li>
-<li>Visualise la relation entre les rafales de vent (<code>wind_gust</code>) et les retards au départ (<code>dep_delay</code>).</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="exercice-10---résumer-les-issues-par-équipe-révisée" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-10---résumer-les-issues-par-équipe-révisée">Exercice 10 - Résumer les issues par équipe révisée</h2>
+<p>Calculez le nombre d’issues ouvertes, fermées et de priorité élevée pour chaque équipe révisée.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Astuce
+<span class="screen-reader-only">Note</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights23)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>vols_jfk <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(origin <span class="sc">==</span> <span class="st">&quot;JFK&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(airlines, <span class="at">by =</span> <span class="st">&quot;carrier&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    weather,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;origin&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;hour&quot;</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>resume_transporteurs <span class="ot">&lt;-</span> vols_jfk <span class="sc">|&gt;</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">|&gt;</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_vols =</span> <span class="fu">n</span>(),</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">retard_moyen =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>vols_jfk <span class="sc">|&gt;</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wind_gust), <span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">|&gt;</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5000</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wind_gust, <span class="at">y =</span> dep_delay)) <span class="sc">+</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Rafales de vent et retards au départ à JFK&quot;</span>,</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Rafales de vent&quot;</span>,</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Retard au départ (minutes)&quot;</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>issues_detail <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(equipe_revisee) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_issues =</span> <span class="fu">n</span>(),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_ouvertes =</span> <span class="fu">sum</span>(statut <span class="sc">==</span> <span class="st">"ouverte"</span>),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_fermees =</span> <span class="fu">sum</span>(statut <span class="sc">==</span> <span class="st">"fermee"</span>),</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_priorite_elevee =</span> <span class="fu">sum</span>(priorite <span class="sc">==</span> <span class="st">"elevee"</span>),</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_ouvertes))</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  equipe_revisee n_issues n_ouvertes n_fermees n_priorite_elevee
+  &lt;chr&gt;             &lt;int&gt;      &lt;int&gt;     &lt;int&gt;             &lt;int&gt;
+1 Equipe A              3          2         1                 2
+2 Equipe B              3          1         2                 1
+3 Equipe C              1          1         0                 0</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-11---repérer-les-issues-sans-équipe-connue" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-11---repérer-les-issues-sans-équipe-connue">Exercice 11 - Repérer les issues sans équipe connue</h2>
+<p>Les équipes A et B sont dans la table des membres. Utilisez une jointure ou une logique équivalente pour repérer les issues qui visent une équipe absente de la liste des équipes connues.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>equipes_connues <span class="ot">&lt;-</span> membres <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(equipe)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>issues <span class="sc">|&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(equipes_connues, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"equipe_revisee"</span> <span class="ot">=</span> <span class="st">"equipe"</span>))</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  issue_id equipe_revisee auteur_id date_issue dimension        statut  priorite
+  &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;     &lt;date&gt;     &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;
+1 I007     Equipe C       M04       2026-02-16 Reproductibilite ouverte normale </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-12---rédiger-une-issue-utile" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-12---rédiger-une-issue-utile">Exercice 12 - Rédiger une issue utile</h2>
+<p>Choisissez une issue ouverte et rédigez une version améliorée avec trois sections: aspect réussi, suggestion, justification.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exemple de réponse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aspect réussi</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>Le rapport indique clairement les packages utilisés et les principales étapes de préparation.</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Suggestion</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>Ajouter une phrase qui explique la clé de jointure utilisée entre les contributions et les membres.</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pourquoi cette suggestion est utile</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>La revue devient plus facile à reproduire, car une autre équipe peut comprendre pourquoi <span class="in">`membre_id`</span> est la bonne clé.</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="études-de-cas" class="level1">
+<h1>Études de cas</h1>
+<section id="étude-de-cas-1---audit-fictif-dun-dépôt-de-projet" class="level2">
+<h2 class="anchored" data-anchor-id="étude-de-cas-1---audit-fictif-dun-dépôt-de-projet">Étude de cas 1 - Audit fictif d’un dépôt de projet</h2>
+<p>Utilisez <code>membres_equipe_fictif.csv</code>, <code>contributions_git_fictif.csv</code>, <code>issues_revue_fictif.csv</code> et <code>fichiers_rapport_fictif.csv</code>.</p>
+<p>Réalisez les tâches suivantes:</p>
+<ol type="1">
+<li>joindre les contributions aux membres;</li>
+<li>repérer les contributions sans membre connu;</li>
+<li>produire un résumé par équipe;</li>
+<li>joindre les issues aux auteurs;</li>
+<li>repérer les équipes qui ont un <code>rapport.html</code> manquant;</li>
+<li>écrire une conclusion prudente sur la reproductibilité du dépôt.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>audit_contributions <span class="ot">&lt;-</span> contributions <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(membres, <span class="at">by =</span> <span class="st">"membre_id"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>contributions_sans_membre <span class="ot">&lt;-</span> contributions <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(membres, <span class="at">by =</span> <span class="st">"membre_id"</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>resume_equipes <span class="ot">&lt;-</span> audit_contributions <span class="sc">|&gt;</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(equipe)) <span class="sc">|&gt;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(equipe) <span class="sc">|&gt;</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_commits =</span> <span class="fu">n</span>(),</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_membres_actifs =</span> <span class="fu">n_distinct</span>(membre_id),</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">lignes_modifiees =</span> <span class="fu">sum</span>(lignes_modifiees),</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>audit_issues <span class="ot">&lt;-</span> issues <span class="sc">|&gt;</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(membres, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"auteur_id"</span> <span class="ot">=</span> <span class="st">"membre_id"</span>))</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>rapports_manquants <span class="ot">&lt;-</span> fichiers <span class="sc">|&gt;</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fichier_attendu <span class="sc">==</span> <span class="st">"rapport.html"</span>, present <span class="sc">==</span> <span class="st">"non"</span>)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>contributions_sans_membre</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  commit_id membre_id date_commit type_contribution fichier     lignes_modifiees
+  &lt;chr&gt;     &lt;chr&gt;     &lt;date&gt;      &lt;chr&gt;             &lt;chr&gt;                  &lt;dbl&gt;
+1 C007      M09       2026-02-12  donnees           notes_temp…                7</code></pre>
+</div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>resume_equipes</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  equipe   n_commits n_membres_actifs lignes_modifiees
+  &lt;chr&gt;        &lt;int&gt;            &lt;int&gt;            &lt;dbl&gt;
+1 Equipe A         7                4              203
+2 Equipe B         4                4              139</code></pre>
+</div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>audit_issues</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 10
+  issue_id equipe_revisee auteur_id date_issue dimension   statut priorite nom
+  &lt;chr&gt;    &lt;chr&gt;          &lt;chr&gt;     &lt;date&gt;     &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;
+1 I001     Equipe A       M05       2026-02-15 Reproducti… ouver… elevee   Zoe
+2 I002     Equipe A       M06       2026-02-15 Jointures   fermee elevee   Thom…
+3 I003     Equipe A       M07       2026-02-15 Visualisat… ouver… normale  Ines
+4 I004     Equipe B       M01       2026-02-15 Clarte      fermee normale  Amina
+5 I005     Equipe B       M02       2026-02-16 Interpreta… ouver… elevee   Leo
+6 I006     Equipe B       M03       2026-02-16 GitHub      fermee basse    Noah
+7 I007     Equipe C       M04       2026-02-16 Reproducti… ouver… normale  Emma
+# ℹ 2 more variables: role &lt;chr&gt;, equipe &lt;chr&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>rapports_manquants</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  equipe   fichier_attendu present taille_ko
+  &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;       &lt;dbl&gt;
+1 Equipe B rapport.html    non             0
+2 Equipe C rapport.html    non             0</code></pre>
+</div>
+</div>
+<p>Une conclusion prudente pourrait indiquer que l’équipe B semble avoir une trace de données présente, mais un rapport HTML manquant. Cette observation ne suffit pas à juger tout le projet; il faudrait aussi tenter de rendre le fichier <code>rapport.qmd</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="étude-de-cas-2---revue-fictive-dun-portail-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="étude-de-cas-2---revue-fictive-dun-portail-de-données">Étude de cas 2 - Revue fictive d’un portail de données</h2>
+<p>Utilisez <code>portail_donnees_fictif.csv</code>, <code>producteurs_fictif.csv</code> et <code>commentaires_revue_fictif.csv</code>.</p>
+<p>Réalisez les tâches suivantes:</p>
+<ol type="1">
+<li>joindre les jeux de données aux producteurs;</li>
+<li>repérer les jeux de données sans producteur connu;</li>
+<li>joindre les commentaires aux jeux de données;</li>
+<li>compter les commentaires par dimension et sévérité;</li>
+<li>repérer les jeux de données avec licence inconnue;</li>
+<li>rédiger une issue de revue constructive pour un problème prioritaire.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>portail <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/portail_donnees_fictif.csv"</span>,</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>producteurs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/producteurs_fictif.csv"</span>,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>commentaires <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/commentaires_revue_fictif.csv"</span>,</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>portail_producteurs <span class="ot">&lt;-</span> portail <span class="sc">|&gt;</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(producteurs, <span class="at">by =</span> <span class="st">"producteur_id"</span>)</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>jeux_sans_producteur <span class="ot">&lt;-</span> portail <span class="sc">|&gt;</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(producteurs, <span class="at">by =</span> <span class="st">"producteur_id"</span>)</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>commentaires_detail <span class="ot">&lt;-</span> commentaires <span class="sc">|&gt;</span></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(portail, <span class="at">by =</span> <span class="st">"jeu_id"</span>)</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>resume_commentaires <span class="ot">&lt;-</span> commentaires_detail <span class="sc">|&gt;</span></span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(dimension, severite, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>licences_inconnues <span class="ot">&lt;-</span> portail_producteurs <span class="sc">|&gt;</span></span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(licence <span class="sc">==</span> <span class="st">"Inconnue"</span> <span class="sc">|</span> <span class="fu">is.na</span>(organisation))</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>jeux_sans_producteur</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  jeu_id titre         producteur_id licence mis_a_jour
+  &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;   &lt;date&gt;
+1 D006   Supports velo P99           Ouverte 2026-02-06</code></pre>
+</div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>resume_commentaires</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  dimension        severite     n
+  &lt;chr&gt;            &lt;chr&gt;    &lt;int&gt;
+1 Documentation    basse        1
+2 Interpretation   basse        1
+3 Licence          elevee       1
+4 Licence          normale      1
+5 Producteur       elevee       1
+6 Reproductibilite normale      1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>licences_inconnues</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  jeu_id titre   producteur_id licence mis_a_jour organisation type_organisation
+  &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;        &lt;chr&gt;
+1 D004   Travau… P03           Inconn… 2025-12-18 Service tra… Municipal
+2 D006   Suppor… P99           Ouverte 2026-02-06 &lt;NA&gt;         &lt;NA&gt;
+# ℹ 1 more variable: contact_public &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Une issue prioritaire pourrait demander de clarifier la licence du jeu <code>Travaux routiers</code> avant diffusion. La justification est que la réutilisation des données dépend directement de la licence annoncée.</p>
 </div>
 </div>
 </div>
@@ -6608,6 +7037,11 @@ font-size:.8rem;
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -6926,4 +7360,5 @@ font-size:.8rem;
 
 
 
-</body></html>
+</body>
+</html>

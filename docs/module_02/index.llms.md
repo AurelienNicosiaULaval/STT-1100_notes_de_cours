@@ -2,11 +2,11 @@
 
 Module 02
 
-Organiser un travail de données et produire des visualisations lisibles.
+Organiser un travail de données, importer un fichier Excel et produire des visualisations lisibles.
 
 Fil principalGitHub, importation et graphiques
 
-DonnéesManchots et tableaux Excel
+DonnéesManchots, Excel et cas fictifs
 
 DéfiJournal de bord et rapport GitHub
 
@@ -16,84 +16,83 @@ Produit final
 
 ### Un dépôt GitHub lisible avec un rapport d'analyse
 
-Le produit attendu combine un projet rangé, un journal de bord, un rapport Quarto et des messages de versionnement qui racontent le travail.
+Le produit attendu combine un projet rangé, un journal de bord, un rapport Quarto reproductible et des messages de versionnement qui racontent le travail.
 
 **dépôt GitHub**
 
-commit propre
+import Excel
 
 graphique annoté
 
-projet partagé
+rapport rendu
 
-commit propre graphique annoté projet partagé
+commit propre graphique annoté rapport rendu
 
 ## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de
 
-- Utiliser GitHub via RStudio pour cloner un dépôt et faire des commits et des push.
+- Utiliser GitHub via RStudio pour cloner un dépôt, faire des commits et pousser vos changements.
 
-- Lire un fichier `xlsx` dans RStudio.
+- Lire un fichier `xlsx` dans RStudio et documenter l’importation dans un rapport Quarto.
 
-- Gérer et transformer des données numériques à l’aide de `dplyr` (`glimpse`, `select`, `mutate`, `filter`).
+- Gérer et transformer des données numériques avec `dplyr` (`glimpse`, `select`, `mutate`, `filter`, `group_by`, `summarise`).
 
-- Calculer et interpréter des statistiques descriptives pour des variables numériques (`moyenne`, `médiane`, `écart-type`, `variance`, `étendue`, `quantiles`), incluant pour des sous-groupes de données.
+- Calculer et interpréter des statistiques descriptives pour des variables numériques, incluant pour des sous-groupes de données.
 
-- Visualiser des variables numériques avec `ggplot2` (`histogramme`, `boîte à moustaches`, `nuage de points`) et interpréter les graphiques obtenus.
+- Visualiser des variables numériques avec `ggplot2` (`histogramme`, `boîte à moustaches`, `nuage de points`, `facettes`) et interpréter les graphiques obtenus.
 
-- Produire et interpréter des graphiques comparant la distribution de variables continues entre des groupes (`histogrammes superposés`, `diagrammes en boîtes juxtaposés`, `densités empilées (ridge plots)`, `visualisation en facettes`).
-
-- Utiliser les options de `ggplot2` pour améliorer la qualité de graphiques (titres, légendes, axes lisibles, cohérence graphique, `facets`).
+- Améliorer la qualité de graphiques avec des titres, des légendes, des axes lisibles, des unités et une cohérence graphique.
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
+Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et servent à consolider les gestes techniques.
 
-1 Lectures à faire Préparer GitHub, projets RStudio et grammaire graphique. Dans la carte Ouvrir la carteRéduire
+1 Lectures à faire Préparer GitHub, l'importation Excel, dplyr et ggplot2. [Mini-test](mini_test.llms.md) Ouvrir la carteRéduire
 
 ### Lectures initiales
 
-Comme le module 2 est étalé sur 2 semaines, il y a un peu plus de lecture. Pour vous préparer à la première partie du module, vous pouvez survoler les lectures et y revenir de façon plus précise en préparation de la partie 2.
+Le module 2 se fait sur deux semaines. La première semaine prépare le dépôt GitHub, l'importation Excel et les premiers graphiques. La deuxième semaine consolide l'exploration numérique et la comparaison de distributions.
 
-On commence par quelques chapitres dans le fameux R4DS de Hadley Wickham et Garrett Grolemund:
+#### Semaine 1
 
-- [Data visualization](https://r4ds.hadley.nz/data-visualize.html)
-  *Découvrez comment utiliser `ggplot2` pour créer vos premiers graphiques. Cette introduction à la visualisation de données vous montre comment représenter efficacement des variables numériques et comment personnaliser vos graphiques.*
+- [Aide-mémoire RStudio et GitHub](../autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md)
+  *Cloner un dépôt, faire des commits et pousser vers GitHub.*
 
-- [Data transformation](https://r4ds.hadley.nz/data-transform.html)
-  *Apprenez à transformer vos jeux de données avec `dplyr` : filtrer, trier, créer de nouvelles colonnes et résumer l’information. Ce chapitre pose les bases de la manipulation de données dans le style du tidyverse.*
+- [R4DS - Data visualization](https://r4ds.hadley.nz/data-visualize.html)
+  *Construire les premiers graphiques avec `ggplot2`.*
 
-- [Exploratory Data Analysis (EDA)](https://r4ds.hadley.nz/EDA.html)
-  *Explorez vos données pour en dégager des tendances, détecter des valeurs extrêmes et formuler des hypothèses. Ce chapitre présente des techniques simples mais puissantes d’analyse visuelle et statistique.*
+- [R4DS - Data transformation](https://r4ds.hadley.nz/data-transform.html)
+  *Manipuler des tableaux avec les verbes `dplyr`.*
 
-- [Tidy data (spreadsheets)](https://r4ds.hadley.nz/spreadsheets.html)
-  *Découvrez comment organiser vos données pour les rendre exploitables. Ce chapitre aborde le concept de “données propres” et vous montre comment reconnaître les structures de table communes dans des fichiers Excel ou CSV.*
+- [Documentation readxl](https://readxl.tidyverse.org/)
+  *Importer des fichiers Excel avec `read_excel()`.*
 
-##### Guide de style du tidyverse
+#### Semaine 2
 
-- [Bonnes pratiques de visualisation avec ggplot2 (Tidyverse Style Guide)](https://style.tidyverse.org/ggplot2.html)
+- [R4DS - Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html)
+  *Explorer les distributions et repérer les valeurs extrêmes.*
 
-##### Un nouveau livre de référence
+- [R4DS - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html)
+  *Comprendre les structures de données utiles dans les feuilles de calcul.*
 
-Dans ce module, nous introduisons un second ouvrage de référence : **Introduction to Modern Statistics** (*par Mine Çetinkaya-Rundel et Johanna Hardin*).
+- [IMS - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical)
+  *Interpréter des résumés numériques, histogrammes et boîtes à moustaches.*
 
-> Note : on abrègera souvent par **IMS**
+- [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html)
+  *Écrire du code graphique plus lisible.*
 
-Ce livre, également accessible gratuitement en ligne, propose une **approche moderne et appliquée de la statistique**. Il met l’accent sur la visualisation, l’intuition statistique et les bonnes pratiques en science des données. Il constitue un excellent complément à R4DS, notamment pour approfondir les aspects statistiques des analyses exploratoires.
+[Faire le mini-test formatif des lectures](mini_test.llms.md).
 
-- [Introduction to Modern Statistics – Chapitre 5 : Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical)
-  *Dans ce chapitre, vous apprendrez à explorer des données numériques à l’aide d’outils statistiques comme les résumés numériques, les histogrammes, et les boxplots. Il propose une vision claire et rigoureuse de la distribution des données.*
-
-2 Aventure Construire des graphiques et suivre les versions du projet. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
+2 Aventure Explorer les données de manchots et suivre le travail dans GitHub. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
 Objectif Passer de la lecture à la pratique guidée.
 
 Ressource [Page Aventure](aventure.llms.md)
 
-Action Suivre les consignes, exécuter le code et garder les sorties importantes.
+Action Importer les données, exécuter le code, produire les graphiques et garder les sorties importantes.
 
-Résultat Un premier objet de travail que vous pouvez expliquer.
+Résultat Un journal de bord que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
@@ -101,33 +100,33 @@ Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
 ### Défi
 
-Le défi du module 2 se fait dans le même dépôt GitHub que l’aventure. Vous devez remettre le journal de bord et un rapport d’analyse Quarto sur les données des manchots.
+Le défi du module 2 se fait dans le même dépôt GitHub que l'aventure. Vous devez remettre le journal de bord et un rapport d'analyse Quarto sur les données des manchots.
 
 [Consulter le défi du module 2](defi.llms.md)
 
-- Partie 1 : compléter et rendre le journal de bord.
+- Partie 1: compléter et rendre le journal de bord.
 
-- Partie 2 : créer `rapport_analyse.qmd` et rendre `rapport_analyse.html`.
+- Partie 2: créer `rapport_analyse.qmd` et rendre `rapport_analyse.html`.
 
-- GitHub : faire plusieurs commits clairs et pousser les changements.
+- GitHub: faire plusieurs commits clairs et pousser les changements.
 
-4 Exercices Pratiquer graphiques, commits et interprétations courtes. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+4 Exercices Pratiquer import, dplyr, graphiques, statistiques et cas de transfert. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+Portée Ces exercices ne sont pas une étape du défi. Ils pratiquent GitHub, l'importation Excel, les graphiques et deux cas fictifs.
 
-Refaites au moins un passage sans regarder la solution immédiatement.
+Essayez chaque exercice avant d’ouvrir la solution, surtout quand le graphique semble presque fonctionner.
 
 ## Données et outils
 
 ### Bases de données
 
-[manchots_donnees.xlsx](../donnees.llms.md#dataset-card-manchots-donnees) [palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins)
+[manchots_donnees.xlsx](../donnees.llms.md#dataset-card-manchots-donnees) [palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins) [Arbres urbains fictifs](data/arbres_urbains_fictif.csv) [Vélo-partage fictif](data/velo_partage_fictif.csv)
 
 ### Packages R
 
-[tidyverse](../packages.llms.md#tidyverse) [palmerpenguins](../packages.llms.md#palmerpenguins) [ulavalssd](../packages.llms.md#ulavalssd) [readxl](../packages.llms.md#readxl) [ggplot2](../packages.llms.md#ggplot2) [patchwork](../packages.llms.md#patchwork)
+[tidyverse](../packages.llms.md#tidyverse) [palmerpenguins](../packages.llms.md#palmerpenguins) [UlavalSSD](../packages.llms.md#ulavalssd) [readxl](../packages.llms.md#readxl) [ggplot2](../packages.llms.md#ggplot2) [patchwork](../packages.llms.md#patchwork)
 
 ## Révision et prolongement
 
