@@ -2,7 +2,7 @@ Assessment
 
 # Challenges
 
-Challenges are the short deliverables of the course. They turn guided module practice into personal productions: report, graph, cleaning task, function, video or dashboard.
+Challenges are the short deliverables of the course. Each challenge extends the module adventure and turns guided practice into a personal production: report, graph, cleaning task, function, video or dashboard.
 
 [Assessments](evaluations.llms.md) [Modules](modules.llms.md) [Toolbox](boite_outils.llms.md)
 
@@ -24,7 +24,7 @@ Prepare the project
 
 ## Why challenges?
 
-Each challenge targets a concrete skill. The goal is to move from understanding to a visible trace of what you can do.
+Each challenge targets a concrete skill. The goal is to move from understanding to a visible trace of what you can do, in a context close enough to the adventure to be supportive, but different enough to require autonomy.
 
 ### Autonomy
 
@@ -38,67 +38,115 @@ Challenges gradually build the reflexes needed for the project and the exam.
 
 The deliverable must be understandable to someone reading your work without being inside your head.
 
+## Challenge, adventure or exercises?
+
+These three elements speak to each other, but they do not have the same role.
+
+1
+
+### Adventure
+
+Guided in-class work. It sets the context, characters, data and technical skills for the module.
+
+2
+
+### Challenge
+
+Evaluated continuation of the adventure. You produce a more autonomous trace from the same pedagogical universe.
+
+3
+
+### Exercises
+
+Separate consolidation. Exercises are for practice, but they are not a required step in the challenge.
+
+4
+
+### Feedback
+
+The comments you receive help improve future challenges, the exam and the session project.
+
 ## Challenges by module
 
-Use these links to find the full instructions and expected deliverables.
+Use these links to find the full instructions and expected deliverables. Dates, submission locations and administrative details are confirmed on Brio.
 
 ### Challenge 1
 
-Create a reproducible mini Quarto report from weather data.
+Reproducible mini Quarto report from weather data.
+
+Expected trace: source `.qmd` file and rendered HTML.
 
 [View challenge 1](module_01/defi.llms.md)
 
 ### Challenge 2
 
-Submit a GitHub repository containing a logbook and an analysis report about penguins.
+GitHub repository containing a logbook and an analysis report about penguins.
+
+Expected trace: readable repository, useful commits, `rapport_analyse.qmd` and HTML.
 
 [View challenge 2](module_02/defi.llms.md)
 
 ### Challenge 3
 
-Write a reproducible Quarto article about food offences.
+Reproducible Quarto article about food offences.
+
+Expected trace: article, charts, interpretation and GitHub history.
 
 [View challenge 3](module_03/defi.llms.md)
 
 ### Challenge 4
 
-Clean an insurance dataset, produce a clean file and document the decisions.
+Insurance dataset cleaning and documentation of decisions.
+
+Expected trace: clean file, reproducible log and defensible decisions.
 
 [View challenge 4](module_04/defi.llms.md)
 
 ### Challenge 5
 
-Produce a cautious exploratory report on flight delays, weather and plane age.
+Cautious exploratory report on flight delays, weather and plane age.
+
+Expected trace: short HTML report, useful charts and nuanced conclusion.
 
 [View challenge 5](module_05/defi.llms.md)
 
 ### Challenge 6
 
-Peer-review a collaborative report and check its reproducibility.
+Peer review of a collaborative report and check of its reproducibility.
+
+Expected trace: useful GitHub issues, rendering check and pushed corrections if needed.
 
 [View challenge 6](module_06/defi.llms.md)
 
 ### Challenge 7
 
-Produce an ethics note, two responsible visualizations and an anonymized file.
+Ethics note, responsible visualizations and anonymized file.
+
+Expected trace: rendered ethics report, anonymized data and justified choices.
 
 [View challenge 7](module_07/defi.llms.md)
 
 ### Challenge 8
 
-Produce a testable `scrape_page()` function in an `IDUL.R` file.
+Testable `scrape_page()` function in an `IDUL.R` file.
+
+Expected trace: function contract respected, local tests and cautious collection.
 
 [View challenge 8](module_08/defi.llms.md)
 
 ### Challenge 9
 
-Present a predictive model or a bias analysis in a short video capsule.
+Short video capsule on a predictive model or bias analysis.
+
+Expected trace: clear argument, visual support and accessible video.
 
 [View challenge 9](module_09/defi.llms.md)
 
 ### Challenge 10
 
-Build an interactive dashboard from anonymized course feedback.
+Interactive dashboard from anonymized course feedback.
+
+Expected trace: reproducible local dashboard, protected data and useful README.
 
 [View challenge 10](module_10/defi.llms.md)
 
@@ -134,10 +182,11 @@ Communicate an analysis in a more interactive or narrative format.
 
 A successful challenge is rarely a long document. It is clear, focused and cleanly rendered.
 
-1.  Identify the expected product.
-2.  Reuse module examples that resemble the challenge.
+1.  Read the full instructions and identify the expected product.
+2.  Return to the module adventure to recover the context, data and useful skills.
 3.  Build a simple first version that works.
-4.  Render the file, reread it, then improve clarity.
+4.  Render the file, test links or output files, then reread as an external reader.
+5.  Submit the right file or repository according to the instructions confirmed on Brio.
 
 ### Do not over-expand
 
@@ -146,6 +195,10 @@ Answer the instructions before adding secondary analyses.
 ### Name choices
 
 Briefly explain why a transformation, graph or filter is used.
+
+### Check the trace
+
+A missing render, misnamed file or unpushed repository can prevent grading.
 
 ### Reuse feedback
 
