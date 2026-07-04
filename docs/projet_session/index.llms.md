@@ -1,80 +1,80 @@
-Évaluation
+Évaluation intégratrice
 
 # Projet de session
 
-Le projet de session rassemble les compétences du cours dans une production complète: choisir une question, comprendre les données, analyser, visualiser, interpréter et communiquer un résultat reproductible.
+Le projet transforme les gestes appris dans les modules en une analyse complète: choisir une question, documenter des données, construire une démarche reproductible et communiquer un résultat utile.
 
-[Énoncé du projet](enonce_projet.llms.md) [Évaluations](../evaluations.llms.md) [Ressources](../ressources.llms.md)
+[Énoncé complet](enonce_projet.llms.md) [Évaluations](../evaluations.llms.md) [Sources de données](../donnees.llms.md)
 
-Q
+15
 
-Question claire
+Proposition
 
-D
+45
 
-Données documentées
+Présentation
 
-A
+15
 
-Analyse reproductible
+Résumé final
 
-C
+25
 
-Communication soignée
-
-## Ce que le projet permet de démontrer
-
-Le projet est plus ouvert que les défis. Il demande de faire des choix et de les justifier.
-
-### Choisir une question
-
-Formuler un problème suffisamment clair pour guider l'analyse.
-
-### Documenter les données
-
-Décrire la provenance, les variables, les limites et les transformations importantes.
-
-### Construire l'analyse
-
-Utiliser les outils du cours pour explorer, visualiser et interpréter.
-
-### Présenter un produit
-
-Rendre le travail lisible pour une personne externe au projet.
+Dépôt et équipe
 
 ## Parcours de travail
 
-Les modalités précises sont confirmées dans MonPortail et dans l'énoncé du projet.
+Les dates et les modalités administratives sont confirmées dans MonPortail. Le site sert à comprendre la logique du projet et les produits attendus.
 
 1
 
 ### Proposition
 
-Définir la question, identifier les données et expliquer le plan d'analyse.
+Stabiliser la question, la source des données et le plan d'analyse dans `proposition/proposition.qmd`.
 
 2
 
 ### Développement
 
-Nettoyer les données, produire les premières visualisations et structurer le dépôt.
+Préparer les données, structurer les scripts et garder une trace claire des choix dans GitHub.
 
 3
 
-### Communication
+### Présentation
 
-Mettre en forme les résultats et expliquer les choix méthodologiques.
+Présenter les résultats en 15 minutes avec `presentation/presentation.qmd`.
 
 4
 
-### Révision
+### Résumé final
 
-Vérifier la reproductibilité, la clarté du message et les limites de l'analyse.
+Transformer le `README.md` du dépôt en synthèse claire du projet.
 
-## Ressources utiles
+## Ce que le projet évalue
 
-Le projet s'appuie sur les modules, la boîte à outils et les ressources de données. L'important est de choisir un problème faisable et de garder une trace claire des décisions.
+Le projet est plus ouvert que les défis. Il vérifie votre capacité à faire des choix raisonnés et à les rendre lisibles.
 
-[Lire l'énoncé](enonce_projet.llms.md) [Voir les modules](../modules.llms.md) [Bases de données](../donnees.llms.md)
+### Question
+
+Formuler un problème suffisamment précis pour guider l'analyse.
+
+### Données
+
+Décrire la provenance, les variables, les limites et les transformations importantes.
+
+### Analyse
+
+Utiliser les outils du cours pour explorer, visualiser, comparer et interpréter.
+
+### Communication
+
+Rendre le travail compréhensible pour une personne qui découvre le projet.
+
+## Template GitHub
+
+Le dépôt template du projet fournit la structure de départ: données, scripts, proposition Quarto, présentation Quarto et résumé final dans le README.
+
+[Lire l'énoncé](enonce_projet.llms.md) [Ouvrir le template](https://github.com/STT-1100/projet) [Boîte à outils](../boite_outils.llms.md)
 
 ### Commencer simple
 

@@ -1,80 +1,80 @@
-Assessment
+Integrative assessment
 
 # Session project
 
-The session project brings together course skills in a complete production: choose a question, understand data, analyze, visualize, interpret and communicate a reproducible result.
+The project turns the skills practised in the modules into a complete analysis: choose a question, document data, build a reproducible workflow and communicate a useful result.
 
-[Project statement](enonce_projet.llms.md) [Assessments](../evaluations.llms.md) [Resources](../ressources.llms.md)
+[Full statement](enonce_projet.llms.md) [Assessments](../evaluations.llms.md) [Data sources](../donnees.llms.md)
 
-Q
+15
 
-Clear question
+Proposal
 
-D
+45
 
-Documented data
+Presentation
 
-A
+15
 
-Reproducible analysis
+Final summary
 
-C
+25
 
-Careful communication
-
-## What the project demonstrates
-
-The project is more open than the challenges. It requires choices and justification.
-
-### Choose a question
-
-Formulate a problem clear enough to guide the analysis.
-
-### Document data
-
-Describe source, variables, limitations and important transformations.
-
-### Build the analysis
-
-Use course tools to explore, visualize and interpret.
-
-### Present a product
-
-Make the work readable for someone outside the project.
+Repository and team
 
 ## Work path
 
-Precise requirements are confirmed in MonPortail and in the project statement.
+Dates and administrative requirements are confirmed in MonPortail. The site explains the project logic and the expected products.
 
 1
 
 ### Proposal
 
-Define the question, identify the data and explain the analysis plan.
+Stabilize the question, data source and analysis plan in `proposition/proposition.qmd`.
 
 2
 
 ### Development
 
-Clean data, produce first visualizations and structure the repository.
+Prepare data, structure scripts and keep a clear trace of decisions in GitHub.
 
 3
 
-### Communication
+### Presentation
 
-Format results and explain methodological choices.
+Present results in 15 minutes with `presentation/presentation.qmd`.
 
 4
 
-### Revision
+### Final summary
 
-Check reproducibility, message clarity and limits of the analysis.
+Turn the repository `README.md` into a clear project synthesis.
 
-## Useful resources
+## What the project assesses
 
-The project draws on modules, the toolbox and data resources. The important thing is to choose a feasible problem and keep a clear trace of decisions.
+The project is more open than the challenges. It assesses your ability to make reasoned choices and make them readable.
 
-[Read the statement](enonce_projet.llms.md) [View modules](../modules.llms.md) [Datasets](../donnees.llms.md)
+### Question
+
+Formulate a problem precise enough to guide the analysis.
+
+### Data
+
+Describe source, variables, limitations and important transformations.
+
+### Analysis
+
+Use course tools to explore, visualize, compare and interpret.
+
+### Communication
+
+Make the work understandable for someone discovering the project.
+
+## GitHub template
+
+The project template provides the starting structure: data, scripts, Quarto proposal, Quarto presentation and final summary in the README.
+
+[Read the statement](enonce_projet.llms.md) [Open the template](https://github.com/STT-1100/projet) [Toolbox](../boite_outils.llms.md)
 
 ### Start simple
 

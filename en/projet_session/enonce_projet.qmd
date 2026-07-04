@@ -1,5 +1,5 @@
 ---
-title: "Session project - Your first assignment as a data scientist"
+title: "Session project"
 subtitle: "STT-1100 Introduction to Data Science"
 author:
   - institute: "Laval University"
@@ -17,182 +17,205 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Your mission
+# Mission
 
-Choose a dataset, any…
+Your team will build a complete analysis from a dataset that you choose, document and explore.
 
-…and do something with it.
+The project is not an exercise where every step is specified in advance. It asks you to formulate a question, justify your choices, produce a reproducible analysis and communicate a useful result to readers who do not already know your work.
 
-This, in a nutshell, is your final project.
+# Objectives
 
-# Objective of the project
+At the end of the project, your repository should show that your team can:
 
-The final project allows you to demonstrate that you are capable of:
-
-- Ask clear and relevant research questions.
-- Explore and analyze a dataset using the tools learned (RStudio, tidyverse, Quarto).
-- Produce relevant visualizations.
-- Write a reproducible report.
-- Present your results in a clear and structured manner.
-- Collaborate effectively in a GitHub repository.
-
-This project is deliberately open: you have the freedom to choose your data, your angles of analysis, your tools, your methods.
+- formulate a clear, feasible data-analysis question;
+- document a dataset's source, structure and limitations;
+- prepare data with readable and reproducible code;
+- produce visualizations and results that answer the question;
+- interpret results carefully;
+- communicate the project in a short presentation and a final summary;
+- collaborate transparently in a GitHub repository.
 
 # Dataset
 
-Choose a **manageable** dataset, i.e.:
+Choose a manageable dataset for a first complete analysis.
 
-- At least **50 observations**
-- Between **10 and 20 variables** (exceptions are possible upon approval)
-- Including **continuous numeric**, **discrete** and **categorical** variables
-- Format readable by R (CSV, RDS, etc.)
+The dataset should normally meet the following criteria:
 
- **Avoid datasets seen in class.**
+- at least 50 observations;
+- between 5 and 25 useful variables;
+- at least one numeric variable and one categorical variable;
+- a format that can be read in R, such as CSV, XLSX, RDS, JSON or data obtained from an API;
+- an identifiable and citable source.
 
-Some useful resources:
+Datasets used directly in course modules, challenges or exercises should not be reused as the main project dataset, unless explicitly approved. You may reuse the same technical skills.
 
-- [Quebec data](https://www.donneesquebec.ca/)
+Possible sources:
+
+- [Donnees Quebec](https://www.donneesquebec.ca/)
+- [Government of Canada Open Data Portal](https://open.canada.ca/en/open-data)
+- [Statistics Canada](https://www.statcan.gc.ca/)
 - [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
-- [NHS Scotland Open Data](https://www.opendata.nhs.scot/) - [Edinburgh Open Data](https://edinburghopendata.info/)
-- [Open access to Scotland's official statistics](https://statistics.gov.scot/home)
-- [Bikeshare data portal](https://www.bikeshare.com/data/) - [UK Gov Data](https://data.gov.uk/)
-- [Kaggle datasets](https://www.kaggle.com/datasets) - [OpenIntro datasets](http://openintrostat.github.io/openintro/)
-- [Awesome public datasets](https://github.com/awesomedata/awesome-public-datasets)
-- [Youth Risk Behavior Surveillance System (YRBSS)](https://chronicdata.cdc.gov/Youth-Risk-Behaviors/DASH-Youth-Risk-Behavior-Surveillance-System-YRBSS/q6p7-56au)
-- [PRISM Data Archive Project](https://www.icpsr.umich.edu/icpsrweb/content/ICPSR/fenway.html)
-- [Harvard Dataverse](https://dataverse.harvard.edu/)
 - [Google Dataset Search](https://datasetsearch.research.google.com/)
-- [Canadian govt open data](https://open.canada.ca/en/open-data)
-- [Github Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
+- [Harvard Dataverse](https://dataverse.harvard.edu/)
 
-# Project progress
+# GitHub repository
 
-## 1. Proposal
-
-Submit according to the official schedule indicated in MonPortail.
-
-Content:
-
-- **Section 1: Introduction**\
-    Present your research questions, your dataset, its provenance, its format, observations and variables.
-
-- **Section 2: Data**\
-    Place your data in the `/data` folder, update the `README`, and include a `glimpse()` or `skim()`.
-
-- **Section 3: Analysis plan**
-
-    - Response and explanatory variables
-    - Comparison groups (if applicable)
-    - First graphs or descriptive stats
-    - Methods considered
-    - Expected results
-
-    Note: This is only a plan. In the next few modules you will learn new methods to analyze your dataset.
-
->   Max. 1 page per section (excluding graphics).
-
-### Scale (15 points)
-
-| Criterion | Points |
-|--------------------------------------|--------|
-| Data | 5 |
-| Content of the proposal | 8 |
-| Code quality, repository structure | 2 |
-
-## 2. Presentation
-
-Make a **presentation of 15 minutes maximum**, where each member speaks. Use `xaringan` to create your slides. The presentation follows the format specified in MonPortail.
-
-**What you must present:**
-
-- Your questions and why they are interesting
-- Your methodological choices
-- Your main results
-- The limits of your approach
-
->  Hidden code (`echo = FALSE`) unless you want to show part of it.
-
-### Scale (50 points)
-
-| Criterion | Points |
-|-------------------------------------------------------|--------|
-| Time management | 4 |
-| Clarity of the question and relevance of the data | 5 |
-| Professionalism and quality of the oral presentation | 5 |
-| Coherence of teamwork | 6 |
-| Methodological quality | 10 |
-| Creativity and critical thinking | 10 |
-| Visual quality of slides | 10 |
-
-## 3. Final report (`README`)
-
-Submit according to the official schedule indicated in MonPortail.
-
-Provide an executive summary of your project:
-
-- Data set used
-- Objective and research questions
-- Methodology
-- Key results
-
->   This summary replaces a traditional written report. It must be clear, structured, but concise.
-
-### Scale
-
-| Criterion | Points |
-|---------|--------|
-| Content and clarity | 15 |
-
-# Organization of the GitHub repository
+The project starts from the `STT-1100/projet` template repository. Your team repository should remain clean throughout the session.
 
 Expected structure:
 
-`/data <- Dataset and data dictionary`
+```text
+.
+|-- README.md
+|-- CONSIGNES.md
+|-- data/
+|   |-- README.md
+|   |-- raw/
+|   `-- processed/
+|-- scripts/
+|   |-- 00_setup.R
+|   |-- 01_import_clean.R
+|   `-- 02_analysis.R
+|-- proposition/
+|   `-- proposition.qmd
+|-- presentation/
+|   |-- presentation.qmd
+|   `-- style.css
+|-- figures/
+`-- outputs/
+```
 
-`/proposal <- Project proposal presentation.Rmd`
+The `README.md` file is the final project summary. The `CONSIGNES.md` file is an internal guide for using the template and checking deliverables.
 
-`<- Presentation (xaringan) presentation.html`
+# Workflow
 
-`<- HTML Presentation README.Rmd + .md`
+## 1. Proposal
 
-`<- Final summary`
+The proposal stabilizes your question, data and work plan. Submit `proposition/proposition.qmd` according to the official schedule in MonPortail.
 
-The deposit must be clean, well structured, and reflect a reproducible approach.
+The proposal must contain:
+
+1. an introduction presenting the context, objective and main question;
+2. a description of the data, including source, observational unit, important variables and known limitations;
+3. an analysis plan explaining planned transformations, first graphs, comparisons or models, and feasibility risks.
+
+Recommended length: 2 to 4 rendered pages, excluding appendices and exploratory graphs.
+
+### Proposal grading
+
+| Criterion | Points |
+|---|---:|
+| Clear, relevant and feasible question | 5 |
+| Description and provenance of the data | 5 |
+| Coherent and realistic analysis plan | 5 |
+| Total | 15 |
+
+## 2. Development
+
+After the proposal, your team builds the analysis in the repository.
+
+Development should leave readable traces:
+
+- organized scripts in `scripts/`;
+- raw data kept in `data/raw/` when sharing is permitted by the license;
+- cleaned or intermediate data in `data/processed/`;
+- data dictionary in `data/README.md`;
+- exported figures in `figures/` when relevant;
+- intermediate results in `outputs/` when relevant.
+
+If the data cannot be shared publicly, clearly explain how to obtain them or how to reproduce the analysis within the permitted limits.
+
+## 3. Presentation
+
+The presentation lasts 15 minutes maximum. Every member must speak.
+
+Use the `presentation/presentation.qmd` file provided in the template. It produces HTML slides with Quarto and supports a presentation style close to `xaringan`, while keeping a `.qmd` workflow.
+
+The presentation must cover:
+
+- the question and why it matters;
+- the source and limitations of the data;
+- important preparation or cleaning choices;
+- the main results;
+- at least one central visualization;
+- the limits of the analysis;
+- a careful conclusion or recommendation.
+
+### Presentation grading
+
+| Criterion | Points |
+|---|---:|
+| Time management and oral clarity | 6 |
+| Question, context and relevance of the data | 7 |
+| Quality of the analysis and methodological choices | 12 |
+| Visual quality of slides and graphs | 10 |
+| Interpretation, limitations and critical thinking | 10 |
+| Total | 45 |
+
+## 4. Final summary
+
+The final summary is the root `README.md` file. It should allow an external reader to quickly understand what your team did.
+
+The final summary must contain:
+
+- the project title and team member names;
+- the main question;
+- a short description of the data;
+- the main analysis steps;
+- the most important results;
+- one central figure or table, if relevant;
+- limitations;
+- references and dataset citation;
+- a link to the rendered HTML presentation.
+
+### Final summary grading
+
+| Criterion | Points |
+|---|---:|
+| Clear synthesis of question, data and method | 6 |
+| Results well explained and tied to the question | 5 |
+| Limitations, references and link to the presentation | 4 |
+| Total | 15 |
+
+# Reproducibility and organization
+
+Reproducibility is assessed across the whole repository, not only in one file.
+
+| Criterion | Points |
+|---|---:|
+| Repository structure is compliant and easy to navigate | 5 |
+| Code is clear, scripts run and objects are well named | 5 |
+| Data are documented, provenance is indicated and unnecessary files are removed | 5 |
+| Total | 15 |
 
 # Teamwork
 
-- Mandatory teamwork
-- Fair distribution of work
-- Contribution visible in Git history
+Teamwork is mandatory. Contributions must be visible in GitHub history.
 
-You will complete a **peer review** at the end of the project. If a person is deemed inactive (less than 10% contribution), they may receive an adjusted score.
+Each team will also complete a peer evaluation according to the format specified in MonPortail.
+
+| Criterion | Points |
+|---|---:|
+| Contributions are visible, shared and coherent with the project | 5 |
+| Peer evaluation and team accountability | 5 |
+| Total | 10 |
 
 # Final evaluation
 
 | Component | Points |
-|--------------------------------|---------|
-| Proposal | 10 |
-| Presentation | 50 |
-| Summary (README) | 15 |
-| Reproducibility, organization | 10 |
-| Peer review | 10 |
-| Peer Review | 5 |
-| **Total** | **100** |
+|---|---:|
+| Proposal | 15 |
+| Presentation | 45 |
+| Final summary in `README.md` | 15 |
+| Repository reproducibility and organization | 15 |
+| Teamwork and peer evaluation | 10 |
+| Total | 100 |
 
-# What we evaluate
+# Advice
 
-- Quality of questions and data
-- Relevance of statistical methods
-- Clarity of writing and graphics
-- Creativity and critical thinking
-- Respect for good practices (ethics, reproducibility, style)
-
-# Practical advice
-
-- Start early, test your data access.
-- Commit often, push regularly.
-- Do not hide your code in the `.qmd`, except in the final presentation.
-- Schedule team meetings.
-- Ask questions!
-
-Happy scientific adventure!
+- Start with a simple question and improve it gradually.
+- Test data import before committing too far.
+- Commit often with explicit messages.
+- Keep generated files, raw data and intermediate results clearly separated.
+- Reread your repository as if you were discovering it for the first time.
+- Official submission procedures, dates and administrative adjustments are always those in MonPortail.

@@ -1,183 +1,206 @@
-# Projet de session - Votre première mission en tant que scientifique de données
+# Projet de session
 
 STT-1100 Introduction à la science des données
 
-# Votre mission
+# Mission
 
-Choisissez un jeu de données, n’importe lequel…
+Votre équipe doit construire une analyse complète à partir d’un jeu de données que vous choisissez, documentez et explorez.
 
-…et faites quelque chose avec.
+Le projet n’est pas un exercice où toutes les étapes sont données d’avance. Il vous demande de formuler une question, de justifier vos choix, de produire une analyse reproductible et de communiquer un résultat utile à un lectorat qui ne connaît pas votre travail.
 
-Voilà, en un mot, votre projet final.
+# Objectifs
 
-# Objectif du projet
+À la fin du projet, votre dépôt doit montrer que votre équipe est capable de :
 
-Le projet final vous permet de démontrer que vous êtes capable de :
-
-- Poser des questions de recherche claire et pertinente.
-- Explorer et analyser un jeu de données à l’aide des outils appris (RStudio, tidyverse, Quarto).
-- Produire des visualisations pertinentes.
-- Rédiger un rapport reproductible.
-- Présenter vos résultats de manière claire et structurée.
-- Collaborer efficacement dans un dépôt GitHub.
-
-Ce projet est volontairement ouvert : vous avez la liberté de choisir vos données, vos angles d’analyse, vos outils, vos méthodes.
+- formuler une question d’analyse claire, faisable et reliée aux données;
+- documenter la provenance, la structure et les limites d’un jeu de données;
+- préparer les données avec un code lisible et reproductible;
+- produire des visualisations et des résultats qui répondent à la question;
+- interpréter les résultats avec prudence;
+- communiquer le projet dans une présentation courte et un résumé final;
+- collaborer dans un dépôt GitHub de façon transparente.
 
 # Jeu de données
 
-Choisissez un jeu de données **gérable**, c’est-à-dire :
+Choisissez un jeu de données gérable pour une première analyse complète.
 
-- Au moins **50 observations**
-- Entre **10 et 20 variables** (des exceptions sont possibles sur approbation)
-- Incluant des variables **numériques continues**, **discrètes** et **catégorielles**
-- Format lisible par R (CSV, RDS, etc.)
+Le jeu de données doit normalement respecter les critères suivants :
 
-**Évitez les jeux de données vus en classe.**
+- au moins 50 observations;
+- entre 5 et 25 variables utiles pour l’analyse;
+- au moins une variable numérique et une variable catégorielle;
+- un format lisible dans R, par exemple CSV, XLSX, RDS, JSON ou données obtenues par API;
+- une source identifiable et citable.
 
-Quelques ressources utiles :
+Les données vues directement dans les modules, les défis ou les exercices du cours ne doivent pas être réutilisées comme jeu de données principal, sauf approbation explicite. Vous pouvez toutefois réutiliser les mêmes gestes techniques.
 
-- [Québec données](https://www.donneesquebec.ca/)
+Sources possibles :
+
+- [Données Québec](https://www.donneesquebec.ca/)
+- [Portail du gouvernement ouvert du Canada](https://open.canada.ca/fr/open-data)
+- [Statistique Canada](https://www.statcan.gc.ca/)
 - [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
-- [NHS Scotland Open Data](https://www.opendata.nhs.scot/) - [Edinburgh Open Data](https://edinburghopendata.info/)
-- [Open access to Scotland’s official statistics](https://statistics.gov.scot/home)
-- [Bikeshare data portal](https://www.bikeshare.com/data/) - [UK Gov Data](https://data.gov.uk/)
-- [Kaggle datasets](https://www.kaggle.com/datasets) - [OpenIntro datasets](http://openintrostat.github.io/openintro/)
-- [Awesome public datasets](https://github.com/awesomedata/awesome-public-datasets)
-- [Youth Risk Behavior Surveillance System (YRBSS)](https://chronicdata.cdc.gov/Youth-Risk-Behaviors/DASH-Youth-Risk-Behavior-Surveillance-System-YRBSS/q6p7-56au)
-- [PRISM Data Archive Project](https://www.icpsr.umich.edu/icpsrweb/content/ICPSR/fenway.html)
-- [Harvard Dataverse](https://dataverse.harvard.edu/)
 - [Google Dataset Search](https://datasetsearch.research.google.com/)
-- [Canadien govt open data](https://open.canada.ca/en/open-data)
-- [Github Public Dataset](https://github.com/awesomedata/awesome-public-datasets)
+- [Harvard Dataverse](https://dataverse.harvard.edu/)
 
-# Déroulement du projet
+# Dépôt GitHub
 
-## 1. Proposition
-
-À remettre selon l’échéancier officiel indiqué dans MonPortail.
-
-Contenu :
-
-- **Section 1 : Introduction**
-  Présentez vos questions de recherche, votre jeu de données, sa provenance, son format, les observations et les variables.
-
-- **Section 2 : Données**
-  Placez vos données dans le dossier `/data`, mettez à jour le `README`, et incluez un `glimpse()` ou `skim()`.
-
-- **Section 3 : Plan d’analyse**
-
-  - Variables réponses et explicatives
-  - Groupes de comparaison (si applicable)
-  - Premiers graphiques ou stats descriptives
-  - Méthodes envisagées
-  - Résultats attendus
-
-  Note: Il s’agit ici seulement d’un plan. Vous allez apprendre dans les prochains modules de nouvelles méthodes pour analyser votre jeu de données.
-
-> Max. 1 page par section (hors graphiques).
-
-### Barème (15 points)
-
-| Critère                             | Points |
-|-------------------------------------|--------|
-| Données                             | 5      |
-| Contenu de la proposition           | 8      |
-| Qualité du code, structure du dépôt | 2      |
-
-## 2. Présentation
-
-Faites une **présentation de 15 minutes maximum**, où chaque membre parle. Utilisez `xaringan` pour créer vos diapositives. La présentation se déroule selon les modalités précisées dans MonPortail.
-
-**Ce que vous devez présenter :**
-
-- Vos questions et pourquoi elles sont intéressante
-- Vos choix méthodologiques
-- Vos résultats principaux
-- Les limites de votre approche
-
-> Code caché (`echo = FALSE`) sauf si vous voulez en montrer une partie.
-
-### Barème (50 points)
-
-| Critère                                               | Points |
-|-------------------------------------------------------|--------|
-| Gestion du temps                                      | 4      |
-| Clarté de la question et pertinence des données       | 5      |
-| Professionnalisme et qualité de la présentation orale | 5      |
-| Cohérence du travail d’équipe                         | 6      |
-| Qualité méthodologique                                | 10     |
-| Créativité et pensée critique                         | 10     |
-| Qualité visuelle des diapositives                     | 10     |
-
-## 3. Rapport final (`README`)
-
-À remettre selon l’échéancier officiel indiqué dans MonPortail.
-
-Fournissez un résumé exécutif de votre projet :
-
-- Jeu de données utilisé
-- Objectif et questions de recherche
-- Méthodologie
-- Résultats clés
-
-> Ce résumé remplace un rapport écrit classique. Il doit être clair, structuré, mais concis.
-
-### Barème
-
-| Critère           | Points |
-|-------------------|--------|
-| Contenu et clarté | 15     |
-
-# Organisation du dépôt GitHub
+Le projet commence dans le dépôt template `STT-1100/projet`. Le dépôt de votre équipe doit rester propre pendant toute la session.
 
 Structure attendue :
 
-`/data <- Jeu de données et dictionnaire des données`
+``` text
+.
+|-- README.md
+|-- CONSIGNES.md
+|-- data/
+|   |-- README.md
+|   |-- raw/
+|   `-- processed/
+|-- scripts/
+|   |-- 00_setup.R
+|   |-- 01_import_clean.R
+|   `-- 02_analysis.R
+|-- proposition/
+|   `-- proposition.qmd
+|-- presentation/
+|   |-- presentation.qmd
+|   `-- style.css
+|-- figures/
+`-- outputs/
+```
 
-`/proposition <- Proposition de projet presentation.Rmd`
+Le fichier `README.md` sert de résumé final du projet. Le fichier `CONSIGNES.md` sert de guide interne pour utiliser le template et vérifier les remises.
 
-`<- Présentation (xaringan) presentation.html`
+# Déroulement
 
-`<- Présentation HTML README.Rmd + .md`
+## 1. Proposition
 
-`<- Résumé final`
+La proposition sert à stabiliser votre question, vos données et votre plan de travail. Elle est remise avec le fichier `proposition/proposition.qmd`, selon l’échéancier officiel dans MonPortail.
 
-Le dépôt doit être propre, bien structuré, et refléter une démarche reproductible.
+La proposition doit contenir :
+
+1.  une introduction qui présente le contexte, l’objectif et la question principale;
+2.  une description des données, incluant la source, l’unité d’observation, les variables importantes et les limites connues;
+3.  un plan d’analyse qui explique les transformations prévues, les premiers graphiques, les comparaisons ou modèles envisagés et les risques de faisabilité.
+
+Longueur recommandée : 2 à 4 pages rendues, hors annexes et graphiques exploratoires.
+
+### Barème de la proposition
+
+| Critère                                 | Points |
+|-----------------------------------------|-------:|
+| Question claire, pertinente et faisable |      5 |
+| Description et provenance des données   |      5 |
+| Plan d’analyse cohérent et réaliste     |      5 |
+| Total                                   |     15 |
+
+## 2. Développement
+
+Après la proposition, votre équipe construit l’analyse dans le dépôt.
+
+Le développement doit laisser des traces lisibles :
+
+- scripts organisés dans `scripts/`;
+- données brutes conservées dans `data/raw/` lorsque la licence permet le partage;
+- données nettoyées ou intermédiaires dans `data/processed/`;
+- dictionnaire des données dans `data/README.md`;
+- figures exportées dans `figures/` lorsque pertinent;
+- résultats intermédiaires dans `outputs/` lorsque pertinent.
+
+Si les données ne peuvent pas être partagées publiquement, expliquez clairement comment les obtenir ou comment reproduire l’analyse dans les limites permises.
+
+## 3. Présentation
+
+La présentation est un exposé de 15 minutes maximum. Chaque membre doit parler.
+
+Utilisez le fichier `presentation/presentation.qmd` fourni dans le template. Il produit des diapositives HTML avec Quarto et permet de présenter le projet dans un style proche des présentations `xaringan`, tout en restant dans un flux de travail `.qmd`.
+
+La présentation doit couvrir :
+
+- la question et son intérêt;
+- la provenance et les limites des données;
+- les choix de préparation ou de nettoyage importants;
+- les résultats principaux;
+- au moins une visualisation centrale;
+- les limites de l’analyse;
+- une conclusion ou une recommandation prudente.
+
+### Barème de la présentation
+
+| Critère                                             | Points |
+|-----------------------------------------------------|-------:|
+| Gestion du temps et clarté orale                    |      6 |
+| Question, contexte et pertinence des données        |      7 |
+| Qualité de l’analyse et des choix méthodologiques   |     12 |
+| Qualité visuelle des diapositives et des graphiques |     10 |
+| Interprétation, limites et esprit critique          |     10 |
+| Total                                               |     45 |
+
+## 4. Résumé final
+
+Le résumé final est le fichier `README.md` à la racine du dépôt. Il doit permettre à une personne externe de comprendre rapidement ce que votre équipe a fait.
+
+Le résumé final doit contenir :
+
+- le titre du projet et les noms des membres;
+- la question principale;
+- une courte description des données;
+- les principales étapes de l’analyse;
+- les résultats les plus importants;
+- une figure ou un tableau central, si pertinent;
+- les limites;
+- les références et la citation des données;
+- un lien vers la présentation HTML rendue.
+
+### Barème du résumé final
+
+| Critère                                                      | Points |
+|--------------------------------------------------------------|-------:|
+| Synthèse claire de la question, des données et de la méthode |      6 |
+| Résultats bien expliqués et reliés à la question             |      5 |
+| Limites, références et lien vers la présentation             |      4 |
+| Total                                                        |     15 |
+
+# Reproductibilité et organisation
+
+La reproductibilité est évaluée sur l’ensemble du dépôt, pas seulement sur un fichier.
+
+| Critère | Points |
+|----|---:|
+| Structure du dépôt conforme et facile à naviguer | 5 |
+| Code clair, scripts exécutables et objets bien nommés | 5 |
+| Données documentées, provenance indiquée et fichiers inutiles retirés | 5 |
+| Total | 15 |
 
 # Travail d’équipe
 
-- Travail en équipe obligatoire
-- Répartition équitable du travail
-- Contribution visible dans l’historique Git
+Le travail d’équipe est obligatoire. Les contributions doivent être visibles dans l’historique GitHub.
 
-Vous remplirez une **évaluation par les pairs** à la fin du projet. Si une personne est jugée inactive (moins de 10 % de contribution), elle pourra recevoir une note ajustée.
+Chaque équipe remettra aussi une évaluation par les pairs selon les modalités précisées dans MonPortail.
+
+| Critère                                                        | Points |
+|----------------------------------------------------------------|-------:|
+| Contributions visibles, réparties et cohérentes avec le projet |      5 |
+| Évaluation par les pairs et responsabilité d’équipe            |      5 |
+| Total                                                          |     10 |
 
 # Évaluation finale
 
-| Composante                     | Points  |
-|--------------------------------|---------|
-| Proposition                    | 10      |
-| Présentation                   | 50      |
-| Résumé (README)                | 15      |
-| Reproductibilité, organisation | 10      |
-| Évaluation par les pairs       | 10      |
-| Évaluation par les camarades   | 5       |
-| **Total**                      | **100** |
+| Composante                                   | Points |
+|----------------------------------------------|-------:|
+| Proposition                                  |     15 |
+| Présentation                                 |     45 |
+| Résumé final dans `README.md`                |     15 |
+| Reproductibilité et organisation du dépôt    |     15 |
+| Travail d’équipe et évaluation par les pairs |     10 |
+| Total                                        |    100 |
 
-# Ce qu’on évalue
+# Conseils
 
-- Qualité des questions et des données
-- Pertinence des méthodes statistiques
-- Clarté de la rédaction et des graphiques
-- Créativité et esprit critique
-- Respect des bonnes pratiques (éthique, reproductibilité, style)
-
-# Conseils pratiques
-
-- Commencez tôt, testez votre accès aux données.
-- Commitez souvent, poussez régulièrement.
-- Ne cachez pas votre code dans le `.qmd`, sauf dans la présentation finale.
-- Planifiez des rencontres d’équipe.
-- Posez des questions !
-
-Bonne aventure scientifique !
+- Commencez avec une question simple et améliorez-la progressivement.
+- Testez l’importation des données avant de vous engager trop loin.
+- Commitez souvent avec des messages explicites.
+- Gardez les fichiers générés, les données brutes et les résultats intermédiaires bien séparés.
+- Relisez votre dépôt comme si vous le découvriez pour la première fois.
+- Les modalités officielles de remise, les dates et les ajustements administratifs sont toujours celles de MonPortail.
