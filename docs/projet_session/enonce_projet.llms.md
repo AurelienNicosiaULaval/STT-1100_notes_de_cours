@@ -76,7 +76,7 @@ Le fichier `README.md` sert de résumé final du projet. Le fichier `CONSIGNES.m
 
 ## 1. Proposition
 
-La proposition sert à stabiliser votre question, vos données et votre plan de travail. Elle est remise avec le fichier `proposition/proposition.qmd`, selon l’échéancier officiel dans MonPortail.
+La proposition sert à stabiliser votre question, vos données et votre plan de travail. Elle est remise avec le fichier `proposition/proposition.qmd`, selon l’échéancier officiel indiqué sur Brio.
 
 La proposition doit contenir :
 
@@ -177,7 +177,7 @@ La reproductibilité est évaluée sur l’ensemble du dépôt, pas seulement su
 
 Le travail d’équipe est obligatoire. Les contributions doivent être visibles dans l’historique GitHub.
 
-Chaque équipe remettra aussi une évaluation par les pairs selon les modalités précisées dans MonPortail.
+Chaque équipe remettra aussi une évaluation par les pairs selon les modalités précisées sur Brio.
 
 | Critère                                                        | Points |
 |----------------------------------------------------------------|-------:|
@@ -203,4 +203,4 @@ Chaque équipe remettra aussi une évaluation par les pairs selon les modalités
 - Commitez souvent avec des messages explicites.
 - Gardez les fichiers générés, les données brutes et les résultats intermédiaires bien séparés.
 - Relisez votre dépôt comme si vous le découvriez pour la première fois.
-- Les modalités officielles de remise, les dates et les ajustements administratifs sont toujours celles de MonPortail.
+- Les modalités officielles de remise, les dates et les ajustements administratifs sont toujours celles indiquées sur Brio.

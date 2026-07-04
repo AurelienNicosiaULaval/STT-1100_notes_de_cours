@@ -93,7 +93,7 @@ Show a clear process, not only a numerical result.
 
 ## Past exams
 
-These exams are provided to practise the format and level of integration expected. The official requirements for a given session always remain those in MonPortail.
+These exams are provided to practise the format and level of integration expected. The official requirements for a given session always remain those posted on Brio.
 
 ### Fall 2025 - UN mission
 

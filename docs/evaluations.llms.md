@@ -24,7 +24,7 @@ Réinvestir
 
 ## Parcours d'une session
 
-Cette carte montre comment les pièces d'évaluation s'enchaînent. Les échéances, les fichiers à remettre et les pondérations officielles sont confirmés dans MonPortail.
+Cette carte montre comment les pièces d'évaluation s'enchaînent. Les échéances, les fichiers à remettre et les pondérations officielles sont confirmés sur Brio.
 
 01
 
@@ -108,7 +108,7 @@ Le bon fichier est remis, au bon endroit, avec les éléments demandés et sans 
 
 ## Référence officielle
 
-Le site de cours sert à comprendre la logique pédagogique des évaluations. MonPortail demeure la source officielle pour les dates, les fichiers de remise, les pondérations et les modalités administratives.
+Le site de cours sert à comprendre la logique pédagogique des évaluations. Brio demeure la source officielle pour les dates, les fichiers de remise, les pondérations et les modalités administratives.
 
 ### Avant de commencer
 

@@ -93,7 +93,7 @@ Montrer une démarche claire, pas seulement obtenir un résultat numérique.
 
 ## Anciens examens
 
-Ces examens servent à pratiquer le format et le niveau d'intégration attendu. Les modalités officielles d'une session donnée restent toujours celles de MonPortail.
+Ces examens servent à pratiquer le format et le niveau d'intégration attendu. Les modalités officielles d'une session donnée restent toujours celles indiquées sur Brio.
 
 ### Automne 2025 - Mission ONU
 

@@ -16,7 +16,7 @@ A **summary cheat sheet** is available to support you throughout the course. Thi
 - Practical examples for RStudio, GitHub and Quarto,
 - Useful reminders for cleaning, visualizing and modeling data.
 
-> You will find it on the MonPortail course site, updated regularly. Feel free to print it out or have it in front of you during your adventures.
+> You will find it on the Brio course site, updated regularly. Feel free to print it or keep it in front of you during your adventures.
 
 ------------------------------------------------------------------------
 

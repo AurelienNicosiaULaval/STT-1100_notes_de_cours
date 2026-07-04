@@ -24,7 +24,7 @@ Repository and team
 
 ## Work path
 
-Dates and administrative requirements are confirmed in MonPortail. The site explains the project logic and the expected products.
+Dates and administrative requirements are confirmed on Brio. The site explains the project logic and the expected products.
 
 1
 

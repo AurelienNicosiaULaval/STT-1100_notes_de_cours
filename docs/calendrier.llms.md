@@ -1,6 +1,6 @@
 # Calendrier
 
-Le calendrier sert de carte de navigation. Les dates officielles et les annonces de séance restent celles communiquées en classe ou sur MonPortail.
+Le calendrier sert de carte de navigation. Les dates officielles et les annonces de séance restent celles communiquées en classe ou indiquées sur Brio.
 
 | Séquence | Module | Travail principal |
 |----|----|----|

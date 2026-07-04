@@ -24,7 +24,7 @@ Reuse
 
 ## Session path
 
-This map shows how assessment pieces fit together. Deadlines, submission files and official weights are confirmed in MonPortail.
+This map shows how assessment pieces fit together. Deadlines, submission files and official weights are confirmed on Brio.
 
 01
 
@@ -108,7 +108,7 @@ The right file is submitted, in the right place, with the requested elements and
 
 ## Official reference
 
-The course site explains the pedagogical logic of assessments. MonPortail remains the official source for dates, submission files, weights and administrative details.
+The course site explains the pedagogical logic of assessments. Brio remains the official source for dates, submission files, weights and administrative details.
 
 ### Before starting
 

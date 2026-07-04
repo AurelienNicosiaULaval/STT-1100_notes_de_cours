@@ -76,7 +76,7 @@ The `README.md` file is the final project summary. The `CONSIGNES.md` file is an
 
 ## 1. Proposal
 
-The proposal stabilizes your question, data and work plan. Submit `proposition/proposition.qmd` according to the official schedule in MonPortail.
+The proposal stabilizes your question, data and work plan. Submit `proposition/proposition.qmd` according to the official schedule posted on Brio.
 
 The proposal must contain:
 
@@ -177,7 +177,7 @@ Reproducibility is assessed across the whole repository, not only in one file.
 
 Teamwork is mandatory. Contributions must be visible in GitHub history.
 
-Each team will also complete a peer evaluation according to the format specified in MonPortail.
+Each team will also complete a peer evaluation according to the format specified on Brio.
 
 | Criterion                                                       | Points |
 |-----------------------------------------------------------------|-------:|
@@ -203,4 +203,4 @@ Each team will also complete a peer evaluation according to the format specified
 - Commit often with explicit messages.
 - Keep generated files, raw data and intermediate results clearly separated.
 - Reread your repository as if you were discovering it for the first time.
-- Official submission procedures, dates and administrative adjustments are always those in MonPortail.
+- Official submission procedures, dates and administrative adjustments are always those posted on Brio.

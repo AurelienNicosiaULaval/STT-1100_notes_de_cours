@@ -24,7 +24,7 @@ Dépôt et équipe
 
 ## Parcours de travail
 
-Les dates et les modalités administratives sont confirmées dans MonPortail. Le site sert à comprendre la logique du projet et les produits attendus.
+Les dates et les modalités administratives sont confirmées sur Brio. Le site sert à comprendre la logique du projet et les produits attendus.
 
 1
 
