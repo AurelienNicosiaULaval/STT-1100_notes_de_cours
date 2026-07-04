@@ -2,7 +2,7 @@ Assessment
 
 # Exam
 
-The exam follows the spirit of the adventures: a concrete situation, a dataset, a Quarto document to complete and decisions to justify. It assesses autonomy with core data science skills.
+The exam follows the spirit of the adventures: a concrete situation, a dataset, a Quarto document to complete and decisions to justify. It assesses autonomy with the essential skills from modules 1 to 4.
 
 [Assessments](evaluations.llms.md) [Modules](modules.llms.md) [Toolbox](boite_outils.llms.md)
 
@@ -24,7 +24,7 @@ Import and cleaning
 
 ## General format
 
-The exam is applied. The goal is not to recite functions, but to choose the right tools to produce a reliable short report.
+The exam is applied. The goal is not to recite functions, but to choose the right tools to produce a reliable short report. Exact requirements, authorized material, schedule and submission instructions are confirmed on Brio.
 
 ### Narrative context
 
@@ -44,7 +44,7 @@ Results must be explained briefly, carefully and in the language of the context.
 
 ## Skills used
 
-The tasks resemble the challenges and exercises from the first modules.
+The tasks resemble the adventures, challenges and exercises from the first modules. The exam does not ask you to reproduce a challenge by heart; it asks you to recognize useful moves in a new situation.
 
 1
 
@@ -70,26 +70,77 @@ Choose an appropriate graph and make it readable with `ggplot2`.
 
 Write short interpretations that answer the question.
 
+## What matters
+
+A good exam shows a complete process, even if everything is not perfect. The criteria resemble those used for challenges, but in a more integrated context.
+
+### Reproducibility
+
+The document renders, packages are loaded and the objects used are created in the code.
+
+### Technical choices
+
+Transformations are relevant to the question and basic checks are visible.
+
+### Readable graphs
+
+Visualizations have a clear purpose, useful titles, named axes and an understandable scale.
+
+### Careful interpretation
+
+Sentences answer the question without going beyond what the data support.
+
+### Organization
+
+The report follows a readable progression: preparation, analysis, results and conclusion.
+
+### Simplicity
+
+A clear solution using course tools is better than a complicated and fragile solution.
+
 ## How to prepare
 
-The best preparation is to redo challenges, reread the adventures and build a paper cheat sheet with your most useful examples.
+The best preparation is to redo challenges, reread the adventures and build a personal cheat sheet with your most useful examples.
 
 1.  Redo the relevant module challenges without looking immediately at the solution.
 2.  Reread learning plans to find the key functions.
-3.  Practise rendering a complete Quarto document.
-4.  Check your graphs: titles, axes, legends, units and interpretation.
+3.  Redo a few independent exercises to vary contexts and datasets.
+4.  Practise rendering a complete Quarto document.
+5.  Check your graphs: titles, axes, legends, units and interpretation.
 
-### Paper resources
+### Personal resources
 
-Printed notes, challenges, adventures, solutions and code excerpts help you search quickly.
+Useful notes, challenges, adventures, solutions and code excerpts help you search quickly.
 
-### No Internet
+### Without relying on the web
 
 Preparation should make you able to work with local resources and your understanding.
 
 ### Goal
 
 Show a clear process, not only a numerical result.
+
+## During the exam
+
+The most robust strategy is to build a simple version that works, then improve it.
+
+1.  Read the whole mission before coding.
+2.  Import the data and check the structure with short outputs.
+3.  Create the minimal transformations needed to answer the questions.
+4.  Produce the requested graphs or tables.
+5.  Render the document and fix errors before refining the writing.
+
+### Name clearly
+
+Simple object names help reread code and find errors.
+
+### Test often
+
+Running chunks progressively avoids discovering every error at the final render.
+
+### Write briefly
+
+One precise sentence that answers the question is better than a vague paragraph.
 
 ## Past exams
 
