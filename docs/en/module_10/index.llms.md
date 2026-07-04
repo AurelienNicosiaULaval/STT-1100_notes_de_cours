@@ -49,8 +49,13 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 To prepare, check out the following resources:
 
 - [Tidytext Text Mining](https://www.tidytextmining.com/) – Chapters 1 to 3 - This book introduces you to the basics of word processing with R.
+- [tidytext documentation - `unnest_tokens()`](https://juliasilge.github.io/tidytext/reference/unnest_tokens.html) - This page explains how to transform a text column into tokens.
+- [tidytext documentation - `bind_tf_idf()`](https://juliasilge.github.io/tidytext/reference/bind_tf_idf.html) - This page describes TF-IDF calculation in a tidy table.
 - [Flexdashboard documentation (RStudio)](https://rmarkdown.rstudio.com/flexdashboard/) - this document guides you in creating interactive dashboards with `flexdashboard`.
-- [Shiny for dashboards](https://rstudio.github.io/flexdashboard/using.html#shiny_interaction) - This guide shows you how to integrate interactive elements into your dashboards with `shiny`.
+- [Using Shiny with flexdashboard](https://rstudio.github.io/flexdashboard/articles/shiny.html) - This guide shows how to integrate interactive elements into dashboards with `shiny`.
+- [Posit - Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) - This introduction situates the structure of an interactive application.
+
+After the readings, check the key ideas with the [module 10 formative mini-test](mini_test.llms.md).
 
 2 Adventure Turn texts into shareable visual results. [Adventure](aventure.llms.md) Open cardCollapse
 
@@ -78,15 +83,23 @@ You need to build an interactive dashboard from the template provided. This dash
 
 The complete instructions are available on the [Challenge 10](defi.llms.md) page. The starter repository is `STT-1100/aventure-10`. Local functionality is the minimum expectation; deployment depends on the instructions given in class.
 
+4 Exercises Consolidate tokens, sentiment, TF-IDF and dashboard summaries. [Exercises](exercices.llms.md) Open cardCollapse
+
+Resource [Exercises page](exercices.llms.md)
+
+Why Exercises are independent from the adventure and challenge. They use fictitious library and cultural-workshop comments to practise text analysis without touching STT-1100 feedback.
+
+Redo at least one passage without looking at the solution immediately.
+
 ## Data and Tools
 
 ### Datasets
 
-[Working comments and texts](../donnees.llms.md#dataset-card-textes-module-10)
+[Working comments and texts](../donnees.llms.md#dataset-card-textes-module-10) [fictitious_library_comments.csv](../donnees.llms.md#dataset-card-module10-commentaires-bibliotheques) [fictitious_culture_workshops.csv](../donnees.llms.md#dataset-card-module10-ateliers-culture)
 
 ### R packages
 
-[tidytext](../packages.llms.md#tidytext) [stringr](../packages.llms.md#stringr) [dplyr](../packages.llms.md#dplyr) [tibble](../packages.llms.md#tibble) [ggplot2](../packages.llms.md#ggplot2) [stopwords](../packages.llms.md#stopwords) [tidyr](../packages.llms.md#tidyr) [forcats](../packages.llms.md#forcats) [wordcloud](../packages.llms.md#wordcloud) [wordcloud2](../packages.llms.md#wordcloud2) [ggwordcloud](../packages.llms.md#ggwordcloud) [plotly](../packages.llms.md#plotly) [flexdashboard](../packages.llms.md#flexdashboard) [shiny](../packages.llms.md#shiny)
+[tidyverse](../packages.llms.md#tidyverse) [tidytext](../packages.llms.md#tidytext) [readr](../packages.llms.md#readr) [stringr](../packages.llms.md#stringr) [dplyr](../packages.llms.md#dplyr) [tibble](../packages.llms.md#tibble) [ggplot2](../packages.llms.md#ggplot2) [stopwords](../packages.llms.md#stopwords) [tidyr](../packages.llms.md#tidyr) [forcats](../packages.llms.md#forcats) [wordcloud](../packages.llms.md#wordcloud) [wordcloud2](../packages.llms.md#wordcloud2) [ggwordcloud](../packages.llms.md#ggwordcloud) [plotly](../packages.llms.md#plotly) [flexdashboard](../packages.llms.md#flexdashboard) [shiny](../packages.llms.md#shiny)
 
 ## Review and Extension
 

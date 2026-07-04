@@ -49,8 +49,13 @@ Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exerc
 Pour vous préparer, consultez les ressources suivantes :
 
 - [Tidytext Text Mining](https://www.tidytextmining.com/) – Chapitres 1 à 3 - Ce livre vous introduit aux bases du traitement de texte avec R.
+- [Documentation tidytext - `unnest_tokens()`](https://juliasilge.github.io/tidytext/reference/unnest_tokens.html) - Cette page précise comment transformer une colonne de texte en tokens.
+- [Documentation tidytext - `bind_tf_idf()`](https://juliasilge.github.io/tidytext/reference/bind_tf_idf.html) - Cette page décrit le calcul TF-IDF dans un tableau tidy.
 - [Flexdashboard documentation (RStudio)](https://rmarkdown.rstudio.com/flexdashboard/) - ce document vous guide dans la création de tableaux de bord interactifs avec `flexdashboard`.
-- [Shiny for dashboards](https://rstudio.github.io/flexdashboard/using.html#shiny_interaction) - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec `shiny`.
+- [Using Shiny with flexdashboard](https://rstudio.github.io/flexdashboard/articles/shiny.html) - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec `shiny`.
+- [Posit - Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) - Cette introduction situe la structure d'une application interactive.
+
+Après les lectures, vérifiez les idées clés avec le [mini-test formatif du module 10](mini_test.llms.md).
 
 2 Aventure Transformer des textes en résultats visuels partageables. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
@@ -78,15 +83,23 @@ Vous devez construire un tableau de bord interactif à partir du modèle fourni.
 
 La consigne complète est disponible dans la page [Défi 10](defi.llms.md). Le dépôt de départ est `STT-1100/aventure-10`. Le fonctionnement local est le minimum attendu ; le déploiement dépend des consignes données en classe.
 
+4 Exercices Consolider tokens, sentiment, TF-IDF et synthèses de tableau de bord. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+
+Ressource [Page Exercices](exercices.llms.md)
+
+Pourquoi Les exercices sont indépendants de l'aventure et du défi. Ils utilisent des commentaires fictifs de bibliothèques et d'ateliers culturels pour pratiquer l'analyse textuelle sans toucher aux rétroactions STT-1100.
+
+Refaites au moins un passage sans regarder la solution immédiatement.
+
 ## Données et outils
 
 ### Bases de données
 
-[Commentaires et textes de travail](../donnees.llms.md#dataset-card-textes-module-10)
+[Commentaires et textes de travail](../donnees.llms.md#dataset-card-textes-module-10) [commentaires_bibliotheques_fictif.csv](../donnees.llms.md#dataset-card-module10-commentaires-bibliotheques) [ateliers_culture_fictif.csv](../donnees.llms.md#dataset-card-module10-ateliers-culture)
 
 ### Packages R
 
-[tidytext](../packages.llms.md#tidytext) [stringr](../packages.llms.md#stringr) [dplyr](../packages.llms.md#dplyr) [tibble](../packages.llms.md#tibble) [ggplot2](../packages.llms.md#ggplot2) [stopwords](../packages.llms.md#stopwords) [tidyr](../packages.llms.md#tidyr) [forcats](../packages.llms.md#forcats) [wordcloud](../packages.llms.md#wordcloud) [wordcloud2](../packages.llms.md#wordcloud2) [ggwordcloud](../packages.llms.md#ggwordcloud) [plotly](../packages.llms.md#plotly) [flexdashboard](../packages.llms.md#flexdashboard) [shiny](../packages.llms.md#shiny)
+[tidyverse](../packages.llms.md#tidyverse) [tidytext](../packages.llms.md#tidytext) [readr](../packages.llms.md#readr) [stringr](../packages.llms.md#stringr) [dplyr](../packages.llms.md#dplyr) [tibble](../packages.llms.md#tibble) [ggplot2](../packages.llms.md#ggplot2) [stopwords](../packages.llms.md#stopwords) [tidyr](../packages.llms.md#tidyr) [forcats](../packages.llms.md#forcats) [wordcloud](../packages.llms.md#wordcloud) [wordcloud2](../packages.llms.md#wordcloud2) [ggwordcloud](../packages.llms.md#ggwordcloud) [plotly](../packages.llms.md#plotly) [flexdashboard](../packages.llms.md#flexdashboard) [shiny](../packages.llms.md#shiny)
 
 ## Révision et prolongement
 

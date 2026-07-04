@@ -6,7 +6,7 @@ Build a first prediction and discuss possible biases.
 
 Main threadRegression, prediction and bias
 
-DataFictitious students and primary schools
+DataSchools, students and fictitious consolidation data
 
 Challenge180-second video capsule
 
@@ -53,6 +53,16 @@ To prepare, check out the following resources:
 
 - [Introduction to Modern Statistics - Chapter 25: Inference for linear regression with multiple predictors](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
 
+- [R documentation - `lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
+
+- [R documentation - `predict.lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html)
+
+- [Government of Canada - Guide on Automated Decision-Making](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)
+
+- [NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
+
+After the readings, check the key ideas with the [module 9 formative mini-test](mini_test.llms.md).
+
 2 Adventure Build a simple model and read its errors. [Adventure](aventure.llms.md) Open cardCollapse
 
 Goal Move from reading to guided practice.
@@ -90,7 +100,7 @@ The full instructions are available in the [Challenge 9](defi.llms.md) page. The
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises stay on a separate page because they take more space.
+Why Exercises are independent from the adventure and challenge. They consolidate prediction, model errors and bias discussion with two fictitious datasets.
 
 Redo at least one passage without looking at the solution immediately.
 
@@ -98,11 +108,11 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc)
+[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc) [fictitious_housing_energy.csv](../donnees.llms.md#dataset-card-module09-logements-energie) [fictitious_culture_grants.csv](../donnees.llms.md#dataset-card-module09-subventions-culture)
 
 ### R packages
 
-[tidyverse](../packages.llms.md#tidyverse) [palmerpenguins](../packages.llms.md#palmerpenguins)
+[tidyverse](../packages.llms.md#tidyverse) [dplyr](../packages.llms.md#dplyr) [ggplot2](../packages.llms.md#ggplot2) [readr](../packages.llms.md#readr) [tibble](../packages.llms.md#tibble)
 
 ## Review and Extension
 

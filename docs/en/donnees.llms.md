@@ -186,11 +186,27 @@ Fictitious CSV file about students.Local file1,000 observations / 6 variablesVie
 
 ## ecoles_primaires_qc.csv
 
-[CSV file about primary schools in Quebec.Local file1,963 observations / 11 variablesView profile](#ecoles-primaires-qc)
+CSV file about primary schools in Quebec.Local file1,963 observations / 11 variablesView profile [Module 09 ](#module09-logements-energie)
+
+## fictitious_housing_energy.csv
+
+Fictitious housing units with annual electricity consumption.Local file32 observations / 8 variablesView profile [Module 09 ](#module09-subventions-culture)
+
+## fictitious_culture_grants.csv
+
+[Fictitious cultural grant applications.Local file36 observations / 8 variablesView profile](#module09-subventions-culture)
 
 ### Module 10
 
-[Module 10 ](packages.llms.md#tidytext)
+[Module 10 ](#module10-commentaires-bibliotheques)
+
+## fictitious_library_comments.csv
+
+Fictitious comments about municipal library services.Local file24 observations / 8 variablesView profile [Module 10 ](#module10-ateliers-culture)
+
+## fictitious_culture_workshops.csv
+
+Fictitious feedback about public cultural workshops.Local file24 observations / 8 variablesView profile [Module 10 ](packages.llms.md#tidytext)
 
 ## Comments and working texts
 
@@ -872,3 +888,131 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | Nbre_Eleves | numeric | 3 | 42 | 105 |
 | Diffusion | character | 0 | 2 | OUI |
 | Annee_Scol | character | 0 | 1 | 2025-2026 |
+
+### fictitious_housing_energy.csv
+
+Fictitious housing units with annual electricity consumption.
+
+[Download fictitious_housing_energy.csv](module_09/data/fictitious_housing_energy.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 09 |
+| Observations | 32 |
+| Variables | 8 |
+| Course use | Practise linear regression, predictions, errors and limits of extrapolation. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| housing_id | character | 0 | 32 | H001 |
+| neighbourhood | character | 0 | 11 | Montcalm |
+| area_m2 | numeric | 0 | 32 | 62 |
+| year_built | numeric | 0 | 32 | 1988 |
+| occupants | numeric | 0 | 5 | 1 |
+| heating_type | character | 0 | 3 | Electricity |
+| neighbourhood_median_income | numeric | 0 | 11 | 64000 |
+| annual_kwh | numeric | 0 | 32 | 11800 |
+
+### fictitious_culture_grants.csv
+
+Fictitious cultural grant applications.
+
+[Download fictitious_culture_grants.csv](module_09/data/fictitious_culture_grants.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 09 |
+| Observations | 36 |
+| Variables | 8 |
+| Course use | Compare decision rates by group and discuss descriptive bias without overinterpretation. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| application_id | character | 0 | 36 | G001 |
+| region | character | 0 | 7 | Capitale-Nationale |
+| discipline | character | 0 | 5 | Theatre |
+| organization_size | character | 0 | 3 | Large |
+| first_application | character | 0 | 2 | No |
+| requested_budget | numeric | 0 | 35 | 82000 |
+| committee_score | numeric | 0 | 26 | 86 |
+| decision | character | 0 | 2 | Accepted |
+
+### fictitious_library_comments.csv
+
+Fictitious comments about municipal library services.
+
+[Download fictitious_library_comments.csv](module_10/data/fictitious_library_comments.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 10 |
+| Observations | 24 |
+| Variables | 8 |
+| Course use | Practise tokenization, stopwords, simple sentiment scores and TF-IDF. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| comment_id | character | 0 | 24 | B001 |
+| month | numeric | 0 | 6 | 1 |
+| district | character | 0 | 4 | Sainte-Foy |
+| service | character | 0 | 4 | Desk |
+| comment | character | 0 | 24 | Accueil tres clair et rapide, le personnel m’a bien orientee. |
+| satisfaction | numeric | 0 | 5 | 5 |
+| clarity | numeric | 0 | 5 | 5 |
+| wait_time | numeric | 0 | 5 | 4 |
+
+### fictitious_culture_workshops.csv
+
+Fictitious feedback about public cultural workshops.
+
+[Download fictitious_culture_workshops.csv](module_10/data/fictitious_culture_workshops.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 10 |
+| Observations | 24 |
+| Variables | 8 |
+| Course use | Prepare textual and numerical summaries for a mini dashboard. |
+| Source | Fictitious data created for the course. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| response_id | character | 0 | 24 | A001 |
+| edition | numeric | 0 | 6 | 1 |
+| neighbourhood | character | 0 | 4 | Montcalm |
+| activity_type | character | 0 | 4 | Writing |
+| comment | character | 0 | 24 | Atelier chaleureux, consignes claires et bonne ambiance. |
+| participation | numeric | 0 | 5 | 5 |
+| accessibility | numeric | 0 | 5 | 5 |
+| recommendation | numeric | 0 | 5 | 5 |

@@ -149,8 +149,8 @@ blocs[[1]]
     [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
     [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
     [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
-    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
+    [4] <div class="dqc-org-cat"></div>
+    [5] <div class="dqc-notes"> Le ministère de l’Environnement, de la Lutte cont ...
 
 Pour extraire le texte d’un élément HTML :
 
@@ -158,7 +158,7 @@ Pour extraire le texte d’un élément HTML :
 html_text2(blocs[[1]])
 ```
 
-    [1] "Stations débit/niveau - Grand public\nOrganisation : Ministère de la Sécurité intérieure\nCatégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique\nMesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les..."
+    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\nOrganisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\nLe ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du..."
 
 Maintenant, testons l’extraction du titre :
 
@@ -167,7 +167,7 @@ html_elements(blocs[[1]], ".dataset-heading a") |>
   html_text2()
 ```
 
-    [1] "Stations débit/niveau - Grand public"
+    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional"
 
 Et pour le producteur? Il faut repérer une sous-structure contenant l’information :
 
@@ -178,8 +178,8 @@ infos <- html_elements(blocs[[1]], ".dqc-org-cat") |>
 infos
 ```
 
-    [1] "Organisation : Ministère de la Sécurité intérieure"
-    [2] "Catégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique"
+    [1] "Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+    [2] ""
 
 On peut filtrer le bon élément avec `grepl()` puis nettoyer la chaîne avec `sub()` :
 
@@ -192,7 +192,7 @@ producteur <- extraire_valeur(
 producteur
 ```
 
-    [1] "Ministère de la Sécurité intérieure"
+    [1] "Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
 
 > **TIP:**
 >

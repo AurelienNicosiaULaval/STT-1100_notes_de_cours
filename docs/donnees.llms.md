@@ -186,11 +186,27 @@ Fichier CSV fictif sur des élèves.Fichier local1 000 observations / 6 variable
 
 ## ecoles_primaires_qc.csv
 
-[Fichier CSV sur des écoles primaires du Québec.Fichier local1 963 observations / 11 variablesVoir la fiche](#ecoles-primaires-qc)
+Fichier CSV sur des écoles primaires du Québec.Fichier local1 963 observations / 11 variablesVoir la fiche [Module 09 ](#module09-logements-energie)
+
+## logements_energie_fictif.csv
+
+Logements fictifs avec consommation annuelle d’électricité.Fichier local32 observations / 8 variablesVoir la fiche [Module 09 ](#module09-subventions-culture)
+
+## subventions_culture_fictif.csv
+
+[Demandes fictives de subvention culturelle.Fichier local36 observations / 8 variablesVoir la fiche](#module09-subventions-culture)
 
 ### Module 10
 
-[Module 10 ](packages.llms.md#tidytext)
+[Module 10 ](#module10-commentaires-bibliotheques)
+
+## commentaires_bibliotheques_fictif.csv
+
+Commentaires fictifs sur des services de bibliothèques municipales.Fichier local24 observations / 8 variablesVoir la fiche [Module 10 ](#module10-ateliers-culture)
+
+## ateliers_culture_fictif.csv
+
+Rétroactions fictives sur des ateliers culturels publics.Fichier local24 observations / 8 variablesVoir la fiche [Module 10 ](packages.llms.md#tidytext)
 
 ## Commentaires et textes de travail
 
@@ -872,3 +888,131 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | Nbre_Eleves | numeric | 3 | 42 | 105 |
 | Diffusion | character | 0 | 2 | OUI |
 | Annee_Scol | character | 0 | 1 | 2025-2026 |
+
+### logements_energie_fictif.csv
+
+Logements fictifs avec consommation annuelle d’électricité.
+
+[Télécharger logements_energie_fictif.csv](module_09/data/logements_energie_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 09 |
+| Observations | 32 |
+| Variables | 8 |
+| Utilisation | Pratiquer la régression linéaire, les prédictions, les erreurs et les limites d’extrapolation. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| logement_id | character | 0 | 32 | L001 |
+| quartier | character | 0 | 11 | Montcalm |
+| superficie_m2 | numeric | 0 | 32 | 62 |
+| annee_construction | numeric | 0 | 32 | 1988 |
+| nb_occupants | numeric | 0 | 5 | 1 |
+| type_chauffage | character | 0 | 3 | Electricite |
+| revenu_median_quartier | numeric | 0 | 11 | 64000 |
+| consommation_kwh | numeric | 0 | 32 | 11800 |
+
+### subventions_culture_fictif.csv
+
+Demandes fictives de subvention culturelle.
+
+[Télécharger subventions_culture_fictif.csv](module_09/data/subventions_culture_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 09 |
+| Observations | 36 |
+| Variables | 8 |
+| Utilisation | Comparer des taux de décision par groupe et discuter les biais descriptifs sans surinterpréter. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| dossier_id | character | 0 | 36 | S001 |
+| region | character | 0 | 7 | Capitale-Nationale |
+| discipline | character | 0 | 5 | Theatre |
+| taille_organisme | character | 0 | 3 | Grand |
+| premiere_demande | character | 0 | 2 | Non |
+| budget_demande | numeric | 0 | 35 | 82000 |
+| score_comite | numeric | 0 | 26 | 86 |
+| decision | character | 0 | 2 | Acceptee |
+
+### commentaires_bibliotheques_fictif.csv
+
+Commentaires fictifs sur des services de bibliothèques municipales.
+
+[Télécharger commentaires_bibliotheques_fictif.csv](module_10/data/commentaires_bibliotheques_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 10 |
+| Observations | 24 |
+| Variables | 8 |
+| Utilisation | Pratiquer la tokenisation, les stopwords, les scores de sentiment simples et le TF-IDF. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| commentaire_id | character | 0 | 24 | B001 |
+| mois | numeric | 0 | 6 | 1 |
+| arrondissement | character | 0 | 4 | Sainte-Foy |
+| service | character | 0 | 4 | Comptoir |
+| commentaire | character | 0 | 24 | Accueil tres clair et rapide, le personnel m’a bien orientee. |
+| satisfaction | numeric | 0 | 5 | 5 |
+| clarte | numeric | 0 | 5 | 5 |
+| delai | numeric | 0 | 5 | 4 |
+
+### ateliers_culture_fictif.csv
+
+Rétroactions fictives sur des ateliers culturels publics.
+
+[Télécharger ateliers_culture_fictif.csv](module_10/data/ateliers_culture_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 10 |
+| Observations | 24 |
+| Variables | 8 |
+| Utilisation | Préparer des synthèses textuelles et numériques pour un mini tableau de bord. |
+| Source | Données fictives créées pour le cours. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| reponse_id | character | 0 | 24 | A001 |
+| edition | numeric | 0 | 6 | 1 |
+| quartier | character | 0 | 4 | Montcalm |
+| type_activite | character | 0 | 4 | Ecriture |
+| commentaire | character | 0 | 24 | Atelier chaleureux, consignes claires et bonne ambiance. |
+| participation | numeric | 0 | 5 | 5 |
+| accessibilite | numeric | 0 | 5 | 5 |
+| recommandation | numeric | 0 | 5 | 5 |

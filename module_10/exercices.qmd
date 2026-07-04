@@ -1,0 +1,370 @@
+---
+title: "Exercices de consolidation"
+format:
+  html:
+    toc: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+---
+
+# Exercices de consolidation {.unnumbered}
+
+Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider l'analyse de texte, le TF-IDF, les scores de sentiment simples et la préparation d'un tableau de bord à partir de données fictives différentes des rétroactions STT-1100.
+
+Avant de commencer, relisez au besoin les ressources du module: *Text Mining with R*, la documentation de `unnest_tokens()`, la documentation de `bind_tf_idf()`, la documentation `flexdashboard`, l'introduction à `shiny` et le mini-test formatif du module.
+
+```{r setup}
+library(tidyverse)
+library(tidytext)
+library(stringr)
+library(stopwords)
+library(forcats)
+```
+
+## Bloc A - Transformer des commentaires en tokens
+
+### Exercice 1 - Importer les commentaires de bibliothèque
+
+Importez le fichier `commentaires_bibliotheques_fictif.csv`. Chaque ligne représente un commentaire fictif laissé après l'utilisation d'un service de bibliothèque municipale.
+
+```{r}
+commentaires_biblio <- read_csv(
+  "data/commentaires_bibliotheques_fictif.csv",
+  show_col_types = FALSE
+)
+
+glimpse(commentaires_biblio)
+```
+
+::: {.callout-tip collapse="true"}
+Le tableau contient du texte libre et trois variables numériques: `satisfaction`, `clarte` et `delai`. Ces variables permettent de comparer le contenu textuel avec des évaluations structurées.
+:::
+
+### Exercice 2 - Vérifier la structure
+
+Calculez le nombre de commentaires par mois et par service.
+
+```{r}
+commentaires_biblio |>
+  count(mois, service) |>
+  arrange(mois, service)
+```
+
+::: {.callout-tip collapse="true"}
+Cette vérification sert à repérer les groupes disponibles avant de produire des comparaisons. Dans un vrai tableau de bord, un groupe très petit devrait être interprété avec prudence.
+:::
+
+### Exercice 3 - Tokeniser et retirer les stopwords
+
+Transformez les commentaires en mots, retirez les stopwords français, puis gardez seulement les tokens alphabétiques.
+
+```{r}
+stop_fr <- stopwords("fr", source = "snowball")
+
+tokens_biblio <- commentaires_biblio |>
+  unnest_tokens(mot, commentaire) |>
+  filter(
+    !mot %in% stop_fr,
+    str_detect(mot, "^[a-z]+$")
+  )
+
+tokens_biblio |>
+  count(mot, sort = TRUE) |>
+  slice_head(n = 12)
+```
+
+::: {.callout-tip collapse="true"}
+Le résultat donne une ligne par mot conservé. Les mots fréquents restants donnent un premier aperçu, mais ils ne remplacent pas une lecture contextuelle des commentaires.
+:::
+
+### Exercice 4 - Comparer les mots par service
+
+Calculez les mots les plus fréquents par service.
+
+```{r}
+mots_par_service <- tokens_biblio |>
+  count(service, mot, sort = TRUE) |>
+  group_by(service) |>
+  slice_max(n, n = 5, with_ties = FALSE) |>
+  ungroup()
+
+mots_par_service
+```
+
+```{r}
+ggplot(mots_par_service, aes(x = n, y = fct_reorder(mot, n))) +
+  geom_col() +
+  facet_wrap(vars(service), scales = "free_y") +
+  labs(
+    x = "Nombre d'occurrences",
+    y = NULL,
+    title = "Mots fréquents par service"
+  ) +
+  theme_minimal()
+```
+
+::: {.callout-tip collapse="true"}
+La facette permet de comparer rapidement les services. Si un mot semble important, il faut revenir aux commentaires originaux pour vérifier son contexte.
+:::
+
+## Bloc B - Construire un score de sentiment simple
+
+### Exercice 5 - Créer un lexique maison
+
+Créez un petit lexique de sentiment. Il ne couvre pas tout le vocabulaire: il sert à comprendre la mécanique.
+
+```{r}
+lexique_sentiment <- tibble(
+  mot = c(
+    "clair", "rapide", "pratique", "motivant", "agreable", "utile",
+    "chaleureux", "stimulante", "efficace", "difficile", "confus",
+    "depasse", "panne", "frustrante", "lent", "decevante", "floues"
+  ),
+  sentiment = c(
+    rep("positif", 9),
+    rep("negatif", 8)
+  ),
+  score = if_else(sentiment == "positif", 1, -1)
+)
+
+lexique_sentiment
+```
+
+::: {.callout-tip collapse="true"}
+Le lexique est volontairement petit. Un score de sentiment basé sur un lexique incomplet doit être présenté comme un indice exploratoire.
+:::
+
+### Exercice 6 - Calculer un score par commentaire
+
+Joignez les tokens au lexique, puis calculez un score par commentaire.
+
+```{r}
+scores_commentaires <- tokens_biblio |>
+  inner_join(lexique_sentiment, by = "mot") |>
+  group_by(commentaire_id, mois, arrondissement, service) |>
+  summarise(
+    score_sentiment = sum(score),
+    mots_reconnus = n(),
+    .groups = "drop"
+  ) |>
+  right_join(
+    commentaires_biblio,
+    by = c("commentaire_id", "mois", "arrondissement", "service")
+  ) |>
+  mutate(
+    score_sentiment = replace_na(score_sentiment, 0),
+    mots_reconnus = replace_na(mots_reconnus, 0)
+  )
+
+scores_commentaires |>
+  select(commentaire_id, mois, service, satisfaction, score_sentiment, mots_reconnus) |>
+  slice_head(n = 10)
+```
+
+::: {.callout-tip collapse="true"}
+Les commentaires dont `mots_reconnus` vaut 0 n'ont aucun mot présent dans le lexique. Leur score de 0 ne veut pas dire que le commentaire est neutre au sens fort.
+:::
+
+### Exercice 7 - Résumer le sentiment par mois
+
+Calculez le score moyen de sentiment par mois, puis comparez-le à la satisfaction moyenne.
+
+```{r}
+sentiment_mensuel <- scores_commentaires |>
+  group_by(mois) |>
+  summarise(
+    score_moyen = mean(score_sentiment),
+    satisfaction_moyenne = mean(satisfaction),
+    clarte_moyenne = mean(clarte),
+    commentaires = n(),
+    .groups = "drop"
+  )
+
+sentiment_mensuel
+```
+
+```{r}
+ggplot(sentiment_mensuel, aes(x = mois, y = score_moyen)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_col(fill = "steelblue") +
+  labs(
+    x = "Mois",
+    y = "Score moyen de sentiment",
+    title = "Score de sentiment moyen par mois"
+  ) +
+  theme_minimal()
+```
+
+::: {.callout-tip collapse="true"}
+Le graphique est utile pour repérer des variations temporelles. Il ne suffit pas à expliquer pourquoi le sentiment change.
+:::
+
+## Bloc C - Repérer les mots distinctifs
+
+### Exercice 8 - Calculer le TF-IDF par service
+
+Utilisez `bind_tf_idf()` pour repérer les mots distinctifs de chaque service.
+
+```{r}
+tfidf_service <- tokens_biblio |>
+  count(service, mot) |>
+  bind_tf_idf(mot, service, n) |>
+  arrange(desc(tf_idf))
+
+tfidf_service |>
+  group_by(service) |>
+  slice_max(tf_idf, n = 5, with_ties = FALSE) |>
+  ungroup()
+```
+
+::: {.callout-tip collapse="true"}
+Un mot distinctif n'est pas seulement fréquent: il est relativement plus associé à un service qu'aux autres.
+:::
+
+### Exercice 9 - Visualiser les mots distinctifs
+
+Produisez un graphique des mots les plus distinctifs par service.
+
+```{r}
+tfidf_top <- tfidf_service |>
+  group_by(service) |>
+  slice_max(tf_idf, n = 4, with_ties = FALSE) |>
+  ungroup() |>
+  mutate(mot = fct_reorder(mot, tf_idf))
+
+ggplot(tfidf_top, aes(x = tf_idf, y = mot)) +
+  geom_col(fill = "darkorange") +
+  facet_wrap(vars(service), scales = "free_y") +
+  labs(
+    x = "TF-IDF",
+    y = NULL,
+    title = "Mots distinctifs par service"
+  ) +
+  theme_minimal()
+```
+
+::: {.callout-tip collapse="true"}
+Ce graphique aide à formuler des hypothèses de lecture. Avant d'agir, il faut revenir aux textes et vérifier si le mot a le sens attendu.
+:::
+
+## Bloc D - Préparer une sortie de tableau de bord
+
+### Exercice 10 - Construire un tableau de synthèse
+
+Préparez un tableau agrégé qui pourrait alimenter une carte ou un graphique de tableau de bord.
+
+```{r}
+resume_dashboard <- scores_commentaires |>
+  group_by(mois, service) |>
+  summarise(
+    commentaires = n(),
+    score_sentiment_moyen = mean(score_sentiment),
+    satisfaction_moyenne = mean(satisfaction),
+    clarte_moyenne = mean(clarte),
+    delai_moyen = mean(delai),
+    .groups = "drop"
+  )
+
+resume_dashboard
+```
+
+::: {.callout-tip collapse="true"}
+Un bon tableau de bord sépare souvent les étapes: nettoyer les données, créer des indicateurs agrégés, puis visualiser ces indicateurs.
+:::
+
+### Exercice 11 - Simuler un filtre
+
+Sans utiliser `shiny`, simulez le résultat d'un filtre en choisissant un service.
+
+```{r}
+service_choisi <- "Reservation"
+
+resume_dashboard |>
+  filter(service == service_choisi)
+```
+
+::: {.callout-tip collapse="true"}
+Dans une application `shiny`, `service_choisi` pourrait venir d'un menu déroulant. L'idée analytique reste la même: filtrer, puis recalculer ou afficher.
+:::
+
+## Étude de cas 1 - Commentaires de bibliothèques
+
+La direction d'un réseau de bibliothèques veut savoir quels services méritent une attention prioritaire.
+
+Votre mandat:
+
+1. choisir deux indicateurs parmi `score_sentiment_moyen`, `satisfaction_moyenne`, `clarte_moyenne` et `delai_moyen`;
+2. repérer un service à améliorer;
+3. écrire une recommandation prudente en nommant une limite.
+
+```{r}
+priorites_services <- resume_dashboard |>
+  group_by(service) |>
+  summarise(
+    score_sentiment_moyen = mean(score_sentiment_moyen),
+    satisfaction_moyenne = mean(satisfaction_moyenne),
+    clarte_moyenne = mean(clarte_moyenne),
+    delai_moyen = mean(delai_moyen),
+    commentaires = sum(commentaires),
+    .groups = "drop"
+  ) |>
+  arrange(satisfaction_moyenne, score_sentiment_moyen)
+
+priorites_services
+```
+
+::: {.callout-tip collapse="true"}
+Une recommandation prudente pourrait cibler le service de réservation si ses scores sont plus faibles. La limite principale est que les données sont fictives et contiennent peu de commentaires; il faut donc confirmer avec plus de données et une lecture qualitative.
+:::
+
+## Étude de cas 2 - Ateliers culturels
+
+Importez le fichier `ateliers_culture_fictif.csv`, puis préparez une mini synthèse pour un tableau de bord d'ateliers publics.
+
+Votre mandat:
+
+1. tokeniser les commentaires;
+2. calculer les mots distinctifs par type d'activité;
+3. comparer `participation`, `accessibilite` et `recommandation`;
+4. proposer deux éléments visuels pour un tableau de bord.
+
+```{r}
+ateliers <- read_csv("data/ateliers_culture_fictif.csv", show_col_types = FALSE)
+
+tokens_ateliers <- ateliers |>
+  unnest_tokens(mot, commentaire) |>
+  filter(
+    !mot %in% stop_fr,
+    str_detect(mot, "^[a-z]+$")
+  )
+
+tfidf_ateliers <- tokens_ateliers |>
+  count(type_activite, mot) |>
+  bind_tf_idf(mot, type_activite, n) |>
+  group_by(type_activite) |>
+  slice_max(tf_idf, n = 4, with_ties = FALSE) |>
+  ungroup()
+
+tfidf_ateliers
+```
+
+```{r}
+resume_ateliers <- ateliers |>
+  group_by(type_activite) |>
+  summarise(
+    reponses = n(),
+    participation_moyenne = mean(participation),
+    accessibilite_moyenne = mean(accessibilite),
+    recommandation_moyenne = mean(recommandation),
+    .groups = "drop"
+  ) |>
+  arrange(recommandation_moyenne)
+
+resume_ateliers
+```
+
+::: {.callout-tip collapse="true"}
+Deux visuels utiles seraient: un graphique TF-IDF par type d'activité et un graphique des moyennes numériques par type d'activité. Il faudrait accompagner ces graphiques d'un court texte expliquant les limites des petits effectifs.
+:::

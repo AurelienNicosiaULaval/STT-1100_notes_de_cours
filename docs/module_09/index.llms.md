@@ -6,7 +6,7 @@ Construire une première prédiction et discuter les biais possibles.
 
 Fil principalRégression, prédiction et biais
 
-DonnéesÉlèves fictifs et écoles primaires
+DonnéesÉcoles, élèves et jeux fictifs de consolidation
 
 DéfiCapsule vidéo de 180 secondes
 
@@ -53,6 +53,16 @@ Pour vous préparer, consultez les ressources suivantes :
 
 - [Introduction to Modern Statistics - Chapitre 25 : Inference for linear regression with multiple predictors](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
 
+- [Documentation R - `lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
+
+- [Documentation R - `predict.lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html)
+
+- [Gouvernement du Canada - Guide sur la prise de décisions automatisée](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)
+
+- [NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
+
+Après les lectures, vérifiez les idées clés avec le [mini-test formatif du module 9](mini_test.llms.md).
+
 2 Aventure Construire un modèle simple et lire ses erreurs. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
 Objectif Passer de la lecture à la pratique guidée.
@@ -90,7 +100,7 @@ La consigne complète est disponible dans la page [Défi 9](defi.llms.md). Le d�
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+Pourquoi Les exercices sont indépendants de l'aventure et du défi. Ils consolident la prédiction, les erreurs de modèle et la discussion des biais avec deux jeux de données fictifs.
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
@@ -98,11 +108,11 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc)
+[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc) [logements_energie_fictif.csv](../donnees.llms.md#dataset-card-module09-logements-energie) [subventions_culture_fictif.csv](../donnees.llms.md#dataset-card-module09-subventions-culture)
 
 ### Packages R
 
-[tidyverse](../packages.llms.md#tidyverse) [palmerpenguins](../packages.llms.md#palmerpenguins)
+[tidyverse](../packages.llms.md#tidyverse) [dplyr](../packages.llms.md#dplyr) [ggplot2](../packages.llms.md#ggplot2) [readr](../packages.llms.md#readr) [tibble](../packages.llms.md#tibble)
 
 ## Révision et prolongement
 

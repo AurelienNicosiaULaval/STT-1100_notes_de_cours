@@ -19,6 +19,12 @@ Pour vous préparer, consultez les ressources suivantes :
 - [Introduction to Modern Statistics - Chapitre 7 : Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
 - [Introduction to Modern Statistics - Chapitre 8 : Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
 - [Introduction to Modern Statistics - Chapitre 25 : Inference for linear regression with multiple predictors](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
+- [Documentation R - `lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
+- [Documentation R - `predict.lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html)
+- [Gouvernement du Canada - Guide sur la prise de décisions automatisée](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)
+- [NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
+
+Après les lectures, faites le [mini-test formatif du module 9](../module_09/mini_test.llms.md).
 
 # Aventure
 
@@ -36,11 +42,11 @@ Dépôt de départ : `STT-1100/aventure-9`
 
 # Exercices de consolidation
 
-Les exercices reprennent la régression linéaire avec le jeu de données `penguins` du package `palmerpenguins`.
+Les exercices sont indépendants de l’aventure et du défi. Ils utilisent deux jeux de données fictifs propres au module:
 
-1.  Visualisez la relation entre `body_mass_g` et `flipper_length_mm`.
-2.  Ajustez le modèle `body_mass_g ~ flipper_length_mm`.
-3.  Interprétez la pente.
-4.  Ajustez le modèle `body_mass_g ~ flipper_length_mm + sex`.
-5.  Utilisez `predict()` pour une observation hypothétique.
-6.  Discutez une limite possible si vous ajoutez `species`.
+1.  `logements_energie_fictif.csv` pour ajuster une régression linéaire, produire des prédictions et examiner les erreurs;
+2.  `subventions_culture_fictif.csv` pour comparer des taux d’acceptation et discuter les biais descriptifs avec prudence.
+
+La série se termine par deux études de cas: une prévision de consommation résidentielle et un audit descriptif de demandes de subvention.
+
+Lien vers les exercices: [Exercices de consolidation](../module_09/exercices.llms.md)

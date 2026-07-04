@@ -1,0 +1,370 @@
+---
+title: "Consolidation Exercises"
+format:
+  html:
+    toc: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+---
+
+# Consolidation Exercises {.unnumbered}
+
+These exercises are independent from the adventure and the challenge. They consolidate text analysis, TF-IDF, simple sentiment scores and dashboard preparation using fictitious datasets that differ from the STT-1100 feedback.
+
+Before starting, review the module resources if needed: *Text Mining with R*, the `unnest_tokens()` documentation, the `bind_tf_idf()` documentation, the `flexdashboard` documentation, the introduction to `shiny` and the module formative mini-test.
+
+```{r setup}
+library(tidyverse)
+library(tidytext)
+library(stringr)
+library(stopwords)
+library(forcats)
+```
+
+## Block A - Turn comments into tokens
+
+### Exercise 1 - Import library comments
+
+Import the file `fictitious_library_comments.csv`. Each row represents a fictitious comment left after using a municipal library service.
+
+```{r}
+library_comments <- read_csv(
+  "data/fictitious_library_comments.csv",
+  show_col_types = FALSE
+)
+
+glimpse(library_comments)
+```
+
+::: {.callout-tip collapse="true"}
+The table contains free text and three numerical variables: `satisfaction`, `clarity` and `wait_time`. These variables make it possible to compare text content with structured ratings.
+:::
+
+### Exercise 2 - Check the structure
+
+Calculate the number of comments by month and by service.
+
+```{r}
+library_comments |>
+  count(month, service) |>
+  arrange(month, service)
+```
+
+::: {.callout-tip collapse="true"}
+This check identifies the groups available before making comparisons. In a real dashboard, a very small group should be interpreted carefully.
+:::
+
+### Exercise 3 - Tokenize and remove stopwords
+
+Transform the comments into words, remove French stopwords, then keep only alphabetical tokens.
+
+```{r}
+stop_fr <- stopwords("fr", source = "snowball")
+
+library_tokens <- library_comments |>
+  unnest_tokens(word, comment) |>
+  filter(
+    !word %in% stop_fr,
+    str_detect(word, "^[a-z]+$")
+  )
+
+library_tokens |>
+  count(word, sort = TRUE) |>
+  slice_head(n = 12)
+```
+
+::: {.callout-tip collapse="true"}
+The result gives one row per retained word. The remaining frequent words provide a first view, but they do not replace contextual reading of the comments.
+:::
+
+### Exercise 4 - Compare words by service
+
+Calculate the most frequent words by service.
+
+```{r}
+words_by_service <- library_tokens |>
+  count(service, word, sort = TRUE) |>
+  group_by(service) |>
+  slice_max(n, n = 5, with_ties = FALSE) |>
+  ungroup()
+
+words_by_service
+```
+
+```{r}
+ggplot(words_by_service, aes(x = n, y = fct_reorder(word, n))) +
+  geom_col() +
+  facet_wrap(vars(service), scales = "free_y") +
+  labs(
+    x = "Number of occurrences",
+    y = NULL,
+    title = "Frequent words by service"
+  ) +
+  theme_minimal()
+```
+
+::: {.callout-tip collapse="true"}
+Faceting makes service comparison quick. If a word seems important, return to the original comments to check its context.
+:::
+
+## Block B - Build a simple sentiment score
+
+### Exercise 5 - Create a custom lexicon
+
+Create a small sentiment lexicon. It does not cover all vocabulary: it is used to understand the mechanics.
+
+```{r}
+sentiment_lexicon <- tibble(
+  word = c(
+    "clair", "rapide", "pratique", "motivant", "agreable", "utile",
+    "chaleureux", "stimulante", "efficace", "difficile", "confus",
+    "depasse", "panne", "frustrante", "lent", "decevante", "floues"
+  ),
+  sentiment = c(
+    rep("positive", 9),
+    rep("negative", 8)
+  ),
+  score = if_else(sentiment == "positive", 1, -1)
+)
+
+sentiment_lexicon
+```
+
+::: {.callout-tip collapse="true"}
+The lexicon is deliberately small. A sentiment score based on an incomplete lexicon should be presented as an exploratory index.
+:::
+
+### Exercise 6 - Calculate a score by comment
+
+Join the tokens to the lexicon, then calculate a score by comment.
+
+```{r}
+comment_scores <- library_tokens |>
+  inner_join(sentiment_lexicon, by = "word") |>
+  group_by(comment_id, month, district, service) |>
+  summarise(
+    sentiment_score = sum(score),
+    recognized_words = n(),
+    .groups = "drop"
+  ) |>
+  right_join(
+    library_comments,
+    by = c("comment_id", "month", "district", "service")
+  ) |>
+  mutate(
+    sentiment_score = replace_na(sentiment_score, 0),
+    recognized_words = replace_na(recognized_words, 0)
+  )
+
+comment_scores |>
+  select(comment_id, month, service, satisfaction, sentiment_score, recognized_words) |>
+  slice_head(n = 10)
+```
+
+::: {.callout-tip collapse="true"}
+Comments where `recognized_words` equals 0 contain no word from the lexicon. Their score of 0 does not mean the comment is strongly neutral.
+:::
+
+### Exercise 7 - Summarize sentiment by month
+
+Calculate the average sentiment score by month, then compare it with average satisfaction.
+
+```{r}
+monthly_sentiment <- comment_scores |>
+  group_by(month) |>
+  summarise(
+    mean_score = mean(sentiment_score),
+    mean_satisfaction = mean(satisfaction),
+    mean_clarity = mean(clarity),
+    comments = n(),
+    .groups = "drop"
+  )
+
+monthly_sentiment
+```
+
+```{r}
+ggplot(monthly_sentiment, aes(x = month, y = mean_score)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_col(fill = "steelblue") +
+  labs(
+    x = "Month",
+    y = "Average sentiment score",
+    title = "Average sentiment score by month"
+  ) +
+  theme_minimal()
+```
+
+::: {.callout-tip collapse="true"}
+The chart is useful for spotting time variation. It is not enough to explain why sentiment changes.
+:::
+
+## Block C - Identify distinctive words
+
+### Exercise 8 - Calculate TF-IDF by service
+
+Use `bind_tf_idf()` to identify distinctive words for each service.
+
+```{r}
+tfidf_service <- library_tokens |>
+  count(service, word) |>
+  bind_tf_idf(word, service, n) |>
+  arrange(desc(tf_idf))
+
+tfidf_service |>
+  group_by(service) |>
+  slice_max(tf_idf, n = 5, with_ties = FALSE) |>
+  ungroup()
+```
+
+::: {.callout-tip collapse="true"}
+A distinctive word is not only frequent: it is relatively more associated with one service than with the others.
+:::
+
+### Exercise 9 - Visualize distinctive words
+
+Produce a chart of the most distinctive words by service.
+
+```{r}
+tfidf_top <- tfidf_service |>
+  group_by(service) |>
+  slice_max(tf_idf, n = 4, with_ties = FALSE) |>
+  ungroup() |>
+  mutate(word = fct_reorder(word, tf_idf))
+
+ggplot(tfidf_top, aes(x = tf_idf, y = word)) +
+  geom_col(fill = "darkorange") +
+  facet_wrap(vars(service), scales = "free_y") +
+  labs(
+    x = "TF-IDF",
+    y = NULL,
+    title = "Distinctive words by service"
+  ) +
+  theme_minimal()
+```
+
+::: {.callout-tip collapse="true"}
+This chart helps formulate reading hypotheses. Before acting, return to the texts and check whether the word has the expected meaning.
+:::
+
+## Block D - Prepare dashboard output
+
+### Exercise 10 - Build a summary table
+
+Prepare an aggregated table that could feed a dashboard card or chart.
+
+```{r}
+dashboard_summary <- comment_scores |>
+  group_by(month, service) |>
+  summarise(
+    comments = n(),
+    mean_sentiment_score = mean(sentiment_score),
+    mean_satisfaction = mean(satisfaction),
+    mean_clarity = mean(clarity),
+    mean_wait_time = mean(wait_time),
+    .groups = "drop"
+  )
+
+dashboard_summary
+```
+
+::: {.callout-tip collapse="true"}
+A good dashboard often separates the steps: clean data, create aggregated indicators, then visualize those indicators.
+:::
+
+### Exercise 11 - Simulate a filter
+
+Without using `shiny`, simulate the result of a filter by choosing a service.
+
+```{r}
+selected_service <- "Reservation"
+
+dashboard_summary |>
+  filter(service == selected_service)
+```
+
+::: {.callout-tip collapse="true"}
+In a `shiny` application, `selected_service` could come from a dropdown menu. The analytical idea remains the same: filter, then recalculate or display.
+:::
+
+## Case Study 1 - Library comments
+
+The management team of a library network wants to know which services deserve priority attention.
+
+Your task:
+
+1. choose two indicators among `mean_sentiment_score`, `mean_satisfaction`, `mean_clarity` and `mean_wait_time`;
+2. identify a service to improve;
+3. write a careful recommendation that names one limitation.
+
+```{r}
+service_priorities <- dashboard_summary |>
+  group_by(service) |>
+  summarise(
+    mean_sentiment_score = mean(mean_sentiment_score),
+    mean_satisfaction = mean(mean_satisfaction),
+    mean_clarity = mean(mean_clarity),
+    mean_wait_time = mean(mean_wait_time),
+    comments = sum(comments),
+    .groups = "drop"
+  ) |>
+  arrange(mean_satisfaction, mean_sentiment_score)
+
+service_priorities
+```
+
+::: {.callout-tip collapse="true"}
+A careful recommendation could focus on the reservation service if its scores are lower. The main limitation is that the data are fictitious and contain few comments, so the result should be confirmed with more data and qualitative reading.
+:::
+
+## Case Study 2 - Cultural workshops
+
+Import the file `fictitious_culture_workshops.csv`, then prepare a mini summary for a public-workshop dashboard.
+
+Your task:
+
+1. tokenize the comments;
+2. calculate distinctive words by activity type;
+3. compare `participation`, `accessibility` and `recommendation`;
+4. propose two visual elements for a dashboard.
+
+```{r}
+workshops <- read_csv("data/fictitious_culture_workshops.csv", show_col_types = FALSE)
+
+workshop_tokens <- workshops |>
+  unnest_tokens(word, comment) |>
+  filter(
+    !word %in% stop_fr,
+    str_detect(word, "^[a-z]+$")
+  )
+
+workshop_tfidf <- workshop_tokens |>
+  count(activity_type, word) |>
+  bind_tf_idf(word, activity_type, n) |>
+  group_by(activity_type) |>
+  slice_max(tf_idf, n = 4, with_ties = FALSE) |>
+  ungroup()
+
+workshop_tfidf
+```
+
+```{r}
+workshop_summary <- workshops |>
+  group_by(activity_type) |>
+  summarise(
+    responses = n(),
+    mean_participation = mean(participation),
+    mean_accessibility = mean(accessibility),
+    mean_recommendation = mean(recommendation),
+    .groups = "drop"
+  ) |>
+  arrange(mean_recommendation)
+
+workshop_summary
+```
+
+::: {.callout-tip collapse="true"}
+Two useful visuals would be: a TF-IDF chart by activity type and a chart of numerical averages by activity type. These charts should be accompanied by a short note about the limits of small group sizes.
+:::

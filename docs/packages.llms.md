@@ -58,11 +58,11 @@ Texte, web et tableaux de bord
 
 ### Module 09
 
-[`tidyverse`](#tidyverse) [`palmerpenguins`](#palmerpenguins)
+[`tidyverse`](#tidyverse) [`dplyr`](#dplyr) [`ggplot2`](#ggplot2) [`readr`](#readr) [`tibble`](#tibble)
 
 ### Module 10
 
-[`tidytext`](#tidytext) [`stringr`](#stringr) [`dplyr`](#dplyr) [`tibble`](#tibble) [`ggplot2`](#ggplot2) [`stopwords`](#stopwords) [`tidyr`](#tidyr) [`forcats`](#forcats) [`wordcloud`](#wordcloud) [`wordcloud2`](#wordcloud2) [`ggwordcloud`](#ggwordcloud) [`plotly`](#plotly) [`flexdashboard`](#flexdashboard) [`shiny`](#shiny)
+[`tidyverse`](#tidyverse) [`tidytext`](#tidytext) [`readr`](#readr) [`stringr`](#stringr) [`dplyr`](#dplyr) [`tibble`](#tibble) [`ggplot2`](#ggplot2) [`stopwords`](#stopwords) [`tidyr`](#tidyr) [`forcats`](#forcats) [`wordcloud`](#wordcloud) [`wordcloud2`](#wordcloud2) [`ggwordcloud`](#ggwordcloud) [`plotly`](#plotly) [`flexdashboard`](#flexdashboard) [`shiny`](#shiny)
 
 ## Bibliothèque de packages
 

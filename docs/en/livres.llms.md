@@ -53,6 +53,50 @@ Module 10 reference for turning text into tidy data, counting words and building
 
 [Open the book](https://www.tidytextmining.com/)
 
+tidytext
+tokens
+
+tidytext
+
+### unnest_tokens() Documentation
+
+Documentation for the function that transforms a text column into tokens in a tidy table.
+
+[Open documentation](https://juliasilge.github.io/tidytext/reference/unnest_tokens.html)
+
+tidytext
+TF-IDF
+
+tidytext
+
+### bind_tf_idf() Documentation
+
+Documentation for the function that calculates and adds TF, IDF and TF-IDF to a count table.
+
+[Open documentation](https://juliasilge.github.io/tidytext/reference/bind_tf_idf.html)
+
+flex
+dashboard
+
+Posit
+
+### flexdashboard Documentation
+
+Documentation for organizing several R visualizations and outputs into a dashboard page.
+
+[Open documentation](https://rmarkdown.rstudio.com/flexdashboard/)
+
+Shiny
+Basics
+
+Posit
+
+### Shiny Basics
+
+Introduction to the structure of an interactive application and the role of reactive inputs and outputs.
+
+[Open resource](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)
+
 Tidyverse
 Style
 
@@ -129,6 +173,50 @@ rOpenSci
 Documentation for the R package used to check whether a path is allowed by a site's robots.txt rules.
 
 [Open the documentation](https://docs.ropensci.org/robotstxt/)
+
+R
+lm
+
+R Core Team
+
+### lm() Documentation
+
+Documentation for the R function that fits linear models and supports the prediction work in module 9.
+
+[Open the documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
+
+R
+predict
+
+R Core Team
+
+### predict.lm() Documentation
+
+Documentation for the R method that produces predictions from a fitted linear model.
+
+[Open the documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html)
+
+Canada
+ADM
+
+Government of Canada
+
+### Guide on Automated Decision-Making
+
+Institutional reference for discussing transparency, accountability and limits of automated decision systems.
+
+[Open the guide](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)
+
+NIST
+Bias
+
+Schwartz et al.
+
+### NIST SP 1270
+
+Reference for identifying and managing possible biases in artificial intelligence systems.
+
+[Open the resource](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
 
 Data
 Viz
@@ -223,11 +311,11 @@ R for Data Science: EDA, dates, visualization and missing values; Introduction t
 
 ### Module 09
 
-Targeted review of prediction, validation and bias concepts in the module material.
+[Introduction to Modern Statistics](#ims) for simple and multiple regression, [lm()](#r-lm-docs) and [predict.lm()](#r-predict-lm-docs) for the R implementation, then the [Government of Canada guide](#canada-adm-guide) and [NIST SP 1270](#nist-bias-ai) for discussing bias and automated decisions.
 
 ### Module 10
 
-[Text Mining with R](#tidytext), flexdashboard documentation and Shiny documentation.
+[Text Mining with R](#tidytext) for tidy text format, sentiment and TF-IDF, [unnest_tokens()](#tidytext-unnest-tokens) and [bind_tf_idf()](#tidytext-bind-tfidf) for key functions, then [flexdashboard](#flexdashboard-docs) and [Shiny Basics](#shiny-basics) for the interactive dashboard.
 
 ## Visual Sources
 

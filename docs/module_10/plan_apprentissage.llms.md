@@ -16,9 +16,14 @@ STT-1100 Introduction à la science des données
 
 Pour vous préparer, consultez les ressources suivantes :
 
-- [Tidytext Text Mining](https://www.tidytextmining.com/) – Chapitres 1 à 3 - Ce livre vous introduit aux bases du traitement de texte avec R.
-- [Flexdashboard documentation (RStudio)](https://rmarkdown.rstudio.com/flexdashboard/) - ce document vous guide dans la création de tableaux de bord interactifs avec `flexdashboard`.
-- [Shiny for dashboards](https://rstudio.github.io/flexdashboard/using.html#shiny_interaction) - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec `shiny`.
+- [Text Mining with R](https://www.tidytextmining.com/) - Chapitres 1 à 3 pour le format tidy text, l’analyse de sentiment et le TF-IDF.
+- [Documentation tidytext - `unnest_tokens()`](https://juliasilge.github.io/tidytext/reference/unnest_tokens.html)
+- [Documentation tidytext - `bind_tf_idf()`](https://juliasilge.github.io/tidytext/reference/bind_tf_idf.html)
+- [Documentation flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/)
+- [Using Shiny with flexdashboard](https://rstudio.github.io/flexdashboard/articles/shiny.html)
+- [Posit - Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)
+
+Après les lectures, faites le [mini-test formatif du module 10](../module_10/mini_test.llms.md).
 
 # Aventure
 
@@ -39,6 +44,17 @@ Vous devez construire un tableau de bord interactif à partir du modèle fourni.
 Consigne complète : [Défi 10 — Tableau de bord de rétroactions](../module_10/defi.llms.md)
 
 Dépôt de départ : `STT-1100/aventure-10`
+
+# Exercices de consolidation
+
+Les exercices sont indépendants de l’aventure et du défi. Ils utilisent deux jeux de données fictifs propres au module:
+
+1.  `commentaires_bibliotheques_fictif.csv` pour pratiquer la tokenisation, les stopwords, le sentiment et le TF-IDF;
+2.  `ateliers_culture_fictif.csv` pour préparer une mini synthèse de tableau de bord à partir de commentaires et de variables numériques.
+
+La série se termine par deux études de cas: une priorisation de services de bibliothèque et une synthèse d’ateliers culturels.
+
+Lien vers les exercices: [Exercices de consolidation](../module_10/exercices.llms.md)
 
 # Grille d’évaluation
 

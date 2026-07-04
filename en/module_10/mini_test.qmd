@@ -1,0 +1,143 @@
+---
+title: "Formative Mini-Test - Module 10 Readings"
+subtitle: "STT-1100 Introduction to Data Science"
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+# Formative Mini-Test
+
+This mini-test checks the module 10 readings. It is not graded. Answer first without opening the responses, then use the explanations to identify what should be reread.
+
+## Question 1
+
+In `tidytext`, what does it mean to transform text into a tidy format?
+
+a. To obtain one row per token or relevant text unit
+b. To turn every comment into an image
+c. To remove every row from the table
+d. To replace the text with a numeric average
+
+::: {.callout-tip collapse="true"}
+Answer: a. Tidy text usually places one text unit, such as one word, on each row.
+:::
+
+## Question 2
+
+Which function splits a text column into tokens with `tidytext`?
+
+a. `unnest_tokens()`
+b. `bind_tf_idf()`
+c. `geom_col()`
+d. `select()`
+
+::: {.callout-tip collapse="true"}
+Answer: a. `unnest_tokens()` transforms a text column into tokens, often words.
+:::
+
+## Question 3
+
+True or false: stopwords are very frequent words that can hide more informative words.
+
+::: {.callout-tip collapse="true"}
+True. Words such as "de", "le" or "et" can be removed when they do not help explain the content.
+:::
+
+## Question 4
+
+Why build a custom French sentiment lexicon in this module?
+
+a. To understand the principle of sentiment analysis while stating the lexicon's limits
+b. To avoid all interpretation
+c. To prove that every comment is positive or negative
+d. To replace numerical data
+
+::: {.callout-tip collapse="true"}
+Answer: a. The custom lexicon is pedagogical. It helps students understand the principle, but it remains imperfect and must be interpreted carefully.
+:::
+
+## Question 5
+
+True or false: a sentiment score calculated with a small custom lexicon should be presented as an exact measure of student feeling.
+
+::: {.callout-tip collapse="true"}
+False. The score depends on the lexicon, cleaning and context. It is an exploratory indicator, not a definitive truth.
+:::
+
+## Question 6
+
+What does TF-IDF measure in text analysis?
+
+a. Words that are frequent in one group and relatively rare in other groups
+b. The number of charts in a report
+c. The average of numerical variables
+d. The size of the CSV file
+
+::: {.callout-tip collapse="true"}
+Answer: a. TF-IDF highlights distinctive words in a document or group, such as a week.
+:::
+
+## Question 7
+
+Which `tidytext` function adds the `tf`, `idf` and `tf_idf` columns to a count table?
+
+a. `bind_tf_idf()`
+b. `unnest_tokens()`
+c. `pivot_wider()`
+d. `arrange()`
+
+::: {.callout-tip collapse="true"}
+Answer: a. `bind_tf_idf()` calculates and adds TF, IDF and TF-IDF values.
+:::
+
+## Question 8
+
+True or false: a word with high TF-IDF is necessarily the most frequent word in the whole corpus.
+
+::: {.callout-tip collapse="true"}
+False. A word can have high TF-IDF because it is distinctive to one group, even if it is not the most frequent word in the full corpus.
+:::
+
+## Question 9
+
+In a dashboard, why add at least one interactive filter?
+
+a. To let the user explore a relevant subset of the data
+b. To hide difficult results
+c. To replace all analysis
+d. To make the code impossible to reread
+
+::: {.callout-tip collapse="true"}
+Answer: a. A useful filter lets users explore the data by period, group or theme without multiplying fixed charts.
+:::
+
+## Question 10
+
+True or false: before sharing a dashboard based on comments, you must check that no person is identifiable.
+
+::: {.callout-tip collapse="true"}
+True. Free-text comments can contain identifying information. Confidentiality must be checked before any sharing.
+:::
+
+## Question 11
+
+Which statement best describes a good dashboard conclusion?
+
+a. It summarizes visible trends, names limits and proposes a realistic action
+b. It repeats every table without interpretation
+c. It claims that the model explains everything
+d. It ignores missing data
+
+::: {.callout-tip collapse="true"}
+Answer: a. A useful conclusion stays concise, interprets without overpromising and states what could be improved.
+:::
+
+## Question 12
+
+True or false: `flexdashboard` can present several related visualizations in a dashboard page, and `shiny` can add interactivity.
+
+::: {.callout-tip collapse="true"}
+True. `flexdashboard` structures the dashboard; `shiny` can make selected elements reactive to user choices.
+:::

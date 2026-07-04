@@ -19,6 +19,12 @@ To prepare, consult the following resources:
 - [Introduction to Modern Statistics - Chapter 7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
 - [Introduction to Modern Statistics - Chapter 8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
 - [Introduction to Modern Statistics - Chapter 25: Inference for linear regression with multiple predictors](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
+- [R documentation - `lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
+- [R documentation - `predict.lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html)
+- [Government of Canada - Guide on Automated Decision-Making](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)
+- [NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
+
+After the readings, complete the [module 9 formative mini-test](../module_09/mini_test.llms.md).
 
 # Adventure
 
@@ -36,11 +42,11 @@ Starter repository: `STT-1100/aventure-9`
 
 # Consolidation Exercises
 
-The exercises revisit linear regression with the `penguins` dataset from the `palmerpenguins` package.
+The exercises are independent from the adventure and the challenge. They use two fictitious datasets created for this module:
 
-1.  Visualize the relationship between `body_mass_g` and `flipper_length_mm`.
-2.  Fit the model `body_mass_g ~ flipper_length_mm`.
-3.  Interpret the slope.
-4.  Fit the model `body_mass_g ~ flipper_length_mm + sex`.
-5.  Use `predict()` for a hypothetical observation.
-6.  Discuss one possible limitation if you add `species`.
+1.  `fictitious_housing_energy.csv` to fit a linear regression, produce predictions and examine errors;
+2.  `fictitious_culture_grants.csv` to compare acceptance rates and discuss descriptive bias carefully.
+
+The series ends with two case studies: a residential-consumption forecast and a descriptive audit of grant applications.
+
+Link to the exercises: [Consolidation Exercises](../module_09/exercices.llms.md)

@@ -5948,9 +5948,13 @@ Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
 <p>Pour vous préparer, consultez les ressources suivantes :</p>
 <ul>
 <li><a href="https://www.tidytextmining.com/">Tidytext Text Mining</a> – Chapitres 1 à 3 - Ce livre vous introduit aux bases du traitement de texte avec R.</li>
+<li><a href="https://juliasilge.github.io/tidytext/reference/unnest_tokens.html">Documentation tidytext - <code>unnest_tokens()</code></a> - Cette page précise comment transformer une colonne de texte en tokens.</li>
+<li><a href="https://juliasilge.github.io/tidytext/reference/bind_tf_idf.html">Documentation tidytext - <code>bind_tf_idf()</code></a> - Cette page décrit le calcul TF-IDF dans un tableau tidy.</li>
 <li><a href="https://rmarkdown.rstudio.com/flexdashboard/">Flexdashboard documentation (RStudio)</a> - ce document vous guide dans la création de tableaux de bord interactifs avec <code>flexdashboard</code>.</li>
-<li><a href="https://rstudio.github.io/flexdashboard/using.html#shiny_interaction">Shiny for dashboards</a> - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec <code>shiny</code>.</li>
+<li><a href="https://rstudio.github.io/flexdashboard/articles/shiny.html">Using Shiny with flexdashboard</a> - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec <code>shiny</code>.</li>
+<li><a href="https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/">Posit - Shiny Basics</a> - Cette introduction situe la structure d&#39;une application interactive.</li>
 </ul>
+<p>Après les lectures, vérifiez les idées clés avec le <a href="mini_test.html">mini-test formatif du module 10</a>.</p>
       </div>
     </div>
   </details>
@@ -5986,6 +5990,18 @@ Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
       </div>
     </div>
   </details>
+<details class="path-card learning-plan-card" id="exercices">
+  <summary><span class="path-number">4</span>
+  <span class="path-title">Exercices</span>
+  <span class="path-preview">Consolider tokens, sentiment, TF-IDF et synthèses de tableau de bord.</span>
+  <span class="path-resource"><a class="summary-resource-link exercise-link" href="exercices.html">Exercices</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Ressource</span> <a class="summary-resource-link exercise-link" href="exercices.html">Page Exercices</a></p>
+  <p><span class="step-label">Pourquoi</span> Les exercices sont indépendants de l&#39;aventure et du défi. Ils utilisent des commentaires fictifs de bibliothèques et d&#39;ateliers culturels pour pratiquer l&#39;analyse textuelle sans toucher aux rétroactions STT-1100.</p>
+  <div class="ae-box"><p class="ae-title">Refaites au moins un passage sans regarder la solution immédiatement.</p></div>
+  </div>
+  </details>
 </div>
 </section>
 <section id="données-et-outils" class="level2">
@@ -5995,12 +6011,16 @@ Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
   <h3 class="anchored">Bases de données</h3>
   <div class="module-chip-list">
   <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-textes-module-10"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>Commentaires et textes de travail</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-module10-commentaires-bibliotheques"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>commentaires_bibliotheques_fictif.csv</span></a>
+  <a class="module-resource-chip data-chip" href="../donnees.html#dataset-card-module10-ateliers-culture"><span class="chip-icon" aria-hidden="true"><i class="bi bi-database"></i></span><span>ateliers_culture_fictif.csv</span></a>
   </div>
   </div>
   <div class="module-resource-section">
   <h3 class="anchored">Packages R</h3>
   <div class="module-chip-list">
+  <a class="module-resource-chip package-chip" href="../packages.html#tidyverse"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidyverse</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#tidytext"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tidytext</span></a>
+  <a class="module-resource-chip package-chip" href="../packages.html#readr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>readr</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#stringr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>stringr</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#dplyr"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>dplyr</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#tibble"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>tibble</span></a>
