@@ -8,96 +8,313 @@ format:
 
 # Exercices de consolidation
 
-Pour mettre en pratique les apprentissages de ce module, vous trouverez ci-dessous une série d’exercices extraits du manuel ou adaptés pour STT-1100.
+Ces exercices servent à consolider les premiers gestes du cours: utiliser RStudio, écrire du code dans un script, créer un rapport Quarto, charger des packages, inspecter des données et produire une petite analyse reproductible.
 
-## Exercice 1 — Pourquoi apprendre R ?
+Travaillez dans un fichier `.R`, un fichier `.qmd`, ou les deux. Les réponses sont repliées pour vous permettre d'essayer avant de comparer.
 
-En une ou deux phrases, explique pourquoi apprendre R est utile pour une personne qui souhaite travailler avec des données.
+## Exercice 1 - Console ou script?
+
+Dans RStudio, exécutez `3 + 4` dans la console, puis dans un script `.R`.
+
+Expliquez en une phrase pourquoi le script est préférable pour un travail qui doit être remis.
 
 ::: {.callout-tip collapse="true"}
-R est un langage puissant conçu pour la manipulation, l’analyse et la visualisation de données. Il est très utilisé en science des données pour sa richesse en librairies et son intégration avec des outils comme Quarto.
+La console est utile pour tester rapidement une commande. Le script garde une trace du code, ce qui permet de relancer et de vérifier le travail plus tard.
 :::
 
-## Exercice 2 — La console vs le script
+## Exercice 2 - Créer des objets
 
-Dans RStudio, tapez `3 + 4` dans :
+Créez les objets suivants:
 
-1.  la console
-
-2.  un script `.R` que vous exécutez ensuite avec `Ctrl + Enter`
-
-Quelle est la différence entre les deux approches ?
+- `ville` contenant `"Quebec"`;
+- `temperatures` contenant les valeurs `4`, `7`, `NA`, `10`;
+- `temperature_moyenne` contenant la moyenne de `temperatures` en ignorant la valeur manquante.
 
 ::: {.callout-tip collapse="true"}
-La console permet d’exécuter du code immédiatement, mais ne garde pas de trace. Le script permet d’écrire et de sauvegarder le code, ce qui est essentiel pour la reproductibilité.
-:::
+```r
+ville <- "Quebec"
+temperatures <- c(4, 7, NA, 10)
+temperature_moyenne <- mean(temperatures, na.rm = TRUE)
 
-## Exercice 3 — Structure de script
-
-Créez un fichier `analyse.R` contenant les éléments suivants :
-
--   un en-tête avec votre nom et la date
-
--   un chargement de librairie (`tidyverse`)
-
--   une instruction simple (`mean(c(1, 2, 3, 4))`)
-
-::: {.callout-tip collapse="true"}
-``` r
-# Analyse météo — A. Nicosia
-# Date : 2025-05-19
-
-library(tidyverse)
-
-mean(c(1, 2, 3, 4))
+temperature_moyenne
 ```
 :::
 
-------------------------------------------------------------------------
+## Exercice 3 - Comprendre une valeur manquante
 
-## Exercice 4 — Trouver de l’aide
+Que retourne le code suivant? Expliquez pourquoi.
 
-Utilisez l’aide intégrée de R pour comprendre comment utiliser la fonction `mean`. Ensuite, expliquez brièvement à quoi sert l’argument `na.rm`.
+```r
+mean(c(4, 7, NA, 10))
+```
 
 ::: {.callout-tip collapse="true"}
-On peut taper `?mean` ou `help(mean)` dans R pour obtenir la documentation.
-
-L’argument `na.rm` indique s’il faut ignorer les valeurs manquantes (`NA`) dans le calcul de la moyenne (`TRUE` ou `FALSE`).
+Le résultat est `NA`, car R ne peut pas calculer la moyenne sans savoir quoi faire avec la valeur manquante. Il faut préciser `na.rm = TRUE` pour l'ignorer.
 :::
 
-## Exercice 5 — Réécrire du code avec style
+## Exercice 4 - Écrire une condition
 
-Corrigez le code suivant pour qu’il respecte les bonnes pratiques du style tidyverse :
+Créez un objet `temperature <- -8`, puis écrivez une condition qui affiche:
 
-``` r
+- `"gel"` si la température est inférieure à 0;
+- `"pas de gel"` sinon.
+
+::: {.callout-tip collapse="true"}
+```r
+temperature <- -8
+
+if (temperature < 0) {
+  "gel"
+} else {
+  "pas de gel"
+}
+```
+:::
+
+## Exercice 5 - Écrire une fonction simple
+
+Créez une fonction `etendue_temperature()` qui reçoit deux arguments, `minimum` et `maximum`, puis retourne la différence entre les deux.
+
+Testez la fonction avec `minimum = -3` et `maximum = 8`.
+
+::: {.callout-tip collapse="true"}
+```r
+etendue_temperature <- function(minimum, maximum) {
+  maximum - minimum
+}
+
+etendue_temperature(minimum = -3, maximum = 8)
+```
+:::
+
+## Exercice 6 - Trouver de l'aide
+
+Utilisez l'aide intégrée de R pour consulter la documentation de `mean()`.
+
+Ensuite, répondez en une phrase: à quoi sert l'argument `na.rm`?
+
+::: {.callout-tip collapse="true"}
+```r
+?mean
+```
+
+L'argument `na.rm` indique si les valeurs manquantes doivent être retirées avant le calcul.
+:::
+
+## Exercice 7 - Réécrire du code avec style
+
+Réécrivez le code suivant pour respecter un style plus lisible.
+
+```r
 x=mean(c(3,NA,5),na.rm=TRUE)
 ```
 
 ::: {.callout-tip collapse="true"}
-``` r
+```r
 x <- mean(c(3, NA, 5), na.rm = TRUE)
 ```
 :::
 
-------------------------------------------------------------------------
+## Exercice 8 - Créer un premier rapport Quarto
 
-## Exercice 6 — Créer un rapport HTML
+Créez un fichier `rapport.qmd` contenant:
 
-Créez un fichier `rapport.qmd` contenant :
-
--   un en-tête YAML avec un titre et un format HTML
-
--   un bloc de code qui affiche la moyenne d’un vecteur
+- un titre;
+- le format HTML;
+- une courte phrase d'introduction;
+- un bloc de code qui calcule la moyenne de `c(1, 2, 3, 4, 5)`.
 
 ::: {.callout-tip collapse="true"}
-``` markdown
+```markdown
 ---
 title: "Premier rapport"
 format: html
 ---
 
-mean(c(1, 2, 3, 4, 5))
+Ce rapport présente un premier calcul reproductible.
 ```
 
-\`\`\`
+Dans un bloc de code R du document:
+
+```r
+mean(c(1, 2, 3, 4, 5))
+```
+:::
+
+## Exercice 9 - Charger les packages du module
+
+Dans un script ou un document Quarto, chargez les packages nécessaires pour accéder aux données `MeteoQuebec` et manipuler des tableaux avec `dplyr`.
+
+::: {.callout-tip collapse="true"}
+```r
+library(UlavalSSD)
+library(dplyr)
+```
+
+Le chargement doit se trouver dans le document ou le script, pas seulement dans la console.
+:::
+
+## Exercice 10 - Inspecter `MeteoQuebec`
+
+Après avoir chargé `UlavalSSD`, utilisez trois fonctions différentes pour inspecter `MeteoQuebec`.
+
+Votre objectif est de comprendre les noms de variables, les premières lignes et la présence possible de valeurs manquantes.
+
+::: {.callout-tip collapse="true"}
+```r
+library(UlavalSSD)
+
+names(MeteoQuebec)
+head(MeteoQuebec)
+summary(MeteoQuebec)
+```
+:::
+
+## Exercice 11 - Repérer les valeurs manquantes
+
+Utilisez `summary()` pour identifier au moins une variable de `MeteoQuebec` qui contient des valeurs manquantes.
+
+Rédigez ensuite une phrase qui explique pourquoi cette information est importante avant de faire une analyse.
+
+::: {.callout-tip collapse="true"}
+```r
+library(UlavalSSD)
+
+summary(MeteoQuebec)
+```
+
+Une phrase possible:
+
+> Certaines variables contiennent des valeurs manquantes. Je dois en tenir compte avant de calculer une moyenne ou de comparer des années, sinon l'analyse peut devenir incomplète ou produire `NA`.
+:::
+
+## Exercice 12 - Extraire des colonnes
+
+Extrayez la colonne `mean_temp` de `MeteoQuebec` de deux façons:
+
+1. avec l'opérateur `$`;
+2. avec des crochets.
+
+::: {.callout-tip collapse="true"}
+```r
+library(UlavalSSD)
+
+temperature_1 <- MeteoQuebec$mean_temp
+temperature_2 <- MeteoQuebec[, "mean_temp"]
+```
+:::
+
+## Exercice 13 - Filtrer une date
+
+Choisissez une date symbolique en définissant:
+
+```r
+mois_choisi <- "06"
+jour_choisi <- "24"
+```
+
+Filtrez `MeteoQuebec` pour garder seulement les observations de ce mois et de ce jour.
+
+::: {.callout-tip collapse="true"}
+```r
+library(UlavalSSD)
+library(dplyr)
+
+mois_choisi <- "06"
+jour_choisi <- "24"
+
+meteo_date <- MeteoQuebec |>
+  filter(month == mois_choisi, day == jour_choisi)
+
+meteo_date
+```
+:::
+
+## Exercice 14 - Ajouter une colonne
+
+Créez une colonne `etendue_temp` qui calcule la différence entre la température maximale et la température minimale.
+
+::: {.callout-tip collapse="true"}
+```r
+library(UlavalSSD)
+library(dplyr)
+
+meteo_avec_etendue <- MeteoQuebec |>
+  mutate(etendue_temp = max_temp - min_temp)
+
+head(meteo_avec_etendue)
+```
+:::
+
+# Études de cas
+
+Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes techniques du module avec d'autres contextes que la météo.
+
+## Étude de cas 1 - Bibliothèques municipales
+
+Fichier: `data/bibliotheques_municipales_fictif.csv`
+
+Vous aidez une petite équipe municipale à préparer un aperçu de la fréquentation des bibliothèques. Le fichier contient des observations mensuelles fictives pour quelques villes.
+
+Réalisez les tâches suivantes:
+
+1. Importez le fichier avec `readr::read_csv()`.
+2. Affichez les noms de colonnes et les premières lignes.
+3. Identifiez les variables qui contiennent des valeurs manquantes.
+4. Calculez la moyenne de `visites` en ignorant les valeurs manquantes.
+5. Gardez seulement les lignes où `ateliers` est supérieur ou égal à 10.
+6. Rédigez deux phrases qui résument ce que vous avez observé.
+
+::: {.callout-tip collapse="true"}
+```r
+library(readr)
+library(dplyr)
+
+bibliotheques <- read_csv("data/bibliotheques_municipales_fictif.csv")
+
+names(bibliotheques)
+head(bibliotheques)
+summary(bibliotheques)
+
+mean(bibliotheques$visites, na.rm = TRUE)
+
+bibliotheques_ateliers <- bibliotheques |>
+  filter(ateliers >= 10)
+
+bibliotheques_ateliers
+```
+:::
+
+## Étude de cas 2 - Coop étudiante
+
+Fichier: `data/coop_etudiante_fictif.csv`
+
+Vous préparez un mini-rapport pour une coop étudiante fictive. Le fichier contient des ventes agrégées par produit.
+
+Réalisez les tâches suivantes:
+
+1. Importez le fichier.
+2. Créez une colonne `revenu` avec la formule `prix_unitaire * quantite * (1 - rabais)`.
+3. Calculez le revenu total.
+4. Gardez les lignes où `satisfaction` est inférieure ou égale à 3.
+5. Identifiez une catégorie qui mériterait une attention particulière.
+6. Créez un court rapport Quarto qui présente le code et deux phrases d'interprétation.
+
+::: {.callout-tip collapse="true"}
+```r
+library(readr)
+library(dplyr)
+
+coop <- read_csv("data/coop_etudiante_fictif.csv")
+
+coop_revenus <- coop |>
+  mutate(revenu = prix_unitaire * quantite * (1 - rabais))
+
+sum(coop_revenus$revenu, na.rm = TRUE)
+
+coop_a_suivre <- coop_revenus |>
+  filter(satisfaction <= 3)
+
+coop_a_suivre
+```
 :::

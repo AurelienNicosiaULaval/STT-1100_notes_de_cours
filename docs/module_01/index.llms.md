@@ -34,7 +34,7 @@ données chargées résumés clairs rendu reproductible
 
 - Utiliser RStudio pour rédiger et exécuter du code R à l’aide de la console et de scripts.
 
-- Installer et charger des libraries.
+- Installer et charger des packages.
 
 - Créer et manipuler des objets R, utiliser des conditions, utiliser des fonctions existantes, écrire des fonctions simples.
 
@@ -50,35 +50,35 @@ données chargées résumés clairs rendu reproductible
 
 Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
 
-1 Lectures à faire Installer les repères R, RStudio, Quarto et reproductibilité. Dans la carte Ouvrir la carteRéduire
+1 Lectures à faire Installer les repères R, RStudio, Quarto, dplyr et reproductibilité. [Mini-test](mini_test.llms.md) Ouvrir la carteRéduire
 
 ### Lectures initiales
 
-#### Le livre de référence
+Le module utilise R for Data Science comme livre de référence. Les lectures essentielles installent les premiers repères RStudio, script et reproductibilité.
 
-Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage **R for Data Science** (*2e édition*, par Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund).
-
-> Note: on abrègera souvent par **R4DS**
-
-C’est une **référence incontournable**, accessible gratuitement en ligne et rédigée en **anglais** clair. Vous y trouverez des explications complètes et des exemples concrets pour apprendre à travailler efficacement avec `tidyverse`.
-
-\*\* Astuce\*\* : en cas de doute ou de blocage, consultez le document [Comment rechercher et obtenir de l’aide](../references.llms.md).
-
-------------------------------------------------------------------------
-
-##### À lire pour ce module
+#### Lectures essentielles
 
 - [Page d’accueil du livre](https://r4ds.hadley.nz/)
-  *Une vue d’ensemble du livre, de ses auteurs et des thématiques abordées dans chaque partie.*
+  *Vue d’ensemble du livre et de la progression.*
 
 - [Introduction](https://r4ds.hadley.nz/intro.html)
-  *Pourquoi apprendre R pour la science des données, et comment aborder votre apprentissage dans ce cours.*
+  *Pourquoi apprendre R pour la science des données.*
 
 - [Workflow: basics](https://r4ds.hadley.nz/workflow-basics.html)
-  *Les premiers pas dans RStudio : l’environnement, les scripts et le comportement interactif de R.*
+  *Console, scripts et premiers objets dans RStudio.*
 
-- [Workflow: scripts](https://r4ds.hadley.nz/workflow-scripts.html)
-  *Pourquoi utiliser des scripts pour rendre votre travail reproductible, clair et bien structuré.*
+- [Workflow: scripts and projects](https://r4ds.hadley.nz/workflow-scripts.html)
+  *Garder le code dans des fichiers pour pouvoir le relancer.*
+
+#### Lectures pour l’aventure et le défi
+
+- [Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html)
+  *Créer un document Quarto et produire une sortie HTML.*
+
+- [Data transformation](https://r4ds.hadley.nz/data-transform.html)
+  *Premiers verbes `dplyr` utiles pour filtrer, choisir et créer des colonnes.*
+
+[Faire le mini-test formatif des lectures](mini_test.llms.md).
 
 2 Aventure Créer un premier rapport à partir des données météo. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 
@@ -129,19 +129,19 @@ Une fois les bases posées, il est essentiel d’adopter dès le départ des **h
 - [Chapitre 2: Syntax](https://style.tidyverse.org/syntax.html)
   *Règles de syntaxe pour écrire du code lisible, espacement, indentation et conventions de nommage.*
 
-4 Exercices Reprendre console, scripts, aide et rendu Quarto. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+4 Exercices Pratiquer RStudio, Quarto, MeteoQuebec et deux études de cas. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont gardés dans une page autonome parce qu'ils prennent plus de place.
+Pourquoi La page contient les exercices gradués, les solutions repliables et deux études de cas avec données fictives.
 
-Refaites au moins un passage sans regarder la solution immédiatement.
+Essayez chaque exercice avant d’ouvrir la solution, même si ça tire un peu sur les neurones.
 
 ## Données et outils
 
 ### Bases de données
 
-[UlavalSSD::MeteoQuebec](../donnees.llms.md#dataset-card-meteo-quebec)
+[UlavalSSD::MeteoQuebec](../donnees.llms.md#dataset-card-meteo-quebec) [Bibliothèques fictives](data/bibliotheques_municipales_fictif.csv) [Coop étudiante fictive](data/coop_etudiante_fictif.csv)
 
 ### Packages R
 

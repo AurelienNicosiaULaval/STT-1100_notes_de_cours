@@ -4,183 +4,80 @@ STT-1100 Introduction à la science des données
 
 # Objectifs du module
 
-À la fin de ce module, vous devriez être capable de
+À la fin de ce module, vous devriez être capable de:
 
-- Utiliser RStudio pour rédiger et exécuter du code R à l’aide de la console et de scripts.
-
-- Installer et charger des libraries.
-
-- Créer et manipuler des objets R, utiliser des conditions, utiliser des fonctions existantes, écrire des fonctions simples.
-
-- Rédiger le code R en suivant les conventions de style du tidyverse.
-
-- Vérifier si un jeu de données est propre.
-
-- Extraire une ligne ou une colonne, ajouter une colonne, filtrer des données en utilisant une ou plusieurs conditions.
-
-- Rédiger un rapport simple dans Quarto, incluant du texte, des blocs de code, des titres de sections.
+- utiliser RStudio pour rédiger et exécuter du code R dans la console et dans des scripts;
+- installer et charger des packages;
+- créer et manipuler des objets R;
+- utiliser des conditions et des fonctions existantes;
+- écrire une fonction simple;
+- appliquer quelques conventions du style tidyverse;
+- vérifier si un jeu de données contient des valeurs manquantes;
+- extraire une ligne ou une colonne, ajouter une colonne et filtrer des données;
+- rédiger un rapport simple dans Quarto avec du texte, du code et des sections.
 
 # Lectures initiales
 
-## Le livre de référence
+## Livre de référence
 
-Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage **R for Data Science** (*2e édition*, par Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund).
+Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage R for Data Science, 2e édition, par Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund.
 
-> Note: on abrègera souvent par **R4DS**
+On abrègera souvent ce livre par R4DS. Il est accessible gratuitement en ligne et propose des exemples concrets pour apprendre à travailler efficacement avec R et le tidyverse.
 
-C’est une **référence incontournable**, accessible gratuitement en ligne et rédigée en **anglais** clair. Vous y trouverez des explications complètes et des exemples concrets pour apprendre à travailler efficacement avec `tidyverse`.
+En cas de blocage, consultez aussi le document [Comment rechercher et obtenir de l’aide](../references.llms.md).
 
-\*\* Astuce\*\* : en cas de doute ou de blocage, consultez le document [Comment rechercher et obtenir de l’aide](../references.llms.md).
+## Lectures essentielles
 
-------------------------------------------------------------------------
+- [Page d’accueil de R4DS](https://r4ds.hadley.nz/) Vue d’ensemble du livre, de ses auteurs et de la progression générale.
 
-### À lire pour ce module
+- [Introduction](https://r4ds.hadley.nz/intro.html) Pourquoi apprendre R pour la science des données et comment aborder le cours.
 
-- [Page d’accueil du livre](https://r4ds.hadley.nz/)
-  *Une vue d’ensemble du livre, de ses auteurs et des thématiques abordées dans chaque partie.*
+- [Workflow: basics](https://r4ds.hadley.nz/workflow-basics.html) Premiers gestes dans RStudio, console, scripts et objets.
 
-- [Introduction](https://r4ds.hadley.nz/intro.html)
-  *Pourquoi apprendre R pour la science des données, et comment aborder votre apprentissage dans ce cours.*
+- [Workflow: scripts and projects](https://r4ds.hadley.nz/workflow-scripts.html) Pourquoi garder le code dans des fichiers pour rendre le travail reproductible.
 
-- [Workflow: basics](https://r4ds.hadley.nz/workflow-basics.html)
-  *Les premiers pas dans RStudio : l’environnement, les scripts et le comportement interactif de R.*
+## Lectures pour réussir l’aventure et le défi
 
-- [Workflow: scripts](https://r4ds.hadley.nz/workflow-scripts.html)
-  *Pourquoi utiliser des scripts pour rendre votre travail reproductible, clair et bien structuré.*
+- [Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) Créer un premier document Quarto, insérer du code et produire une sortie HTML.
+
+- [Data transformation](https://r4ds.hadley.nz/data-transform.html) Introduction à `dplyr`, avec les verbes utiles pour filtrer, choisir des colonnes et créer des variables.
+
+## Mini-test de lecture
+
+Après les lectures essentielles, complétez le [mini-test formatif du module 1](../module_01/mini_test.llms.md). Il n’est pas noté, mais il vérifie les points qui reviennent dans l’aventure et dans le défi.
 
 # Aventure
 
-Ce module est conçu pour vous offrir une introduction complète aux outils et concepts fondamentaux qui vous accompagneront tout au long de votre parcours en science des données.
+Ce module vous place dans le rôle d’un ou d’une analyste en démarrage. Vous préparez les bases d’un premier rapport reproductible avec R, RStudio et Quarto, à partir des données `UlavalSSD::MeteoQuebec`.
 
 [Aventure du module 1](../module_01/aventure.llms.md)
 
 # Défi
 
-Dans ce premier défi, afin de vous faire la main avec les différents outils, vous devez créer un rapport Quarto au format HTML.
+Dans ce premier défi, vous devez créer un rapport Quarto au format HTML. Le rapport répond à une question simple à partir de `MeteoQuebec`: comparer la température moyenne observée à une date choisie sur plusieurs années.
 
 [Défi du module 1](../module_01/defi.llms.md)
 
-## Lectures additionnelles
+# Lectures additionnelles
 
-### Approfondir les bonnes pratiques
+## Approfondir les bonnes pratiques
 
-Une fois les bases posées, il est essentiel d’adopter dès le départ des **habitudes de travail claires, reproductibles et cohérentes**. Les ressources ci-dessous vous aideront à améliorer la lisibilité, la structure et l’organisation de votre code.
+- [Workflow: help](https://r4ds.hadley.nz/workflow-help.html) Chercher efficacement dans la documentation et formuler une demande d’aide utile.
 
-------------------------------------------------------------------------
+- [Quarto formats](https://r4ds.hadley.nz/quarto-formats.html) Comprendre les formats possibles de Quarto et les options de sortie.
 
-### Compléments R4DS
+- [Workflow: style](https://r4ds.hadley.nz/workflow-style.html) Pourquoi un style de code cohérent facilite la lecture, la collaboration et la correction.
 
-- [Workflow: help](https://r4ds.hadley.nz/workflow-help.html)
-  *Apprendre à poser les bonnes questions, à chercher efficacement dans la documentation et à formuler des demandes d’aide pertinentes.*
+## Guide de style du tidyverse
 
-- [Quarto formats](https://r4ds.hadley.nz/quarto-formats.html)
-  *Présentation des formats disponibles dans Quarto et comment personnaliser vos rapports, articles ou présentations.*
+- [Files](https://style.tidyverse.org/files.html) Organiser les fichiers, nommer les scripts et structurer un projet.
 
-- [Workflow: style](https://r4ds.hadley.nz/workflow-style.html)
-  *Pourquoi un style de code cohérent est crucial pour la collaboration et comment y parvenir avec le style tidyverse.*
-
-------------------------------------------------------------------------
-
-### Guide de style du tidyverse
-
-- [Chapitre 1: Files](https://style.tidyverse.org/files.html)
-  *Conseils pour organiser vos fichiers, structurer vos projets et nommer vos scripts de façon claire.*
-
-- [Chapitre 2: Syntax](https://style.tidyverse.org/syntax.html)
-  *Règles de syntaxe pour écrire du code lisible, espacement, indentation et conventions de nommage.*
+- [Syntax](https://style.tidyverse.org/syntax.html) Écrire du code lisible avec une syntaxe claire et régulière.
 
 # Exercices de consolidation
 
-Pour mettre en pratique les apprentissages de ce module, vous trouverez ci-dessous une série d’exercices extraits du manuel ou adaptés pour STT-1100.
+Les exercices sont regroupés dans une page autonome pour laisser de la place aux solutions repliables et aux études de cas.
 
-## Exercice 1 — Pourquoi apprendre R ?
+[Exercices du module 1](../module_01/exercices.llms.md)
 
-En une ou deux phrases, explique pourquoi apprendre R est utile pour une personne qui souhaite travailler avec des données.
-
-> **TIP:**
->
-> R est un langage puissant conçu pour la manipulation, l’analyse et la visualisation de données. Il est très utilisé en science des données pour sa richesse en librairies et son intégration avec des outils comme Quarto.
-
-## Exercice 2 — La console vs le script
-
-Dans RStudio, tapez `3 + 4` dans :
-
-1.  la console
-
-2.  un script `.R` que vous exécutez ensuite avec `Ctrl + Enter`
-
-Quelle est la différence entre les deux approches ?
-
-> **TIP:**
->
-> La console permet d’exécuter du code immédiatement, mais ne garde pas de trace. Le script permet d’écrire et de sauvegarder le code, ce qui est essentiel pour la reproductibilité.
-
-## Exercice 3 — Structure de script
-
-Créez un fichier `analyse.R` contenant les éléments suivants :
-
-- un en-tête avec votre nom et la date
-
-- un chargement de librairie (`tidyverse`)
-
-- une instruction simple (`mean(c(1, 2, 3, 4))`)
-
-> **TIP:**
->
-> ``` r
-> # Analyse météo — A. Nicosia
-> # Date : 2025-05-19
->
-> library(tidyverse)
->
-> mean(c(1, 2, 3, 4))
-> ```
-
-------------------------------------------------------------------------
-
-## Exercice 4 — Trouver de l’aide
-
-Utilisez l’aide intégrée de R pour comprendre comment utiliser la fonction `mean`. Ensuite, expliquez brièvement à quoi sert l’argument `na.rm`.
-
-> **TIP:**
->
-> On peut taper `?mean` ou `help(mean)` dans R pour obtenir la documentation.
->
-> L’argument `na.rm` indique s’il faut ignorer les valeurs manquantes (`NA`) dans le calcul de la moyenne (`TRUE` ou `FALSE`).
-
-## Exercice 5 — Réécrire du code avec style
-
-Corrigez le code suivant pour qu’il respecte les bonnes pratiques du style tidyverse :
-
-``` r
-x=mean(c(3,NA,5),na.rm=TRUE)
-```
-
-> **TIP:**
->
-> ``` r
-> x <- mean(c(3, NA, 5), na.rm = TRUE)
-> ```
-
-------------------------------------------------------------------------
-
-## Exercice 6 — Créer un rapport HTML
-
-Créez un fichier `rapport.qmd` contenant :
-
-- un en-tête YAML avec un titre et un format HTML
-
-- un bloc de code qui affiche la moyenne d’un vecteur
-
-> **TIP:**
->
-> ``` markdown
-> ---
-> title: "Premier rapport"
-> format: html
-> ---
->
-> mean(c(1, 2, 3, 4, 5))
-> ```
->
-> \`\`\`
+La série comprend des exercices sur RStudio, les objets, les valeurs manquantes, le style, Quarto, `MeteoQuebec` et deux études de cas finales avec de petits fichiers fictifs.
