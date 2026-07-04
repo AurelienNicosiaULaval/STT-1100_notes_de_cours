@@ -22,6 +22,27 @@ run_quarto <- function(args, wd = getwd()) {
   }
 }
 
+run_rsync <- function(args, error_message) {
+  command <- paste(c("rsync", args), collapse = " ")
+  message("Running: ", command)
+
+  output <- system2("rsync", args, stdout = TRUE, stderr = TRUE)
+  exit_code <- attr(output, "status", exact = TRUE)
+  if (is.null(exit_code)) {
+    exit_code <- 0L
+  }
+
+  if (!identical(as.integer(exit_code), 0L)) {
+    details <- paste(output, collapse = "\n")
+    if (nzchar(details)) {
+      stop(paste(error_message, details, sep = "\n"), call. = FALSE)
+    }
+    stop(error_message, call. = FALSE)
+  }
+
+  invisible(output)
+}
+
 clean_paths <- c(
   ".quarto",
   "en/.quarto",
@@ -34,18 +55,52 @@ clean_paths <- c(
 )
 
 remove_paths <- function(paths) {
-  for (path in paths[file.exists(paths)]) {
-    remove_exit <- system2("rm", c("-rf", path))
-    if (!identical(remove_exit, 0L) || file.exists(path)) {
+  for (path in unique(paths[file.exists(paths)])) {
+    unlink(path, recursive = TRUE, force = TRUE)
+    if (file.exists(path)) {
+      Sys.sleep(0.2)
+      unlink(path, recursive = TRUE, force = TRUE)
+    }
+    if (file.exists(path)) {
       stop("Failed to remove generated path: ", path, call. = FALSE)
     }
   }
 }
 
+replace_directory <- function(source, target) {
+  if (!dir.exists(source)) {
+    stop("Replacement source directory does not exist: ", source, call. = FALSE)
+  }
+
+  target_parent <- dirname(target)
+  dir.create(target_parent, recursive = TRUE, showWarnings = FALSE)
+  backup <- tempfile(paste0(basename(target), "-backup-"), tmpdir = target_parent)
+
+  if (file.exists(target)) {
+    message("Moving existing directory to backup: ", backup)
+    if (!file.rename(target, backup)) {
+      stop("Failed to move existing directory to backup: ", target, call. = FALSE)
+    }
+  }
+
+  message("Moving rendered directory into place: ", target)
+  if (!file.rename(source, target)) {
+    if (file.exists(backup) && !file.exists(target)) {
+      file.rename(backup, target)
+    }
+    stop("Failed to move rendered directory into place: ", target, call. = FALSE)
+  }
+
+  if (file.exists(backup)) {
+    remove_paths(backup)
+  }
+}
+
 sync_source_to_render_root <- function(source_root, render_root) {
   args <- c(
-    "-a",
+    "-rlt",
     "--delete",
+    "--timeout=120",
     "--exclude=.git/",
     "--exclude=.Rhistory",
     "--exclude=.RData",
@@ -64,10 +119,7 @@ sync_source_to_render_root <- function(source_root, render_root) {
     paste0(source_root, "/"),
     paste0(render_root, "/")
   )
-  sync_exit <- system2("rsync", args)
-  if (!identical(sync_exit, 0L)) {
-    stop("Failed to sync source files to temporary render directory.", call. = FALSE)
-  }
+  run_rsync(args, "Failed to sync source files to temporary render directory.")
 }
 
 find_quarto_cache_paths <- function() {
@@ -197,7 +249,7 @@ ensure_image_alt_text <- function(root = "docs") {
   }
 }
 
-render_root <- tempfile("stt1100-render-")
+render_root <- tempfile("stt1100-render-", tmpdir = dirname(repo_root))
 dir.create(render_root, recursive = TRUE, showWarnings = FALSE)
 on.exit(remove_paths(render_root), add = TRUE)
 
@@ -243,15 +295,9 @@ ensure_nojekyll("docs")
 strip_trailing_whitespace("docs")
 
 setwd(repo_root)
-dir.create(file.path(repo_root, "docs"), recursive = TRUE, showWarnings = FALSE)
-sync_exit <- system2(
-  "rsync",
-  c("-a", "--delete", paste0(file.path(render_root, "docs"), "/"), paste0(file.path(repo_root, "docs"), "/"))
-)
-if (!identical(sync_exit, 0L)) {
-  stop("Failed to sync rendered site back to repository docs/.", call. = FALSE)
-}
+replace_directory(file.path(render_root, "docs"), file.path(repo_root, "docs"))
 ensure_nojekyll(file.path(repo_root, "docs"))
 strip_trailing_whitespace(file.path(repo_root, "docs"))
+remove_paths(render_root)
 
 message("Done: rendered French site to docs/ and English site to docs/en/.")

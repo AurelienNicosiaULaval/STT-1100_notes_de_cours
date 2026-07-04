@@ -96,17 +96,13 @@ In this section, you discover the essential functions of the `rvest` package. Th
 ``` r
 url <- "https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1"
 page <- safe_read_html(url)
-```
-
-    Unable to download https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&page=1; using a local HTML fallback.
-
-``` r
 page
 ```
 
     {html_document}
-    <html>
-    [1] <body>\n    <div class="dataset-content">\n      <h3 class="dataset-headi ...
+    <html lang="fr">
+    [1] <head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
+    [2] <body data-site-root="https://www.donneesquebec.ca/recherche/" data-local ...
 
 The `read_html()` function downloads and converts the web page so it can be manipulated.
 
@@ -121,7 +117,7 @@ blocks <- html_elements(page, ".dataset-content")
 length(blocks)
 ```
 
-    [1] 1
+    [1] 20
 
 ``` r
 blocks[[1]]
@@ -129,9 +125,11 @@ blocks[[1]]
 
     {html_node}
     <div class="dataset-content">
-    [1] <h3 class="dataset-heading"><a>Example public dataset</a></h3>
-    [2] <div class="dqc-org-cat">Organisation : Données Québec</div>
-    [3] <div class="dqc-org-cat">Catégories : Santé</div>
+    [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
+    [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
+    [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
+    [4] <div class="dqc-org-cat"></div>
+    [5] <div class="dqc-notes"> Le ministère de l’Environnement, de la Lutte cont ...
 
 To extract text from an HTML element:
 
@@ -139,7 +137,7 @@ To extract text from an HTML element:
 html_text2(blocks[[1]])
 ```
 
-    [1] "Example public dataset\nOrganisation : Données Québec\nCatégories : Santé"
+    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\nOrganisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\nLe ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du..."
 
 Now, let us test extraction of the title:
 
@@ -148,7 +146,7 @@ html_elements(blocks[[1]], ".dataset-heading a") |>
   html_text2()
 ```
 
-    [1] "Example public dataset"
+    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional"
 
 And for the producer? We need to locate a substructure containing the information:
 
@@ -159,7 +157,8 @@ info <- html_elements(blocks[[1]], ".dqc-org-cat") |>
 info
 ```
 
-    [1] "Organisation : Données Québec" "Catégories : Santé"
+    [1] "Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+    [2] ""
 
 The Données Québec page used here returns French labels. A robust function should therefore handle labels such as `Organisation`, `Catégorie` and `Catégories`, even when you are reading the English version of the course.
 
@@ -172,7 +171,7 @@ producer <- extract_value(
 producer
 ```
 
-    [1] "Données Québec"
+    [1] "Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
 
 > **TIP:**
 >
