@@ -1,4 +1,4 @@
-# Au-delà des données: texte et tableau de bord
+# Au-delà des données : texte et tableau de bord
 
 Module 10
 

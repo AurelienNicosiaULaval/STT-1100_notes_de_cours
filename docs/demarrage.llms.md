@@ -1,70 +1,142 @@
 STT-1100
 
-# Commencer le cours
+# Comment avancer dans le cours
 
-STT-1100 fonctionne comme un parcours de science des données. Chaque module part d'une situation concrète, vous place dans un rôle professionnel, puis vous amène à produire quelque chose de visible: un rapport, une analyse, une visualisation, une fonction ou un tableau de bord.
+Le cours est construit comme un parcours de science des données. Chaque module commence par des lectures ciblées, vous plonge dans une aventure guidée, puis vous amène à produire une trace personnelle: rapport, graphique, jeu de données nettoyé, fonction, vidéo ou tableau de bord.
 
-[Voir les modules](modules.llms.md) [Boîte à outils](boite_outils.llms.md) [Ressources](ressources.llms.md)
-
-01
-
-Lire le plan d'apprentissage
-
-02
-
-Entrer dans l'aventure
-
-03
-
-Réaliser le défi
-
-04
-
-Consolider avec les exercices
-
-## Philosophie du cours
-
-On apprend la science des données en produisant, en expliquant et en révisant son propre travail.
-
-### Comprendre avant d'automatiser
-
-Le code sert à répondre à une question. Avant de chercher la fonction parfaite, on identifie les variables, le contexte, les unités et la forme du livrable attendu.
-
-### Travailler de façon reproductible
-
-Les rapports Quarto, les scripts R et les dépôts GitHub gardent la trace du raisonnement. Un résultat doit pouvoir être refait, relu et expliqué.
-
-### Construire une interprétation prudente
-
-Une analyse utile ne se limite pas à produire un graphique ou un modèle. Elle précise ce que les données permettent de dire et ce qu'elles ne permettent pas de conclure.
-
-## Comment fonctionne un module
-
-La page d'accueil de chaque module reprend le plan d'apprentissage sous forme de cartes ouvrantes.
+[Voir les modules](modules.llms.md) [Voir les défis](defis.llms.md) [Boîte à outils](boite_outils.llms.md)
 
 1
 
-### Lectures à faire
-
-Les lectures donnent les mots, les concepts et les fonctions à reconnaître. Elles ne remplacent pas la pratique; elles préparent l'aventure.
+Lire et se repérer
 
 2
 
-### Aventure
-
-L'aventure est l'immersion principale. Vous jouez un rôle en science des données et vous suivez une situation guidée, souvent plus longue.
+Vérifier les lectures
 
 3
 
-### Défi
-
-Le défi transforme la pratique guidée en production personnelle. C'est le livrable court qui montre ce que vous êtes capable de faire dans ce module.
+Faire l'aventure
 
 4
 
+Réaliser le défi
+
+5
+
+Consolider autrement
+
+6
+
+Garder une trace
+
+## Le trajet d'un module
+
+Un module n'est pas seulement une liste de pages. C'est un petit cycle complet: comprendre, pratiquer, produire, consolider, puis garder une trace de ce qui a été appris.
+
+01
+
+### Lectures
+
+Les lectures donnent les mots, les concepts et les fonctions utiles avant d'ouvrir le code.
+
+Point de départ
+
+02
+
+### Mini-test
+
+Le mini-test formatif vérifie rapidement les idées clés. Il sert à repérer ce qui doit être relu avant l'aventure.
+
+Autodiagnostic
+
+03
+
+### Aventure
+
+L'aventure est la pratique guidée en classe. Elle met en scène un rôle, des données et un problème concret.
+
+Immersion guidée
+
+04
+
+### Défi
+
+Le défi prolonge l'aventure dans le même univers, avec plus d'autonomie et un livrable évalué.
+
+Production courte
+
+05
+
 ### Exercices
 
-Les exercices servent à stabiliser les gestes techniques: importer, transformer, visualiser, diagnostiquer, interpréter et rendre le travail.
+Les exercices consolident les gestes techniques dans d'autres contextes et avec d'autres données.
+
+Pratique indépendante
+
+06
+
+### Trace portfolio
+
+La trace finale indique ce qu'il faut conserver: fichiers, décisions, erreurs corrigées et apprentissages réutilisables.
+
+Mémoire de travail
+
+## Trois pièces, trois fonctions
+
+Les aventures, les défis et les exercices ne jouent pas le même rôle. Les distinguer évite de chercher la mauvaise réponse au mauvais endroit.
+
+Aventure
+
+### Apprendre dans une situation
+
+Vous êtes guidé dans un contexte narratif: un rôle, une personne à aider, des données à comprendre et des choix à justifier.
+
+Défi
+
+### Montrer votre autonomie
+
+Le défi reste connecté à l'aventure, mais il demande une production personnelle plus courte, plus ciblée et évaluée.
+
+Exercices
+
+### Stabiliser les réflexes
+
+Les exercices sont à part. Ils utilisent d'autres contextes pour pratiquer sans dépendre du fil narratif du défi.
+
+## Le parcours des 10 modules
+
+Chaque module ajoute une compétence visible. Le chemin va d'un premier rapport reproductible vers des productions plus autonomes: collaboration, éthique, automatisation, prédiction et tableau de bord.
+
+[1 DémarrerPlongée en science des donnéesPrendre en main R, RStudio, Quarto et un premier jeu de données météo.Produit: mini-rapport Quarto.](module_01/index.llms.md) [2 OrganiserGitHub et visualisationStructurer un dépôt, importer un fichier Excel et produire des graphiques lisibles.Produit: journal de bord et rapport GitHub.](module_02/index.llms.md) [3 RaconterCatégories et article de donnéesNettoyer des chaînes, compter des catégories et construire un angle journalistique.Produit: article Quarto reproductible.](module_03/index.llms.md) [4 NettoyerFacteurs et nettoyageDiagnostiquer des erreurs, recoder des variables et documenter les décisions.Produit: données propres et journal de nettoyage.](module_04/index.llms.md) [5 ExplorerRelations entre variablesComparer des variables, visualiser des associations et interpréter sans surconclure.Produit: rapport exploratoire argumenté.](module_05/index.llms.md) [6 CollaborerCollaboration et reproductibilitéRelier des tables, documenter un flux de travail et réviser le travail d'une autre équipe.Produit: revue croisée reproductible.](module_06/index.llms.md) [7 ProtégerVisualisation et éthiqueAméliorer des visualisations, anonymiser des données et expliciter les risques.Produit: note éthique et figures responsables.](module_07/index.llms.md) [8 AutomatiserExploration du webExtraire de l'information de pages web et transformer une procédure en fonction testable.Produit: fonction `scrape_page()`.](module_08/index.llms.md) [9 PrédirePrédiction et biaisConstruire une première prédiction, évaluer ses limites et discuter les biais possibles.Produit: capsule vidéo courte.](module_09/index.llms.md) [10 PartagerTexte et tableau de bordAnalyser des rétroactions textuelles et communiquer des résultats dans une interface.Produit: tableau de bord ou analyse textuelle.](module_10/index.llms.md)
+
+## La progression en quatre temps
+
+La difficulté augmente par couches. Les gestes techniques reviennent, mais le niveau d'autonomie et la responsabilité de communication augmentent.
+
+Modules 1-3
+
+### Entrer dans le métier
+
+Produire des rapports reproductibles, comprendre la structure des données et transformer une analyse en message.
+
+Modules 4-6
+
+### Fiabiliser le travail
+
+Nettoyer, documenter, relier des tables et collaborer sans perdre la reproductibilité.
+
+Modules 7-8
+
+### Agir avec responsabilité
+
+Visualiser sans tromper, protéger les données et automatiser prudemment la collecte d'information.
+
+Modules 9-10
+
+### Communiquer l'incertitude
+
+Faire une première prédiction, discuter les biais et livrer une analyse consultable par d'autres.
 
 ## Immersion en science des données
 
@@ -74,31 +146,31 @@ Les modules vous placent dans les rôles qui structurent un projet de science de
 
 ### Data Engineer
 
-Mettre à disposition des données fiables, accessibles et bien structurées en concevant les architectures, les imports et les automatisations.
+Mettre à disposition des données fiables, accessibles et bien structurées.
 
 ### Data Owner
 
-Garantir la gouvernance, la conformité et la qualité des données: métadonnées, accès, source, mises à jour et règles de confidentialité.
+Garantir la gouvernance, la qualité, les accès et la confidentialité.
 
 ### Statisticien
 
-Modéliser les phénomènes, quantifier l'incertitude et aider à distinguer ce que les données permettent vraiment de conclure.
+Modéliser les phénomènes, quantifier l'incertitude et formuler des conclusions prudentes.
 
 ### Data Scientist
 
-Transformer les données en produits, modèles, recommandations et analyses à haute valeur ajoutée.
+Transformer les données en analyses, produits, modèles ou recommandations.
 
 ### Data Analyst
 
-Produire des insights opérationnels, suivre les indicateurs et soutenir la prise de décision au quotidien.
+Produire des indicateurs, des visualisations et des analyses utiles à la décision.
 
 ### Data Journalist
 
-Raconter des histoires engageantes, vérifiables et visuelles à partir de données bien documentées.
+Raconter des histoires vérifiables et visuelles à partir de données documentées.
 
 ### Freelancer
 
-Offrir une expertise ponctuelle et adaptable sur tout ou partie du cycle de science des données.
+Intervenir sur une partie du cycle avec une expertise ciblée et adaptable.
 
 ## Outils à installer
 

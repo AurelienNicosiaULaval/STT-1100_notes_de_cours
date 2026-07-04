@@ -6068,15 +6068,15 @@ Warning
 [1] &lt;h3 class=&quot;dataset-heading short&quot;&gt;\n    \n    \n      \n    \n    \n      ...
 [2] &lt;div class=&quot;dqc_donne_spat&quot;&gt;\n      &lt;img src=&quot;/recherche/images/2_icone_g ...
 [3] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
-[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;&lt;/div&gt;
-[5] &lt;div class=&quot;dqc-notes&quot;&gt; Le ministère de l’Environnement, de la Lutte cont ...</code></pre>
+[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégories :\n      \n        &lt;a href=&quot;/recherch ...
+[5] &lt;div class=&quot;dqc-notes&quot;&gt; Localisation des avertissements tels que les ferm ...</code></pre>
 </div>
 </div>
 <p>To extract text from an HTML element:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text2</span>(blocks[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\nOrganisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\nLe ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du...&quot;</code></pre>
+<pre><code>[1] &quot;Avertissement routier\nOrganisation : Ministère des Transports et de la Mobilité durable\nCatégories : Infrastructures; Transport\nLocalisation des avertissements tels que les fermetures de route et de pont ou d’incident empêchant le libre passage sur un segment routier ou sur une structure.&quot;</code></pre>
 </div>
 </div>
 <p>Now, let us test extraction of the title:</p>
@@ -6084,7 +6084,7 @@ Warning
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_elements</span>(blocks[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional&quot;</code></pre>
+<pre><code>[1] &quot;Avertissement routier&quot;</code></pre>
 </div>
 </div>
 <p>And for the producer? We need to locate a substructure containing the information:</p>
@@ -6094,8 +6094,8 @@ Warning
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>info</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs&quot;
-[2] &quot;&quot;                                                                                                                     </code></pre>
+<pre><code>[1] &quot;Organisation : Ministère des Transports et de la Mobilité durable&quot;
+[2] &quot;Catégories : Infrastructures; Transport&quot;                          </code></pre>
 </div>
 </div>
 <p>The Données Québec page used here returns French labels. A robust function should therefore handle labels such as <code>Organisation</code>, <code>Catégorie</code> and <code>Catégories</code>, even when you are reading the English version of the course.</p>
@@ -6107,7 +6107,7 @@ Warning
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>producer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs&quot;</code></pre>
+<pre><code>[1] &quot;Ministère des Transports et de la Mobilité durable&quot;</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">

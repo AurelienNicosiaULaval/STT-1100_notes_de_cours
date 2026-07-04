@@ -5023,6 +5023,170 @@ color: #ffffff;
 font-weight: 700;
 margin-bottom: .65rem;
 }
+.start-progress-panel {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.start-progress-panel div {
+min-width: 0;
+}
+.journey-map,
+.module-arc-grid,
+.phase-track {
+display: grid;
+gap: 1rem;
+}
+.journey-map {
+grid-template-columns: repeat(6, minmax(150px, 1fr));
+}
+.journey-step {
+position: relative;
+display: grid;
+grid-template-rows: auto auto auto 1fr auto;
+gap: .55rem;
+min-height: 16rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+padding: 1rem;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.journey-step::after {
+content: "";
+position: absolute;
+top: 2.15rem;
+right: -.58rem;
+width: .9rem;
+height: .9rem;
+border-top: 2px solid var(--ulaval-red);
+border-right: 2px solid var(--ulaval-red);
+background: #ffffff;
+transform: rotate(45deg);
+z-index: 1;
+}
+.journey-step:last-child::after {
+display: none;
+}
+.journey-step__number,
+.module-arc-card__stage,
+.phase-card > span {
+color: var(--ulaval-red);
+font-size: .76rem;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+}
+.journey-step__icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2.4rem;
+height: 2.4rem;
+border-radius: 50%;
+background: rgba(227, 5, 19, .1);
+color: var(--ulaval-red);
+font-size: 1.15rem;
+}
+.journey-step h3,
+.phase-card h3 {
+margin: 0;
+color: var(--ink);
+}
+.journey-step p,
+.phase-card p {
+margin: 0;
+color: var(--muted);
+font-size: .94rem;
+line-height: 1.4;
+}
+.journey-step__output {
+align-self: end;
+display: inline-flex;
+width: fit-content;
+border: 1px solid rgba(49, 95, 140, .22);
+border-radius: 999px;
+background: var(--soft);
+color: var(--blue);
+padding: .2rem .55rem;
+font-size: .78rem;
+font-weight: 700;
+line-height: 1.2;
+}
+.start-principle-card {
+border-top: 4px solid var(--ulaval-red);
+}
+.module-arc-grid {
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.module-arc-card {
+display: grid;
+grid-template-columns: 2.65rem minmax(0, 1fr);
+gap: .75rem;
+min-height: 12.5rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+color: var(--ink);
+padding: 1rem;
+text-decoration: none;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
+.module-arc-card:hover,
+.module-arc-card:focus {
+border-color: var(--ulaval-red);
+color: var(--ink);
+text-decoration: none;
+transform: translateY(-1px);
+}
+.module-arc-card__number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 2.35rem;
+height: 2.35rem;
+border-radius: 50%;
+background: var(--ulaval-red);
+color: #ffffff;
+font-weight: 700;
+line-height: 1;
+}
+.module-arc-card__body {
+display: grid;
+gap: .35rem;
+min-width: 0;
+}
+.module-arc-card__title {
+color: var(--ink);
+font-size: 1.02rem;
+font-weight: 700;
+line-height: 1.2;
+}
+.module-arc-card__text {
+color: var(--muted);
+font-size: .92rem;
+line-height: 1.35;
+}
+.module-arc-card__product {
+align-self: end;
+border-left: 3px solid var(--ulaval-yellow);
+color: var(--ink);
+font-size: .86rem;
+font-weight: 700;
+line-height: 1.25;
+margin-top: .25rem;
+padding-left: .55rem;
+}
+.phase-track {
+grid-template-columns: repeat(4, minmax(180px, 1fr));
+}
+.phase-card {
+display: grid;
+gap: .45rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+padding: 1rem;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+}
 .clean-steps {
 margin-bottom: 0;
 }
@@ -5649,6 +5813,17 @@ blockquote { border-left: 4px solid var(--ulaval-yellow); padding-left: 1rem; co
 .reveal table td, .reveal table th { border: 1px solid var(--line); padding: 4px 6px; }
 .reveal pre code { font-size: 0.6em; line-height: 1.3em; }
 .mermaid { font-size: 0.65em; }
+@media (max-width: 1100px) and (min-width: 701px) {
+.journey-map {
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.journey-step::after {
+display: none;
+}
+.phase-track {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
 @media (max-width: 700px) {
 .navbar-brand {
 max-width: calc(100vw - 10rem);
@@ -5677,12 +5852,27 @@ overflow-wrap: break-word;
 .principle-grid,
 .course-flow,
 .role-grid,
+.journey-map,
+.module-arc-grid,
+.phase-track,
 .reading-map,
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
 .module-quick-facts {
 grid-template-columns: 1fr;
+}
+.start-progress-panel {
+grid-template-columns: 1fr;
+}
+.journey-step {
+min-height: auto;
+}
+.journey-step::after {
+top: auto;
+right: 50%;
+bottom: -.62rem;
+transform: translateX(50%) rotate(135deg);
 }
 .home-visual {
 min-height: 24rem;
@@ -5806,7 +5996,7 @@ margin-bottom: .05rem;
   </li>
         <li>
     <a class="dropdown-item" href="../module_10/index.html">
- <span class="dropdown-text">Module 10 - Au-delà des données: texte et tableau de bord</span></a>
+ <span class="dropdown-text">Module 10 - Au-delà des données : texte et tableau de bord</span></a>
   </li>
     </ul>
   </li>
@@ -6119,15 +6309,15 @@ Avertissement
 [1] &lt;h3 class=&quot;dataset-heading short&quot;&gt;\n    \n    \n      \n    \n    \n      ...
 [2] &lt;div class=&quot;dqc_donne_spat&quot;&gt;\n      &lt;img src=&quot;/recherche/images/2_icone_g ...
 [3] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
-[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;&lt;/div&gt;
-[5] &lt;div class=&quot;dqc-notes&quot;&gt; Le ministère de l’Environnement, de la Lutte cont ...</code></pre>
+[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégories :\n      \n        &lt;a href=&quot;/recherch ...
+[5] &lt;div class=&quot;dqc-notes&quot;&gt; Localisation des avertissements tels que les ferm ...</code></pre>
 </div>
 </div>
 <p>Pour extraire le texte d’un élément HTML :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text2</span>(blocs[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\nOrganisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\nLe ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du...&quot;</code></pre>
+<pre><code>[1] &quot;Avertissement routier\nOrganisation : Ministère des Transports et de la Mobilité durable\nCatégories : Infrastructures; Transport\nLocalisation des avertissements tels que les fermetures de route et de pont ou d’incident empêchant le libre passage sur un segment routier ou sur une structure.&quot;</code></pre>
 </div>
 </div>
 <p>Maintenant, testons l’extraction du titre :</p>
@@ -6135,7 +6325,7 @@ Avertissement
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_elements</span>(blocs[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional&quot;</code></pre>
+<pre><code>[1] &quot;Avertissement routier&quot;</code></pre>
 </div>
 </div>
 <p>Et pour le producteur? Il faut repérer une sous-structure contenant l’information :</p>
@@ -6145,8 +6335,8 @@ Avertissement
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>infos</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs&quot;
-[2] &quot;&quot;                                                                                                                     </code></pre>
+<pre><code>[1] &quot;Organisation : Ministère des Transports et de la Mobilité durable&quot;
+[2] &quot;Catégories : Infrastructures; Transport&quot;                          </code></pre>
 </div>
 </div>
 <p>On peut filtrer le bon élément avec <code>grepl()</code> puis nettoyer la chaîne avec <code>sub()</code> :</p>
@@ -6158,7 +6348,7 @@ Avertissement
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>producteur</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs&quot;</code></pre>
+<pre><code>[1] &quot;Ministère des Transports et de la Mobilité durable&quot;</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
