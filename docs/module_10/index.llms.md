@@ -64,9 +64,9 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Déployer ou présenter un tableau de bord final cohérent. [Défi](defi.llms.md) Ouvrir la carteRéduire
+3 Défi Ouvrir localement ou partager un tableau de bord final cohérent. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-### Défi — Tableau de bord déployé
+### Défi - Tableau de bord local ou partagé
 
 Vous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :
 
@@ -74,9 +74,9 @@ Vous devez construire un tableau de bord interactif à partir du modèle fourni.
 - Identifier les mots distinctifs (TF-IDF) ou un nuage de mots ;
 - Analyser les variables numériques (`plaisir`, `engagement`, `difficulte`) ;
 - Être personnalisé (filtrage, couleurs, résumé) ;
-- Être déployé et partagé à Anne-Sophie.
+- Fonctionner localement ; être déployé ou partagé seulement si cette consigne est donnée en classe.
 
-La consigne complète est disponible dans la page [Défi 10](defi.llms.md). Le dépôt de départ est `STT-1100/aventure-10`.
+La consigne complète est disponible dans la page [Défi 10](defi.llms.md). Le dépôt de départ est `STT-1100/aventure-10`. Le fonctionnement local est le minimum attendu ; le déploiement dépend des consignes données en classe.
 
 ## Données et outils
 

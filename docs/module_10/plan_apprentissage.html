@@ -4320,6 +4320,57 @@ font-weight: 700;
 overflow-wrap: normal;
 word-break: normal;
 }
+.adventure-brief,
+.portfolio-trace {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+padding: 1rem 1.1rem;
+margin: 1.2rem 0 1.5rem;
+}
+.adventure-brief {
+border-left: 5px solid var(--teal);
+background: linear-gradient(90deg, #f4fbfc 0%, #ffffff 70%);
+}
+.portfolio-trace {
+border-left: 5px solid var(--blue);
+background: #f8fbff;
+}
+.adventure-brief-title,
+.portfolio-trace-title {
+margin: 0 0 .75rem;
+color: var(--ink);
+font-size: 1.05rem;
+font-weight: 700;
+line-height: 1.25;
+}
+.adventure-brief-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+gap: .75rem;
+}
+.adventure-brief-item {
+display: grid;
+gap: .15rem;
+min-width: 0;
+}
+.adventure-brief-label {
+color: var(--ulaval-red);
+font-size: .76rem;
+font-weight: 700;
+letter-spacing: .06em;
+line-height: 1.2;
+text-transform: uppercase;
+}
+.adventure-brief-value {
+color: var(--ink);
+line-height: 1.35;
+overflow-wrap: anywhere;
+}
+.portfolio-trace ul {
+margin-bottom: 0;
+}
 .module-product-showcase {
 display: grid;
 grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
@@ -5801,7 +5852,7 @@ margin-bottom: .05rem;
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
   <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a></li>
   <li><a href="#aventure" id="toc-aventure" class="nav-link" data-scroll-target="#aventure">Aventure</a></li>
-  <li><a href="#défi-tableau-de-bord-déployé" id="toc-défi-tableau-de-bord-déployé" class="nav-link" data-scroll-target="#défi-tableau-de-bord-déployé">Défi — Tableau de bord déployé</a></li>
+  <li><a href="#défi---tableau-de-bord-local-ou-partagé" id="toc-défi---tableau-de-bord-local-ou-partagé" class="nav-link" data-scroll-target="#défi---tableau-de-bord-local-ou-partagé">Défi - Tableau de bord local ou partagé</a></li>
   <li><a href="#grille-dévaluation" id="toc-grille-dévaluation" class="nav-link" data-scroll-target="#grille-dévaluation">Grille d’évaluation</a></li>
   </ul>
 </nav>
@@ -5854,15 +5905,15 @@ margin-bottom: .05rem;
 <p>Vous êtes analyste d’affaires junior engagé par la Faculté des sciences et de génie de l’Université Laval. Votre mandat : analyser les commentaires anonymes des étudiant·es sur le cours STT-1100 et produire un tableau de bord interactif pour la direction du programme.</p>
 <p><a href="../module_10/aventure.html">Aventure 10 — Au-delà des données : texte et tableau de bord</a></p>
 </section>
-<section id="défi-tableau-de-bord-déployé" class="level1 unnumbered">
-<h1 class="unnumbered">Défi — Tableau de bord déployé</h1>
+<section id="défi---tableau-de-bord-local-ou-partagé" class="level1 unnumbered">
+<h1 class="unnumbered">Défi - Tableau de bord local ou partagé</h1>
 <p>Vous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :</p>
 <ul>
 <li>Afficher un score de sentiment par semaine ;</li>
 <li>Identifier les mots distinctifs (TF-IDF) ou un nuage de mots ;</li>
 <li>Analyser les variables numériques (<code>plaisir</code>, <code>engagement</code>, <code>difficulte</code>) ;</li>
 <li>Être personnalisé (filtrage, couleurs, résumé) ;</li>
-<li>Être déployé et partagé à Anne-Sophie.</li>
+<li>Fonctionner localement ; être déployé ou partagé seulement si cette consigne est donnée en classe.</li>
 </ul>
 <p>Consigne complète : <a href="../module_10/defi.html">Défi 10 — Tableau de bord de rétroactions</a></p>
 <p>Dépôt de départ : <code>STT-1100/aventure-10</code></p>
@@ -5920,8 +5971,8 @@ margin-bottom: .05rem;
 <td>/10</td>
 </tr>
 <tr class="even">
-<td><strong>Déploiement et accessibilité</strong></td>
-<td>Dashboard fonctionnel, lien valide partagé dans les temps</td>
+<td><strong>Accessibilité et partage</strong></td>
+<td>Tableau de bord fonctionnel localement, avec lien valide seulement si un déploiement est demandé</td>
 <td>/5</td>
 </tr>
 </tbody>

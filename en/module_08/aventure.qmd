@@ -71,6 +71,38 @@ Your contact: Marie-Pier
 She accompanies you throughout this adventure. She asks key questions, checks your results and helps you clarify your deliverables.
 :::
 
+<!-- adventure-brief:start -->
+<div class="adventure-brief">
+<p class="adventure-brief-title">Character card</p>
+<div class="adventure-brief-grid">
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Your role</span>
+<span class="adventure-brief-value">Independent data science consultant</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Main contact</span>
+<span class="adventure-brief-value">Marie-Pier</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Organization and context</span>
+<span class="adventure-brief-value">Quebec Institute for Sustainable Data</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Mission</span>
+<span class="adventure-brief-value">Create a robust, testable and respectful scraping tool</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Data</span>
+<span class="adventure-brief-value">Données Québec page or small local HTML test page</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Deliverable</span>
+<span class="adventure-brief-value"><code>IDUL.R</code> with <code>scrape_page()</code></span>
+</div>
+</div>
+</div>
+<!-- adventure-brief:end -->
+
 ## Adventure Objectives
 
 - Understand the basics of web scraping with `rvest`.
@@ -78,6 +110,16 @@ She accompanies you throughout this adventure. She asks key questions, checks yo
 - Automate extraction over several pages.
 - Explore trends in Quebec open data.
 - Evaluate the ethical and technical limits of automated collection.
+
+<!-- week-new:start -->
+::: {.callout-note title="What is new this week"}
+- You read the structure of a web page as a data source.
+- You turn a manual extraction into a reusable function.
+- You test your function on a local page to remain independent of portal changes.
+- You connect code to ethical limits: `robots.txt`, terms of use and server load.
+:::
+
+<!-- week-new:end -->
 
 # Before Scraping: Check the Context
 
@@ -199,6 +241,10 @@ Marie-Pier wants you to create a reusable function named `scrape_page()`. It tak
 
 The column names remain in French because the automatic tests will check this exact contract.
 
+::: callout-note
+The template repository contains a small local HTML page so the function can be tested even if the portal changes or the network is unavailable. Your function must therefore work with both a public page and this local source, without changing the output contract.
+:::
+
 Here is a skeleton to complete:
 
 ```{r, eval=FALSE}
@@ -295,6 +341,19 @@ Briefly report:
 The challenge associated with this adventure is described on the page [Challenge 8 - Scraping Function](defi.qmd).
 
 You must submit an `IDUL.R` file containing your `scrape_page()` function. The starter repository is the GitHub template `STT-1100/aventure-8`.
+
+<!-- portfolio-trace:start -->
+<div class="portfolio-trace">
+<p class="portfolio-trace-title">Portfolio trace</p>
+<p>Keep a trace proving that your function is robust and responsible.</p>
+<ul>
+<li>the output contract for <code>scrape_page()</code>;</li>
+<li>one successful test on a local HTML page;</li>
+<li>an ethics note about <code>robots.txt</code>, server load and terms of use;</li>
+<li>a short exploration of the results, if a public page is available.</li>
+</ul>
+</div>
+<!-- portfolio-trace:end -->
 
 # Conclusion of the Adventure
 

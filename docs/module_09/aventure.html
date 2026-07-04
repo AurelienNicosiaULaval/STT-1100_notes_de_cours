@@ -4355,6 +4355,57 @@ font-weight: 700;
 overflow-wrap: normal;
 word-break: normal;
 }
+.adventure-brief,
+.portfolio-trace {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+padding: 1rem 1.1rem;
+margin: 1.2rem 0 1.5rem;
+}
+.adventure-brief {
+border-left: 5px solid var(--teal);
+background: linear-gradient(90deg, #f4fbfc 0%, #ffffff 70%);
+}
+.portfolio-trace {
+border-left: 5px solid var(--blue);
+background: #f8fbff;
+}
+.adventure-brief-title,
+.portfolio-trace-title {
+margin: 0 0 .75rem;
+color: var(--ink);
+font-size: 1.05rem;
+font-weight: 700;
+line-height: 1.25;
+}
+.adventure-brief-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+gap: .75rem;
+}
+.adventure-brief-item {
+display: grid;
+gap: .15rem;
+min-width: 0;
+}
+.adventure-brief-label {
+color: var(--ulaval-red);
+font-size: .76rem;
+font-weight: 700;
+letter-spacing: .06em;
+line-height: 1.2;
+text-transform: uppercase;
+}
+.adventure-brief-value {
+color: var(--ink);
+line-height: 1.35;
+overflow-wrap: anywhere;
+}
+.portfolio-trace ul {
+margin-bottom: 0;
+}
 .module-product-showcase {
 display: grid;
 grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
@@ -5900,6 +5951,33 @@ Note
 <p>Il vous accompagne tout au long de cette aventure. Il pose des questions clés et vous demande d’expliquer vos résultats dans un langage accessible.</p>
 </div>
 </div>
+<!-- adventure-brief:start -->
+<div class="adventure-brief">
+<p class="adventure-brief-title">
+Carte de visite
+</p>
+<div class="adventure-brief-grid">
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Votre rôle</span> <span class="adventure-brief-value">Scientifique de données junior</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Interlocuteur</span> <span class="adventure-brief-value">Michel Dufour</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Organisation et contexte</span> <span class="adventure-brief-value">Ministère de l’Éducation du Québec, contrôle qualité et équité</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Mission</span> <span class="adventure-brief-value">Construire une première prédiction et discuter les limites et biais possibles</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Données</span> <span class="adventure-brief-value"><code>ecoles_primaires_qc.csv</code> et <code>eleves_fictifs.csv</code></span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Livrable</span> <span class="adventure-brief-value">Capsule vidéo courte avec résultat, visualisation et prudence d’interprétation</span></p>
+</div>
+</div>
+</div>
+<!-- adventure-brief:end -->
 <section id="objectifs-de-laventure" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h2>
 <ul>
@@ -5909,6 +5987,26 @@ Note
 <li>Détecter un biais descriptif dans un jeu de données fictif.</li>
 <li>Formuler une recommandation prudente à partir d’une analyse.</li>
 </ul>
+<!-- week-new:start -->
+<div class="callout callout-style-default callout-note callout-titled" title="Ce qui est nouveau cette semaine">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ce qui est nouveau cette semaine
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Vous ajustez un premier modèle avec <code>lm()</code> et l’utilisez avec <code>predict()</code>.</li>
+<li>Vous comparez valeurs observées et valeurs prédites en discutant les limites des données.</li>
+<li>Vous analysez un biais descriptif sans confondre différence observée et preuve de discrimination.</li>
+<li>Vous préparez une explication courte, claire et accessible en format vidéo.</li>
+</ul>
+</div>
+</div>
+<!-- week-new:end -->
 </section>
 </section>
 <section id="mission-1-modèle-prédictif-à-léchelle-des-écoles" class="level1">
@@ -6132,6 +6230,30 @@ Note
 <h1>Défi à remettre</h1>
 <p>Le défi associé à cette aventure est décrit dans la page <a href="../module_09/defi.html">Défi 9 - Capsule vidéo</a>.</p>
 <p>Vous devrez produire une capsule vidéo de 180 secondes maximum. Vous pouvez présenter soit votre modèle prédictif de la Mission 1, soit votre analyse de biais de la Mission 2. Le dépôt de départ est le template GitHub <code>STT-1100/aventure-9</code>.</p>
+<!-- portfolio-trace:start -->
+<div class="portfolio-trace">
+<p class="portfolio-trace-title">
+Trace portfolio
+</p>
+<p>
+Votre trace doit montrer le résultat, mais aussi la prudence d’interprétation.
+</p>
+<ul>
+<li>
+un résultat de modèle ou de biais descriptif;
+</li>
+<li>
+une visualisation qui soutient votre explication;
+</li>
+<li>
+une phrase claire sur association, prédiction et causalité;
+</li>
+<li>
+un brouillon de formulation accessible pour la capsule vidéo.
+</li>
+</ul>
+</div>
+<!-- portfolio-trace:end -->
 </section>
 <section id="conclusion-de-laventure" class="level1">
 <h1>Conclusion de l’aventure</h1>

@@ -12,6 +12,20 @@ Votre travail consiste à **manipuler, transformer et visualiser** les données 
 
 ------------------------------------------------------------------------
 
+Carte de visite
+
+Votre rôle Scientifique de données
+
+Interlocuteurs Dre Adélie Fortier, avec Jules Tremblay comme soutien
+
+Organisation et contexte Équipe de recherche sur les manchots d’Antarctique
+
+Mission Explorer, manipuler, résumer et visualiser les données de terrain
+
+Données `manchots_donnees.xlsx`
+
+Livrable Journal de bord, puis rapport d’analyse Quarto HTML
+
 ## Déroulement de la mission et livrables attendus
 
 La mission se déroulera en **deux temps**, car la Dre Adélie devra bientôt repartir en expédition en Antarctique.
@@ -679,5 +693,14 @@ Attention, n’oubliez pas vos bonnes pratiques de visualisation : titres inform
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
 ------------------------------------------------------------------------
+
+Trace portfolio
+
+Gardez une preuve compacte de votre progression dans cette mission scientifique.
+
+- le journal de bord Quarto de la première partie;
+- deux graphiques commentés sur les manchots;
+- un résumé descriptif qui répond à une question de la Dre Adélie;
+- quelques commits Git qui montrent l’évolution de votre travail.
 
 **Mission réussie !** Vous avez aidé la Dre Adélie Fortier à analyser les données des manchots avec succès !

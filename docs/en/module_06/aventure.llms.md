@@ -10,6 +10,20 @@ This adventure deliberately changes the level of work. In previous modules, most
 
 The report will be produced with **Quarto**, versioned in **GitHub** and based on the tables from the **`nycflights23`** package: `flights`, `airlines` and `weather`.
 
+Character card
+
+Your role Data science team
+
+Main contact Dr Sofia Martinez
+
+Organization and context Port Authority Data Lab
+
+Mission Produce a collaborative and reproducible report on JFK delays
+
+Data `nycflights23::flights`, `airlines` and `weather`
+
+Deliverable Collaborative report, HTML output, README and GitHub trail
+
 # Starter Repository
 
 Clone the module 6 GitHub repository from the course organization: `STT-1100/aventure-6`.
@@ -186,6 +200,15 @@ Add a section explaining how your project illustrates the following steps:
 3.  analysis;
 4.  communication;
 5.  sharing, reuse and versioning.
+
+Portfolio trace
+
+The collaboration trail matters as much as the final chart.
+
+- one branch or pull request connected to your role;
+- the joined table used in the report;
+- two visualizations or reproducible elements added to the report;
+- one logbook entry describing a decision, a difficulty or a GitHub conflict.
 
 # Final Check
 

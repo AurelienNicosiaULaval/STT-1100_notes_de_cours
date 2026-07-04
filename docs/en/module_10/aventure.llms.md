@@ -12,6 +12,20 @@ You are guided by **Anne-Sophie**, the program director, who supports you in str
 
 > “The idea is to have an honest, but constructive portrait. We want to see the underlying trends and draw inspiration from them to continue to improve our program.”
 
+Character card
+
+Your role Junior business analyst
+
+Main contact Anne-Sophie
+
+Organization and context Faculty of Science and Engineering, Université Laval
+
+Mission Turn anonymized feedback into a useful dashboard
+
+Data `data/sentiments_cours.csv` or non-real example file
+
+Deliverable Reproducible local dashboard, or shared according to course instructions
+
 # Mission
 
 Build an interactive dashboard with `flexdashboard` and `shiny` that allows you to:
@@ -20,6 +34,13 @@ Build an interactive dashboard with `flexdashboard` and `shiny` that allows you 
 - identify the most frequent and distinctive words,
 - explore lexical trends over time,
 - offer dynamic filters to refine the analysis.
+
+> **NOTE:**
+>
+> - You treat free text as analyzable data.
+> - You apply a sentiment lexicon while stating its limits.
+> - You combine text analysis, numerical variables and an interactive dashboard.
+> - You protect feedback confidentiality before any publication or sharing.
 
 # Data
 
@@ -295,9 +316,19 @@ You can also integrate a progress bar or visual indicator of overall sentiment p
 
 - A GitHub repository containing:
   - the `.Rmd` of the dashboard,
-  - the final HTML rendering,
+  - the final HTML rendering or the instructions needed to run the dashboard locally,
   - the cleaned data file (if modified).
-- **The dashboard must be deployed (for example via shinyapps.io or Posit Cloud)** and the final link must be submitted using the mechanism defined for the course.
+- The minimal deliverable is a reproducible dashboard that works locally.
+- Public deployment (for example via shinyapps.io or Posit Cloud) is required only if that instruction is given in class.
+
+Portfolio trace
+
+Keep only anonymized traces that help explain the dashboard.
+
+- a cleaned token table or aggregated excerpt;
+- a note about the limits of the sentiment lexicon;
+- a screenshot, rendered file or local link to the dashboard;
+- one confidentiality sentence stating what must not be published.
 
 # Advice from Anne-Sophie
 

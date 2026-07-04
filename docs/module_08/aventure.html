@@ -4355,6 +4355,57 @@ font-weight: 700;
 overflow-wrap: normal;
 word-break: normal;
 }
+.adventure-brief,
+.portfolio-trace {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #ffffff;
+box-shadow: 0 8px 22px rgba(32, 33, 36, .05);
+padding: 1rem 1.1rem;
+margin: 1.2rem 0 1.5rem;
+}
+.adventure-brief {
+border-left: 5px solid var(--teal);
+background: linear-gradient(90deg, #f4fbfc 0%, #ffffff 70%);
+}
+.portfolio-trace {
+border-left: 5px solid var(--blue);
+background: #f8fbff;
+}
+.adventure-brief-title,
+.portfolio-trace-title {
+margin: 0 0 .75rem;
+color: var(--ink);
+font-size: 1.05rem;
+font-weight: 700;
+line-height: 1.25;
+}
+.adventure-brief-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+gap: .75rem;
+}
+.adventure-brief-item {
+display: grid;
+gap: .15rem;
+min-width: 0;
+}
+.adventure-brief-label {
+color: var(--ulaval-red);
+font-size: .76rem;
+font-weight: 700;
+letter-spacing: .06em;
+line-height: 1.2;
+text-transform: uppercase;
+}
+.adventure-brief-value {
+color: var(--ink);
+line-height: 1.35;
+overflow-wrap: anywhere;
+}
+.portfolio-trace ul {
+margin-bottom: 0;
+}
 .module-product-showcase {
 display: grid;
 grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
@@ -5889,6 +5940,33 @@ Note
 <p>Elle vous accompagne tout au long de cette aventure. Elle pose des questions clés, vérifie vos résultats et vous aide à clarifier vos livrables.</p>
 </div>
 </div>
+<!-- adventure-brief:start -->
+<div class="adventure-brief">
+<p class="adventure-brief-title">
+Carte de visite
+</p>
+<div class="adventure-brief-grid">
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Votre rôle</span> <span class="adventure-brief-value">Consultant·e indépendant·e en science des données</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Interlocutrice</span> <span class="adventure-brief-value">Marie-Pier</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Organisation et contexte</span> <span class="adventure-brief-value">Institut québécois pour les données durables</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Mission</span> <span class="adventure-brief-value">Créer un outil de scraping robuste, testable et respectueux</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Données</span> <span class="adventure-brief-value">Page Données Québec ou petite page HTML locale de test</span></p>
+</div>
+<div class="adventure-brief-item">
+<p><span class="adventure-brief-label">Livrable</span> <span class="adventure-brief-value"><code>IDUL.R</code> avec <code>scrape_page()</code></span></p>
+</div>
+</div>
+</div>
+<!-- adventure-brief:end -->
 <section id="objectifs-de-laventure" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h2>
 <ul>
@@ -5898,6 +5976,26 @@ Note
 <li>Explorer les tendances dans les données ouvertes du Québec.</li>
 <li>Évaluer les limites éthiques et techniques d’une collecte automatisée.</li>
 </ul>
+<!-- week-new:start -->
+<div class="callout callout-style-default callout-note callout-titled" title="Ce qui est nouveau cette semaine">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ce qui est nouveau cette semaine
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Vous lisez la structure d’une page web comme une source de données.</li>
+<li>Vous transformez une extraction manuelle en fonction réutilisable.</li>
+<li>Vous testez votre fonction sur une page locale pour rester indépendant·e des changements du portail.</li>
+<li>Vous reliez le code à des limites éthiques : <code>robots.txt</code>, conditions d’utilisation et charge serveur.</li>
+</ul>
+</div>
+</div>
+<!-- week-new:end -->
 </section>
 </section>
 <section id="avant-de-scraper-vérifier-le-contexte" class="level1">
@@ -6021,15 +6119,15 @@ Avertissement
 [1] &lt;h3 class=&quot;dataset-heading short&quot;&gt;\n    \n    \n      \n    \n    \n      ...
 [2] &lt;div class=&quot;dqc_donne_spat&quot;&gt;\n      &lt;img src=&quot;/recherche/images/2_icone_g ...
 [3] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
-[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;&lt;/div&gt;
-[5] &lt;div class=&quot;dqc-notes&quot;&gt; Le ministère de l’Environnement, de la Lutte cont ...</code></pre>
+[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégories :\n      \n        &lt;a href=&quot;/recherch ...
+[5] &lt;div class=&quot;dqc-notes&quot;&gt; Mesure des stations de débit et de niveau des par ...</code></pre>
 </div>
 </div>
 <p>Pour extraire le texte d’un élément HTML :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text2</span>(blocs[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\nOrganisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\nLe ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du...&quot;</code></pre>
+<pre><code>[1] &quot;Stations débit/niveau - Grand public\nOrganisation : Ministère de la Sécurité intérieure\nCatégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique\nMesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les...&quot;</code></pre>
 </div>
 </div>
 <p>Maintenant, testons l’extraction du titre :</p>
@@ -6037,7 +6135,7 @@ Avertissement
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_elements</span>(blocs[[<span class="dv">1</span>]], <span class="st">&quot;.dataset-heading a&quot;</span>) <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional&quot;</code></pre>
+<pre><code>[1] &quot;Stations débit/niveau - Grand public&quot;</code></pre>
 </div>
 </div>
 <p>Et pour le producteur? Il faut repérer une sous-structure contenant l’information :</p>
@@ -6047,8 +6145,8 @@ Avertissement
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>infos</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs&quot;
-[2] &quot;&quot;                                                                                                                     </code></pre>
+<pre><code>[1] &quot;Organisation : Ministère de la Sécurité intérieure&quot;
+[2] &quot;Catégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique&quot;</code></pre>
 </div>
 </div>
 <p>On peut filtrer le bon élément avec <code>grepl()</code> puis nettoyer la chaîne avec <code>sub()</code> :</p>
@@ -6060,7 +6158,7 @@ Avertissement
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>producteur</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs&quot;</code></pre>
+<pre><code>[1] &quot;Ministère de la Sécurité intérieure&quot;</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6109,6 +6207,19 @@ Astuce
 <li><code>categorie</code>.</li>
 </ul>
 <p>Ces noms de colonnes seront utilisés dans les tests automatiques.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le dépôt template contient une petite page HTML locale pour tester la fonction même si le portail change ou si le réseau est indisponible. Votre fonction doit donc fonctionner avec une page publique et avec cette source locale, sans changer le contrat de sortie.</p>
+</div>
+</div>
 <p>Voici un squelette à compléter :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>scrape_page <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
@@ -6240,6 +6351,30 @@ Astuce
 <h1>Défi à remettre</h1>
 <p>Le défi associé à cette aventure est décrit dans la page <a href="../module_08/defi.html">Défi 8 - Fonction de scraping</a>.</p>
 <p>Vous devrez remettre un fichier <code>IDUL.R</code> contenant votre fonction <code>scrape_page()</code>. Le dépôt de départ est le template GitHub <code>STT-1100/aventure-8</code>.</p>
+<!-- portfolio-trace:start -->
+<div class="portfolio-trace">
+<p class="portfolio-trace-title">
+Trace portfolio
+</p>
+<p>
+Gardez une trace qui prouve que votre fonction est robuste et responsable.
+</p>
+<ul>
+<li>
+le contrat de sortie de <code>scrape_page()</code>;
+</li>
+<li>
+un test réussi sur une page HTML locale;
+</li>
+<li>
+une note d’éthique sur <code>robots.txt</code>, la charge serveur et les conditions d’utilisation;
+</li>
+<li>
+une courte exploration des résultats, si une page publique est disponible.
+</li>
+</ul>
+</div>
+<!-- portfolio-trace:end -->
 </section>
 <section id="conclusion-de-laventure" class="level1">
 <h1>Conclusion de l’aventure</h1>

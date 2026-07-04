@@ -97,29 +97,66 @@ replace_directory <- function(source, target) {
 }
 
 sync_source_to_render_root <- function(source_root, render_root) {
-  args <- c(
-    "-rlt",
-    "--delete",
-    "--timeout=120",
-    "--exclude=.git/",
-    "--exclude=.Rhistory",
-    "--exclude=.RData",
-    "--exclude=.Rproj.user/",
-    "--exclude=.DS_Store",
-    "--exclude=.quarto*/",
-    "--exclude=docs/",
-    "--exclude=en/docs/",
-    "--exclude=site_libs*/",
-    "--exclude=*_files/",
-    "--exclude=*.rmarkdown",
-    "--exclude=*.llms.md",
-    "--exclude=llms.txt",
-    "--include=language-switch.html",
-    "--exclude=*.html",
-    paste0(source_root, "/"),
-    paste0(render_root, "/")
-  )
-  run_rsync(args, "Failed to sync source files to temporary render directory.")
+  should_skip <- function(rel_path, is_dir) {
+    parts <- strsplit(rel_path, "/", fixed = TRUE)[[1]]
+    base <- tail(parts, 1)
+
+    if (parts[1] %in% c(".git", "docs")) return(TRUE)
+    if (grepl("^docs [0-9]+$", parts[1])) return(TRUE)
+    if (length(parts) >= 2 && parts[1] == "en" && grepl("^docs( [0-9]+)?$", parts[2])) {
+      return(TRUE)
+    }
+    if (any(parts %in% c(".Rproj.user", "site_libs", "en/site_libs"))) return(TRUE)
+    if (any(grepl("^site_libs [0-9]+$", parts))) return(TRUE)
+    if (any(grepl("^\\.quarto", parts))) return(TRUE)
+    if (base %in% c(".Rhistory", ".RData", ".DS_Store")) return(TRUE)
+    if (is_dir && grepl("_files$", base)) return(TRUE)
+    if (!is_dir && grepl("\\.rmarkdown$", base)) return(TRUE)
+    if (!is_dir && grepl("\\.llms\\.md$", base)) return(TRUE)
+    if (!is_dir && identical(base, "llms.txt")) return(TRUE)
+    if (!is_dir && grepl("\\.html$", base) && !identical(base, "language-switch.html")) {
+      return(TRUE)
+    }
+
+    FALSE
+  }
+
+  copy_tree <- function(current_source, current_rel = "") {
+    entries <- list.files(
+      current_source,
+      all.files = TRUE,
+      no.. = TRUE,
+      full.names = TRUE
+    )
+
+    for (entry in entries) {
+      rel_path <- if (nzchar(current_rel)) {
+        file.path(current_rel, basename(entry))
+      } else {
+        basename(entry)
+      }
+      is_dir <- dir.exists(entry)
+
+      if (should_skip(rel_path, is_dir)) {
+        next
+      }
+
+      target <- file.path(render_root, rel_path)
+      if (is_dir) {
+        dir.create(target, recursive = TRUE, showWarnings = FALSE)
+        copy_tree(entry, rel_path)
+      } else {
+        dir.create(dirname(target), recursive = TRUE, showWarnings = FALSE)
+        ok <- file.copy(entry, target, overwrite = TRUE, copy.mode = TRUE, copy.date = TRUE)
+        if (!ok) {
+          stop("Failed to copy source file: ", rel_path, call. = FALSE)
+        }
+      }
+    }
+  }
+
+  message("Copying source files to temporary render directory.")
+  copy_tree(source_root)
 }
 
 find_quarto_cache_paths <- function() {
@@ -298,6 +335,5 @@ setwd(repo_root)
 replace_directory(file.path(render_root, "docs"), file.path(repo_root, "docs"))
 ensure_nojekyll(file.path(repo_root, "docs"))
 strip_trailing_whitespace(file.path(repo_root, "docs"))
-remove_paths(render_root)
 
 message("Done: rendered French site to docs/ and English site to docs/en/.")

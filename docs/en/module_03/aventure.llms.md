@@ -21,6 +21,20 @@ At the end of the adventure, you will have to submit **a Quarto article** (HTML)
 > **Your municipal ally**
 > This is **Alexandre**, municipal councilor responsible for food hygiene at the City of Montreal. It follows your investigation step by step and will ask you, at key moments, questions to guide your analyses. It is a valuable ally for writing your article, but it also has its requirements. He expects you to provide him with clear and precise answers, accompanied by relevant graphics.
 
+Character card
+
+Your role Data journalist
+
+Main contacts Le Courrier Gourmand newsroom and Alexandre, municipal councillor
+
+Organization and context Fictional local media outlet and the City of Montreal
+
+Mission Produce a clear article about food violations in Montreal
+
+Data `UlavalSSD::listecondamnation`
+
+Deliverable Illustrated Quarto HTML article
+
 ## Adventure objectives
 
 - Import and clean a real categorical dataset (food offenses).
@@ -523,6 +537,15 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 > **Advice from Alexandre**: *“A visual is worth a thousand words. Choose a **zoom in on the city center** where the density of fines is highest, and cite a key figure (e.g. \$180,000 in fines within a 2km radius). Your article will gain in impact. »*
 
 ------------------------------------------------------------------------
+
+Portfolio trace
+
+Keep the elements that show how a table became an article.
+
+- your cleaning choices for categories and amounts;
+- two figures ready for the article;
+- two key numbers explained in complete sentences;
+- one important nuance to communicate to the public.
 
 # Conclusion of the adventure
 

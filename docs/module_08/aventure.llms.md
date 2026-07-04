@@ -14,6 +14,20 @@ Aujourd’hui, vous êtes engagé par Marie-Pier, directrice de recherche à l�
 >
 > Elle vous accompagne tout au long de cette aventure. Elle pose des questions clés, vérifie vos résultats et vous aide à clarifier vos livrables.
 
+Carte de visite
+
+Votre rôle Consultant·e indépendant·e en science des données
+
+Interlocutrice Marie-Pier
+
+Organisation et contexte Institut québécois pour les données durables
+
+Mission Créer un outil de scraping robuste, testable et respectueux
+
+Données Page Données Québec ou petite page HTML locale de test
+
+Livrable `IDUL.R` avec `scrape_page()`
+
 ## Objectifs de l’aventure
 
 - Comprendre les bases du web scraping avec `rvest`.
@@ -21,6 +35,13 @@ Aujourd’hui, vous êtes engagé par Marie-Pier, directrice de recherche à l�
 - Automatiser l’extraction sur plusieurs pages.
 - Explorer les tendances dans les données ouvertes du Québec.
 - Évaluer les limites éthiques et techniques d’une collecte automatisée.
+
+> **NOTE:**
+>
+> - Vous lisez la structure d’une page web comme une source de données.
+> - Vous transformez une extraction manuelle en fonction réutilisable.
+> - Vous testez votre fonction sur une page locale pour rester indépendant·e des changements du portail.
+> - Vous reliez le code à des limites éthiques : `robots.txt`, conditions d’utilisation et charge serveur.
 
 # Avant de scraper : vérifier le contexte
 
@@ -128,8 +149,8 @@ blocs[[1]]
     [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
     [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
     [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [4] <div class="dqc-org-cat"></div>
-    [5] <div class="dqc-notes"> Le ministère de l’Environnement, de la Lutte cont ...
+    [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
+    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
 
 Pour extraire le texte d’un élément HTML :
 
@@ -137,7 +158,7 @@ Pour extraire le texte d’un élément HTML :
 html_text2(blocs[[1]])
 ```
 
-    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\nOrganisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\nLe ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du..."
+    [1] "Stations débit/niveau - Grand public\nOrganisation : Ministère de la Sécurité intérieure\nCatégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique\nMesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les..."
 
 Maintenant, testons l’extraction du titre :
 
@@ -146,7 +167,7 @@ html_elements(blocs[[1]], ".dataset-heading a") |>
   html_text2()
 ```
 
-    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional"
+    [1] "Stations débit/niveau - Grand public"
 
 Et pour le producteur? Il faut repérer une sous-structure contenant l’information :
 
@@ -157,8 +178,8 @@ infos <- html_elements(blocs[[1]], ".dqc-org-cat") |>
 infos
 ```
 
-    [1] "Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
-    [2] ""
+    [1] "Organisation : Ministère de la Sécurité intérieure"
+    [2] "Catégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique"
 
 On peut filtrer le bon élément avec `grepl()` puis nettoyer la chaîne avec `sub()` :
 
@@ -171,7 +192,7 @@ producteur <- extraire_valeur(
 producteur
 ```
 
-    [1] "Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+    [1] "Ministère de la Sécurité intérieure"
 
 > **TIP:**
 >
@@ -204,6 +225,10 @@ Marie-Pier souhaite que vous créiez une fonction réutilisable nommée `scrape_
 - `categorie`.
 
 Ces noms de colonnes seront utilisés dans les tests automatiques.
+
+> **NOTE:**
+>
+> Le dépôt template contient une petite page HTML locale pour tester la fonction même si le portail change ou si le réseau est indisponible. Votre fonction doit donc fonctionner avec une page publique et avec cette source locale, sans changer le contrat de sortie.
 
 Voici un squelette à compléter :
 
@@ -301,6 +326,15 @@ Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. E
 Le défi associé à cette aventure est décrit dans la page [Défi 8 - Fonction de scraping](../module_08/defi.llms.md).
 
 Vous devrez remettre un fichier `IDUL.R` contenant votre fonction `scrape_page()`. Le dépôt de départ est le template GitHub `STT-1100/aventure-8`.
+
+Trace portfolio
+
+Gardez une trace qui prouve que votre fonction est robuste et responsable.
+
+- le contrat de sortie de `scrape_page()`;
+- un test réussi sur une page HTML locale;
+- une note d’éthique sur `robots.txt`, la charge serveur et les conditions d’utilisation;
+- une courte exploration des résultats, si une page publique est disponible.
 
 # Conclusion de l’aventure
 

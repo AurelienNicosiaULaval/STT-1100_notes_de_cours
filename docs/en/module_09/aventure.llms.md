@@ -16,6 +16,20 @@ Michel Dufour, deputy director of the department, gives you the following mandat
 >
 > He accompanies you throughout this adventure. He asks key questions and expects you to explain your results in accessible language.
 
+Character card
+
+Your role Junior data scientist
+
+Main contact Michel Dufour
+
+Organization and context Quebec Ministry of Education, quality control and equity
+
+Mission Build a first prediction and discuss possible limits and biases
+
+Data `ecoles_primaires_qc.csv` and `eleves_fictifs.csv`
+
+Deliverable Short video capsule with a result, visualization and careful interpretation
+
 ## Adventure Objectives
 
 - Fit a multiple linear regression model.
@@ -23,6 +37,13 @@ Michel Dufour, deputy director of the department, gives you the following mandat
 - Compare predicted values with observed values.
 - Detect a descriptive bias in a fictitious dataset.
 - Formulate a careful recommendation from an analysis.
+
+> **NOTE:**
+>
+> - You fit a first model with `lm()` and use it with `predict()`.
+> - You compare observed and predicted values while discussing data limits.
+> - You analyze descriptive bias without confusing an observed difference with proof of discrimination.
+> - You prepare a short, clear and accessible video explanation.
 
 # Mission 1: Predictive Model at the School Level
 
@@ -214,6 +235,15 @@ df_students |>
 The challenge associated with this adventure is described on the page [Challenge 9 - Video Capsule](../module_09/defi.llms.md).
 
 You must produce a video capsule of 180 seconds maximum. You may present either your predictive model from Mission 1 or your bias analysis from Mission 2. The starter repository is the GitHub template `STT-1100/aventure-9`.
+
+Portfolio trace
+
+Your trace should show the result, but also careful interpretation.
+
+- one model result or descriptive bias result;
+- one visualization that supports your explanation;
+- one clear sentence about association, prediction and causality;
+- a draft accessible explanation for the video capsule.
 
 # Conclusion of the Adventure
 

@@ -14,6 +14,20 @@ Today, you are hired by Marie-Pier, research director at the Quebec Institute fo
 >
 > She accompanies you throughout this adventure. She asks key questions, checks your results and helps you clarify your deliverables.
 
+Character card
+
+Your role Independent data science consultant
+
+Main contact Marie-Pier
+
+Organization and context Quebec Institute for Sustainable Data
+
+Mission Create a robust, testable and respectful scraping tool
+
+Data Données Québec page or small local HTML test page
+
+Deliverable `IDUL.R` with `scrape_page()`
+
 ## Adventure Objectives
 
 - Understand the basics of web scraping with `rvest`.
@@ -21,6 +35,13 @@ Today, you are hired by Marie-Pier, research director at the Quebec Institute fo
 - Automate extraction over several pages.
 - Explore trends in Quebec open data.
 - Evaluate the ethical and technical limits of automated collection.
+
+> **NOTE:**
+>
+> - You read the structure of a web page as a data source.
+> - You turn a manual extraction into a reusable function.
+> - You test your function on a local page to remain independent of portal changes.
+> - You connect code to ethical limits: `robots.txt`, terms of use and server load.
 
 # Before Scraping: Check the Context
 
@@ -128,8 +149,8 @@ blocks[[1]]
     [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
     [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
     [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [4] <div class="dqc-org-cat"></div>
-    [5] <div class="dqc-notes"> Le ministère de l’Environnement, de la Lutte cont ...
+    [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
+    [5] <div class="dqc-notes"> Mesure des stations de débit et de niveau des par ...
 
 To extract text from an HTML element:
 
@@ -137,7 +158,7 @@ To extract text from an HTML element:
 html_text2(blocks[[1]])
 ```
 
-    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional\nOrganisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\nLe ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP) développe et exploite un système de prévision du niveau et du..."
+    [1] "Stations débit/niveau - Grand public\nOrganisation : Ministère de la Sécurité intérieure\nCatégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique\nMesure des stations de débit et de niveau des partenaires du ministère de la Sécurité publique (MSP). Les débits et les niveaux permettent de surveiller de façon automatique les..."
 
 Now, let us test extraction of the title:
 
@@ -146,7 +167,7 @@ html_elements(blocks[[1]], ".dataset-heading a") |>
   html_text2()
 ```
 
-    [1] "Prévisions hydrologiques des débits et niveaux de cours d’eau du Québec méridional"
+    [1] "Stations débit/niveau - Grand public"
 
 And for the producer? We need to locate a substructure containing the information:
 
@@ -157,8 +178,8 @@ info <- html_elements(blocks[[1]], ".dqc-org-cat") |>
 info
 ```
 
-    [1] "Organisation : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
-    [2] ""
+    [1] "Organisation : Ministère de la Sécurité intérieure"
+    [2] "Catégories : Environnement, ressources naturelles et énergie; Loi, justice et sécurité publique"
 
 The Données Québec page used here returns French labels. A robust function should therefore handle labels such as `Organisation`, `Catégorie` and `Catégories`, even when you are reading the English version of the course.
 
@@ -171,7 +192,7 @@ producer <- extract_value(
 producer
 ```
 
-    [1] "Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+    [1] "Ministère de la Sécurité intérieure"
 
 > **TIP:**
 >
@@ -204,6 +225,10 @@ Marie-Pier wants you to create a reusable function named `scrape_page()`. It tak
 - `categorie`.
 
 The column names remain in French because the automatic tests will check this exact contract.
+
+> **NOTE:**
+>
+> The template repository contains a small local HTML page so the function can be tested even if the portal changes or the network is unavailable. Your function must therefore work with both a public page and this local source, without changing the output contract.
 
 Here is a skeleton to complete:
 
@@ -301,6 +326,15 @@ Use the `results` table to answer your client’s questions. She expects precise
 The challenge associated with this adventure is described on the page [Challenge 8 - Scraping Function](../module_08/defi.llms.md).
 
 You must submit an `IDUL.R` file containing your `scrape_page()` function. The starter repository is the GitHub template `STT-1100/aventure-8`.
+
+Portfolio trace
+
+Keep a trace proving that your function is robust and responsible.
+
+- the output contract for `scrape_page()`;
+- one successful test on a local HTML page;
+- an ethics note about `robots.txt`, server load and terms of use;
+- a short exploration of the results, if a public page is available.
 
 # Conclusion of the Adventure
 

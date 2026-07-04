@@ -10,6 +10,20 @@ Alex vous a fourni une base de données extraite d’un ancien système d’arch
 
 Votre rôle sera d’assurer la **qualité des données** pour permettre à Alex de faire une analyse fiable. Certaines erreurs seront corrigées; d’autres seront seulement signalées si l’information disponible ne permet pas de choisir une correction défendable.
 
+Carte de visite
+
+Votre rôle Ingénieur·e de données junior
+
+Interlocuteur Alex, responsable de l’équipe analytique
+
+Organisation et contexte Compagnie d’assurance fictive
+
+Mission Nettoyer une archive client et documenter les décisions de correction
+
+Données `dataset_pratique.csv`
+
+Livrable `donnees_propres.csv`, `journal_nettoyage.Rdata` et rapport Quarto
+
 # Objectifs de l’aventure
 
 - Importer une base de données brute (`dataset_pratique.csv`).
@@ -497,6 +511,15 @@ Voici quelques autres choses à garder à l’œil :
 - **Format de dates mélangés** : on a laissé cela de côté depuis le début de ce cours, mais sachez que cela s’en vient, nous aurons un module spécial sur les dates.
 
 *Tout au long de votre nettoyage, documentez vos décisions dans la liste `journal_nettoyage`. Le but n’est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.*
+
+Trace portfolio
+
+Documentez ce qui rend votre nettoyage défendable et reproductible.
+
+- le fichier `journal_nettoyage.Rdata`;
+- le fichier `donnees_propres.csv`;
+- deux exemples de correction et un exemple de signalement sans correction automatique;
+- une courte explication de la façon de reproduire le nettoyage.
 
 # Mission accomplie !
 

@@ -64,9 +64,9 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Deploy or present a coherent final dashboard. [Challenge](defi.llms.md) Open cardCollapse
+3 Challenge Open locally or share a coherent final dashboard. [Challenge](defi.llms.md) Open cardCollapse
 
-### Challenge — Deployed Dashboard
+### Challenge - Local or shared dashboard
 
 You need to build an interactive dashboard from the template provided. This dashboard must:
 
@@ -74,9 +74,9 @@ You need to build an interactive dashboard from the template provided. This dash
 - Identify distinctive words (TF-IDF) or a word cloud;
 - Analyze numerical variables (`plaisir`, `engagement`, `difficulte`);
 - Be personalized (filtering, colors, summary);
-- Be deployed and shared with Anne-Sophie.
+- Work locally; be deployed or shared only if that instruction is given in class.
 
-The complete instructions are available on the [Challenge 10](defi.llms.md) page. The starter repository is `STT-1100/aventure-10`.
+The complete instructions are available on the [Challenge 10](defi.llms.md) page. The starter repository is `STT-1100/aventure-10`. Local functionality is the minimum expectation; deployment depends on the instructions given in class.
 
 ## Data and Tools
 

@@ -12,6 +12,20 @@ Vous êtes guidé·e par **Anne-Sophie**, la directrice du programme, qui vous a
 
 > “L’idée, c’est d’avoir un portrait honnête, mais constructif. On veut voir les tendances de fond et s’en inspirer pour continuer d’améliorer notre programme.”
 
+Carte de visite
+
+Votre rôle Analyste d’affaires junior
+
+Interlocutrice Anne-Sophie
+
+Organisation et contexte Faculté des sciences et de génie, Université Laval
+
+Mission Transformer des rétroactions anonymisées en tableau de bord utile
+
+Données `data/sentiments_cours.csv` ou fichier exemple non réel
+
+Livrable Tableau de bord local reproductible, ou partagé selon les consignes du cours
+
 # Mission
 
 Construire un tableau de bord interactif (avec `flexdashboard` et `shiny`) qui permet de :
@@ -20,6 +34,13 @@ Construire un tableau de bord interactif (avec `flexdashboard` et `shiny`) qui p
 - identifier les mots les plus fréquents et distinctifs,
 - explorer les tendances lexicales dans le temps,
 - offrir des filtres dynamiques pour affiner l’analyse.
+
+> **NOTE:**
+>
+> - Vous traitez du texte libre comme une donnée analysable.
+> - Vous appliquez un lexique de sentiment en explicitant ses limites.
+> - Vous combinez analyse textuelle, variables numériques et tableau de bord interactif.
+> - Vous protégez la confidentialité des rétroactions avant toute publication ou partage.
 
 # Données
 
@@ -295,9 +316,19 @@ Vous pouvez également intégrer une barre de progression ou un indicateur visue
 
 - Un dépôt GitHub contenant :
   - le `.Rmd` du tableau de bord,
-  - le rendu HTML final,
+  - le rendu HTML final ou les instructions nécessaires pour lancer le tableau de bord localement,
   - le fichier de données nettoyé (si modifié).
-- **Le tableau de bord doit être déployé (par exemple via shinyapps.io ou Posit Cloud)** et le lien final doit être remis selon le mécanisme prévu par le cours.
+- Le livrable minimal est un tableau de bord reproductible qui fonctionne localement.
+- Le déploiement public (par exemple via shinyapps.io ou Posit Cloud) est requis seulement si cette consigne est donnée en classe.
+
+Trace portfolio
+
+Conservez seulement des traces anonymisées et utiles pour expliquer le tableau de bord.
+
+- une table de tokens nettoyés ou un extrait agrégé;
+- une note sur les limites du lexique de sentiment;
+- une capture, un rendu ou un lien local vers le tableau de bord;
+- une phrase de confidentialité indiquant ce qui ne doit pas être publié.
 
 # Conseils d’Anne-Sophie
 

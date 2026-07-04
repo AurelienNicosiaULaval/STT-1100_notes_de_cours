@@ -31,7 +31,7 @@ scrape_page <- function(url) {
 
 The function must respect the following contract:
 
-- it takes one argument, `url`, containing the address of a Données Québec search page;
+- it takes one argument, `url`, containing the address of a Données Québec search page or the path to a local HTML page used for tests;
 - it reads the page with `rvest`;
 - it returns a `data.frame`;
 - the returned table contains exactly the columns `titre`, `producteur`, `categorie`, in that order;
@@ -60,7 +60,7 @@ A reasonable approach is to create a small helper function that receives the tex
 4. Locate metadata elements with `.dqc-org-cat`.
 5. Build a helper function to clean labels.
 6. Group everything in `scrape_page(url)`.
-7. Test the function on a local page or on a public Données Québec page.
+7. Test the function on a local test page or on a public Données Québec page.
 8. Place only the final required code in `IDUL.R`.
 
 # Local Tests
@@ -78,6 +78,8 @@ The test checks that:
 - the result is a `data.frame`;
 - the columns are exactly `titre`, `producteur`, `categorie`;
 - a small local HTML page returns two complete rows.
+
+The local HTML page provided by the template is a fallback mode if the portal changes or if no network connection is available during testing. Your function must therefore handle a local HTML source with the same output contract as a public page.
 
 These tests do not replace the final assessment, but they detect the most common mistakes before submission.
 

@@ -71,6 +71,38 @@ Votre interlocutrice : Marie-Pier
 Elle vous accompagne tout au long de cette aventure. Elle pose des questions clés, vérifie vos résultats et vous aide à clarifier vos livrables.
 :::
 
+<!-- adventure-brief:start -->
+<div class="adventure-brief">
+<p class="adventure-brief-title">Carte de visite</p>
+<div class="adventure-brief-grid">
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Votre rôle</span>
+<span class="adventure-brief-value">Consultant·e indépendant·e en science des données</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Interlocutrice</span>
+<span class="adventure-brief-value">Marie-Pier</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Organisation et contexte</span>
+<span class="adventure-brief-value">Institut québécois pour les données durables</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Mission</span>
+<span class="adventure-brief-value">Créer un outil de scraping robuste, testable et respectueux</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Données</span>
+<span class="adventure-brief-value">Page Données Québec ou petite page HTML locale de test</span>
+</div>
+<div class="adventure-brief-item">
+<span class="adventure-brief-label">Livrable</span>
+<span class="adventure-brief-value"><code>IDUL.R</code> avec <code>scrape_page()</code></span>
+</div>
+</div>
+</div>
+<!-- adventure-brief:end -->
+
 ## Objectifs de l'aventure
 
 - Comprendre les bases du web scraping avec `rvest`.
@@ -78,6 +110,16 @@ Elle vous accompagne tout au long de cette aventure. Elle pose des questions cl�
 - Automatiser l'extraction sur plusieurs pages.
 - Explorer les tendances dans les données ouvertes du Québec.
 - Évaluer les limites éthiques et techniques d'une collecte automatisée.
+
+<!-- week-new:start -->
+::: {.callout-note title="Ce qui est nouveau cette semaine"}
+- Vous lisez la structure d'une page web comme une source de données.
+- Vous transformez une extraction manuelle en fonction réutilisable.
+- Vous testez votre fonction sur une page locale pour rester indépendant·e des changements du portail.
+- Vous reliez le code à des limites éthiques : `robots.txt`, conditions d'utilisation et charge serveur.
+:::
+
+<!-- week-new:end -->
 
 # Avant de scraper : vérifier le contexte
 
@@ -199,6 +241,10 @@ Marie-Pier souhaite que vous créiez une fonction réutilisable nommée `scrape_
 
 Ces noms de colonnes seront utilisés dans les tests automatiques.
 
+::: callout-note
+Le dépôt template contient une petite page HTML locale pour tester la fonction même si le portail change ou si le réseau est indisponible. Votre fonction doit donc fonctionner avec une page publique et avec cette source locale, sans changer le contrat de sortie.
+:::
+
 Voici un squelette à compléter :
 
 ```{r, eval=FALSE}
@@ -295,6 +341,19 @@ Rendez compte brièvement :
 Le défi associé à cette aventure est décrit dans la page [Défi 8 - Fonction de scraping](defi.qmd).
 
 Vous devrez remettre un fichier `IDUL.R` contenant votre fonction `scrape_page()`. Le dépôt de départ est le template GitHub `STT-1100/aventure-8`.
+
+<!-- portfolio-trace:start -->
+<div class="portfolio-trace">
+<p class="portfolio-trace-title">Trace portfolio</p>
+<p>Gardez une trace qui prouve que votre fonction est robuste et responsable.</p>
+<ul>
+<li>le contrat de sortie de <code>scrape_page()</code>;</li>
+<li>un test réussi sur une page HTML locale;</li>
+<li>une note d'éthique sur <code>robots.txt</code>, la charge serveur et les conditions d'utilisation;</li>
+<li>une courte exploration des résultats, si une page publique est disponible.</li>
+</ul>
+</div>
+<!-- portfolio-trace:end -->
 
 # Conclusion de l'aventure
 

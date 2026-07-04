@@ -5883,7 +5883,7 @@ margin-bottom: .05rem;
 </div>
 <p>The function must respect the following contract:</p>
 <ul>
-<li>it takes one argument, <code>url</code>, containing the address of a Données Québec search page;</li>
+<li>it takes one argument, <code>url</code>, containing the address of a Données Québec search page or the path to a local HTML page used for tests;</li>
 <li>it reads the page with <code>rvest</code>;</li>
 <li>it returns a <code>data.frame</code>;</li>
 <li>the returned table contains exactly the columns <code>titre</code>, <code>producteur</code>, <code>categorie</code>, in that order;</li>
@@ -5923,7 +5923,7 @@ Important
 <li>Locate metadata elements with <code>.dqc-org-cat</code>.</li>
 <li>Build a helper function to clean labels.</li>
 <li>Group everything in <code>scrape_page(url)</code>.</li>
-<li>Test the function on a local page or on a public Données Québec page.</li>
+<li>Test the function on a local test page or on a public Données Québec page.</li>
 <li>Place only the final required code in <code>IDUL.R</code>.</li>
 </ol>
 </section>
@@ -5941,6 +5941,7 @@ Important
 <li>the columns are exactly <code>titre</code>, <code>producteur</code>, <code>categorie</code>;</li>
 <li>a small local HTML page returns two complete rows.</li>
 </ul>
+<p>The local HTML page provided by the template is a fallback mode if the portal changes or if no network connection is available during testing. Your function must therefore handle a local HTML source with the same output contract as a public page.</p>
 <p>These tests do not replace the final assessment, but they detect the most common mistakes before submission.</p>
 </section>
 <section id="ethics-and-server-load" class="level1">

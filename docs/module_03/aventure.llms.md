@@ -21,6 +21,20 @@ Vous êtes engagés comme **journaliste de données** par *Le Courrier Gourmand*
 > **Votre allié municipal**
 > Voici **Alexandre**, conseiller municipal chargé de l’hygiène alimentaire à la Ville de Montréal. Il suit votre enquête pas à pas et vous posera, à des moments clés, des questions pour aiguiller vos analyses. C’est un allié précieux pour la rédaction de votre article, mais il a aussi ses exigences. Il attend de vous que vous lui fournissiez des réponses claires et précises, accompagnées de graphiques pertinents.
 
+Carte de visite
+
+Votre rôle Journaliste de données
+
+Interlocuteurs Rédaction du Courrier Gourmand et Alexandre, conseiller municipal
+
+Organisation et contexte Média local fictif et Ville de Montréal
+
+Mission Produire un article clair sur les infractions alimentaires montréalaises
+
+Données `UlavalSSD::listecondamnation`
+
+Livrable Article Quarto HTML illustré
+
 ## Objectifs de l’aventure
 
 - Importer et nettoyer un jeu de données catégorielles réelles (infractions alimentaires).
@@ -545,6 +559,15 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 > **Conseil d’Alexandre** : *« Un visuel vaut mille mots. Si tu réussis la carte optionnelle, choisis un secteur où les amendes sont concentrées et cite un chiffre que tu as calculé toi-même. Ton article gagnera en impact. »*
 
 ------------------------------------------------------------------------
+
+Trace portfolio
+
+Conservez les éléments qui montrent la transformation d’un tableau en article.
+
+- vos choix de nettoyage des catégories et montants;
+- deux figures prêtes pour l’article;
+- deux nombres clés expliqués en phrases complètes;
+- une nuance importante à communiquer au public.
 
 # Conclusion de l’aventure
 

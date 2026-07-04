@@ -10,6 +10,20 @@ Cette aventure change volontairement de niveau. Dans les modules précédents, v
 
 Le rapport sera produit avec **Quarto**, versionné dans **GitHub** et basé sur les tables du package **`nycflights23`** : `flights`, `airlines` et `weather`.
 
+Carte de visite
+
+Votre rôle Équipe de scientifiques de données
+
+Interlocutrice Dr Sofia Martinez
+
+Organisation et contexte Port Authority Data Lab
+
+Mission Produire un rapport collaboratif et reproductible sur les retards à JFK
+
+Données `nycflights23::flights`, `airlines` et `weather`
+
+Livrable Rapport collaboratif, rendu HTML, README et traces GitHub
+
 # Dépôt de départ
 
 Clonez le dépôt GitHub du module 6 depuis l’organisation du cours : `STT-1100/aventure-6`.
@@ -186,6 +200,15 @@ Ajoutez une section expliquant comment votre projet illustre les étapes suivant
 3.  analyse;
 4.  communication;
 5.  partage, réutilisation et versionnage.
+
+Trace portfolio
+
+La trace de collaboration compte autant que le graphique final.
+
+- une branche ou une pull request liée à votre rôle;
+- la table jointe utilisée dans le rapport;
+- deux visualisations ou éléments reproductibles ajoutés au rapport;
+- une entrée de journal décrivant une décision, une difficulté ou un conflit GitHub.
 
 # Vérification finale
 

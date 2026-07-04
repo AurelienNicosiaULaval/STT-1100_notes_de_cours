@@ -26,7 +26,7 @@ You are a junior business analyst hired by the Faculty of Science and Engineerin
 
 [Adventure 10 — Beyond data: text and dashboard](../module_10/aventure.llms.md)
 
-# Challenge — Deployed Dashboard
+# Challenge - Local or shared dashboard
 
 You need to build an interactive dashboard from the template provided. This dashboard must:
 
@@ -34,7 +34,7 @@ You need to build an interactive dashboard from the template provided. This dash
 - Identify distinctive words (TF-IDF) or a word cloud;
 - Analyze numerical variables (`plaisir`, `engagement`, `difficulte`);
 - Be personalized (filtering, colors, summary);
-- Be deployed and shared with Anne-Sophie.
+- Work locally; be deployed or shared only if that instruction is given in class.
 
 Complete instructions: [Challenge 10 — Feedback dashboard](../module_10/defi.llms.md)
 
@@ -53,6 +53,6 @@ Each team must submit an interactive dashboard based on feedback from students i
 | **Visualizations** | Readable, relevant, aesthetic graphics | /15 |
 | **Interactive Dashboard (Shiny)** | Effective use of dynamic filters and components | /15 |
 | **Personalization / creative effort** | Adaptation of the model provided, visual and editorial effort | /10 |
-| **Deployment and accessibility** | Functional dashboard, valid link shared on time | /5 |
+| **Accessibility and sharing** | Dashboard works locally, with a valid link only if deployment is requested | /5 |
 
 **Total: /100**

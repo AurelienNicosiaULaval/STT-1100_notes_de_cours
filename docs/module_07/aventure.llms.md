@@ -8,6 +8,20 @@ Vous êtes une équipe mandatée par un comité d’éthique en science des donn
 
 Votre mandat n’est pas seulement de refaire un graphique. Vous devez montrer qu’une analyse peut être techniquement reproductible, visuellement honnête et responsable envers les personnes représentées dans les données.
 
+Carte de visite
+
+Votre rôle Équipe mandatée en science des données responsable
+
+Interlocuteur Comité d’éthique en science des données
+
+Organisation et contexte Organisation fictive qui soumet un rapport interne problématique
+
+Mission Auditer le rapport, préparer les données et corriger la communication visuelle
+
+Données `covid_module7_douteux.csv`
+
+Livrable Rapport éthique, fichier anonymisé et visualisations corrigées
+
 # Dépôt de départ
 
 Clonez le dépôt GitHub du module 7 depuis l’organisation du cours : `STT-1100/aventure-7`.
@@ -149,6 +163,15 @@ Cette conclusion doit expliquer :
 - un problème qu’il ou elle n’aurait peut-être pas remarqué avant ce module;
 - une décision de visualisation ou d’anonymisation qu’il ou elle juge importante;
 - une règle personnelle à retenir pour de futurs projets de science des données.
+
+Trace portfolio
+
+Conservez les preuves que votre audit améliore le rapport et protège les personnes.
+
+- une liste structurée des problèmes repérés dans le rapport douteux;
+- le fichier anonymisé produit;
+- deux visualisations corrigées;
+- une note éthique expliquant les limites et les décisions de confidentialité.
 
 # Vérification finale
 

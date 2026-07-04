@@ -16,6 +16,20 @@ Votre mission est de préparer les bases d’un premier rapport reproductible su
 
 Ce module est une porte d’entrée vers le vaste monde des sciences des données. Prenez le temps de bien explorer chaque étape, et amusez-vous à apprendre !
 
+Carte de visite
+
+Votre rôle Étudiant·e analyste en démarrage
+
+Interlocuteur Équipe pédagogique STT-1100
+
+Organisation et contexte Cours d’introduction à la science des données
+
+Mission Préparer un premier rapport reproductible avec R, RStudio et Quarto
+
+Données `UlavalSSD::MeteoQuebec`
+
+Livrable Court rapport Quarto HTML
+
 # Outils informatiques
 
 Dans ce cours, nous utiliserons des outils informatiques professionnels qui sont essentiels en science des données. Ces outils permettent de manipuler, analyser et visualiser des données de manière efficace et reproductible. Voici un aperçu des principaux outils que vous allez découvrir :
@@ -548,6 +562,17 @@ head(
     10972         NA        NA          7.5
 
 > **NOTE:**
+>
+> Trace portfolio
+>
+> À la fin de l’aventure, conservez une courte trace de ce que vous savez refaire sans aide.
+>
+> - un mini rapport Quarto qui se rend en HTML;
+> - deux commandes R que vous comprenez et pouvez expliquer;
+> - une note sur les valeurs manquantes ou les variables de `MeteoQuebec`;
+> - une règle personnelle pour garder une analyse reproductible.
+>
+> #### Avant de passer au défi
 >
 > Vous devriez maintenant être capable de créer un document Quarto, de charger `UlavalSSD`, d’afficher `MeteoQuebec`, de vérifier les valeurs manquantes avec `summary()`, puis d’extraire des lignes ou des colonnes à partir de conditions simples.
 

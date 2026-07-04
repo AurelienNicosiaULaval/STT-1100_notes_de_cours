@@ -31,7 +31,7 @@ scrape_page <- function(url) {
 
 La fonction doit respecter le contrat suivant :
 
-- elle prend un seul argument, `url`, qui contient l'adresse d'une page de recherche de Données Québec;
+- elle prend un seul argument, `url`, qui contient l'adresse d'une page de recherche de Données Québec ou le chemin d'une page HTML locale utilisée pour les tests;
 - elle lit la page avec `rvest`;
 - elle retourne un `data.frame`;
 - le tableau retourné contient exactement les colonnes `titre`, `producteur`, `categorie`, dans cet ordre;
@@ -60,7 +60,7 @@ Une approche raisonnable consiste à créer une petite fonction auxiliaire qui r
 4. Repérez les éléments de métadonnées avec `.dqc-org-cat`.
 5. Construisez une fonction auxiliaire pour nettoyer les libellés.
 6. Regroupez le tout dans `scrape_page(url)`.
-7. Testez la fonction sur une page locale ou sur une page publique de Données Québec.
+7. Testez la fonction sur une page locale de test ou sur une page publique de Données Québec.
 8. Placez seulement le code final nécessaire dans `IDUL.R`.
 
 # Tests locaux
@@ -78,6 +78,8 @@ Le test vérifie que :
 - le résultat est un `data.frame`;
 - les colonnes sont exactement `titre`, `producteur`, `categorie`;
 - une petite page HTML de test retourne deux lignes complètes.
+
+La page HTML locale fournie par le template sert de mode secours si le portail change ou si une connexion réseau n'est pas disponible au moment du test. Votre fonction doit donc traiter une source HTML locale avec le même contrat de sortie qu'une page publique.
 
 Ces tests ne remplacent pas l'évaluation finale, mais ils permettent de détecter les erreurs les plus fréquentes avant la remise.
 

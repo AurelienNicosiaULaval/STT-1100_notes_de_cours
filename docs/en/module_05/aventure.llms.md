@@ -18,6 +18,20 @@ Your mission: to help **JFK** airport (and, ultimately, **EWR** and **LGA**) to 
 >
 > It’s up to you!
 
+Character card
+
+Your role Airport operations statistician
+
+Main contacts Dr Sofia Martínez and Alex Chen
+
+Organization and context Port Authority Data Lab, with a JFK-focused mandate
+
+Mission Analyze delays, weather and fleet information to inform operations
+
+Data `flights_merged_2023.rds`
+
+Deliverable Quarto HTML report with visualizations and interpretations
+
 # Adventure objectives
 
 - Use `lubridate` functions to manipulate and enrich temporal data.
@@ -25,6 +39,13 @@ Your mission: to help **JFK** airport (and, ultimately, **EWR** and **LGA**) to 
 - Visualize relationships between variables using `ggplot2`.
 - Interpret simple statistical results, such as correlation.
 - Answer concrete questions related to real issues (delays, weather, aircraft fleet).
+
+> **NOTE:**
+>
+> - You explicitly manipulate dates and times with `lubridate`.
+> - You analyze relationships between variables rather than isolated distributions.
+> - You use correlation as an association measure, without jumping too quickly to causality.
+> - You account for group size before comparing means or proportions.
 
 # How to succeed in this adventure?
 
@@ -358,3 +379,12 @@ The scatter plot shows you the overall trend, and the red line corresponds to a 
 > ```
 >
 > You can repeat the same graph with `p_cancellation`. Do not forget to inspect `n_flights` before comparing groups.
+
+Portfolio trace
+
+Keep the traces that show your reasoning about relationships between variables.
+
+- one time variable created with `lubridate`;
+- one relationship plot between two variables;
+- one correlation or comparative summary interpreted carefully;
+- one sentence distinguishing association, causality and sample size.

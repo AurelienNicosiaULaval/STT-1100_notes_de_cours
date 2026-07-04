@@ -18,6 +18,20 @@ Ta mission : aider l’aéroport **JFK** (et, à terme, **EWR** et **LGA**) à f
 >
 > À toi de jouer !
 
+Carte de visite
+
+Votre rôle Statisticien·ne des opérations aéroportuaires
+
+Interlocuteurs Dr Sofia Martínez et Alex Chen
+
+Organisation et contexte Port Authority Data Lab, avec un mandat centré sur JFK
+
+Mission Analyser les retards, la météo et la flotte pour éclairer les opérations
+
+Données `flights_merged_2023.rds`
+
+Livrable Rapport Quarto HTML avec visualisations et interprétations
+
 # Objectifs de l’aventure
 
 - Utiliser les fonctions de `lubridate` pour manipuler et enrichir les données temporelles.
@@ -25,6 +39,13 @@ Ta mission : aider l’aéroport **JFK** (et, à terme, **EWR** et **LGA**) à f
 - Visualiser les relations entre variables à l’aide de `ggplot2`.
 - Interpréter des résultats statistiques simples, comme la corrélation.
 - Répondre à des questions concrètes en lien avec des enjeux réels (retards, météo, flotte d’avions).
+
+> **NOTE:**
+>
+> - Vous manipulez explicitement des dates et heures avec `lubridate`.
+> - Vous analysez des relations entre variables plutôt que des distributions isolées.
+> - Vous utilisez la corrélation comme mesure d’association, sans conclure trop vite à une causalité.
+> - Vous tenez compte de la taille des groupes avant de comparer des moyennes ou des proportions.
 
 # Comment réussir cette aventure ?
 
@@ -358,3 +379,12 @@ Le nuage de points te montre la tendance globale, et la ligne rouge correspond �
 > ```
 >
 > Tu peux refaire le même graphique avec `p_annulation`. N’oublie pas de regarder `n_vols` avant de comparer les tranches.
+
+Trace portfolio
+
+Gardez les traces qui montrent votre raisonnement sur les relations entre variables.
+
+- une variable temporelle créée avec `lubridate`;
+- un graphique de relation entre deux variables;
+- une corrélation ou un résumé comparatif interprété prudemment;
+- une phrase qui distingue association, causalité et taille de l’échantillon.

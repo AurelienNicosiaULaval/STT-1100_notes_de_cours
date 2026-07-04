@@ -14,6 +14,20 @@ Welcome to this first data science adventure! This module is designed to provide
 
 This module is a gateway to the vast world of data science. Take the time to explore each step, and have fun learning!
 
+Character card
+
+Your role Early-stage student analyst
+
+Main contact STT-1100 teaching team
+
+Organization and context Introduction to data science course
+
+Mission Prepare a first reproducible report with R, RStudio and Quarto
+
+Data `UlavalSSD::MeteoQuebec`
+
+Deliverable Short Quarto HTML report
+
 # IT tools
 
 In this course, we will use professional computing tools that are essential in data science. These tools allow data to be manipulated, analyzed and visualized in an efficient and reproducible manner. Here is an overview of the main tools that you will discover:
@@ -532,6 +546,15 @@ head(MeteoQuebec[MeteoQuebec$year == 2000 & MeteoQuebec$total_precip == 0,])
     10970         NA        NA           7.1
     10971         NA        NA           6.1
     10972         NA        NA           7.5
+
+Portfolio trace
+
+At the end of the adventure, keep a short trace of what you can redo without help.
+
+- a mini Quarto report that renders to HTML;
+- two R commands you understand and can explain;
+- a note about missing values or variables in `MeteoQuebec`;
+- one personal rule for keeping an analysis reproducible.
 
 ### Summary
 

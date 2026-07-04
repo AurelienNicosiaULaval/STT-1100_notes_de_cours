@@ -12,6 +12,20 @@ Your job is to **manipulate, transform and visualize** data rigorously, in order
 
 ------------------------------------------------------------------------
 
+Character card
+
+Your role Data scientist
+
+Main contacts Dr Adélie Fortier, with Jules Tremblay as support
+
+Organization and context Antarctic penguin research team
+
+Mission Explore, manipulate, summarize and visualize field data
+
+Data `manchots_donnees.xlsx`
+
+Deliverable Logbook, then Quarto HTML analysis report
+
 ## Progress of the mission and expected deliverables
 
 The mission will take place in **two stages**, because Dr. Adélie will soon have to leave on an expedition to Antarctica.
@@ -635,5 +649,14 @@ Be careful, don’t forget your good visualization practices.
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
 
 ------------------------------------------------------------------------
+
+Portfolio trace
+
+Keep compact evidence of your progress through this scientific mission.
+
+- the Quarto logbook from the first part;
+- two commented charts about the penguins;
+- a descriptive summary that answers one of Dr Adélie’s questions;
+- a few Git commits that show how your work evolved.
 
 **Mission succeeded!** You have successfully helped Dr Adélie Fortier analyze the penguin data!

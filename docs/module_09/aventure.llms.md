@@ -16,6 +16,20 @@ Michel Dufour, directeur adjoint du département, vous confie le mandat suivant 
 >
 > Il vous accompagne tout au long de cette aventure. Il pose des questions clés et vous demande d’expliquer vos résultats dans un langage accessible.
 
+Carte de visite
+
+Votre rôle Scientifique de données junior
+
+Interlocuteur Michel Dufour
+
+Organisation et contexte Ministère de l’Éducation du Québec, contrôle qualité et équité
+
+Mission Construire une première prédiction et discuter les limites et biais possibles
+
+Données `ecoles_primaires_qc.csv` et `eleves_fictifs.csv`
+
+Livrable Capsule vidéo courte avec résultat, visualisation et prudence d’interprétation
+
 ## Objectifs de l’aventure
 
 - Ajuster un modèle de régression linéaire multiple.
@@ -23,6 +37,13 @@ Michel Dufour, directeur adjoint du département, vous confie le mandat suivant 
 - Comparer des valeurs prédites à des valeurs observées.
 - Détecter un biais descriptif dans un jeu de données fictif.
 - Formuler une recommandation prudente à partir d’une analyse.
+
+> **NOTE:**
+>
+> - Vous ajustez un premier modèle avec `lm()` et l’utilisez avec `predict()`.
+> - Vous comparez valeurs observées et valeurs prédites en discutant les limites des données.
+> - Vous analysez un biais descriptif sans confondre différence observée et preuve de discrimination.
+> - Vous préparez une explication courte, claire et accessible en format vidéo.
 
 # Mission 1 : modèle prédictif à l’échelle des écoles
 
@@ -214,6 +235,15 @@ df_eleves |>
 Le défi associé à cette aventure est décrit dans la page [Défi 9 - Capsule vidéo](../module_09/defi.llms.md).
 
 Vous devrez produire une capsule vidéo de 180 secondes maximum. Vous pouvez présenter soit votre modèle prédictif de la Mission 1, soit votre analyse de biais de la Mission 2. Le dépôt de départ est le template GitHub `STT-1100/aventure-9`.
+
+Trace portfolio
+
+Votre trace doit montrer le résultat, mais aussi la prudence d’interprétation.
+
+- un résultat de modèle ou de biais descriptif;
+- une visualisation qui soutient votre explication;
+- une phrase claire sur association, prédiction et causalité;
+- un brouillon de formulation accessible pour la capsule vidéo.
 
 # Conclusion de l’aventure
 

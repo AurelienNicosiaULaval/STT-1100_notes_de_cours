@@ -26,7 +26,7 @@ Vous êtes analyste d’affaires junior engagé par la Faculté des sciences et 
 
 [Aventure 10 — Au-delà des données : texte et tableau de bord](../module_10/aventure.llms.md)
 
-# Défi — Tableau de bord déployé
+# Défi - Tableau de bord local ou partagé
 
 Vous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :
 
@@ -34,7 +34,7 @@ Vous devez construire un tableau de bord interactif à partir du modèle fourni.
 - Identifier les mots distinctifs (TF-IDF) ou un nuage de mots ;
 - Analyser les variables numériques (`plaisir`, `engagement`, `difficulte`) ;
 - Être personnalisé (filtrage, couleurs, résumé) ;
-- Être déployé et partagé à Anne-Sophie.
+- Fonctionner localement ; être déployé ou partagé seulement si cette consigne est donnée en classe.
 
 Consigne complète : [Défi 10 — Tableau de bord de rétroactions](../module_10/defi.llms.md)
 
@@ -53,6 +53,6 @@ Chaque équipe doit remettre un tableau de bord interactif basé sur les comment
 | **Visualisations** | Graphiques lisibles, pertinents, esthétiques | /15 |
 | **Tableau de bord interactif (Shiny)** | Utilisation efficace de filtres et composants dynamiques | /15 |
 | **Personnalisation / effort créatif** | Adaptation du modèle fourni, effort visuel et rédactionnel | /10 |
-| **Déploiement et accessibilité** | Dashboard fonctionnel, lien valide partagé dans les temps | /5 |
+| **Accessibilité et partage** | Tableau de bord fonctionnel localement, avec lien valide seulement si un déploiement est demandé | /5 |
 
 **Total : /100**

@@ -8,6 +8,20 @@ You are a team mandated by a data science ethics committee. An organization give
 
 Your task is not only to remake a chart. You must show that an analysis can be technically reproducible, visually honest and responsible toward the people represented in the data.
 
+Character card
+
+Your role Mandated responsible data science team
+
+Main contact Data science ethics committee
+
+Organization and context Fictional organization submitting a problematic internal report
+
+Mission Audit the report, prepare the data and correct the visual communication
+
+Data `covid_module7_douteux.csv`
+
+Deliverable Ethics report, anonymized file and corrected visualizations
+
 # Starter Repository
 
 Clone the module 7 GitHub repository from the course organization: `STT-1100/aventure-7`.
@@ -149,6 +163,15 @@ This conclusion must explain:
 - one issue they might not have noticed before this module;
 - one visualization or anonymization decision they consider important;
 - one personal rule to remember for future data science projects.
+
+Portfolio trace
+
+Keep evidence that your audit improves the report and protects people.
+
+- a structured list of issues found in the problematic report;
+- the anonymized file you produced;
+- two corrected visualizations;
+- an ethics note explaining limits and confidentiality decisions.
 
 # Final Check
 

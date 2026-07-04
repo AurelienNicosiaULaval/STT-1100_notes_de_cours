@@ -10,6 +10,20 @@ Alex has provided you with a database taken from an old archive system. This dat
 
 Your role will be to ensure **data quality** to allow Alex to carry out a reliable analysis. Some errors will be corrected; others will only be flagged if the available information does not support a defensible correction.
 
+Character card
+
+Your role Junior data engineer
+
+Main contact Alex, analytics team lead
+
+Organization and context Fictional insurance company
+
+Mission Clean a client archive and document correction decisions
+
+Data `dataset_pratique.csv`
+
+Deliverable `donnees_propres.csv`, `journal_nettoyage.Rdata` and Quarto report
+
 # Adventure objectives
 
 - Import a raw database (`dataset_pratique.csv`).
@@ -497,6 +511,15 @@ Here are a few other things to keep an eye out for:
 - **Mixed date format**: we have left this aside since the beginning of this course, but know that it is coming, we will have a special module on dates.
 
 *Throughout your cleaning, document your decisions in the `journal_nettoyage` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
+
+Portfolio trace
+
+Document what makes your cleaning defensible and reproducible.
+
+- the `journal_nettoyage.Rdata` file;
+- the `donnees_propres.csv` file;
+- two examples of corrections and one example of a flagged issue without automatic correction;
+- a short explanation of how to reproduce the cleaning.
 
 # Mission accomplished!
 
