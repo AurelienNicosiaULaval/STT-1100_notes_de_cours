@@ -4,7 +4,7 @@ R library
 
 This page gathers the R packages used or mentioned in the notes, exercises, adventures and scripts. It explains what each package is for and where it appears in the modules.
 
-[By module](#by-module) [Library](#package-library) [Datasets](donnees.llms.md)
+[Start](#starter-packages) [By module](#by-module) [Library](#package-library) [Datasets](donnees.llms.md)
 
 01
 
@@ -22,7 +22,91 @@ Visualize and communicate
 
 Text, web and dashboards
 
+Working reflex
+
+## Starter packages
+
+A package is not just a line of code to copy: it is a dependency of your document. The useful reflex is to distinguish installation, loading and precise function calls.
+
+1
+
+### Install once
+
+`install.packages("package_name")` installs the package on your computer.
+
+2
+
+### Load at the start
+
+`library(tidyverse)` makes functions available in the active R session.
+
+3
+
+### Call precisely
+
+`readr::read_csv()` uses a function without loading the whole package.
+
+4
+
+### Check rendering
+
+A Quarto document must load every package it depends on inside the file itself.
+
+Choose the tool
+
+## Which package for which task?
+
+The modules often return to the same families of tasks. This map helps you pick the right tool before opening the detailed documentation.
+
+### Import
+
+`readr`, `readxl`, `jsonlite`, `haven`
+
+### Transform
+
+`dplyr`, `tidyr`, `stringr`, `forcats`, `lubridate`
+
+### Visualize
+
+`ggplot2`, `patchwork`, `scales`, `viridis`, `ggcorrplot`
+
+### Practice with data
+
+`UlavalSSD`, `palmerpenguins`, `nycflights23`, `gapminder`, `Lahman`
+
+### Collect from the web
+
+`rvest`, `robotstxt`, `purrr`, `stringr`
+
+### Text and dashboards
+
+`tidytext`, `stopwords`, `plotly`, `flexdashboard`, `shiny`
+
+Troubleshooting
+
+## When R cannot find a package or function
+
+Most package errors come from one of the four situations below.
+
+### Package not found
+
+Install the package, then render the document again. Installation is done once per computer.
+
+### Function not found
+
+Load the package with `library()` or call the function with `package::function()`.
+
+### Name conflict
+
+Use an explicit call, such as `dplyr::filter()`, to tell R which function to use.
+
+### Quarto render failure
+
+Add the required `library()` calls inside the `.qmd` file, not only in the Console.
+
 ## By module
+
+The packages listed here are the ones that appear explicitly in the module activities. Some are working tools, while others mainly provide datasets for practice.
 
 ### Module 01
 
@@ -65,6 +149,8 @@ Text, web and dashboards
 [`tidyverse`](#tidyverse) [`tidytext`](#tidytext) [`readr`](#readr) [`stringr`](#stringr) [`dplyr`](#dplyr) [`tibble`](#tibble) [`ggplot2`](#ggplot2) [`stopwords`](#stopwords) [`tidyr`](#tidyr) [`forcats`](#forcats) [`wordcloud`](#wordcloud) [`wordcloud2`](#wordcloud2) [`ggwordcloud`](#ggwordcloud) [`plotly`](#plotly) [`flexdashboard`](#flexdashboard) [`shiny`](#shiny)
 
 ## Package library
+
+The full library is here to help you find documentation. Cards with a logo are the central course packages; the other cards use the package initials.
 
 [BAB ](https://CRAN.R-project.org/package=babynames)
 
@@ -110,7 +196,11 @@ Movie data used to practice joins and comparisons.External documentation [GGW ](
 
 ## ggwordcloud
 
-Option mentioned for creating word clouds with ggplot2.External documentation [JAN ](https://CRAN.R-project.org/package=janitor)
+Option mentioned for creating word clouds with ggplot2.External documentation [HAV ](https://CRAN.R-project.org/package=haven)
+
+## haven
+
+Importing SPSS, Stata and SAS statistical files when an external dataset is not CSV or Excel.External documentation [JAN ](https://CRAN.R-project.org/package=janitor)
 
 ## janitor
 

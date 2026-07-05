@@ -6048,7 +6048,8 @@ margin-bottom: .05rem;
   <h1 id="packages-title">Packages utilisés dans le cours</h1>
   <p>Cette page rassemble les packages R utilisés ou mentionnés dans les notes, exercices, aventures et scripts. Elle sert à comprendre à quoi sert chaque package et dans quels modules il revient.</p>
   <div class="resource-actions" aria-label="Accès rapides">
-  <a class="home-action home-action--primary" href="#par-module">Par module</a>
+  <a class="home-action home-action--primary" href="#paquets-de-depart">Démarrer</a>
+  <a class="home-action" href="#par-module">Par module</a>
   <a class="home-action" href="#bibliothèque-de-packages">Bibliothèque</a>
   <a class="home-action" href="donnees.html">Bases de données</a>
   </div>
@@ -6060,9 +6061,100 @@ margin-bottom: .05rem;
   <div><span>04</span><p>Texte, web et tableaux de bord</p></div>
   </div>
   </section>
+
+  <section class="resource-section" id="paquets-de-depart" aria-labelledby="starter-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Réflexe de travail</p>
+  <h2 id="starter-title" class="anchored">Paquets de départ</h2>
+  <p>Un package n&#39;est pas seulement une ligne de code à copier: c&#39;est une dépendance de votre document. Le bon réflexe est de distinguer installation, chargement et appel précis d&#39;une fonction.</p>
+  </div>
+  <div class="course-flow">
+  <article class="flow-card">
+  <span class="flow-number">1</span>
+  <h3 class="anchored">Installer une fois</h3>
+  <p><code>install.packages(&quot;nom_du_package&quot;)</code> installe le package sur votre ordinateur.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">2</span>
+  <h3 class="anchored">Charger au début</h3>
+  <p><code>library(tidyverse)</code> rend les fonctions disponibles dans la session R active.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">3</span>
+  <h3 class="anchored">Appeler précisément</h3>
+  <p><code>readr::read_csv()</code> utilise une fonction sans charger tout le package.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">4</span>
+  <h3 class="anchored">Vérifier le rendu</h3>
+  <p>Un document Quarto doit charger tous les packages dont il dépend dans le fichier lui-même.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="choisir-package" aria-labelledby="choisir-package-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Choisir l&#39;outil</p>
+  <h2 id="choisir-package-title" class="anchored">Quel package pour quelle tâche?</h2>
+  <p>Les modules reviennent souvent aux mêmes familles de tâches. Cette carte aide à choisir rapidement le bon outil avant d&#39;aller chercher la documentation détaillée.</p>
+  </div>
+  <div class="reading-map">
+  <article>
+  <h3 class="anchored">Importer</h3>
+  <p><code>readr</code>, <code>readxl</code>, <code>jsonlite</code>, <code>haven</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Transformer</h3>
+  <p><code>dplyr</code>, <code>tidyr</code>, <code>stringr</code>, <code>forcats</code>, <code>lubridate</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Visualiser</h3>
+  <p><code>ggplot2</code>, <code>patchwork</code>, <code>scales</code>, <code>viridis</code>, <code>ggcorrplot</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Pratiquer avec des données</h3>
+  <p><code>UlavalSSD</code>, <code>palmerpenguins</code>, <code>nycflights23</code>, <code>gapminder</code>, <code>Lahman</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Collecter sur le web</h3>
+  <p><code>rvest</code>, <code>robotstxt</code>, <code>purrr</code>, <code>stringr</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Texte et tableaux de bord</h3>
+  <p><code>tidytext</code>, <code>stopwords</code>, <code>plotly</code>, <code>flexdashboard</code>, <code>shiny</code></p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="erreurs-packages" aria-labelledby="erreurs-packages-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Dépannage</p>
+  <h2 id="erreurs-packages-title" class="anchored">Quand R ne trouve pas un package ou une fonction</h2>
+  <p>La plupart des erreurs de packages viennent d&#39;une des quatre situations ci-dessous.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article>
+  <h3 class="anchored">Package introuvable</h3>
+  <p>Installer le package, puis relancer le document. L&#39;installation se fait une fois par ordinateur.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Fonction introuvable</h3>
+  <p>Charger le package avec <code>library()</code> ou appeler la fonction avec <code>package::fonction()</code>.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Conflit de noms</h3>
+  <p>Utiliser l&#39;appel explicite, par exemple <code>dplyr::filter()</code>, pour indiquer à R quelle fonction choisir.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Rendu Quarto qui échoue</h3>
+  <p>Ajouter les <code>library()</code> nécessaires dans le fichier <code>.qmd</code>, pas seulement dans la Console.</p>
+  </article>
+  </div>
+  </section>
 </div>
 <section id="par-module" class="level2">
 <h2 class="anchored" data-anchor-id="par-module">Par module</h2>
+<p>Les paquets listés ici sont ceux qui reviennent explicitement dans les activités du module. Certains servent d’outils de travail, d’autres fournissent surtout des jeux de données pour pratiquer.</p>
 <section id="module-01" class="level3">
 <h3 class="anchored" data-anchor-id="module-01">Module 01</h3>
 <div class="tag-list">
@@ -6146,6 +6238,7 @@ margin-bottom: .05rem;
 </section>
 <section id="bibliothèque-de-packages" class="level2">
 <h2 class="anchored" data-anchor-id="bibliothèque-de-packages">Bibliothèque de packages</h2>
+<p>La bibliothèque complète sert à retrouver la documentation. Les cartes avec un logo sont les packages centraux du cours; les autres cartes utilisent les initiales du package.</p>
 <div class="package-grid package-library-grid">
 <a id="babynames" class="package-card" href="https://CRAN.R-project.org/package=babynames" target="_blank" rel="noopener"><span class="package-logo package-logo--fallback" aria-hidden="true">BAB</span><span>
 <h2 class="anchored">
@@ -6191,7 +6284,11 @@ ggplot2movies
 <h2 class="anchored">
 ggwordcloud
 </h2>
-<span class="package-role">Option mentionnée pour créer des nuages de mots avec ggplot2.</span><span class="package-source">Documentation externe</span></span></a> <a id="janitor" class="package-card" href="https://CRAN.R-project.org/package=janitor" target="_blank" rel="noopener"><span class="package-logo package-logo--fallback" aria-hidden="true">JAN</span><span>
+<span class="package-role">Option mentionnée pour créer des nuages de mots avec ggplot2.</span><span class="package-source">Documentation externe</span></span></a> <a id="haven" class="package-card" href="https://CRAN.R-project.org/package=haven" target="_blank" rel="noopener"><span class="package-logo package-logo--fallback" aria-hidden="true">HAV</span><span>
+<h2 class="anchored">
+haven
+</h2>
+<span class="package-role">Importation de fichiers statistiques SPSS, Stata et SAS quand un jeu externe n’est pas en CSV ou Excel.</span><span class="package-source">Documentation externe</span></span></a> <a id="janitor" class="package-card" href="https://CRAN.R-project.org/package=janitor" target="_blank" rel="noopener"><span class="package-logo package-logo--fallback" aria-hidden="true">JAN</span><span>
 <h2 class="anchored">
 janitor
 </h2>

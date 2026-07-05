@@ -4,7 +4,7 @@ Bibliothèque R
 
 Cette page rassemble les packages R utilisés ou mentionnés dans les notes, exercices, aventures et scripts. Elle sert à comprendre à quoi sert chaque package et dans quels modules il revient.
 
-[Par module](#par-module) [Bibliothèque](#bibliothèque-de-packages) [Bases de données](donnees.llms.md)
+[Démarrer](#paquets-de-depart) [Par module](#par-module) [Bibliothèque](#bibliothèque-de-packages) [Bases de données](donnees.llms.md)
 
 01
 
@@ -22,7 +22,91 @@ Visualiser et communiquer
 
 Texte, web et tableaux de bord
 
+Réflexe de travail
+
+## Paquets de départ
+
+Un package n'est pas seulement une ligne de code à copier: c'est une dépendance de votre document. Le bon réflexe est de distinguer installation, chargement et appel précis d'une fonction.
+
+1
+
+### Installer une fois
+
+`install.packages("nom_du_package")` installe le package sur votre ordinateur.
+
+2
+
+### Charger au début
+
+`library(tidyverse)` rend les fonctions disponibles dans la session R active.
+
+3
+
+### Appeler précisément
+
+`readr::read_csv()` utilise une fonction sans charger tout le package.
+
+4
+
+### Vérifier le rendu
+
+Un document Quarto doit charger tous les packages dont il dépend dans le fichier lui-même.
+
+Choisir l'outil
+
+## Quel package pour quelle tâche?
+
+Les modules reviennent souvent aux mêmes familles de tâches. Cette carte aide à choisir rapidement le bon outil avant d'aller chercher la documentation détaillée.
+
+### Importer
+
+`readr`, `readxl`, `jsonlite`, `haven`
+
+### Transformer
+
+`dplyr`, `tidyr`, `stringr`, `forcats`, `lubridate`
+
+### Visualiser
+
+`ggplot2`, `patchwork`, `scales`, `viridis`, `ggcorrplot`
+
+### Pratiquer avec des données
+
+`UlavalSSD`, `palmerpenguins`, `nycflights23`, `gapminder`, `Lahman`
+
+### Collecter sur le web
+
+`rvest`, `robotstxt`, `purrr`, `stringr`
+
+### Texte et tableaux de bord
+
+`tidytext`, `stopwords`, `plotly`, `flexdashboard`, `shiny`
+
+Dépannage
+
+## Quand R ne trouve pas un package ou une fonction
+
+La plupart des erreurs de packages viennent d'une des quatre situations ci-dessous.
+
+### Package introuvable
+
+Installer le package, puis relancer le document. L'installation se fait une fois par ordinateur.
+
+### Fonction introuvable
+
+Charger le package avec `library()` ou appeler la fonction avec `package::fonction()`.
+
+### Conflit de noms
+
+Utiliser l'appel explicite, par exemple `dplyr::filter()`, pour indiquer à R quelle fonction choisir.
+
+### Rendu Quarto qui échoue
+
+Ajouter les `library()` nécessaires dans le fichier `.qmd`, pas seulement dans la Console.
+
 ## Par module
+
+Les paquets listés ici sont ceux qui reviennent explicitement dans les activités du module. Certains servent d’outils de travail, d’autres fournissent surtout des jeux de données pour pratiquer.
 
 ### Module 01
 
@@ -65,6 +149,8 @@ Texte, web et tableaux de bord
 [`tidyverse`](#tidyverse) [`tidytext`](#tidytext) [`readr`](#readr) [`stringr`](#stringr) [`dplyr`](#dplyr) [`tibble`](#tibble) [`ggplot2`](#ggplot2) [`stopwords`](#stopwords) [`tidyr`](#tidyr) [`forcats`](#forcats) [`wordcloud`](#wordcloud) [`wordcloud2`](#wordcloud2) [`ggwordcloud`](#ggwordcloud) [`plotly`](#plotly) [`flexdashboard`](#flexdashboard) [`shiny`](#shiny)
 
 ## Bibliothèque de packages
+
+La bibliothèque complète sert à retrouver la documentation. Les cartes avec un logo sont les packages centraux du cours; les autres cartes utilisent les initiales du package.
 
 [BAB ](https://CRAN.R-project.org/package=babynames)
 
@@ -110,7 +196,11 @@ Jeu de données de films pour pratiquer les jointures et les comparaisons.Docume
 
 ## ggwordcloud
 
-Option mentionnée pour créer des nuages de mots avec ggplot2.Documentation externe [JAN ](https://CRAN.R-project.org/package=janitor)
+Option mentionnée pour créer des nuages de mots avec ggplot2.Documentation externe [HAV ](https://CRAN.R-project.org/package=haven)
+
+## haven
+
+Importation de fichiers statistiques SPSS, Stata et SAS quand un jeu externe n’est pas en CSV ou Excel.Documentation externe [JAN ](https://CRAN.R-project.org/package=janitor)
 
 ## janitor
 

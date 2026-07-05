@@ -1,44 +1,133 @@
-Targeted Help
+Responsible Help
 
 # AI and Help
 
-The STT-1100 GPT can be a partner for review, debugging and rewriting. It does not replace your judgment: every answer you use must be checked against the code, the data and the module instructions.
+AI can help you understand, debug, revise and test an idea. It does not replace your judgment: in STT-1100, what matters is your ability to verify, explain and take responsibility for the choices in your deliverables.
 
-[Open STT-1100 GPT](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Toolkit](boite_outils.llms.md)
+[Open STT-1100 GPT](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Challenges](defis.llms.md) [Project](projet_session/index.llms.md) [Toolkit](boite_outils.llms.md)
 
 1
 
-Ask for an explanation
+Ask for help
 
 2
 
-Test an interpretation
+Verify yourself
 
 3
 
-Check with the data
+Disclose use
 
-## Good Uses During the Course
+## Simple Rule
 
-AI is useful when the question is precise and when you keep track of what you verify.
+AI is a working tool. It becomes a problem if it hides your understanding, invents elements or produces an answer you cannot defend.
 
-### Explain
+### Allowed
 
-Ask for an explanation of an R output, an error message or a step in the learning plan.
+Ask for an explanation, debugging lead, clearer wording, checklist or feedback on your own work.
 
-### Check
+### Control
 
-Submit your own code or interpretation and ask for targeted feedback.
+Reuse a suggestion only after running the code, comparing it with the data and rereading the instructions.
 
-### Improve
+### Avoid
 
-Ask for a clearer version, then choose what remains consistent with the instructions and your analysis.
+Submitting code, text, sources or interpretations that you do not understand or cannot reproduce.
+
+## Depending on the Activity
+
+The same tool does not play the same role in formative practice, a challenge, an exam or the course project.
+
+1
+
+### Adventures, mini-tests and exercises
+
+Encouraged for understanding a concept, testing a command, fixing an error or finding another explanation.
+
+2
+
+### Challenges
+
+Possible as support for reasoning, debugging or revision. The final deliverable must remain verifiable, personal and consistent with the instructions.
+
+3
+
+### Exam
+
+The exact conditions, authorized materials and allowed tools are listed on Brio. When in doubt, the official instructions prevail.
+
+4
+
+### Course Project
+
+Possible for organizing work, reviewing code or improving clarity. The team must document the data, sources, analysis choices and limitations.
+
+## Disclosing Help Received
+
+When AI influences an important part of an evaluated deliverable, keep a short and clear trace. The goal is not to write a long report, but to make your process transparent.
+
+### Tool Used
+
+Name the tool or GPT used, for example STT-1100 GPT.
+
+### Purpose of Help
+
+Indicate whether the help was for debugging, rewriting, checking, planning or finding errors.
+
+### Affected Part
+
+Name the section, function, graph or passage that was influenced.
+
+### Verification Done
+
+Say how you checked the suggestion: code run, Quarto render, comparison with the data, rereading of instructions.
 
 ## Before Using an Answer
 
-A useful answer must be compatible with the instructions, the data and the code you actually ran.
+A useful answer must be compatible with the instructions, the data and the code you actually ran. If a suggestion looks impressive but does not render, does not match the variables or contradicts the instructions, it should not enter the deliverable.
 
-1.  Reread the module or challenge instructions.
+1.  Reread the module, challenge or project instructions.
 2.  Run the code in your own Quarto document.
-3.  Check that variable names, filters and units match the data.
+3.  Check that variable names, filters, units and graphs match the data.
 4.  Rewrite the interpretation in your own words.
+5.  Keep a short note if the help influenced the final result.
+
+### Do Not Invent
+
+No source, data, variable, result or citation should be added without verification.
+
+### Do Not Delegate Judgment
+
+AI may suggest; you must decide, test and explain.
+
+### Do Not Share Sensitive Data
+
+Do not send personal, confidential or non-anonymized data to an external tool.
+
+## Useful Questions to Ask
+
+The best prompts request targeted help while keeping responsibility for the decision on your side.
+
+### Debug
+
+Here is my error message and the minimal code that produces it. Can you help me find the likely cause?
+
+### Understand
+
+Explain this R output in plain language, then indicate what I should check in my data.
+
+### Revise
+
+Review this interpretation and flag any sentences that go beyond what the data support.
+
+### Improve
+
+Suggest a clearer version of this paragraph without changing the result or adding unverified information.
+
+### Test
+
+What checks should I run before submitting this Quarto document?
+
+### Document
+
+Help me write a short note describing how I used AI and how I verified the answer.

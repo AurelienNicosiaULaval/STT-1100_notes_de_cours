@@ -1,40 +1,70 @@
-Bibliothèque du cours
+Carrefour du cours
 
 # Ressources STT-1100
 
-Cette page sert de point d'entrée. Les livres, packages, bases de données, supports de classe et ressources d'aide sont séparés pour que chaque type de matériel soit plus facile à consulter.
+Cette page vous aide à trouver le bon support au bon moment: lire avant un module, retrouver une fonction, choisir un jeu de données, demander de l'aide ou préparer une remise.
 
-R
+[Par besoin](#besoin-title) [Pages spécialisées](#hub-title) [Méthode de travail](#path-title)
 
-Packages et fonctions
+Lire
 
-D
+Comprendre avant de coder
 
-Bases de données
+Coder
 
-IA
+Retrouver les gestes utiles
 
-Aide et révision
+Aider
 
-## Choisir la bonne ressource
+Débloquer et vérifier
 
-Les cartes ci-dessous ouvrent les pages spécialisées du portail.
+## Je cherche quoi?
+
+Commencez par votre situation. Les ressources du site sont nombreuses; l'objectif est de réduire le bruit.
+
+### Je prépare un module
+
+Revenir au plan d'apprentissage, lire les références ciblées, puis faire le mini-test formatif.
+
+[Vue d'ensemble des modulesRetrouver le module et son plan d'apprentissage.](modules.llms.md) [Livres et lecturesOuvrir les chapitres et guides associés.](livres.llms.md)
+
+### Je bloque sur du code
+
+Identifier l'erreur, réduire l'exemple, comparer avec une routine du cours, puis demander une aide ciblée.
+
+[Boîte à outilsRoutines R, Quarto, GitHub et dépannage.](boite_outils.llms.md) [IA et aideUtiliser GPT STT-1100 sans perdre le contrôle.](ia.llms.md)
+
+### Je cherche les données
+
+Retrouver les fichiers locaux, les données de packages et les jeux de données utiles pour les exercices.
+
+[Bases de donnéesCatalogue par module et fiches de fichiers.](donnees.llms.md) [Packages RVoir quels packages fournissent des données ou des fonctions.](packages.llms.md)
+
+### Je prépare une remise
+
+Relire la consigne, vérifier le format attendu, rendre le document et retirer les fichiers inutiles.
+
+[DéfisRôle, formats et liens vers les consignes.](defis.llms.md) [ÉvaluationsComprendre ce qui est valorisé dans les livrables.](evaluations.llms.md)
+
+## Pages spécialisées
+
+Ces pages contiennent le détail. Cette page sert surtout à choisir où aller.
 
 ### Livres et lectures
 
-Références ouvertes, couvertures, lectures par module et liens vers les chapitres utiles.
+Références ouvertes, lectures par module et liens vers les chapitres utiles pour comprendre avant de pratiquer.
 
 [Ouvrir les livres](livres.llms.md)
 
 ### Packages R
 
-Packages utilisés dans les modules, logos, liens vers la documentation et rôles principaux.
+Packages utilisés dans les modules, liens vers la documentation et rôle de chaque outil dans le cours.
 
 [Ouvrir les packages](packages.llms.md)
 
 ### Bases de données
 
-Catalogue des données locales et des jeux de données fournis par des packages.
+Catalogue des données locales, des données de packages et des fichiers utilisés dans les modules.
 
 [Ouvrir les données](donnees.llms.md)
 
@@ -55,3 +85,49 @@ Utiliser l'IA du cours pour réviser, déboguer et améliorer un raisonnement sa
 Fonctions R, Quarto, GitHub, routines de dépannage et gestes récurrents du cours.
 
 [Ouvrir la boîte à outils](boite_outils.llms.md)
+
+## Méthode de travail
+
+Les ressources sont plus utiles quand elles sont utilisées dans le bon ordre.
+
+1
+
+### Avant
+
+Lire le plan d'apprentissage, ouvrir les lectures essentielles et repérer les packages ou données du module.
+
+2
+
+### Pendant
+
+Travailler dans le document Quarto, revenir aux supports, tester souvent et garder une trace claire.
+
+3
+
+### Blocage
+
+Réduire le problème, lire l'erreur, consulter la boîte à outils, puis demander une aide ciblée.
+
+4
+
+### Remise
+
+Revenir à la consigne officielle, rendre le document, vérifier les liens et soumettre selon Brio.
+
+## Deux repères à garder
+
+Les ressources aident à apprendre et à travailler. Elles ne remplacent jamais les consignes précises d'un défi, d'un examen, d'un projet ou les modalités officielles indiquées sur Brio.
+
+[Comprendre les évaluations](evaluations.llms.md) [Revoir le démarrage](demarrage.llms.md)
+
+### Consigne d'abord
+
+Avant une remise, relire le produit attendu, les fichiers demandés et le lieu de dépôt.
+
+### Ressource ciblée
+
+Choisir la page qui répond au besoin immédiat au lieu d'ouvrir tout le site.
+
+### Trace vérifiable
+
+Quand une ressource modifie votre travail, refaire le code, relire le texte et garder une version claire.

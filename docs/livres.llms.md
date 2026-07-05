@@ -4,7 +4,7 @@ Références du cours
 
 Les lectures du cours renvoient vers des ressources ouvertes et durables. Cette page sert de bibliothèque visuelle pour retrouver les livres, guides et chapitres utiles.
 
-[Références principales](#references-principales) [Lectures par module](#lectures-par-module)
+[Références principales](#references-principales) [Compléments ciblés](#complements-cibles) [Lectures par module](#lectures-par-module)
 
 ![Couverture de R for Data Science, 2e édition](assets/img/lectures/r4ds-cover.jpg) ![Couverture de Introduction to Modern Statistics](assets/img/lectures/ims-cover.png) ![Couverture de OpenIntro Statistics](assets/img/lectures/openintro-statistics-cover.webp)
 
@@ -273,9 +273,79 @@ Article de référence sur les principes Findable, Accessible, Interoperable et 
 
 [Ouvrir l'article](https://www.nature.com/articles/sdata201618)
 
-## Lectures par module
+## Compléments ciblés
 
-Cette synthèse aide à retrouver rapidement les références appelées dans les plans d'apprentissage.
+Ces ressources ne sont pas à lire d'un coup. Elles servent de soutien quand un module, un défi ou le projet demande un geste précis.
+
+Happy
+Git
+
+Bryan, STAT 545 TAs et Hester
+
+### Happy Git and GitHub for the useR
+
+Guide pratique pour connecter RStudio, Git et GitHub, comprendre les commits, pousser le travail et collaborer dans un dépôt.
+
+[Ouvrir le livre](https://happygitwithr.com/)
+
+Data
+Org
+
+Broman et Woo
+
+### Data Organization in Spreadsheets
+
+Article de référence pour structurer un tableur avant l'importation, garder les données brutes intactes et documenter les corrections.
+
+[Ouvrir l'article](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)
+
+Data
+Stories
+
+Alexander
+
+### Telling Stories with Data
+
+Référence pour construire une analyse complète: question, données, préparation, modélisation, communication et démarche reproductible.
+
+[Ouvrir le livre](https://rohanalexander.github.io/telling_stories-published/)
+
+Modern
+Dive
+
+Ismay, Kim et Valdivia
+
+### Statistical Inference via Data Science
+
+Complément pour relier visualisation, transformation, régression et raisonnement statistique avec les outils tidyverse.
+
+[Ouvrir le livre](https://moderndive.com/v2/)
+
+R
+Graphics
+
+Chang
+
+### R Graphics Cookbook, 2e édition
+
+Recettes concrètes pour améliorer des graphiques ggplot2 sans devoir relire toute la théorie à chaque blocage.
+
+[Ouvrir le livre](https://r-graphics.org/)
+
+Shiny
+Dash
+
+Posit
+
+### Using Shiny with flexdashboard
+
+Guide court pour ajouter des entrées interactives et des sorties réactives dans un tableau de bord flexdashboard.
+
+[Ouvrir le guide](https://rstudio.github.io/flexdashboard/articles/shiny.html)
+
+## Lectures par module et projet
+
+Cette synthèse aide à retrouver rapidement les références appelées dans les plans d'apprentissage et les ressources utiles pour le projet de session.
 
 ### Module 01
 
@@ -283,7 +353,7 @@ Cette synthèse aide à retrouver rapidement les références appelées dans les
 
 ### Module 02
 
-R for Data Science: visualisation, transformation, exploration, tableurs et premiers résumés numériques.
+[R for Data Science](#r4ds) pour visualisation, transformation, exploration et tableurs; [Broman et Woo](#dataorg-spreadsheets) pour organiser les fichiers Excel avant l'analyse.
 
 ### Module 03
 
@@ -291,19 +361,19 @@ R for Data Science: chaînes de caractères, facteurs, recodage et repères pour
 
 ### Module 04
 
-R for Data Science: importation, données tidy, valeurs manquantes, facteurs, tableurs, JSON et données imbriquées.
+[R for Data Science](#r4ds) pour importation, données tidy, valeurs manquantes, facteurs, tableurs, JSON et données imbriquées; [Broman et Woo](#dataorg-spreadsheets) pour les fichiers tabulaires.
 
 ### Module 05
 
-R for Data Science: EDA, dates, visualisation et valeurs manquantes; Introduction to Modern Statistics: exploration numérique et applications exploratoires.
+[R for Data Science](#r4ds) pour EDA, dates, visualisation et valeurs manquantes; [Introduction to Modern Statistics](#ims) pour l'exploration numérique; [R Graphics Cookbook](#r-graphics-cookbook) pour raffiner un graphique.
 
 ### Module 06
 
-[GitHub Docs](#github-docs) pour issues, pull requests et conflits; Quarto pour code inline et options d'exécution; R for Data Science pour les jointures.
+[GitHub Docs](#github-docs) et [Happy Git](#happy-git) pour dépôts, issues, pull requests et conflits; Quarto pour code inline et options d'exécution; R for Data Science pour les jointures.
 
 ### Module 07
 
-[R for Data Science](#r4ds) pour la communication, [Wilke](#wilke-dataviz) et le [guide RSS](#rss-dataviz) pour la visualisation responsable, puis [Québec](#quebec-anonymisation), [CNIL](#cnil-anonymisation) et [FAIR](#fair-principles) pour l'anonymisation et la réutilisation des données.
+[R for Data Science](#r4ds) pour la communication, [Wilke](#wilke-dataviz), le [guide RSS](#rss-dataviz) et [R Graphics Cookbook](#r-graphics-cookbook) pour la visualisation responsable, puis [Québec](#quebec-anonymisation), [CNIL](#cnil-anonymisation) et [FAIR](#fair-principles) pour l'anonymisation et la réutilisation des données.
 
 ### Module 08
 
@@ -311,11 +381,15 @@ R for Data Science: EDA, dates, visualisation et valeurs manquantes; Introductio
 
 ### Module 09
 
-[Introduction to Modern Statistics](#ims) pour la régression simple et multiple, [lm()](#r-lm-docs) et [predict.lm()](#r-predict-lm-docs) pour l'implémentation R, puis le [guide du Canada](#canada-adm-guide) et [NIST SP 1270](#nist-bias-ai) pour la discussion des biais et des décisions automatisées.
+[Introduction to Modern Statistics](#ims) et [ModernDive](#moderndive) pour la régression simple et multiple, [lm()](#r-lm-docs) et [predict.lm()](#r-predict-lm-docs) pour l'implémentation R, puis le [guide du Canada](#canada-adm-guide) et [NIST SP 1270](#nist-bias-ai) pour la discussion des biais et des décisions automatisées.
 
 ### Module 10
 
-[Text Mining with R](#tidytext) pour le format tidy text, le sentiment et le TF-IDF, [unnest_tokens()](#tidytext-unnest-tokens) et [bind_tf_idf()](#tidytext-bind-tfidf) pour les fonctions clés, puis [flexdashboard](#flexdashboard-docs) et [Shiny Basics](#shiny-basics) pour le tableau de bord interactif.
+[Text Mining with R](#tidytext) pour le format tidy text, le sentiment et le TF-IDF, [unnest_tokens()](#tidytext-unnest-tokens) et [bind_tf_idf()](#tidytext-bind-tfidf) pour les fonctions clés, puis [flexdashboard](#flexdashboard-docs), [Shiny avec flexdashboard](#flexdashboard-shiny) et [Shiny Basics](#shiny-basics) pour le tableau de bord interactif.
+
+### Projet de session
+
+[Telling Stories with Data](#telling-stories-data) pour la démarche complète, [Happy Git](#happy-git) pour le dépôt, [Broman et Woo](#dataorg-spreadsheets) pour les données tabulaires et [Quarto](#quarto-docs) pour la communication reproductible.
 
 ## Sources des visuels
 

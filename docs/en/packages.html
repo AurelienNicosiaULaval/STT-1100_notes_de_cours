@@ -5807,7 +5807,8 @@ margin-bottom: .05rem;
   <h1 id="packages-title">Packages used in the course</h1>
   <p>This page gathers the R packages used or mentioned in the notes, exercises, adventures and scripts. It explains what each package is for and where it appears in the modules.</p>
   <div class="resource-actions" aria-label="Quick links">
-  <a class="home-action home-action--primary" href="#by-module">By module</a>
+  <a class="home-action home-action--primary" href="#starter-packages">Start</a>
+  <a class="home-action" href="#by-module">By module</a>
   <a class="home-action" href="#package-library">Library</a>
   <a class="home-action" href="donnees.html">Datasets</a>
   </div>
@@ -5819,9 +5820,100 @@ margin-bottom: .05rem;
   <div><span>04</span><p>Text, web and dashboards</p></div>
   </div>
   </section>
+
+  <section class="resource-section" id="starter-packages" aria-labelledby="starter-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Working reflex</p>
+  <h2 id="starter-title" class="anchored">Starter packages</h2>
+  <p>A package is not just a line of code to copy: it is a dependency of your document. The useful reflex is to distinguish installation, loading and precise function calls.</p>
+  </div>
+  <div class="course-flow">
+  <article class="flow-card">
+  <span class="flow-number">1</span>
+  <h3 class="anchored">Install once</h3>
+  <p><code>install.packages(&quot;package_name&quot;)</code> installs the package on your computer.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">2</span>
+  <h3 class="anchored">Load at the start</h3>
+  <p><code>library(tidyverse)</code> makes functions available in the active R session.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">3</span>
+  <h3 class="anchored">Call precisely</h3>
+  <p><code>readr::read_csv()</code> uses a function without loading the whole package.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">4</span>
+  <h3 class="anchored">Check rendering</h3>
+  <p>A Quarto document must load every package it depends on inside the file itself.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="choose-package" aria-labelledby="choose-package-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Choose the tool</p>
+  <h2 id="choose-package-title" class="anchored">Which package for which task?</h2>
+  <p>The modules often return to the same families of tasks. This map helps you pick the right tool before opening the detailed documentation.</p>
+  </div>
+  <div class="reading-map">
+  <article>
+  <h3 class="anchored">Import</h3>
+  <p><code>readr</code>, <code>readxl</code>, <code>jsonlite</code>, <code>haven</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Transform</h3>
+  <p><code>dplyr</code>, <code>tidyr</code>, <code>stringr</code>, <code>forcats</code>, <code>lubridate</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Visualize</h3>
+  <p><code>ggplot2</code>, <code>patchwork</code>, <code>scales</code>, <code>viridis</code>, <code>ggcorrplot</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Practice with data</h3>
+  <p><code>UlavalSSD</code>, <code>palmerpenguins</code>, <code>nycflights23</code>, <code>gapminder</code>, <code>Lahman</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Collect from the web</h3>
+  <p><code>rvest</code>, <code>robotstxt</code>, <code>purrr</code>, <code>stringr</code></p>
+  </article>
+  <article>
+  <h3 class="anchored">Text and dashboards</h3>
+  <p><code>tidytext</code>, <code>stopwords</code>, <code>plotly</code>, <code>flexdashboard</code>, <code>shiny</code></p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="package-errors" aria-labelledby="package-errors-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Troubleshooting</p>
+  <h2 id="package-errors-title" class="anchored">When R cannot find a package or function</h2>
+  <p>Most package errors come from one of the four situations below.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article>
+  <h3 class="anchored">Package not found</h3>
+  <p>Install the package, then render the document again. Installation is done once per computer.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Function not found</h3>
+  <p>Load the package with <code>library()</code> or call the function with <code>package::function()</code>.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Name conflict</h3>
+  <p>Use an explicit call, such as <code>dplyr::filter()</code>, to tell R which function to use.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Quarto render failure</h3>
+  <p>Add the required <code>library()</code> calls inside the <code>.qmd</code> file, not only in the Console.</p>
+  </article>
+  </div>
+  </section>
 </div>
 <section id="by-module" class="level2">
 <h2 class="anchored" data-anchor-id="by-module">By module</h2>
+<p>The packages listed here are the ones that appear explicitly in the module activities. Some are working tools, while others mainly provide datasets for practice.</p>
 <section id="module-01" class="level3">
 <h3 class="anchored" data-anchor-id="module-01">Module 01</h3>
 <div class="tag-list">
@@ -5905,6 +5997,7 @@ margin-bottom: .05rem;
 </section>
 <section id="package-library" class="level2">
 <h2 class="anchored" data-anchor-id="package-library">Package library</h2>
+<p>The full library is here to help you find documentation. Cards with a logo are the central course packages; the other cards use the package initials.</p>
 <div class="package-grid package-library-grid">
 <a id="babynames" class="package-card" href="https://CRAN.R-project.org/package=babynames" target="_blank" rel="noopener"><span class="package-logo package-logo--fallback" aria-hidden="true">BAB</span><span>
 <h2 class="anchored">
@@ -5950,7 +6043,11 @@ ggplot2movies
 <h2 class="anchored">
 ggwordcloud
 </h2>
-<span class="package-role">Option mentioned for creating word clouds with ggplot2.</span><span class="package-source">External documentation</span></span></a> <a id="janitor" class="package-card" href="https://CRAN.R-project.org/package=janitor" target="_blank" rel="noopener"><span class="package-logo package-logo--fallback" aria-hidden="true">JAN</span><span>
+<span class="package-role">Option mentioned for creating word clouds with ggplot2.</span><span class="package-source">External documentation</span></span></a> <a id="haven" class="package-card" href="https://CRAN.R-project.org/package=haven" target="_blank" rel="noopener"><span class="package-logo package-logo--fallback" aria-hidden="true">HAV</span><span>
+<h2 class="anchored">
+haven
+</h2>
+<span class="package-role">Importing SPSS, Stata and SAS statistical files when an external dataset is not CSV or Excel.</span><span class="package-source">External documentation</span></span></a> <a id="janitor" class="package-card" href="https://CRAN.R-project.org/package=janitor" target="_blank" rel="noopener"><span class="package-logo package-logo--fallback" aria-hidden="true">JAN</span><span>
 <h2 class="anchored">
 janitor
 </h2>

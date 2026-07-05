@@ -5803,39 +5803,85 @@ margin-bottom: .05rem;
 <div class="resource-page resources-hub-page">
   <section class="resource-hero" aria-labelledby="resources-title">
     <div>
-      <p class="eyebrow">Course Library</p>
+      <p class="eyebrow">Course Hub</p>
       <h1 id="resources-title">STT-1100 Resources</h1>
-      <p>This page is the entry point. Books, packages, datasets, class supports and help resources are split into separate pages so each type of material is easier to consult.</p>
+      <p>This page helps you find the right support at the right moment: reading before a module, finding a function, choosing a dataset, asking for help or preparing a submission.</p>
+      <div class="resource-actions" aria-label="Quick access">
+        <a class="home-action home-action--primary" href="#need-title">By need</a>
+        <a class="home-action" href="#hub-title">Specialized pages</a>
+        <a class="home-action" href="#path-title">Work method</a>
+      </div>
     </div>
-    <div class="resource-panel" aria-label="Resource types">
-      <div><span>R</span><p>Packages and functions</p></div>
-      <div><span>D</span><p>Datasets</p></div>
-      <div><span>AI</span><p>Help and review</p></div>
+    <div class="resource-panel" aria-label="Resource landmarks">
+      <div><span>Read</span><p>Understand before coding</p></div>
+      <div><span>Code</span><p>Find useful gestures</p></div>
+      <div><span>Help</span><p>Unblock and verify</p></div>
+    </div>
+  </section>
+
+  <section class="resource-section" aria-labelledby="need-title">
+    <div class="resource-section__header">
+      <h2 id="need-title" class="anchored">What am I looking for?</h2>
+      <p>Start from your situation. The site has many resources; the goal is to reduce noise.</p>
+    </div>
+    <div class="resource-hub-grid">
+      <article class="resource-hub-card">
+        <h3 class="anchored">I am preparing a module</h3>
+        <p>Return to the learning plan, read the targeted references, then complete the formative mini-test.</p>
+        <div class="resource-link-list">
+          <a href="modules.html"><span>Module overview</span><span>Find the module and its learning plan.</span></a>
+          <a href="livres.html"><span>Books and readings</span><span>Open the relevant chapters and guides.</span></a>
+        </div>
+      </article>
+      <article class="resource-hub-card">
+        <h3 class="anchored">I am stuck on code</h3>
+        <p>Identify the error, reduce the example, compare with a course routine, then ask for targeted help.</p>
+        <div class="resource-link-list">
+          <a href="boite_outils.html"><span>Toolkit</span><span>R, Quarto, GitHub and troubleshooting routines.</span></a>
+          <a href="ia.html"><span>AI and help</span><span>Use STT-1100 GPT while staying in control.</span></a>
+        </div>
+      </article>
+      <article class="resource-hub-card">
+        <h3 class="anchored">I am looking for data</h3>
+        <p>Find local files, package datasets and datasets useful for exercises.</p>
+        <div class="resource-link-list">
+          <a href="donnees.html"><span>Datasets</span><span>Catalog by module and file profiles.</span></a>
+          <a href="packages.html"><span>R packages</span><span>See which packages provide data or functions.</span></a>
+        </div>
+      </article>
+      <article class="resource-hub-card">
+        <h3 class="anchored">I am preparing a submission</h3>
+        <p>Reread the instructions, check the expected format, render the document and remove unnecessary files.</p>
+        <div class="resource-link-list">
+          <a href="defis.html"><span>Challenges</span><span>Role, formats and links to instructions.</span></a>
+          <a href="evaluations.html"><span>Evaluations</span><span>Understand what is valued in deliverables.</span></a>
+        </div>
+      </article>
     </div>
   </section>
 
   <section class="resource-section" aria-labelledby="hub-title">
     <div class="resource-section__header">
-      <h2 id="hub-title" class="anchored">Choose the Right Resource</h2>
-      <p>The cards below open the specialized pages of the portal.</p>
+      <h2 id="hub-title" class="anchored">Specialized Pages</h2>
+      <p>These pages contain the details. This page mainly helps you choose where to go.</p>
     </div>
     <div class="resource-hub-grid">
       <article class="resource-hub-card resource-hub-card--visual">
         <div class="resource-mini-visual book-mini" aria-hidden="true"></div>
         <h3 class="anchored">Books and Readings</h3>
-        <p>Open references, covers, module readings and links to useful chapters.</p>
+        <p>Open references, module readings and useful chapters for understanding before practice.</p>
         <a class="home-action home-action--primary" href="livres.html">Open books</a>
       </article>
       <article class="resource-hub-card resource-hub-card--visual">
         <div class="resource-mini-visual package-mini" aria-hidden="true"></div>
         <h3 class="anchored">R Packages</h3>
-        <p>Packages used in modules, logos, documentation links and main roles.</p>
+        <p>Packages used in modules, documentation links and the role of each tool in the course.</p>
         <a class="home-action home-action--primary" href="packages.html">Open packages</a>
       </article>
       <article class="resource-hub-card resource-hub-card--visual">
         <div class="resource-mini-visual data-mini" aria-hidden="true"></div>
         <h3 class="anchored">Datasets</h3>
-        <p>Catalog of local datasets and package datasets used in the course.</p>
+        <p>Catalog of local datasets, package datasets and files used in the modules.</p>
         <a class="home-action home-action--primary" href="donnees.html">Open datasets</a>
       </article>
       <article class="resource-hub-card resource-hub-card--visual">
@@ -5856,6 +5902,35 @@ margin-bottom: .05rem;
         <p>R functions, Quarto, GitHub, troubleshooting routines and recurring course gestures.</p>
         <a class="home-action home-action--primary" href="boite_outils.html">Open toolkit</a>
       </article>
+    </div>
+  </section>
+
+  <section class="resource-section" aria-labelledby="path-title">
+    <div class="resource-section__header">
+      <h2 id="path-title" class="anchored">Work Method</h2>
+      <p>Resources are more useful when they are used in the right order.</p>
+    </div>
+    <div class="course-flow">
+      <article class="flow-card"><span class="flow-number">1</span><h3 class="anchored">Before</h3><p>Read the learning plan, open the essential readings and identify the module packages or datasets.</p></article>
+      <article class="flow-card"><span class="flow-number">2</span><h3 class="anchored">During</h3><p>Work in the Quarto document, return to supports, test often and keep a clear trace.</p></article>
+      <article class="flow-card"><span class="flow-number">3</span><h3 class="anchored">Blocked</h3><p>Reduce the problem, read the error, consult the toolkit, then ask for targeted help.</p></article>
+      <article class="flow-card"><span class="flow-number">4</span><h3 class="anchored">Submit</h3><p>Return to the official instructions, render the document, check links and submit according to Brio.</p></article>
+    </div>
+  </section>
+
+  <section class="resource-section resource-split" aria-labelledby="rules-title">
+    <div>
+      <h2 id="rules-title" class="anchored">Two Landmarks to Keep</h2>
+      <p>Resources help you learn and work. They never replace the specific instructions for a challenge, exam, project or the official conditions listed on Brio.</p>
+      <div class="resource-actions">
+        <a class="home-action home-action--primary" href="evaluations.html">Understand evaluations</a>
+        <a class="home-action" href="demarrage.html">Review setup</a>
+      </div>
+    </div>
+    <div class="resource-compact-list" aria-label="Good-use landmarks">
+      <article class="resource-compact"><h3 class="anchored">Instructions First</h3><p>Before a submission, reread the expected product, requested files and submission location.</p></article>
+      <article class="resource-compact"><h3 class="anchored">Targeted Resource</h3><p>Choose the page that answers the immediate need instead of opening the whole site.</p></article>
+      <article class="resource-compact"><h3 class="anchored">Verifiable Trace</h3><p>When a resource changes your work, rerun the code, reread the text and keep a clear version.</p></article>
     </div>
   </section>
 </div>
