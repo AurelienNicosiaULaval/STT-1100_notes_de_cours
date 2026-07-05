@@ -21,16 +21,18 @@ execute:
   <p>Cette page rassemble les packages R utilisés ou mentionnés dans les notes, exercices, aventures et scripts. Elle sert à comprendre à quoi sert chaque package et dans quels modules il revient.</p>
   <div class="resource-actions" aria-label="Accès rapides">
   <a class="home-action home-action--primary" href="#paquets-de-depart">Démarrer</a>
+  <a class="home-action" href="#bloc-depart">Bloc de départ</a>
+  <a class="home-action" href="#choisir-package">Choisir</a>
+  <a class="home-action" href="#erreurs-packages">Dépanner</a>
   <a class="home-action" href="#par-module">Par module</a>
-  <a class="home-action" href="#bibliothèque-de-packages">Bibliothèque</a>
   <a class="home-action" href="donnees.html">Bases de données</a>
   </div>
   </div>
   <div class="resource-panel" aria-label="Repères de packages">
-  <div><span>01</span><p>Importer et nettoyer</p></div>
-  <div><span>02</span><p>Transformer et joindre</p></div>
-  <div><span>03</span><p>Visualiser et communiquer</p></div>
-  <div><span>04</span><p>Texte, web et tableaux de bord</p></div>
+  <div><span>01</span><p>Installer une fois</p></div>
+  <div><span>02</span><p>Charger au début</p></div>
+  <div><span>03</span><p>Appeler précisément</p></div>
+  <div><span>04</span><p>Rendre après redémarrage</p></div>
   </div>
   </section>
 
@@ -61,6 +63,25 @@ execute:
   <h3>Vérifier le rendu</h3>
   <p>Un document Quarto doit charger tous les packages dont il dépend dans le fichier lui-même.</p>
   </article>
+  </div>
+  </section>
+
+  <section class="resource-section resource-split" id="bloc-depart" aria-labelledby="bloc-depart-title">
+  <div>
+  <p class="eyebrow">Rapport reproductible</p>
+  <h2 id="bloc-depart-title">Où écrire les packages?</h2>
+  <p>La règle simple: installer dans la Console quand c'est nécessaire, charger dans le document Quarto, puis rendre le document après un redémarrage de R. Une remise doit pouvoir être reconstruite sans objets cachés dans l'environnement.</p>
+  <pre><code># Début d'un document .qmd
+library(tidyverse)
+library(readxl)
+
+meteo <- UlavalSSD::MeteoQuebec</code></pre>
+  </div>
+  <div class="resource-compact-list" aria-label="Repères pour les dépendances">
+  <article class="resource-compact"><h3>Console</h3><p>Utiliser <code>install.packages()</code> ou une consigne d'installation GitHub quand le package n'est pas encore installé.</p></article>
+  <article class="resource-compact"><h3>Document Quarto</h3><p>Mettre les <code>library()</code> nécessaires dans le fichier <code>.qmd</code>, idéalement au début du document.</p></article>
+  <article class="resource-compact"><h3>Fonction rare</h3><p>Utiliser <code>package::fonction()</code> quand une seule fonction est nécessaire ou quand un nom peut entrer en conflit.</p></article>
+  <article class="resource-compact"><h3>Remise</h3><p>Relancer R, rendre le document, puis vérifier que toutes les dépendances sont visibles dans le fichier remis.</p></article>
   </div>
   </section>
 
@@ -105,19 +126,19 @@ execute:
   <p>La plupart des erreurs de packages viennent d'une des quatre situations ci-dessous.</p>
   </div>
   <div class="resource-hub-grid">
-  <article>
+  <article class="resource-hub-card">
   <h3>Package introuvable</h3>
   <p>Installer le package, puis relancer le document. L'installation se fait une fois par ordinateur.</p>
   </article>
-  <article>
+  <article class="resource-hub-card">
   <h3>Fonction introuvable</h3>
   <p>Charger le package avec <code>library()</code> ou appeler la fonction avec <code>package::fonction()</code>.</p>
   </article>
-  <article>
+  <article class="resource-hub-card">
   <h3>Conflit de noms</h3>
   <p>Utiliser l'appel explicite, par exemple <code>dplyr::filter()</code>, pour indiquer à R quelle fonction choisir.</p>
   </article>
-  <article>
+  <article class="resource-hub-card">
   <h3>Rendu Quarto qui échoue</h3>
   <p>Ajouter les <code>library()</code> nécessaires dans le fichier <code>.qmd</code>, pas seulement dans la Console.</p>
   </article>
@@ -197,7 +218,7 @@ package_catalog <- tibble::tribble(
   "ulavalssd", "UlavalSSD", "Package de données et exemples utilisé dans les premiers modules du cours.", NA,
   "unvotes", "unvotes", "Votes des Nations Unies pour pratiquer les jointures et les regroupements.", "https://CRAN.R-project.org/package=unvotes",
   "viridis", "viridis", "Palettes de couleurs adaptées aux graphiques statistiques.", "https://CRAN.R-project.org/package=viridis",
-  "weathercan", "weathercan", "Téléchargement et manipulation de données météorologiques canadiennes.", NA,
+  "weathercan", "weathercan", "Ancien package de données météorologiques canadiennes; à vérifier avant de l'utiliser dans un nouveau travail.", "https://CRAN.R-project.org/package=weathercan",
   "wordcloud", "wordcloud", "Nuages de mots mentionnés dans le module 10.", "https://CRAN.R-project.org/package=wordcloud",
   "wordcloud2", "wordcloud2", "Option mentionnée pour produire des nuages de mots interactifs.", "https://CRAN.R-project.org/package=wordcloud2"
 )
@@ -231,7 +252,12 @@ render_package_tags <- function(ids) {
 render_package_card <- function(row) {
   tag <- ifelse(is.na(row$url), "section", "a")
   href <- ifelse(is.na(row$url), "", paste0(' href="', row$url, '" target="_blank" rel="noopener"'))
-  source_label <- ifelse(is.na(row$url), "Documentation locale ou à préciser", "Documentation externe")
+  source_label <- dplyr::case_when(
+    row$id == "ulavalssd" ~ "Package du cours, installation GitHub",
+    row$id == "weathercan" ~ "Page CRAN archivée",
+    is.na(row$url) ~ "Documentation locale ou à préciser",
+    TRUE ~ "Documentation externe"
+  )
   logo_path <- unname(package_logos[row$id])
   logo <- if (!is.na(logo_path)) {
     paste0(
@@ -250,7 +276,7 @@ render_package_card <- function(row) {
   logo,
   '<span>',
   '<h2>', html_text(row$name), '</h2>',
-  '<span class="package-role">', html_text(row$role), '</span>',
+  '<span class="package-role">', html_text(row$role), ' </span>',
   '<span class="package-source">', source_label, '</span>',
   '</span>',
   '</', tag, '>'

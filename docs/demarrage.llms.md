@@ -4,7 +4,7 @@ STT-1100
 
 Le cours est construit comme un parcours de science des données. Chaque module commence par des lectures ciblées, vous plonge dans une aventure guidée, puis vous amène à produire une trace personnelle: rapport, graphique, jeu de données nettoyé, fonction, vidéo ou tableau de bord.
 
-[Voir les modules](modules.llms.md) [Voir les défis](defis.llms.md) [Boîte à outils](boite_outils.llms.md)
+[Voir les modules](modules.llms.md) [Première séance](#premiere-seance) [Voir les défis](defis.llms.md) [Boîte à outils](boite_outils.llms.md)
 
 1
 
@@ -29,6 +29,28 @@ Consolider autrement
 6
 
 Garder une trace
+
+## Avant la première séance
+
+La première étape est simple: avoir les bons accès, les bons outils et une idée claire de l'endroit où chercher les consignes.
+
+1.  Installer ou vérifier R, RStudio, Quarto et Git.
+2.  Se connecter à Brio pour les consignes officielles, les dates et les modalités de remise.
+3.  Se connecter à GitHub, puis utiliser le dépôt ou le gabarit demandé lorsque le module le précise.
+4.  Ouvrir la page du module en cours et repérer le plan d'apprentissage, l'aventure, les exercices et le défi.
+5.  Tester un premier rendu Quarto dès qu'un fichier `.qmd` est fourni ou créé.
+
+### Brio
+
+Brio reste la référence pour les dates, les consignes officielles, les remises et les annonces du cours.
+
+### Site du cours
+
+Le site sert à travailler: modules, lectures, mini-tests, aventures, exercices, défis, données et ressources.
+
+### GitHub
+
+GitHub sert à récupérer certains gabarits, suivre les versions et remettre une trace lorsque c'est demandé.
 
 ## Le trajet d'un module
 
@@ -82,6 +104,42 @@ La trace finale indique ce qu'il faut conserver: fichiers, décisions, erreurs c
 
 Mémoire de travail
 
+## Si vous ne savez pas où aller
+
+Le site est organisé par usage. Choisissez d'abord la situation qui ressemble le plus à votre besoin du moment.
+
+1
+
+### Je commence un module
+
+Ouvrez la page du module, puis suivez le plan d'apprentissage dans l'ordre.
+
+[Voir les modules](modules.llms.md)
+
+2
+
+### Je cherche une ressource
+
+Utilisez la page des ressources pour trouver livres, packages, données, supports et aide IA.
+
+[Voir les ressources](ressources.llms.md)
+
+3
+
+### Je bloque techniquement
+
+Revenez à la boîte à outils pour retrouver les routines R, Quarto, GitHub et débogage.
+
+[Ouvrir la boîte à outils](boite_outils.llms.md)
+
+4
+
+### Je prépare une remise
+
+Relisez la consigne du défi, rendez le document et vérifiez la trace avant de remettre sur Brio.
+
+[Voir les défis](defis.llms.md)
+
 ## Trois pièces, trois fonctions
 
 Les aventures, les défis et les exercices ne jouent pas le même rôle. Les distinguer évite de chercher la mauvaise réponse au mauvais endroit.
@@ -106,9 +164,9 @@ Les exercices sont à part. Ils utilisent d'autres contextes pour pratiquer sans
 
 ## Le parcours des 10 modules
 
-Chaque module ajoute une compétence visible. Le chemin va d'un premier rapport reproductible vers des productions plus autonomes: collaboration, éthique, automatisation, prédiction et tableau de bord.
+Chaque module ajoute une compétence visible. Le chemin va d'un premier rapport reproductible vers des productions plus autonomes: collaboration, éthique, automatisation, prédiction et tableau de bord. Le module 2 est volontairement plus long et se travaille en deux temps.
 
-[1 DémarrerPlongée en science des donnéesPrendre en main R, RStudio, Quarto et un premier jeu de données météo.Produit: mini-rapport Quarto.](module_01/index.llms.md) [2 OrganiserGitHub et visualisationStructurer un dépôt, importer un fichier Excel et produire des graphiques lisibles.Produit: journal de bord et rapport GitHub.](module_02/index.llms.md) [3 RaconterCatégories et article de donnéesNettoyer des chaînes, compter des catégories et construire un angle journalistique.Produit: article Quarto reproductible.](module_03/index.llms.md) [4 NettoyerFacteurs et nettoyageDiagnostiquer des erreurs, recoder des variables et documenter les décisions.Produit: données propres et journal de nettoyage.](module_04/index.llms.md) [5 ExplorerRelations entre variablesComparer des variables, visualiser des associations et interpréter sans surconclure.Produit: rapport exploratoire argumenté.](module_05/index.llms.md) [6 CollaborerCollaboration et reproductibilitéRelier des tables, documenter un flux de travail et réviser le travail d'une autre équipe.Produit: revue croisée reproductible.](module_06/index.llms.md) [7 ProtégerVisualisation et éthiqueAméliorer des visualisations, anonymiser des données et expliciter les risques.Produit: note éthique et figures responsables.](module_07/index.llms.md) [8 AutomatiserExploration du webExtraire de l'information de pages web et transformer une procédure en fonction testable.Produit: fonction `scrape_page()`.](module_08/index.llms.md) [9 PrédirePrédiction et biaisConstruire une première prédiction, évaluer ses limites et discuter les biais possibles.Produit: capsule vidéo courte.](module_09/index.llms.md) [10 PartagerTexte et tableau de bordAnalyser des rétroactions textuelles et communiquer des résultats dans une interface.Produit: tableau de bord ou analyse textuelle.](module_10/index.llms.md)
+[1 DémarrerPlongée en science des donnéesPrendre en main R, RStudio, Quarto et un premier jeu de données météo.Produit: mini-rapport Quarto.](module_01/index.llms.md) [2 OrganiserGitHub et visualisation de donnéesStructurer un dépôt, importer un fichier Excel et produire des graphiques lisibles.Produit: journal de bord et rapport GitHub.](module_02/index.llms.md) [3 RaconterLes catégories sous toutes leurs formesNettoyer des chaînes, compter des catégories et construire un angle journalistique.Produit: article Quarto reproductible.](module_03/index.llms.md) [4 NettoyerFacteurs et nettoyage de donnéesDiagnostiquer des erreurs, recoder des variables et documenter les décisions.Produit: données propres et journal de nettoyage.](module_04/index.llms.md) [5 ExplorerExplorer les relations entre les variablesComparer des variables, visualiser des associations et interpréter sans surconclure.Produit: rapport exploratoire argumenté.](module_05/index.llms.md) [6 CollaborerCollaboration et reproductibilité dans GitHubRelier des tables, documenter un flux de travail et réviser le travail d'une autre équipe.Produit: revue croisée reproductible.](module_06/index.llms.md) [7 ProtégerVisualisation, éthique et sécurisation des donnéesAméliorer des visualisations, anonymiser des données et expliciter les risques.Produit: note éthique et figures responsables.](module_07/index.llms.md) [8 AutomatiserAutomatisation et exploration du webExtraire de l'information de pages web et transformer une procédure en fonction testable.Produit: fonction `scrape_page()`.](module_08/index.llms.md) [9 PrédirePrédiction et biaisConstruire une première prédiction, évaluer ses limites et discuter les biais possibles.Produit: capsule vidéo courte.](module_09/index.llms.md) [10 PartagerAu-delà des données : texte et tableau de bordAnalyser des rétroactions textuelles et communiquer des résultats dans une interface.Produit: tableau de bord ou analyse textuelle.](module_10/index.llms.md)
 
 ## La progression en quatre temps
 

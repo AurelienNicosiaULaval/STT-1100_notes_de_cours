@@ -4,7 +4,7 @@ Assessment
 
 Challenges are the short deliverables of the course. Each challenge extends the module adventure and turns guided practice into a personal production: report, graph, cleaning task, function, video or dashboard.
 
-[Assessments](evaluations.llms.md) [Modules](modules.llms.md) [Toolbox](boite_outils.llms.md)
+[View challenges](#challenge-list-title) [Understand the role](#challenge-map-title) [Before submitting](#submission-title) [Assessments](evaluations.llms.md)
 
 1
 
@@ -66,13 +66,41 @@ Separate consolidation. Exercises are for practice, but they are not a required 
 
 The comments you receive help improve future challenges, the exam and the session project.
 
+## Before submitting
+
+The challenge page explains the work to produce. Brio remains the official source for dates, submission locations and administrative details.
+
+### Instructions
+
+Reread the challenge page and identify the files explicitly requested. A strong analysis does not compensate for a missing deliverable.
+
+[View assessments](evaluations.llms.md)
+
+### Files
+
+Open the final render and check figures, file paths, column names and the data files that must be submitted.
+
+[Prepare your environment](boite_outils.llms.md)
+
+### GitHub repository
+
+When the challenge uses GitHub, push your commits and reread the online repository as if you were the person grading it.
+
+[Find resources](ressources.llms.md)
+
+### AI and help
+
+If external help is used, keep a clear trace of your decisions and follow the rules stated for the course.
+
+[Read the AI page](ia.llms.md)
+
 ## Challenges by module
 
-Use these links to find the full instructions and expected deliverables. Dates, submission locations and administrative details are confirmed on Brio.
+Use these links to find the full instructions and expected deliverables. The cards below provide a quick guide; the challenge page remains the detailed instruction source.
 
 ### Challenge 1
 
-Reproducible mini Quarto report from weather data.
+Reproducible mini Quarto report from weather data, with formative feedback.
 
 Expected trace: source `.qmd` file and rendered HTML.
 
@@ -144,7 +172,7 @@ Expected trace: clear argument, visual support and accessible video.
 
 ### Challenge 10
 
-Interactive dashboard from anonymized course feedback.
+Interactive dashboard from anonymized feedback built during the session or from the non-real example file.
 
 Expected trace: reproducible local dashboard, protected data and useful README.
 
@@ -203,3 +231,19 @@ A missing render, misnamed file or unpushed repository can prevent grading.
 ### Reuse feedback
 
 Each challenge prepares the next one: keep useful corrections in your notes.
+
+## After feedback
+
+A challenge is not only a one-time submission. Comments received help consolidate your methods and prepare longer productions.
+
+### Fix one habit
+
+Record a recurring code, rendering, graph or interpretation issue so it does not reappear in the next challenge.
+
+### Keep a trace
+
+Save code, visualization and communication examples that may be reused in the project.
+
+### Return to exercises
+
+Use the independent exercises to revisit a specific skill without depending on the challenge story.

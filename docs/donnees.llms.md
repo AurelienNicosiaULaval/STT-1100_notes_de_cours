@@ -4,7 +4,7 @@ Catalogue des données
 
 Cette page rassemble les jeux de données utilisés dans STT-1100. Elle sert à retrouver rapidement les fichiers à télécharger, les données fournies par des packages R et les fiches courtes des fichiers locaux.
 
-[Par module](#catalogue-par-module) [Fiches locales](#fiches-fichiers-locaux) [Packages R](packages.llms.md)
+[Démarrer](#utiliser-catalogue) [Par module](#catalogue-par-module) [Fiches locales](#fiches-fichiers-locaux) [Packages R](packages.llms.md)
 
 CSV
 
@@ -22,9 +22,79 @@ XLS
 
 Feuilles Excel de pratique
 
+Méthode de travail
+
 ## Utiliser le catalogue
 
-Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R.
+Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R. Le catalogue ne remplace pas les consignes du module: il aide surtout à retrouver la bonne donnée et à comprendre son rôle.
+
+1
+
+### Repérer le module
+
+Commencer par le module de l'exercice, de l'aventure ou du défi. Les cartes gardent cette progression.
+
+2
+
+### Identifier le type
+
+Un fichier local se télécharge; une donnée de package se charge avec R; une page web demande une collecte prudente.
+
+3
+
+### Importer depuis le bon dossier
+
+Dans les exercices, les chemins comme `data/fichier.csv` sont relatifs au dossier du module.
+
+4
+
+### Documenter la source
+
+Un rapport reproductible indique toujours d'où vient la donnée et ce qu'elle permet, ou ne permet pas, de conclure.
+
+Repères rapides
+
+## Quel type de donnée cherchez-vous?
+
+Les jeux de données du cours ne servent pas tous au même objectif. Certains sont faits pour pratiquer les bases, d'autres pour travailler les formats, les jointures, l'éthique ou la communication.
+
+### Fichiers locaux
+
+CSV, JSON, Excel, RDS et HTML fournis avec les modules. Ils sont les plus utiles pour les exercices indépendants.
+
+### Données de packages
+
+Jeux de données accessibles par R, utiles pour apprendre sans gérer tout de suite les chemins de fichiers.
+
+### Données web
+
+Pages ou dépôts externes utilisés pour discuter la collecte, les limites techniques et les conditions d'utilisation.
+
+### Données fictives
+
+Données simulées pour pratiquer sans exposer de renseignements personnels ni reproduire un système réel.
+
+Dépannage
+
+## Quand l'importation ne fonctionne pas
+
+Avant de changer le code au hasard, vérifier ces quatre points. Ils règlent la majorité des blocages avec les fichiers du cours.
+
+### Chemin du fichier
+
+Ouvrir le projet ou le dossier du module avant d'utiliser un chemin relatif comme `data/fichier.csv`.
+
+### Séparateur
+
+Un CSV peut utiliser une virgule ou un point-virgule. Choisir `read_csv()` ou `read_delim()` selon le fichier.
+
+### Format
+
+Excel, JSON, RDS et HTML ne se lisent pas avec la même fonction. Le package utile est rappelé dans la page Packages R.
+
+### Interprétation
+
+Une donnée fictive sert à apprendre une méthode; elle ne doit pas être décrite comme une preuve sur le monde réel.
 
 ## Catalogue par module
 
@@ -34,7 +104,15 @@ Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier
 
 ## UlavalSSD::MeteoQuebec
 
-[Jeu de données utilisé pour les premiers gestes d’exploration dans R.Package RStructure à consulterVoir la documentation](packages.llms.md#ulavalssd)
+Jeu de données utilisé pour les premiers gestes d’exploration dans R.Package RStructure à consulterVoir la documentation [Module 01 ](#module01-bibliotheques)
+
+## bibliotheques_municipales_fictif.csv
+
+Observations fictives sur la fréquentation, les prêts et les ateliers de bibliothèques municipales.Fichier local12 observations / 8 variablesVoir la fiche [Module 01 ](#module01-coop)
+
+## coop_etudiante_fictif.csv
+
+[Ventes fictives d’une coopérative étudiante.Fichier local12 observations / 7 variablesVoir la fiche](#module01-coop)
 
 ### Module 02
 
@@ -42,7 +120,15 @@ Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier
 
 ## manchots_donnees.xlsx
 
-Fichier Excel de pratique sur les manchots.Fichier localStructure à consulterVoir la fiche [Module 02 ](packages.llms.md#palmerpenguins)
+Fichier Excel de pratique sur les manchots.Fichier localStructure à consulterVoir la fiche [Module 02 ](#module02-arbres)
+
+## arbres_urbains_fictif.csv
+
+Inventaire fictif d’arbres urbains dans quelques quartiers.Fichier local24 observations / 7 variablesVoir la fiche [Module 02 ](#module02-velo)
+
+## velo_partage_fictif.csv
+
+Trajets fictifs de vélo-partage par station, mois et type de jour.Fichier local24 observations / 8 variablesVoir la fiche [Module 02 ](packages.llms.md#palmerpenguins)
 
 ## palmerpenguins::penguins
 
@@ -62,7 +148,15 @@ Version plus brute du jeu de données sur les manchots.Package RStructure à con
 
 ## titanic::titanic_train
 
-[Données de passagers du Titanic utilisées comme exemple de variables catégorielles.Package RStructure à consulterVoir la documentation](packages.llms.md#titanic)
+Données de passagers du Titanic utilisées comme exemple de variables catégorielles.Package RStructure à consulterVoir la documentation [Module 03 ](#module03-requetes-311)
+
+## requetes_311_fictif.csv
+
+Requêtes 311 fictives pour quelques villes québécoises.Fichier local24 observations / 7 variablesVoir la fiche [Module 03 ](#module03-plaintes-transport)
+
+## plaintes_transport_fictif.csv
+
+[Plaintes fictives pour des réseaux de transport collectif.Fichier local24 observations / 7 variablesVoir la fiche](#module03-plaintes-transport)
 
 ### Module 04
 
@@ -78,11 +172,23 @@ Petit fichier CSV de polices d’assurance.Fichier local15 observations / 9 vari
 
 ## coverage.json
 
-Fichier JSON associé aux couvertures de polices.Fichier local? observations / 2 variablesVoir la fiche [Module 04 ](#quotes-module-04)
+Fichier JSON associé aux couvertures de polices.Fichier local2 observations / 2 variablesVoir la fiche [Module 04 ](#quotes-module-04)
 
 ## quotes_2024.xlsx
 
-[Fichier Excel contenant une feuille nommée Q3.Fichier localStructure à consulterVoir la fiche](#quotes-module-04)
+Fichier Excel contenant une feuille nommée Q3.Fichier localStructure à consulterVoir la fiche [Module 04 ](#module04-equipements)
+
+## equipements_municipaux_fictif.csv
+
+Enregistrements fictifs d’équipements municipaux avec formats volontairement imparfaits.Fichier local16 observations / 7 variablesVoir la fiche [Module 04 ](#module04-demandes-bourses)
+
+## demandes_bourses_fictif.csv
+
+Demandes fictives de bourses étudiantes.Fichier local16 observations / 8 variablesVoir la fiche [Module 04 ](#module04-regles-equipements)
+
+## regles_equipements_fictif.json
+
+[Règles fictives de validation pour les équipements municipaux.Fichier local4 observations / 2 variablesVoir la fiche](#module04-regles-equipements)
 
 ### Module 05
 
@@ -90,7 +196,19 @@ Fichier JSON associé aux couvertures de polices.Fichier local? observations / 2
 
 ## flights_merged_2023.rds
 
-[Objet R sérialisé contenant un tableau de vols enrichi.Fichier local435 352 observations / 50 variablesVoir la fiche](#flights-merged-2023)
+Objet R sérialisé contenant un tableau de vols enrichi.Fichier local435 352 observations / 50 variablesVoir la fiche [Module 05 ](#module05-ateliers-soutien)
+
+## ateliers_soutien_fictif.csv
+
+Ateliers fictifs de soutien universitaire avec participation, météo et satisfaction.Fichier local24 observations / 10 variablesVoir la fiche [Module 05 ](#module05-frequentation-bibliotheque)
+
+## frequentation_bibliotheque_fictive.csv
+
+Observations fictives de fréquentation dans des zones de bibliothèque.Fichier local24 observations / 8 variablesVoir la fiche [Module 05 ](#module05-demandes-services)
+
+## demandes_services_campus_fictif.csv
+
+[Demandes fictives adressées à des services de campus.Fichier local24 observations / 8 variablesVoir la fiche](#module05-demandes-services)
 
 ### Module 06
 
@@ -216,6 +334,69 @@ Rétroactions fictives sur des ateliers culturels publics.Fichier local24 observ
 
 Les aperçus sont limités aux premières lignes afin de garder le site léger. Le profil des variables est donc un diagnostic rapide de l’aperçu affiché, pas une analyse exhaustive de tout le fichier.
 
+### bibliotheques_municipales_fictif.csv
+
+Observations fictives sur la fréquentation, les prêts et les ateliers de bibliothèques municipales.
+
+[Télécharger bibliotheques_municipales_fictif.csv](module_01/data/bibliotheques_municipales_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 01 |
+| Observations | 12 |
+| Variables | 8 |
+| Utilisation | Pratiquer l’importation, l’inspection d’un tableau et les premiers résumés numériques. |
+| Source | Données fictives créées pour les exercices du module 01. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| ville | character | 0 | 6 | Quebec |
+| region | character | 0 | 6 | Capitale-Nationale |
+| mois | character | 0 | 2 | janvier |
+| visites | numeric | 1 | 11 | 1240 |
+| prets | numeric | 0 | 12 | 3180 |
+| ateliers | numeric | 0 | 9 | 8 |
+| heures_ouverture | numeric | 0 | 11 | 176 |
+| note | numeric | 1 | 8 | 4.2 |
+
+### coop_etudiante_fictif.csv
+
+Ventes fictives d’une coopérative étudiante.
+
+[Télécharger coop_etudiante_fictif.csv](module_01/data/coop_etudiante_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 01 |
+| Observations | 12 |
+| Variables | 7 |
+| Utilisation | Calculer des revenus, résumer des quantités, explorer les rabais et formuler de premières observations. |
+| Source | Données fictives créées pour les exercices du module 01. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| date | Date | 0 | 3 | 2026-01-15 |
+| categorie | character | 0 | 4 | papeterie |
+| produit | character | 0 | 12 | cahier |
+| prix_unitaire | numeric | 0 | 12 | 4.5 |
+| quantite | numeric | 0 | 12 | 80 |
+| rabais | numeric | 0 | 5 | 0 |
+| satisfaction | numeric | 0 | 4 | 4 |
+
 ### manchots_donnees.xlsx
 
 Fichier Excel de pratique sur les manchots.
@@ -246,6 +427,131 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | flipper_length_mm | numeric | 0 | 50 | 197.314820493238 |
 | body_mass_g | numeric | 0 | 50 | 4253.87883515575 |
 | sex | character | 0 | 2 | male |
+
+### arbres_urbains_fictif.csv
+
+Inventaire fictif d’arbres urbains dans quelques quartiers.
+
+[Télécharger arbres_urbains_fictif.csv](module_02/data/arbres_urbains_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 02 |
+| Observations | 24 |
+| Variables | 7 |
+| Utilisation | Produire des graphiques de base, comparer des groupes et relier choix visuels et question descriptive. |
+| Source | Données fictives créées pour les exercices du module 02. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| ville | character | 0 | 6 | Quebec |
+| quartier | character | 0 | 12 | Saint-Roch |
+| essence | character | 0 | 4 | Erable |
+| hauteur_m | numeric | 0 | 24 | 12.4 |
+| diametre_cm | numeric | 0 | 23 | 31 |
+| age_estime_ans | numeric | 0 | 22 | 28 |
+| etat_sante | character | 0 | 3 | bon |
+
+### velo_partage_fictif.csv
+
+Trajets fictifs de vélo-partage par station, mois et type de jour.
+
+[Télécharger velo_partage_fictif.csv](module_02/data/velo_partage_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 02 |
+| Observations | 24 |
+| Variables | 8 |
+| Utilisation | Explorer les relations entre trajets, météo et contexte temporel avec des visualisations. |
+| Source | Données fictives créées pour les exercices du module 02. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| ville | character | 0 | 4 | Quebec |
+| station | character | 0 | 11 | Gare du Palais |
+| mois | character | 0 | 3 | mai |
+| jour_type | character | 0 | 2 | semaine |
+| trajets | numeric | 0 | 24 | 124 |
+| duree_mediane_min | numeric | 0 | 12 | 16 |
+| temperature_c | numeric | 0 | 12 | 15 |
+| precipitation_mm | numeric | 0 | 9 | 0 |
+
+### requetes_311_fictif.csv
+
+Requêtes 311 fictives pour quelques villes québécoises.
+
+[Télécharger requetes_311_fictif.csv](module_03/data/requetes_311_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 03 |
+| Observations | 24 |
+| Variables | 7 |
+| Utilisation | Recoder des catégories, inspecter les statuts et résumer les délais de traitement. |
+| Source | Données fictives créées pour les exercices du module 03. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| ville | character | 0 | 5 | Quebec |
+| arrondissement | character | 0 | 12 | Sainte-Foy |
+| type_requete | character | 0 | 5 | Denegement |
+| canal | character | 0 | 3 | Telephone |
+| priorite | character | 0 | 3 | Normale |
+| statut | character | 0 | 2 | Fermee |
+| delai_jours | numeric | 0 | 9 | 4 |
+
+### plaintes_transport_fictif.csv
+
+Plaintes fictives pour des réseaux de transport collectif.
+
+[Télécharger plaintes_transport_fictif.csv](module_03/data/plaintes_transport_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 03 |
+| Observations | 24 |
+| Variables | 7 |
+| Utilisation | Travailler les facteurs, ordonner des catégories et résumer des plaintes par réseau, période et gravité. |
+| Source | Données fictives créées pour les exercices du module 03. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| reseau | character | 0 | 5 | RTC |
+| ligne | character | 0 | 15 | 801 |
+| type_plainte | character | 0 | 5 | Retard |
+| periode | character | 0 | 2 | Pointe |
+| gravite | character | 0 | 3 | Moderee |
+| statut | character | 0 | 2 | Fermee |
+| nb_plaintes | numeric | 0 | 20 | 18 |
 
 ### dataset_pratique.csv
 
@@ -336,7 +642,7 @@ Fichier JSON associé aux couvertures de polices.
 | Information  | Valeur                                                |
 |:-------------|:------------------------------------------------------|
 | Module       | Module 04                                             |
-| Observations | Non déterminé automatiquement                         |
+| Observations | 2                                                     |
 | Variables    | 2                                                     |
 | Utilisation  | Lire des listes et comprendre des données imbriquées. |
 | Source       | Fichier fourni avec le matériel du cours.             |
@@ -379,6 +685,95 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | Quotes Q3 2024 | character | 0 | 5 | policy_id |
 | …2 | character | 0 | 5 | quote_date |
 | …3 | character | 0 | 5 | quote_amount |
+
+### equipements_municipaux_fictif.csv
+
+Enregistrements fictifs d’équipements municipaux avec formats volontairement imparfaits.
+
+[Télécharger equipements_municipaux_fictif.csv](module_04/data/equipements_municipaux_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 04 |
+| Observations | 16 |
+| Variables | 7 |
+| Utilisation | Nettoyer des catégories, convertir des montants, vérifier des années plausibles et appliquer des règles de validation. |
+| Source | Données fictives créées pour les exercices du module 04. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| equipement_id | character | 0 | 16 | EQ-001 |
+| ville | character | 0 | 5 | Quebec |
+| type_equipement | character | 0 | 8 | Fontaine |
+| statut | character | 0 | 4 | actif |
+| annee_installation | numeric | 0 | 12 | 2012 |
+| cout_entretien | character | 0 | 16 | 1 250,00 |
+| mois_inspection | character | 0 | 12 | janvier |
+
+### demandes_bourses_fictif.csv
+
+Demandes fictives de bourses étudiantes.
+
+[Télécharger demandes_bourses_fictif.csv](module_04/data/demandes_bourses_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 04 |
+| Observations | 16 |
+| Variables | 8 |
+| Utilisation | Nettoyer des statuts, des montants, des programmes et discuter les limites de variables administratives simulées. |
+| Source | Données fictives créées pour les exercices du module 04. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| dossier_id | character | 0 | 16 | B-001 |
+| programme | character | 0 | 7 | Statistique |
+| cycle | character | 0 | 3 | 1er cycle |
+| statut | character | 0 | 5 | complete |
+| revenu_annuel | numeric | 0 | 16 | 18500 |
+| montant_demande | character | 0 | 15 | 2 500,00 |
+| moyenne | numeric | 1 | 13 | 3.7 |
+| fsa_code | character | 0 | 6 | G1V |
+
+### regles_equipements_fictif.json
+
+Règles fictives de validation pour les équipements municipaux.
+
+[Télécharger regles_equipements_fictif.json](module_04/data/regles_equipements_fictif.json)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 04 |
+| Observations | 4 |
+| Variables | 2 |
+| Utilisation | Lire un fichier JSON de paramètres et l’utiliser pour contrôler la cohérence d’un tableau. |
+| Source | Données fictives créées pour les exercices du module 04. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| element | character | 0 | 4 | annee_installation |
+| valeur | character | 0 | 4 | List of 2 \$ min: int 1990 \$ max: int 2026 |
 
 ### flights_merged_2023.rds
 
@@ -453,6 +848,104 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | dest_tz_code | numeric | 0 | 5 | -8 |
 | dest_dst | character | 0 | 2 | A |
 | dest_tz | character | 0 | 7 | America/Los_Angeles |
+
+### ateliers_soutien_fictif.csv
+
+Ateliers fictifs de soutien universitaire avec participation, météo et satisfaction.
+
+[Télécharger ateliers_soutien_fictif.csv](module_05/data/ateliers_soutien_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 05 |
+| Observations | 24 |
+| Variables | 10 |
+| Utilisation | Explorer des relations entre variables numériques, contexte temporel et participation. |
+| Source | Données fictives créées pour les exercices du module 05. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| atelier_id | character | 0 | 24 | A-001 |
+| date_atelier | Date | 0 | 24 | 2026-01-15 |
+| heure_debut | numeric | 0 | 9 | 9 |
+| campus | character | 0 | 2 | Quebec |
+| duree_minutes | numeric | 0 | 3 | 60 |
+| participants | numeric | 0 | 21 | 18 |
+| temperature_c | numeric | 0 | 17 | -8 |
+| pluie_mm | numeric | 1 | 13 | 0 |
+| satisfaction_moyenne | numeric | 1 | 12 | 4.1 |
+| theme | character | 0 | 4 | Quarto |
+
+### frequentation_bibliotheque_fictive.csv
+
+Observations fictives de fréquentation dans des zones de bibliothèque.
+
+[Télécharger frequentation_bibliotheque_fictive.csv](module_05/data/frequentation_bibliotheque_fictive.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 05 |
+| Observations | 24 |
+| Variables | 8 |
+| Utilisation | Comparer fréquentation, météo, heures et semaine d’examens sans confondre relation et causalité. |
+| Source | Données fictives créées pour les exercices du module 05. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| date_visite | Date | 0 | 13 | 2026-04-01 |
+| heure | numeric | 0 | 6 | 8 |
+| campus | character | 0 | 2 | Quebec |
+| zone | character | 0 | 3 | Silence |
+| visiteurs | numeric | 0 | 24 | 34 |
+| temperature_c | numeric | 0 | 12 | 5 |
+| pluie_mm | numeric | 1 | 12 | 0 |
+| semaine_examens | character | 0 | 2 | non |
+
+### demandes_services_campus_fictif.csv
+
+Demandes fictives adressées à des services de campus.
+
+[Télécharger demandes_services_campus_fictif.csv](module_05/data/demandes_services_campus_fictif.csv)
+
+| Information | Valeur |
+|:---|:---|
+| Module | Module 05 |
+| Observations | 24 |
+| Variables | 8 |
+| Utilisation | Analyser les relations entre priorité, délai, satisfaction, coût estimé et statut. |
+| Source | Données fictives créées pour les exercices du module 05. |
+| Licence | Données simulées pour le cours. |
+
+#### Aperçu
+
+Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
+
+#### Variables de l’aperçu
+
+| variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
+|:---|:---|---:|---:|:---|
+| demande_id | character | 0 | 24 | S-001 |
+| date_demande | Date | 0 | 23 | 2026-02-01 |
+| service | character | 0 | 4 | Informatique |
+| priorite | character | 0 | 3 | Normale |
+| delai_heures | numeric | 0 | 24 | 18 |
+| satisfaction | numeric | 1 | 19 | 4.3 |
+| cout_estime | numeric | 0 | 24 | 120 |
+| statut | character | 0 | 1 | Fermee |
 
 ### membres_equipe_fictif.csv
 

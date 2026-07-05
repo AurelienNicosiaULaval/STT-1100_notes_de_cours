@@ -4,7 +4,7 @@ Data catalogue
 
 This page gathers the datasets used in STT-1100. It helps students find downloadable files, datasets provided by R packages and short profiles for local files.
 
-[By module](#catalogue-by-module) [Local profiles](#local-file-profiles) [R packages](packages.llms.md)
+[Start](#use-catalogue) [By module](#catalogue-by-module) [Local profiles](#local-file-profiles) [R packages](packages.llms.md)
 
 CSV
 
@@ -22,9 +22,79 @@ XLS
 
 Practice Excel sheets
 
+Working method
+
 ## Use the catalogue
 
-Each card gives a quick preview, a link to the local profile when the file is provided, or a link to the package when the data come from R.
+Each card gives a quick preview, a link to the local profile when the file is provided, or a link to the package when the data come from R. The catalogue does not replace the module instructions: it mainly helps you find the right dataset and understand its role.
+
+1
+
+### Find the module
+
+Start from the module connected to the exercise, adventure or challenge. The cards preserve this progression.
+
+2
+
+### Identify the type
+
+A local file is downloaded; package data are loaded with R; a web page requires careful collection.
+
+3
+
+### Import from the right folder
+
+In exercises, paths such as `data/file.csv` are relative to the module folder.
+
+4
+
+### Document the source
+
+A reproducible report always says where the data come from and what they can, or cannot, support.
+
+Quick landmarks
+
+## Which type of data are you looking for?
+
+The course datasets do not all serve the same purpose. Some are for practising basics, others for working with formats, joins, ethics or communication.
+
+### Local files
+
+CSV, JSON, Excel, RDS and HTML files provided with the modules. They are most useful for independent exercises.
+
+### Package datasets
+
+Datasets accessible from R, useful for learning before managing file paths in detail.
+
+### Web data
+
+External pages or repositories used to discuss collection, technical limits and terms of use.
+
+### Fictitious data
+
+Simulated data used to practise without exposing personal information or reproducing a real system.
+
+Troubleshooting
+
+## When importing does not work
+
+Before changing code at random, check these four points. They solve most problems with course files.
+
+### File path
+
+Open the project or module folder before using a relative path such as `data/file.csv`.
+
+### Separator
+
+A CSV can use a comma or a semicolon. Choose `read_csv()` or `read_delim()` according to the file.
+
+### Format
+
+Excel, JSON, RDS and HTML are not read with the same function. The useful package is listed on the R packages page.
+
+### Interpretation
+
+Fictitious data are for learning a method; they should not be described as evidence about the real world.
 
 ## Catalogue by module
 
@@ -34,7 +104,15 @@ Each card gives a quick preview, a link to the local profile when the file is pr
 
 ## UlavalSSD::MeteoQuebec
 
-[Dataset used for the first exploration steps in R.R packageStructure to consultView documentation](packages.llms.md#ulavalssd)
+Dataset used for the first exploration steps in R.R packageStructure to consultView documentation [Module 01 ](#module01-bibliotheques)
+
+## fictitious_municipal_libraries.csv
+
+Fictitious observations about visits, loans and workshops in municipal libraries.Local file12 observations / 8 variablesView profile [Module 01 ](#module01-coop)
+
+## fictitious_student_coop.csv
+
+[Fictitious sales from a student cooperative.Local file12 observations / 7 variablesView profile](#module01-coop)
 
 ### Module 02
 
@@ -42,7 +120,15 @@ Each card gives a quick preview, a link to the local profile when the file is pr
 
 ## manchots_donnees.xlsx
 
-Practice Excel file about penguins.Local fileStructure to consultView profile [Module 02 ](packages.llms.md#palmerpenguins)
+Practice Excel file about penguins.Local fileStructure to consultView profile [Module 02 ](#module02-arbres)
+
+## fictitious_urban_trees.csv
+
+Fictitious inventory of urban trees in a few neighbourhoods.Local file24 observations / 7 variablesView profile [Module 02 ](#module02-velo)
+
+## fictitious_bike_share.csv
+
+Fictitious bike-share trips by station, month and type of day.Local file24 observations / 8 variablesView profile [Module 02 ](packages.llms.md#palmerpenguins)
 
 ## palmerpenguins::penguins
 
@@ -62,7 +148,15 @@ Rawer version of the penguins dataset.R packageStructure to consultView document
 
 ## titanic::titanic_train
 
-[Passenger data from the Titanic used as an example of categorical variables.R packageStructure to consultView documentation](packages.llms.md#titanic)
+Passenger data from the Titanic used as an example of categorical variables.R packageStructure to consultView documentation [Module 03 ](#module03-requetes-311)
+
+## fictitious_311_requests.csv
+
+Fictitious 311 requests for a few Quebec municipalities.Local file24 observations / 7 variablesView profile [Module 03 ](#module03-plaintes-transport)
+
+## fictitious_transit_complaints.csv
+
+[Fictitious complaints for public transit networks.Local file24 observations / 7 variablesView profile](#module03-plaintes-transport)
 
 ### Module 04
 
@@ -78,11 +172,23 @@ Small CSV file about insurance policies.Local file15 observations / 9 variablesV
 
 ## coverage.json
 
-JSON file associated with policy coverages.Local file? observations / 2 variablesView profile [Module 04 ](#quotes-module-04)
+JSON file associated with policy coverages.Local file2 observations / 2 variablesView profile [Module 04 ](#quotes-module-04)
 
 ## quotes_2024.xlsx
 
-[Excel file containing one sheet named Q3.Local fileStructure to consultView profile](#quotes-module-04)
+Excel file containing one sheet named Q3.Local fileStructure to consultView profile [Module 04 ](#module04-equipements)
+
+## fictitious_municipal_equipment.csv
+
+Fictitious municipal equipment records with deliberately imperfect formats.Local file16 observations / 7 variablesView profile [Module 04 ](#module04-demandes-bourses)
+
+## fictitious_scholarship_applications.csv
+
+Fictitious student scholarship applications.Local file16 observations / 8 variablesView profile [Module 04 ](#module04-regles-equipements)
+
+## fictitious_equipment_rules.json
+
+[Fictitious validation rules for municipal equipment.Local file4 observations / 2 variablesView profile](#module04-regles-equipements)
 
 ### Module 05
 
@@ -90,7 +196,19 @@ JSON file associated with policy coverages.Local file? observations / 2 variable
 
 ## flights_merged_2023.rds
 
-[Serialized R object containing an enriched flights table.Local file435,352 observations / 50 variablesView profile](#flights-merged-2023)
+Serialized R object containing an enriched flights table.Local file435,352 observations / 50 variablesView profile [Module 05 ](#module05-ateliers-soutien)
+
+## fictitious_support_workshops.csv
+
+Fictitious university support workshops with attendance, weather and satisfaction.Local file24 observations / 10 variablesView profile [Module 05 ](#module05-frequentation-bibliotheque)
+
+## fictitious_library_visits.csv
+
+Fictitious visit observations in library areas.Local file24 observations / 8 variablesView profile [Module 05 ](#module05-demandes-services)
+
+## fictitious_campus_service_requests.csv
+
+[Fictitious requests sent to campus services.Local file24 observations / 8 variablesView profile](#module05-demandes-services)
 
 ### Module 06
 
@@ -216,6 +334,69 @@ Fictitious feedback about public cultural workshops.Local file24 observations / 
 
 Previews are limited to the first rows to keep the site light. Variable profiles are therefore quick diagnostics of the displayed preview, not exhaustive analyses of each full file.
 
+### fictitious_municipal_libraries.csv
+
+Fictitious observations about visits, loans and workshops in municipal libraries.
+
+[Download fictitious_municipal_libraries.csv](module_01/data/fictitious_municipal_libraries.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 01 |
+| Observations | 12 |
+| Variables | 8 |
+| Course use | Practise importing, inspecting a table and producing first numerical summaries. |
+| Source | Fictitious data created for module 01 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| city | character | 0 | 6 | Quebec |
+| region | character | 0 | 6 | Capitale-Nationale |
+| month | character | 0 | 2 | January |
+| visits | numeric | 1 | 11 | 1240 |
+| loans | numeric | 0 | 12 | 3180 |
+| workshops | numeric | 0 | 9 | 8 |
+| open_hours | numeric | 0 | 11 | 176 |
+| rating | numeric | 1 | 8 | 4.2 |
+
+### fictitious_student_coop.csv
+
+Fictitious sales from a student cooperative.
+
+[Download fictitious_student_coop.csv](module_01/data/fictitious_student_coop.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 01 |
+| Observations | 12 |
+| Variables | 7 |
+| Course use | Compute revenue, summarize quantities, explore discounts and formulate first observations. |
+| Source | Fictitious data created for module 01 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| date | Date | 0 | 3 | 2026-01-15 |
+| category | character | 0 | 4 | stationery |
+| product | character | 0 | 12 | notebook |
+| unit_price | numeric | 0 | 12 | 4.5 |
+| quantity | numeric | 0 | 12 | 80 |
+| discount | numeric | 0 | 5 | 0 |
+| satisfaction | numeric | 0 | 4 | 4 |
+
 ### manchots_donnees.xlsx
 
 Practice Excel file about penguins.
@@ -246,6 +427,131 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | flipper_length_mm | numeric | 0 | 50 | 197.314820493238 |
 | body_mass_g | numeric | 0 | 50 | 4253.87883515575 |
 | sex | character | 0 | 2 | male |
+
+### fictitious_urban_trees.csv
+
+Fictitious inventory of urban trees in a few neighbourhoods.
+
+[Download fictitious_urban_trees.csv](module_02/data/fictitious_urban_trees.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 02 |
+| Observations | 24 |
+| Variables | 7 |
+| Course use | Produce basic charts, compare groups and connect visual choices to a descriptive question. |
+| Source | Fictitious data created for module 02 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| city | character | 0 | 6 | Quebec |
+| neighbourhood | character | 0 | 12 | Saint-Roch |
+| species | character | 0 | 4 | Maple |
+| height_m | numeric | 0 | 24 | 12.4 |
+| diameter_cm | numeric | 0 | 23 | 31 |
+| estimated_age_years | numeric | 0 | 22 | 28 |
+| health_status | character | 0 | 3 | good |
+
+### fictitious_bike_share.csv
+
+Fictitious bike-share trips by station, month and type of day.
+
+[Download fictitious_bike_share.csv](module_02/data/fictitious_bike_share.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 02 |
+| Observations | 24 |
+| Variables | 8 |
+| Course use | Explore relationships between trips, weather and temporal context with visualizations. |
+| Source | Fictitious data created for module 02 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| city | character | 0 | 4 | Quebec |
+| station | character | 0 | 11 | Palais Station |
+| month | character | 0 | 3 | May |
+| day_type | character | 0 | 2 | weekday |
+| trips | numeric | 0 | 24 | 124 |
+| median_duration_min | numeric | 0 | 12 | 16 |
+| temperature_c | numeric | 0 | 12 | 15 |
+| precipitation_mm | numeric | 0 | 9 | 0 |
+
+### fictitious_311_requests.csv
+
+Fictitious 311 requests for a few Quebec municipalities.
+
+[Download fictitious_311_requests.csv](module_03/data/fictitious_311_requests.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 03 |
+| Observations | 24 |
+| Variables | 7 |
+| Course use | Recode categories, inspect statuses and summarize processing delays. |
+| Source | Fictitious data created for module 03 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| city | character | 0 | 5 | Quebec |
+| borough | character | 0 | 12 | Sainte-Foy |
+| request_type | character | 0 | 5 | Snow removal |
+| channel | character | 0 | 3 | Phone |
+| priority | character | 0 | 3 | Normal |
+| status | character | 0 | 2 | Closed |
+| delay_days | numeric | 0 | 9 | 4 |
+
+### fictitious_transit_complaints.csv
+
+Fictitious complaints for public transit networks.
+
+[Download fictitious_transit_complaints.csv](module_03/data/fictitious_transit_complaints.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 03 |
+| Observations | 24 |
+| Variables | 7 |
+| Course use | Work with factors, order categories and summarize complaints by network, period and severity. |
+| Source | Fictitious data created for module 03 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| network | character | 0 | 5 | RTC |
+| line | character | 0 | 15 | 801 |
+| complaint_type | character | 0 | 5 | Delay |
+| period | character | 0 | 2 | Peak |
+| severity | character | 0 | 3 | Moderate |
+| status | character | 0 | 2 | Closed |
+| n_complaints | numeric | 0 | 20 | 18 |
 
 ### dataset_pratique.csv
 
@@ -336,7 +642,7 @@ JSON file associated with policy coverages.
 | Information  | Value                                   |
 |:-------------|:----------------------------------------|
 | Module       | Module 04                               |
-| Observations | Not determined automatically            |
+| Observations | 2                                       |
 | Variables    | 2                                       |
 | Course use   | Read lists and understand nested data.  |
 | Source       | File provided with the course material. |
@@ -379,6 +685,95 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | Quotes Q3 2024 | character | 0 | 5 | policy_id |
 | …2 | character | 0 | 5 | quote_date |
 | …3 | character | 0 | 5 | quote_amount |
+
+### fictitious_municipal_equipment.csv
+
+Fictitious municipal equipment records with deliberately imperfect formats.
+
+[Download fictitious_municipal_equipment.csv](module_04/data/fictitious_municipal_equipment.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 04 |
+| Observations | 16 |
+| Variables | 7 |
+| Course use | Clean categories, convert amounts, check plausible years and apply validation rules. |
+| Source | Fictitious data created for module 04 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| equipment_id | character | 0 | 16 | EQ-001 |
+| city | character | 0 | 5 | Quebec City |
+| equipment_type | character | 0 | 8 | Fountain |
+| status | character | 0 | 4 | active |
+| installation_year | numeric | 0 | 12 | 2012 |
+| maintenance_cost | character | 0 | 16 | 1 250.00 |
+| inspection_month | character | 0 | 12 | January |
+
+### fictitious_scholarship_applications.csv
+
+Fictitious student scholarship applications.
+
+[Download fictitious_scholarship_applications.csv](module_04/data/fictitious_scholarship_applications.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 04 |
+| Observations | 16 |
+| Variables | 8 |
+| Course use | Clean statuses, amounts and programs, then discuss limits of simulated administrative variables. |
+| Source | Fictitious data created for module 04 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| application_id | character | 0 | 16 | B-001 |
+| program | character | 0 | 6 | Statistics |
+| cycle | character | 0 | 3 | Undergraduate |
+| status | character | 0 | 5 | complete |
+| annual_income | numeric | 0 | 16 | 18500 |
+| requested_amount | character | 0 | 15 | 2 500.00 |
+| gpa | numeric | 1 | 13 | 3.7 |
+| fsa_code | character | 0 | 6 | G1V |
+
+### fictitious_equipment_rules.json
+
+Fictitious validation rules for municipal equipment.
+
+[Download fictitious_equipment_rules.json](module_04/data/fictitious_equipment_rules.json)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 04 |
+| Observations | 4 |
+| Variables | 2 |
+| Course use | Read a JSON parameter file and use it to check the coherence of a table. |
+| Source | Fictitious data created for module 04 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| element | character | 0 | 4 | installation_year |
+| value | character | 0 | 4 | List of 2 \$ min: int 1990 \$ max: int 2026 |
 
 ### flights_merged_2023.rds
 
@@ -453,6 +848,104 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | dest_tz_code | numeric | 0 | 5 | -8 |
 | dest_dst | character | 0 | 2 | A |
 | dest_tz | character | 0 | 7 | America/Los_Angeles |
+
+### fictitious_support_workshops.csv
+
+Fictitious university support workshops with attendance, weather and satisfaction.
+
+[Download fictitious_support_workshops.csv](module_05/data/fictitious_support_workshops.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 05 |
+| Observations | 24 |
+| Variables | 10 |
+| Course use | Explore relationships between numerical variables, temporal context and participation. |
+| Source | Fictitious data created for module 05 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| workshop_id | character | 0 | 24 | A-001 |
+| workshop_date | Date | 0 | 24 | 2026-01-15 |
+| start_hour | numeric | 0 | 9 | 9 |
+| campus | character | 0 | 2 | Quebec |
+| duration_minutes | numeric | 0 | 3 | 60 |
+| participants | numeric | 0 | 21 | 18 |
+| temperature_c | numeric | 0 | 17 | -8 |
+| rain_mm | numeric | 1 | 13 | 0 |
+| mean_satisfaction | numeric | 1 | 12 | 4.1 |
+| topic | character | 0 | 4 | Quarto |
+
+### fictitious_library_visits.csv
+
+Fictitious visit observations in library areas.
+
+[Download fictitious_library_visits.csv](module_05/data/fictitious_library_visits.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 05 |
+| Observations | 24 |
+| Variables | 8 |
+| Course use | Compare visits, weather, hours and exam weeks without confusing relationship and causality. |
+| Source | Fictitious data created for module 05 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| visit_date | Date | 0 | 13 | 2026-04-01 |
+| hour | numeric | 0 | 6 | 8 |
+| campus | character | 0 | 2 | Quebec |
+| area | character | 0 | 3 | Silent |
+| visitors | numeric | 0 | 24 | 34 |
+| temperature_c | numeric | 0 | 12 | 5 |
+| rain_mm | numeric | 1 | 12 | 0 |
+| exam_week | character | 0 | 2 | no |
+
+### fictitious_campus_service_requests.csv
+
+Fictitious requests sent to campus services.
+
+[Download fictitious_campus_service_requests.csv](module_05/data/fictitious_campus_service_requests.csv)
+
+| Information | Value |
+|:---|:---|
+| Module | Module 05 |
+| Observations | 24 |
+| Variables | 8 |
+| Course use | Analyze relationships between priority, delay, satisfaction, estimated cost and status. |
+| Source | Fictitious data created for module 05 exercises. |
+| License | Simulated course data. |
+
+#### Preview
+
+Preview limited to 12 rows and 12 columns to keep the page light.
+
+#### Preview variables
+
+| variable | type | missing_values_in_preview | distinct_values_in_preview | example |
+|:---|:---|---:|---:|:---|
+| request_id | character | 0 | 24 | S-001 |
+| request_date | Date | 0 | 23 | 2026-02-01 |
+| service | character | 0 | 4 | IT |
+| priority | character | 0 | 3 | Normal |
+| delay_hours | numeric | 0 | 24 | 18 |
+| satisfaction | numeric | 1 | 19 | 4.3 |
+| estimated_cost | numeric | 0 | 24 | 120 |
+| status | character | 0 | 1 | Closed |
 
 ### fictitious_team_members.csv
 

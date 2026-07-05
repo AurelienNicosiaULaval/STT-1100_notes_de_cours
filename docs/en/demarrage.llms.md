@@ -4,7 +4,7 @@ STT-1100
 
 The course is built as a data science pathway. Each module starts with targeted readings, immerses you in a guided adventure, then leads you to produce a personal trace: report, graph, cleaned dataset, function, video or dashboard.
 
-[See modules](modules.llms.md) [See challenges](defis.llms.md) [Toolkit](boite_outils.llms.md)
+[See modules](modules.llms.md) [First session](#first-session) [See challenges](defis.llms.md) [Toolkit](boite_outils.llms.md)
 
 1
 
@@ -29,6 +29,28 @@ Consolidate elsewhere
 6
 
 Keep a trace
+
+## Before the first session
+
+The first step is simple: have the right access, the right tools and a clear idea of where to find instructions.
+
+1.  Install or check R, RStudio, Quarto and Git.
+2.  Sign in to Brio for official instructions, dates and submission rules.
+3.  Sign in to GitHub, then use the repository or template requested when the module specifies it.
+4.  Open the current module page and locate the learning plan, adventure, exercises and challenge.
+5.  Test a first Quarto render as soon as a `.qmd` file is provided or created.
+
+### Brio
+
+Brio remains the reference for dates, official instructions, submissions and course announcements.
+
+### Course Site
+
+The site is for working: modules, readings, mini-tests, adventures, exercises, challenges, data and resources.
+
+### GitHub
+
+GitHub is used to retrieve some templates, track versions and submit a trace when requested.
 
 ## The path of a module
 
@@ -82,6 +104,42 @@ The final trace tells you what to keep: files, decisions, corrected errors and r
 
 Working memory
 
+## If you do not know where to go
+
+The site is organized by use. Start with the situation that best matches what you need right now.
+
+1
+
+### I am starting a module
+
+Open the module page, then follow the learning plan in order.
+
+[See modules](modules.llms.md)
+
+2
+
+### I am looking for a resource
+
+Use the resources page to find books, packages, data, supports and AI help.
+
+[See resources](ressources.llms.md)
+
+3
+
+### I am technically stuck
+
+Return to the toolkit to find R, Quarto, GitHub and debugging routines.
+
+[Open the toolkit](boite_outils.llms.md)
+
+4
+
+### I am preparing a submission
+
+Reread the challenge instructions, render the document and check the trace before submitting on Brio.
+
+[See challenges](defis.llms.md)
+
 ## Three pieces, three functions
 
 Adventures, challenges and exercises do not serve the same purpose. Distinguishing them prevents you from looking for the wrong answer in the wrong place.
@@ -106,9 +164,9 @@ The exercises stand apart. They use other contexts to practise without depending
 
 ## The 10-module pathway
 
-Each module adds a visible skill. The path moves from a first reproducible report toward more autonomous productions: collaboration, ethics, automation, prediction and dashboarding.
+Each module adds a visible skill. The path moves from a first reproducible report toward more autonomous productions: collaboration, ethics, automation, prediction and dashboarding. Module 2 is deliberately longer and is worked through in two phases.
 
-[1 StartData Science DiveGet started with R, RStudio, Quarto and a first weather dataset.Product: mini Quarto report.](module_01/index.llms.md) [2 OrganizeGitHub and visualizationStructure a repository, import an Excel file and create readable charts.Product: logbook and GitHub report.](module_02/index.llms.md) [3 TellCategories and data articleClean strings, count categories and build a journalistic angle.Product: reproducible Quarto article.](module_03/index.llms.md) [4 CleanFactors and data cleaningDiagnose errors, recode variables and document decisions.Product: clean data and cleaning log.](module_04/index.llms.md) [5 ExploreRelationships between variablesCompare variables, visualize associations and interpret without overclaiming.Product: argued exploratory report.](module_05/index.llms.md) [6 CollaborateCollaboration and reproducibilityJoin tables, document a workflow and review another team's work.Product: reproducible peer review.](module_06/index.llms.md) [7 ProtectVisualization and ethicsImprove visualizations, anonymize data and explain risks.Product: ethics note and responsible figures.](module_07/index.llms.md) [8 AutomateWeb explorationExtract information from web pages and turn a procedure into a testable function.Product: `scrape_page()` function.](module_08/index.llms.md) [9 PredictPrediction and biasBuild a first prediction, evaluate limits and discuss possible biases.Product: short video capsule.](module_09/index.llms.md) [10 ShareText and dashboardAnalyze textual feedback and communicate results through an interface.Product: dashboard or text analysis.](module_10/index.llms.md)
+[1 StartData Science DiveGet started with R, RStudio, Quarto and a first weather dataset.Product: mini Quarto report.](module_01/index.llms.md) [2 OrganizeGitHub and Data VisualizationStructure a repository, import an Excel file and create readable charts.Product: logbook and GitHub report.](module_02/index.llms.md) [3 TellCategories in All Their FormsClean strings, count categories and build a journalistic angle.Product: reproducible Quarto article.](module_03/index.llms.md) [4 CleanFactors and Data CleaningDiagnose errors, recode variables and document decisions.Product: clean data and cleaning log.](module_04/index.llms.md) [5 ExploreExplore and Understand Relationships Between VariablesCompare variables, visualize associations and interpret without overclaiming.Product: argued exploratory report.](module_05/index.llms.md) [6 CollaborateCollaboration and Reproducibility in GitHubJoin tables, document a workflow and review another team's work.Product: reproducible peer review.](module_06/index.llms.md) [7 ProtectVisualization, Ethics and Data SecurityImprove visualizations, anonymize data and explain risks.Product: ethics note and responsible figures.](module_07/index.llms.md) [8 AutomateAutomation and Web ExplorationExtract information from web pages and turn a procedure into a testable function.Product: `scrape_page()` function.](module_08/index.llms.md) [9 PredictPrediction and BiasBuild a first prediction, evaluate limits and discuss possible biases.Product: short video capsule.](module_09/index.llms.md) [10 ShareBeyond Data: Text and DashboardAnalyze textual feedback and communicate results through an interface.Product: dashboard or text analysis.](module_10/index.llms.md)
 
 ## Progression in four phases
 

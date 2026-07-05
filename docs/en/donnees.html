@@ -5807,7 +5807,8 @@ margin-bottom: .05rem;
   <h1 id="data-title">Course datasets</h1>
   <p>This page gathers the datasets used in STT-1100. It helps students find downloadable files, datasets provided by R packages and short profiles for local files.</p>
   <div class="resource-actions" aria-label="Quick links">
-  <a class="home-action home-action--primary" href="#catalogue-by-module">By module</a>
+  <a class="home-action home-action--primary" href="#use-catalogue">Start</a>
+  <a class="home-action" href="#catalogue-by-module">By module</a>
   <a class="home-action" href="#local-file-profiles">Local profiles</a>
   <a class="home-action" href="packages.html">R packages</a>
   </div>
@@ -5820,10 +5821,85 @@ margin-bottom: .05rem;
   </div>
   </section>
 
-  <section class="resource-section" aria-labelledby="data-use-title">
+  <section class="resource-section" id="use-catalogue" aria-labelledby="data-use-title">
   <div class="resource-section__header">
+  <p class="eyebrow">Working method</p>
   <h2 id="data-use-title" class="anchored">Use the catalogue</h2>
-  <p>Each card gives a quick preview, a link to the local profile when the file is provided, or a link to the package when the data come from R.</p>
+  <p>Each card gives a quick preview, a link to the local profile when the file is provided, or a link to the package when the data come from R. The catalogue does not replace the module instructions: it mainly helps you find the right dataset and understand its role.</p>
+  </div>
+  <div class="course-flow">
+  <article class="flow-card">
+  <span class="flow-number">1</span>
+  <h3 class="anchored">Find the module</h3>
+  <p>Start from the module connected to the exercise, adventure or challenge. The cards preserve this progression.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">2</span>
+  <h3 class="anchored">Identify the type</h3>
+  <p>A local file is downloaded; package data are loaded with R; a web page requires careful collection.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">3</span>
+  <h3 class="anchored">Import from the right folder</h3>
+  <p>In exercises, paths such as <code>data/file.csv</code> are relative to the module folder.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">4</span>
+  <h3 class="anchored">Document the source</h3>
+  <p>A reproducible report always says where the data come from and what they can, or cannot, support.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="data-types" aria-labelledby="data-types-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Quick landmarks</p>
+  <h2 id="data-types-title" class="anchored">Which type of data are you looking for?</h2>
+  <p>The course datasets do not all serve the same purpose. Some are for practising basics, others for working with formats, joins, ethics or communication.</p>
+  </div>
+  <div class="reading-map">
+  <article>
+  <h3 class="anchored">Local files</h3>
+  <p>CSV, JSON, Excel, RDS and HTML files provided with the modules. They are most useful for independent exercises.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Package datasets</h3>
+  <p>Datasets accessible from R, useful for learning before managing file paths in detail.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Web data</h3>
+  <p>External pages or repositories used to discuss collection, technical limits and terms of use.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Fictitious data</h3>
+  <p>Simulated data used to practise without exposing personal information or reproducing a real system.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="data-troubleshooting" aria-labelledby="data-troubleshooting-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Troubleshooting</p>
+  <h2 id="data-troubleshooting-title" class="anchored">When importing does not work</h2>
+  <p>Before changing code at random, check these four points. They solve most problems with course files.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article>
+  <h3 class="anchored">File path</h3>
+  <p>Open the project or module folder before using a relative path such as <code>data/file.csv</code>.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Separator</h3>
+  <p>A CSV can use a comma or a semicolon. Choose <code>read_csv()</code> or <code>read_delim()</code> according to the file.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Format</h3>
+  <p>Excel, JSON, RDS and HTML are not read with the same function. The useful package is listed on the R packages page.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Interpretation</h3>
+  <p>Fictitious data are for learning a method; they should not be described as evidence about the real world.</p>
+  </article>
   </div>
   </section>
 </div>
@@ -5836,7 +5912,15 @@ margin-bottom: .05rem;
 <h2 class="anchored" data-anchor-id="module-01">
 UlavalSSD::MeteoQuebec
 </h2>
-</span></a><p><a id="dataset-card-meteo-quebec" class="dataset-card" href="packages.html#ulavalssd"><span class="resource-text">Dataset used for the first exploration steps in R.</span><span class="dataset-meta"><span>R package</span><span>Structure to consult</span></span><span class="package-source">View documentation</span></a></p>
+<span class="resource-text">Dataset used for the first exploration steps in R.</span><span class="dataset-meta"><span>R package</span><span>Structure to consult</span></span><span class="package-source">View documentation</span></span></a> <a id="dataset-card-module01-bibliotheques" class="dataset-card" href="#module01-bibliotheques"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 01</span>
+<h2 class="anchored">
+fictitious_municipal_libraries.csv
+</h2>
+<span class="resource-text">Fictitious observations about visits, loans and workshops in municipal libraries.</span><span class="dataset-meta"><span>Local file</span><span>12 observations / 8 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module01-coop" class="dataset-card" href="#module01-coop"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 01</span>
+<h2 class="anchored">
+fictitious_student_coop.csv
+</h2>
+</span></a><p><a id="dataset-card-module01-coop" class="dataset-card" href="#module01-coop"><span class="resource-text">Fictitious sales from a student cooperative.</span><span class="dataset-meta"><span>Local file</span><span>12 observations / 7 variables</span></span><span class="package-source">View profile</span></a></p>
 </div>
 </section>
 <section id="module-02" class="level3">
@@ -5846,7 +5930,15 @@ UlavalSSD::MeteoQuebec
 <h2 class="anchored" data-anchor-id="module-02">
 manchots_donnees.xlsx
 </h2>
-<span class="resource-text">Practice Excel file about penguins.</span><span class="dataset-meta"><span>Local file</span><span>Structure to consult</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-penguins" class="dataset-card" href="packages.html#palmerpenguins"><span class="resource-icon"><i class="bi bi-database"></i></span><span><span class="dataset-module">Module 02</span>
+<span class="resource-text">Practice Excel file about penguins.</span><span class="dataset-meta"><span>Local file</span><span>Structure to consult</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module02-arbres" class="dataset-card" href="#module02-arbres"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 02</span>
+<h2 class="anchored">
+fictitious_urban_trees.csv
+</h2>
+<span class="resource-text">Fictitious inventory of urban trees in a few neighbourhoods.</span><span class="dataset-meta"><span>Local file</span><span>24 observations / 7 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module02-velo" class="dataset-card" href="#module02-velo"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 02</span>
+<h2 class="anchored">
+fictitious_bike_share.csv
+</h2>
+<span class="resource-text">Fictitious bike-share trips by station, month and type of day.</span><span class="dataset-meta"><span>Local file</span><span>24 observations / 8 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-penguins" class="dataset-card" href="packages.html#palmerpenguins"><span class="resource-icon"><i class="bi bi-database"></i></span><span><span class="dataset-module">Module 02</span>
 <h2 class="anchored">
 palmerpenguins::penguins
 </h2>
@@ -5868,7 +5960,15 @@ palmerpenguins::penguins_raw
 <h2 class="anchored">
 titanic::titanic_train
 </h2>
-</span></a><p><a id="dataset-card-titanic-train" class="dataset-card" href="packages.html#titanic"><span class="resource-text">Passenger data from the Titanic used as an example of categorical variables.</span><span class="dataset-meta"><span>R package</span><span>Structure to consult</span></span><span class="package-source">View documentation</span></a></p>
+<span class="resource-text">Passenger data from the Titanic used as an example of categorical variables.</span><span class="dataset-meta"><span>R package</span><span>Structure to consult</span></span><span class="package-source">View documentation</span></span></a> <a id="dataset-card-module03-requetes-311" class="dataset-card" href="#module03-requetes-311"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 03</span>
+<h2 class="anchored">
+fictitious_311_requests.csv
+</h2>
+<span class="resource-text">Fictitious 311 requests for a few Quebec municipalities.</span><span class="dataset-meta"><span>Local file</span><span>24 observations / 7 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module03-plaintes-transport" class="dataset-card" href="#module03-plaintes-transport"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 03</span>
+<h2 class="anchored">
+fictitious_transit_complaints.csv
+</h2>
+</span></a><p><a id="dataset-card-module03-plaintes-transport" class="dataset-card" href="#module03-plaintes-transport"><span class="resource-text">Fictitious complaints for public transit networks.</span><span class="dataset-meta"><span>Local file</span><span>24 observations / 7 variables</span></span><span class="package-source">View profile</span></a></p>
 </div>
 </section>
 <section id="module-04" class="level3">
@@ -5886,11 +5986,23 @@ policies.csv
 <h2 class="anchored">
 coverage.json
 </h2>
-<span class="resource-text">JSON file associated with policy coverages.</span><span class="dataset-meta"><span>Local file</span><span>? observations / 2 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-quotes-module-04" class="dataset-card" href="#quotes-module-04"><span class="resource-icon"><i class="bi bi-file-earmark-spreadsheet"></i></span><span><span class="dataset-module">Module 04</span>
+<span class="resource-text">JSON file associated with policy coverages.</span><span class="dataset-meta"><span>Local file</span><span>2 observations / 2 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-quotes-module-04" class="dataset-card" href="#quotes-module-04"><span class="resource-icon"><i class="bi bi-file-earmark-spreadsheet"></i></span><span><span class="dataset-module">Module 04</span>
 <h2 class="anchored">
 quotes_2024.xlsx
 </h2>
-</span></a><p><a id="dataset-card-quotes-module-04" class="dataset-card" href="#quotes-module-04"><span class="resource-text">Excel file containing one sheet named Q3.</span><span class="dataset-meta"><span>Local file</span><span>Structure to consult</span></span><span class="package-source">View profile</span></a></p>
+<span class="resource-text">Excel file containing one sheet named Q3.</span><span class="dataset-meta"><span>Local file</span><span>Structure to consult</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module04-equipements" class="dataset-card" href="#module04-equipements"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 04</span>
+<h2 class="anchored">
+fictitious_municipal_equipment.csv
+</h2>
+<span class="resource-text">Fictitious municipal equipment records with deliberately imperfect formats.</span><span class="dataset-meta"><span>Local file</span><span>16 observations / 7 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module04-demandes-bourses" class="dataset-card" href="#module04-demandes-bourses"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 04</span>
+<h2 class="anchored">
+fictitious_scholarship_applications.csv
+</h2>
+<span class="resource-text">Fictitious student scholarship applications.</span><span class="dataset-meta"><span>Local file</span><span>16 observations / 8 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module04-regles-equipements" class="dataset-card" href="#module04-regles-equipements"><span class="resource-icon"><i class="bi bi-filetype-json"></i></span><span><span class="dataset-module">Module 04</span>
+<h2 class="anchored">
+fictitious_equipment_rules.json
+</h2>
+</span></a><p><a id="dataset-card-module04-regles-equipements" class="dataset-card" href="#module04-regles-equipements"><span class="resource-text">Fictitious validation rules for municipal equipment.</span><span class="dataset-meta"><span>Local file</span><span>4 observations / 2 variables</span></span><span class="package-source">View profile</span></a></p>
 </div>
 </section>
 <section id="module-05" class="level3">
@@ -5900,7 +6012,19 @@ quotes_2024.xlsx
 <h2 class="anchored" data-anchor-id="module-05">
 flights_merged_2023.rds
 </h2>
-</span></a><p><a id="dataset-card-flights-merged-2023" class="dataset-card" href="#flights-merged-2023"><span class="resource-text">Serialized R object containing an enriched flights table.</span><span class="dataset-meta"><span>Local file</span><span>435,352 observations / 50 variables</span></span><span class="package-source">View profile</span></a></p>
+<span class="resource-text">Serialized R object containing an enriched flights table.</span><span class="dataset-meta"><span>Local file</span><span>435,352 observations / 50 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module05-ateliers-soutien" class="dataset-card" href="#module05-ateliers-soutien"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 05</span>
+<h2 class="anchored">
+fictitious_support_workshops.csv
+</h2>
+<span class="resource-text">Fictitious university support workshops with attendance, weather and satisfaction.</span><span class="dataset-meta"><span>Local file</span><span>24 observations / 10 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module05-frequentation-bibliotheque" class="dataset-card" href="#module05-frequentation-bibliotheque"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 05</span>
+<h2 class="anchored">
+fictitious_library_visits.csv
+</h2>
+<span class="resource-text">Fictitious visit observations in library areas.</span><span class="dataset-meta"><span>Local file</span><span>24 observations / 8 variables</span></span><span class="package-source">View profile</span></span></a> <a id="dataset-card-module05-demandes-services" class="dataset-card" href="#module05-demandes-services"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 05</span>
+<h2 class="anchored">
+fictitious_campus_service_requests.csv
+</h2>
+</span></a><p><a id="dataset-card-module05-demandes-services" class="dataset-card" href="#module05-demandes-services"><span class="resource-text">Fictitious requests sent to campus services.</span><span class="dataset-meta"><span>Local file</span><span>24 observations / 8 variables</span></span><span class="package-source">View profile</span></a></p>
 </div>
 </section>
 <section id="module-06" class="level3">
@@ -6037,6 +6161,255 @@ Comments and working texts
 <section id="local-file-profiles" class="level2">
 <h2 class="anchored" data-anchor-id="local-file-profiles">Local file profiles</h2>
 <p>Previews are limited to the first rows to keep the site light. Variable profiles are therefore quick diagnostics of the displayed preview, not exhaustive analyses of each full file.</p>
+<section id="module01-bibliotheques" class="level3">
+<h3 class="anchored" data-anchor-id="module01-bibliotheques">fictitious_municipal_libraries.csv</h3>
+<p>Fictitious observations about visits, loans and workshops in municipal libraries.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_01/data/fictitious_municipal_libraries.csv" download>Download fictitious_municipal_libraries.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Practise importing, inspecting a table and producing first numerical summaries.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 01 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview" class="level4">
+<h4 class="anchored" data-anchor-id="preview">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 27%">
+<col style="width: 29%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">city</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">region</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Capitale-Nationale</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">month</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">January</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">visits</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">1240</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">loans</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">3180</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">workshops</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">open_hours</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">176</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rating</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">4.2</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module01-coop" class="level3">
+<h3 class="anchored" data-anchor-id="module01-coop">fictitious_student_coop.csv</h3>
+<p>Fictitious sales from a student cooperative.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_01/data/fictitious_student_coop.csv" download>Download fictitious_student_coop.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Compute revenue, summarize quantities, explore discounts and formulate first observations.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 01 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-1" class="level4">
+<h4 class="anchored" data-anchor-id="preview-1">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-1" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-1">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 31%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">2026-01-15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">category</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">stationery</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">product</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">notebook</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">unit_price</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">4.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">quantity</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">80</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">discount</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">satisfaction</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 <section id="manchots-donnees" class="level3">
 <h3 class="anchored" data-anchor-id="manchots-donnees">manchots_donnees.xlsx</h3>
 <p>Practice Excel file about penguins.</p>
@@ -6077,12 +6450,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview" class="level4">
-<h4 class="anchored" data-anchor-id="preview">Preview</h4>
+<section id="preview-2" class="level4">
+<h4 class="anchored" data-anchor-id="preview-2">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables">Preview variables</h4>
+<section id="preview-variables-2" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-2">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -6154,6 +6527,497 @@ Comments and working texts
 </table>
 </section>
 </section>
+<section id="module02-arbres" class="level3">
+<h3 class="anchored" data-anchor-id="module02-arbres">fictitious_urban_trees.csv</h3>
+<p>Fictitious inventory of urban trees in a few neighbourhoods.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_02/data/fictitious_urban_trees.csv" download>Download fictitious_urban_trees.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Produce basic charts, compare groups and connect visual choices to a descriptive question.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 02 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-3" class="level4">
+<h4 class="anchored" data-anchor-id="preview-3">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-3" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-3">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 10%">
+<col style="width: 27%">
+<col style="width: 28%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">city</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">neighbourhood</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Saint-Roch</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">species</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Maple</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">height_m</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">12.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">diameter_cm</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimated_age_years</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">health_status</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">good</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module02-velo" class="level3">
+<h3 class="anchored" data-anchor-id="module02-velo">fictitious_bike_share.csv</h3>
+<p>Fictitious bike-share trips by station, month and type of day.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_02/data/fictitious_bike_share.csv" download>Download fictitious_bike_share.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Explore relationships between trips, weather and temporal context with visualizations.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 02 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-4" class="level4">
+<h4 class="anchored" data-anchor-id="preview-4">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-4" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-4">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 26%">
+<col style="width: 27%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">city</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">station</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Palais Station</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">month</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">May</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">day_type</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">weekday</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">trips</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">124</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">median_duration_min</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">temperature_c</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">precipitation_mm</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module03-requetes-311" class="level3">
+<h3 class="anchored" data-anchor-id="module03-requetes-311">fictitious_311_requests.csv</h3>
+<p>Fictitious 311 requests for a few Quebec municipalities.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_03/data/fictitious_311_requests.csv" download>Download fictitious_311_requests.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 84%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Recode categories, inspect statuses and summarize processing delays.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 03 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-5" class="level4">
+<h4 class="anchored" data-anchor-id="preview-5">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-5" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-5">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 30%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">city</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">borough</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Sainte-Foy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">request_type</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Snow removal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">channel</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Phone</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">priority</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Normal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Closed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">delay_days</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module03-plaintes-transport" class="level3">
+<h3 class="anchored" data-anchor-id="module03-plaintes-transport">fictitious_transit_complaints.csv</h3>
+<p>Fictitious complaints for public transit networks.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_03/data/fictitious_transit_complaints.csv" download>Download fictitious_transit_complaints.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Work with factors, order categories and summarize complaints by network, period and severity.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 03 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-6" class="level4">
+<h4 class="anchored" data-anchor-id="preview-6">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-6" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-6">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 31%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">network</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">RTC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">line</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">801</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">complaint_type</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Delay</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">period</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Peak</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">severity</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Moderate</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Closed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">n_complaints</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">18</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 <section id="dataset-pratique" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-pratique">dataset_pratique.csv</h3>
 <p>Practice CSV file about automobile insurance quotes.</p>
@@ -6198,12 +7062,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-1" class="level4">
-<h4 class="anchored" data-anchor-id="preview-1">Preview</h4>
+<section id="preview-7" class="level4">
+<h4 class="anchored" data-anchor-id="preview-7">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-1" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-1">Preview variables</h4>
+<section id="preview-variables-7" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-7">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 17%">
@@ -6431,12 +7295,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-2" class="level4">
-<h4 class="anchored" data-anchor-id="preview-2">Preview</h4>
+<section id="preview-8" class="level4">
+<h4 class="anchored" data-anchor-id="preview-8">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-2" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-2">Preview variables</h4>
+<section id="preview-variables-8" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-8">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 17%">
@@ -6542,7 +7406,7 @@ Comments and working texts
 </tr>
 <tr class="even">
 <td style="text-align: left;">Observations</td>
-<td style="text-align: left;">Not determined automatically</td>
+<td style="text-align: left;">2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Variables</td>
@@ -6562,12 +7426,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-3" class="level4">
-<h4 class="anchored" data-anchor-id="preview-3">Preview</h4>
+<section id="preview-9" class="level4">
+<h4 class="anchored" data-anchor-id="preview-9">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-3" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-3">Preview variables</h4>
+<section id="preview-variables-9" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-9">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 10%">
@@ -6648,12 +7512,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-4" class="level4">
-<h4 class="anchored" data-anchor-id="preview-4">Preview</h4>
+<section id="preview-10" class="level4">
+<h4 class="anchored" data-anchor-id="preview-10">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-4" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-4">Preview variables</h4>
+<section id="preview-variables-10" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-10">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -6692,6 +7556,341 @@ Comments and working texts
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">quote_amount</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module04-equipements" class="level3">
+<h3 class="anchored" data-anchor-id="module04-equipements">fictitious_municipal_equipment.csv</h3>
+<p>Fictitious municipal equipment records with deliberately imperfect formats.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_04/data/fictitious_municipal_equipment.csv" download>Download fictitious_municipal_equipment.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Clean categories, convert amounts, check plausible years and apply validation rules.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 04 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-11" class="level4">
+<h4 class="anchored" data-anchor-id="preview-11">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-11" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-11">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 10%">
+<col style="width: 27%">
+<col style="width: 29%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">equipment_id</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">EQ-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">city</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Quebec City</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">equipment_type</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Fountain</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">active</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">installation_year</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">2012</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">maintenance_cost</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">1 250.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">inspection_month</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">January</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module04-demandes-bourses" class="level3">
+<h3 class="anchored" data-anchor-id="module04-demandes-bourses">fictitious_scholarship_applications.csv</h3>
+<p>Fictitious student scholarship applications.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_04/data/fictitious_scholarship_applications.csv" download>Download fictitious_scholarship_applications.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Clean statuses, amounts and programs, then discuss limits of simulated administrative variables.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 04 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-12" class="level4">
+<h4 class="anchored" data-anchor-id="preview-12">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-12" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-12">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 27%">
+<col style="width: 28%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">application_id</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">B-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">program</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Statistics</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cycle</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Undergraduate</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">complete</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">annual_income</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">18500</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">requested_amount</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">2 500.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gpa</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">3.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fsa_code</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">G1V</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module04-regles-equipements" class="level3">
+<h3 class="anchored" data-anchor-id="module04-regles-equipements">fictitious_equipment_rules.json</h3>
+<p>Fictitious validation rules for municipal equipment.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_04/data/fictitious_equipment_rules.json" download>Download fictitious_equipment_rules.json</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 84%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Read a JSON parameter file and use it to check the coherence of a table.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 04 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-13" class="level4">
+<h4 class="anchored" data-anchor-id="preview-13">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-13" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-13">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 22%">
+<col style="width: 23%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">element</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">installation_year</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">value</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">List of 2 $ min: int 1990 $ max: int 2026</td>
 </tr>
 </tbody>
 </table>
@@ -6741,12 +7940,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-5" class="level4">
-<h4 class="anchored" data-anchor-id="preview-5">Preview</h4>
+<section id="preview-14" class="level4">
+<h4 class="anchored" data-anchor-id="preview-14">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-5" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-5">Preview variables</h4>
+<section id="preview-variables-14" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-14">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -7119,6 +8318,404 @@ Comments and working texts
 </table>
 </section>
 </section>
+<section id="module05-ateliers-soutien" class="level3">
+<h3 class="anchored" data-anchor-id="module05-ateliers-soutien">fictitious_support_workshops.csv</h3>
+<p>Fictitious university support workshops with attendance, weather and satisfaction.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_05/data/fictitious_support_workshops.csv" download>Download fictitious_support_workshops.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Explore relationships between numerical variables, temporal context and participation.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 05 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-15" class="level4">
+<h4 class="anchored" data-anchor-id="preview-15">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-15" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-15">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 10%">
+<col style="width: 28%">
+<col style="width: 29%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">workshop_id</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">A-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">workshop_date</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">2026-01-15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">start_hour</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">campus</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">duration_minutes</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">participants</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">temperature_c</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">-8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rain_mm</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mean_satisfaction</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">4.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">topic</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Quarto</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module05-frequentation-bibliotheque" class="level3">
+<h3 class="anchored" data-anchor-id="module05-frequentation-bibliotheque">fictitious_library_visits.csv</h3>
+<p>Fictitious visit observations in library areas.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_05/data/fictitious_library_visits.csv" download>Download fictitious_library_visits.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Compare visits, weather, hours and exam weeks without confusing relationship and causality.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 05 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-16" class="level4">
+<h4 class="anchored" data-anchor-id="preview-16">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-16" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-16">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 30%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">visit_date</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">2026-04-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hour</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">campus</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">area</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Silent</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">visitors</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">temperature_c</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">rain_mm</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">exam_week</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">no</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module05-demandes-services" class="level3">
+<h3 class="anchored" data-anchor-id="module05-demandes-services">fictitious_campus_service_requests.csv</h3>
+<p>Fictitious requests sent to campus services.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_05/data/fictitious_campus_service_requests.csv" download>Download fictitious_campus_service_requests.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course use</td>
+<td style="text-align: left;">Analyze relationships between priority, delay, satisfaction, estimated cost and status.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Fictitious data created for module 05 exercises.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">License</td>
+<td style="text-align: left;">Simulated course data.</td>
+</tr>
+</tbody>
+</table>
+<section id="preview-17" class="level4">
+<h4 class="anchored" data-anchor-id="preview-17">Preview</h4>
+<p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
+</section>
+<section id="preview-variables-17" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-17">Preview variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 30%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">missing_values_in_preview</th>
+<th style="text-align: right;">distinct_values_in_preview</th>
+<th style="text-align: left;">example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">request_id</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">S-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">request_date</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">2026-02-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">service</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">IT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">priority</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Normal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">delay_hours</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">satisfaction</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">4.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimated_cost</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">120</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Closed</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 <section id="module06-members" class="level3">
 <h3 class="anchored" data-anchor-id="module06-members">fictitious_team_members.csv</h3>
 <p>Fictitious members from two project teams.</p>
@@ -7159,12 +8756,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-6" class="level4">
-<h4 class="anchored" data-anchor-id="preview-6">Preview</h4>
+<section id="preview-18" class="level4">
+<h4 class="anchored" data-anchor-id="preview-18">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-6" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-6">Preview variables</h4>
+<section id="preview-variables-18" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-18">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
@@ -7255,12 +8852,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-7" class="level4">
-<h4 class="anchored" data-anchor-id="preview-7">Preview</h4>
+<section id="preview-19" class="level4">
+<h4 class="anchored" data-anchor-id="preview-19">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-7" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-7">Preview variables</h4>
+<section id="preview-variables-19" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-19">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -7365,12 +8962,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-8" class="level4">
-<h4 class="anchored" data-anchor-id="preview-8">Preview</h4>
+<section id="preview-20" class="level4">
+<h4 class="anchored" data-anchor-id="preview-20">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-8" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-8">Preview variables</h4>
+<section id="preview-variables-20" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-20">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -7482,12 +9079,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-9" class="level4">
-<h4 class="anchored" data-anchor-id="preview-9">Preview</h4>
+<section id="preview-21" class="level4">
+<h4 class="anchored" data-anchor-id="preview-21">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-9" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-9">Preview variables</h4>
+<section id="preview-variables-21" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-21">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -7582,12 +9179,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-10" class="level4">
-<h4 class="anchored" data-anchor-id="preview-10">Preview</h4>
+<section id="preview-22" class="level4">
+<h4 class="anchored" data-anchor-id="preview-22">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-10" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-10">Preview variables</h4>
+<section id="preview-variables-22" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-22">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -7685,12 +9282,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-11" class="level4">
-<h4 class="anchored" data-anchor-id="preview-11">Preview</h4>
+<section id="preview-23" class="level4">
+<h4 class="anchored" data-anchor-id="preview-23">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-11" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-11">Preview variables</h4>
+<section id="preview-variables-23" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-23">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -7781,12 +9378,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-12" class="level4">
-<h4 class="anchored" data-anchor-id="preview-12">Preview</h4>
+<section id="preview-24" class="level4">
+<h4 class="anchored" data-anchor-id="preview-24">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-12" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-12">Preview variables</h4>
+<section id="preview-variables-24" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-24">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -7895,12 +9492,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-13" class="level4">
-<h4 class="anchored" data-anchor-id="preview-13">Preview</h4>
+<section id="preview-25" class="level4">
+<h4 class="anchored" data-anchor-id="preview-25">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-13" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-13">Preview variables</h4>
+<section id="preview-variables-25" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-25">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
@@ -8009,12 +9606,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-14" class="level4">
-<h4 class="anchored" data-anchor-id="preview-14">Preview</h4>
+<section id="preview-26" class="level4">
+<h4 class="anchored" data-anchor-id="preview-26">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-14" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-14">Preview variables</h4>
+<section id="preview-variables-26" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-26">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 22%">
@@ -8109,12 +9706,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-15" class="level4">
-<h4 class="anchored" data-anchor-id="preview-15">Preview</h4>
+<section id="preview-27" class="level4">
+<h4 class="anchored" data-anchor-id="preview-27">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-15" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-15">Preview variables</h4>
+<section id="preview-variables-27" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-27">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -8244,12 +9841,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-16" class="level4">
-<h4 class="anchored" data-anchor-id="preview-16">Preview</h4>
+<section id="preview-28" class="level4">
+<h4 class="anchored" data-anchor-id="preview-28">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-16" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-16">Preview variables</h4>
+<section id="preview-variables-28" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-28">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -8323,12 +9920,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-17" class="level4">
-<h4 class="anchored" data-anchor-id="preview-17">Preview</h4>
+<section id="preview-29" class="level4">
+<h4 class="anchored" data-anchor-id="preview-29">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-17" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-17">Preview variables</h4>
+<section id="preview-variables-29" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-29">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -8402,12 +9999,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-18" class="level4">
-<h4 class="anchored" data-anchor-id="preview-18">Preview</h4>
+<section id="preview-30" class="level4">
+<h4 class="anchored" data-anchor-id="preview-30">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-18" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-18">Preview variables</h4>
+<section id="preview-variables-30" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-30">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -8481,12 +10078,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-19" class="level4">
-<h4 class="anchored" data-anchor-id="preview-19">Preview</h4>
+<section id="preview-31" class="level4">
+<h4 class="anchored" data-anchor-id="preview-31">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-19" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-19">Preview variables</h4>
+<section id="preview-variables-31" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-31">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -8595,12 +10192,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-20" class="level4">
-<h4 class="anchored" data-anchor-id="preview-20">Preview</h4>
+<section id="preview-32" class="level4">
+<h4 class="anchored" data-anchor-id="preview-32">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-20" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-20">Preview variables</h4>
+<section id="preview-variables-32" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-32">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
@@ -8744,12 +10341,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-21" class="level4">
-<h4 class="anchored" data-anchor-id="preview-21">Preview</h4>
+<section id="preview-33" class="level4">
+<h4 class="anchored" data-anchor-id="preview-33">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-21" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-21">Preview variables</h4>
+<section id="preview-variables-33" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-33">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 27%">
@@ -8872,12 +10469,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-22" class="level4">
-<h4 class="anchored" data-anchor-id="preview-22">Preview</h4>
+<section id="preview-34" class="level4">
+<h4 class="anchored" data-anchor-id="preview-34">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-22" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-22">Preview variables</h4>
+<section id="preview-variables-34" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-34">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -9000,12 +10597,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-23" class="level4">
-<h4 class="anchored" data-anchor-id="preview-23">Preview</h4>
+<section id="preview-35" class="level4">
+<h4 class="anchored" data-anchor-id="preview-35">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-23" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-23">Preview variables</h4>
+<section id="preview-variables-35" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-35">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 9%">
@@ -9128,12 +10725,12 @@ Comments and working texts
 </tr>
 </tbody>
 </table>
-<section id="preview-24" class="level4">
-<h4 class="anchored" data-anchor-id="preview-24">Preview</h4>
+<section id="preview-36" class="level4">
+<h4 class="anchored" data-anchor-id="preview-36">Preview</h4>
 <p>Preview limited to 12 rows and 12 columns to keep the page light.</p>
 </section>
-<section id="preview-variables-24" class="level4">
-<h4 class="anchored" data-anchor-id="preview-variables-24">Preview variables</h4>
+<section id="preview-variables-36" class="level4">
+<h4 class="anchored" data-anchor-id="preview-variables-36">Preview variables</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 11%">

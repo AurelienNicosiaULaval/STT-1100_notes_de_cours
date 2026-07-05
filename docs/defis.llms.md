@@ -4,7 +4,7 @@
 
 Les défis sont les livrables courts du cours. Chaque défi prolonge l'aventure du module et transforme une pratique guidée en production personnelle: rapport, graphique, nettoyage, fonction, vidéo ou tableau de bord.
 
-[Évaluations](evaluations.llms.md) [Modules](modules.llms.md) [Boîte à outils](boite_outils.llms.md)
+[Voir les défis](#challenge-list-title) [Comprendre le rôle](#challenge-map-title) [Avant de remettre](#submission-title) [Évaluations](evaluations.llms.md)
 
 1
 
@@ -66,13 +66,41 @@ Consolidation séparée. Les exercices servent à pratiquer, mais ils ne sont pa
 
 Les commentaires reçus servent à améliorer les prochains défis, l'examen et le projet de session.
 
+## Avant de remettre
+
+La page du défi explique le travail à produire. Brio demeure la source officielle pour les dates, les lieux de remise et les modalités administratives.
+
+### Consigne
+
+Relire la page du défi et identifier les fichiers explicitement demandés. Une belle analyse ne compense pas un livrable manquant.
+
+[Voir les évaluations](evaluations.llms.md)
+
+### Fichiers
+
+Ouvrir le rendu final, vérifier les graphiques, les chemins de fichiers, les noms de colonnes et les fichiers de données à remettre.
+
+[Préparer son environnement](boite_outils.llms.md)
+
+### Dépôt GitHub
+
+Lorsque le défi utilise GitHub, pousser les commits et relire le dépôt en ligne comme si vous étiez la personne qui corrige.
+
+[Retrouver les ressources](ressources.llms.md)
+
+### IA et aide
+
+Si une aide externe est utilisée, garder une trace compréhensible de vos décisions et respecter les règles indiquées pour le cours.
+
+[Consulter la page IA](ia.llms.md)
+
 ## Défis par module
 
-Utilisez ces liens pour retrouver les consignes complètes et les livrables attendus. Les dates, les lieux de remise et les modalités administratives sont confirmés sur Brio.
+Utilisez ces liens pour retrouver les consignes complètes et les livrables attendus. Les cartes ci-dessous donnent un repère rapide; la page du défi demeure la consigne détaillée.
 
 ### Défi 1
 
-Mini-rapport Quarto reproductible à partir des données météo.
+Mini-rapport Quarto reproductible à partir des données météo, avec rétroaction formative.
 
 Trace attendue: fichier source `.qmd` et rendu HTML.
 
@@ -144,7 +172,7 @@ Trace attendue: argument clair, support visuel et vidéo accessible.
 
 ### Défi 10
 
-Tableau de bord interactif à partir des rétroactions anonymisées du cours.
+Tableau de bord interactif à partir des rétroactions anonymisées construites pendant la session ou du fichier exemple non réel.
 
 Trace attendue: tableau de bord local reproductible, données protégées et README utile.
 
@@ -203,3 +231,19 @@ Un rendu absent, un fichier mal nommé ou un dépôt non poussé peut empêcher 
 ### Réutiliser la rétroaction
 
 Chaque défi prépare le suivant: garder les corrections utiles dans vos notes.
+
+## Après la rétroaction
+
+Un défi n'est pas seulement une remise ponctuelle. Les commentaires reçus servent à consolider vos méthodes et à préparer les productions plus longues.
+
+### Corriger une habitude
+
+Noter une erreur récurrente de code, de rendu, de graphique ou d'interprétation pour ne pas la répéter au défi suivant.
+
+### Conserver une trace
+
+Garder les exemples de code, de visualisation et de communication qui pourront être réutilisés dans le projet.
+
+### Revenir aux exercices
+
+Utiliser les exercices indépendants pour retravailler une compétence précise sans dépendre de l'histoire du défi.

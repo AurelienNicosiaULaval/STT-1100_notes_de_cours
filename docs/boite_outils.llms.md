@@ -4,7 +4,7 @@ Travailler dans le cours
 
 Cette page rassemble les gestes pratiques à réutiliser dans les modules: démarrer un projet, importer des données, transformer un tableau, visualiser, rendre un rapport Quarto, utiliser GitHub et demander de l'aide efficacement.
 
-[Supports de classe](#supports-de-classe) [Routines R](#routines-r) [Quarto et GitHub](#quarto-github) [Dépannage](#depannage)
+[Par situation](#par-situation) [Supports de classe](#supports-de-classe) [Routines R](#routines-r) [Quarto et GitHub](#quarto-github) [Dépannage](#depannage)
 
 R
 
@@ -21,6 +21,48 @@ Suivre les versions du projet
 ?
 
 Chercher et demander de l'aide
+
+Point de départ
+
+## De quoi avez-vous besoin maintenant?
+
+La boîte à outils sert surtout à choisir le bon réflexe au bon moment. Si vous ne savez pas par où commencer, partez de la situation qui ressemble le plus à votre problème.
+
+### Je commence un module
+
+Ouvrir la page du module, vérifier les lectures, repérer les fichiers de données et garder la feuille aide-mémoire à portée de main.
+
+[Voir les modules](modules.llms.md)
+
+### Je dois importer une donnée
+
+Identifier le format du fichier, ouvrir le bon dossier de projet, puis choisir la fonction d'importation adaptée.
+
+[Voir les jeux de données](donnees.llms.md)
+
+### Je cherche une fonction R
+
+Partir de la tâche: importer, transformer, visualiser, nettoyer du texte, travailler avec des dates ou produire un rapport.
+
+[Voir les packages](packages.llms.md)
+
+### Mon rapport ne rend pas
+
+Rendre le document, lire le premier message d'erreur, vérifier les chemins, puis isoler le bloc qui casse.
+
+[Aller au dépannage](#depannage)
+
+### Je veux utiliser l'IA
+
+Utiliser l'IA pour clarifier, tester ou comparer, mais garder la décision statistique et l'interprétation sous votre contrôle.
+
+[Voir la page IA](ia.llms.md)
+
+### Je prépare une remise
+
+Vérifier le rendu, les fichiers, les sources, les figures, les commentaires et les commits si GitHub est demandé.
+
+[Voir la checklist](#avant-remise)
 
 ## Supports de classe
 
@@ -98,6 +140,36 @@ Un titre clair, des blocs de code lisibles, des résultats interprétés en phra
 
 Des commits petits et compréhensibles lorsque le travail est prêt à être sauvegardé.
 
+Vérification finale
+
+## Avant de remettre ou de pousser
+
+Cette checklist évite les erreurs les plus coûteuses: un fichier qui manque, un graphique non expliqué, un rendu qui échoue ou un commit trop vague.
+
+1
+
+### Rendre
+
+Le fichier `.qmd` doit rendre sans erreur sur votre machine, pas seulement exécuter quelques blocs dans la Console.
+
+2
+
+### Vérifier les données
+
+Les fichiers nécessaires doivent être dans le dépôt ou accessibles par le chemin indiqué dans le rapport.
+
+3
+
+### Interpréter
+
+Chaque tableau ou graphique important doit être accompagné d'une phrase qui dit ce qu'on observe et ce qu'on ne peut pas conclure.
+
+4
+
+### Sauvegarder
+
+Si GitHub est demandé, faire un commit avec un message précis, puis vérifier que le dépôt distant contient les fichiers attendus.
+
 ## Dépannage et aide
 
 Avant de demander de l'aide, il faut rendre le problème observable. C'est aussi ce qui permet d'utiliser l'IA du cours de façon utile.
@@ -118,4 +190,12 @@ Comparer avec un exemple du module, de la feuille aide-mémoire ou de la documen
 
 Indiquer le but, le code minimal, le message d'erreur et ce qui était attendu.
 
-[Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Guide pour chercher](autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.llms.md)
+### Vérifier l'IA
+
+Quand une réponse vient de l'IA, tester le code, vérifier les fonctions proposées et garder une trace de ce qui a été utilisé.
+
+### Demander une aide ciblée
+
+Une bonne question contient le contexte, la consigne suivie, le code minimal, l'erreur et l'essai déjà fait.
+
+[Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Guide pour chercher](autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.llms.md) [Règles IA du cours](ia.llms.md)

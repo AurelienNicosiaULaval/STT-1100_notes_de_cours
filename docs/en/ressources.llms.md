@@ -2,9 +2,9 @@ Course Hub
 
 # STT-1100 Resources
 
-This page helps you find the right support at the right moment: reading before a module, finding a function, choosing a dataset, asking for help or preparing a submission.
+This page helps you find the right support at the right moment: reading before a module, working through an adventure, practising with exercises, finding a function, choosing a dataset, asking for help or preparing a submission.
 
-[By need](#need-title) [Specialized pages](#hub-title) [Work method](#path-title)
+[By need](#need-title) [By moment](#moment-title) [Specialized pages](#hub-title) [Work method](#path-title)
 
 Read
 
@@ -17,6 +17,10 @@ Find useful gestures
 Help
 
 Unblock and verify
+
+Submit
+
+Check before handing in
 
 ## What am I looking for?
 
@@ -45,6 +49,46 @@ Find local files, package datasets and datasets useful for exercises.
 Reread the instructions, check the expected format, render the document and remove unnecessary files.
 
 [ChallengesRole, formats and links to instructions.](defis.llms.md) [EvaluationsUnderstand what is valued in deliverables.](evaluations.llms.md)
+
+### I want more practice
+
+Use the independent exercises to redo module moves in another context and with other data.
+
+[Module pagesEach module contains its exercises, data and tools.](modules.llms.md) [DatasetsFind useful files for varied practice.](donnees.llms.md)
+
+### I am preparing the project
+
+Return to project expectations, choose targeted resources and keep a reproducible trace of decisions.
+
+[Session projectConsult the structure, milestones and deliverables.](projet_session/index.llms.md) [Books and readingsFind useful references for deepening a method.](livres.llms.md)
+
+## Where am I in the module?
+
+A module is not just a list of pages. Each resource plays a different role depending on the moment of work.
+
+### Before the module
+
+Read the learning plan, open the essential readings and identify the data that will return during the week.
+
+[ModulesStart from the current module page.](modules.llms.md) [ReadingsConsult only the targeted references.](livres.llms.md)
+
+### During the adventure
+
+Follow the narrative, produce code in the Quarto document and check intermediate outputs often.
+
+[ToolkitFind recurring technical moves.](boite_outils.llms.md) [Class supportsOpen cheat sheets and practical guides.](supports_classe.llms.md)
+
+### After the adventure
+
+Use exercises as independent consolidation. They help you practise, not continue the challenge by default.
+
+[Exercises by moduleExercises are available from each module.](modules.llms.md) [Exercise dataCompare contexts and available files.](donnees.llms.md)
+
+### Before submitting
+
+Reread the official instructions, render the document, check the files and submit according to Brio instructions.
+
+[ChallengesFind instructions and expected formats.](defis.llms.md) [EvaluationsUnderstand the role of each production.](evaluations.llms.md)
 
 ## Specialized Pages
 
@@ -92,27 +136,27 @@ Resources are more useful when they are used in the right order.
 
 1
 
-### Before
+### Locate
 
-Read the learning plan, open the essential readings and identify the module packages or datasets.
+Start from the module page, then identify readings, data, packages and expected productions.
 
 2
 
-### During
+### Work
 
-Work in the Quarto document, return to supports, test often and keep a clear trace.
+Move through the adventure or exercise, test code often and keep a clear trace in Quarto.
 
 3
 
-### Blocked
+### Unblock
 
-Reduce the problem, read the error, consult the toolkit, then ask for targeted help.
+Reduce the problem, read the error, consult the toolkit, then ask for targeted help when needed.
 
 4
 
-### Submit
+### Check
 
-Return to the official instructions, render the document, check links and submit according to Brio.
+Render the document, reread results, check links, then return to the instructions before submitting.
 
 ## Two Landmarks to Keep
 

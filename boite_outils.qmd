@@ -17,7 +17,8 @@ format:
   <h1 id="toolbox-title">Boîte à outils STT-1100</h1>
   <p>Cette page rassemble les gestes pratiques à réutiliser dans les modules: démarrer un projet, importer des données, transformer un tableau, visualiser, rendre un rapport Quarto, utiliser GitHub et demander de l'aide efficacement.</p>
   <div class="resource-actions" aria-label="Accès rapides">
-  <a class="home-action home-action--primary" href="#supports-de-classe">Supports de classe</a>
+  <a class="home-action home-action--primary" href="#par-situation">Par situation</a>
+  <a class="home-action" href="#supports-de-classe">Supports de classe</a>
   <a class="home-action" href="#routines-r">Routines R</a>
   <a class="home-action" href="#quarto-github">Quarto et GitHub</a>
   <a class="home-action" href="#depannage">Dépannage</a>
@@ -28,6 +29,46 @@ format:
   <div><span>Q</span><p>Rédiger et rendre un rapport</p></div>
   <div><span>Git</span><p>Suivre les versions du projet</p></div>
   <div><span>?</span><p>Chercher et demander de l'aide</p></div>
+  </div>
+  </section>
+
+  <section class="resource-section" id="par-situation" aria-labelledby="situation-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Point de départ</p>
+  <h2 id="situation-title">De quoi avez-vous besoin maintenant?</h2>
+  <p>La boîte à outils sert surtout à choisir le bon réflexe au bon moment. Si vous ne savez pas par où commencer, partez de la situation qui ressemble le plus à votre problème.</p>
+  </div>
+  <div class="resource-hub-grid compact-hub">
+  <article class="resource-compact">
+  <h3>Je commence un module</h3>
+  <p>Ouvrir la page du module, vérifier les lectures, repérer les fichiers de données et garder la feuille aide-mémoire à portée de main.</p>
+  <a href="modules.html">Voir les modules</a>
+  </article>
+  <article class="resource-compact">
+  <h3>Je dois importer une donnée</h3>
+  <p>Identifier le format du fichier, ouvrir le bon dossier de projet, puis choisir la fonction d'importation adaptée.</p>
+  <a href="donnees.html">Voir les jeux de données</a>
+  </article>
+  <article class="resource-compact">
+  <h3>Je cherche une fonction R</h3>
+  <p>Partir de la tâche: importer, transformer, visualiser, nettoyer du texte, travailler avec des dates ou produire un rapport.</p>
+  <a href="packages.html">Voir les packages</a>
+  </article>
+  <article class="resource-compact">
+  <h3>Mon rapport ne rend pas</h3>
+  <p>Rendre le document, lire le premier message d'erreur, vérifier les chemins, puis isoler le bloc qui casse.</p>
+  <a href="#depannage">Aller au dépannage</a>
+  </article>
+  <article class="resource-compact">
+  <h3>Je veux utiliser l'IA</h3>
+  <p>Utiliser l'IA pour clarifier, tester ou comparer, mais garder la décision statistique et l'interprétation sous votre contrôle.</p>
+  <a href="ia.html">Voir la page IA</a>
+  </article>
+  <article class="resource-compact">
+  <h3>Je prépare une remise</h3>
+  <p>Vérifier le rendu, les fichiers, les sources, les figures, les commentaires et les commits si GitHub est demandé.</p>
+  <a href="#avant-remise">Voir la checklist</a>
+  </article>
   </div>
   </section>
 
@@ -105,6 +146,36 @@ format:
   </div>
   </section>
 
+  <section class="resource-section" id="avant-remise" aria-labelledby="checklist-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Vérification finale</p>
+  <h2 id="checklist-title">Avant de remettre ou de pousser</h2>
+  <p>Cette checklist évite les erreurs les plus coûteuses: un fichier qui manque, un graphique non expliqué, un rendu qui échoue ou un commit trop vague.</p>
+  </div>
+  <div class="course-flow">
+  <article class="flow-card">
+  <span class="flow-number">1</span>
+  <h3>Rendre</h3>
+  <p>Le fichier <code>.qmd</code> doit rendre sans erreur sur votre machine, pas seulement exécuter quelques blocs dans la Console.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">2</span>
+  <h3>Vérifier les données</h3>
+  <p>Les fichiers nécessaires doivent être dans le dépôt ou accessibles par le chemin indiqué dans le rapport.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">3</span>
+  <h3>Interpréter</h3>
+  <p>Chaque tableau ou graphique important doit être accompagné d'une phrase qui dit ce qu'on observe et ce qu'on ne peut pas conclure.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">4</span>
+  <h3>Sauvegarder</h3>
+  <p>Si GitHub est demandé, faire un commit avec un message précis, puis vérifier que le dépôt distant contient les fichiers attendus.</p>
+  </article>
+  </div>
+  </section>
+
   <section class="resource-section" id="depannage" aria-labelledby="help-title">
   <div class="resource-section__header">
   <h2 id="help-title">Dépannage et aide</h2>
@@ -115,10 +186,13 @@ format:
   <article class="resource-compact"><h3>Réduire</h3><p>Rejouer seulement le bloc qui pose problème. Vérifier que les packages sont chargés et que les données existent.</p></article>
   <article class="resource-compact"><h3>Comparer</h3><p>Comparer avec un exemple du module, de la feuille aide-mémoire ou de la documentation officielle.</p></article>
   <article class="resource-compact"><h3>Formuler</h3><p>Indiquer le but, le code minimal, le message d'erreur et ce qui était attendu.</p></article>
+  <article class="resource-compact"><h3>Vérifier l'IA</h3><p>Quand une réponse vient de l'IA, tester le code, vérifier les fonctions proposées et garder une trace de ce qui a été utilisé.</p></article>
+  <article class="resource-compact"><h3>Demander une aide ciblée</h3><p>Une bonne question contient le contexte, la consigne suivie, le code minimal, l'erreur et l'essai déjà fait.</p></article>
   </div>
   <div class="resource-actions">
   <a class="home-action home-action--primary" href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100" target="_blank" rel="noopener">Ouvrir GPT STT-1100</a>
   <a class="home-action" href="autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.html">Guide pour chercher</a>
+  <a class="home-action" href="ia.html">Règles IA du cours</a>
   </div>
   </section>
 </div>

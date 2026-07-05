@@ -21,7 +21,8 @@ execute:
   <h1 id="data-title">Bases de données du cours</h1>
   <p>Cette page rassemble les jeux de données utilisés dans STT-1100. Elle sert à retrouver rapidement les fichiers à télécharger, les données fournies par des packages R et les fiches courtes des fichiers locaux.</p>
   <div class="resource-actions" aria-label="Accès rapides">
-  <a class="home-action home-action--primary" href="#catalogue-par-module">Par module</a>
+  <a class="home-action home-action--primary" href="#utiliser-catalogue">Démarrer</a>
+  <a class="home-action" href="#catalogue-par-module">Par module</a>
   <a class="home-action" href="#fiches-fichiers-locaux">Fiches locales</a>
   <a class="home-action" href="packages.html">Packages R</a>
   </div>
@@ -34,10 +35,85 @@ execute:
   </div>
   </section>
 
-  <section class="resource-section" aria-labelledby="data-use-title">
+  <section class="resource-section" id="utiliser-catalogue" aria-labelledby="data-use-title">
   <div class="resource-section__header">
+  <p class="eyebrow">Méthode de travail</p>
   <h2 id="data-use-title">Utiliser le catalogue</h2>
-  <p>Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R.</p>
+  <p>Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R. Le catalogue ne remplace pas les consignes du module: il aide surtout à retrouver la bonne donnée et à comprendre son rôle.</p>
+  </div>
+  <div class="course-flow">
+  <article class="flow-card">
+  <span class="flow-number">1</span>
+  <h3>Repérer le module</h3>
+  <p>Commencer par le module de l'exercice, de l'aventure ou du défi. Les cartes gardent cette progression.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">2</span>
+  <h3>Identifier le type</h3>
+  <p>Un fichier local se télécharge; une donnée de package se charge avec R; une page web demande une collecte prudente.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">3</span>
+  <h3>Importer depuis le bon dossier</h3>
+  <p>Dans les exercices, les chemins comme <code>data/fichier.csv</code> sont relatifs au dossier du module.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">4</span>
+  <h3>Documenter la source</h3>
+  <p>Un rapport reproductible indique toujours d'où vient la donnée et ce qu'elle permet, ou ne permet pas, de conclure.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="types-donnees" aria-labelledby="types-donnees-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Repères rapides</p>
+  <h2 id="types-donnees-title">Quel type de donnée cherchez-vous?</h2>
+  <p>Les jeux de données du cours ne servent pas tous au même objectif. Certains sont faits pour pratiquer les bases, d'autres pour travailler les formats, les jointures, l'éthique ou la communication.</p>
+  </div>
+  <div class="reading-map">
+  <article>
+  <h3>Fichiers locaux</h3>
+  <p>CSV, JSON, Excel, RDS et HTML fournis avec les modules. Ils sont les plus utiles pour les exercices indépendants.</p>
+  </article>
+  <article>
+  <h3>Données de packages</h3>
+  <p>Jeux de données accessibles par R, utiles pour apprendre sans gérer tout de suite les chemins de fichiers.</p>
+  </article>
+  <article>
+  <h3>Données web</h3>
+  <p>Pages ou dépôts externes utilisés pour discuter la collecte, les limites techniques et les conditions d'utilisation.</p>
+  </article>
+  <article>
+  <h3>Données fictives</h3>
+  <p>Données simulées pour pratiquer sans exposer de renseignements personnels ni reproduire un système réel.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="depannage-donnees" aria-labelledby="depannage-donnees-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Dépannage</p>
+  <h2 id="depannage-donnees-title">Quand l'importation ne fonctionne pas</h2>
+  <p>Avant de changer le code au hasard, vérifier ces quatre points. Ils règlent la majorité des blocages avec les fichiers du cours.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article>
+  <h3>Chemin du fichier</h3>
+  <p>Ouvrir le projet ou le dossier du module avant d'utiliser un chemin relatif comme <code>data/fichier.csv</code>.</p>
+  </article>
+  <article>
+  <h3>Séparateur</h3>
+  <p>Un CSV peut utiliser une virgule ou un point-virgule. Choisir <code>read_csv()</code> ou <code>read_delim()</code> selon le fichier.</p>
+  </article>
+  <article>
+  <h3>Format</h3>
+  <p>Excel, JSON, RDS et HTML ne se lisent pas avec la même fonction. Le package utile est rappelé dans la page Packages R.</p>
+  </article>
+  <article>
+  <h3>Interprétation</h3>
+  <p>Une donnée fictive sert à apprendre une méthode; elle ne doit pas être décrite comme une preuve sur le monde réel.</p>
+  </article>
   </div>
   </section>
 </div>
@@ -68,16 +144,28 @@ html_text <- function(x) htmltools::htmlEscape(as.character(x))
 dataset_catalog <- tibble::tribble(
   ~id, ~title, ~path, ~module_id, ~module, ~description, ~usage, ~source, ~license, ~kind, ~delimiter, ~rows, ~cols, ~package_anchor, ~icon,
   "meteo-quebec", "UlavalSSD::MeteoQuebec", NA, "module-01", "Module 01", "Jeu de données utilisé pour les premiers gestes d'exploration dans R.", "Découvrir un tableau, reconnaître les variables et produire les premiers résumés.", "Package UlavalSSD utilisé dans le cours.", "Voir la documentation du package.", "package", NA, NA, NA, "ulavalssd", "bi-database",
+  "module01-bibliotheques", "bibliotheques_municipales_fictif.csv", "module_01/data/bibliotheques_municipales_fictif.csv", "module-01", "Module 01", "Observations fictives sur la fréquentation, les prêts et les ateliers de bibliothèques municipales.", "Pratiquer l'importation, l'inspection d'un tableau et les premiers résumés numériques.", "Données fictives créées pour les exercices du module 01.", "Données simulées pour le cours.", "local", ",", 12, 8, NA, "bi-filetype-csv",
+  "module01-coop", "coop_etudiante_fictif.csv", "module_01/data/coop_etudiante_fictif.csv", "module-01", "Module 01", "Ventes fictives d'une coopérative étudiante.", "Calculer des revenus, résumer des quantités, explorer les rabais et formuler de premières observations.", "Données fictives créées pour les exercices du module 01.", "Données simulées pour le cours.", "local", ",", 12, 7, NA, "bi-filetype-csv",
   "manchots-donnees", "manchots_donnees.xlsx", "module_02/resources/manchots_donnees.xlsx", "module-02", "Module 02", "Fichier Excel de pratique sur les manchots.", "Importer un fichier Excel et inspecter un tableau dans RStudio.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, NA, NA, NA, "bi-file-earmark-spreadsheet",
+  "module02-arbres", "arbres_urbains_fictif.csv", "module_02/data/arbres_urbains_fictif.csv", "module-02", "Module 02", "Inventaire fictif d'arbres urbains dans quelques quartiers.", "Produire des graphiques de base, comparer des groupes et relier choix visuels et question descriptive.", "Données fictives créées pour les exercices du module 02.", "Données simulées pour le cours.", "local", ",", 24, 7, NA, "bi-filetype-csv",
+  "module02-velo", "velo_partage_fictif.csv", "module_02/data/velo_partage_fictif.csv", "module-02", "Module 02", "Trajets fictifs de vélo-partage par station, mois et type de jour.", "Explorer les relations entre trajets, météo et contexte temporel avec des visualisations.", "Données fictives créées pour les exercices du module 02.", "Données simulées pour le cours.", "local", ",", 24, 8, NA, "bi-filetype-csv",
   "penguins", "palmerpenguins::penguins", NA, "module-02", "Module 02", "Jeu de données de démonstration sur les manchots.", "Explorer et visualiser des variables numériques et catégorielles.", "Package palmerpenguins.", "Voir la documentation du package.", "package", NA, NA, NA, "palmerpenguins", "bi-database",
   "listecondamnation", "UlavalSSD::listecondamnation", NA, "module-03", "Module 03", "Constats d'infractions alimentaires utilisés pour l'article journalistique.", "Nettoyer des chaînes, recoder des catégories, analyser des amendes et produire des graphiques pour un article.", "Package UlavalSSD utilisé dans le cours.", "Voir la documentation du package.", "package", NA, NA, NA, "ulavalssd", "bi-database",
   "penguins-raw", "palmerpenguins::penguins_raw", NA, "module-03", "Module 03", "Version plus brute du jeu de données sur les manchots.", "Travailler le recodage, les types de variables et la préparation d'un tableau.", "Package palmerpenguins.", "Voir la documentation du package.", "package", NA, NA, NA, "palmerpenguins", "bi-database",
   "titanic-train", "titanic::titanic_train", NA, "module-03", "Module 03", "Données de passagers du Titanic utilisées comme exemple de variables catégorielles.", "Pratiquer les facteurs, les tableaux de fréquences et les regroupements.", "Package titanic.", "Voir la documentation du package.", "package", NA, NA, NA, "titanic", "bi-database",
+  "module03-requetes-311", "requetes_311_fictif.csv", "module_03/data/requetes_311_fictif.csv", "module-03", "Module 03", "Requêtes 311 fictives pour quelques villes québécoises.", "Recoder des catégories, inspecter les statuts et résumer les délais de traitement.", "Données fictives créées pour les exercices du module 03.", "Données simulées pour le cours.", "local", ",", 24, 7, NA, "bi-filetype-csv",
+  "module03-plaintes-transport", "plaintes_transport_fictif.csv", "module_03/data/plaintes_transport_fictif.csv", "module-03", "Module 03", "Plaintes fictives pour des réseaux de transport collectif.", "Travailler les facteurs, ordonner des catégories et résumer des plaintes par réseau, période et gravité.", "Données fictives créées pour les exercices du module 03.", "Données simulées pour le cours.", "local", ",", 24, 7, NA, "bi-filetype-csv",
   "dataset-pratique", "dataset_pratique.csv", "module_04/dataset_pratique.csv", "module-04", "Module 04", "Fichier CSV de pratique sur des soumissions d'assurance automobile.", "Nettoyer un fichier volumineux, recoder des facteurs et inspecter les incohérences.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", ";", 101768, 23, NA, "bi-filetype-csv",
   "policies-module-04", "policies.csv", "module_04/policies.csv", "module-04", "Module 04", "Petit fichier CSV de polices d'assurance.", "Pratiquer les diagnostics rapides, les transformations et les résumés.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", ",", 15, 9, NA, "bi-filetype-csv",
-  "coverage-module-04", "coverage.json", "module_04/coverage.json", "module-04", "Module 04", "Fichier JSON associé aux couvertures de polices.", "Lire des listes et comprendre des données imbriquées.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, NA, 2, NA, "bi-filetype-json",
+  "coverage-module-04", "coverage.json", "module_04/coverage.json", "module-04", "Module 04", "Fichier JSON associé aux couvertures de polices.", "Lire des listes et comprendre des données imbriquées.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, 2, 2, NA, "bi-filetype-json",
   "quotes-module-04", "quotes_2024.xlsx", "module_04/resources/quotes_2024.xlsx", "module-04", "Module 04", "Fichier Excel contenant une feuille nommée Q3.", "Importer un fichier Excel et vérifier la structure d'un tableau.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, NA, NA, NA, "bi-file-earmark-spreadsheet",
+  "module04-equipements", "equipements_municipaux_fictif.csv", "module_04/data/equipements_municipaux_fictif.csv", "module-04", "Module 04", "Enregistrements fictifs d'équipements municipaux avec formats volontairement imparfaits.", "Nettoyer des catégories, convertir des montants, vérifier des années plausibles et appliquer des règles de validation.", "Données fictives créées pour les exercices du module 04.", "Données simulées pour le cours.", "local", ",", 16, 7, NA, "bi-filetype-csv",
+  "module04-demandes-bourses", "demandes_bourses_fictif.csv", "module_04/data/demandes_bourses_fictif.csv", "module-04", "Module 04", "Demandes fictives de bourses étudiantes.", "Nettoyer des statuts, des montants, des programmes et discuter les limites de variables administratives simulées.", "Données fictives créées pour les exercices du module 04.", "Données simulées pour le cours.", "local", ",", 16, 8, NA, "bi-filetype-csv",
+  "module04-regles-equipements", "regles_equipements_fictif.json", "module_04/data/regles_equipements_fictif.json", "module-04", "Module 04", "Règles fictives de validation pour les équipements municipaux.", "Lire un fichier JSON de paramètres et l'utiliser pour contrôler la cohérence d'un tableau.", "Données fictives créées pour les exercices du module 04.", "Données simulées pour le cours.", "local", NA, 4, 2, NA, "bi-filetype-json",
   "flights-merged-2023", "flights_merged_2023.rds", "module_05/flights_merged_2023.rds", "module-05", "Module 05", "Objet R sérialisé contenant un tableau de vols enrichi.", "Travailler sur un tableau volumineux, les dates et les relations entre variables.", "Fichier fourni avec le matériel du cours.", "Matériel pédagogique du cours.", "local", NA, 435352, 50, NA, "bi-file-earmark-binary",
+  "module05-ateliers-soutien", "ateliers_soutien_fictif.csv", "module_05/data/ateliers_soutien_fictif.csv", "module-05", "Module 05", "Ateliers fictifs de soutien universitaire avec participation, météo et satisfaction.", "Explorer des relations entre variables numériques, contexte temporel et participation.", "Données fictives créées pour les exercices du module 05.", "Données simulées pour le cours.", "local", ",", 24, 10, NA, "bi-filetype-csv",
+  "module05-frequentation-bibliotheque", "frequentation_bibliotheque_fictive.csv", "module_05/data/frequentation_bibliotheque_fictive.csv", "module-05", "Module 05", "Observations fictives de fréquentation dans des zones de bibliothèque.", "Comparer fréquentation, météo, heures et semaine d'examens sans confondre relation et causalité.", "Données fictives créées pour les exercices du module 05.", "Données simulées pour le cours.", "local", ",", 24, 8, NA, "bi-filetype-csv",
+  "module05-demandes-services", "demandes_services_campus_fictif.csv", "module_05/data/demandes_services_campus_fictif.csv", "module-05", "Module 05", "Demandes fictives adressées à des services de campus.", "Analyser les relations entre priorité, délai, satisfaction, coût estimé et statut.", "Données fictives créées pour les exercices du module 05.", "Données simulées pour le cours.", "local", ",", 24, 8, NA, "bi-filetype-csv",
   "nycflights23-flights", "nycflights23::flights", NA, "module-06", "Module 06", "Table des vols au départ de New York en 2023.", "Filtrer les vols de JFK, calculer des retards et préparer des jointures.", "Package nycflights23.", "Voir la documentation du package.", "package", NA, 435352, 19, "nycflights23", "bi-database",
   "nycflights23-airlines", "nycflights23::airlines", NA, "module-06", "Module 06", "Table de correspondance entre codes de transporteurs et noms complets.", "Ajouter le nom complet des compagnies aériennes aux vols.", "Package nycflights23.", "Voir la documentation du package.", "package", NA, 14, 2, "nycflights23", "bi-database",
   "nycflights23-weather", "nycflights23::weather", NA, "module-06", "Module 06", "Conditions météo horaires pour les aéroports de New York en 2023.", "Joindre les conditions météo aux vols par aéroport, date et heure.", "Package nycflights23.", "Voir la documentation du package.", "package", NA, 26207, 15, "nycflights23", "bi-database",

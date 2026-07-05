@@ -20,7 +20,8 @@ execute:
   <h1 id="data-title">Course datasets</h1>
   <p>This page gathers the datasets used in STT-1100. It helps students find downloadable files, datasets provided by R packages and short profiles for local files.</p>
   <div class="resource-actions" aria-label="Quick links">
-  <a class="home-action home-action--primary" href="#catalogue-by-module">By module</a>
+  <a class="home-action home-action--primary" href="#use-catalogue">Start</a>
+  <a class="home-action" href="#catalogue-by-module">By module</a>
   <a class="home-action" href="#local-file-profiles">Local profiles</a>
   <a class="home-action" href="packages.html">R packages</a>
   </div>
@@ -33,10 +34,85 @@ execute:
   </div>
   </section>
 
-  <section class="resource-section" aria-labelledby="data-use-title">
+  <section class="resource-section" id="use-catalogue" aria-labelledby="data-use-title">
   <div class="resource-section__header">
+  <p class="eyebrow">Working method</p>
   <h2 id="data-use-title">Use the catalogue</h2>
-  <p>Each card gives a quick preview, a link to the local profile when the file is provided, or a link to the package when the data come from R.</p>
+  <p>Each card gives a quick preview, a link to the local profile when the file is provided, or a link to the package when the data come from R. The catalogue does not replace the module instructions: it mainly helps you find the right dataset and understand its role.</p>
+  </div>
+  <div class="course-flow">
+  <article class="flow-card">
+  <span class="flow-number">1</span>
+  <h3>Find the module</h3>
+  <p>Start from the module connected to the exercise, adventure or challenge. The cards preserve this progression.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">2</span>
+  <h3>Identify the type</h3>
+  <p>A local file is downloaded; package data are loaded with R; a web page requires careful collection.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">3</span>
+  <h3>Import from the right folder</h3>
+  <p>In exercises, paths such as <code>data/file.csv</code> are relative to the module folder.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">4</span>
+  <h3>Document the source</h3>
+  <p>A reproducible report always says where the data come from and what they can, or cannot, support.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="data-types" aria-labelledby="data-types-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Quick landmarks</p>
+  <h2 id="data-types-title">Which type of data are you looking for?</h2>
+  <p>The course datasets do not all serve the same purpose. Some are for practising basics, others for working with formats, joins, ethics or communication.</p>
+  </div>
+  <div class="reading-map">
+  <article>
+  <h3>Local files</h3>
+  <p>CSV, JSON, Excel, RDS and HTML files provided with the modules. They are most useful for independent exercises.</p>
+  </article>
+  <article>
+  <h3>Package datasets</h3>
+  <p>Datasets accessible from R, useful for learning before managing file paths in detail.</p>
+  </article>
+  <article>
+  <h3>Web data</h3>
+  <p>External pages or repositories used to discuss collection, technical limits and terms of use.</p>
+  </article>
+  <article>
+  <h3>Fictitious data</h3>
+  <p>Simulated data used to practise without exposing personal information or reproducing a real system.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="data-troubleshooting" aria-labelledby="data-troubleshooting-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Troubleshooting</p>
+  <h2 id="data-troubleshooting-title">When importing does not work</h2>
+  <p>Before changing code at random, check these four points. They solve most problems with course files.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article>
+  <h3>File path</h3>
+  <p>Open the project or module folder before using a relative path such as <code>data/file.csv</code>.</p>
+  </article>
+  <article>
+  <h3>Separator</h3>
+  <p>A CSV can use a comma or a semicolon. Choose <code>read_csv()</code> or <code>read_delim()</code> according to the file.</p>
+  </article>
+  <article>
+  <h3>Format</h3>
+  <p>Excel, JSON, RDS and HTML are not read with the same function. The useful package is listed on the R packages page.</p>
+  </article>
+  <article>
+  <h3>Interpretation</h3>
+  <p>Fictitious data are for learning a method; they should not be described as evidence about the real world.</p>
+  </article>
   </div>
   </section>
 </div>
@@ -67,16 +143,28 @@ html_text <- function(x) htmltools::htmlEscape(as.character(x))
 dataset_catalog <- tibble::tribble(
   ~id, ~title, ~path, ~module_id, ~module, ~description, ~usage, ~source, ~license, ~kind, ~delimiter, ~rows, ~cols, ~package_anchor, ~icon,
   "meteo-quebec", "UlavalSSD::MeteoQuebec", NA, "module-01", "Module 01", "Dataset used for the first exploration steps in R.", "Discover a data table, recognize variables and produce first summaries.", "UlavalSSD package used in the course.", "See the package documentation.", "package", NA, NA, NA, "ulavalssd", "bi-database",
+  "module01-bibliotheques", "fictitious_municipal_libraries.csv", "module_01/data/fictitious_municipal_libraries.csv", "module-01", "Module 01", "Fictitious observations about visits, loans and workshops in municipal libraries.", "Practise importing, inspecting a table and producing first numerical summaries.", "Fictitious data created for module 01 exercises.", "Simulated course data.", "local", ",", 12, 8, NA, "bi-filetype-csv",
+  "module01-coop", "fictitious_student_coop.csv", "module_01/data/fictitious_student_coop.csv", "module-01", "Module 01", "Fictitious sales from a student cooperative.", "Compute revenue, summarize quantities, explore discounts and formulate first observations.", "Fictitious data created for module 01 exercises.", "Simulated course data.", "local", ",", 12, 7, NA, "bi-filetype-csv",
   "manchots-donnees", "manchots_donnees.xlsx", "module_02/resources/manchots_donnees.xlsx", "module-02", "Module 02", "Practice Excel file about penguins.", "Import an Excel file and inspect a table in RStudio.", "File provided with the course material.", "Course teaching material.", "local", NA, NA, NA, NA, "bi-file-earmark-spreadsheet",
+  "module02-arbres", "fictitious_urban_trees.csv", "module_02/data/fictitious_urban_trees.csv", "module-02", "Module 02", "Fictitious inventory of urban trees in a few neighbourhoods.", "Produce basic charts, compare groups and connect visual choices to a descriptive question.", "Fictitious data created for module 02 exercises.", "Simulated course data.", "local", ",", 24, 7, NA, "bi-filetype-csv",
+  "module02-velo", "fictitious_bike_share.csv", "module_02/data/fictitious_bike_share.csv", "module-02", "Module 02", "Fictitious bike-share trips by station, month and type of day.", "Explore relationships between trips, weather and temporal context with visualizations.", "Fictitious data created for module 02 exercises.", "Simulated course data.", "local", ",", 24, 8, NA, "bi-filetype-csv",
   "penguins", "palmerpenguins::penguins", NA, "module-02", "Module 02", "Demonstration dataset about penguins.", "Explore and visualize numerical and categorical variables.", "palmerpenguins package.", "See the package documentation.", "package", NA, NA, NA, "palmerpenguins", "bi-database",
   "listecondamnation", "UlavalSSD::listecondamnation", NA, "module-03", "Module 03", "Food offence records used for the journalistic article.", "Clean strings, recode categories, analyze fines and produce charts for an article.", "UlavalSSD package used in the course.", "See the package documentation.", "package", NA, NA, NA, "ulavalssd", "bi-database",
   "penguins-raw", "palmerpenguins::penguins_raw", NA, "module-03", "Module 03", "Rawer version of the penguins dataset.", "Work on recoding, variable types and data preparation.", "palmerpenguins package.", "See the package documentation.", "package", NA, NA, NA, "palmerpenguins", "bi-database",
   "titanic-train", "titanic::titanic_train", NA, "module-03", "Module 03", "Passenger data from the Titanic used as an example of categorical variables.", "Practice factors, frequency tables and grouped summaries.", "titanic package.", "See the package documentation.", "package", NA, NA, NA, "titanic", "bi-database",
+  "module03-requetes-311", "fictitious_311_requests.csv", "module_03/data/fictitious_311_requests.csv", "module-03", "Module 03", "Fictitious 311 requests for a few Quebec municipalities.", "Recode categories, inspect statuses and summarize processing delays.", "Fictitious data created for module 03 exercises.", "Simulated course data.", "local", ",", 24, 7, NA, "bi-filetype-csv",
+  "module03-plaintes-transport", "fictitious_transit_complaints.csv", "module_03/data/fictitious_transit_complaints.csv", "module-03", "Module 03", "Fictitious complaints for public transit networks.", "Work with factors, order categories and summarize complaints by network, period and severity.", "Fictitious data created for module 03 exercises.", "Simulated course data.", "local", ",", 24, 7, NA, "bi-filetype-csv",
   "dataset-pratique", "dataset_pratique.csv", "module_04/dataset_pratique.csv", "module-04", "Module 04", "Practice CSV file about automobile insurance quotes.", "Clean a large file, recode factors and inspect inconsistencies.", "File provided with the course material.", "Course teaching material.", "local", ";", 101768, 23, NA, "bi-filetype-csv",
   "policies-module-04", "policies.csv", "module_04/policies.csv", "module-04", "Module 04", "Small CSV file about insurance policies.", "Practice quick diagnostics, transformations and summaries.", "File provided with the course material.", "Course teaching material.", "local", ",", 15, 9, NA, "bi-filetype-csv",
-  "coverage-module-04", "coverage.json", "module_04/coverage.json", "module-04", "Module 04", "JSON file associated with policy coverages.", "Read lists and understand nested data.", "File provided with the course material.", "Course teaching material.", "local", NA, NA, 2, NA, "bi-filetype-json",
+  "coverage-module-04", "coverage.json", "module_04/coverage.json", "module-04", "Module 04", "JSON file associated with policy coverages.", "Read lists and understand nested data.", "File provided with the course material.", "Course teaching material.", "local", NA, 2, 2, NA, "bi-filetype-json",
   "quotes-module-04", "quotes_2024.xlsx", "module_04/resources/quotes_2024.xlsx", "module-04", "Module 04", "Excel file containing one sheet named Q3.", "Import an Excel file and check the structure of a table.", "File provided with the course material.", "Course teaching material.", "local", NA, NA, NA, NA, "bi-file-earmark-spreadsheet",
+  "module04-equipements", "fictitious_municipal_equipment.csv", "module_04/data/fictitious_municipal_equipment.csv", "module-04", "Module 04", "Fictitious municipal equipment records with deliberately imperfect formats.", "Clean categories, convert amounts, check plausible years and apply validation rules.", "Fictitious data created for module 04 exercises.", "Simulated course data.", "local", ",", 16, 7, NA, "bi-filetype-csv",
+  "module04-demandes-bourses", "fictitious_scholarship_applications.csv", "module_04/data/fictitious_scholarship_applications.csv", "module-04", "Module 04", "Fictitious student scholarship applications.", "Clean statuses, amounts and programs, then discuss limits of simulated administrative variables.", "Fictitious data created for module 04 exercises.", "Simulated course data.", "local", ",", 16, 8, NA, "bi-filetype-csv",
+  "module04-regles-equipements", "fictitious_equipment_rules.json", "module_04/data/fictitious_equipment_rules.json", "module-04", "Module 04", "Fictitious validation rules for municipal equipment.", "Read a JSON parameter file and use it to check the coherence of a table.", "Fictitious data created for module 04 exercises.", "Simulated course data.", "local", NA, 4, 2, NA, "bi-filetype-json",
   "flights-merged-2023", "flights_merged_2023.rds", "module_05/flights_merged_2023.rds", "module-05", "Module 05", "Serialized R object containing an enriched flights table.", "Work on a large table, dates and relationships between variables.", "File provided with the course material.", "Course teaching material.", "local", NA, 435352, 50, NA, "bi-file-earmark-binary",
+  "module05-ateliers-soutien", "fictitious_support_workshops.csv", "module_05/data/fictitious_support_workshops.csv", "module-05", "Module 05", "Fictitious university support workshops with attendance, weather and satisfaction.", "Explore relationships between numerical variables, temporal context and participation.", "Fictitious data created for module 05 exercises.", "Simulated course data.", "local", ",", 24, 10, NA, "bi-filetype-csv",
+  "module05-frequentation-bibliotheque", "fictitious_library_visits.csv", "module_05/data/fictitious_library_visits.csv", "module-05", "Module 05", "Fictitious visit observations in library areas.", "Compare visits, weather, hours and exam weeks without confusing relationship and causality.", "Fictitious data created for module 05 exercises.", "Simulated course data.", "local", ",", 24, 8, NA, "bi-filetype-csv",
+  "module05-demandes-services", "fictitious_campus_service_requests.csv", "module_05/data/fictitious_campus_service_requests.csv", "module-05", "Module 05", "Fictitious requests sent to campus services.", "Analyze relationships between priority, delay, satisfaction, estimated cost and status.", "Fictitious data created for module 05 exercises.", "Simulated course data.", "local", ",", 24, 8, NA, "bi-filetype-csv",
   "nycflights23-flights", "nycflights23::flights", NA, "module-06", "Module 06", "Flight table for departures from New York in 2023.", "Filter JFK flights, compute delays and prepare joins.", "nycflights23 package.", "See the package documentation.", "package", NA, 435352, 19, "nycflights23", "bi-database",
   "nycflights23-airlines", "nycflights23::airlines", NA, "module-06", "Module 06", "Lookup table between carrier codes and full carrier names.", "Add full airline names to flight records.", "nycflights23 package.", "See the package documentation.", "package", NA, 14, 2, "nycflights23", "bi-database",
   "nycflights23-weather", "nycflights23::weather", NA, "module-06", "Module 06", "Hourly weather conditions for New York airports in 2023.", "Join weather conditions to flights by airport, date and hour.", "nycflights23 package.", "See the package documentation.", "package", NA, 26207, 15, "nycflights23", "bi-database",

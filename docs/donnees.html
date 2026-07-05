@@ -6048,7 +6048,8 @@ margin-bottom: .05rem;
   <h1 id="data-title">Bases de données du cours</h1>
   <p>Cette page rassemble les jeux de données utilisés dans STT-1100. Elle sert à retrouver rapidement les fichiers à télécharger, les données fournies par des packages R et les fiches courtes des fichiers locaux.</p>
   <div class="resource-actions" aria-label="Accès rapides">
-  <a class="home-action home-action--primary" href="#catalogue-par-module">Par module</a>
+  <a class="home-action home-action--primary" href="#utiliser-catalogue">Démarrer</a>
+  <a class="home-action" href="#catalogue-par-module">Par module</a>
   <a class="home-action" href="#fiches-fichiers-locaux">Fiches locales</a>
   <a class="home-action" href="packages.html">Packages R</a>
   </div>
@@ -6061,10 +6062,85 @@ margin-bottom: .05rem;
   </div>
   </section>
 
-  <section class="resource-section" aria-labelledby="data-use-title">
+  <section class="resource-section" id="utiliser-catalogue" aria-labelledby="data-use-title">
   <div class="resource-section__header">
+  <p class="eyebrow">Méthode de travail</p>
   <h2 id="data-use-title" class="anchored">Utiliser le catalogue</h2>
-  <p>Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R.</p>
+  <p>Chaque carte donne un aperçu rapide, un lien vers la fiche locale si le fichier est fourni, ou un lien vers le package quand la donnée vient de R. Le catalogue ne remplace pas les consignes du module: il aide surtout à retrouver la bonne donnée et à comprendre son rôle.</p>
+  </div>
+  <div class="course-flow">
+  <article class="flow-card">
+  <span class="flow-number">1</span>
+  <h3 class="anchored">Repérer le module</h3>
+  <p>Commencer par le module de l&#39;exercice, de l&#39;aventure ou du défi. Les cartes gardent cette progression.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">2</span>
+  <h3 class="anchored">Identifier le type</h3>
+  <p>Un fichier local se télécharge; une donnée de package se charge avec R; une page web demande une collecte prudente.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">3</span>
+  <h3 class="anchored">Importer depuis le bon dossier</h3>
+  <p>Dans les exercices, les chemins comme <code>data/fichier.csv</code> sont relatifs au dossier du module.</p>
+  </article>
+  <article class="flow-card">
+  <span class="flow-number">4</span>
+  <h3 class="anchored">Documenter la source</h3>
+  <p>Un rapport reproductible indique toujours d&#39;où vient la donnée et ce qu&#39;elle permet, ou ne permet pas, de conclure.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="types-donnees" aria-labelledby="types-donnees-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Repères rapides</p>
+  <h2 id="types-donnees-title" class="anchored">Quel type de donnée cherchez-vous?</h2>
+  <p>Les jeux de données du cours ne servent pas tous au même objectif. Certains sont faits pour pratiquer les bases, d&#39;autres pour travailler les formats, les jointures, l&#39;éthique ou la communication.</p>
+  </div>
+  <div class="reading-map">
+  <article>
+  <h3 class="anchored">Fichiers locaux</h3>
+  <p>CSV, JSON, Excel, RDS et HTML fournis avec les modules. Ils sont les plus utiles pour les exercices indépendants.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Données de packages</h3>
+  <p>Jeux de données accessibles par R, utiles pour apprendre sans gérer tout de suite les chemins de fichiers.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Données web</h3>
+  <p>Pages ou dépôts externes utilisés pour discuter la collecte, les limites techniques et les conditions d&#39;utilisation.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Données fictives</h3>
+  <p>Données simulées pour pratiquer sans exposer de renseignements personnels ni reproduire un système réel.</p>
+  </article>
+  </div>
+  </section>
+
+  <section class="resource-section" id="depannage-donnees" aria-labelledby="depannage-donnees-title">
+  <div class="resource-section__header">
+  <p class="eyebrow">Dépannage</p>
+  <h2 id="depannage-donnees-title" class="anchored">Quand l&#39;importation ne fonctionne pas</h2>
+  <p>Avant de changer le code au hasard, vérifier ces quatre points. Ils règlent la majorité des blocages avec les fichiers du cours.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article>
+  <h3 class="anchored">Chemin du fichier</h3>
+  <p>Ouvrir le projet ou le dossier du module avant d&#39;utiliser un chemin relatif comme <code>data/fichier.csv</code>.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Séparateur</h3>
+  <p>Un CSV peut utiliser une virgule ou un point-virgule. Choisir <code>read_csv()</code> ou <code>read_delim()</code> selon le fichier.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Format</h3>
+  <p>Excel, JSON, RDS et HTML ne se lisent pas avec la même fonction. Le package utile est rappelé dans la page Packages R.</p>
+  </article>
+  <article>
+  <h3 class="anchored">Interprétation</h3>
+  <p>Une donnée fictive sert à apprendre une méthode; elle ne doit pas être décrite comme une preuve sur le monde réel.</p>
+  </article>
   </div>
   </section>
 </div>
@@ -6077,7 +6153,15 @@ margin-bottom: .05rem;
 <h2 class="anchored" data-anchor-id="module-01">
 UlavalSSD::MeteoQuebec
 </h2>
-</span></a><p><a id="dataset-card-meteo-quebec" class="dataset-card" href="packages.html#ulavalssd"><span class="resource-text">Jeu de données utilisé pour les premiers gestes d’exploration dans R.</span><span class="dataset-meta"><span>Package R</span><span>Structure à consulter</span></span><span class="package-source">Voir la documentation</span></a></p>
+<span class="resource-text">Jeu de données utilisé pour les premiers gestes d’exploration dans R.</span><span class="dataset-meta"><span>Package R</span><span>Structure à consulter</span></span><span class="package-source">Voir la documentation</span></span></a> <a id="dataset-card-module01-bibliotheques" class="dataset-card" href="#module01-bibliotheques"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 01</span>
+<h2 class="anchored">
+bibliotheques_municipales_fictif.csv
+</h2>
+<span class="resource-text">Observations fictives sur la fréquentation, les prêts et les ateliers de bibliothèques municipales.</span><span class="dataset-meta"><span>Fichier local</span><span>12 observations / 8 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module01-coop" class="dataset-card" href="#module01-coop"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 01</span>
+<h2 class="anchored">
+coop_etudiante_fictif.csv
+</h2>
+</span></a><p><a id="dataset-card-module01-coop" class="dataset-card" href="#module01-coop"><span class="resource-text">Ventes fictives d’une coopérative étudiante.</span><span class="dataset-meta"><span>Fichier local</span><span>12 observations / 7 variables</span></span><span class="package-source">Voir la fiche</span></a></p>
 </div>
 </section>
 <section id="module-02" class="level3">
@@ -6087,7 +6171,15 @@ UlavalSSD::MeteoQuebec
 <h2 class="anchored" data-anchor-id="module-02">
 manchots_donnees.xlsx
 </h2>
-<span class="resource-text">Fichier Excel de pratique sur les manchots.</span><span class="dataset-meta"><span>Fichier local</span><span>Structure à consulter</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-penguins" class="dataset-card" href="packages.html#palmerpenguins"><span class="resource-icon"><i class="bi bi-database"></i></span><span><span class="dataset-module">Module 02</span>
+<span class="resource-text">Fichier Excel de pratique sur les manchots.</span><span class="dataset-meta"><span>Fichier local</span><span>Structure à consulter</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module02-arbres" class="dataset-card" href="#module02-arbres"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 02</span>
+<h2 class="anchored">
+arbres_urbains_fictif.csv
+</h2>
+<span class="resource-text">Inventaire fictif d’arbres urbains dans quelques quartiers.</span><span class="dataset-meta"><span>Fichier local</span><span>24 observations / 7 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module02-velo" class="dataset-card" href="#module02-velo"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 02</span>
+<h2 class="anchored">
+velo_partage_fictif.csv
+</h2>
+<span class="resource-text">Trajets fictifs de vélo-partage par station, mois et type de jour.</span><span class="dataset-meta"><span>Fichier local</span><span>24 observations / 8 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-penguins" class="dataset-card" href="packages.html#palmerpenguins"><span class="resource-icon"><i class="bi bi-database"></i></span><span><span class="dataset-module">Module 02</span>
 <h2 class="anchored">
 palmerpenguins::penguins
 </h2>
@@ -6109,7 +6201,15 @@ palmerpenguins::penguins_raw
 <h2 class="anchored">
 titanic::titanic_train
 </h2>
-</span></a><p><a id="dataset-card-titanic-train" class="dataset-card" href="packages.html#titanic"><span class="resource-text">Données de passagers du Titanic utilisées comme exemple de variables catégorielles.</span><span class="dataset-meta"><span>Package R</span><span>Structure à consulter</span></span><span class="package-source">Voir la documentation</span></a></p>
+<span class="resource-text">Données de passagers du Titanic utilisées comme exemple de variables catégorielles.</span><span class="dataset-meta"><span>Package R</span><span>Structure à consulter</span></span><span class="package-source">Voir la documentation</span></span></a> <a id="dataset-card-module03-requetes-311" class="dataset-card" href="#module03-requetes-311"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 03</span>
+<h2 class="anchored">
+requetes_311_fictif.csv
+</h2>
+<span class="resource-text">Requêtes 311 fictives pour quelques villes québécoises.</span><span class="dataset-meta"><span>Fichier local</span><span>24 observations / 7 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module03-plaintes-transport" class="dataset-card" href="#module03-plaintes-transport"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 03</span>
+<h2 class="anchored">
+plaintes_transport_fictif.csv
+</h2>
+</span></a><p><a id="dataset-card-module03-plaintes-transport" class="dataset-card" href="#module03-plaintes-transport"><span class="resource-text">Plaintes fictives pour des réseaux de transport collectif.</span><span class="dataset-meta"><span>Fichier local</span><span>24 observations / 7 variables</span></span><span class="package-source">Voir la fiche</span></a></p>
 </div>
 </section>
 <section id="module-04" class="level3">
@@ -6127,11 +6227,23 @@ policies.csv
 <h2 class="anchored">
 coverage.json
 </h2>
-<span class="resource-text">Fichier JSON associé aux couvertures de polices.</span><span class="dataset-meta"><span>Fichier local</span><span>? observations / 2 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-quotes-module-04" class="dataset-card" href="#quotes-module-04"><span class="resource-icon"><i class="bi bi-file-earmark-spreadsheet"></i></span><span><span class="dataset-module">Module 04</span>
+<span class="resource-text">Fichier JSON associé aux couvertures de polices.</span><span class="dataset-meta"><span>Fichier local</span><span>2 observations / 2 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-quotes-module-04" class="dataset-card" href="#quotes-module-04"><span class="resource-icon"><i class="bi bi-file-earmark-spreadsheet"></i></span><span><span class="dataset-module">Module 04</span>
 <h2 class="anchored">
 quotes_2024.xlsx
 </h2>
-</span></a><p><a id="dataset-card-quotes-module-04" class="dataset-card" href="#quotes-module-04"><span class="resource-text">Fichier Excel contenant une feuille nommée Q3.</span><span class="dataset-meta"><span>Fichier local</span><span>Structure à consulter</span></span><span class="package-source">Voir la fiche</span></a></p>
+<span class="resource-text">Fichier Excel contenant une feuille nommée Q3.</span><span class="dataset-meta"><span>Fichier local</span><span>Structure à consulter</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module04-equipements" class="dataset-card" href="#module04-equipements"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 04</span>
+<h2 class="anchored">
+equipements_municipaux_fictif.csv
+</h2>
+<span class="resource-text">Enregistrements fictifs d’équipements municipaux avec formats volontairement imparfaits.</span><span class="dataset-meta"><span>Fichier local</span><span>16 observations / 7 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module04-demandes-bourses" class="dataset-card" href="#module04-demandes-bourses"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 04</span>
+<h2 class="anchored">
+demandes_bourses_fictif.csv
+</h2>
+<span class="resource-text">Demandes fictives de bourses étudiantes.</span><span class="dataset-meta"><span>Fichier local</span><span>16 observations / 8 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module04-regles-equipements" class="dataset-card" href="#module04-regles-equipements"><span class="resource-icon"><i class="bi bi-filetype-json"></i></span><span><span class="dataset-module">Module 04</span>
+<h2 class="anchored">
+regles_equipements_fictif.json
+</h2>
+</span></a><p><a id="dataset-card-module04-regles-equipements" class="dataset-card" href="#module04-regles-equipements"><span class="resource-text">Règles fictives de validation pour les équipements municipaux.</span><span class="dataset-meta"><span>Fichier local</span><span>4 observations / 2 variables</span></span><span class="package-source">Voir la fiche</span></a></p>
 </div>
 </section>
 <section id="module-05" class="level3">
@@ -6141,7 +6253,19 @@ quotes_2024.xlsx
 <h2 class="anchored" data-anchor-id="module-05">
 flights_merged_2023.rds
 </h2>
-</span></a><p><a id="dataset-card-flights-merged-2023" class="dataset-card" href="#flights-merged-2023"><span class="resource-text">Objet R sérialisé contenant un tableau de vols enrichi.</span><span class="dataset-meta"><span>Fichier local</span><span>435 352 observations / 50 variables</span></span><span class="package-source">Voir la fiche</span></a></p>
+<span class="resource-text">Objet R sérialisé contenant un tableau de vols enrichi.</span><span class="dataset-meta"><span>Fichier local</span><span>435 352 observations / 50 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module05-ateliers-soutien" class="dataset-card" href="#module05-ateliers-soutien"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 05</span>
+<h2 class="anchored">
+ateliers_soutien_fictif.csv
+</h2>
+<span class="resource-text">Ateliers fictifs de soutien universitaire avec participation, météo et satisfaction.</span><span class="dataset-meta"><span>Fichier local</span><span>24 observations / 10 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module05-frequentation-bibliotheque" class="dataset-card" href="#module05-frequentation-bibliotheque"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 05</span>
+<h2 class="anchored">
+frequentation_bibliotheque_fictive.csv
+</h2>
+<span class="resource-text">Observations fictives de fréquentation dans des zones de bibliothèque.</span><span class="dataset-meta"><span>Fichier local</span><span>24 observations / 8 variables</span></span><span class="package-source">Voir la fiche</span></span></a> <a id="dataset-card-module05-demandes-services" class="dataset-card" href="#module05-demandes-services"><span class="resource-icon"><i class="bi bi-filetype-csv"></i></span><span><span class="dataset-module">Module 05</span>
+<h2 class="anchored">
+demandes_services_campus_fictif.csv
+</h2>
+</span></a><p><a id="dataset-card-module05-demandes-services" class="dataset-card" href="#module05-demandes-services"><span class="resource-text">Demandes fictives adressées à des services de campus.</span><span class="dataset-meta"><span>Fichier local</span><span>24 observations / 8 variables</span></span><span class="package-source">Voir la fiche</span></a></p>
 </div>
 </section>
 <section id="module-06" class="level3">
@@ -6278,6 +6402,255 @@ Commentaires et textes de travail
 <section id="fiches-des-fichiers-locaux" class="level2">
 <h2 class="anchored" data-anchor-id="fiches-des-fichiers-locaux">Fiches des fichiers locaux</h2>
 <p>Les aperçus sont limités aux premières lignes afin de garder le site léger. Le profil des variables est donc un diagnostic rapide de l’aperçu affiché, pas une analyse exhaustive de tout le fichier.</p>
+<section id="module01-bibliotheques" class="level3">
+<h3 class="anchored" data-anchor-id="module01-bibliotheques">bibliotheques_municipales_fictif.csv</h3>
+<p>Observations fictives sur la fréquentation, les prêts et les ateliers de bibliothèques municipales.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_01/data/bibliotheques_municipales_fictif.csv" download>Télécharger bibliotheques_municipales_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Pratiquer l’importation, l’inspection d’un tableau et les premiers résumés numériques.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 01.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 10%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ville</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">region</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Capitale-Nationale</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mois</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">janvier</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">visites</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">1240</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">prets</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">3180</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ateliers</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">heures_ouverture</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">176</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">note</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">4.2</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module01-coop" class="level3">
+<h3 class="anchored" data-anchor-id="module01-coop">coop_etudiante_fictif.csv</h3>
+<p>Ventes fictives d’une coopérative étudiante.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_01/data/coop_etudiante_fictif.csv" download>Télécharger coop_etudiante_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Calculer des revenus, résumer des quantités, explorer les rabais et formuler de premières observations.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 01.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-1" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-1">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-1" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-1">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">2026-01-15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">categorie</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">papeterie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">produit</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">cahier</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">prix_unitaire</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">4.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">quantite</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">80</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rabais</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">satisfaction</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 <section id="manchots-donnees" class="level3">
 <h3 class="anchored" data-anchor-id="manchots-donnees">manchots_donnees.xlsx</h3>
 <p>Fichier Excel de pratique sur les manchots.</p>
@@ -6322,12 +6695,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu">Aperçu</h4>
+<section id="aperçu-2" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-2">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-2" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-2">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -6399,6 +6772,497 @@ Commentaires et textes de travail
 </table>
 </section>
 </section>
+<section id="module02-arbres" class="level3">
+<h3 class="anchored" data-anchor-id="module02-arbres">arbres_urbains_fictif.csv</h3>
+<p>Inventaire fictif d’arbres urbains dans quelques quartiers.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_02/data/arbres_urbains_fictif.csv" download>Télécharger arbres_urbains_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Produire des graphiques de base, comparer des groupes et relier choix visuels et question descriptive.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 02.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-3" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-3">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-3" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-3">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ville</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">quartier</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Saint-Roch</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">essence</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Erable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hauteur_m</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">12.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">diametre_cm</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age_estime_ans</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">etat_sante</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">bon</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module02-velo" class="level3">
+<h3 class="anchored" data-anchor-id="module02-velo">velo_partage_fictif.csv</h3>
+<p>Trajets fictifs de vélo-partage par station, mois et type de jour.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_02/data/velo_partage_fictif.csv" download>Télécharger velo_partage_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Explorer les relations entre trajets, météo et contexte temporel avec des visualisations.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 02.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-4" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-4">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-4" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-4">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ville</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">station</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Gare du Palais</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mois</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">mai</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">jour_type</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">semaine</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">trajets</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">124</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">duree_mediane_min</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">temperature_c</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">precipitation_mm</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">0</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module03-requetes-311" class="level3">
+<h3 class="anchored" data-anchor-id="module03-requetes-311">requetes_311_fictif.csv</h3>
+<p>Requêtes 311 fictives pour quelques villes québécoises.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_03/data/requetes_311_fictif.csv" download>Télécharger requetes_311_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Recoder des catégories, inspecter les statuts et résumer les délais de traitement.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 03.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-5" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-5">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-5" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-5">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ville</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">arrondissement</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Sainte-Foy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">type_requete</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Denegement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">canal</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Telephone</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">priorite</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Normale</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">statut</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Fermee</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">delai_jours</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">4</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module03-plaintes-transport" class="level3">
+<h3 class="anchored" data-anchor-id="module03-plaintes-transport">plaintes_transport_fictif.csv</h3>
+<p>Plaintes fictives pour des réseaux de transport collectif.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_03/data/plaintes_transport_fictif.csv" download>Télécharger plaintes_transport_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 03</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Travailler les facteurs, ordonner des catégories et résumer des plaintes par réseau, période et gravité.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 03.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-6" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-6">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-6" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-6">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 31%">
+<col style="width: 31%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">reseau</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">RTC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ligne</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">801</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">type_plainte</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Retard</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">periode</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Pointe</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gravite</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Moderee</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">statut</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Fermee</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">nb_plaintes</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">18</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 <section id="dataset-pratique" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-pratique">dataset_pratique.csv</h3>
 <p>Fichier CSV de pratique sur des soumissions d’assurance automobile.</p>
@@ -6443,12 +7307,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-1" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-1">Aperçu</h4>
+<section id="aperçu-7" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-7">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-1" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-1">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-7" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-7">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -6676,12 +7540,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-2" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-2">Aperçu</h4>
+<section id="aperçu-8" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-8">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-2" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-2">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-8" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-8">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 17%">
@@ -6787,7 +7651,7 @@ Commentaires et textes de travail
 </tr>
 <tr class="even">
 <td style="text-align: left;">Observations</td>
-<td style="text-align: left;">Non déterminé automatiquement</td>
+<td style="text-align: left;">2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Variables</td>
@@ -6807,12 +7671,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-3" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-3">Aperçu</h4>
+<section id="aperçu-9" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-9">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-3" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-3">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-9" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-9">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 10%">
@@ -6893,12 +7757,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-4" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-4">Aperçu</h4>
+<section id="aperçu-10" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-10">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-4" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-4">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-10" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-10">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -6937,6 +7801,341 @@ Commentaires et textes de travail
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">quote_amount</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module04-equipements" class="level3">
+<h3 class="anchored" data-anchor-id="module04-equipements">equipements_municipaux_fictif.csv</h3>
+<p>Enregistrements fictifs d’équipements municipaux avec formats volontairement imparfaits.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_04/data/equipements_municipaux_fictif.csv" download>Télécharger equipements_municipaux_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Nettoyer des catégories, convertir des montants, vérifier des années plausibles et appliquer des règles de validation.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 04.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-11" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-11">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-11" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-11">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 11%">
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">equipement_id</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">EQ-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ville</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">type_equipement</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Fontaine</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">statut</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">actif</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">annee_installation</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">2012</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cout_entretien</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">1 250,00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mois_inspection</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">janvier</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module04-demandes-bourses" class="level3">
+<h3 class="anchored" data-anchor-id="module04-demandes-bourses">demandes_bourses_fictif.csv</h3>
+<p>Demandes fictives de bourses étudiantes.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_04/data/demandes_bourses_fictif.csv" download>Télécharger demandes_bourses_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Nettoyer des statuts, des montants, des programmes et discuter les limites de variables administratives simulées.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 04.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-12" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-12">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-12" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-12">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dossier_id</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">B-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">programme</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Statistique</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cycle</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">1er cycle</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">statut</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">complete</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">revenu_annuel</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">18500</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">montant_demande</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">2 500,00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">moyenne</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">3.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fsa_code</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">G1V</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module04-regles-equipements" class="level3">
+<h3 class="anchored" data-anchor-id="module04-regles-equipements">regles_equipements_fictif.json</h3>
+<p>Règles fictives de validation pour les équipements municipaux.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_04/data/regles_equipements_fictif.json" download>Télécharger regles_equipements_fictif.json</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Lire un fichier JSON de paramètres et l’utiliser pour contrôler la cohérence d’un tableau.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 04.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-13" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-13">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-13" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-13">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">element</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">annee_installation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">valeur</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">List of 2 $ min: int 1990 $ max: int 2026</td>
 </tr>
 </tbody>
 </table>
@@ -6986,12 +8185,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-5" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-5">Aperçu</h4>
+<section id="aperçu-14" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-14">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-5" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-5">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-14" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-14">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -7364,6 +8563,404 @@ Commentaires et textes de travail
 </table>
 </section>
 </section>
+<section id="module05-ateliers-soutien" class="level3">
+<h3 class="anchored" data-anchor-id="module05-ateliers-soutien">ateliers_soutien_fictif.csv</h3>
+<p>Ateliers fictifs de soutien universitaire avec participation, météo et satisfaction.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_05/data/ateliers_soutien_fictif.csv" download>Télécharger ateliers_soutien_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Explorer des relations entre variables numériques, contexte temporel et participation.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 05.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-15" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-15">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-15" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-15">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 10%">
+<col style="width: 27%">
+<col style="width: 27%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">atelier_id</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">A-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">date_atelier</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">2026-01-15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">heure_debut</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">campus</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">duree_minutes</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">participants</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">temperature_c</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">-8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pluie_mm</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">satisfaction_moyenne</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">4.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">theme</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Quarto</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module05-frequentation-bibliotheque" class="level3">
+<h3 class="anchored" data-anchor-id="module05-frequentation-bibliotheque">frequentation_bibliotheque_fictive.csv</h3>
+<p>Observations fictives de fréquentation dans des zones de bibliothèque.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_05/data/frequentation_bibliotheque_fictive.csv" download>Télécharger frequentation_bibliotheque_fictive.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Comparer fréquentation, météo, heures et semaine d’examens sans confondre relation et causalité.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 05.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-16" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-16">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-16" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-16">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">date_visite</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">2026-04-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">heure</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">campus</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Quebec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">zone</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Silence</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">visiteurs</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">temperature_c</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pluie_mm</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">semaine_examens</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">non</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module05-demandes-services" class="level3">
+<h3 class="anchored" data-anchor-id="module05-demandes-services">demandes_services_campus_fictif.csv</h3>
+<p>Demandes fictives adressées à des services de campus.</p>
+<p class="dataset-download-wrap">
+<a class="dataset-download" href="module_05/data/demandes_services_campus_fictif.csv" download>Télécharger demandes_services_campus_fictif.csv</a>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Information</th>
+<th style="text-align: left;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Module</td>
+<td style="text-align: left;">Module 05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: left;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variables</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utilisation</td>
+<td style="text-align: left;">Analyser les relations entre priorité, délai, satisfaction, coût estimé et statut.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Source</td>
+<td style="text-align: left;">Données fictives créées pour les exercices du module 05.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Licence</td>
+<td style="text-align: left;">Données simulées pour le cours.</td>
+</tr>
+</tbody>
+</table>
+<section id="aperçu-17" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-17">Aperçu</h4>
+<p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
+</section>
+<section id="variables-de-laperçu-17" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-17">Variables de l’aperçu</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">valeurs_manquantes_apercu</th>
+<th style="text-align: right;">valeurs_distinctes_apercu</th>
+<th style="text-align: left;">exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">demande_id</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">S-001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">date_demande</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">2026-02-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">service</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Informatique</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">priorite</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Normale</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">delai_heures</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">satisfaction</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">4.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cout_estime</td>
+<td style="text-align: left;">numeric</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">120</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">statut</td>
+<td style="text-align: left;">character</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Fermee</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 <section id="module06-members" class="level3">
 <h3 class="anchored" data-anchor-id="module06-members">membres_equipe_fictif.csv</h3>
 <p>Membres fictifs de deux équipes de projet.</p>
@@ -7404,12 +9001,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-6" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-6">Aperçu</h4>
+<section id="aperçu-18" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-18">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-6" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-6">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-18" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-18">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
@@ -7504,12 +9101,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-7" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-7">Aperçu</h4>
+<section id="aperçu-19" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-19">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-7" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-7">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-19" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-19">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -7614,12 +9211,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-8" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-8">Aperçu</h4>
+<section id="aperçu-20" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-20">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-8" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-8">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-20" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-20">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -7735,12 +9332,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-9" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-9">Aperçu</h4>
+<section id="aperçu-21" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-21">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-9" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-9">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-21" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-21">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -7835,12 +9432,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-10" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-10">Aperçu</h4>
+<section id="aperçu-22" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-22">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-10" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-10">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-22" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-22">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -7938,12 +9535,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-11" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-11">Aperçu</h4>
+<section id="aperçu-23" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-23">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-11" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-11">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-23" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-23">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -8034,12 +9631,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-12" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-12">Aperçu</h4>
+<section id="aperçu-24" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-24">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-12" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-12">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-24" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-24">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -8148,12 +9745,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-13" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-13">Aperçu</h4>
+<section id="aperçu-25" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-25">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-13" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-13">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-25" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-25">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -8262,12 +9859,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-14" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-14">Aperçu</h4>
+<section id="aperçu-26" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-26">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-14" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-14">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-26" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-26">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 22%">
@@ -8362,12 +9959,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-15" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-15">Aperçu</h4>
+<section id="aperçu-27" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-27">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-15" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-15">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-27" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-27">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 21%">
@@ -8497,12 +10094,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-16" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-16">Aperçu</h4>
+<section id="aperçu-28" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-28">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-16" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-16">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-28" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-28">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -8576,12 +10173,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-17" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-17">Aperçu</h4>
+<section id="aperçu-29" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-29">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-17" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-17">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-29" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-29">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -8655,12 +10252,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-18" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-18">Aperçu</h4>
+<section id="aperçu-30" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-30">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-18" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-18">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-30" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-30">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 7%">
@@ -8734,12 +10331,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-19" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-19">Aperçu</h4>
+<section id="aperçu-31" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-31">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-19" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-19">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-31" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-31">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -8848,12 +10445,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-20" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-20">Aperçu</h4>
+<section id="aperçu-32" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-32">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-20" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-20">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-32" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-32">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
@@ -8997,12 +10594,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-21" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-21">Aperçu</h4>
+<section id="aperçu-33" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-33">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-21" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-21">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-33" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-33">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -9125,12 +10722,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-22" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-22">Aperçu</h4>
+<section id="aperçu-34" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-34">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-22" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-22">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-34" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-34">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 17%">
@@ -9253,12 +10850,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-23" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-23">Aperçu</h4>
+<section id="aperçu-35" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-35">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-23" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-23">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-35" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-35">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 10%">
@@ -9381,12 +10978,12 @@ Commentaires et textes de travail
 </tr>
 </tbody>
 </table>
-<section id="aperçu-24" class="level4">
-<h4 class="anchored" data-anchor-id="aperçu-24">Aperçu</h4>
+<section id="aperçu-36" class="level4">
+<h4 class="anchored" data-anchor-id="aperçu-36">Aperçu</h4>
 <p>Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.</p>
 </section>
-<section id="variables-de-laperçu-24" class="level4">
-<h4 class="anchored" data-anchor-id="variables-de-laperçu-24">Variables de l’aperçu</h4>
+<section id="variables-de-laperçu-36" class="level4">
+<h4 class="anchored" data-anchor-id="variables-de-laperçu-36">Variables de l’aperçu</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 11%">

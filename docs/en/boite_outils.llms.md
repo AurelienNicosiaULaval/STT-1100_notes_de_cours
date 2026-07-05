@@ -4,7 +4,7 @@ Working in the course
 
 This page gathers the practical moves reused across modules: starting a project, importing data, transforming a table, visualizing, rendering a Quarto report, using GitHub and asking for help effectively.
 
-[Class supports](#class-supports) [R routines](#r-routines) [Quarto and GitHub](#quarto-github) [Troubleshooting](#troubleshooting)
+[By situation](#by-situation) [Class supports](#class-supports) [R routines](#r-routines) [Quarto and GitHub](#quarto-github) [Troubleshooting](#troubleshooting)
 
 R
 
@@ -21,6 +21,48 @@ Track project versions
 ?
 
 Search and ask for help
+
+Starting point
+
+## What do you need right now?
+
+The toolkit is mainly here to help you choose the right reflex at the right time. If you are unsure where to start, begin with the situation closest to your problem.
+
+### I am starting a module
+
+Open the module page, check the readings, locate the data files and keep the cheat sheet nearby.
+
+[View modules](modules.llms.md)
+
+### I need to import data
+
+Identify the file format, open the right project folder, then choose the appropriate import function.
+
+[View datasets](donnees.llms.md)
+
+### I am looking for an R function
+
+Start from the task: import, transform, visualize, clean text, work with dates or produce a report.
+
+[View packages](packages.llms.md)
+
+### My report does not render
+
+Render the document, read the first error message, check paths, then isolate the chunk that fails.
+
+[Go to troubleshooting](#troubleshooting)
+
+### I want to use AI
+
+Use AI to clarify, test or compare, but keep statistical decisions and interpretation under your control.
+
+[View AI page](ia.llms.md)
+
+### I am preparing a submission
+
+Check rendering, files, sources, figures, comments and commits if GitHub is required.
+
+[View checklist](#before-submission)
 
 ## Class supports
 
@@ -98,6 +140,36 @@ A clear title, readable code blocks and results interpreted in short sentences.
 
 Small and understandable commits when the work is ready to save.
 
+Final check
+
+## Before submitting or pushing
+
+This checklist avoids the most expensive mistakes: a missing file, an unexplained chart, a render failure or a vague commit.
+
+1
+
+### Render
+
+The `.qmd` file must render without error on your machine, not only run a few chunks in the Console.
+
+2
+
+### Check data
+
+Required files must be in the repository or accessible through the path written in the report.
+
+3
+
+### Interpret
+
+Every important table or chart should have a sentence saying what is observed and what cannot be concluded.
+
+4
+
+### Save
+
+If GitHub is required, make a commit with a precise message, then check that the remote repository contains the expected files.
+
 ## Troubleshooting and help
 
 Before asking for help, make the problem observable. This is also what makes the course AI useful.
@@ -118,4 +190,12 @@ Compare with a module example, the cheat sheet or the official documentation.
 
 State the goal, minimal code, error message and expected result.
 
-[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Search guide](autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.llms.md)
+### Check AI
+
+When an answer comes from AI, test the code, verify proposed functions and keep a trace of what was used.
+
+### Ask targeted help
+
+A good question includes context, the instruction followed, minimal code, the error and what you already tried.
+
+[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Search guide](autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.llms.md) [Course AI rules](ia.llms.md)

@@ -21,16 +21,18 @@ execute:
   <p>This page gathers the R packages used or mentioned in the notes, exercises, adventures and scripts. It explains what each package is for and where it appears in the modules.</p>
   <div class="resource-actions" aria-label="Quick links">
   <a class="home-action home-action--primary" href="#starter-packages">Start</a>
+  <a class="home-action" href="#starter-block">Starter block</a>
+  <a class="home-action" href="#choose-package">Choose</a>
+  <a class="home-action" href="#package-errors">Troubleshoot</a>
   <a class="home-action" href="#by-module">By module</a>
-  <a class="home-action" href="#package-library">Library</a>
   <a class="home-action" href="donnees.html">Datasets</a>
   </div>
   </div>
   <div class="resource-panel" aria-label="Package landmarks">
-  <div><span>01</span><p>Import and clean</p></div>
-  <div><span>02</span><p>Transform and join</p></div>
-  <div><span>03</span><p>Visualize and communicate</p></div>
-  <div><span>04</span><p>Text, web and dashboards</p></div>
+  <div><span>01</span><p>Install once</p></div>
+  <div><span>02</span><p>Load at the start</p></div>
+  <div><span>03</span><p>Call precisely</p></div>
+  <div><span>04</span><p>Render after restart</p></div>
   </div>
   </section>
 
@@ -61,6 +63,25 @@ execute:
   <h3>Check rendering</h3>
   <p>A Quarto document must load every package it depends on inside the file itself.</p>
   </article>
+  </div>
+  </section>
+
+  <section class="resource-section resource-split" id="starter-block" aria-labelledby="starter-block-title">
+  <div>
+  <p class="eyebrow">Reproducible report</p>
+  <h2 id="starter-block-title">Where should packages go?</h2>
+  <p>The simple rule: install in the Console when needed, load in the Quarto document, then render the document after restarting R. A submission should be rebuildable without hidden objects in the environment.</p>
+  <pre><code># Start of a .qmd document
+library(tidyverse)
+library(readxl)
+
+meteo <- UlavalSSD::MeteoQuebec</code></pre>
+  </div>
+  <div class="resource-compact-list" aria-label="Dependency landmarks">
+  <article class="resource-compact"><h3>Console</h3><p>Use <code>install.packages()</code> or a GitHub installation instruction when the package is not installed yet.</p></article>
+  <article class="resource-compact"><h3>Quarto document</h3><p>Put the required <code>library()</code> calls inside the <code>.qmd</code> file, ideally near the beginning.</p></article>
+  <article class="resource-compact"><h3>Rare function</h3><p>Use <code>package::function()</code> when only one function is needed or when a name may conflict.</p></article>
+  <article class="resource-compact"><h3>Submission</h3><p>Restart R, render the document, then check that every dependency is visible in the submitted file.</p></article>
   </div>
   </section>
 
@@ -105,19 +126,19 @@ execute:
   <p>Most package errors come from one of the four situations below.</p>
   </div>
   <div class="resource-hub-grid">
-  <article>
+  <article class="resource-hub-card">
   <h3>Package not found</h3>
   <p>Install the package, then render the document again. Installation is done once per computer.</p>
   </article>
-  <article>
+  <article class="resource-hub-card">
   <h3>Function not found</h3>
   <p>Load the package with <code>library()</code> or call the function with <code>package::function()</code>.</p>
   </article>
-  <article>
+  <article class="resource-hub-card">
   <h3>Name conflict</h3>
   <p>Use an explicit call, such as <code>dplyr::filter()</code>, to tell R which function to use.</p>
   </article>
-  <article>
+  <article class="resource-hub-card">
   <h3>Quarto render failure</h3>
   <p>Add the required <code>library()</code> calls inside the <code>.qmd</code> file, not only in the Console.</p>
   </article>
@@ -197,7 +218,7 @@ package_catalog <- tibble::tribble(
   "ulavalssd", "UlavalSSD", "Data and examples package used in the first course modules.", NA,
   "unvotes", "unvotes", "United Nations votes used to practice joins and grouped summaries.", "https://CRAN.R-project.org/package=unvotes",
   "viridis", "viridis", "Color palettes adapted to statistical graphics.", "https://CRAN.R-project.org/package=viridis",
-  "weathercan", "weathercan", "Downloading and manipulating Canadian weather data.", NA,
+  "weathercan", "weathercan", "Former Canadian weather data package; check its status before using it in new work.", "https://CRAN.R-project.org/package=weathercan",
   "wordcloud", "wordcloud", "Word clouds mentioned in module 10.", "https://CRAN.R-project.org/package=wordcloud",
   "wordcloud2", "wordcloud2", "Option mentioned for producing interactive word clouds.", "https://CRAN.R-project.org/package=wordcloud2"
 )
@@ -231,7 +252,12 @@ render_package_tags <- function(ids) {
 render_package_card <- function(row) {
   tag <- ifelse(is.na(row$url), "section", "a")
   href <- ifelse(is.na(row$url), "", paste0(' href="', row$url, '" target="_blank" rel="noopener"'))
-  source_label <- ifelse(is.na(row$url), "Local documentation or to be specified", "External documentation")
+  source_label <- dplyr::case_when(
+    row$id == "ulavalssd" ~ "Course package, GitHub installation",
+    row$id == "weathercan" ~ "Archived CRAN page",
+    is.na(row$url) ~ "Local documentation or to be specified",
+    TRUE ~ "External documentation"
+  )
   logo_path <- unname(package_logos[row$id])
   logo <- if (!is.na(logo_path)) {
     paste0(
@@ -250,7 +276,7 @@ render_package_card <- function(row) {
   logo,
   '<span>',
   '<h2>', html_text(row$name), '</h2>',
-  '<span class="package-role">', html_text(row$role), '</span>',
+  '<span class="package-role">', html_text(row$role), ' </span>',
   '<span class="package-source">', source_label, '</span>',
   '</span>',
   '</', tag, '>'
