@@ -54,6 +54,17 @@ clean_paths <- c(
   "index.html"
 )
 
+static_redirect_html <- c(
+  "autre_materiel/Aide mémoire Rstudio et Github.html",
+  "autre_materiel/Ou et comment chercher/ou et comment chercher.html",
+  "autre_materiel/Présentation des différents rôles/roles_presentation.html",
+  "autre_materiel/Présentation des différents rôles/roles_presentation_v2.html",
+  "en/autre_materiel/Aide mémoire Rstudio et Github.html",
+  "en/autre_materiel/Ou et comment chercher/ou et comment chercher.html",
+  "en/autre_materiel/Présentation des différents rôles/roles_presentation.html",
+  "en/autre_materiel/Présentation des différents rôles/roles_presentation_v2.html"
+)
+
 remove_paths <- function(paths) {
   for (path in unique(paths[file.exists(paths)])) {
     unlink(path, recursive = TRUE, force = TRUE)
@@ -102,6 +113,7 @@ sync_source_to_render_root <- function(source_root, render_root) {
     base <- tail(parts, 1)
     is_module_data_html <- !is_dir &&
       grepl("(^|/)module_08/data/[^/]+\\.html$", rel_path)
+    is_static_redirect_html <- !is_dir && rel_path %in% static_redirect_html
 
     if (parts[1] %in% c(".git", "docs")) return(TRUE)
     if (grepl("^docs [0-9]+$", parts[1])) return(TRUE)
@@ -116,7 +128,7 @@ sync_source_to_render_root <- function(source_root, render_root) {
     if (!is_dir && grepl("\\.rmarkdown$", base)) return(TRUE)
     if (!is_dir && grepl("\\.llms\\.md$", base)) return(TRUE)
     if (!is_dir && identical(base, "llms.txt")) return(TRUE)
-    if (!is_dir && grepl("\\.html$", base) && !identical(base, "language-switch.html") && !is_module_data_html) {
+    if (!is_dir && grepl("\\.html$", base) && !identical(base, "language-switch.html") && !is_module_data_html && !is_static_redirect_html) {
       return(TRUE)
     }
 
@@ -212,6 +224,29 @@ merge_directory_contents <- function(source, target) {
   remove_paths(source)
 }
 
+copy_static_redirects <- function(source_root, docs_root = "docs") {
+  for (rel_path in static_redirect_html) {
+    source <- file.path(source_root, rel_path)
+    if (!file.exists(source)) {
+      stop("Missing static redirect source: ", rel_path, call. = FALSE)
+    }
+
+    target <- file.path(docs_root, rel_path)
+    dir.create(dirname(target), recursive = TRUE, showWarnings = FALSE)
+    copied <- file.copy(
+      source,
+      target,
+      overwrite = TRUE,
+      copy.mode = TRUE,
+      copy.date = TRUE
+    )
+
+    if (!copied) {
+      stop("Failed to copy static redirect: ", rel_path, call. = FALSE)
+    }
+  }
+}
+
 normalize_numbered_directories <- function(root = "docs") {
   if (!dir.exists(root)) {
     return(invisible())
@@ -279,6 +314,7 @@ find_generated_source_paths <- function(root) {
   paths <- system2("find", shQuote(args), stdout = TRUE)
   paths <- paths[basename(paths) != "language-switch.html"]
   paths <- paths[!grepl("^\\./(en/)?module_08/data/[^/]+\\.html$", paths)]
+  paths <- paths[!sub("^\\./", "", paths) %in% static_redirect_html]
   paths
 }
 
@@ -386,6 +422,7 @@ if (!identical(copy_exit, 0L)) {
   stop("Failed to copy English render output to docs/en.", call. = FALSE)
 }
 
+copy_static_redirects(render_root, "docs")
 normalize_numbered_directories("docs")
 remove_paths(c("en/docs", "site_libs", "en/site_libs"))
 

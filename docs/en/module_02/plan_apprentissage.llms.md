@@ -20,7 +20,7 @@ Module 2 spans two weeks. The first week sets up the GitHub workflow, Excel impo
 
 ## Week 1 - Project, Import and First Charts
 
-- [RStudio and GitHub quick reference](../autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md) Clone a repository, open an RStudio project, understand commits and pushes, and recognize common authentication issues.
+- [RStudio and GitHub quick reference](../autre_materiel/aide-memoire-rstudio-github.llms.md) Clone a repository, open an RStudio project, understand commits and pushes, and recognize common authentication issues.
 
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html) First landmarks for building charts with `ggplot2`.
 

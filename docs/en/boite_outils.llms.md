@@ -34,6 +34,12 @@ Open the module page, check the readings, locate the data files and keep the che
 
 [View modules](modules.llms.md)
 
+### I need to clone a repository
+
+Use the RStudio and GitHub memo, choose the SSH link, then open the project in RStudio before editing files.
+
+[Open the guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
+
 ### I need to import data
 
 Identify the file format, open the right project folder, then choose the appropriate import function.
@@ -72,25 +78,25 @@ These documents complement the modules. They help with challenge review, project
 
 A compact reference for R commands, Quarto moves and core course habits.
 
-[PDF cheat sheetShort support to print or keep nearby while practising.](../autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf)
+[PDF cheat sheetShort support to print or keep nearby while practising.](autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf)
 
 ### RStudio and GitHub
 
-Steps for cloning a repository, working in an RStudio project and understanding GitHub authentication.
+Steps for cloning a repository with SSH, working in an RStudio project and understanding GitHub authentication errors.
 
-[RStudio and GitHub memoStep-by-step guide for cloning a project and configuring GitHub.](autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md) [GitHub presentationFrench class support about repositories, commits and versioned work.](../autre_materiel/Github/Présentation%20Github.pdf)
+[RStudio and GitHub memoStep-by-step guide to follow first when cloning a project.](autre_materiel/aide-memoire-rstudio-github.llms.md) [GitHub presentationFrench PDF support for reviewing repositories, commits, push and pull.](../autre_materiel/Github/Présentation%20Github.pdf)
 
 ### Search and get help
 
 A method for phrasing a question, reading an error message and using the right help channels.
 
-[How to searchGuide for using RStudio help, documentation, the Web and GPT STT-1100.](autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.llms.md) [Reference materialUseful links for help, search and frequent questions.](references.llms.md)
+[How to searchGuide for using RStudio help, documentation, the Web and GPT STT-1100.](autre_materiel/chercher-aide.llms.md) [Reference materialUseful links for help, search and frequent questions.](references.llms.md)
 
 ### Data science roles
 
 A presentation that connects the course to a real project cycle: import, cleaning, transformation, visualization, modeling and communication.
 
-[Career panoramaModule 1 support about roles and the complete data project cycle.](autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.llms.md)
+[Role panoramaModule 1 support about roles and the complete data project cycle.](autre_materiel/roles-science-donnees/)
 
 ## Frequent R routines
 
@@ -126,7 +132,7 @@ Start with `ggplot()`, define variables with `aes()`, choose a `geom_*`, then po
 
 In STT-1100, reproducible work follows the same logic: open the right project, load packages, import data, write code in a Quarto document, render the document, then save important steps with GitHub when the module asks for it.
 
-[Review the start page](demarrage.llms.md) [Clone with RStudio](autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md)
+[Review the start page](demarrage.llms.md) [Clone with RStudio](autre_materiel/aide-memoire-rstudio-github.llms.md)
 
 ### Project
 
@@ -198,4 +204,4 @@ When an answer comes from AI, test the code, verify proposed functions and keep 
 
 A good question includes context, the instruction followed, minimal code, the error and what you already tried.
 
-[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Search guide](autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.llms.md) [Course AI rules](ia.llms.md)
+[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Search guide](autre_materiel/chercher-aide.llms.md) [Course AI rules](ia.llms.md)

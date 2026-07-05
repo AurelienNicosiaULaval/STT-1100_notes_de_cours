@@ -200,7 +200,7 @@ Faire une première prédiction, discuter les biais et livrer une analyse consul
 
 Les modules vous placent dans les rôles qui structurent un projet de science des données. L'objectif est d'apprendre les gestes techniques, mais aussi de comprendre qui produit, protège, analyse et communique les données.
 
-![Cycle complet d'un projet de science des données: importer, ranger, transformer, visualiser, modéliser et communiquer.](autre_materiel/Présentation%20des%20différents%20rôles/whole-game.png)
+![Cycle complet d'un projet de science des données: importer, ranger, transformer, visualiser, modéliser et communiquer.](autre_materiel/roles-science-donnees/whole-game.png)
 
 ### Data Engineer
 

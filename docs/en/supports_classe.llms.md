@@ -4,7 +4,7 @@ Complementary Material
 
 This page gathers documents used in class to install the environment, work with GitHub, search effectively and understand data science roles.
 
-[Choose support](#choose-support) [Documents](#useful-documents) [Toolkit](boite_outils.llms.md)
+[Quick path](#support-path) [Choose support](#choose-support) [Documents](#useful-documents) [Toolkit](boite_outils.llms.md)
 
 PDF
 
@@ -22,9 +22,47 @@ Work habits
 
 Help and search
 
+Shortest path
+
+## Start from the right support
+
+If you are unsure where to go, follow this path. It places each document at the moment where it is most useful for autonomous work.
+
+1
+
+### Configure
+
+Start with the RStudio and GitHub memo to clone with SSH and open the right project.
+
+[Open the guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
+
+2
+
+### Work
+
+Use the cheat sheet while practising to find frequent R and Quarto commands.
+
+[Open the PDF](autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf)
+
+3
+
+### Unblock
+
+When an error blocks the work, isolate the problem with the search guide before asking for help.
+
+[Open the guide](autre_materiel/chercher-aide.llms.md)
+
+4
+
+### Finalize
+
+Use the toolkit to check rendering, files and GitHub traces before a submission.
+
+[View checklist](boite_outils.llms.md#before-submission)
+
 Right document, right moment
 
-## Which support should you open?
+## Which document should you open?
 
 Class supports are meant to accompany autonomous work. The useful question is not only “where is the file?”, but “which support helps me in the current situation?”.
 
@@ -70,27 +108,27 @@ Short summary of functions, commands and good practices to use during exercises.
 
 ### RStudio and GitHub Memo
 
-Guide for cloning a project, configuring GitHub and understanding authentication errors.
+Main guide for cloning a project, using SSH and understanding authentication errors.
 
-[Open the guide](autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md)
+[Open the guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
 
 ### GitHub Presentation
 
-Class support on repositories, commits, version tracking and work in RStudio.
+French PDF support for reviewing repositories, commits, push and pull. Use the memo for the current workflow.
 
-[Open the PDF](../autre_materiel/Github/Présentation%20Github.pdf)
+[Open the PDF](../autre_materiel/Github/Présentation%20Github.pdf)
 
 ### Where and How to Search
 
 Method for reading an error, searching documentation and asking a good question.
 
-[Open the guide](autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.llms.md)
+[Open the guide](autre_materiel/chercher-aide.llms.md)
 
 ### Role Panorama
 
 Presentation of the data science project cycle and the roles that contribute to it.
 
-[Open the presentation](autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.llms.md)
+[Open the presentation](autre_materiel/roles-science-donnees/)
 
 Keep nearby
 

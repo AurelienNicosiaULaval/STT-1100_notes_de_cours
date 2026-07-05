@@ -124,4 +124,4 @@ Cheat sheet, RStudio and GitHub guide, search support and role presentation.
 
 Understand how import, cleaning, analysis, visualization and communication fit into a complete project.
 
-[Open the presentation](autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.llms.md)
+[Open the presentation](autre_materiel/roles-science-donnees/)

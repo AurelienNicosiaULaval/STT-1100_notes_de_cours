@@ -4,7 +4,7 @@ Matériel complémentaire
 
 Cette page regroupe les documents utilisés en classe pour installer l'environnement, travailler avec GitHub, chercher efficacement et comprendre les rôles en science des données.
 
-[Choisir un support](#choisir-support) [Documents](#documents-utiles) [Boîte à outils](boite_outils.llms.md)
+[Parcours rapide](#parcours-support) [Choisir un support](#choisir-support) [Documents](#documents-utiles) [Boîte à outils](boite_outils.llms.md)
 
 PDF
 
@@ -22,9 +22,47 @@ Réflexes de travail
 
 Aide et recherche
 
+Le chemin le plus court
+
+## Partir du bon support
+
+Si vous hésitez, suivez ce parcours. Il place chaque document au moment où il est le plus utile dans le travail autonome.
+
+1
+
+### Configurer
+
+Commencer par l'aide-mémoire RStudio et GitHub pour cloner avec SSH et ouvrir le bon projet.
+
+[Ouvrir le guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
+
+2
+
+### Travailler
+
+Utiliser la feuille aide-mémoire pendant les exercices pour retrouver les commandes R et Quarto fréquentes.
+
+[Ouvrir le PDF](autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf)
+
+3
+
+### Débloquer
+
+Quand une erreur bloque le travail, isoler le problème avec le guide de recherche avant de demander de l'aide.
+
+[Ouvrir le guide](autre_materiel/chercher-aide.llms.md)
+
+4
+
+### Finaliser
+
+Passer par la boîte à outils pour vérifier le rendu, les fichiers et les traces GitHub avant une remise.
+
+[Voir la checklist](boite_outils.llms.md#avant-remise)
+
 Bon document, bon moment
 
-## Quel support ouvrir?
+## Quel document ouvrir?
 
 Les supports de classe sont là pour accompagner le travail autonome. La bonne question n'est pas seulement “où est le fichier?”, mais “quel support m'aide dans la situation actuelle?”.
 
@@ -70,27 +108,27 @@ Résumé court des fonctions, commandes et bonnes pratiques à utiliser pendant 
 
 ### Aide-mémoire RStudio et GitHub
 
-Guide pour cloner un projet, configurer GitHub et comprendre les erreurs d'authentification.
+Guide à suivre en priorité pour cloner un projet, utiliser SSH et comprendre les erreurs d'authentification.
 
-[Ouvrir le guide](autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md)
+[Ouvrir le guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
 
 ### Présentation GitHub
 
-Support de classe sur les dépôts, les commits, le suivi des versions et le travail dans RStudio.
+Support PDF pour revoir les idées de dépôt, commit, push et pull. Pour la procédure actuelle, utilisez l'aide-mémoire.
 
-[Ouvrir le PDF](autre_materiel/Github/Présentation%20Github.pdf)
+[Ouvrir le PDF](autre_materiel/Github/Présentation%20Github.pdf)
 
 ### Où et comment chercher
 
 Méthode pour lire une erreur, chercher dans la documentation et poser une bonne question.
 
-[Ouvrir le guide](autre_materiel/Ou%20et%20comment%20chercher/ou%20et%20comment%20chercher.llms.md)
+[Ouvrir le guide](autre_materiel/chercher-aide.llms.md)
 
 ### Panorama des métiers
 
 Présentation du cycle d'un projet de science des données et des rôles qui y contribuent.
 
-[Ouvrir la présentation](autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.llms.md)
+[Ouvrir la présentation](autre_materiel/roles-science-donnees/)
 
 À garder sous la main
 

@@ -20,7 +20,7 @@ Le module 2 est étalé sur deux semaines. La première semaine installe le flux
 
 ## Semaine 1 - Projet, importation et premiers graphiques
 
-- [Aide-mémoire RStudio et GitHub](../autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md) Cloner un dépôt, ouvrir un projet RStudio, comprendre commits et push, et reconnaître les problèmes d’authentification les plus fréquents.
+- [Aide-mémoire RStudio et GitHub](../autre_materiel/aide-memoire-rstudio-github.llms.md) Cloner un dépôt, ouvrir un projet RStudio, comprendre commits et push, et reconnaître les problèmes d’authentification les plus fréquents.
 
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html) Premiers repères pour construire des graphiques avec `ggplot2`.
 

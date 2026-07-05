@@ -1,5 +1,5 @@
 ---
-title: "STT-1100 — Checklist sheet"
+title: "STT-1100 - Cheat Sheet"
 author: "Laval University"
 format:
   pdf:
@@ -37,7 +37,7 @@ summary(df)
 ```
 ````
 
-## Basic packages
+## Core packages
 ```r
 library(tidyverse)
 library(readr)
@@ -47,9 +47,9 @@ library(palmerpenguins)
 
 ---
 
-# MANIPULATE DATA — `dplyr`
+# DATA WRANGLING - `dplyr`
 
-## Basic
+## Core verbs
 
 ```r
 select(df, col1)
@@ -72,9 +72,9 @@ summarise(df, avg = mean(x, na.rm = TRUE))
 
 ---
 
-# VISUALIZATION — `ggplot2`
+# VISUALIZATION - `ggplot2`
 
-## Digital
+## Numerical
 
 ```r
 ggplot(df, aes(x, y)) + geom_point()
@@ -88,17 +88,17 @@ ggplot(df, aes(x, fill = cat)) + geom_bar()
 ggplot(df, aes(cat, num)) + geom_boxplot()
 ```
 
- Use `facet_wrap()` to compare multiple groups
+Use `facet_wrap()` to compare multiple groups.
 
 ---
 
 # DESCRIPTIVE ANALYSIS
 
-## Digital statistics
+## Numerical summaries
 
 ```r
-mean(x, na.rm=TRUE)
-sd(x)
+mean(x, na.rm = TRUE)
+sd(x, na.rm = TRUE)
 summary(df)
 ```
 

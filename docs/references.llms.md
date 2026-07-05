@@ -124,4 +124,4 @@ Aide-mémoire, guide RStudio et GitHub, support de recherche et présentation de
 
 Pour comprendre comment importation, nettoyage, analyse, visualisation et communication s'inscrivent dans un projet complet.
 
-[Ouvrir la présentation](autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.llms.md)
+[Ouvrir la présentation](autre_materiel/roles-science-donnees/)

@@ -56,7 +56,7 @@ Le module 2 se fait sur deux semaines. La première semaine prépare le dépôt 
 
 #### Semaine 1
 
-- [Aide-mémoire RStudio et GitHub](../autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md)
+- [Aide-mémoire RStudio et GitHub](../autre_materiel/aide-memoire-rstudio-github.llms.md)
   *Cloner un dépôt, faire des commits et pousser vers GitHub.*
 
 - [R4DS - Data visualization](https://r4ds.hadley.nz/data-visualize.html)

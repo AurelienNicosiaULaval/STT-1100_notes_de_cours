@@ -56,7 +56,7 @@ Module 2 spans two weeks. The first week prepares the GitHub repository, Excel i
 
 #### Week 1
 
-- [RStudio and GitHub quick reference](../autre_materiel/Aide%20mémoire%20Rstudio%20et%20Github.llms.md)
+- [RStudio and GitHub quick reference](../autre_materiel/aide-memoire-rstudio-github.llms.md)
   *Clone a repository, make commits and push to GitHub.*
 
 - [R4DS - Data visualization](https://r4ds.hadley.nz/data-visualize.html)

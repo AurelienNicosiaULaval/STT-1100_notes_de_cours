@@ -1,42 +1,42 @@
-# How to find and get help effectively?
+# How to Search and Ask for Help Effectively
 
-STT-1100 — Introduction to Data Science
+STT-1100 - Introduction to Data Science
 
 # Introduction
 
-A good data scientist doesn’t know everything by heart… but knows **where to look** and **how to ask for help** intelligently. This guide will help you learn how to do it effectively and stress-free.
+A good data scientist does not know everything from memory. The key skill is knowing **where to look**, **how to test an answer**, and **how to ask a precise question**. This guide gives you a practical method.
 
 ------------------------------------------------------------------------
 
-# The *cheat sheet* of the course
+# The course cheat sheet
 
-A **summary cheat sheet** is available to support you throughout the course. This *cheat sheet* brings together:
+A **course cheat sheet** is available to support you throughout the term. It brings together:
 
 - The main functions and commands in R and tidyverse,
 - Practical examples for RStudio, GitHub and Quarto,
 - Useful reminders for cleaning, visualizing and modeling data.
 
-> You will find it on the Brio course site, updated regularly. Feel free to print it or keep it in front of you during your adventures.
+You can open it from the class supports page and keep it nearby while working on adventures, exercises and challenges.
 
 ------------------------------------------------------------------------
 
-# GPT STT-1100: your personalized assistant
+# GPT STT-1100: your course assistant
 
-We have designed a **tailor-made GPT wizard for this course**: [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
+The course includes a **custom GPT assistant**: [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
 
-> He knows the objectives of the course, the modules, the challenges and the libraries used (like `UlavalSSD`). You can ask specific questions related to the course, such as:
+> It is designed around the course objectives, modules, challenges and packages used in STT-1100, including `UlavalSSD`. You can ask course-specific questions such as:
 >
 > - *“How to import a `.csv` file with `readr`?”*
 > - *“How to make a graph with `ggplot2` for a numeric variable?”*
 > - *“What are the best practices for writing a reproducible report with Quarto?”*
 
-**Please note:** it does not replace critical thinking! But it is a valuable tool for progressing at your own pace.
+Important: it does not replace critical thinking. Treat its answers as hypotheses to test, especially when code, interpretations or submissions are involved.
 
 ------------------------------------------------------------------------
 
 # Where to look for help?
 
-## Integrated help in RStudio
+## Built-in help in RStudio
 
 - Type `?function` or `help(function)` in the console.
 - Use RStudio’s **Help** tab to navigate the documentation.
@@ -45,21 +45,21 @@ We have designed a **tailor-made GPT wizard for this course**: [GPT STT-1100](ht
 
 ## Search the web
 
-Billions of answers await you! Here are some tips for properly formulating your research:
+Good searches use specific terms: the package name, the function name, the task and the error message.
 
 > **TIP:**
 >
-> **Formulate your questions like a pro:**
+> **Formulate useful searches:**
 >
-> - Bad: `it doesn't work with ggplot`
-> - Best: `ggplot2 how to add color by group in scatterplot`
+> - Too vague: `it doesn't work with ggplot`
+> - Better: `ggplot2 add color by group in scatterplot`
 >
 > **Recommended sites:**
 >
 > - [Stack Overflow](https://stackoverflow.com)
-> - [Posit Community (formerly RStudio Community)](https://community.rstudio.com/)
+> - [Posit Community](https://forum.posit.co/)
 > - [GitHub](https://github.com/search?q=your+error+message)
-> - [Google](https://www.google.com) — type “r ggplot histogram group by color”
+> - [Google](https://www.google.com), for example “r ggplot histogram group by color”
 
 ------------------------------------------------------------------------
 
@@ -68,12 +68,12 @@ Billions of answers await you! Here are some tips for properly formulating your 
 ## Recommended books and guides
 
 - [**R for Data Science** (2nd ed.)](https://r4ds.hadley.nz/)
-  - Complete guide to understand everything about tidyverse, scripts, graphics, etc.
+  - A practical guide to the tidyverse, scripts, graphics and communication.
 - [**The Tidyverse Style Guide**](https://style.tidyverse.org/)
-  - To write clear, clean and understandable code.
+  - Guidance for writing clear and readable R code.
 - [**Introduction to Modern Statistics**](https://openintro-ims.netlify.app/)
-  - A complementary reference that emphasizes visualization, modeling, and modern statistics. This book is also free, clear and perfectly suited to beginners.
-- The **Quarto adventures (.qmd)** are there to help you progress step by step — don’t hesitate to come back to them if you get stuck.
+  - A complementary reference on visualization, modeling and modern statistics.
+- The **Quarto adventures (.qmd)** help you progress step by step. Return to them when you get stuck.
 
 ## Translate and understand key concepts
 
@@ -83,7 +83,7 @@ If English slows you down:
 - The **Google Chrome** browser offers **automatic translation of pages**.
 - Do not hesitate to **ask GPT STT-1100 to rephrase or translate** passages.
 
-> The concepts remain the same from one language to another — the important thing is to understand the ideas behind the commands!
+The concepts remain the same from one language to another. The important thing is to understand the ideas behind the commands.
 
 ------------------------------------------------------------------------
 
@@ -116,19 +116,19 @@ If English slows you down:
 # Don’t get stuck alone!
 
 - **Write to the course forum.**
-- **Work in pairs or small groups**.
-- **Come and ask your question in class or to the assistant**.
-- **Use GPT STT-1100 wisely**, but check what it responds to you.
+- **Work in pairs or small groups.**
+- **Ask your question in class or to the teaching assistant.**
+- **Use GPT STT-1100 wisely**, but always check its answers.
 
 ------------------------------------------------------------------------
 
 # Bonus: reflexes to adopt
 
-Find the information for yourself first
-Document what you learn (personal notes or `.qmd` file)
-Dare to ask questions!
-Learn from your mistakes (and those of others)
+- Search for information yourself first.
+- Document what you learn in personal notes or a `.qmd` file.
+- Ask questions when you are stuck.
+- Learn from your mistakes and from other students’ mistakes.
 
 ------------------------------------------------------------------------
 
-> *The best data scientists are not those who have all the answers… but those who know how to ask the right questions.*
+> *Strong data scientists are not people who know every answer. They are people who know how to ask better questions.*

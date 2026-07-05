@@ -200,7 +200,7 @@ Make a first prediction, discuss bias and deliver an analysis others can consult
 
 The modules place you in the roles that structure a data science project. The goal is to learn technical gestures while understanding who produces, protects, analyzes and communicates data.
 
-![Full data science project cycle: import, tidy, transform, visualize, model and communicate.](autre_materiel/Présentation%20des%20différents%20rôles/whole-game.png)
+![Full data science project cycle: import, tidy, transform, visualize, model and communicate.](autre_materiel/roles-science-donnees/whole-game.png)
 
 ### Data Engineer
 
