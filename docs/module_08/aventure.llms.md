@@ -71,17 +71,8 @@ writeLines(robots)
 ```
 
     User-agent: *
-    Disallow: /wp-admin/
-    Allow: /wp-admin/admin-ajax.php
-    Disallow: /recherche/dataset/*?
-    Disallow: /recherche/organization/*?
-    Disallow: /recherche/group/*?
-    Disallow: /recherche/dataset/rate/
-    Disallow: /recherche/revision/
-    Disallow: /recherche/dataset/*/history
-    Disallow: /recherche/api/
     Disallow: /api/
-    Crawl-Delay: 10
+    Disallow: /dataset/rate/
 
 ``` r
 disinstructions <- robots[grepl("^Disallow", robots)]
@@ -96,15 +87,8 @@ cat("\nChemins interdits aux robots :\n")
 writeLines(disinstructions)
 ```
 
-    Disallow: /wp-admin/
-    Disallow: /recherche/dataset/*?
-    Disallow: /recherche/organization/*?
-    Disallow: /recherche/group/*?
-    Disallow: /recherche/dataset/rate/
-    Disallow: /recherche/revision/
-    Disallow: /recherche/dataset/*/history
-    Disallow: /recherche/api/
     Disallow: /api/
+    Disallow: /dataset/rate/
 
 > **WARNING:**
 >
@@ -121,11 +105,10 @@ page
 ```
 
     {html_document}
-    <html lang="fr">
-    [1] <head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
-    [2] <body data-site-root="https://www.donneesquebec.ca/recherche/" data-local ...
+    <html>
+    [1] <body>\n<div class="dataset-content">\n<h3 class="dataset-heading short"> ...
 
-La fonction `read_html()` télécharge et convertit la page web pour en permettre la manipulation.
+Dans le rendu du cours, `safe_read_html()` utilise une copie locale stable qui reproduit la structure de résultats de Données Québec. Dans votre propre travail, vous pourrez tester la même fonction avec l’URL publique si le site est disponible.
 
 > **IMPORTANT:**
 >
@@ -146,10 +129,10 @@ blocs[[1]]
 
     {html_node}
     <div class="dataset-content">
-    [1] <h3 class="dataset-heading short">\n    \n    \n      \n    \n    \n      ...
-    [2] <div class="dqc_donne_spat">\n      <img src="/recherche/images/2_icone_g ...
-    [3] <div class="dqc-org-cat">\n    Organisation : <a href="/recherche/organiz ...
-    [4] <div class="dqc-org-cat">Catégories :\n      \n        <a href="/recherch ...
+    [1] <h3 class="dataset-heading short"><a>Avertissement routier</a></h3>\n
+    [2] <div class="dqc_donne_spat"><img src="/recherche/images/2_icone_g.png" al ...
+    [3] <div class="dqc-org-cat">Organisation : Ministère des Transports et de la ...
+    [4] <div class="dqc-org-cat">Catégories : Infrastructures; Transport</div>\n
     [5] <div class="dqc-notes"> Localisation des avertissements tels que les ferm ...
 
 Pour extraire le texte d’un élément HTML :
@@ -158,7 +141,7 @@ Pour extraire le texte d’un élément HTML :
 html_text2(blocs[[1]])
 ```
 
-    [1] "Avertissement routier\nOrganisation : Ministère des Transports et de la Mobilité durable\nCatégories : Infrastructures; Transport\nLocalisation des avertissements tels que les fermetures de route et de pont ou d’incident empêchant le libre passage sur un segment routier ou sur une structure."
+    [1] "Avertissement routier\nOrganisation : Ministère des Transports et de la Mobilité durable\nCatégories : Infrastructures; Transport\nLocalisation des avertissements tels que les fermetures de route et de pont ou d'incident empêchant le libre passage sur un segment routier ou sur une structure."
 
 Maintenant, testons l’extraction du titre :
 

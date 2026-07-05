@@ -19,18 +19,50 @@ library(tidyverse)
 library(rvest)
 library(purrr)
 
-fallback_dataset_html <- '
-<html>
-  <body>
-    <div class="dataset-content">
-      <h3 class="dataset-heading"><a>Jeu de données public exemple</a></h3>
-      <div class="dqc-org-cat">Organisation : Données Québec</div>
-      <div class="dqc-org-cat">Catégories : Santé</div>
-    </div>
-  </body>
-</html>'
+dataset_examples <- tibble::tribble(
+  ~titre, ~producteur, ~categorie, ~description,
+  "Avertissement routier", "Ministère des Transports et de la Mobilité durable", "Infrastructures; Transport", "Localisation des avertissements tels que les fermetures de route et de pont ou d'incident empêchant le libre passage sur un segment routier ou sur une structure.",
+  "Comptages cyclistes mensuels", "Ville fictive de Saint-Laurent", "Transport", "Comptages agrégés par mois pour suivre les déplacements à vélo.",
+  "Inventaire des arbres publics", "Service fictif des parcs", "Environnement", "Localisation et caractéristiques d'arbres publics.",
+  "Permis de construction anonymisés", "Direction fictive de l'urbanisme", "Urbanisme", "Permis délivrés par secteur et par type de projet.",
+  "Qualité de l'air par secteur", "Observatoire fictif de l'environnement", "Environnement", "Mesures agrégées de qualité de l'air.",
+  "Fréquentation des bibliothèques", "Réseau fictif des bibliothèques", "Culture", "Nombre de visites et de prêts par succursale.",
+  "Bornes de recharge publiques", "Bureau fictif de la transition énergétique", "Énergie; Transport", "Emplacements et disponibilité des bornes.",
+  "Achats alimentaires institutionnels", "Centre fictif des services partagés", "Alimentation", "Commandes agrégées par famille de produits.",
+  "Sentiers hivernaux entretenus", "MRC fictive du Nord", "Loisir; Transport", "État et longueur des sentiers entretenus.",
+  "Stations de mesure hydrologique", "Institut fictif de l'eau", "Environnement", "Niveaux d'eau mesurés par station.",
+  "Demandes citoyennes 311", "Ville fictive de Port-Royal", "Services municipaux", "Demandes reçues par thème et secteur.",
+  "Zones scolaires sécurisées", "Ministère fictif de l'Éducation", "Sécurité; Éducation", "Localisation des zones scolaires priorisées.",
+  "Logements sociaux disponibles", "Office fictif de l'habitation", "Logement", "Nombre d'unités disponibles par territoire.",
+  "Collecte des matières organiques", "Service fictif de l'environnement", "Environnement", "Calendrier et tonnage des collectes.",
+  "Équipements sportifs municipaux", "Ville fictive de Montcalm", "Loisir", "Liste des installations ouvertes au public.",
+  "Indices de chaleur urbains", "Laboratoire fictif du climat", "Santé; Environnement", "Mesures synthétiques par secteur urbain.",
+  "Subventions culturelles locales", "Conseil fictif des arts", "Culture", "Subventions accordées par discipline.",
+  "Accidents déclarés par intersection", "Direction fictive de la sécurité routière", "Sécurité; Transport", "Résumé anonymisé par intersection.",
+  "Accessibilité des bâtiments publics", "Secrétariat fictif à l'accessibilité", "Bâtiments; Inclusion", "Indicateurs d'accessibilité par lieu.",
+  "Marchés publics saisonniers", "Association fictive des marchés", "Alimentation; Économie", "Localisation et calendrier des marchés."
+)
 
-safe_read_lines <- function(url, fallback = character()) {
+fallback_dataset_html <- paste0(
+  "<html><body>",
+  paste0(
+    '<div class="dataset-content">',
+    '<h3 class="dataset-heading short"><a>', dataset_examples$titre, '</a></h3>',
+    '<div class="dqc_donne_spat"><img src="/recherche/images/2_icone_g.png" alt=""></div>',
+    '<div class="dqc-org-cat">Organisation : ', dataset_examples$producteur, '</div>',
+    '<div class="dqc-org-cat">Catégories : ', dataset_examples$categorie, '</div>',
+    '<div class="dqc-notes"> ', dataset_examples$description, '</div>',
+    '</div>',
+    collapse = ""
+  ),
+  "</body></html>"
+)
+
+safe_read_lines <- function(url, fallback = character(), live = FALSE) {
+  if (!isTRUE(live)) {
+    return(fallback)
+  }
+
   tryCatch(
     readLines(url, warn = FALSE),
     error = function(error) {
@@ -40,7 +72,11 @@ safe_read_lines <- function(url, fallback = character()) {
   )
 }
 
-safe_read_html <- function(url) {
+safe_read_html <- function(url, live = FALSE) {
+  if (!isTRUE(live)) {
+    return(read_html(fallback_dataset_html))
+  }
+
   tryCatch(
     read_html(url),
     error = function(error) {
@@ -162,7 +198,7 @@ page <- safe_read_html(url)
 page
 ```
 
-La fonction `read_html()` télécharge et convertit la page web pour en permettre la manipulation.
+Dans le rendu du cours, `safe_read_html()` utilise une copie locale stable qui reproduit la structure de résultats de Données Québec. Dans votre propre travail, vous pourrez tester la même fonction avec l'URL publique si le site est disponible.
 
 ::: {.callout-important title="Question de Marie-Pier"}
 *Peux-tu me montrer à quoi ressemble la structure de cette page? Est-ce que tu peux repérer un élément intéressant?*

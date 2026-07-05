@@ -5980,17 +5980,8 @@ Character card
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(robots)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>User-agent: *
-Disallow: /wp-admin/
-Allow: /wp-admin/admin-ajax.php
-Disallow: /recherche/dataset/*?
-Disallow: /recherche/organization/*?
-Disallow: /recherche/group/*?
-Disallow: /recherche/dataset/rate/
-Disallow: /recherche/revision/
-Disallow: /recherche/dataset/*/history
-Disallow: /recherche/api/
 Disallow: /api/
-Crawl-Delay: 10</code></pre>
+Disallow: /dataset/rate/</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>disinstructions <span class="ot">&lt;-</span> robots[<span class="fu">grepl</span>(<span class="st">&quot;^Disallow&quot;</span>, robots)]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6001,15 +5992,8 @@ Paths prohibited for robots:</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(disinstructions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Disallow: /wp-admin/
-Disallow: /recherche/dataset/*?
-Disallow: /recherche/organization/*?
-Disallow: /recherche/group/*?
-Disallow: /recherche/dataset/rate/
-Disallow: /recherche/revision/
-Disallow: /recherche/dataset/*/history
-Disallow: /recherche/api/
-Disallow: /api/</code></pre>
+<pre><code>Disallow: /api/
+Disallow: /dataset/rate/</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -6035,12 +6019,11 @@ Warning
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>page</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_document}
-&lt;html lang=&quot;fr&quot;&gt;
-[1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8 ...
-[2] &lt;body data-site-root=&quot;https://www.donneesquebec.ca/recherche/&quot; data-local ...</code></pre>
+&lt;html&gt;
+[1] &lt;body&gt;\n&lt;div class=&quot;dataset-content&quot;&gt;\n&lt;h3 class=&quot;dataset-heading short&quot;&gt; ...</code></pre>
 </div>
 </div>
-<p>The <code>read_html()</code> function downloads and converts the web page so it can be manipulated.</p>
+<p>In the rendered course page, <code>safe_read_html()</code> uses a stable local copy that reproduces the Données Québec result structure. In your own work, you can test the same function with the public URL if the site is available.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Question from Marie-Pier">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6065,10 +6048,10 @@ Warning
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_node}
 &lt;div class=&quot;dataset-content&quot;&gt;
-[1] &lt;h3 class=&quot;dataset-heading short&quot;&gt;\n    \n    \n      \n    \n    \n      ...
-[2] &lt;div class=&quot;dqc_donne_spat&quot;&gt;\n      &lt;img src=&quot;/recherche/images/2_icone_g ...
-[3] &lt;div class=&quot;dqc-org-cat&quot;&gt;\n    Organisation : &lt;a href=&quot;/recherche/organiz ...
-[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégories :\n      \n        &lt;a href=&quot;/recherch ...
+[1] &lt;h3 class=&quot;dataset-heading short&quot;&gt;&lt;a&gt;Avertissement routier&lt;/a&gt;&lt;/h3&gt;\n
+[2] &lt;div class=&quot;dqc_donne_spat&quot;&gt;&lt;img src=&quot;/recherche/images/2_icone_g.png&quot; al ...
+[3] &lt;div class=&quot;dqc-org-cat&quot;&gt;Organisation : Ministère des Transports et de la ...
+[4] &lt;div class=&quot;dqc-org-cat&quot;&gt;Catégories : Infrastructures; Transport&lt;/div&gt;\n
 [5] &lt;div class=&quot;dqc-notes&quot;&gt; Localisation des avertissements tels que les ferm ...</code></pre>
 </div>
 </div>
@@ -6076,7 +6059,7 @@ Warning
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_text2</span>(blocks[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Avertissement routier\nOrganisation : Ministère des Transports et de la Mobilité durable\nCatégories : Infrastructures; Transport\nLocalisation des avertissements tels que les fermetures de route et de pont ou d’incident empêchant le libre passage sur un segment routier ou sur une structure.&quot;</code></pre>
+<pre><code>[1] &quot;Avertissement routier\nOrganisation : Ministère des Transports et de la Mobilité durable\nCatégories : Infrastructures; Transport\nLocalisation des avertissements tels que les fermetures de route et de pont ou d&#39;incident empêchant le libre passage sur un segment routier ou sur une structure.&quot;</code></pre>
 </div>
 </div>
 <p>Now, let us test extraction of the title:</p>

@@ -391,7 +391,9 @@ ensure_image_alt_text <- function(root = "docs") {
   }
 }
 
-render_root <- tempfile("stt1100-render-", tmpdir = dirname(repo_root))
+render_tmpdir <- Sys.getenv("STT1100_RENDER_TMPDIR", unset = tempdir())
+render_tmpdir <- normalizePath(render_tmpdir, mustWork = TRUE)
+render_root <- tempfile("stt1100-render-", tmpdir = render_tmpdir)
 dir.create(render_root, recursive = TRUE, showWarnings = FALSE)
 on.exit(remove_paths(render_root), add = TRUE)
 
