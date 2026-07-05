@@ -4,7 +4,7 @@ Assessments
 
 STT-1100 assessments follow the same logic as the modules: practise a skill, produce a clear trace, receive feedback, then reuse what you learned in a more autonomous product. This page explains the role of each piece; Brio remains the official reference for dates, submissions and weights.
 
-[Challenges](defis.llms.md) [Exam](examen.llms.md) [Session project](projet_session/index.llms.md)
+[Challenges](defis.llms.md) [Exam](examen.llms.md) [Session project](projet_session/index.llms.md) [Official reference](#official-title)
 
 1
 
@@ -140,9 +140,34 @@ The deliverable is understandable for someone who does not see you working.
 
 The right file is submitted, in the right place, with the requested elements and without unnecessary files.
 
+## Read instructions without mixing them up
+
+Assessments use several supports. Distinguishing them helps avoid submission errors and misunderstandings about what is expected.
+
+1.  Read the course site page to understand the pedagogical role of the assessment.
+2.  Check Brio for dates, official submission, weights and administrative adjustments.
+3.  Use the template repository only as a technical starting point, not as a replacement for instructions.
+4.  Compare your final product with the instructions before submitting.
+
+### Course site
+
+Explains the path, pedagogical expectations and useful links.
+
+### Brio
+
+Confirms official requirements for the session.
+
+### GitHub repository
+
+Provides a work structure and starting files.
+
+### Feedback
+
+Indicates what to reuse in the next product.
+
 ## Official reference
 
-The course site explains the pedagogical logic of assessments. Brio remains the official source for dates, submission files, weights and administrative details.
+The course site explains the pedagogical logic of assessments. Brio remains the official source for dates, submission files, weights and administrative details. If there is a contradiction, the official instruction posted on Brio or given in class for the current session prevails.
 
 ### Before starting
 

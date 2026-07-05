@@ -1,246 +1,93 @@
 ---
-title: "Reference material"
+title: ""
+pagetitle: "References - STT-1100"
+body-classes: page-resource
 format:
   html:
-    toc: true
-    toc-title: Plan
-    self-contained: true
-    link-external-newwindow: true
-# number-sections: true
-    css: [css/base_css.css]
-editor: visual
+    toc: false
+    title-block-style: none
+    embed-resources: true
 ---
 
-# How to find and get help effectively?
-
-Content to add.
-
-## Introduction
-
-A good data scientist doesn’t know everything by heart… but knows **where to look** and **how to ask for help** intelligently. This guide will help you learn how to do it effectively and stress-free.
-
-## GPT STT-1100: your personalized assistant
-
-We have designed a **tailor-made GPT wizard for this course**: [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
-
->  He knows the objectives of the course, the modules, the challenges and the libraries used (like `UlavalSSD`). You can ask specific questions related to the course, such as:
->
->  - *"How to import a `.csv` file with `readr`?"*
->  - *"How to make a graph with `ggplot2` for a numeric variable?"*
->  - *"What are the best practices for writing a reproducible report with Quarto?"*
-
-**Please note:** it does not replace critical thinking! But it is a valuable tool for progressing at your own pace.
-
-## Where to look for help?
-
-### Integrated help in RStudio
-
-- Type `?function` or `help(function)` in the console.
-- Use RStudio's **Help** tab to navigate the documentation.
-- Type `example(function)` to get a ready-made example.
-- Also test the `args(function)` function to see the expected arguments.
-
-### Search the web
-
-Billions of answers await you! Here are some tips for properly formulating your research:
-
-::: callout-tip
-**Formulate your questions like a pro:**
-
-- Bad: `it doesn't work with ggplot`
-- Best: `ggplot2 how to add color by group in scatterplot`
-
-**Recommended sites:**
-
-- [Stack Overflow](https://stackoverflow.com)
-- [Posit Community (formerly RStudio Community)](https://community.rstudio.com/)
-- [GitHub](https://github.com/search?q=your+error+message)
-- [Google](https://www.google.com) — type "r ggplot histogram group by color"
-:::
-
-----------------------------------------------------------------------------------
-
-## Course Resources
-
-### Recommended books and guides
-
-- [**R for Data Science** (2nd ed.)](https://r4ds.hadley.nz/)
-    - Complete guide to understand everything about tidyverse, scripts, graphics, etc.
-- [**The Tidyverse Style Guide**](https://style.tidyverse.org/)
-    - To write clear, clean and understandable code.
-- [**Introduction to Modern Statistics**](https://openintro-ims.netlify.app/)
-    - A complementary reference that emphasizes visualization, modeling, and modern statistics. This book is also free, clear and perfectly suited to beginners.
-- The **Quarto adventures (.qmd)** are there to help you progress step by step — don’t hesitate to come back to them if you get stuck.
-
-### Translate and understand key concepts
-
-If English slows you down:
-
-- Use [**DeepL**](https://www.deepl.com/translator) to translate explanations or error messages.
-- The **Google Chrome** browser offers **automatic translation of pages**.
-- Do not hesitate to **ask GPT STT-1100 to rephrase or translate** passages.
-
->  The concepts remain the same from one language to another — the important thing is to understand the ideas behind the commands!
-
-## Ask for help effectively
-
-### Before asking your question
-
-1. Have you read the entire error message?
-2. Have you tried searching with keywords?
-3. Can you isolate the problem in a simple example?
-
-### Ask a good question (to [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), to an assistant or on the forum)
-
-- Be specific: indicate the **minimal** code that causes the error.
-- Copy the **full error message**.
-- Describe what you wanted to do and what is happening.
-
-::: callout-note
-**Example:**
-
->  I wanted to filter the data for penguins with a beak longer than 40mm.\
->  Here is the code:\
->  `penguins %>% filter(bill_length_mm > 40)`\
->  But I get the following error:\
->  `object 'bill_length_mm' not found`
-:::
-
-## Don't get stuck alone!
-
--  **Write to the course forum.**
--  **Work in pairs or small groups**.
--  **Come and ask your question in class or to the assistant**.
--  **Use GPT STT-1100 wisely**, but check what it responds to you.
-
-## Bonus: reflexes to adopt
-
- Find the information for yourself first\
- Document what you learn (personal notes or `.qmd` file)\
- Dare to ask questions!\
- Learn from your mistakes (and those of others)
-
->   *The best data scientists are not those who have all the answers... but those who know how to ask the right questions.*
-
-# Overview of data science professions
-
-## Introduction
-
->  *“It takes a village to turn data into value. »*\
->  In this presentation we will discover **who** makes up this village and **how** each role contributes to the cycle of a data science project.
-
-## The cycle of a data science project
-
-![Complete cycle of a data science project, from import to communication](autre_materiel/Présentation%20des%20différents%20rôles/whole-game.png){fig-align="center"}
-
-:::notes
-Inspired by Hadley Wickham, *R for Data Science* 2nd ed. (https://r4ds.hadley.nz/whole-game.html).
-:::
-
-- **Import**\
-    Load raw data from their sources into the work environment.
-
-- **Tidy**\
-    Rearrange the data so that one row corresponds to an observation and one column to a variable.
-
-- **Transform**\
-    Filter, aggregate and create new variables to prepare information for analysis.
-
-- **Visualize**\
-    Explore data using graphs to reveal trends, relationships and anomalies.
-
-- **Model**\
-    Build statistical or machine learning models to explain or predict.
-
-- **Communicate**\
-    Present results, limitations and recommendations in a clear and actionable manner to stakeholders.
-
-## Role mapping
-
-| Cycle phase | Key roles | Main objective |
-|------------------------|------------------|------------------------|
-| **Program** (Infrastructure) | *Data Engineer* | Build and maintain data pipelines. |
-| **Import -> Store** | *Data Owner* | Hold the data, ensure its quality, security and governance. |
-| **Understand** (Tidy -> Transform -> Visualize <-> Model) | *Statistician · Data Scientist · Data Analyst* | Extract knowledge through analyzes and models. |
-| **Communicate** | *Data Journalist · Freelancer* | Tell the data story, popularize it and deliver value to stakeholders. |
-
-## Data Engineer
-
-**Mission:** Provide reliable, accessible and well-structured data.
-
-**At work:**\
-- Designs data architectures.\
-- Automates import (`Import`), tidying (`Tidy`) and distribution.\
-- Collaborates closely with the *Data Owner* and prepares the ground for analysts.
-
-::: fragment
-**Cycle connection:** Mainly in the "Program" area and at the beginning of "Understand" (Import -> Tidy).
-:::
-
-## Data Owner
-
-**Mission:** Guarantee governance, compliance and data quality.
-
-**Responsibilities:**\
-- Defines metadata, access and privacy policies.\
-- Validates the source and supervises updates.\
-- Is the legal and organizational point of contact.
-
-**Link to the cycle:** Provides the *raw material* and validates each change before distribution.
-
-## Statistician
-
-**Mission:** Model phenomena and quantify uncertainty.
-
-**At work:**\
-- Chooses the right methods (inference, sampling, experimentation).\
-- Evaluates hypotheses, builds and interprets models.\
-- Guarantees the robustness and validity of the conclusions.
-
-**Link to cycle:** At the heart of `Model`, with a strong loop to `Visualize` to diagnose and explain.
-
-## Data Scientist
-
-**Mission:** Transform data into high value-added products and recommendations.
-
-**At work:**\
-- Combines programming, statistics and business domain.\
-- Quickly iterates between `Transform`, `Visualize` and `Model`.\
-- Puts solutions into production.
-
-## Data Analyst
-
-**Mission:** Provide operational insights and support day-to-day decision-making.
-
-**At work:**\
-- Prepare reports, performance indexes and dashboards.\
-- Queries the basics, aggregates, creates clear visualizations.\
-- Collaborates with the Data Engineer to ensure data validity.
-
-**Link with the cycle:** Mainly exploits `Transform` and `Visualize`, communicates in the final phase.
-
-## Data Journalist
-
-**Mission:** Tell engaging stories based on verifiable data.
-
-**At work:**\
-- Searches public databases, checks facts.\
-- Creates interactive visualizations and narratives.\
-- Popularizes for a wide audience and defends transparency.
-
-**Link with the cycle:** Emphasizes `Communicate`, draws on the work of other roles for the technical part.
-
-## Freelancer
-
-**Mission:** Provide timely and adaptable expertise over all or part of the cycle.
-
-**Special features:**\
-- Versatility: must understand each role to intervene effectively.\
-- Project management, customer relations and technological monitoring.\
-- Can fill gaps in an internal team.
-
-## Conclusion
-
-- Each role **brings unique expertise** but *none* is enough alone.\
-- **Communication** and **governance** ensure consistency.\
-- In this course, you will put on different hats to experience **the whole cycle**!
+```{=html}
+<div class="resource-page">
+  <section class="resource-hero" aria-labelledby="references-title">
+  <div>
+  <p class="eyebrow">Help and references</p>
+  <h1 id="references-title">Search, check, ask</h1>
+  <p>This page gathers useful search reflexes for the course: R documentation, external references, course help and how to ask a good question.</p>
+  <div class="resource-actions" aria-label="Quick links">
+  <a class="home-action home-action--primary" href="ressources.html">Resources</a>
+  <a class="home-action" href="livres.html">Books</a>
+  <a class="home-action" href="boite_outils.html">Toolbox</a>
+  <a class="home-action" href="ia.html">AI</a>
+  </div>
+  </div>
+  <div class="resource-panel" aria-label="Search reflexes">
+  <div><span>?</span><p>Read the error</p></div>
+  <div><span>R</span><p>Check help</p></div>
+  <div><span>Q</span><p>Test an example</p></div>
+  <div><span>✓</span><p>Verify the answer</p></div>
+  </div>
+  </section>
+
+  <section class="resource-section" aria-labelledby="where-title">
+  <div class="resource-section__header">
+  <h2 id="where-title">Where to search?</h2>
+  <p>The right place depends on the problem. Start with the source closest to your need, then broaden if needed.</p>
+  </div>
+  <div class="reading-map">
+  <article><h3>Local R help</h3><p>Use <code>?function</code>, <code>help(function)</code>, <code>example(function)</code> and <code>args(function)</code> in the console.</p></article>
+  <article><h3>Course pages</h3><p>Return to modules, the toolbox, datasets and packages before searching more broadly.</p></article>
+  <article><h3>Official documentation</h3><p>Prefer package sites and official guides to check arguments and examples.</p></article>
+  <article><h3>Forum and human help</h3><p>When you remain stuck, prepare a short question with minimal code and the full error message.</p></article>
+  </div>
+  </section>
+
+  <section class="resource-section resource-split" aria-labelledby="question-title">
+  <div>
+  <h2 id="question-title">Ask a good question</h2>
+  <p>A good question makes the problem observable. It helps the teaching assistant, instructor, a peer or the AI assistant understand what is happening.</p>
+  <ol class="clean-steps">
+  <li>Say what you wanted to obtain.</li>
+  <li>Show the minimal code that produces the problem.</li>
+  <li>Copy the full error message.</li>
+  <li>Say what you already tried.</li>
+  <li>Indicate the module, challenge or exercise involved.</li>
+  </ol>
+  </div>
+  <div class="resource-compact-list" aria-label="Weak and useful reflexes">
+  <article class="resource-compact"><h3>Too vague</h3><p>"It does not work" does not provide enough information to help.</p></article>
+  <article class="resource-compact"><h3>Useful</h3><p>"I want to filter these rows, but <code>filter()</code> returns this error" allows diagnosis.</p></article>
+  <article class="resource-compact"><h3>Verifiable</h3><p>A small data excerpt or reproducible example is better than an isolated screenshot.</p></article>
+  </div>
+  </section>
+
+  <section class="resource-section" aria-labelledby="external-title">
+  <div class="resource-section__header">
+  <h2 id="external-title">Useful external references</h2>
+  <p>These links help check a function, deepen a concept or compare examples.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article class="resource-hub-card"><h3>R for Data Science</h3><p>Free guide on importing, transforming, visualizing and communicating with R.</p><a href="https://r4ds.hadley.nz/">Open the book</a></article>
+  <article class="resource-hub-card"><h3>Quarto</h3><p>Official documentation for reports, slides, websites and rendering options.</p><a href="https://quarto.org/docs/">Open the documentation</a></article>
+  <article class="resource-hub-card"><h3>dplyr</h3><p>Function reference for filtering, selecting, creating, grouping and summarizing data.</p><a href="https://dplyr.tidyverse.org/reference/">Open the reference</a></article>
+  <article class="resource-hub-card"><h3>ggplot2</h3><p>Function reference for building graphics with the layered grammar.</p><a href="https://ggplot2.tidyverse.org/reference/">Open the reference</a></article>
+  <article class="resource-hub-card"><h3>Posit Community</h3><p>Help forum for R, RStudio, Quarto, Shiny and the tidyverse.</p><a href="https://forum.posit.co/">Open the forum</a></article>
+  <article class="resource-hub-card"><h3>Stack Overflow</h3><p>Question and answer archive useful for precise errors, to use with critical judgment.</p><a href="https://stackoverflow.com/questions/tagged/r">View R questions</a></article>
+  </div>
+  </section>
+
+  <section class="resource-section" aria-labelledby="course-help-title">
+  <div class="resource-section__header">
+  <h2 id="course-help-title">Course help</h2>
+  <p>Internal resources remain the first reference point for working within STT-1100.</p>
+  </div>
+  <div class="resource-hub-grid">
+  <article class="resource-hub-card"><h3>GPT STT-1100</h3><p>Useful for explaining, rephrasing, debugging or comparing ideas, but every answer must be tested.</p><a href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100">Open GPT STT-1100</a></article>
+  <article class="resource-hub-card"><h3>Class supports</h3><p>Cheat sheet, RStudio and GitHub guide, search support and role presentation.</p><a href="supports_classe.html">View supports</a></article>
+  <article class="resource-hub-card"><h3>Data science roles</h3><p>Understand how import, cleaning, analysis, visualization and communication fit into a complete project.</p><a href="autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.html">Open the presentation</a></article>
+  </div>
+  </section>
+</div>
+```

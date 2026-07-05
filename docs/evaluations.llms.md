@@ -4,7 +4,7 @@
 
 Les évaluations de STT-1100 suivent la même logique que les modules: pratiquer un geste, produire une trace claire, recevoir une rétroaction, puis réinvestir ce qui a été appris dans une production plus autonome. Cette page explique le rôle de chaque pièce; Brio demeure la référence officielle pour les dates, les remises et les pondérations.
 
-[Défis](defis.llms.md) [Examen](examen.llms.md) [Projet de session](projet_session/index.llms.md)
+[Défis](defis.llms.md) [Examen](examen.llms.md) [Projet de session](projet_session/index.llms.md) [Référence officielle](#official-title)
 
 1
 
@@ -140,9 +140,34 @@ Le livrable est compréhensible pour une personne qui ne vous voit pas travaille
 
 Le bon fichier est remis, au bon endroit, avec les éléments demandés et sans fichiers inutiles.
 
+## Lire les consignes sans se tromper
+
+Les évaluations utilisent plusieurs supports. Les distinguer évite les erreurs de remise et les malentendus sur ce qui est attendu.
+
+1.  Lire la page du site pour comprendre le rôle pédagogique de l'évaluation.
+2.  Consulter Brio pour les dates, la remise officielle, les pondérations et les ajustements administratifs.
+3.  Utiliser le dépôt template seulement comme point de départ technique, pas comme remplacement des consignes.
+4.  Comparer votre produit final avec la consigne avant de remettre.
+
+### Site du cours
+
+Explique le parcours, les attentes pédagogiques et les liens utiles.
+
+### Brio
+
+Confirme les modalités officielles de la session.
+
+### Dépôt GitHub
+
+Fournit une structure de travail et des fichiers de départ.
+
+### Rétroaction
+
+Indique quoi réinvestir dans la prochaine production.
+
 ## Référence officielle
 
-Le site de cours sert à comprendre la logique pédagogique des évaluations. Brio demeure la source officielle pour les dates, les fichiers de remise, les pondérations et les modalités administratives.
+Le site de cours sert à comprendre la logique pédagogique des évaluations. Brio demeure la source officielle pour les dates, les fichiers de remise, les pondérations et les modalités administratives. En cas de contradiction, la consigne officielle affichée sur Brio ou donnée en classe pour la session en cours prévaut.
 
 ### Avant de commencer
 

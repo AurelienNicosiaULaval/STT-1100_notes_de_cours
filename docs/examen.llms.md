@@ -4,7 +4,7 @@
 
 L'examen reprend l'esprit des aventures: une situation concrète, un jeu de données, un document Quarto à compléter et des décisions à justifier. Il évalue l'autonomie sur les gestes essentiels des modules 1 à 4.
 
-[Évaluations](evaluations.llms.md) [Modules](modules.llms.md) [Boîte à outils](boite_outils.llms.md)
+[Préparation](#exam-prep-title) [Pendant l'examen](#exam-day-title) [Anciens examens](#old-exams-title) [Évaluations](evaluations.llms.md)
 
 01
 
@@ -41,6 +41,26 @@ Les réponses, le code, les graphiques et les interprétations sont intégrés d
 ### Interprétation
 
 Les résultats doivent être expliqués brièvement, avec prudence et dans le vocabulaire du contexte.
+
+## Ce que l'examen n'est pas
+
+L'examen ne cherche pas à piéger ni à récompenser le code le plus sophistiqué. Il vérifie surtout si vous pouvez reconnaître les gestes utiles dans une nouvelle situation et produire une trace claire.
+
+### Pas une récitation
+
+Les questions ne demandent pas de refaire un défi mot pour mot.
+
+### Pas un concours de vitesse
+
+Une solution simple, lisible et complète vaut mieux qu'une solution trop ambitieuse.
+
+### Pas seulement du code
+
+Les interprétations et les choix doivent être compréhensibles dans le contexte.
+
+### Pas un projet d'équipe
+
+L'objectif est de montrer votre autonomie individuelle sur les bases du cours.
 
 ## Compétences mobilisées
 
@@ -141,6 +161,28 @@ Exécuter les chunks progressivement évite de découvrir toutes les erreurs au 
 ### Écrire court
 
 Une phrase précise qui répond à la question vaut mieux qu'un paragraphe vague.
+
+## Dernière vérification
+
+Avant de remettre, faites une vérification courte et systématique. Elle évite la majorité des pertes de points évitables.
+
+1.  Le document Quarto se rend sans erreur.
+2.  Les données utilisées sont importées par le code du document.
+3.  Chaque question a une réponse visible.
+4.  Les graphiques et tableaux ont un titre ou un contexte clair.
+5.  Les interprétations répondent à la mission plutôt qu'à une fonction R.
+
+### Rendu final
+
+Ouvrir le fichier rendu, pas seulement le fichier source.
+
+### Objets créés
+
+Vérifier que le document fonctionne dans une nouvelle session.
+
+### Texte court
+
+Ajouter une phrase précise lorsque le résultat seul ne suffit pas.
 
 ## Anciens examens
 

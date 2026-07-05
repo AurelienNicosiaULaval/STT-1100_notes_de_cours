@@ -1,233 +1,127 @@
-# Reference material
+Help and references
 
-# How to find and get help effectively?
+# Search, check, ask
 
-Content to add.
+This page gathers useful search reflexes for the course: R documentation, external references, course help and how to ask a good question.
 
-## Introduction
+[Resources](ressources.llms.md) [Books](livres.llms.md) [Toolbox](boite_outils.llms.md) [AI](ia.llms.md)
 
-A good data scientist doesn’t know everything by heart… but knows **where to look** and **how to ask for help** intelligently. This guide will help you learn how to do it effectively and stress-free.
+?
 
-## GPT STT-1100: your personalized assistant
+Read the error
 
-We have designed a **tailor-made GPT wizard for this course**: [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
+R
 
-> He knows the objectives of the course, the modules, the challenges and the libraries used (like `UlavalSSD`). You can ask specific questions related to the course, such as:
->
-> - *“How to import a `.csv` file with `readr`?”*
-> - *“How to make a graph with `ggplot2` for a numeric variable?”*
-> - *“What are the best practices for writing a reproducible report with Quarto?”*
+Check help
 
-**Please note:** it does not replace critical thinking! But it is a valuable tool for progressing at your own pace.
+Q
 
-## Where to look for help?
+Test an example
 
-### Integrated help in RStudio
+✓
 
-- Type `?function` or `help(function)` in the console.
-- Use RStudio’s **Help** tab to navigate the documentation.
-- Type `example(function)` to get a ready-made example.
-- Also test the `args(function)` function to see the expected arguments.
+Verify the answer
 
-### Search the web
+## Where to search?
 
-Billions of answers await you! Here are some tips for properly formulating your research:
+The right place depends on the problem. Start with the source closest to your need, then broaden if needed.
 
-> **TIP:**
->
-> **Formulate your questions like a pro:**
->
-> - Bad: `it doesn't work with ggplot`
-> - Best: `ggplot2 how to add color by group in scatterplot`
->
-> **Recommended sites:**
->
-> - [Stack Overflow](https://stackoverflow.com)
-> - [Posit Community (formerly RStudio Community)](https://community.rstudio.com/)
-> - [GitHub](https://github.com/search?q=your+error+message)
-> - [Google](https://www.google.com) — type “r ggplot histogram group by color”
+### Local R help
 
-------------------------------------------------------------------------
+Use `?function`, `help(function)`, `example(function)` and `args(function)` in the console.
 
-## Course Resources
+### Course pages
 
-### Recommended books and guides
+Return to modules, the toolbox, datasets and packages before searching more broadly.
 
-- [**R for Data Science** (2nd ed.)](https://r4ds.hadley.nz/)
-  - Complete guide to understand everything about tidyverse, scripts, graphics, etc.
-- [**The Tidyverse Style Guide**](https://style.tidyverse.org/)
-  - To write clear, clean and understandable code.
-- [**Introduction to Modern Statistics**](https://openintro-ims.netlify.app/)
-  - A complementary reference that emphasizes visualization, modeling, and modern statistics. This book is also free, clear and perfectly suited to beginners.
-- The **Quarto adventures (.qmd)** are there to help you progress step by step — don’t hesitate to come back to them if you get stuck.
+### Official documentation
 
-### Translate and understand key concepts
+Prefer package sites and official guides to check arguments and examples.
 
-If English slows you down:
+### Forum and human help
 
-- Use [**DeepL**](https://www.deepl.com/translator) to translate explanations or error messages.
-- The **Google Chrome** browser offers **automatic translation of pages**.
-- Do not hesitate to **ask GPT STT-1100 to rephrase or translate** passages.
+When you remain stuck, prepare a short question with minimal code and the full error message.
 
-> The concepts remain the same from one language to another — the important thing is to understand the ideas behind the commands!
+## Ask a good question
 
-## Ask for help effectively
+A good question makes the problem observable. It helps the teaching assistant, instructor, a peer or the AI assistant understand what is happening.
 
-### Before asking your question
+1.  Say what you wanted to obtain.
+2.  Show the minimal code that produces the problem.
+3.  Copy the full error message.
+4.  Say what you already tried.
+5.  Indicate the module, challenge or exercise involved.
 
-1.  Have you read the entire error message?
-2.  Have you tried searching with keywords?
-3.  Can you isolate the problem in a simple example?
+### Too vague
 
-### Ask a good question (to [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), to an assistant or on the forum)
+"It does not work" does not provide enough information to help.
 
-- Be specific: indicate the **minimal** code that causes the error.
-- Copy the **full error message**.
-- Describe what you wanted to do and what is happening.
+### Useful
 
-> **NOTE:**
->
-> **Example:**
->
-> > I wanted to filter the data for penguins with a beak longer than 40mm.
-> > Here is the code:
-> > `penguins %>% filter(bill_length_mm > 40)`
-> > But I get the following error:
-> > `object 'bill_length_mm' not found`
+"I want to filter these rows, but `filter()` returns this error" allows diagnosis.
 
-## Don’t get stuck alone!
+### Verifiable
 
-- **Write to the course forum.**
-- **Work in pairs or small groups**.
-- **Come and ask your question in class or to the assistant**.
-- **Use GPT STT-1100 wisely**, but check what it responds to you.
+A small data excerpt or reproducible example is better than an isolated screenshot.
 
-## Bonus: reflexes to adopt
+## Useful external references
 
-Find the information for yourself first
-Document what you learn (personal notes or `.qmd` file)
-Dare to ask questions!
-Learn from your mistakes (and those of others)
+These links help check a function, deepen a concept or compare examples.
 
-> *The best data scientists are not those who have all the answers… but those who know how to ask the right questions.*
+### R for Data Science
 
-# Overview of data science professions
+Free guide on importing, transforming, visualizing and communicating with R.
 
-## Introduction
+[Open the book](https://r4ds.hadley.nz/)
 
-> *“It takes a village to turn data into value. »*
-> In this presentation we will discover **who** makes up this village and **how** each role contributes to the cycle of a data science project.
+### Quarto
 
-## The cycle of a data science project
+Official documentation for reports, slides, websites and rendering options.
 
-![](autre_materiel/Présentation%20des%20différents%20rôles/whole-game.png)
+[Open the documentation](https://quarto.org/docs/)
 
-Complete cycle of a data science project, from import to communication
+### dplyr
 
-Inspired by Hadley Wickham, *R for Data Science* 2nd ed. (https://r4ds.hadley.nz/whole-game.html).
+Function reference for filtering, selecting, creating, grouping and summarizing data.
 
-- **Import**
-  Load raw data from their sources into the work environment.
+[Open the reference](https://dplyr.tidyverse.org/reference/)
 
-- **Tidy**
-  Rearrange the data so that one row corresponds to an observation and one column to a variable.
+### ggplot2
 
-- **Transform**
-  Filter, aggregate and create new variables to prepare information for analysis.
+Function reference for building graphics with the layered grammar.
 
-- **Visualize**
-  Explore data using graphs to reveal trends, relationships and anomalies.
+[Open the reference](https://ggplot2.tidyverse.org/reference/)
 
-- **Model**
-  Build statistical or machine learning models to explain or predict.
+### Posit Community
 
-- **Communicate**
-  Present results, limitations and recommendations in a clear and actionable manner to stakeholders.
+Help forum for R, RStudio, Quarto, Shiny and the tidyverse.
 
-## Role mapping
+[Open the forum](https://forum.posit.co/)
 
-| Cycle phase | Key roles | Main objective |
-|----|----|----|
-| **Program** (Infrastructure) | *Data Engineer* | Build and maintain data pipelines. |
-| **Import -\> Store** | *Data Owner* | Hold the data, ensure its quality, security and governance. |
-| **Understand** (Tidy -\> Transform -\> Visualize \<-\> Model) | *Statistician · Data Scientist · Data Analyst* | Extract knowledge through analyzes and models. |
-| **Communicate** | *Data Journalist · Freelancer* | Tell the data story, popularize it and deliver value to stakeholders. |
+### Stack Overflow
 
-## Data Engineer
+Question and answer archive useful for precise errors, to use with critical judgment.
 
-**Mission:** Provide reliable, accessible and well-structured data.
+[View R questions](https://stackoverflow.com/questions/tagged/r)
 
-**At work:**
-- Designs data architectures.
-- Automates import (`Import`), tidying (`Tidy`) and distribution.
-- Collaborates closely with the *Data Owner* and prepares the ground for analysts.
+## Course help
 
-**Cycle connection:** Mainly in the “Program” area and at the beginning of “Understand” (Import -\> Tidy).
+Internal resources remain the first reference point for working within STT-1100.
 
-## Data Owner
+### GPT STT-1100
 
-**Mission:** Guarantee governance, compliance and data quality.
+Useful for explaining, rephrasing, debugging or comparing ideas, but every answer must be tested.
 
-**Responsibilities:**
-- Defines metadata, access and privacy policies.
-- Validates the source and supervises updates.
-- Is the legal and organizational point of contact.
+[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
 
-**Link to the cycle:** Provides the *raw material* and validates each change before distribution.
+### Class supports
 
-## Statistician
+Cheat sheet, RStudio and GitHub guide, search support and role presentation.
 
-**Mission:** Model phenomena and quantify uncertainty.
+[View supports](supports_classe.llms.md)
 
-**At work:**
-- Chooses the right methods (inference, sampling, experimentation).
-- Evaluates hypotheses, builds and interprets models.
-- Guarantees the robustness and validity of the conclusions.
+### Data science roles
 
-**Link to cycle:** At the heart of `Model`, with a strong loop to `Visualize` to diagnose and explain.
+Understand how import, cleaning, analysis, visualization and communication fit into a complete project.
 
-## Data Scientist
-
-**Mission:** Transform data into high value-added products and recommendations.
-
-**At work:**
-- Combines programming, statistics and business domain.
-- Quickly iterates between `Transform`, `Visualize` and `Model`.
-- Puts solutions into production.
-
-## Data Analyst
-
-**Mission:** Provide operational insights and support day-to-day decision-making.
-
-**At work:**
-- Prepare reports, performance indexes and dashboards.
-- Queries the basics, aggregates, creates clear visualizations.
-- Collaborates with the Data Engineer to ensure data validity.
-
-**Link with the cycle:** Mainly exploits `Transform` and `Visualize`, communicates in the final phase.
-
-## Data Journalist
-
-**Mission:** Tell engaging stories based on verifiable data.
-
-**At work:**
-- Searches public databases, checks facts.
-- Creates interactive visualizations and narratives.
-- Popularizes for a wide audience and defends transparency.
-
-**Link with the cycle:** Emphasizes `Communicate`, draws on the work of other roles for the technical part.
-
-## Freelancer
-
-**Mission:** Provide timely and adaptable expertise over all or part of the cycle.
-
-**Special features:**
-- Versatility: must understand each role to intervene effectively.
-- Project management, customer relations and technological monitoring.
-- Can fill gaps in an internal team.
-
-## Conclusion
-
-- Each role **brings unique expertise** but *none* is enough alone.
-- **Communication** and **governance** ensure consistency.
-- In this course, you will put on different hats to experience **the whole cycle**!
+[Open the presentation](autre_materiel/Présentation%20des%20différents%20rôles/roles_presentation_v2.llms.md)

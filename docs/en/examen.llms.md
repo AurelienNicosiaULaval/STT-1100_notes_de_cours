@@ -4,7 +4,7 @@ Assessment
 
 The exam follows the spirit of the adventures: a concrete situation, a dataset, a Quarto document to complete and decisions to justify. It assesses autonomy with the essential skills from modules 1 to 4.
 
-[Assessments](evaluations.llms.md) [Modules](modules.llms.md) [Toolbox](boite_outils.llms.md)
+[Preparation](#exam-prep-title) [During the exam](#exam-day-title) [Past exams](#old-exams-title) [Assessments](evaluations.llms.md)
 
 01
 
@@ -41,6 +41,26 @@ Answers, code, graphs and interpretations are integrated into a reproducible doc
 ### Interpretation
 
 Results must be explained briefly, carefully and in the language of the context.
+
+## What the exam is not
+
+The exam is not designed to trick you or reward the most sophisticated code. It mainly checks whether you can recognize useful moves in a new situation and produce a clear trace.
+
+### Not memorization
+
+Questions do not ask you to reproduce a challenge word for word.
+
+### Not a speed contest
+
+A simple, readable and complete solution is better than an overly ambitious one.
+
+### Not only code
+
+Interpretations and choices must be understandable in context.
+
+### Not a team project
+
+The goal is to show your individual autonomy with the course foundations.
 
 ## Skills used
 
@@ -141,6 +161,28 @@ Running chunks progressively avoids discovering every error at the final render.
 ### Write briefly
 
 One precise sentence that answers the question is better than a vague paragraph.
+
+## Final check
+
+Before submitting, run a short and systematic check. It prevents most avoidable point losses.
+
+1.  The Quarto document renders without error.
+2.  The data used are imported by the document code.
+3.  Each question has a visible answer.
+4.  Graphs and tables have a title or clear context.
+5.  Interpretations answer the mission rather than an R function.
+
+### Final render
+
+Open the rendered file, not only the source file.
+
+### Created objects
+
+Check that the document works in a fresh session.
+
+### Short text
+
+Add one precise sentence when the result alone is not enough.
 
 ## Past exams
 
