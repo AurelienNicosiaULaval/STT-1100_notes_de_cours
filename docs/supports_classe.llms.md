@@ -88,7 +88,7 @@ Consulter le panorama des rôles pour relier les gestes techniques au cycle comp
 
 ### Je veux utiliser l'IA
 
-Lire la page IA avant d'utiliser GPT STT-1100, surtout pour les évaluations et les remises.
+Lire [la page IA](ia.llms.md), puis ouvrir [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) avec une demande précise: *Je prépare cette activité. Quels points dois-je vérifier sans que tu fasses le travail à ma place?*
 
 ## Documents utiles
 

@@ -151,7 +151,9 @@ Try each exercise before opening the solution, even when it gives your brain a l
 
 ### Finish the module with the course AI assistant
 
-Before moving to the next module, use the course AI assistant as a review partner: ask it to question your reasoning, identify fragile code and suggest one realistic improvement to the challenge.
+Open [the AI page](../ia.llms.md) or [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100), then ask for targeted feedback:
+
+*Here is my work for this module. Question my reasoning, identify one fragile line of code, check whether my interpretation answers the instructions, then suggest one realistic improvement I can make myself.*
 
 - Explain the finished product in three sentences.
 - Paste a code or output excerpt and ask for a diagnosis.

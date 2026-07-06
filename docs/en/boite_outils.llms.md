@@ -198,10 +198,10 @@ State the goal, minimal code, error message and expected result.
 
 ### Check AI
 
-When an answer comes from AI, test the code, verify proposed functions and keep a trace of what was used.
+When an answer comes from AI, ask: *Which line should I test and what hypothesis does this test verify?* Then run the code and keep a trace of what was used.
 
 ### Ask targeted help
 
-A good question includes context, the instruction followed, minimal code, the error and what you already tried.
+A good question includes context, the instruction followed, minimal code, the error and what you already tried. Example: *Here is my goal, minimal code, full message and what I already tried.*
 
-[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Search guide](autre_materiel/chercher-aide.llms.md) [Course AI rules](ia.llms.md)
+[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) [Search guide](autre_materiel/chercher-aide.llms.md) [Course AI rules](ia.llms.md)

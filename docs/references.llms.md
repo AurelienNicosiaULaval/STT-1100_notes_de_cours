@@ -112,7 +112,7 @@ Les ressources internes restent le premier repère pour travailler dans le cadre
 
 Utile pour expliquer, reformuler, déboguer ou comparer des pistes, mais toute réponse doit être testée.
 
-[Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
+[Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100)
 
 ### Supports de classe
 

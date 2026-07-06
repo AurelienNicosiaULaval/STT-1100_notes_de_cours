@@ -198,10 +198,10 @@ Indiquer le but, le code minimal, le message d'erreur et ce qui était attendu.
 
 ### Vérifier l'IA
 
-Quand une réponse vient de l'IA, tester le code, vérifier les fonctions proposées et garder une trace de ce qui a été utilisé.
+Quand une réponse vient de l'IA, demandez: *Quelle ligne dois-je tester et quelle hypothèse ce test vérifie-t-il?* Puis exécutez le code et gardez une trace de ce qui a été utilisé.
 
 ### Demander une aide ciblée
 
-Une bonne question contient le contexte, la consigne suivie, le code minimal, l'erreur et l'essai déjà fait.
+Une bonne question contient le contexte, la consigne suivie, le code minimal, l'erreur et l'essai déjà fait. Exemple: *Voici mon objectif, mon code minimal, le message complet et ce que j'ai déjà essayé.*
 
-[Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Guide pour chercher](autre_materiel/chercher-aide.llms.md) [Règles IA du cours](ia.llms.md)
+[Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) [Guide pour chercher](autre_materiel/chercher-aide.llms.md) [Règles IA du cours](ia.llms.md)

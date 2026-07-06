@@ -86,6 +86,8 @@ Scope These exercises are not the continuation of the challenge. They use fictit
 
 ## Review and Extension
 
-### Before moving to the next module
+### Finish the module with the course AI assistant
 
-Reread one issue you wrote and ask whether a team could realistically act on that feedback.
+Reread one issue you wrote, then open [the AI page](../ia.llms.md) or [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) and ask for targeted feedback:
+
+*Here is a review issue I wrote. Is it precise enough for a team to act on? Identify one vague phrase, one missing piece of information and one improvement I can make myself.*

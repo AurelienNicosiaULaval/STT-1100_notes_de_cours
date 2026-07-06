@@ -105,7 +105,9 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Finir le module avec l’IA du cours
 
-Avant de passer au module suivant, utilisez l’IA du cours comme partenaire de révision: demandez-lui de questionner votre raisonnement, de repérer les lignes de code fragiles et de proposer une amélioration réaliste du défi.
+Ouvrez [la page IA](../ia.llms.md) ou [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100), puis demandez une rétroaction ciblée:
+
+*Voici mon travail pour ce module. Questionne mon raisonnement, repère une ligne de code fragile, vérifie si mon interprétation répond à la consigne, puis propose une seule amélioration réaliste que je peux faire moi-même.*
 
 - Expliquez le produit fini en trois phrases.
 - Collez un extrait de code ou de sortie et demandez un diagnostic.

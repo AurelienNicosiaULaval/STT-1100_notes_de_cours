@@ -112,7 +112,7 @@ Internal resources remain the first reference point for working within STT-1100.
 
 Useful for explaining, rephrasing, debugging or comparing ideas, but every answer must be tested.
 
-[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
+[Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100)
 
 ### Class supports
 

@@ -120,9 +120,9 @@ Aide-mémoire, présentations, guides pratiques et matériel complémentaire.
 
 ### IA et aide
 
-Utiliser l'IA du cours pour réviser, déboguer et améliorer un raisonnement sans perdre le contrôle.
+Utiliser l'IA du cours pour réviser, déboguer et améliorer un raisonnement sans perdre le contrôle. Exemple de demande: *Relis mon raisonnement, indique ce qui est appuyé par les données et ce qui doit être vérifié.*
 
-[Ouvrir IA et aide](ia.llms.md)
+[Ouvrir IA et aide](ia.llms.md) [Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100)
 
 ### Boîte à outils
 

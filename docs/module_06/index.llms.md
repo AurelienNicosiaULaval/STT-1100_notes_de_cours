@@ -86,6 +86,8 @@ Portée Ces exercices ne sont pas la suite du défi. Ils utilisent des données 
 
 ## Révision et prolongement
 
-### Avant de passer au module suivant
+### Finir le module avec l’IA du cours
 
-Relisez une issue que vous avez écrite et demandez-vous si une équipe pourrait réellement agir à partir de cette rétroaction.
+Relisez une issue que vous avez écrite, puis ouvrez [la page IA](../ia.llms.md) ou [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) et demandez une rétroaction ciblée:
+
+*Voici une issue de revue que j'ai écrite. Est-elle assez précise pour qu'une équipe agisse? Repère une formulation vague, une information manquante et une amélioration que je peux faire moi-même.*

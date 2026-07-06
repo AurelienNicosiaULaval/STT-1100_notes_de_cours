@@ -274,7 +274,7 @@ Reproduce the error, read the full message, then isolate the smallest possible e
 
 ### With the course AI
 
-Ask for an explanation, a check or a debugging lead. Always verify the answer before using it.
+Open [AI and Help](ia.llms.md) or [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100). Ask: *Here is my error, minimal code and expected result. Help me find the likely cause, then give me one check I can do myself.*
 
 ### Before submitting
 

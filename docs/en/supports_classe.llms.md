@@ -88,7 +88,7 @@ Use the role panorama to connect technical moves to the full data project cycle.
 
 ### I want to use AI
 
-Read the AI page before using GPT STT-1100, especially for evaluations and submissions.
+Read [the AI page](ia.llms.md), then open [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) with a precise request: *I am preparing this activity. What should I check without you doing the work for me?*
 
 ## Useful Documents
 

@@ -22,13 +22,14 @@ You can open it from the class supports page and keep it nearby while working on
 
 # GPT STT-1100: your course assistant
 
-The course includes a **custom GPT assistant**: [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100)
+The course includes a **custom GPT assistant**: [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100)
 
 > It is designed around the course objectives, modules, challenges and packages used in STT-1100, including `UlavalSSD`. You can ask course-specific questions such as:
 >
 > - *“How to import a `.csv` file with `readr`?”*
 > - *“How to make a graph with `ggplot2` for a numeric variable?”*
 > - *“What are the best practices for writing a reproducible report with Quarto?”*
+> - *“Here are my instructions, minimal code and full error message. What is the likely cause and what test should I run to check?”*
 
 Important: it does not replace critical thinking. Treat its answers as hypotheses to test, especially when code, interpretations or submissions are involved.
 
@@ -95,11 +96,12 @@ The concepts remain the same from one language to another. The important thing i
 2.  Have you tried searching with keywords?
 3.  Can you isolate the problem in a simple example?
 
-## Ask a good question (to [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100), to an assistant or on the forum)
+## Ask a good question (to [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100), to an assistant or on the forum)
 
 - Be specific: indicate the **minimal** code that causes the error.
 - Copy the **full error message**.
 - Describe what you wanted to do and what is happening.
+- Ask for a concrete check: which line to test, which variable to inspect, or which Quarto render to produce.
 
 > **NOTE:**
 >
@@ -118,7 +120,7 @@ The concepts remain the same from one language to another. The important thing i
 - **Write to the course forum.**
 - **Work in pairs or small groups.**
 - **Ask your question in class or to the teaching assistant.**
-- **Use GPT STT-1100 wisely**, but always check its answers.
+- **Use GPT STT-1100 wisely** by asking what to verify, then testing the answer yourself.
 
 ------------------------------------------------------------------------
 

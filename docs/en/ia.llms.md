@@ -4,7 +4,7 @@ Responsible Help
 
 AI can help you understand, debug, revise and test an idea. It does not replace your judgment: in STT-1100, what matters is your ability to verify, explain and take responsibility for the choices in your deliverables.
 
-[Open STT-1100 GPT](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Challenges](defis.llms.md) [Project](projet_session/index.llms.md) [Toolkit](boite_outils.llms.md)
+[Open STT-1100 GPT](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) [Challenges](defis.llms.md) [Project](projet_session/index.llms.md) [Toolkit](boite_outils.llms.md)
 
 1
 
@@ -110,24 +110,24 @@ The best prompts request targeted help while keeping responsibility for the deci
 
 ### Debug
 
-Here is my error message and the minimal code that produces it. Can you help me find the likely cause?
+Here is my full error message, minimal code and expected result. Ask me two diagnostic questions, then suggest a correction I can test.
 
 ### Understand
 
-Explain this R output in plain language, then indicate what I should check in my data.
+Explain this R output in plain language. Separate what is directly visible in the output from what requires checking the data.
 
 ### Revise
 
-Review this interpretation and flag any sentences that go beyond what the data support.
+Here is my interpretation. Flag sentences that go beyond the data, variables I should check and places where I should add nuance.
 
 ### Improve
 
-Suggest a clearer version of this paragraph without changing the result or adding unverified information.
+Suggest a clearer version of this paragraph without changing the result, adding a source or inventing information.
 
 ### Test
 
-What checks should I run before submitting this Quarto document?
+Here are my instructions and my Quarto document. Give me a short checklist before submission: render, code, figures, interpretation and files.
 
 ### Document
 
-Help me write a short note describing how I used AI and how I verified the answer.
+Help me write a two-sentence note naming the GPT used, the purpose of the help and the verification I performed.

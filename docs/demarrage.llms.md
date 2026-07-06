@@ -274,7 +274,7 @@ Reproduisez l'erreur, lisez le message complet, puis isolez le plus petit exempl
 
 ### Avec l'IA du cours
 
-Demandez une explication, une vérification ou une piste de débogage. Vérifiez toujours la réponse avant de l'utiliser.
+Ouvrez [IA et aide](ia.llms.md) ou [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100). Demandez: *Voici mon erreur, mon code minimal et ce que je voulais obtenir. Aide-moi à trouver la cause probable, puis donne une vérification à faire moi-même.*
 
 ### Avant de remettre
 

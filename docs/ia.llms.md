@@ -4,7 +4,7 @@ Aide responsable
 
 L'IA peut aider à comprendre, déboguer, reformuler et tester une idée. Elle ne remplace pas votre jugement: dans STT-1100, ce qui compte est votre capacité à vérifier, expliquer et assumer les choix présents dans vos livrables.
 
-[Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-stt-1100) [Défis](defis.llms.md) [Projet](projet_session/index.llms.md) [Boîte à outils](boite_outils.llms.md)
+[Ouvrir GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) [Défis](defis.llms.md) [Projet](projet_session/index.llms.md) [Boîte à outils](boite_outils.llms.md)
 
 1
 
@@ -110,24 +110,24 @@ Les meilleurs prompts demandent une aide ciblée et gardent la responsabilité d
 
 ### Déboguer
 
-Voici mon message d'erreur et le code minimal qui le produit. Peux-tu m'aider à trouver la cause probable?
+Voici mon message d'erreur complet, le code minimal et ce que je voulais obtenir. Pose-moi deux questions de diagnostic, puis propose une correction que je peux tester.
 
 ### Comprendre
 
-Explique cette sortie R en langage simple, puis indique ce que je dois vérifier dans mes données.
+Explique cette sortie R en langage simple. Sépare ce qui est directement visible dans la sortie de ce qui demande une vérification dans les données.
 
 ### Réviser
 
-Relis cette interprétation et signale les phrases qui dépassent ce que les données permettent d'affirmer.
+Voici mon interprétation. Signale les phrases qui dépassent les données, les variables à vérifier et les endroits où je dois nuancer.
 
 ### Améliorer
 
-Propose une version plus claire de ce paragraphe sans changer le résultat ni ajouter d'information non vérifiée.
+Propose une version plus claire de ce paragraphe sans changer le résultat, sans ajouter de source et sans inventer d'information.
 
 ### Tester
 
-Quels contrôles devrais-je faire avant de remettre ce document Quarto?
+Voici ma consigne et mon document Quarto. Donne-moi une liste courte de vérifications à faire avant la remise: rendu, code, figures, interprétation et fichiers.
 
 ### Documenter
 
-Aide-moi à écrire une note courte qui décrit comment j'ai utilisé l'IA et comment j'ai vérifié la réponse.
+Aide-moi à écrire une note de deux phrases qui nomme le GPT utilisé, le but de l'aide et la vérification que j'ai faite.

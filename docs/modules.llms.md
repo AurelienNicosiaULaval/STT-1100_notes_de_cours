@@ -100,7 +100,7 @@ Ouvrir les exercices. Ils servent à consolider dans d'autres contextes et avec 
 
 ### Je bloque techniquement
 
-Utiliser la boîte à outils, les supports de classe et la page IA pour réduire le problème et vérifier une piste.
+Utiliser la boîte à outils, les supports de classe et [la page IA](ia.llms.md) pour réduire le problème. Dans [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100), demandez: *Voici le message d'erreur complet, mon code minimal et ce que je pensais obtenir. Quelle est la cause la plus probable et quel test simple dois-je faire?*
 
 ### Je cherche l'ordre général
 

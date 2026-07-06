@@ -100,7 +100,7 @@ Open the exercises. They consolidate skills in other contexts and with other dat
 
 ### I am technically stuck
 
-Use the toolkit, class supports and AI page to reduce the problem and verify a lead.
+Use the toolkit, class supports and [AI page](ia.llms.md) to reduce the problem. In [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100), ask: *Here is the full error message, my minimal code and what I expected. What is the most likely cause and what simple test should I run?*
 
 ### I need the general order
 
