@@ -72,8 +72,8 @@ Good searches use specific terms: the package name, the function name, the task 
   - A practical guide to the tidyverse, scripts, graphics and communication.
 - [**The Tidyverse Style Guide**](https://style.tidyverse.org/)
   - Guidance for writing clear and readable R code.
-- [**Introduction to Modern Statistics**](https://openintro-ims.netlify.app/)
-  - A complementary reference on visualization, modeling and modern statistics.
+- [**OpenIntro Statistics**](https://www.openintro.org/book/os/)
+  - An open reference for reviewing statistical foundations, descriptive graphs and uncertainty reasoning.
 - The **Quarto adventures (.qmd)** help you progress step by step. Return to them when you get stuck.
 
 ## Translate and understand key concepts

@@ -47,7 +47,7 @@ données nettoyées catégories vérifiées article rédigé
 
 - [R for Data Science - Strings](https://r4ds.hadley.nz/strings.html)
 - [R for Data Science - Factors](https://r4ds.hadley.nz/factors.html)
-- [Introduction to Modern Statistics - Explore categorical data](https://openintro-ims.netlify.app/explore-categorical)
+- [OpenIntro Statistics - Variables catégorielles](https://www.openintro.org/book/os/)
 - [Documentation de forcats](https://forcats.tidyverse.org/)
 
 Après les lectures, complétez le [mini-test formatif](mini_test.llms.md).

@@ -42,13 +42,27 @@ By the end of this module, you should be able to:
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are independent and consolidate joins, reproducibility and constructive review on other data.
 
-1 Readings Prepare GitHub collaboration, pull requests, issues and joins. [Plan](plan_apprentissage.llms.md) Open cardCollapse
+1 Readings Prepare GitHub collaboration, pull requests, issues and joins. [Mini-test](mini_test.llms.md) Open cardCollapse
 
-Goal Understand the vocabulary before teamwork begins.
+### Module 6 Readings
 
-Resource [Learning plan](plan_apprentissage.llms.md)
+These readings prepare collaborative work: follow history, discuss a change, open a useful issue and join tables.
 
-Check After the readings, complete the [formative mini-test](mini_test.llms.md).
+#### GitHub Collaboration
+
+- [GitHub Docs - GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
+  *Understand branches, commits, pull requests and merging in a collaboration workflow.*
+- [GitHub Docs - Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)
+  *Write useful and actionable feedback in a team repository.*
+
+#### Joins with dplyr
+
+- [R for Data Science - Joins](https://r4ds.hadley.nz/joins)
+  *Connect several tables with keys and check which rows appear or disappear.*
+- [dplyr - Mutating joins](https://dplyr.tidyverse.org/reference/mutate-joins.html)
+  *Reference for `left_join()`, `inner_join()`, `right_join()` and `full_join()`.*
+
+[Complete the formative mini-test for the readings](mini_test.llms.md).
 
 2 Adventure Produce a collaborative report on JFK flight delays. [Adventure](aventure.llms.md) Open cardCollapse
 

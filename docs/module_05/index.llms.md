@@ -61,12 +61,10 @@ Vous pouvez aussi aller réviser les chapitres suivants:
 - [**R for Data Science – Missing values**](https://r4ds.hadley.nz/missing-values.html)
   Ce chapitre rappelle pourquoi les valeurs manquantes doivent être repérées avant d'interpréter un résumé.
 
-Dans le libre **IMS**:
+Dans **OpenIntro Statistics**:
 
-- [**Introduction to modern statistics – Exploring numerical data**](https://openintro-ims.netlify.app/explore-numerical)
-  Ce chapitre renforce les résumés numériques, les graphiques et les comparaisons descriptives.
-- [**Introduction to modern statistics – Applications: Explore**](https://openintro-ims.netlify.app/explore-applications)
-  Ce chapitre vous introduit aux bonnes pratiques de modélisation exploratoire des données.
+- [**OpenIntro Statistics - Exploration descriptive**](https://www.openintro.org/book/os/)
+  Cette référence ouverte renforce les résumés numériques, les graphiques et les comparaisons descriptives.
 
 Après les lectures, faites le [mini-test formatif](mini_test.llms.md). Il n'est pas noté; il sert à vérifier les bases avant l'aventure.
 

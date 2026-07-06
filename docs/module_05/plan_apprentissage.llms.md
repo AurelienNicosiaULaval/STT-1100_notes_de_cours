@@ -19,8 +19,7 @@ Avant l’aventure, révisez les ressources suivantes :
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html)
 - [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html)
-- [Introduction to Modern Statistics - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical)
-- [Introduction to Modern Statistics - Applications: Explore](https://openintro-ims.netlify.app/explore-applications)
+- [OpenIntro Statistics - Exploration descriptive](https://www.openintro.org/book/os/)
 
 Après les lectures, faites le [mini-test formatif](../module_05/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 

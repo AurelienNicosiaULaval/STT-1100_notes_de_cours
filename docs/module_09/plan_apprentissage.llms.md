@@ -16,9 +16,9 @@ STT-1100 Introduction à la science des données
 
 Pour vous préparer, consultez les ressources suivantes :
 
-- [Introduction to Modern Statistics - Chapitre 7 : Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
-- [Introduction to Modern Statistics - Chapitre 8 : Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
-- [Introduction to Modern Statistics - Chapitre 25 : Inference for linear regression with multiple predictors](https://openintro-ims.netlify.app/inf-model-mlr#sec-inf-mult-reg-soft)
+- [ModernDive - Simple Linear Regression](https://moderndive.com/v2/regression.html)
+- [ModernDive - Multiple Regression](https://moderndive.com/v2/multiple-regression.html)
+- [ModernDive - Inference for Regression](https://moderndive.com/v2/inference-for-regression.html)
 - [Documentation R - `lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
 - [Documentation R - `predict.lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html)
 - [Gouvernement du Canada - Guide sur la prise de décisions automatisée](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)

@@ -34,7 +34,7 @@ Le module 2 est étalé sur deux semaines. La première semaine installe le flux
 
 - [R for Data Science - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html) Reconnaître les structures de tableaux qui facilitent l’analyse et éviter les pièges fréquents des feuilles de calcul.
 
-- [Introduction to Modern Statistics - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical) Résumer et interpréter des variables numériques avec les outils de statistique descriptive.
+- [OpenIntro Statistics - Résumés numériques](https://www.openintro.org/book/os/) Revoir les résumés numériques, les graphiques descriptifs et l’interprétation de variables quantitatives.
 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html) Quelques repères pour écrire du code graphique lisible.
 

@@ -42,13 +42,27 @@ rapport rendu issues
 
 Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à consolider les jointures, la reproductibilité et la revue constructive sur d’autres données.
 
-1 Lectures à faire Préparer collaboration GitHub, pull requests, issues et jointures. [Plan](plan_apprentissage.llms.md) Ouvrir la carteRéduire
+1 Lectures à faire Préparer collaboration GitHub, pull requests, issues et jointures. [Mini-test](mini_test.llms.md) Ouvrir la carteRéduire
 
-Objectif Comprendre le vocabulaire avant le travail d'équipe.
+### Lectures du module 6
 
-Ressource [Plan d'apprentissage](plan_apprentissage.llms.md)
+Ces lectures préparent le travail collaboratif: suivre l'historique, discuter une modification, ouvrir une issue utile et joindre des tables.
 
-Vérification Après les lectures, faites le [mini-test formatif](mini_test.llms.md).
+#### Collaboration GitHub
+
+- [GitHub Docs - Flux GitHub](https://docs.github.com/fr/get-started/using-github/github-flow)
+  *Comprendre branches, commits, pull requests et fusion dans un flux de collaboration.*
+- [GitHub Docs - Créer une issue](https://docs.github.com/fr/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)
+  *Formuler une rétroaction utile et actionnable dans le dépôt d'une équipe.*
+
+#### Jointures avec dplyr
+
+- [R for Data Science - Joins](https://r4ds.hadley.nz/joins)
+  *Relier plusieurs tables avec des clés et vérifier les lignes qui apparaissent ou disparaissent.*
+- [dplyr - Mutating joins](https://dplyr.tidyverse.org/reference/mutate-joins.html)
+  *Référence des fonctions `left_join()`, `inner_join()`, `right_join()` et `full_join()`.*
+
+[Faire le mini-test formatif des lectures](mini_test.llms.md).
 
 2 Aventure Produire un rapport collaboratif sur les retards de vols à JFK. [Aventure](aventure.llms.md) Ouvrir la carteRéduire
 

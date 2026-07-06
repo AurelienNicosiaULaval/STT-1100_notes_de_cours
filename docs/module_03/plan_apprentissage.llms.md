@@ -22,7 +22,7 @@ Ces lectures donnent les repères nécessaires avant de commencer l’aventure.
 
 - [R for Data Science - Factors](https://r4ds.hadley.nz/factors.html) Pour comprendre pourquoi l’ordre des modalités compte dans une analyse et dans un graphique.
 
-- [Introduction to Modern Statistics - Explore categorical data](https://openintro-ims.netlify.app/explore-categorical) Pour revoir les fréquences, les proportions, les tableaux croisés et les graphiques adaptés aux variables catégoriques.
+- [OpenIntro Statistics - Variables catégorielles](https://www.openintro.org/book/os/) Pour revoir les fréquences, les proportions, les tableaux croisés et les graphiques adaptés aux variables catégoriques.
 
 - [Documentation de `forcats`](https://forcats.tidyverse.org/) Pour regrouper des catégories rares, réordonner des modalités et rendre les graphiques plus lisibles.
 

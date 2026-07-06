@@ -19,8 +19,7 @@ library(lubridate)
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html)
 - [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html)
-- [Introduction to Modern Statistics - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical)
-- [Introduction to Modern Statistics - Applications: Explore](https://openintro-ims.netlify.app/explore-applications)
+- [OpenIntro Statistics - Descriptive exploration](https://www.openintro.org/book/os/)
 
 After the readings, also complete the [formative mini-test](../module_05/mini_test.llms.md). It is not graded.
 

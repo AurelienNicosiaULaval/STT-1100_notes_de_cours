@@ -6,7 +6,7 @@ The course readings point to open and durable resources. This page is a visual l
 
 [Main references](#main-references) [Targeted complements](#targeted-complements) [Module readings](#module-readings)
 
-![Cover of R for Data Science, 2nd edition](../assets/img/lectures/r4ds-cover.jpg) ![Cover of Introduction to Modern Statistics](../assets/img/lectures/ims-cover.png) ![Cover of OpenIntro Statistics](../assets/img/lectures/openintro-statistics-cover.webp)
+![Cover of R for Data Science, 2nd edition](../assets/img/lectures/r4ds-cover.jpg) ![Cover of OpenIntro Statistics](../assets/img/lectures/openintro-statistics-cover.webp)
 
 ## Main References
 
@@ -21,16 +21,6 @@ Wickham, Çetinkaya-Rundel and Grolemund
 Main reference for the tidyverse, import, transformation, visualization, dates, joins and communication.
 
 [Open the book](https://r4ds.hadley.nz/)
-
-![Cover of Introduction to Modern Statistics](../assets/img/lectures/ims-cover.png)
-
-Çetinkaya-Rundel and Hardin
-
-### Introduction to Modern Statistics
-
-Complement for numerical exploration, inference, statistical intuition and applied interpretation.
-
-[Open the book](https://openintro-ims.netlify.app/)
 
 ![Cover of OpenIntro Statistics](../assets/img/lectures/openintro-statistics-cover.webp)
 
@@ -365,7 +355,7 @@ R for Data Science: strings, factors, recoding and guidance for categorical vari
 
 ### Module 05
 
-[R for Data Science](#r4ds) for EDA, dates, visualization and missing values; [Introduction to Modern Statistics](#ims) for numerical exploration; [R Graphics Cookbook](#r-graphics-cookbook) for refining a graph.
+[R for Data Science](#r4ds) for EDA, dates, visualization and missing values; [OpenIntro Statistics](#openintro) for numerical exploration; [R Graphics Cookbook](#r-graphics-cookbook) for refining a graph.
 
 ### Module 06
 
@@ -381,7 +371,7 @@ R for Data Science: strings, factors, recoding and guidance for categorical vari
 
 ### Module 09
 
-[Introduction to Modern Statistics](#ims) and [ModernDive](#moderndive) for simple and multiple regression, [lm()](#r-lm-docs) and [predict.lm()](#r-predict-lm-docs) for the R implementation, then the [Government of Canada guide](#canada-adm-guide) and [NIST SP 1270](#nist-bias-ai) for discussing bias and automated decisions.
+[ModernDive](#moderndive) for simple and multiple regression, [lm()](#r-lm-docs) and [predict.lm()](#r-predict-lm-docs) for the R implementation, then the [Government of Canada guide](#canada-adm-guide) and [NIST SP 1270](#nist-bias-ai) for discussing bias and automated decisions.
 
 ### Module 10
 

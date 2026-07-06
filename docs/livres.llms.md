@@ -6,7 +6,7 @@ Les lectures du cours renvoient vers des ressources ouvertes et durables. Cette 
 
 [Références principales](#references-principales) [Compléments ciblés](#complements-cibles) [Lectures par module](#lectures-par-module)
 
-![Couverture de R for Data Science, 2e édition](assets/img/lectures/r4ds-cover.jpg) ![Couverture de Introduction to Modern Statistics](assets/img/lectures/ims-cover.png) ![Couverture de OpenIntro Statistics](assets/img/lectures/openintro-statistics-cover.webp)
+![Couverture de R for Data Science, 2e édition](assets/img/lectures/r4ds-cover.jpg) ![Couverture de OpenIntro Statistics](assets/img/lectures/openintro-statistics-cover.webp)
 
 ## Références principales
 
@@ -21,16 +21,6 @@ Wickham, Çetinkaya-Rundel et Grolemund
 Référence principale pour le tidyverse, l'importation, la transformation, la visualisation, les dates, les jointures et la communication.
 
 [Ouvrir le livre](https://r4ds.hadley.nz/)
-
-![Couverture de Introduction to Modern Statistics](assets/img/lectures/ims-cover.png)
-
-Çetinkaya-Rundel et Hardin
-
-### Introduction to Modern Statistics
-
-Complément pour l'exploration numérique, l'inférence, l'intuition statistique et l'interprétation appliquée.
-
-[Ouvrir le livre](https://openintro-ims.netlify.app/)
 
 ![Couverture de OpenIntro Statistics](assets/img/lectures/openintro-statistics-cover.webp)
 
@@ -365,7 +355,7 @@ R for Data Science: chaînes de caractères, facteurs, recodage et repères pour
 
 ### Module 05
 
-[R for Data Science](#r4ds) pour EDA, dates, visualisation et valeurs manquantes; [Introduction to Modern Statistics](#ims) pour l'exploration numérique; [R Graphics Cookbook](#r-graphics-cookbook) pour raffiner un graphique.
+[R for Data Science](#r4ds) pour EDA, dates, visualisation et valeurs manquantes; [OpenIntro Statistics](#openintro) pour l'exploration numérique; [R Graphics Cookbook](#r-graphics-cookbook) pour raffiner un graphique.
 
 ### Module 06
 
@@ -381,7 +371,7 @@ R for Data Science: chaînes de caractères, facteurs, recodage et repères pour
 
 ### Module 09
 
-[Introduction to Modern Statistics](#ims) et [ModernDive](#moderndive) pour la régression simple et multiple, [lm()](#r-lm-docs) et [predict.lm()](#r-predict-lm-docs) pour l'implémentation R, puis le [guide du Canada](#canada-adm-guide) et [NIST SP 1270](#nist-bias-ai) pour la discussion des biais et des décisions automatisées.
+[ModernDive](#moderndive) pour la régression simple et multiple, [lm()](#r-lm-docs) et [predict.lm()](#r-predict-lm-docs) pour l'implémentation R, puis le [guide du Canada](#canada-adm-guide) et [NIST SP 1270](#nist-bias-ai) pour la discussion des biais et des décisions automatisées.
 
 ### Module 10
 
