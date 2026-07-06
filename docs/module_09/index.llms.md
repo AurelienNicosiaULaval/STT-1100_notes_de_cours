@@ -47,11 +47,11 @@ Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exerc
 
 Pour vous préparer, consultez les ressources suivantes :
 
-- [ModernDive - Simple Linear Regression](https://moderndive.com/v2/regression.html)
+- [Introduction to Modern Statistics - Chapitre 7 : Linear regression with a single predictor](https://openintrostat.github.io/ims/model-slr)
 
-- [ModernDive - Multiple Regression](https://moderndive.com/v2/multiple-regression.html)
+- [Introduction to Modern Statistics - Chapitre 8 : Linear regression with multiple predictors](https://openintrostat.github.io/ims/model-mlr)
 
-- [ModernDive - Inference for Regression](https://moderndive.com/v2/inference-for-regression.html)
+- [Introduction to Modern Statistics - Chapitre 25 : Inference for linear regression with multiple predictors](https://openintrostat.github.io/ims/inf-model-mlr#sec-inf-mult-reg-soft)
 
 - [Documentation R - `lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
 

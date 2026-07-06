@@ -19,7 +19,8 @@ library(lubridate)
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html)
 - [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html)
-- [OpenIntro Statistics - Exploration descriptive](https://www.openintro.org/book/os/)
+- [Introduction to Modern Statistics - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
+- [Introduction to Modern Statistics - Applications: Explore](https://openintrostat.github.io/ims/explore-applications)
 
 Après les lectures, faites aussi le [mini-test formatif](../module_05/mini_test.llms.md). Il n’est pas noté.
 

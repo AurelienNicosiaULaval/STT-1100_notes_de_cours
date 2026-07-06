@@ -47,11 +47,11 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 
 To prepare, check out the following resources:
 
-- [ModernDive - Simple Linear Regression](https://moderndive.com/v2/regression.html)
+- [Introduction to Modern Statistics - Chapter 7: Linear regression with a single predictor](https://openintrostat.github.io/ims/model-slr)
 
-- [ModernDive - Multiple Regression](https://moderndive.com/v2/multiple-regression.html)
+- [Introduction to Modern Statistics - Chapter 8: Linear regression with multiple predictors](https://openintrostat.github.io/ims/model-mlr)
 
-- [ModernDive - Inference for Regression](https://moderndive.com/v2/inference-for-regression.html)
+- [Introduction to Modern Statistics - Chapter 25: Inference for linear regression with multiple predictors](https://openintrostat.github.io/ims/inf-model-mlr#sec-inf-mult-reg-soft)
 
 - [R documentation - `lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
 

@@ -69,7 +69,7 @@ Your capsule must include:
 
 # Resources
 
-- ModernDive, Simple Linear Regression: <https://moderndive.com/v2/regression.html>
-- ModernDive, Multiple Regression: <https://moderndive.com/v2/multiple-regression.html>
+- Mine Cetinkaya-Rundel and Johanna Hardin, 2024, Introduction to Modern Statistics, chapter 7: <https://openintrostat.github.io/ims/model-slr>
+- Mine Cetinkaya-Rundel and Johanna Hardin, 2024, Introduction to Modern Statistics, chapter 8: <https://openintrostat.github.io/ims/model-mlr>
 - R documentation for `lm()`: <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html>
 - R documentation for `predict.lm()`: <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html>

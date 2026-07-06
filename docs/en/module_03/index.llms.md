@@ -47,7 +47,7 @@ Read before the adventure:
 
 - [R for Data Science - Strings](https://r4ds.hadley.nz/strings.html)
 - [R for Data Science - Factors](https://r4ds.hadley.nz/factors.html)
-- [OpenIntro Statistics - Categorical variables](https://www.openintro.org/book/os/)
+- [Introduction to Modern Statistics - Explore categorical data](https://openintrostat.github.io/ims/explore-categorical)
 - [The forcats documentation](https://forcats.tidyverse.org/)
 
 After the readings, complete the [formative mini-test](mini_test.llms.md).

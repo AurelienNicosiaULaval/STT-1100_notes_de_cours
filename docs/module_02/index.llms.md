@@ -76,8 +76,8 @@ Le module 2 se fait sur deux semaines. La première semaine prépare le dépôt 
 - [R4DS - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html)
   *Comprendre les structures de données utiles dans les feuilles de calcul.*
 
-- [OpenIntro Statistics - Résumés numériques](https://www.openintro.org/book/os/)
-  *Interpréter des résumés numériques, histogrammes et boîtes à moustaches avec une référence ouverte.*
+- [IMS - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
+  *Interpréter des résumés numériques, histogrammes et boîtes à moustaches.*
 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html)
   *Écrire du code graphique plus lisible.*

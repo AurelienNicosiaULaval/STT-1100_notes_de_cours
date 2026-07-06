@@ -34,7 +34,7 @@ Module 2 spans two weeks. The first week sets up the GitHub workflow, Excel impo
 
 - [R for Data Science - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html) Recognize table structures that make analysis easier and avoid common spreadsheet pitfalls.
 
-- [OpenIntro Statistics - Numerical summaries](https://www.openintro.org/book/os/) Review numerical summaries, descriptive graphs and the interpretation of quantitative variables.
+- [Introduction to Modern Statistics - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical) Summarize and interpret numerical variables with descriptive statistics.
 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html) A few landmarks for writing readable chart code.
 

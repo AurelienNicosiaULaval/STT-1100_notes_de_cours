@@ -76,8 +76,8 @@ Module 2 spans two weeks. The first week prepares the GitHub repository, Excel i
 - [R4DS - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html)
   *Understand useful data structures in spreadsheets.*
 
-- [OpenIntro Statistics - Numerical summaries](https://www.openintro.org/book/os/)
-  *Interpret numerical summaries, histograms and box plots with an open reference.*
+- [IMS - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
+  *Interpret numerical summaries, histograms and box plots.*
 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html)
   *Write more readable chart code.*

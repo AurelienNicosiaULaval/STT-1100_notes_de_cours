@@ -4,7 +4,7 @@
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider la régression linéaire, la prédiction et la discussion prudente des biais à partir de données fictives différentes de celles utilisées dans l’activité principale.
 
-Avant de commencer, relisez au besoin les ressources du module: les chapitres ModernDive sur la régression simple et multiple, la documentation de `lm()`, la documentation de `predict.lm()` et le mini-test formatif du module.
+Avant de commencer, relisez au besoin les ressources du module: les chapitres 7 et 8 de *Introduction to Modern Statistics*, la documentation de `lm()`, la documentation de `predict.lm()` et le mini-test formatif du module.
 
 ``` r
 library(tidyverse)

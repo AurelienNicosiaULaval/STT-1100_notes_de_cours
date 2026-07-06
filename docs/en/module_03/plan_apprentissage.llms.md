@@ -22,7 +22,7 @@ These readings provide the background needed before starting the adventure.
 
 - [R for Data Science - Factors](https://r4ds.hadley.nz/factors.html) To understand why the order of categories matters in an analysis and in a chart.
 
-- [OpenIntro Statistics - Categorical variables](https://www.openintro.org/book/os/) To review frequencies, proportions, cross-tabulations and charts for categorical variables.
+- [Introduction to Modern Statistics - Explore categorical data](https://openintrostat.github.io/ims/explore-categorical) To review frequencies, proportions, cross-tabulations and charts for categorical variables.
 
 - [The `forcats` documentation](https://forcats.tidyverse.org/) To lump rare categories, reorder levels and make categorical charts easier to read.
 
