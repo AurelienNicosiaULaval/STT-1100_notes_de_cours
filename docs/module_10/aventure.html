@@ -6643,6 +6643,58 @@ font-weight: 700;
 outline: 2px solid rgba(0, 0, 0,.2);
 outline-offset: 2px;
 }
+.stt-ai-fab {
+position: fixed;
+right: 1.2rem;
+bottom: 1.2rem;
+z-index: 1100;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: .45rem;
+min-width: 3.2rem;
+height: 3.2rem;
+padding: 0 .85rem;
+border: 1px solid rgba(255, 255, 255, .45);
+border-radius: 999px;
+background: var(--ulaval-red, #d00000);
+color: #ffffff;
+box-shadow: 0 12px 26px rgba(0, 0, 0, .22);
+text-decoration: none;
+transition: transform .16s ease, box-shadow .16s ease, background-color .16s ease;
+}
+.stt-ai-fab:hover,
+.stt-ai-fab:focus {
+color: #ffffff;
+background: #b00000;
+box-shadow: 0 15px 30px rgba(0, 0, 0, .28);
+text-decoration: none;
+transform: translateY(-2px);
+}
+.stt-ai-fab:focus {
+outline: 3px solid rgba(255, 211, 0, .75);
+outline-offset: 3px;
+}
+.stt-ai-fab i {
+color: var(--ulaval-yellow, #ffd200);
+font-size: 1.24rem;
+line-height: 1;
+}
+.stt-ai-fab__label {
+max-width: 0;
+overflow: hidden;
+opacity: 0;
+white-space: nowrap;
+font-size: .9rem;
+font-weight: 700;
+line-height: 1;
+transition: max-width .18s ease, opacity .14s ease;
+}
+.stt-ai-fab:hover .stt-ai-fab__label,
+.stt-ai-fab:focus .stt-ai-fab__label {
+max-width: 9rem;
+opacity: 1;
+}
 @media (max-width: 575.98px) {
 .qs-language-host {
 top: 6px;
@@ -6652,8 +6704,28 @@ right: 8px;
 padding:.15rem.25rem;
 font-size:.8rem;
 }
+.stt-ai-fab {
+right: .85rem;
+bottom: .85rem;
+min-width: 3rem;
+height: 3rem;
+padding: 0;
+}
+.stt-ai-fab__label {
+display: none;
+}
+}
+@media print {
+.stt-ai-fab {
+display: none !important;
+}
 }
 </style>
+<a class="stt-ai-fab" href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100" target="_blank" rel="noopener" aria-label="Ouvrir GPT STT-1100" title="Ouvrir GPT STT-1100">
+  <i class="bi bi-stars" aria-hidden="true"></i>
+  <span class="stt-ai-fab__label">GPT STT-1100</span>
+</a>
+
 <script>
 (function(){
   const UI_LABELS = {
@@ -6758,6 +6830,14 @@ font-size:.8rem;
   if (en) en.setAttribute('aria-pressed', isEn ? 'true': 'false');
   }
 
+  function updateAssistantLinkLabel(){
+  const link = document.querySelector('.stt-ai-fab');
+  if (!link) return;
+  const label = isEnglishPath(window.location.pathname) ? 'Open GPT STT-1100': 'Ouvrir GPT STT-1100';
+  link.setAttribute('aria-label', label);
+  link.setAttribute('title', label);
+  }
+
   function onLanguageClick(targetLang){
   return (event) => {
   event.preventDefault();
@@ -6840,6 +6920,7 @@ font-size:.8rem;
   document.addEventListener('DOMContentLoaded', () => {
   insertControls();
   updateLanguageState();
+  updateAssistantLinkLabel();
   });
 
   const obs = new MutationObserver(() => {
