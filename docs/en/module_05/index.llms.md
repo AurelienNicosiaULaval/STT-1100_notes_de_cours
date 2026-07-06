@@ -84,13 +84,15 @@ Pause after each important result and state what it shows.
 
 3 Challenge Write a cautious EDA report about delays. [Challenge](defi.llms.md) Open cardCollapse
 
-Goal Submit an exploratory report on flight delays.
+### Challenge - EDA report
 
-Resource [Challenge page](defi.llms.md)
+You prepare a short exploratory report on flight delays by connecting graphs, observed associations and a cautious conclusion.
 
-Submit `rapport.qmd`, `rapport.html` and the provided data.
+- Goal: state a question, produce useful visualizations and interpret without overclaiming.
+- Deliverables: `rapport.qmd`, `rapport.html` and the provided data.
+- Watch point: clearly distinguish association from causation.
 
-Clearly distinguish association from causation in your conclusions.
+The full instructions are available in the [Challenge 5](defi.llms.md) page.
 
 4 Exercises Consolidate charts, correlations and interpretations. [Exercises](exercices.llms.md) Open cardCollapse
 

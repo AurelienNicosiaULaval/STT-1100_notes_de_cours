@@ -92,42 +92,17 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Rendre un mini-rapport HTML clair et reproductible. Dans la carte Ouvrir la carteRéduire
+3 Défi Rendre un mini-rapport HTML clair et reproductible. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-### Défi
+### Défi - Mini-rapport Quarto
 
-Dans ce premier défi, afin de vous faire la main avec les différents outils, vous devez créer un rapport Quarto au format HTML.
+Vous transformez la pratique guidée en un premier rapport HTML autonome. La carte donne seulement le repère: le défi complet est dans la page dédiée.
 
-[Défi du module 1](defi.llms.md)
+- But: produire un fichier Quarto lisible qui s'exécute sans erreur.
+- Livrables: fichier source `.qmd` et rendu HTML.
+- Point d'attention: structure du rapport, code visible et interprétation courte écrite dans vos mots.
 
-#### Lectures additionnelles
-
-##### Approfondir les bonnes pratiques
-
-Une fois les bases posées, il est essentiel d’adopter dès le départ des **habitudes de travail claires, reproductibles et cohérentes**. Les ressources ci-dessous vous aideront à améliorer la lisibilité, la structure et l’organisation de votre code.
-
-------------------------------------------------------------------------
-
-##### Compléments R4DS
-
-- [Workflow: help](https://r4ds.hadley.nz/workflow-help.html)
-  *Apprendre à poser les bonnes questions, à chercher efficacement dans la documentation et à formuler des demandes d’aide pertinentes.*
-
-- [Quarto formats](https://r4ds.hadley.nz/quarto-formats.html)
-  *Présentation des formats disponibles dans Quarto et comment personnaliser vos rapports, articles ou présentations.*
-
-- [Workflow: style](https://r4ds.hadley.nz/workflow-style.html)
-  *Pourquoi un style de code cohérent est crucial pour la collaboration et comment y parvenir avec le style tidyverse.*
-
-------------------------------------------------------------------------
-
-##### Guide de style du tidyverse
-
-- [Chapitre 1: Files](https://style.tidyverse.org/files.html)
-  *Conseils pour organiser vos fichiers, structurer vos projets et nommer vos scripts de façon claire.*
-
-- [Chapitre 2: Syntax](https://style.tidyverse.org/syntax.html)
-  *Règles de syntaxe pour écrire du code lisible, espacement, indentation et conventions de nommage.*
+La consigne complète est disponible dans la page [Défi 1](defi.llms.md).
 
 4 Exercices Pratiquer RStudio, Quarto, MeteoQuebec et deux études de cas. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 

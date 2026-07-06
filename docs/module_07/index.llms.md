@@ -72,7 +72,7 @@ Résultat Un premier objet de travail que vous pouvez expliquer.
 
 Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
-3 Défi Analyser des visualisations avec une note éthique argumentée. Dans la carte Ouvrir la carteRéduire
+3 Défi Analyser des visualisations avec une note éthique argumentée. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
 ### Défi - Analyse éthique et visualisations responsables
 

@@ -71,13 +71,15 @@ Le fil narratif est guidé: on cherche moins la perfection que la traçabilité.
 
 3 Défi Livrer un tableau nettoyé avec transformations justifiées. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-Objectif Reprendre le même fichier d'assurance en autonomie et livrer une version propre.
+### Défi - Nettoyage documenté
 
-Ressource [Page Défi](defi.llms.md)
+Vous reprenez le fichier d'assurance en autonomie pour produire une version propre et justifier les décisions de nettoyage.
 
-À remettre Un fichier `.qmd`, `donnees_propres.csv` et `journal_nettoyage.Rdata`.
+- But: importer, diagnostiquer, corriger et documenter les variables fragiles.
+- Livrables: un fichier `.qmd`, `donnees_propres.csv` et `journal_nettoyage.Rdata`.
+- Point d'attention: vérifier que l'importation donne 23 colonnes avant de nettoyer.
 
-Vérifiez que l'importation donne 23 colonnes avant de nettoyer.
+La consigne complète est disponible dans la page [Défi 4](defi.llms.md).
 
 4 Exercices Pratiquer les gestes techniques sur des données autonomes. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 

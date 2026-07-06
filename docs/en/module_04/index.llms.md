@@ -71,13 +71,15 @@ The story thread is guided: traceability matters more than perfection.
 
 3 Challenge Deliver a cleaned table with justified transformations. [Challenge](defi.llms.md) Open cardCollapse
 
-Goal Rework the same insurance file independently and deliver a clean version.
+### Challenge - Documented cleaning
 
-Resource [Challenge page](defi.llms.md)
+You rework the insurance file independently to produce a clean version and justify the cleaning decisions.
 
-Submit A `.qmd` file, `donnees_propres.csv` and `journal_nettoyage.Rdata`.
+- Goal: import, diagnose, correct and document fragile variables.
+- Deliverables: one `.qmd` file, `donnees_propres.csv` and `journal_nettoyage.Rdata`.
+- Watch point: check that the import produces 23 columns before cleaning.
 
-Check that the import produces 23 columns before cleaning.
+The full instructions are available in the [Challenge 4](defi.llms.md) page.
 
 4 Exercises Practice technical moves on autonomous data. [Exercises](exercices.llms.md) Open cardCollapse
 

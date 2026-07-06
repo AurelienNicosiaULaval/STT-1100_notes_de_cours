@@ -92,42 +92,17 @@ Result A first work object that you can explain.
 
 Pause after each important result and state what it shows.
 
-3 Challenge Render a clear and reproducible mini HTML report. In this card Open cardCollapse
+3 Challenge Render a clear and reproducible mini HTML report. [Challenge](defi.llms.md) Open cardCollapse
 
-### Challenge
+### Challenge - Quarto mini-report
 
-In this first challenge, in order to get used to the different tools, you must create a Quarto report in HTML format.
+You turn the guided practice into a first standalone HTML report. This card only gives the quick landmark: the full challenge lives on the dedicated page.
 
-[Module 1 challenge](defi.llms.md)
+- Goal: produce a readable Quarto file that runs without errors.
+- Deliverables: source `.qmd` file and rendered HTML.
+- Watch point: report structure, visible code and a short interpretation in your own words.
 
-#### Further reading
-
-##### Deepen best practices
-
-Once the foundations have been laid, it is essential to adopt **clear, reproducible and consistent work habits** from the start. The resources below will help you improve the readability, structure, and organization of your code.
-
-------------------------------------------------------------------------
-
-##### R4DS Add-ons
-
-- [Workflow: help](https://r4ds.hadley.nz/workflow-help.html)
-  *Learn to ask the right questions, search documentation effectively, and make relevant requests for help.*
-
-- [Quarto formats](https://r4ds.hadley.nz/quarto-formats.html)
-  *Introduction to the formats available in Quarto and how to customize your reports, articles or presentations.*
-
-- [Workflow: style](https://r4ds.hadley.nz/workflow-style.html)
-  *Why a consistent code style is crucial for collaboration and how to achieve it with tidyverse style.*
-
-------------------------------------------------------------------------
-
-##### Tidyverse Style Guide
-
-- [Chapter 1: Files](https://style.tidyverse.org/files.html)
-  *Tips for organizing your files, structuring your projects and naming your scripts clearly.*
-
-- [Chapter 2: Syntax](https://style.tidyverse.org/syntax.html)
-  *Syntax rules for writing readable code, spacing, indentation and naming conventions.*
+The full instructions are available in the [Challenge 1](defi.llms.md) page.
 
 4 Exercises Practise RStudio, Quarto, MeteoQuebec and two case studies. [Exercises](exercices.llms.md) Open cardCollapse
 

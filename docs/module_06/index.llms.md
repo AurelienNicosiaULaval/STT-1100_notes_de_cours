@@ -60,11 +60,15 @@ Ressource [Page Aventure](aventure.llms.md)
 
 3 Défi Faire une revue croisée claire et actionnable. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-Objectif Vérifier le rapport d'une autre équipe et ouvrir des issues utiles.
+### Défi - Revue croisée
 
-Ressource [Page Défi](defi.llms.md)
+Vous évaluez le rapport d'une autre équipe comme collaborateur: vérifier la reproductibilité, formuler des issues utiles et répondre aux corrections.
 
-Livrable Issues GitHub, réponses et corrections retenues.
+- But: produire une rétroaction précise, actionnable et liée au code ou au rapport.
+- Livrables: issues GitHub, réponses et corrections retenues.
+- Point d'attention: une bonne issue doit permettre à l'équipe de savoir quoi modifier.
+
+La consigne complète est disponible dans la page [Défi 6](defi.llms.md).
 
 4 Exercices Pratiquer les jointures et les diagnostics sur des données fictives. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 

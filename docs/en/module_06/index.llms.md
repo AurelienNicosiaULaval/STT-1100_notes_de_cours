@@ -60,11 +60,15 @@ Submit `rapport.qmd`, `rapport.html` and `README.md`.
 
 3 Challenge Write a clear and actionable peer review. [Challenge](defi.llms.md) Open cardCollapse
 
-Goal Check another team's report and open useful issues.
+### Challenge - Peer review
 
-Resource [Challenge page](defi.llms.md)
+You assess another team's report as a collaborator: check reproducibility, write useful issues and respond to corrections.
 
-Deliverable GitHub issues, responses and accepted corrections.
+- Goal: produce precise, actionable feedback tied to the code or report.
+- Deliverables: GitHub issues, responses and accepted corrections.
+- Watch point: a good issue must help the team know what to modify.
+
+The full instructions are available in the [Challenge 6](defi.llms.md) page.
 
 4 Exercises Practise joins and diagnostics on fictitious data. [Exercises](exercices.llms.md) Open cardCollapse
 

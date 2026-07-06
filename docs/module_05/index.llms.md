@@ -84,13 +84,15 @@ Arrêtez-vous après chaque résultat important et formulez ce qu’il montre.
 
 3 Défi Rédiger une analyse EDA prudente sur les retards. [Défi](defi.llms.md) Ouvrir la carteRéduire
 
-Objectif Remettre un rapport exploratoire sur les retards de vols.
+### Défi - Rapport EDA
 
-Ressource [Page Défi](defi.llms.md)
+Vous préparez un court rapport exploratoire sur les retards de vols en reliant les graphiques, les associations observées et une conclusion prudente.
 
-À remettre `rapport.qmd`, `rapport.html` et les données fournies.
+- But: formuler une question, produire des visualisations utiles et interpréter sans surconclure.
+- Livrables: `rapport.qmd`, `rapport.html` et les données fournies.
+- Point d'attention: distinguer clairement association et causalité.
 
-Distinguez clairement association et causalité dans vos conclusions.
+La consigne complète est disponible dans la page [Défi 5](defi.llms.md).
 
 4 Exercices Consolider graphiques, corrélations et interprétations. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
