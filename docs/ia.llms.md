@@ -34,9 +34,9 @@ Réutiliser une suggestion seulement après avoir exécuté le code, comparé au
 
 Remettre du code, du texte, des sources ou une interprétation que vous ne comprenez pas ou que vous ne pouvez pas refaire.
 
-## Selon l'activité
+## Usage permis de l'IA
 
-Le même outil ne joue pas le même rôle dans une pratique formative, un défi, un examen ou un projet de session.
+Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, gardez une trace courte: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
 
 1
 
@@ -48,19 +48,19 @@ Usage encouragé pour comprendre une notion, tester une commande, corriger une e
 
 ### Défis
 
-Usage possible comme aide au raisonnement, au débogage ou à la révision. Le livrable final doit rester vérifiable, personnel et cohérent avec la consigne.
+Appliquer la règle commune et garder une trace lorsque l'aide influence le livrable.
 
 3
 
 ### Examen
 
-Les modalités exactes, le matériel autorisé et les outils permis sont indiqués sur Brio. En cas de doute, la consigne officielle prévaut.
+Vérifier les outils explicitement autorisés sur Brio avant de commencer.
 
 4
 
 ### Projet de session
 
-Usage possible pour organiser le travail, réviser le code ou améliorer la clarté. Les données, sources, choix d'analyse et limites doivent être documentés par l'équipe.
+Appliquer la règle commune dans le dépôt d'équipe et dans les remises.
 
 ## Déclarer l'aide reçue
 

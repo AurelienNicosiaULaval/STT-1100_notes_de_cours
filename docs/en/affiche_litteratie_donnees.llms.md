@@ -106,7 +106,7 @@ Teams that produce a strong poster may, if they wish, authorize its submission t
 
 ## Use of artificial intelligence
 
-AI tools are allowed with restrictions. Transparency, verification and team responsibility are required.
+In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, keep a short trace: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
 
 1
 

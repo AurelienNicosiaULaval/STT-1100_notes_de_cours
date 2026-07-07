@@ -34,9 +34,9 @@ Reuse a suggestion only after running the code, comparing it with the data and r
 
 Submitting code, text, sources or interpretations that you do not understand or cannot reproduce.
 
-## Depending on the Activity
+## Allowed AI Use
 
-The same tool does not play the same role in formative practice, a challenge, an exam or the course project.
+In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, keep a short trace: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
 
 1
 
@@ -48,19 +48,19 @@ Encouraged for understanding a concept, testing a command, fixing an error or fi
 
 ### Challenges
 
-Possible as support for reasoning, debugging or revision. The final deliverable must remain verifiable, personal and consistent with the instructions.
+Apply the common rule and keep a trace when help influences the deliverable.
 
 3
 
 ### Exam
 
-The exact conditions, authorized materials and allowed tools are listed on Brio. When in doubt, the official instructions prevail.
+Check the tools explicitly authorized on Brio before starting.
 
 4
 
 ### Course Project
 
-Possible for organizing work, reviewing code or improving clarity. The team must document the data, sources, analysis choices and limitations.
+Apply the common rule in the team repository and submissions.
 
 ## Disclosing Help Received
 

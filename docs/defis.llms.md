@@ -88,9 +88,9 @@ Lorsque le défi utilise GitHub, pousser les commits et relire le dépôt en lig
 
 [Retrouver les ressources](ressources.llms.md)
 
-### IA et aide
+### Usage permis de l'IA
 
-Si une aide externe est utilisée, garder une trace compréhensible de vos décisions et respecter les règles indiquées pour le cours.
+Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, gardez une trace courte: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
 
 [Consulter la page IA](ia.llms.md)
 

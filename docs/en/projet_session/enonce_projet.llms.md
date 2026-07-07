@@ -20,6 +20,10 @@ At the end of the project, your repository should show that your team can:
 - communicate the project in a short presentation and a final summary;
 - collaborate transparently in a GitHub repository.
 
+# Allowed AI Use
+
+In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, keep a short trace: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
+
 # Dataset
 
 Choose a manageable dataset for a first complete analysis.

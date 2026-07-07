@@ -52,9 +52,9 @@ Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exerc
 
 ### Lectures initiales
 
-Le module 2 se fait sur deux semaines. La première semaine prépare le dépôt GitHub, l'importation Excel et les premiers graphiques. La deuxième semaine consolide l'exploration numérique et la comparaison de distributions.
+À l'automne 2026, le module 2 est préparé pendant la semaine du 7 septembre, puis travaillé en classe le 14 septembre. Le travail préparatoire installe le dépôt GitHub, l'importation Excel et les premiers graphiques; la séance de classe sert à mettre ces gestes en pratique et à consolider l'exploration numérique et la comparaison de distributions.
 
-#### Semaine 1
+#### Travail préparatoire
 
 - [Aide-mémoire RStudio et GitHub](../autre_materiel/aide-memoire-rstudio-github.llms.md)
   *Cloner un dépôt, faire des commits et pousser vers GitHub.*
@@ -68,7 +68,7 @@ Le module 2 se fait sur deux semaines. La première semaine prépare le dépôt 
 - [Documentation readxl](https://readxl.tidyverse.org/)
   *Importer des fichiers Excel avec `read_excel()`.*
 
-#### Semaine 2
+#### Approfondissement
 
 - [R4DS - Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html)
   *Explorer les distributions et repérer les valeurs extrêmes.*

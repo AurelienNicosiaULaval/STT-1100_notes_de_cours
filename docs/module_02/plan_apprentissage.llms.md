@@ -16,9 +16,9 @@ STT-1100 Introduction à la science des données
 
 # Lectures initiales
 
-Le module 2 est étalé sur deux semaines. La première semaine installe le flux de travail GitHub, l’importation Excel et les premiers verbes `dplyr`. La deuxième semaine consolide l’analyse exploratoire, les statistiques descriptives et la visualisation de variables numériques.
+À l’automne 2026, le module 2 est préparé pendant la semaine du 7 septembre, puis travaillé en classe le 14 septembre. Le travail préparatoire installe le flux de travail GitHub, l’importation Excel et les premiers verbes `dplyr`; la séance de classe sert à mettre ces gestes en pratique et à consolider l’analyse exploratoire, les statistiques descriptives et la visualisation de variables numériques.
 
-## Semaine 1 - Projet, importation et premiers graphiques
+## Travail préparatoire - Projet, importation et premiers graphiques
 
 - [Aide-mémoire RStudio et GitHub](../autre_materiel/aide-memoire-rstudio-github.llms.md) Cloner un dépôt, ouvrir un projet RStudio, comprendre commits et push, et reconnaître les problèmes d’authentification les plus fréquents.
 
@@ -28,7 +28,7 @@ Le module 2 est étalé sur deux semaines. La première semaine installe le flux
 
 - [readxl - Documentation officielle](https://readxl.tidyverse.org/) Référence courte pour importer des fichiers Excel avec `read_excel()`.
 
-## Semaine 2 - Exploration et comparaison de distributions
+## Approfondissement - Exploration et comparaison de distributions
 
 - [R for Data Science - Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html) Explorer les distributions, repérer des valeurs extrêmes et formuler des hypothèses à partir des graphiques.
 

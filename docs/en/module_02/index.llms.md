@@ -52,9 +52,9 @@ The cards follow the four blocks of the learning plan: readings, adventure, chal
 
 ### Initial readings
 
-Module 2 spans two weeks. The first week prepares the GitHub repository, Excel import and first charts. The second week consolidates numerical exploration and distribution comparison.
+In Fall 2026, Module 2 is prepared during the week of September 7, then worked through in class on September 14. The preparatory work sets up the GitHub repository, Excel import and first charts; the class meeting puts these skills into practice and consolidates numerical exploration and distribution comparison.
 
-#### Week 1
+#### Preparatory work
 
 - [RStudio and GitHub quick reference](../autre_materiel/aide-memoire-rstudio-github.llms.md)
   *Clone a repository, make commits and push to GitHub.*
@@ -68,7 +68,7 @@ Module 2 spans two weeks. The first week prepares the GitHub repository, Excel i
 - [readxl documentation](https://readxl.tidyverse.org/)
   *Import Excel files with `read_excel()`.*
 
-#### Week 2
+#### Extension
 
 - [R4DS - Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html)
   *Explore distributions and identify extreme values.*
