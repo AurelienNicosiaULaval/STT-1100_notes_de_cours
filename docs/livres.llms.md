@@ -2,15 +2,15 @@ Références du cours
 
 # Livres et lectures
 
-Les lectures du cours renvoient vers des ressources ouvertes et durables. Cette page sert de bibliothèque visuelle pour retrouver les livres, guides et chapitres utiles.
+Les lectures du cours renvoient vers des ressources ouvertes et durables. Les livres sont séparés des sites web, guides, articles et aides de fonctions.
 
-[Références principales](#references-principales) [Compléments ciblés](#complements-cibles) [Lectures par module](#lectures-par-module)
+[Livres](#livres) [Autres lectures et aides](#autres-lectures) [Lectures par module](#lectures-par-module)
 
 ![Couverture de R for Data Science, 2e édition](assets/img/lectures/r4ds-cover.jpg) ![Couverture de Introduction to Modern Statistics](assets/img/lectures/ims-cover.png) ![Couverture de OpenIntro Statistics](assets/img/lectures/openintro-statistics-cover.webp)
 
-## Références principales
+## Livres
 
-Ces ressources couvrent le coeur du cours: R, visualisation, transformation, exploration statistique, communication et reproductibilité.
+Ces livres peuvent servir de références de fond pour R, la statistique, la visualisation, la reproductibilité et le projet de session.
 
 ![Couverture de R for Data Science, 2e édition](assets/img/lectures/r4ds-cover.jpg)
 
@@ -42,8 +42,7 @@ Référence ouverte pour revoir les bases statistiques et les raisonnements d'in
 
 [Ouvrir la ressource](https://www.openintro.org/book/os/)
 
-Text Mining
-with R
+![Couverture de Text Mining with R](assets/img/lectures/text-mining-with-r-cover.jpg)
 
 Silge et Robinson
 
@@ -52,6 +51,71 @@ Silge et Robinson
 Référence du module 10 pour transformer du texte en données tidy, compter des mots et construire des analyses lexicales.
 
 [Ouvrir le livre](https://www.tidytextmining.com/)
+
+![Image de couverture de Happy Git and GitHub for the useR](assets/img/lectures/happy-git-cover.jpg)
+
+Bryan, STAT 545 TAs et Hester
+
+### Happy Git and GitHub for the useR
+
+Guide pratique pour connecter RStudio, Git et GitHub, comprendre les commits, pousser le travail et collaborer dans un dépôt.
+
+[Ouvrir le livre](https://happygitwithr.com/)
+
+![Couverture de Telling Stories with Data](assets/img/lectures/telling-stories-data-cover.jpg)
+
+Alexander
+
+### Telling Stories with Data
+
+Référence pour construire une analyse complète: question, données, préparation, modélisation, communication et démarche reproductible.
+
+[Ouvrir le livre](https://rohanalexander.github.io/telling_stories-published/)
+
+![Couverture de Statistical Inference via Data Science](assets/img/lectures/moderndive-cover.jpg)
+
+Ismay, Kim et Valdivia
+
+### Statistical Inference via Data Science
+
+Complément pour relier visualisation, transformation, régression et raisonnement statistique avec les outils tidyverse.
+
+[Ouvrir le livre](https://moderndive.com/v2/)
+
+![Couverture de R Graphics Cookbook, 2e édition](assets/img/lectures/r-graphics-cookbook-cover.jpg)
+
+Chang
+
+### R Graphics Cookbook, 2e édition
+
+Recettes concrètes pour améliorer des graphiques ggplot2 sans devoir relire toute la théorie à chaque blocage.
+
+[Ouvrir le livre](https://r-graphics.org/)
+
+![Couverture de Fundamentals of Data Visualization](assets/img/lectures/fundamentals-dataviz-cover.jpg)
+
+Wilke
+
+### Fundamentals of Data Visualization
+
+Référence ouverte pour choisir des graphiques adaptés et repérer les choix visuels fragiles.
+
+[Ouvrir le livre](https://clauswilke.com/dataviz/)
+
+## Autres lectures et aides
+
+Cette section regroupe les sites web, articles, guides, documentations et aides de fonctions qui soutiennent des gestes précis.
+
+Data
+Org
+
+Broman et Woo
+
+### Data Organization in Spreadsheets
+
+Article de référence pour structurer un tableur avant l'importation, garder les données brutes intactes et documenter les corrections.
+
+[Ouvrir l'article](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)
 
 tidytext
 tokens
@@ -85,6 +149,17 @@ Posit
 Documentation pour organiser plusieurs visualisations et sorties R dans une page de tableau de bord.
 
 [Ouvrir la documentation](https://rmarkdown.rstudio.com/flexdashboard/)
+
+Shiny
+Dash
+
+Posit
+
+### Using Shiny with flexdashboard
+
+Guide court pour ajouter des entrées interactives et des sorties réactives dans un tableau de bord flexdashboard.
+
+[Ouvrir le guide](https://rstudio.github.io/flexdashboard/articles/shiny.html)
 
 Shiny
 Basics
@@ -218,17 +293,6 @@ Référence pour identifier et gérer les biais possibles dans les systèmes d'i
 
 [Ouvrir la ressource](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
 
-Data
-Viz
-
-Wilke
-
-### Fundamentals of Data Visualization
-
-Référence ouverte pour choisir des graphiques adaptés et repérer les choix visuels fragiles.
-
-[Ouvrir le livre](https://clauswilke.com/dataviz/)
-
 RSS
 Guide
 
@@ -272,76 +336,6 @@ Wilkinson et al.
 Article de référence sur les principes Findable, Accessible, Interoperable et Reusable.
 
 [Ouvrir l'article](https://www.nature.com/articles/sdata201618)
-
-## Compléments ciblés
-
-Ces ressources ne sont pas à lire d'un coup. Elles servent de soutien quand un module, un défi ou le projet demande un geste précis.
-
-Happy
-Git
-
-Bryan, STAT 545 TAs et Hester
-
-### Happy Git and GitHub for the useR
-
-Guide pratique pour connecter RStudio, Git et GitHub, comprendre les commits, pousser le travail et collaborer dans un dépôt.
-
-[Ouvrir le livre](https://happygitwithr.com/)
-
-Data
-Org
-
-Broman et Woo
-
-### Data Organization in Spreadsheets
-
-Article de référence pour structurer un tableur avant l'importation, garder les données brutes intactes et documenter les corrections.
-
-[Ouvrir l'article](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989)
-
-Data
-Stories
-
-Alexander
-
-### Telling Stories with Data
-
-Référence pour construire une analyse complète: question, données, préparation, modélisation, communication et démarche reproductible.
-
-[Ouvrir le livre](https://rohanalexander.github.io/telling_stories-published/)
-
-Modern
-Dive
-
-Ismay, Kim et Valdivia
-
-### Statistical Inference via Data Science
-
-Complément pour relier visualisation, transformation, régression et raisonnement statistique avec les outils tidyverse.
-
-[Ouvrir le livre](https://moderndive.com/v2/)
-
-R
-Graphics
-
-Chang
-
-### R Graphics Cookbook, 2e édition
-
-Recettes concrètes pour améliorer des graphiques ggplot2 sans devoir relire toute la théorie à chaque blocage.
-
-[Ouvrir le livre](https://r-graphics.org/)
-
-Shiny
-Dash
-
-Posit
-
-### Using Shiny with flexdashboard
-
-Guide court pour ajouter des entrées interactives et des sorties réactives dans un tableau de bord flexdashboard.
-
-[Ouvrir le guide](https://rstudio.github.io/flexdashboard/articles/shiny.html)
 
 ## Lectures par module et projet
 
