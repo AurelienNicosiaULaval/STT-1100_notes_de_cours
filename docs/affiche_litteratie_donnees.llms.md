@@ -4,7 +4,7 @@
 
 Cette évaluation vous demande de raconter une histoire claire à partir de données réelles. En équipe, vous choisissez une question, vous analysez les données, puis vous communiquez l'essentiel sous la forme d'une affiche scientifique A1 destinée à un large public.
 
-[Site du concours ISLP](https://islp.ssc.ca/?lang=fr) [Évaluations](evaluations.llms.md) [IA et aide](ia.llms.md) [Grille](#rubric-title)
+[Site du concours ISLP](https://islp.ssc.ca/?lang=fr) [Template Quarto](https://github.com/STT-1100/affiche) [Évaluations](evaluations.llms.md) [IA et aide](ia.llms.md) [Grille](#rubric-title)
 
 10 %
 
@@ -43,6 +43,30 @@ Dépôt GitHub contenant l'affiche et les traces demandées.
 ### Concours
 
 La participation externe est facultative.
+
+## Template Quarto
+
+Un dépôt template GitHub est disponible pour démarrer l'affiche dans une structure reproductible. Il contient un fichier `affiche.qmd`, un dossier `data/`, un dossier `figures/`, un dossier `scripts/` et une déclaration d'utilisation de l'IA.
+
+Le template utilise Quarto et Typst pour produire un PDF au format paysage proche du A1. Les données incluses sont fictives et servent seulement à vérifier le rendu; votre affiche finale doit utiliser des données réelles et citées.
+
+### Créer le dépôt
+
+Ouvrir le template, utiliser `Use this template`, puis cloner le dépôt de votre équipe.
+
+### Modifier
+
+Remplacer le titre, les noms, la question, les données et les graphiques dans `affiche.qmd`.
+
+### Rendre
+
+Exécuter `quarto render affiche.qmd` pour produire `affiche.pdf`.
+
+### Remettre
+
+Pousser le dépôt GitHub selon les consignes officielles indiquées dans Brio.
+
+[Ouvrir le template d'affichePoint de départ Quarto pour le dépôt de votre équipe.](https://github.com/STT-1100/affiche)
 
 ## Ce que l'affiche doit contenir
 
@@ -141,6 +165,7 @@ La grille s'inspire des critères de la compétition tout en restant adaptée au
 La remise attendue est un dépôt GitHub contenant l'affiche et les éléments nécessaires pour comprendre le travail. Brio demeure la référence officielle pour la date, le lieu exact de remise, les fichiers exigés et les modalités administratives de la session.
 
 1.  Vérifier que l'affiche répond à une question claire à partir de données réelles.
-2.  Citer les sources de données et les ressources externes utilisées.
-3.  Inclure une déclaration d'utilisation de l'IA si des outils d'IA ont été utilisés.
-4.  Remettre le dépôt GitHub selon les indications officielles de Brio.
+2.  Utiliser le template Quarto ou une structure équivalente permettant de comprendre le travail.
+3.  Citer les sources de données et les ressources externes utilisées.
+4.  Inclure une déclaration d'utilisation de l'IA si des outils d'IA ont été utilisés.
+5.  Remettre le dépôt GitHub selon les indications officielles de Brio.

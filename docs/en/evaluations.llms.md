@@ -110,7 +110,7 @@ Expected trace: a short, readable, rendered or verifiable product linked to the 
 
 ### Poster
 
-Communicate a story from real data as an A1 poster, with a clear question, cited sources and relevant graphics.
+Communicate a story from real data as an A1 poster, with a clear question, cited sources, relevant graphics and a repository structured from the Quarto template.
 
 Expected trace: a GitHub repository containing the poster and the elements needed to understand the team work.
 

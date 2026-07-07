@@ -4,7 +4,7 @@ Summative assessment
 
 This assessment asks you to tell a clear story from real data. In teams, you choose a question, analyze the data, then communicate the key message as an A1 scientific poster for a broad audience.
 
-[ISLP competition site](https://islp.ssc.ca/?lang=en) [Assessments](evaluations.llms.md) [AI and help](ia.llms.md) [Rubric](#rubric-title)
+[ISLP competition site](https://islp.ssc.ca/?lang=en) [Quarto template](https://github.com/STT-1100/affiche) [Assessments](evaluations.llms.md) [AI and help](ia.llms.md) [Rubric](#rubric-title)
 
 10%
 
@@ -43,6 +43,30 @@ November 22 at 00:00, subject to the official Brio instructions.
 ### Competition
 
 External participation is optional.
+
+## Quarto template
+
+A GitHub template repository is available to start the poster in a reproducible structure. It contains an `affiche.qmd` file, a `data/` folder, a `figures/` folder, a `scripts/` folder and an AI-use statement.
+
+The template uses Quarto and Typst to produce a landscape PDF close to A1 size. The included data are fictitious and are only meant to test rendering; your final poster must use real, cited data.
+
+### Create the repository
+
+Open the template, use `Use this template`, then clone your team's repository.
+
+### Edit
+
+Replace the title, names, question, data and graphics in `affiche.qmd`.
+
+### Render
+
+Run `quarto render affiche.qmd` to produce `affiche.pdf`.
+
+### Submit
+
+Push the GitHub repository according to the official instructions in Brio.
+
+[Open the poster templateQuarto starting point for your team's repository.](https://github.com/STT-1100/affiche)
 
 ## What the poster must include
 
@@ -94,7 +118,7 @@ Include an AI-use statement in the GitHub repository identifying the tools used 
 
 ### Verify
 
-State the extent to which AI-generated results were modified, verified or adapted by the team.
+State the extent to which results produced by AI tools were modified, verified or adapted by the team.
 
 3
 
@@ -141,6 +165,7 @@ The rubric is inspired by the competition criteria while remaining aligned with 
 The expected submission is a GitHub repository containing the poster and the elements needed to understand the work. Brio remains the official reference for the date, exact submission location, required files and administrative requirements for the session.
 
 1.  Check that the poster answers a clear question using real data.
-2.  Cite data sources and external resources used.
-3.  Include an AI-use statement if AI tools were used.
-4.  Submit the GitHub repository according to the official Brio instructions.
+2.  Use the Quarto template or an equivalent structure that makes the work understandable.
+3.  Cite data sources and external resources used.
+4.  Include an AI-use statement if AI tools were used.
+5.  Submit the GitHub repository according to the official Brio instructions.

@@ -110,7 +110,7 @@ Trace attendue: un produit court, lisible, rendu ou vérifiable, lié au module.
 
 ### Affiche
 
-Communiquer une histoire issue de données réelles sous forme d'affiche A1, avec une question claire, des sources citées et des graphiques pertinents.
+Communiquer une histoire issue de données réelles sous forme d'affiche A1, avec une question claire, des sources citées, des graphiques pertinents et un dépôt structuré à partir du template Quarto.
 
 Trace attendue: un dépôt GitHub contenant l'affiche et les éléments nécessaires pour comprendre le travail d'équipe.
 
