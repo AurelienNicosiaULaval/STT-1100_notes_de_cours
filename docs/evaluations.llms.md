@@ -4,7 +4,7 @@
 
 Les évaluations de STT-1100 suivent la même logique que les modules: pratiquer un geste, produire une trace claire, recevoir une rétroaction, puis réinvestir ce qui a été appris dans une production plus autonome. Cette page explique le rôle de chaque pièce; Brio demeure la référence officielle pour les dates, les remises et les pondérations.
 
-[Défis](defis.llms.md) [Examen](examen.llms.md) [Projet de session](projet_session/index.llms.md) [Référence officielle](#official-title)
+[Défis](defis.llms.md) [Examen](examen.llms.md) [Affiche](affiche_litteratie_donnees.llms.md) [Projet de session](projet_session/index.llms.md) [Référence officielle](#official-title)
 
 1
 
@@ -46,6 +46,12 @@ Livrables courts. Ils prolongent l'aventure du module avec plus d'autonomie.
 
 4
 
+### Affiche
+
+Communication. L'affiche transforme une analyse en message visuel clair pour un large public.
+
+5
+
 ### Examen et projet
 
 Intégration. L'examen vérifie l'autonomie individuelle; le projet vérifie une démarche complète en équipe.
@@ -74,11 +80,17 @@ Les défis sont des livrables courts reliés aux modules. Ils prolongent l'avent
 
 04
 
+### Affiche de littératie des données
+
+L'affiche demande de raconter en équipe une histoire à partir de données réelles. La participation au concours externe est facultative.
+
+05
+
 ### Examen
 
 L'examen vérifie l'autonomie sur les gestes essentiels des modules 1 à 4: importer, transformer, visualiser et expliquer.
 
-05
+06
 
 ### Projet de session
 
@@ -95,6 +107,14 @@ Produire un livrable ciblé: rapport, nettoyage, fonction, capsule, visualisatio
 Trace attendue: un produit court, lisible, rendu ou vérifiable, lié au module.
 
 [Voir les défisRôle, formats et liens vers les consignes.](defis.llms.md)
+
+### Affiche
+
+Communiquer une histoire issue de données réelles sous forme d'affiche A1, avec une question claire, des sources citées et des graphiques pertinents.
+
+Trace attendue: un dépôt GitHub contenant l'affiche et les éléments nécessaires pour comprendre le travail d'équipe.
+
+[Préparer l'afficheMission, exigences, IA et grille d'évaluation.](affiche_litteratie_donnees.llms.md)
 
 ### Examen
 

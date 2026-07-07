@@ -4,7 +4,7 @@ Assessments
 
 STT-1100 assessments follow the same logic as the modules: practise a skill, produce a clear trace, receive feedback, then reuse what you learned in a more autonomous product. This page explains the role of each piece; Brio remains the official reference for dates, submissions and weights.
 
-[Challenges](defis.llms.md) [Exam](examen.llms.md) [Session project](projet_session/index.llms.md) [Official reference](#official-title)
+[Challenges](defis.llms.md) [Exam](examen.llms.md) [Poster](affiche_litteratie_donnees.llms.md) [Session project](projet_session/index.llms.md) [Official reference](#official-title)
 
 1
 
@@ -46,6 +46,12 @@ Short deliverables. They extend the module adventure with more autonomy.
 
 4
 
+### Poster
+
+Communication. The poster turns an analysis into a clear visual message for a broad audience.
+
+5
+
 ### Exam and project
 
 Integration. The exam checks individual autonomy; the project checks a complete team workflow.
@@ -74,11 +80,17 @@ Challenges are short deliverables linked to modules. They extend the adventure w
 
 04
 
+### Data literacy poster
+
+The poster asks teams to tell a story from real data. Participation in the external competition is optional.
+
+05
+
 ### Exam
 
 The exam checks autonomy on essential skills from modules 1 to 4: import, transform, visualize and explain.
 
-05
+06
 
 ### Session project
 
@@ -95,6 +107,14 @@ Produce a focused deliverable: report, cleaning workflow, function, short video,
 Expected trace: a short, readable, rendered or verifiable product linked to the module.
 
 [See challengesRole, formats and links to instructions.](defis.llms.md)
+
+### Poster
+
+Communicate a story from real data as an A1 poster, with a clear question, cited sources and relevant graphics.
+
+Expected trace: a GitHub repository containing the poster and the elements needed to understand the team work.
+
+[Prepare the posterMission, requirements, AI use and grading rubric.](affiche_litteratie_donnees.llms.md)
 
 ### Exam
 
