@@ -1,7 +1,5 @@
 # Exercices de consolidation
 
-# Exercices de consolidation
-
 Ces exercices servent à consolider les premiers gestes du cours: utiliser RStudio, écrire du code dans un script, créer un rapport Quarto, charger des packages, inspecter des données et produire une petite analyse reproductible.
 
 Ils sont indépendants de l’aventure et du défi. Certaines questions utilisent `MeteoQuebec` parce que c’est le premier tableau du cours, mais elles ne constituent pas une étape à remettre dans le défi.

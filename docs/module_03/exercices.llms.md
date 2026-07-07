@@ -1,7 +1,5 @@
 # Exercices de consolidation
 
-# Exercices de consolidation
-
 Ces exercices servent à stabiliser les gestes du module: reconnaître une variable catégorique, compter des modalités, nettoyer des chaînes de caractères, extraire des motifs et construire des graphiques lisibles.
 
 Ils sont indépendants de l’aventure et du défi. Ils pratiquent les mêmes compétences, mais sans préparer directement l’article sur les infractions alimentaires.

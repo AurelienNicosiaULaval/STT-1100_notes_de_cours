@@ -1,7 +1,5 @@
 # Consolidation Exercises
 
-# Consolidation Exercises
-
 These exercises are independent from the adventure and the challenge. They consolidate text analysis, TF-IDF, simple sentiment scores and dashboard preparation using fictitious datasets that differ from the STT-1100 feedback.
 
 Before starting, review the module resources if needed: *Text Mining with R*, the `unnest_tokens()` documentation, the `bind_tf_idf()` documentation, the `flexdashboard` documentation, the introduction to `shiny` and the module formative mini-test.

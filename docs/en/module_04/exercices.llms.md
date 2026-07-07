@@ -1,7 +1,5 @@
 # Consolidation exercises
 
-# Consolidation exercises
-
 These exercises are independent from the adventure and challenge. They consolidate the technical moves of module 4: importing files, checking types, cleaning values, manipulating factors, reading JSON and documenting cleaning decisions.
 
 ``` r

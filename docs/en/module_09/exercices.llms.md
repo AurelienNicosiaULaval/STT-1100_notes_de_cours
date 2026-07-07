@@ -1,7 +1,5 @@
 # Consolidation Exercises
 
-# Consolidation Exercises
-
 These exercises are independent from the adventure and the challenge. They consolidate linear regression, prediction and careful discussion of bias using fictitious datasets that differ from the main activity.
 
 Before starting, review the module resources if needed: chapters 7 and 8 of *Introduction to Modern Statistics*, the `lm()` documentation, the `predict.lm()` documentation and the module formative mini-test.

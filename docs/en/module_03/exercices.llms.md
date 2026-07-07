@@ -1,7 +1,5 @@
 # Consolidation exercises
 
-# Consolidation exercises
-
 These exercises stabilize the core moves of the module: recognize a categorical variable, count levels, clean character strings, extract patterns and build readable charts.
 
 They are independent from the adventure and challenge. They practise the same skills without directly preparing the food offence article.

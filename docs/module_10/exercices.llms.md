@@ -1,7 +1,5 @@
 # Exercices de consolidation
 
-# Exercices de consolidation
-
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider l’analyse de texte, le TF-IDF, les scores de sentiment simples et la préparation d’un tableau de bord à partir de données fictives différentes des rétroactions STT-1100.
 
 Avant de commencer, relisez au besoin les ressources du module: *Text Mining with R*, la documentation de `unnest_tokens()`, la documentation de `bind_tf_idf()`, la documentation `flexdashboard`, l’introduction à `shiny` et le mini-test formatif du module.

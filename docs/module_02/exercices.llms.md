@@ -1,7 +1,5 @@
 # Exercices de consolidation
 
-# Exercices de consolidation
-
 Ces exercices consolident les gestes du module 2: travailler dans un dépôt GitHub, importer un fichier Excel, inspecter les données, transformer un tableau avec `dplyr`, produire des graphiques lisibles avec `ggplot2` et interpréter des statistiques descriptives.
 
 Ils sont indépendants de l’aventure et du défi. Le fichier des manchots est utilisé ici comme fichier d’entraînement, pas comme consigne supplémentaire du défi.
