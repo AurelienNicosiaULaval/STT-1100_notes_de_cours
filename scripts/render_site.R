@@ -122,6 +122,8 @@ sync_source_to_render_root <- function(source_root, render_root) {
     base <- tail(parts, 1)
     is_module_data_html <- !is_dir &&
       grepl("(^|/)module_08/data/[^/]+\\.html$", rel_path)
+    is_course_reading_html <- !is_dir &&
+      grepl("(^|/)assets/lectures/.+\\.html$", rel_path)
     is_static_redirect_html <- !is_dir && rel_path %in% static_redirect_html
 
     if (parts[1] %in% c(".git", "docs")) return(TRUE)
@@ -137,7 +139,7 @@ sync_source_to_render_root <- function(source_root, render_root) {
     if (!is_dir && grepl("\\.rmarkdown$", base)) return(TRUE)
     if (!is_dir && grepl("\\.llms\\.md$", base)) return(TRUE)
     if (!is_dir && identical(base, "llms.txt")) return(TRUE)
-    if (!is_dir && grepl("\\.html$", base) && !identical(base, "language-switch.html") && !is_module_data_html && !is_static_redirect_html) {
+    if (!is_dir && grepl("\\.html$", base) && !identical(base, "language-switch.html") && !is_module_data_html && !is_course_reading_html && !is_static_redirect_html) {
       return(TRUE)
     }
 
@@ -323,6 +325,7 @@ find_generated_source_paths <- function(root) {
   paths <- system2("find", shQuote(args), stdout = TRUE)
   paths <- paths[basename(paths) != "language-switch.html"]
   paths <- paths[!grepl("^\\./(en/)?module_08/data/[^/]+\\.html$", paths)]
+  paths <- paths[!grepl("^\\./assets/lectures/.+\\.html$", paths)]
   paths <- paths[!sub("^\\./", "", paths) %in% static_redirect_html]
   paths
 }

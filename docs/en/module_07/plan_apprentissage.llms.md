@@ -20,8 +20,13 @@ To prepare, consult the following resources:
 - [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html): structure a statistical message and make a result readable.
 - [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html): choose a chart suited to the comparison.
 - [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf): guidance for avoiding misleading visualizations.
+- [Graphics Principles Cheat Sheet](../../assets/lectures/module_07/graphics-principles-cheat-sheet.pdf): cheat sheet on graphic design principles.
+- [Conception graphique](../../assets/lectures/module_07/conception-graphique.pdf): slide deck on readability and visual structure in graphs.
 - [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation): vocabulary and issues related to personal information.
 - [CNIL - Anonymisation of personal data](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles): distinction between anonymization, pseudonymization and residual risks.
+- [Guide de la Loi 25](../../assets/lectures/module_07/guide-loi-25.mp4): short video on personal information protection in Quebec.
+- [Techniques de base en anonymisation de données](../../assets/lectures/module_07/techniques-anonymisation-donnees.llms.md): working page on identifiers, quasi-identifiers and re-identification risks.
+- [Pratique responsable en statistique et science des données](../../assets/lectures/module_07/aide-memoire-ethique.pdf): checklist for reviewing ethical issues in a data project.
 - [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618): principles for making data findable, accessible, interoperable and reusable.
 
 ## Posit cheat sheet

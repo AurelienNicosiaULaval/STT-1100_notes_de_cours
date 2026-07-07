@@ -304,6 +304,28 @@ Practical guide for making charts readable, honest and aligned with the statisti
 
 [Open the guide](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf)
 
+Graph
+Design
+
+PDF resource
+
+### Graphics Principles Cheat Sheet
+
+Cheat sheet for reviewing graphic design principles and improving the readability of visualizations.
+
+[Open the PDF](../assets/lectures/module_07/graphics-principles-cheat-sheet.pdf)
+
+Graphic
+Design
+
+PDF resource
+
+### Conception graphique
+
+Slide deck on graphic design principles useful for producing clearer and more defensible figures.
+
+[Open the PDF](../assets/lectures/module_07/conception-graphique.pdf)
+
 QC
 Data
 
@@ -325,6 +347,39 @@ CNIL
 Useful reference for distinguishing anonymization, pseudonymization and residual risks.
 
 [Open the resource](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
+
+Loi 25
+Video
+
+Video resource
+
+### Guide de la Loi 25
+
+Short video for situating obligations related to personal information protection in Quebec.
+
+[Open the video](../assets/lectures/module_07/guide-loi-25.mp4)
+
+Anonymization
+HTML
+
+HTML resource
+
+### Techniques de base en anonymisation de données
+
+Working page on direct identifier removal, pseudonymization, quasi-identifiers and reducing re-identification risk.
+
+[Open the page](../assets/lectures/module_07/techniques-anonymisation-donnees.llms.md)
+
+Ethics
+PDF
+
+Course document
+
+### Pratique responsable en statistique et science des données
+
+Concise checklist for reviewing ethical issues in study design, data collection, analysis, dissemination and use of results.
+
+[Open the PDF](../assets/lectures/module_07/aide-memoire-ethique.pdf)
 
 FAIR
 Data
@@ -367,7 +422,7 @@ R for Data Science: strings, factors, recoding and guidance for categorical vari
 
 ### Module 07
 
-[R for Data Science](#r4ds) for communication, [Wilke](#wilke-dataviz), the [RSS guide](#rss-dataviz) and [R Graphics Cookbook](#r-graphics-cookbook) for responsible visualization, then [Québec](#quebec-anonymisation), [CNIL](#cnil-anonymisation) and [FAIR](#fair-principles) for anonymization and data reuse.
+[R for Data Science](#r4ds) for communication, [Wilke](#wilke-dataviz), the [RSS guide](#rss-dataviz), [Graphics Principles Cheat Sheet](#graphics-principles-cheat-sheet), [Conception graphique](#conception-graphique) and [R Graphics Cookbook](#r-graphics-cookbook) for responsible visualization, then [Québec](#quebec-anonymisation), [CNIL](#cnil-anonymisation), [Guide de la Loi 25](#guide-loi-25), [Techniques de base en anonymisation de données](#techniques-anonymisation-donnees), the [ethics checklist](#aide-memoire-ethique) and [FAIR](#fair-principles) for anonymization, confidentiality and data reuse.
 
 ### Module 08
 

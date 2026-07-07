@@ -304,6 +304,28 @@ Guide pratique pour rendre les graphiques lisibles, honnêtes et adaptés au mes
 
 [Ouvrir le guide](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf)
 
+Graph
+Design
+
+Ressource PDF
+
+### Graphics Principles Cheat Sheet
+
+Aide-mémoire pour revoir les principes de conception graphique et améliorer la lisibilité des visualisations.
+
+[Télécharger le PDF](assets/lectures/module_07/graphics-principles-cheat-sheet.pdf)
+
+Conception
+graphique
+
+Ressource PDF
+
+### Conception graphique
+
+Diaporama sur les principes de conception graphique utiles pour produire des figures plus claires et plus défendables.
+
+[Télécharger le PDF](assets/lectures/module_07/conception-graphique.pdf)
+
 QC
 Données
 
@@ -325,6 +347,39 @@ CNIL
 Référence utile pour distinguer anonymisation, pseudonymisation et risques résiduels.
 
 [Ouvrir la ressource](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
+
+Loi 25
+Vidéo
+
+Ressource vidéo
+
+### Guide de la Loi 25
+
+Capsule vidéo pour situer les obligations liées à la protection des renseignements personnels au Québec.
+
+[Ouvrir la vidéo](assets/lectures/module_07/guide-loi-25.mp4)
+
+Anonymisation
+HTML
+
+Ressource HTML
+
+### Techniques de base en anonymisation de données
+
+Page de travail sur la suppression des identifiants, la pseudonymisation, les quasi-identifiants et la réduction du risque de réidentification.
+
+[Ouvrir la page](assets/lectures/module_07/techniques-anonymisation-donnees.llms.md)
+
+Éthique
+PDF
+
+Document de cours
+
+### Pratique responsable en statistique et science des données
+
+Aide-mémoire synthétique pour vérifier les enjeux éthiques liés à la conception, la collecte, l'analyse, la diffusion et l'utilisation des résultats.
+
+[Télécharger le PDF](assets/lectures/module_07/aide-memoire-ethique.pdf)
 
 FAIR
 Data
@@ -367,7 +422,7 @@ R for Data Science: chaînes de caractères, facteurs, recodage et repères pour
 
 ### Module 07
 
-[R for Data Science](#r4ds) pour la communication, [Wilke](#wilke-dataviz), le [guide RSS](#rss-dataviz) et [R Graphics Cookbook](#r-graphics-cookbook) pour la visualisation responsable, puis [Québec](#quebec-anonymisation), [CNIL](#cnil-anonymisation) et [FAIR](#fair-principles) pour l'anonymisation et la réutilisation des données.
+[R for Data Science](#r4ds) pour la communication, [Wilke](#wilke-dataviz), le [guide RSS](#rss-dataviz), [Graphics Principles Cheat Sheet](#graphics-principles-cheat-sheet), [Conception graphique](#conception-graphique) et [R Graphics Cookbook](#r-graphics-cookbook) pour la visualisation responsable, puis [Québec](#quebec-anonymisation), [CNIL](#cnil-anonymisation), [Guide de la Loi 25](#guide-loi-25), [Techniques de base en anonymisation de données](#techniques-anonymisation-donnees), [l'aide-mémoire éthique](#aide-memoire-ethique) et [FAIR](#fair-principles) pour l'anonymisation, la confidentialité et la réutilisation des données.
 
 ### Module 08
 
