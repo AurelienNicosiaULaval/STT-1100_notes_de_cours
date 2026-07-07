@@ -22,6 +22,12 @@ Before the adventure, review the following resources:
 - [Introduction to Modern Statistics - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
 - [Introduction to Modern Statistics - Applications: Explore](https://openintrostat.github.io/ims/explore-applications)
 
+## Posit cheat sheets
+
+- [Dates and times with lubridate :: Cheatsheet](https://rstudio.github.io/cheatsheets/lubridate.pdf) Creating, extracting and manipulating dates and times.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Charts for comparing distributions, trends and associations.
+
 After the readings, complete the [formative mini-test](../module_05/mini_test.llms.md). It is not graded; it only checks the basic ideas before the adventure.
 
 # Adventure

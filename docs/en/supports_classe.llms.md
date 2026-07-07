@@ -40,7 +40,7 @@ Start with the RStudio and GitHub memo to clone with SSH and open the right proj
 
 ### Work
 
-Use the cheat sheet while practising to find frequent R and Quarto commands.
+Use the Posit cheat sheet collection while practising to find frequent R, Quarto and tidyverse commands.
 
 [Open the PDF](autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf)
 
@@ -102,7 +102,7 @@ Practical entry point for R, Quarto, GitHub, troubleshooting and help routines.
 
 ### STT-1100 Cheat Sheet
 
-Short summary of functions, commands and good practices to use during exercises.
+Concatenation of the Posit cheat sheets relevant to the course: RStudio, Quarto, tidyverse, R Markdown and Shiny.
 
 [Open the PDF](autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf)
 

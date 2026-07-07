@@ -53,6 +53,13 @@ To prepare, check out the following resources:
 - [robots.txt documentation (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
 - [Google Search Central - Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
 
+#### Posit cheat sheets
+
+- [Apply functions with purrr :: Cheatsheet](https://rstudio.github.io/cheatsheets/purrr.pdf)
+  Automation with `map()` and related functions.
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf)
+  Text cleaning and extraction after collection.
+
 Check After the readings, complete the [formative mini-test](mini_test.llms.md).
 
 2 Adventure Extract a web page and turn the result into a table. [Adventure](aventure.llms.md) Open cardCollapse

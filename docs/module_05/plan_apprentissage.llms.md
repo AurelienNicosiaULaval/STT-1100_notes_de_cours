@@ -22,6 +22,12 @@ Avant l’aventure, révisez les ressources suivantes :
 - [Introduction to Modern Statistics - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
 - [Introduction to Modern Statistics - Applications: Explore](https://openintrostat.github.io/ims/explore-applications)
 
+## Aide-mémoires Posit
+
+- [Dates and times with lubridate :: Cheatsheet](https://rstudio.github.io/cheatsheets/lubridate.pdf) Création, extraction et manipulation de dates et heures.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Graphiques pour comparer distributions, tendances et associations.
+
 Après les lectures, faites le [mini-test formatif](../module_05/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
 # Aventure

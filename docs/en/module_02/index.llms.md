@@ -82,6 +82,17 @@ Module 2 spans two weeks. The first week prepares the GitHub repository, Excel i
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html)
   *Write more readable chart code.*
 
+#### Posit cheat sheets
+
+- [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf)
+  *Import with `readr` and `readxl`.*
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+  *Transformation verbs used in the adventure and exercises.*
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+  *Grammar of graphics, geoms, facets, scales and themes.*
+
 [Take the formative reading mini-test](mini_test.llms.md).
 
 2 Adventure Explore penguin data and track the work in GitHub. [Adventure](aventure.llms.md) Open cardCollapse

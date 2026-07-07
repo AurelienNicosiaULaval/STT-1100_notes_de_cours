@@ -23,6 +23,20 @@ Pour vous préparer, consultez les ressources suivantes :
 - [Using Shiny with flexdashboard](https://rstudio.github.io/flexdashboard/articles/shiny.html)
 - [Posit - Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)
 
+## Aide-mémoires Posit
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) Préparation et nettoyage de texte avant la tokenisation.
+
+- [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/tidyr.pdf) Restructuration des sorties textuelles et des tableaux de bord.
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Résumés, regroupements et calculs de scores.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Graphiques statiques à intégrer dans le tableau de bord.
+
+- [rmarkdown :: Cheatsheet](https://rstudio.github.io/cheatsheets/rmarkdown.pdf) Repères utiles pour les tableaux de bord fondés sur R Markdown.
+
+- [Shiny for R :: Cheatsheet](https://rstudio.github.io/cheatsheets/shiny.pdf) Composants interactifs et logique réactive de base.
+
 Après les lectures, faites le [mini-test formatif du module 10](../module_10/mini_test.llms.md).
 
 # Aventure

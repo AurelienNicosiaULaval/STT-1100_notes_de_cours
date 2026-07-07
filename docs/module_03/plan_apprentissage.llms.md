@@ -26,6 +26,14 @@ Ces lectures donnent les repères nécessaires avant de commencer l’aventure.
 
 - [Documentation de `forcats`](https://forcats.tidyverse.org/) Pour regrouper des catégories rares, réordonner des modalités et rendre les graphiques plus lisibles.
 
+## Aide-mémoires Posit
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) Fonctions `stringr` pour détecter, extraire, remplacer et nettoyer du texte.
+
+- [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf) Recodage, regroupement et réordonnancement de catégories.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Graphiques de catégories et réglages visuels fréquents.
+
 Après les lectures, faites le [mini-test formatif](../module_03/mini_test.llms.md). Il n’est pas évalué, mais il vérifie les idées nécessaires pour l’aventure et le défi.
 
 # Aventure

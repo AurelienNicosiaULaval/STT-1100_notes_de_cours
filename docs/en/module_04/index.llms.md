@@ -55,6 +55,14 @@ These readings prepare the core module moves: import, tidy data, missing values,
 - [R for Data Science - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html): importing Excel files cleanly.
 - [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html): understanding lists, JSON and nested data.
 
+#### Posit cheat sheets
+
+- [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf): importing delimited and Excel files.
+- [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/tidyr.pdf): reshaping tables between long and wide formats.
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf): cleaning strings and detecting patterns.
+- [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf): cleaning and lumping levels.
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf): inspecting, filtering and summarizing tables.
+
 After the readings, complete the [formative mini-test](mini_test.llms.md). It is not graded; it checks the basics before the adventure.
 
 2 Adventure Diagnose a real file and correct fragile variables. [Adventure](aventure.llms.md) Open cardCollapse

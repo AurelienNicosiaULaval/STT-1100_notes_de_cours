@@ -24,6 +24,12 @@ To prepare, consult the following resources:
 - [Government of Canada - Guide on Automated Decision-Making](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)
 - [NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
 
+## Posit cheat sheets
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Table preparation before fitting and interpreting the model.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Descriptive diagnostics, predictions and error visualizations.
+
 After the readings, complete the [module 9 formative mini-test](../module_09/mini_test.llms.md).
 
 # Adventure

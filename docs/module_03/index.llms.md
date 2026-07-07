@@ -50,6 +50,12 @@ données nettoyées catégories vérifiées article rédigé
 - [Introduction to Modern Statistics - Explore categorical data](https://openintrostat.github.io/ims/explore-categorical)
 - [Documentation de forcats](https://forcats.tidyverse.org/)
 
+#### Aide-mémoires Posit
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf)
+- [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf)
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+
 Après les lectures, complétez le [mini-test formatif](mini_test.llms.md).
 
 2 Aventure Nettoyer les infractions alimentaires et extraire des faits saillants. [Aventure](aventure.llms.md) Ouvrir la carteRéduire

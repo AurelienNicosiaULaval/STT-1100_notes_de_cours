@@ -82,6 +82,17 @@ Le module 2 se fait sur deux semaines. La première semaine prépare le dépôt 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html)
   *Écrire du code graphique plus lisible.*
 
+#### Aide-mémoires Posit
+
+- [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf)
+  *Importation avec `readr` et `readxl`.*
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+  *Verbes de transformation utilisés dans l'aventure et les exercices.*
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+  *Grammaire des graphiques, géométries, facettes, échelles et thèmes.*
+
 [Faire le mini-test formatif des lectures](mini_test.llms.md).
 
 2 Aventure Explorer les données de manchots et suivre le travail dans GitHub. [Aventure](aventure.llms.md) Ouvrir la carteRéduire

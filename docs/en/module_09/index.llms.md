@@ -61,6 +61,14 @@ To prepare, check out the following resources:
 
 - [NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
 
+#### Posit cheat sheets
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+  Prepare tables before fitting and interpreting the model.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+  Visualize descriptive diagnostics, predictions and errors.
+
 After the readings, check the key ideas with the [module 9 formative mini-test](mini_test.llms.md).
 
 2 Adventure Build a simple model and read its errors. [Adventure](aventure.llms.md) Open cardCollapse

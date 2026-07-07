@@ -50,6 +50,12 @@ Read before the adventure:
 - [Introduction to Modern Statistics - Explore categorical data](https://openintrostat.github.io/ims/explore-categorical)
 - [The forcats documentation](https://forcats.tidyverse.org/)
 
+#### Posit cheat sheets
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf)
+- [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf)
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+
 After the readings, complete the [formative mini-test](mini_test.llms.md).
 
 2 Adventure Clean food offence data and extract key facts. [Adventure](aventure.llms.md) Open cardCollapse

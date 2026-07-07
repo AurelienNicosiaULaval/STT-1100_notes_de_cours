@@ -55,6 +55,15 @@ To prepare, check out the following resources:
 - [Using Shiny with flexdashboard](https://rstudio.github.io/flexdashboard/articles/shiny.html) - This guide shows how to integrate interactive elements into dashboards with `shiny`.
 - [Posit - Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) - This introduction situates the structure of an interactive application.
 
+#### Posit cheat sheets
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) - clean text before tokenization.
+- [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/tidyr.pdf) - reshape text outputs and dashboard tables.
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) - produce summaries and scores.
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) - prepare static dashboard charts.
+- [rmarkdown :: Cheatsheet](https://rstudio.github.io/cheatsheets/rmarkdown.pdf) - useful reference points for R Markdown based dashboards.
+- [Shiny for R :: Cheatsheet](https://rstudio.github.io/cheatsheets/shiny.pdf) - interactive components and basic reactive logic.
+
 After the readings, check the key ideas with the [module 10 formative mini-test](mini_test.llms.md).
 
 2 Adventure Turn texts into shareable visual results. [Adventure](aventure.llms.md) Open cardCollapse

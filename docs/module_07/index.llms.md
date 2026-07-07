@@ -58,6 +58,11 @@ Pour vous préparer, consultez les ressources suivantes :
 - [CNIL - L'anonymisation de données personnelles](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
 - [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618)
 
+#### Aide-mémoire Posit
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+  Référence rapide pour reconstruire des visualisations lisibles et défendables.
+
 Vérification Après les lectures, faites le [mini-test formatif](mini_test.llms.md).
 
 2 Aventure Transformer des données sensibles en messages visuels prudents. [Aventure](aventure.llms.md) Ouvrir la carteRéduire

@@ -26,6 +26,14 @@ These readings provide the background needed before starting the adventure.
 
 - [The `forcats` documentation](https://forcats.tidyverse.org/) To lump rare categories, reorder levels and make categorical charts easier to read.
 
+## Posit cheat sheets
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) `stringr` functions for detecting, extracting, replacing and cleaning text.
+
+- [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf) Recoding, lumping and reordering categories.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Categorical charts and frequent visual adjustments.
+
 After the readings, complete the [formative mini-test](../module_03/mini_test.llms.md). It is not graded, but it checks the ideas needed for the adventure and the challenge.
 
 # Adventure

@@ -32,6 +32,18 @@ These readings prepare the core moves of the module: import, clean, transform an
 
 - [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html) To understand lists, nested data and first rectangling moves.
 
+## Posit cheat sheets
+
+- [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf) Quick reference for importing delimited and Excel files.
+
+- [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/tidyr.pdf) Long-wide transformations and nested-table manipulation.
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) String cleaning and pattern detection.
+
+- [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf) Cleaning and lumping levels.
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Inspection, filtering, transformation and summaries of tables.
+
 After the readings, complete the [formative mini-test](../module_04/mini_test.llms.md). It is not graded; it only checks the basics before the adventure.
 
 # Adventure

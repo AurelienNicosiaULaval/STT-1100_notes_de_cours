@@ -38,6 +38,14 @@ Le module 2 est étalé sur deux semaines. La première semaine installe le flux
 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html) Quelques repères pour écrire du code graphique lisible.
 
+## Aide-mémoires Posit
+
+- [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf) Importation avec `readr` et `readxl`, utile pour les fichiers CSV et Excel.
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Verbes de transformation qui reviennent dans l’aventure et les exercices.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Grammaire des graphiques, géométries, facettes, échelles et thèmes.
+
 ## Lecture optionnelle
 
 - [Broman et Woo (2018) - Data Organization in Spreadsheets](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989) Une référence utile pour comprendre pourquoi on conserve les données brutes intactes et pourquoi les corrections doivent être documentées dans le code.

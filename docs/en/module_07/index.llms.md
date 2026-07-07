@@ -58,6 +58,11 @@ To prepare, check out the following resources:
 - [CNIL - Anonymisation of personal data](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
 - [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618)
 
+#### Posit cheat sheet
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+  Quick reference for rebuilding readable and defensible visualizations.
+
 Check After the readings, complete the [formative mini-test](mini_test.llms.md).
 
 2 Adventure Turn sensitive data into careful visual messages. [Adventure](aventure.llms.md) Open cardCollapse

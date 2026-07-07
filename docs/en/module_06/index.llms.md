@@ -62,6 +62,13 @@ These readings prepare collaborative work: follow history, discuss a change, ope
 - [dplyr - Mutating joins](https://dplyr.tidyverse.org/reference/mutate-joins.html)
   *Reference for `left_join()`, `inner_join()`, `right_join()` and `full_join()`.*
 
+#### Posit cheat sheets
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+  *Joins, grouped summaries and table checks.*
+- [Publish and Share with Quarto :: Cheatsheet](https://rstudio.github.io/cheatsheets/quarto.pdf)
+  *Produce a reproducible team report.*
+
 [Complete the formative mini-test for the readings](mini_test.llms.md).
 
 2 Adventure Produce a collaborative report on JFK flight delays. [Adventure](aventure.llms.md) Open cardCollapse

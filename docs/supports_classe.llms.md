@@ -40,7 +40,7 @@ Commencer par l'aide-mémoire RStudio et GitHub pour cloner avec SSH et ouvrir l
 
 ### Travailler
 
-Utiliser la feuille aide-mémoire pendant les exercices pour retrouver les commandes R et Quarto fréquentes.
+Utiliser la collection d'aide-mémoires Posit pendant les exercices pour retrouver les commandes R, Quarto et tidyverse fréquentes.
 
 [Ouvrir le PDF](autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf)
 
@@ -102,7 +102,7 @@ Point d'entrée pratique pour les routines R, Quarto, GitHub, dépannage et aide
 
 ### Feuille aide-mémoire STT-1100
 
-Résumé court des fonctions, commandes et bonnes pratiques à utiliser pendant les exercices.
+Concaténation des aide-mémoires Posit pertinents pour le cours: RStudio, Quarto, tidyverse, R Markdown et Shiny.
 
 [Ouvrir le PDF](autre_materiel/Cheat%20sheet/stt1100_cheatsheet_mod.pdf)
 

@@ -42,6 +42,14 @@ En cas de blocage, consultez aussi le document [Comment rechercher et obtenir de
 
 - [Data transformation](https://r4ds.hadley.nz/data-transform.html) Introduction à `dplyr`, avec les verbes utiles pour filtrer, choisir des colonnes et créer des variables.
 
+## Aide-mémoires Posit
+
+- [RStudio IDE :: Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf) Repères rapides pour l’environnement RStudio.
+
+- [Publish and Share with Quarto :: Cheatsheet](https://rstudio.github.io/cheatsheets/quarto.pdf) Référence courte pour créer, rendre et partager un document Quarto.
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Verbes `dplyr` utilisés dans les premières manipulations de tableaux.
+
 ## Mini-test de lecture
 
 Après les lectures essentielles, complétez le [mini-test formatif du module 1](../module_01/mini_test.llms.md). Il n’est pas noté, mais il vérifie les points qui reviennent dans l’aventure et dans le défi.

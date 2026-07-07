@@ -68,6 +68,13 @@ In the free **IMS**:
 - [**Introduction to modern statistics – Applications: Explore**](https://openintrostat.github.io/ims/explore-applications)
   This chapter introduces you to best practices for exploratory data modeling.
 
+#### Posit cheat sheets
+
+- [Dates and times with lubridate :: Cheatsheet](https://rstudio.github.io/cheatsheets/lubridate.pdf)
+  Create, extract and manipulate dates and times.
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+  Compare distributions, trends and associations.
+
 After the readings, complete the [formative mini-test](mini_test.llms.md). It is not graded; it checks the basics before the adventure.
 
 2 Adventure Explore delays, dates and associations in a large table. [Adventure](aventure.llms.md) Open cardCollapse

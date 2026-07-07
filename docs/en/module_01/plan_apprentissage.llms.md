@@ -42,6 +42,14 @@ If you are stuck, also consult [How to search and get help](../references.llms.m
 
 - [Data transformation](https://r4ds.hadley.nz/data-transform.html) Introduction to `dplyr`, with verbs for filtering, choosing columns and creating variables.
 
+## Posit cheat sheets
+
+- [RStudio IDE :: Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf) Quick reference for the RStudio environment.
+
+- [Publish and Share with Quarto :: Cheatsheet](https://rstudio.github.io/cheatsheets/quarto.pdf) Short reference for creating, rendering and sharing Quarto documents.
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) `dplyr` verbs used in the first table manipulations.
+
 ## Reading mini-test
 
 After the essential readings, complete the [module 1 formative mini-test](../module_01/mini_test.llms.md). It is not graded, but it checks points that return in the adventure and in the challenge.

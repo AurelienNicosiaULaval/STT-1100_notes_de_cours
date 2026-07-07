@@ -55,6 +55,15 @@ Pour vous préparer, consultez les ressources suivantes :
 - [Using Shiny with flexdashboard](https://rstudio.github.io/flexdashboard/articles/shiny.html) - Ce guide vous montre comment intégrer des éléments interactifs dans vos tableaux de bord avec `shiny`.
 - [Posit - Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/) - Cette introduction situe la structure d'une application interactive.
 
+#### Aide-mémoires Posit
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) - nettoyer le texte avant la tokenisation.
+- [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/tidyr.pdf) - restructurer les sorties textuelles et les tableaux de bord.
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) - produire des résumés et des scores.
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) - préparer les graphiques statiques du tableau de bord.
+- [rmarkdown :: Cheatsheet](https://rstudio.github.io/cheatsheets/rmarkdown.pdf) - repères utiles pour les tableaux de bord fondés sur R Markdown.
+- [Shiny for R :: Cheatsheet](https://rstudio.github.io/cheatsheets/shiny.pdf) - composants interactifs et logique réactive de base.
+
 Après les lectures, vérifiez les idées clés avec le [mini-test formatif du module 10](mini_test.llms.md).
 
 2 Aventure Transformer des textes en résultats visuels partageables. [Aventure](aventure.llms.md) Ouvrir la carteRéduire

@@ -24,6 +24,12 @@ To prepare, check out the following resources:
 - [Google Search Central - Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
 - [robotstxt package documentation](https://docs.ropensci.org/robotstxt/)
 
+## Posit cheat sheets
+
+- [Apply functions with purrr :: Cheatsheet](https://rstudio.github.io/cheatsheets/purrr.pdf) Automation with `map()` and related functions.
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) Text cleaning and extraction after collection.
+
 After the readings, complete the [formative mini-test](../module_08/mini_test.llms.md). It is not graded; it only checks the basic ideas before the adventure.
 
 # Adventure

@@ -38,6 +38,14 @@ Module 2 spans two weeks. The first week sets up the GitHub workflow, Excel impo
 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html) A few landmarks for writing readable chart code.
 
+## Posit cheat sheets
+
+- [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf) Import with `readr` and `readxl`, useful for CSV and Excel files.
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Transformation verbs used in the adventure and exercises.
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Grammar of graphics, geoms, facets, scales and themes.
+
 ## Optional Reading
 
 - [Broman and Woo (2018) - Data Organization in Spreadsheets](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989) A useful reference for understanding why raw data should remain intact and why corrections should be documented in code.

@@ -32,6 +32,18 @@ Ces lectures préparent les gestes du module: importer, nettoyer, transformer et
 
 - [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html) Pour comprendre les listes, les données imbriquées et les premiers gestes de rectangling.
 
+## Aide-mémoires Posit
+
+- [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf) Référence rapide pour importer des fichiers délimités et Excel.
+
+- [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/tidyr.pdf) Transformations long-large et manipulation de tableaux imbriqués.
+
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) Nettoyage de chaînes et détection de motifs.
+
+- [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf) Nettoyage et regroupement de modalités.
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Inspection, filtrage, transformation et résumés de tableaux.
+
 Après les lectures, faites le [mini-test formatif](../module_04/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
 # Aventure

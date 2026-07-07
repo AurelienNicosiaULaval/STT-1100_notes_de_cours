@@ -78,6 +78,17 @@ Le module utilise R for Data Science comme livre de référence. Les lectures es
 - [Data transformation](https://r4ds.hadley.nz/data-transform.html)
   *Premiers verbes `dplyr` utiles pour filtrer, choisir et créer des colonnes.*
 
+#### Aide-mémoires Posit
+
+- [RStudio IDE :: Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
+  *Repères rapides pour l'environnement RStudio.*
+
+- [Publish and Share with Quarto :: Cheatsheet](https://rstudio.github.io/cheatsheets/quarto.pdf)
+  *Créer, rendre et partager un document Quarto.*
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+  *Verbes `dplyr` utilisés dans les premières manipulations de tableaux.*
+
 [Faire le mini-test formatif des lectures](mini_test.llms.md).
 
 2 Aventure Créer un premier rapport à partir des données météo. [Aventure](aventure.llms.md) Ouvrir la carteRéduire

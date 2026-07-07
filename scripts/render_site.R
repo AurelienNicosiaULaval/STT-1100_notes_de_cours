@@ -43,6 +43,15 @@ run_rsync <- function(args, error_message) {
   invisible(output)
 }
 
+run_rscript <- function(script) {
+  command <- paste(c("Rscript", script), collapse = " ")
+  message("Running: ", command)
+  exit_code <- system2("Rscript", script)
+  if (!identical(exit_code, 0L)) {
+    stop("Command failed: ", command, call. = FALSE)
+  }
+}
+
 clean_paths <- c(
   ".quarto",
   "en/.quarto",
@@ -436,6 +445,7 @@ duplicate_outputs <- list.files(
 )
 remove_paths(duplicate_outputs)
 remove_generated_duplicates()
+run_rscript(file.path("scripts", "build_course_cheatsheet.R"))
 ensure_image_alt_text("docs")
 ensure_nojekyll("docs")
 strip_trailing_whitespace("docs")

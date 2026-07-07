@@ -68,6 +68,13 @@ Dans le libre **IMS**:
 - [**Introduction to modern statistics – Applications: Explore**](https://openintrostat.github.io/ims/explore-applications)
   Ce chapitre vous introduit aux bonnes pratiques de modélisation exploratoire des données.
 
+#### Aide-mémoires Posit
+
+- [Dates and times with lubridate :: Cheatsheet](https://rstudio.github.io/cheatsheets/lubridate.pdf)
+  Créer, extraire et manipuler des dates et heures.
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+  Comparer distributions, tendances et associations.
+
 Après les lectures, faites le [mini-test formatif](mini_test.llms.md). Il n'est pas noté; il sert à vérifier les bases avant l'aventure.
 
 2 Aventure Explorer retards, dates et associations dans un grand tableau. [Aventure](aventure.llms.md) Ouvrir la carteRéduire

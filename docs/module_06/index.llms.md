@@ -62,6 +62,13 @@ Ces lectures préparent le travail collaboratif: suivre l'historique, discuter u
 - [dplyr - Mutating joins](https://dplyr.tidyverse.org/reference/mutate-joins.html)
   *Référence des fonctions `left_join()`, `inner_join()`, `right_join()` et `full_join()`.*
 
+#### Aide-mémoires Posit
+
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+  *Jointures, regroupements et vérifications de tables.*
+- [Publish and Share with Quarto :: Cheatsheet](https://rstudio.github.io/cheatsheets/quarto.pdf)
+  *Produire un rapport reproductible en équipe.*
+
 [Faire le mini-test formatif des lectures](mini_test.llms.md).
 
 2 Aventure Produire un rapport collaboratif sur les retards de vols à JFK. [Aventure](aventure.llms.md) Ouvrir la carteRéduire

@@ -55,6 +55,14 @@ Ces lectures préparent les gestes du module: importer, mettre en ordre, traiter
 - [R for Data Science - Spreadsheets](https://r4ds.hadley.nz/spreadsheets.html): importer des fichiers Excel proprement.
 - [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html): comprendre les listes, le JSON et les données imbriquées.
 
+#### Aide-mémoires Posit
+
+- [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf): importer des fichiers délimités et Excel.
+- [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/tidyr.pdf): transformer des tableaux entre formats long et large.
+- [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf): nettoyer des chaînes et détecter des motifs.
+- [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf): nettoyer et regrouper des modalités.
+- [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf): inspecter, filtrer et résumer des tableaux.
+
 Après les lectures, faites le [mini-test formatif](mini_test.llms.md). Il n'est pas noté; il sert à vérifier les bases avant l'aventure.
 
 2 Aventure Diagnostiquer un fichier réel et corriger les variables fragiles. [Aventure](aventure.llms.md) Ouvrir la carteRéduire

@@ -24,6 +24,10 @@ Pour vous préparer, consultez les ressources suivantes :
 - [CNIL - L’anonymisation de données personnelles](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles) : distinction entre anonymisation, pseudonymisation et risques résiduels.
 - [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618) : principes pour rendre les données trouvables, accessibles, interopérables et réutilisables.
 
+## Aide-mémoire Posit
+
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Référence rapide pour reconstruire des visualisations lisibles et défendables.
+
 Après les lectures, faites le [mini-test formatif](../module_07/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
 # Aventure
