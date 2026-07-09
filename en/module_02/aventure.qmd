@@ -72,11 +72,11 @@ Your job is to **manipulate, transform and visualize** data rigorously, in order
 </div>
 <!-- adventure-brief:end -->
 
-## Progress of the mission and expected deliverables
+### Progress of the mission and expected deliverables
 
 The mission will take place in **two stages**, because Dr. Adélie will soon have to leave on an expedition to Antarctica.
 
-### Part 1 – Before Dr. Adélie leaves
+#### Part 1 – Before Dr. Adélie leaves
 
 Before her departure, you will work closely with her to explore the first avenues. She will ask you to:
 
@@ -89,7 +89,7 @@ You must write a **logbook** in a Quarto report (HTML format) which documents yo
 
 ----------------------------------------------------------------------------------
 
-### Part 2 – When Dr. Adélie returns
+#### Part 2 – When Dr. Adélie returns
 
 Back from her mission, Dr. Adélie will come back with **specific questions** to explore and will ask you to help her prepare a solid report to accompany her **grant application**.
 
@@ -100,7 +100,7 @@ A **structured and complete report** responding to its new specific requests, in
 
 >   **Field note**: During your mission, a more experienced colleague (Jules Tremblay) will come see you from time to time to check that everything is going well. He or she will ask you a few **quick questions** to test your understanding. Answer them seriously, these checks will help you consolidate your learning!
 
-# How to succeed in this adventure {.unnumbered}
+## How to succeed in this adventure {.unnumbered}
 
 Welcome to this new adventure in data science! This time, you will collaborate with a researcher who studies penguins at Palmer Station in Antarctica. Your mission is to explore and analyze its data to help it answer its scientific questions.
 
@@ -114,7 +114,7 @@ To succeed in this adventure, here are some essential tips:
 
 This adventure will allow you to develop your skills in data manipulation, visualization and analysis with `dplyr` and `ggplot2`. These are essential skills for a data scientist. Take the time to explore the different steps and have fun learning!
 
-# Working on GitHub
+## Working on GitHub
 
 The researcher has prepared a repository on GitHub where she wants you to save all your work. For her part, she submitted the database she collected as well as a detailed description of the variables. In particular, she would like you to complete a model logbook in Quarto format.
 
@@ -134,7 +134,7 @@ Warning: remember that commit messages must be meaningful. For example "Initiali
 
 >   Tip: Use the logbook template to complete all the analyzes of the first part of this adventure. So take a few minutes to look at the structure of the document.
 
-# Reading data
+## Reading data
 
 The researcher has provided you with an Excel file containing the penguin data she collected. Your first mission is to **load this data into R** using the RStudio GUI.
 
@@ -207,9 +207,9 @@ You had to name your base **`penguins_mission`**, as indicated in the import ins
 
 ** Once your data is loaded, you are ready to explore and analyze it ! Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
-# Data manipulation
+## Data manipulation
 
-## Data summary with `glimpse()`
+### Data summary with `glimpse()`
 
 The researcher wants a quick view of the data to check its structure. Use `glimpse()` to preview:
 
@@ -249,7 +249,7 @@ This layout makes it easy to quickly review the structure of a table, especially
 >   **Good to know**: `glimpse()` is particularly useful for spotting possible type errors (e.g. a numeric variable encoded as text) or for detecting missing values.
 
 ::: callout-tip
-#### Exercise
+##### Exercise
 
 The researcher wishes to obtain an initial report on the available data. To do this, you must complete the following text and integrate it into your Quarto analysis logbook: \> "The dataset contains \*\*\_\_\_\*\* observations and \*\*\_\_\_\*\* variables. The variables are ***,***, \*\*\_\_\_\*\*....etc"
 :::
@@ -261,14 +261,14 @@ The researcher wishes to obtain an initial report on the available data. To do t
 Don't worry if this seems complicated! We will return to this aspect later in the session.
 
 ::: callout-tip
-#### Exercise
+##### Exercise
 
 How many variables are numeric? How many character types? *to-do*: Include your answer in your logbook following the blank text.
 :::
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
-## Select variables with `select()`
+### Select variables with `select()`
 
 The researcher wants to focus only on certain variables relevant to her analysis. Use `select()` to keep only `species`, `island`, `bill_length_mm` and `body_mass_g`:
 
@@ -284,12 +284,12 @@ Do a `glimpse()` of the new `penguins_subset` database. Why did you choose a new
 :::
 
 ::: callout-tip
-#### Exercise
+##### Exercise
 
 Select all variables except `flipper_length_mm` and `body_mass_g`. Be careful there is a quick way to do this!
 :::
 
-## Create new variables with `mutate()`
+### Create new variables with `mutate()`
 
  **Explanation**: The researcher wants to add a new column indicating the weight in kilograms instead of grams. Indeed, her measuring device indicated the measurements in g, but she believes that it will be easier to interpret in kg.
 
@@ -333,7 +333,7 @@ penguins_mission <- penguins_mission %>%
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
-## Filter data with `filter()`
+### Filter data with `filter()`
 
 The researcher wants to analyze only penguins from **Biscoe** Island. Use `filter()` to keep only these observations:
 
@@ -348,7 +348,7 @@ penguins_biscoe <- penguins_mission %>%
 Filter the data to only keep penguins of the **Adelie** species from Biscoe Island.
 :::
 
-## Group and summarize data with `group_by()`
+### Group and summarize data with `group_by()`
 
 The researcher wants to know the average mass of penguins by species. Use `group_by()` followed by `summarise()` to get this information:
 
@@ -369,14 +369,14 @@ penguins_summary <- penguins_mission %>%
 Thanks to `group_by` we can also, for example, filter by group, which can be very practical!
 
 ::: callout-tip
-#### Exercise
+##### Exercise
 
  **Exercise**: Bring out the first penguin from the database for each species and each island. *Hint:* you can use the `slice` function.
 :::
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
-# An emergency call from Antarctica
+## An emergency call from Antarctica
 
 While you are making good progress in your data analysis, you receive an urgent message from the researcher. She had to rush to Antarctica for an emergency mission: to help a colony of penguins facing extreme weather conditions.
 
@@ -384,7 +384,7 @@ Before her departure, she took care to leave you a list of essential tasks to co
 
 >  **Note:** here you are still in part 1 of the adventure, but the researcher has left you a list of tasks to complete before she leaves. So you need to continue working on the `penguins_mission` dataset that you created previously. You must therefore continue to complete the logbook.
 
-# Data visualization
+## Data visualization
 
 Data visualization is an essential step in analysis because it provides a better understanding of trends and relationships between variables. Good visualization makes data easier to interpret and helps spot outliers or interesting patterns.
 
@@ -400,7 +400,7 @@ Data visualization is an essential step in analysis because it provides a better
 
 - Test several types of graphs before concluding on an analysis.
 
-## Histograms
+### Histograms
 
  **Explanation**: A histogram allows you to visualize the distribution of a numerical variable. Here we will for example examine the distribution of bill depths (`bill_depth_mm`).
 
@@ -441,7 +441,7 @@ consulter_taches("histogramme")
 ```
 
 ::: callout-tip
-#### Exercise
+##### Exercise
 
 Create a histogram for the `flipper_length_mm` variable. You must adjust all the information on the graph while respecting good visualization practices.
 
@@ -450,7 +450,7 @@ Create a histogram for the `flipper_length_mm` variable. You must adjust all the
 
 Let's take the visualization a little further to try to answer his request.
 
-## Boxplot
+### Boxplot
 
  **Explanation**: A boxplot allows you to visualize the dispersion of a numerical variable and to identify possible outliers. Here we will look at the distribution of fin length (`flipper_length_mm`).
 
@@ -469,7 +469,7 @@ Add a variable to differentiate between islands and see if some islands have mor
 :::
 
 ::: callout-tip
-#### Exercise
+##### Exercise
 
 Find the row number of the observation that appears to be an outlier in fin length.
 :::
@@ -490,12 +490,12 @@ It was added on purpose to test your ability to visually detect anomalies.
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
 ::: callout-tip
-#### Exercise (optional)
+##### Exercise (optional)
 
 In the previous graph, the legend title is "species", which is by default the name of the variable. Change it to “Species” in English. You have to figure out for yourself how to do this.
 :::
 
-## Scatter plots
+### Scatter plots
 
  **Explanation**: A scatter plot (or cloud of points) allows you to visualize the relationship between two numerical variables. Here we will look at the relationship between bill length (`bill_length_mm`) and bill depth (`bill_depth_mm`).
 
@@ -520,14 +520,14 @@ consulter_taches("nuage_de_points")
 ```
 
 ::: callout-tip
-#### Exercise
+##### Exercise
 
 Modify the scatter plot to display the relationship desired by the researcher. Do you find that one point looks weird? If yes, what is its line number?
 :::
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work! **
 
-# Descriptive statistics
+## Descriptive statistics
 
  **Explanation**: Descriptive statistics allow you to quickly summarize and understand a set of data. They are divided into several categories:
 
@@ -561,7 +561,7 @@ consulter_taches("statistiques_descriptives")
 ```
 
 ::: callout-tip
-#### Exercise
+### Exercise
 
 Respond precisely in your logbook to Doctor Adélie’s request.
 :::
@@ -600,7 +600,7 @@ An average of **2.94**, much lower than 3.5, contradicts the colleague's hypothe
 This suggests a difference, but you could also compare the distributions, for example with a histogram or a boxplot, to better visualize the variations.
 :::
 
-## Advanced visualization and descriptive statistics (optional)
+### Advanced visualization and descriptive statistics (optional)
 
 We will now create a detailed boxplot which displays:
 
@@ -636,7 +636,7 @@ consulter_taches("Visualisation_statistiques_descriptives")
 ```
 
 ::: callout-tip
-#### Exercise
+##### Exercise
 
 Complete Dr. Adélie's `ggplot2` code to answer her request. Include this in your logbook. Tell us how this advanced chart can help us better understand our data.
 :::
@@ -658,7 +658,7 @@ You must make a commit **after each significant step** (import, filter, graph, a
  This ensures traceability, and will save you stress if you have to go back.
 :::
 
-# The return of Dr Adélie Fortier! (2nd part of the adventure)
+## The return of Dr Adélie Fortier! (2nd part of the adventure)
 
  After several weeks in Antarctica observing penguins, our researcher is back with lots of new questions in mind. She noticed that some species seemed to have very distinct characteristics, but she would like a more in-depth analysis which will help her obtain a new grant for her research project.
 
@@ -682,7 +682,7 @@ His main question:  ​​How do the physical characteristics of penguins vary d
 To help him, you will carry out a complete analysis, mobilizing all the skills acquired in this module.
 
 ::: callout-tip
-#### Question 1
+### Question 1
 
 Are there any notable differences between penguin species?
 :::
@@ -726,7 +726,7 @@ Can we identify an indicator of the penguin's "*size*"?
  Hint: Use `mutate()` to add the variable to your data.frame.
 
 ::: callout-tip
-#### Question 3
+##### Question 3
 
 How are these characteristics distributed among species?
 :::

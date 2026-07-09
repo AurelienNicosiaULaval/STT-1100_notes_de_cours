@@ -5864,12 +5864,7 @@ margin-bottom: .05rem;
   <ul class="collapse">
   <li><a href="#tools-at-your-disposal" id="toc-tools-at-your-disposal" class="nav-link" data-scroll-target="#tools-at-your-disposal">Tools at your disposal</a></li>
   <li><a href="#analysis-1---what-time-should-you-avoid-leaving" id="toc-analysis-1---what-time-should-you-avoid-leaving" class="nav-link" data-scroll-target="#analysis-1---what-time-should-you-avoid-leaving">Analysis 1 - What time should you avoid leaving?</a></li>
-  <li><a href="#analysis-2---is-the-weather-really-linked-to-delays" id="toc-analysis-2---is-the-weather-really-linked-to-delays" class="nav-link" data-scroll-target="#analysis-2---is-the-weather-really-linked-to-delays">Analysis 2 - Is the weather really linked to delays?</a>
-  <ul class="collapse">
-  <li><a href="#what-is-correlation" id="toc-what-is-correlation" class="nav-link" data-scroll-target="#what-is-correlation">What is correlation?</a></li>
-  <li><a href="#step-1---calculate-the-correlation" id="toc-step-1---calculate-the-correlation" class="nav-link" data-scroll-target="#step-1---calculate-the-correlation">Step 1 - Calculate the correlation</a></li>
-  <li><a href="#step-2---visualize-a-relationship" id="toc-step-2---visualize-a-relationship" class="nav-link" data-scroll-target="#step-2---visualize-a-relationship">Step 2 - Visualize a relationship</a></li>
-  </ul></li>
+  <li><a href="#analysis-2---is-the-weather-really-linked-to-delays" id="toc-analysis-2---is-the-weather-really-linked-to-delays" class="nav-link" data-scroll-target="#analysis-2---is-the-weather-really-linked-to-delays">Analysis 2 - Is the weather really linked to delays?</a></li>
   <li><a href="#analysis-3---are-old-planes-less-reliable" id="toc-analysis-3---are-old-planes-less-reliable" class="nav-link" data-scroll-target="#analysis-3---are-old-planes-less-reliable">Analysis 3 - Are old planes less reliable?</a></li>
   </ul></li>
   </ul>
@@ -5898,8 +5893,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="scenario---adventure-5" class="level1">
-<h1>Scenario - Adventure 5</h1>
+<section id="scenario---adventure-5" class="level2">
+<h2 class="anchored" data-anchor-id="scenario---adventure-5">Scenario - Adventure 5</h2>
 <p>You put on the shoes (and secure badge!) of an <strong>airport operations statistician</strong> newly recruited by the <strong>Port Authority Data Lab (PADL)</strong>, the analytics team of the <strong>Port Authority of New York &amp; New Jersey</strong>.<br>
 Your mission: to help <strong>JFK</strong> airport (and, ultimately, <strong>EWR</strong> and <strong>LGA</strong>) to streamline departures and reduce <strong>time lost on the ground</strong>.</p>
 <ul>
@@ -5944,8 +5939,8 @@ Character card
 </div>
 <!-- adventure-brief:end -->
 </section>
-<section id="adventure-objectives" class="level1">
-<h1>Adventure objectives</h1>
+<section id="adventure-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="adventure-objectives">Adventure objectives</h2>
 <ul>
 <li>Use <code>lubridate</code> functions to manipulate and enrich temporal data.</li>
 <li>Carry out an exploratory data analysis (EDA) to better understand their structure and identify interesting patterns.</li>
@@ -5974,8 +5969,8 @@ Character card
 </div>
 <!-- week-new:end -->
 </section>
-<section id="how-to-succeed-in-this-adventure" class="level1">
-<h1>How to succeed in this adventure?</h1>
+<section id="how-to-succeed-in-this-adventure" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-succeed-in-this-adventure">How to succeed in this adventure?</h2>
 <p>Here are some tips from Sofia to succeed in your mission:</p>
 <ul>
 <li>Start by <strong>exploring the data</strong> and understanding its structure. You can use <code>glimpse()</code>, <code>summary()</code>, or even an interactive table.</li>
@@ -5991,8 +5986,8 @@ Character card
 </ul>
 <p>And above all… <strong>ask yourself questions</strong>! The important thing is to develop your analytical reasoning.</p>
 </section>
-<section id="github-and-rendering" class="level1">
-<h1>GitHub and rendering</h1>
+<section id="github-and-rendering" class="level2">
+<h2 class="anchored" data-anchor-id="github-and-rendering">GitHub and rendering</h2>
 <p>As for previous adventures:</p>
 <ul>
 <li><p><strong>Clone</strong> the module 5 GitHub repository from the course organization. You can use the course cheat sheet if you have a memory lapse.</p></li>
@@ -6021,8 +6016,8 @@ Character card
 <p><strong>Reminder</strong>: The <code>.qmd</code> is your main document. It should allow any member of the team (or Sofia!) to understand what you did and why.</p>
 </blockquote>
 </section>
-<section id="understand-and-manipulate-dates-with-lubridate" class="level1">
-<h1>Understand and manipulate dates with <code>lubridate</code></h1>
+<section id="understand-and-manipulate-dates-with-lubridate" class="level2">
+<h2 class="anchored" data-anchor-id="understand-and-manipulate-dates-with-lubridate">Understand and manipulate dates with <code>lubridate</code></h2>
 <p>Before diving into delay and performance analyses, Sofia wants to make sure that you are familiar with managing <strong>dates and times</strong> in R. The <code>lubridate</code> package is an essential tool for this.</p>
 <p>Start your document by loading the packages and the data. All examples below assume that the <code>flights</code> object exists.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -6040,8 +6035,8 @@ Character card
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_time_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(dep_time)),</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">plane_year_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(plane_year))</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="essential-features" class="level2">
-<h2 class="anchored" data-anchor-id="essential-features">Essential Features</h2>
+<section id="essential-features" class="level3">
+<h3 class="anchored" data-anchor-id="essential-features">Essential Features</h3>
 <p>Here are the main functions you will use:</p>
 <table class="caption-top table">
 <colgroup>
@@ -6092,8 +6087,8 @@ Character card
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="fu">make_datetime</span>(year, month, day, hour)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="exercise-1---what-is-the-structure-of-the-date" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1---what-is-the-structure-of-the-date">Exercise 1 - What is the structure of the date?</h2>
+<section id="exercise-1---what-is-the-structure-of-the-date" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1---what-is-the-structure-of-the-date">Exercise 1 - What is the structure of the date?</h3>
 <div class="callout-question">
 <p><strong>Sofia asks you</strong>: <em>Create a <code>date</code> variable from the <code>year</code>, <code>month</code> and <code>day</code> columns, then use <code>class()</code> to check the type of this new variable.</em></p>
 </div>
@@ -6118,8 +6113,8 @@ You can use:</p>
 </div>
 </div>
 </section>
-<section id="exercise-2---day-of-the-week" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2---day-of-the-week">Exercise 2 - Day of the week</h2>
+<section id="exercise-2---day-of-the-week" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2---day-of-the-week">Exercise 2 - Day of the week</h3>
 <div class="callout-question">
 <p><strong>Sofia asks you</strong>: <em>Add a <code>weekday</code> column that gives the day of the week (Monday, Tuesday, etc.) for each flight. Show the first 7 results.</em></p>
 </div>
@@ -6146,8 +6141,8 @@ Here is one way to do it:</p>
 </div>
 </div>
 </section>
-<section id="exercise-3---time-slot" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3---time-slot">Exercise 3 - Time slot</h2>
+<section id="exercise-3---time-slot" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3---time-slot">Exercise 3 - Time slot</h3>
 <div class="callout-question">
 <p><strong>Sofia asks you</strong>: <em>Create a <code>moment_day</code> variable that classifies flights as “night”, “morning”, “afternoon” or “evening” depending on the scheduled departure time.</em></p>
 </div>
@@ -6177,8 +6172,8 @@ Here is a suggestion:</p>
 </div>
 </div>
 </section>
-<section id="exercise-4---is-it-a-weekend" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4---is-it-a-weekend">Exercise 4 - Is it a weekend?</h2>
+<section id="exercise-4---is-it-a-weekend" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4---is-it-a-weekend">Exercise 4 - Is it a weekend?</h3>
 <div class="callout-question">
 <p><strong>Sofia asks you</strong>: <em>Add a logical variable <code>weekend</code> which is <code>TRUE</code> if the flight takes place on a Saturday or a Sunday.</em></p>
 </div>
@@ -6204,12 +6199,12 @@ Use:</p>
 </div>
 </section>
 </section>
-<section id="explore-and-understand-relationships-between-data" class="level1">
-<h1>Explore and understand relationships between data</h1>
+<section id="explore-and-understand-relationships-between-data" class="level2">
+<h2 class="anchored" data-anchor-id="explore-and-understand-relationships-between-data">Explore and understand relationships between data</h2>
 <p>Now that you are comfortable with dates and times, Sofia wants to introduce you to a key step in any data science project: <strong>exploratory data analysis</strong>, often abbreviated to <strong>EDA</strong> (<em>Exploratory Data Analysis</em>).</p>
 <p>The objective is simple: <strong>understand the structure of the data, spot patterns, anomalies, or interesting correlations between variables</strong>.</p>
-<section id="tools-at-your-disposal" class="level2">
-<h2 class="anchored" data-anchor-id="tools-at-your-disposal">Tools at your disposal</h2>
+<section id="tools-at-your-disposal" class="level3">
+<h3 class="anchored" data-anchor-id="tools-at-your-disposal">Tools at your disposal</h3>
 <p>You can rely on:</p>
 <ul>
 <li><strong>Descriptive statistics</strong>: <code>summary()</code>, <code>mean()</code>, <code>median()</code>, <code>sd()</code>, <code>n_distinct()</code>, etc.</li>
@@ -6226,8 +6221,8 @@ Use:</p>
 <p>Sofia now invites you to examine <strong>concrete questions</strong> related to flight performance and delays. You will have to analyze the data to come up with a clear interpretation.</p>
 <hr>
 </section>
-<section id="analysis-1---what-time-should-you-avoid-leaving" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-1---what-time-should-you-avoid-leaving">Analysis 1 - What time should you avoid leaving?</h2>
+<section id="analysis-1---what-time-should-you-avoid-leaving" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-1---what-time-should-you-avoid-leaving">Analysis 1 - What time should you avoid leaving?</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6275,8 +6270,8 @@ You can group flights by time and calculate the average delays:</p>
 </div>
 </div>
 </section>
-<section id="analysis-2---is-the-weather-really-linked-to-delays" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-2---is-the-weather-really-linked-to-delays">Analysis 2 - Is the weather really linked to delays?</h2>
+<section id="analysis-2---is-the-weather-really-linked-to-delays" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-2---is-the-weather-really-linked-to-delays">Analysis 2 - Is the weather really linked to delays?</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6294,8 +6289,8 @@ Note
 <p><strong>Sofia asks you</strong>: <em>Choose one or two weather variables (e.g. <code>wind_gust</code>, <code>visib</code>, <code>precip</code>) and examine their relationship with delays (<code>dep_delay</code>).</em></p>
 </div>
 <p>Before diving into the visualizations, a quick detour through a key concept: <strong>correlation</strong>.</p>
-<section id="what-is-correlation" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-correlation">What is correlation?</h3>
+<section id="what-is-correlation" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-correlation">What is correlation?</h4>
 <p>Correlation measures the <strong>strength and direction of a linear relationship</strong> between two numerical variables. Its value is between:</p>
 <ul>
 <li><strong>-1</strong>: perfectly <strong>negative</strong> correlation (when one increases, the other decreases),</li>
@@ -6305,8 +6300,8 @@ Note
 <p>For example, if wind gusts (<code>wind_gust</code>) increase and delays also increase, we should observe a <strong>positive correlation</strong>.</p>
 <hr>
 </section>
-<section id="step-1---calculate-the-correlation" class="level3">
-<h3 class="anchored" data-anchor-id="step-1---calculate-the-correlation">Step 1 - Calculate the correlation</h3>
+<section id="step-1---calculate-the-correlation" class="level4">
+<h4 class="anchored" data-anchor-id="step-1---calculate-the-correlation">Step 1 - Calculate the correlation</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dep_delay, wind_gust, visib, precip) <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -6314,8 +6309,8 @@ Note
 <p>This table gives you a quick overview of the strength of the relationship between delays (<code>dep_delay</code>) and certain weather variables.</p>
 <p>A correlation close to 0 does not mean that weather never matters. It only indicates that there is no strong linear relationship in this global summary.</p>
 </section>
-<section id="step-2---visualize-a-relationship" class="level3">
-<h3 class="anchored" data-anchor-id="step-2---visualize-a-relationship">Step 2 - Visualize a relationship</h3>
+<section id="step-2---visualize-a-relationship" class="level4">
+<h4 class="anchored" data-anchor-id="step-2---visualize-a-relationship">Step 2 - Visualize a relationship</h4>
 <p>A scatter chart allows you to <strong>see</strong> the trend between two variables. For example, you can test:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wind_gust), <span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">%&gt;%</span></span>
@@ -6352,8 +6347,8 @@ You can also test with other variables like <code>visib</code> (visibility) or <
 </div>
 </section>
 </section>
-<section id="analysis-3---are-old-planes-less-reliable" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-3---are-old-planes-less-reliable">Analysis 3 - Are old planes less reliable?</h2>
+<section id="analysis-3---are-old-planes-less-reliable" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-3---are-old-planes-less-reliable">Analysis 3 - Are old planes less reliable?</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

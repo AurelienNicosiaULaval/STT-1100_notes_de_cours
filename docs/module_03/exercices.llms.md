@@ -8,9 +8,9 @@ Ils sont indépendants de l’aventure et du défi. Ils pratiquent les mêmes co
 library(tidyverse)
 ```
 
-# Bloc A - Variables catégoriques et fréquences
+## Bloc A - Variables catégoriques et fréquences
 
-## Exercice 1 - Reconnaître le type des variables
+### Exercice 1 - Reconnaître le type des variables
 
 Voici un petit jeu de données.
 
@@ -29,7 +29,7 @@ Indiquez quelles variables sont catégoriques et quelles variables sont numériq
 >
 > `programme`, `campus` et `satisfaction` sont catégoriques. `age` est numérique.
 
-## Exercice 2 - Créer une table de fréquences
+### Exercice 2 - Créer une table de fréquences
 
 Calculez le nombre d’étudiants par programme.
 
@@ -51,7 +51,7 @@ Calculez le nombre d’étudiants par programme.
 >     2 Économie        2
 >     3 Biologie        1
 
-## Exercice 3 - Ajouter des proportions
+### Exercice 3 - Ajouter des proportions
 
 À partir du résultat précédent, ajoutez une proportion et un pourcentage.
 
@@ -73,7 +73,7 @@ Calculez le nombre d’étudiants par programme.
 >     2 Économie        2        0.4          40
 >     3 Biologie        1        0.2          20
 
-## Exercice 4 - Construire un tableau croisé
+### Exercice 4 - Construire un tableau croisé
 
 Construisez un tableau croisé entre `programme` et `campus`.
 
@@ -96,9 +96,9 @@ Construisez un tableau croisé entre `programme` et `campus`.
 >     2 Statistique      1        1
 >     3 Économie         1        1
 
-# Bloc B - Chaînes de caractères et motifs
+## Bloc B - Chaînes de caractères et motifs
 
-## Exercice 5 - Harmoniser des réponses
+### Exercice 5 - Harmoniser des réponses
 
 Voici une variable de réponses saisies avec des formats différents.
 
@@ -128,7 +128,7 @@ Créez une variable `reponse_propre` en minuscules, sans espaces superflus.
 >     6 "NON"            non
 >     7 "Je ne sais pas" je ne sais pas
 
-## Exercice 6 - Détecter un mot-clé
+### Exercice 6 - Détecter un mot-clé
 
 Dans le vecteur suivant, détectez les textes qui contiennent le mot `"retard"`, peu importe la casse.
 
@@ -160,7 +160,7 @@ commentaires <- tibble(
 >     4 Aucun problème    FALSE
 >     5 RETARD répété     TRUE
 
-## Exercice 7 - Extraire des codes postaux
+### Exercice 7 - Extraire des codes postaux
 
 À partir des adresses suivantes, extrayez un code postal canadien simplifié.
 
@@ -195,7 +195,7 @@ adresses <- tibble(
 >     3 100 rue Wellington, Gatineau J8X 2J1       J8X 2J1
 >     4 Adresse inconnue                           <NA>
 
-## Exercice 8 - Transformer un montant textuel
+### Exercice 8 - Transformer un montant textuel
 
 Convertissez les montants suivants en valeurs numériques.
 
@@ -223,11 +223,11 @@ amendes <- tibble(
 >     3 2 250 $           2250
 >     4 750 dollars        750
 
-# Bloc C - Pratiquer sur des demandes de services fictives
+## Bloc C - Pratiquer sur des demandes de services fictives
 
 Les exercices 9 à 12 utilisent un petit jeu fictif de demandes de services sur un campus. Le contexte est distinct de l’aventure et du défi.
 
-## Exercice 9 - Construire une base propre
+### Exercice 9 - Construire une base propre
 
 Voici les données brutes.
 
@@ -331,7 +331,7 @@ Créez une table `services_campus` contenant:
 >     11 REQ-11 Montréal bibliothèque  en cours        0
 >     12 REQ-12 Lévis    wi-fi         ouvert        200
 
-## Exercice 10 - Compter les services demandés
+### Exercice 10 - Compter les services demandés
 
 Calculez le nombre de demandes par campus et par service.
 
@@ -355,7 +355,7 @@ Calculez le nombre de demandes par campus et par service.
 >     8 Québec   impression        1
 >     9 Québec   navette           1
 
-## Exercice 11 - Comparer les statuts par campus
+### Exercice 11 - Comparer les statuts par campus
 
 Calculez la proportion de demandes dans chaque statut pour chaque campus.
 
@@ -381,7 +381,7 @@ Calculez la proportion de demandes dans chaque statut pour chaque campus.
 >     6 Québec   en cours     1       0.25
 >     7 Québec   ferme        1       0.25
 
-## Exercice 12 - Détecter des mots-clés
+### Exercice 12 - Détecter des mots-clés
 
 Créez deux variables logiques:
 
@@ -418,9 +418,9 @@ Créez deux variables logiques:
 >     11 REQ-11 bibliothèque  FALSE           FALSE
 >     12 REQ-12 wi-fi         FALSE           TRUE
 
-# Bloc D - Visualiser des catégories
+## Bloc D - Visualiser des catégories
 
-## Exercice 13 - Ordonner un diagramme à bandes
+### Exercice 13 - Ordonner un diagramme à bandes
 
 Produisez un diagramme à bandes du nombre de demandes par service. Ordonnez les services de la plus fréquente à la moins fréquente.
 
@@ -442,7 +442,7 @@ Produisez un diagramme à bandes du nombre de demandes par service. Ordonnez les
 >
 > ![](exercices_files/figure-html/unnamed-chunk-18-1.png)
 
-## Exercice 14 - Comparer des proportions avec `position = "fill"`
+### Exercice 14 - Comparer des proportions avec `position = "fill"`
 
 Comparez la composition des statuts entre les campus.
 
@@ -468,7 +468,7 @@ Comparez la composition des statuts entre les campus.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-19-1.png)
 
-## Exercice 15 - Comparer les coûts par service
+### Exercice 15 - Comparer les coûts par service
 
 Créez un graphique comparant les coûts déclarés selon le service.
 
@@ -491,7 +491,7 @@ Créez un graphique comparant les coûts déclarés selon le service.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-20-1.png)
 
-## Exercice 16 - Améliorer le message d’un graphique
+### Exercice 16 - Améliorer le message d’un graphique
 
 Reprenez un graphique précédent et améliorez-le pour un lecteur non spécialiste:
 
@@ -525,9 +525,9 @@ Reprenez un graphique précédent et améliorez-le pour un lecteur non spéciali
 >
 > Commentaire possible: le graphique montre les services qui reviennent le plus souvent dans cet échantillon fictif. Il faut toutefois rappeler que le fichier sert à pratiquer les méthodes et ne mesure pas un vrai volume de demandes.
 
-# Études de cas
+## Études de cas
 
-## Étude de cas 1 - Requêtes 311 fictives
+### Étude de cas 1 - Requêtes 311 fictives
 
 Le fichier `data/requetes_311_fictif.csv` contient des requêtes 311 fictives pour quelques villes québécoises. Il ne provient pas d’une ville réelle et sert uniquement à pratiquer.
 
@@ -607,7 +607,7 @@ Réalisez les tâches suivantes:
 >
 > Commentaire possible: les requêtes liées au déneigement et aux nids-de-poule ressortent fortement dans cet échantillon fictif. La priorité doit être interprétée avec prudence, car les villes ne codent pas nécessairement les demandes de la même manière.
 
-## Étude de cas 2 - Plaintes de transport collectif fictives
+### Étude de cas 2 - Plaintes de transport collectif fictives
 
 Le fichier `data/plaintes_transport_fictif.csv` contient des plaintes fictives pour différents réseaux de transport collectif.
 

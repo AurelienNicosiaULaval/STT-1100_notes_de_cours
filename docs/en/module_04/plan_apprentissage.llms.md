@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module objectives
+## Module objectives
 
 By the end of this module, you should be able to:
 
@@ -14,7 +14,7 @@ By the end of this module, you should be able to:
 - transform a simple list or JSON file into a table;
 - document a cleaning decision in a structured list.
 
-# Readings
+## Readings
 
 These readings prepare the core moves of the module: import, clean, transform and document.
 
@@ -32,7 +32,7 @@ These readings prepare the core moves of the module: import, clean, transform an
 
 - [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html) To understand lists, nested data and first rectangling moves.
 
-## Posit cheat sheets
+### Posit cheat sheets
 
 - [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf) Quick reference for importing delimited and Excel files.
 
@@ -46,13 +46,13 @@ These readings prepare the core moves of the module: import, clean, transform an
 
 After the readings, complete the [formative mini-test](../module_04/mini_test.llms.md). It is not graded; it only checks the basics before the adventure.
 
-# Adventure
+## Adventure
 
 [Adventure 4](../module_04/aventure.llms.md)
 
 You play the role of a junior data engineer. The adventure guides you through importing an insurance archive, detecting anomalies and documenting cleaning decisions.
 
-# Challenge
+## Challenge
 
 [Challenge 4](../module_04/defi.llms.md)
 
@@ -64,7 +64,7 @@ The challenge is the direct continuation of the adventure. You work in the same 
 
 The goal is not to correct everything that is debatable. The goal is to show that your corrections are cautious, reproducible and documented.
 
-# Consolidation exercises
+## Consolidation exercises
 
 [Module 4 exercises](../module_04/exercices.llms.md)
 

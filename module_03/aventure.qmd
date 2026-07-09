@@ -20,7 +20,7 @@ library(tidyverse)
 library(UlavalSSD)
 ```
 
-# Mise en situation : devenez journaliste de données
+## Mise en situation : devenez journaliste de données
 
 Vous êtes engagés comme **journaliste de données** par *Le Courrier Gourmand*, un média local fictif qui publie des enquêtes interactives sur l’alimentation à Montréal. Votre rédactrice en chef souhaite un article éclairant le public sur **les infractions alimentaires commises dans les établissements alimentaires montréalais**. Elle vous donne quelques pistes de réflexion :
 
@@ -71,7 +71,7 @@ Voici **Alexandre**, conseiller municipal chargé de l’hygiène alimentaire à
 </div>
 <!-- adventure-brief:end -->
 
-## Objectifs de l’aventure
+### Objectifs de l’aventure
 
 -   Importer et nettoyer un jeu de données catégorielles réelles (infractions alimentaires).
 -   Construire des tableaux de fréquence, des statistiques descriptives et des visualisations.
@@ -86,7 +86,7 @@ Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infr
 
 ------------------------------------------------------------------------
 
-# Comment réussir l'aventure
+## Comment réussir l'aventure
 
 1.  **Charger les données** : chargez le package `UlavalSSD`. Le jeu `listecondamnation` sera alors disponible dans R.
 2.  **Suivre les sections** : Chaque section contient des explications, une démonstration, des expérimentations à réaliser, puis des exercices.
@@ -94,7 +94,7 @@ Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infr
 
 ------------------------------------------------------------------------
 
-# Travail sur GitHub
+## Travail sur GitHub
 
 Avant de commencer l'analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.
 
@@ -110,9 +110,9 @@ Attention : les messages de commit doivent être parlants. Par exemple : "Ajout 
 
  Félicitations ! Vous êtes maintenant prêt à débuter l’analyse !
 
-# Variables catégoriques : les bases en R avec `stringr`
+## Variables catégoriques : les bases en R avec `stringr`
 
-## Explications
+### Explications
 
 En R, une variable catégorique est souvent représentée par :
 
@@ -126,7 +126,7 @@ Pour le module 3, nous nous concentrerons sur les variables catégoriques de typ
 
 Voici des exemples montrant comment utiliser `stringr` pour manipuler des variables de type character dans un jeu de données comme `listecondamnation`. Les exemples ci-dessous ciblent des cas fréquents : détection de motifs, extraction, remplacement et nettoyage de chaînes.
 
-## Démonstration
+### Démonstration
 
 On va utiliser le jeu de données `listecondamnation` de la librairie `UlavalSSD`, qui contient des constats de condamnation liés à des établissements alimentaires au Québec.
 
@@ -158,7 +158,7 @@ Quel est le type de la variable `Amende`? Est-ce que cela vous semble problémat
 Alexandre vous rappelle que `?listecondamnation` vous donne la documentation du jeu de données.
 :::
 
-### Détection de motifs (`str_detect()`)
+#### Détection de motifs (`str_detect()`)
 
 Pour vérifier si l’adresse mentionne `"MONTREAL"`, on peut faire :
 
@@ -177,7 +177,7 @@ condamnations_demo %>%
 Vous obtenez `TRUE/FALSE` selon la présence du mot **MONTREAL** dans la chaîne. Cette méthode est utile pour illustrer `str_detect()`, mais elle ne sera pas notre critère principal pour filtrer Montréal dans le reste de l'aventure. Nous utiliserons plutôt les codes postaux.
 
 ::: callout-tip
-#### Exercice
+##### Exercice
 
 Quelle est la proportion d'adresses contenant le mot **MONTREAL** ?
 :::
@@ -186,7 +186,7 @@ Quelle est la proportion d'adresses contenant le mot **MONTREAL** ?
 **Message d’Alexandre** : *« C'est un fait très intéressant à mettre dans ton article!»*
 :::
 
-### Remplacement (`str_replace()` et `str_replace_all()`)
+#### Remplacement (`str_replace()` et `str_replace_all()`)
 
 La colonne `Amende` est une chaîne de caractères. Elle contient des montants comme `"5 000 $"`, avec des espaces et le symbole `$`. Pour l'utiliser dans des calculs, il faut créer une variable numérique.
 
@@ -209,7 +209,7 @@ condamnations_demo %>%
 Ici, `parse_number()` vient du package `readr`, inclus dans le tidyverse. Le paramètre `grouping_mark = " "` indique que l'espace sert à grouper les milliers.
 
 ::: callout-tip
-#### Exercice
+##### Exercice
 
 Quel est le type de la variable `amende_num` ? Est-ce encore un problème ?
 :::
@@ -218,7 +218,7 @@ Quel est le type de la variable `amende_num` ? Est-ce encore un problème ?
 *« Pas si simple d'avoir la colonne Amende en numérique!»*
 :::
 
-### Extraction de motifs (`str_extract()`)
+#### Extraction de motifs (`str_extract()`)
 
 Pour extraire un élément précis. Par exemple, si `Adresse_lieu_infraction` contient un code postal de la forme `H2X 3E4`, on peut tenter :
 
@@ -239,7 +239,7 @@ condamnations_demo %>%
 Le motif `[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]` est une forme simplifiée d’un code postal canadien.
 
 ::: callout-tip
-#### Exercice
+##### Exercice
 
 Dans ce jeu de données, isolez les constats dont le code postal commence par `H2X`. Ne concluez pas que cela représente tout un quartier sans source géographique externe.
 
@@ -252,7 +252,7 @@ Combien de constats d'infraction ont un code postal qui commence par `H2X` ?
 Un bel ajout à ton article!
 :::
 
-### Mise en forme (`str_to_lower()`, `str_to_upper()`, etc.)
+#### Mise en forme (`str_to_lower()`, `str_to_upper()`, etc.)
 
 Parfois, il est utile d’harmoniser la casse (`MONTREAL`, `Montréal`, etc.) :
 
@@ -264,7 +264,7 @@ condamnations_demo <- condamnations_demo %>%
   )
 ```
 
-### Suppression d’espaces multiples (`str_squish()`)
+#### Suppression d’espaces multiples (`str_squish()`)
 
 Si les données contiennent des espaces superflus :
 
@@ -304,7 +304,7 @@ condamnations_mtl <- condamnations %>%
 ```
 
 ::: callout-tip
-#### Exercice
+##### Exercice
 
 1.  **Filtrer Montréal** : Vérifiez que `condamnations_mtl` ne contient que des constats dont le code postal commence par `H`.
 
@@ -363,15 +363,15 @@ Je crois que cela peut faire un bon résultat clé à mettre dans ton article.
 
 ------------------------------------------------------------------------
 
-# Statistiques descriptives pour variables catégoriques
+## Statistiques descriptives pour variables catégoriques
 
 Dans cette section, nous allons découvrir comment résumer l’information contenue dans les variables qualitatives, appelées aussi catégorielles. Nous verrons comment compter les occurrences de chaque catégorie (tableaux de fréquences), calculer des proportions (ou pourcentages) afin de mieux visualiser la répartition, et associer plusieurs variables pour mieux comprendre leurs interactions (tableaux de contingence). L’objectif est de disposer d’un portrait clair de la distribution des catégories pour en tirer des conclusions rapides sur les tendances ou anomalies présentes dans les données.
 
-## Explications
+### Explications
 
 Les **tableaux de fréquences** et les **mesures de tendance** (nombre d’observations, pourcentages) sont un bon point de départ pour résumer des variables catégoriques.
 
-## Démonstration
+### Démonstration
 
 ```{r}
 # Nombre d'infractions par type d’établissement
@@ -428,7 +428,7 @@ tab["RESTAURANT", "INSECTES RONGEURS EXCREMENTS"]
 On va terminer cette section avec un exercice qui vous permettra de vous familiariser avec les tableaux de contingence et les statistiques descriptives, mais aussi de vérifier si la codification des infractions est facile à exploiter.
 
 ::: callout-tip
-#### Exercice
+##### Exercice
 
 1.  **Tableau de contingence** : Construisez un tableau croisé entre `type_etablissement` et la nature de l’infraction (`SOC_NOM_ARTCL_INFRC`), dans votre sous-ensemble de Montréal.
 
@@ -441,9 +441,9 @@ Pensez à générer votre rapport, committer vos modifications et pousser sur Gi
 
 ------------------------------------------------------------------------
 
-# Visualisation de données catégoriques
+## Visualisation de données catégoriques
 
-## Explications
+### Explications
 
 Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
@@ -453,7 +453,7 @@ Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
 -   **Diagrammes à bandes groupées ou empilées standardisées** si on veut comparer plusieurs catégories croisées.
 
-## Démonstration
+### Démonstration
 
 ```{r}
 #| fig-alt: "Diagramme à barres montrant le nombre d'infractions à Montréal par type d'établissement."
@@ -490,7 +490,7 @@ Interrogeons‑nous sur **la nature même des infractions**. Connaître les cat�
 Le **montant des amendes** est un indicateur concret qui attire souvent l’attention du public et des médias. Comparer ces montants entre Montréal et le reste du Québec, et entre types d’établissements, permettra d’appuyer votre conclusion.
 
 ::: callout-tip
-#### Exercice
+##### Exercice
 
 1.  **Boîtes à moustaches** : Représentez la répartition du montant de l'amende au sein de chaque `type_etablissement`.
 2.  **Comparaison** : Comparez Montréal versus hors Montréal avec des boîtes à moustaches côte à côte, par type d’établissement. Que remarquez-vous ?
@@ -503,7 +503,7 @@ Le **montant des amendes** est un indicateur concret qui attire souvent l’atte
 
 ------------------------------------------------------------------------
 
-# Aller plus loin : cartographier les amendes (optionnel)
+## Aller plus loin : cartographier les amendes (optionnel)
 
 Pour clore l’enquête, **Alexandre** a mis la main sur un bout de code R rédigé par une collègue de la Ville. Ce script géocode automatiquement les codes postaux et fournit une latitude/longitude pour chaque établissement. Cette activité est optionnelle, car elle dépend du package `tidygeocoder` et d'un service web externe.
 
@@ -536,7 +536,7 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 >  **Remarque** : Vous devez installer le package `tidygeocoder` pour utiliser cette fonction. Vous pouvez le faire avec `install.packages("tidygeocoder")`.
 
 ::: callout-tip
-#### Exercice optionnel - Carte des amendes
+### Exercice optionnel - Carte des amendes
 
 1.  **Géocodage** : appliquez `geocode_pc()` à votre jeu de données, en vous assurant de conserver `Amende`.\
 2.  **Agrégation** : calculez le **montant total d’amendes par point géocodé** (p. ex. par restaurant ou par coordonnées arrondies au 4ᵉ décimal).\
@@ -589,7 +589,7 @@ ggplot(carte_pts, aes(lon, lat)) +
 </div>
 <!-- portfolio-trace:end -->
 
-# Conclusion de l’aventure
+## Conclusion de l’aventure
 
 Cette troisième aventure vous a permis de **passer du rôle d’analyste à celui de journaliste de données** : vous avez nettoyé un jeu réel d’inspections alimentaires, quantifié les infractions majeures, comparé les profils d’établissements et préparé des visualisations utiles pour un article.
 
@@ -599,7 +599,7 @@ Vous disposez maintenant :
 -   de **graphiques percutants** (diagrammes en barres, boîtes à moustaches ou visualisation optionnelle) pour étayer vos arguments ;
 -   d’**observations qualitatives** fournies par Alexandre, qui orientent le récit vers les enjeux d’hygiène et de transparence citoyenne.
 
-## Prochaine étape : rédigez votre article
+### Prochaine étape : rédigez votre article
 
 1.  **Structurez votre article Quarto** : chapeau accrocheur -> contexte -> méthodologie -> résultats clés -> recommandations.\
 2.  **Intégrez au moins deux visuels** parmi ceux produits, dont au moins un graphique de catégories.\

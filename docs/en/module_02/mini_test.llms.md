@@ -2,11 +2,11 @@
 
 STT-1100 Introduction to Data Science
 
-# Formative Mini-Test
+## Formative Mini-Test
 
 This mini-test checks the readings for module 2. It is not graded. Answer first without opening the solutions, then use the explanations to identify what should be reviewed before the adventure and challenge.
 
-## Question 1
+### Question 1
 
 True or false: a commit records a step locally, while a push sends that step to GitHub.
 
@@ -14,7 +14,7 @@ True or false: a commit records a step locally, while a push sends that step to 
 >
 > True. A commit records a snapshot in the local repository. A push then synchronizes local commits with the GitHub repository.
 
-## Question 2
+### Question 2
 
 Which function imports an Excel file into R?
 
@@ -27,7 +27,7 @@ Which function imports an Excel file into R?
 >
 > Answer: b. `read_excel()` comes from the `readxl` package and imports Excel files such as `.xls` or `.xlsx`.
 
-## Question 3
+### Question 3
 
 True or false: a reproducible Quarto report should import the data in a code block, even if you first tested the import through the RStudio interface.
 
@@ -35,7 +35,7 @@ True or false: a reproducible Quarto report should import the data in a code blo
 >
 > True. The report must render after restarting R, without depending on objects already present in the environment.
 
-## Question 4
+### Question 4
 
 What is the main purpose of `glimpse()`?
 
@@ -48,7 +48,7 @@ What is the main purpose of `glimpse()`?
 >
 > Answer: b. `glimpse()` gives a quick view of a table structure: variable names, types and first values.
 
-## Question 5
+### Question 5
 
 Which `dplyr` function keeps only selected columns?
 
@@ -61,7 +61,7 @@ Which `dplyr` function keeps only selected columns?
 >
 > Answer: a. `select()` chooses columns. To keep rows based on a condition, use `filter()`.
 
-## Question 6
+### Question 6
 
 Which `dplyr` function creates a new variable?
 
@@ -74,7 +74,7 @@ Which `dplyr` function creates a new variable?
 >
 > Answer: b. `mutate()` adds or modifies columns in a table.
 
-## Question 7
+### Question 7
 
 You want to compute the mean and standard deviation of body mass by species. Which combination is most appropriate?
 
@@ -87,7 +87,7 @@ You want to compute the mean and standard deviation of body mass by species. Whi
 >
 > Answer: a. `group_by(species)` defines the groups, then `summarise()` computes the statistics for each group.
 
-## Question 8
+### Question 8
 
 True or false: the mean is always more robust than the median to extreme values.
 
@@ -95,7 +95,7 @@ True or false: the mean is always more robust than the median to extreme values.
 >
 > False. The median is generally less affected by extreme values than the mean.
 
-## Question 9
+### Question 9
 
 Which chart is most appropriate for viewing the distribution of a single numerical variable?
 
@@ -108,7 +108,7 @@ Which chart is most appropriate for viewing the distribution of a single numeric
 >
 > Answer: a. A histogram shows how values of a numerical variable are distributed.
 
-## Question 10
+### Question 10
 
 Which chart works well for comparing a numerical variable across several groups?
 
@@ -121,7 +121,7 @@ Which chart works well for comparing a numerical variable across several groups?
 >
 > Answer: a. A box plot compares the median, spread and potentially extreme values across groups.
 
-## Question 11
+### Question 11
 
 Which chart works well for studying the relationship between two numerical variables?
 
@@ -134,7 +134,7 @@ Which chart works well for studying the relationship between two numerical varia
 >
 > Answer: a. A scatterplot helps examine the relationship between two numerical variables.
 
-## Question 12
+### Question 12
 
 True or false: directly editing the raw Excel file is a good practice if the final report contains only the corrected charts.
 

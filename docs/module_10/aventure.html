@@ -4303,6 +4303,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5861,7 +5887,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6091,28 +6118,9 @@ margin-bottom: .05rem;
   <li>
 <a href="#%C3%A9tapes-guid%C3%A9es" id="toc-étapes-guidées" class="nav-link" data-scroll-target="#%C3%A9tapes-guid%C3%A9es">Étapes guidées</a>
   <ul class="collapse">
-<li>
-<a href="#%C3%A9tape-1-nettoyage-de-texte" id="toc-étape-1-nettoyage-de-texte" class="nav-link" data-scroll-target="#%C3%A9tape-1-nettoyage-de-texte">Étape 1 — Nettoyage de texte</a>
-  <ul class="collapse">
-<li><a href="#exemple-de-jeu-de-donn%C3%A9es-simul%C3%A9" id="toc-exemple-de-jeu-de-données-simulé" class="nav-link" data-scroll-target="#exemple-de-jeu-de-donn%C3%A9es-simul%C3%A9">Exemple de jeu de données simulé</a></li>
-  <li><a href="#pr%C3%A9traitement-du-texte" id="toc-prétraitement-du-texte" class="nav-link" data-scroll-target="#pr%C3%A9traitement-du-texte">Prétraitement du texte</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#%C3%A9tape-2-analyse-de-sentiment" id="toc-étape-2-analyse-de-sentiment" class="nav-link" data-scroll-target="#%C3%A9tape-2-analyse-de-sentiment">Étape 2 — Analyse de sentiment</a>
-  <ul class="collapse">
-<li><a href="#analyse-de-sentiment-en-fran%C3%A7ais" id="toc-analyse-de-sentiment-en-français" class="nav-link" data-scroll-target="#analyse-de-sentiment-en-fran%C3%A7ais">Analyse de sentiment en français</a></li>
-  <li><a href="#visualisation-des-scores-par-semaine" id="toc-visualisation-des-scores-par-semaine" class="nav-link" data-scroll-target="#visualisation-des-scores-par-semaine">Visualisation des scores par semaine</a></li>
-  <li><a href="#collaboration-finale" id="toc-collaboration-finale" class="nav-link" data-scroll-target="#collaboration-finale">Collaboration finale</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#%C3%A9tape-3-mots-distinctifs" id="toc-étape-3-mots-distinctifs" class="nav-link" data-scroll-target="#%C3%A9tape-3-mots-distinctifs">Étape 3 — Mots distinctifs</a>
-  <ul class="collapse">
-<li><a href="#calcul-tf-idf" id="toc-calcul-tf-idf" class="nav-link" data-scroll-target="#calcul-tf-idf">Calcul TF-IDF</a></li>
-  <li><a href="#visualisation-pour-une-semaine-donn%C3%A9e" id="toc-visualisation-pour-une-semaine-donnée" class="nav-link" data-scroll-target="#visualisation-pour-une-semaine-donn%C3%A9e">Visualisation pour une semaine donnée</a></li>
-  </ul>
-</li>
+<li><a href="#%C3%A9tape-1-nettoyage-de-texte" id="toc-étape-1-nettoyage-de-texte" class="nav-link" data-scroll-target="#%C3%A9tape-1-nettoyage-de-texte">Étape 1 — Nettoyage de texte</a></li>
+  <li><a href="#%C3%A9tape-2-analyse-de-sentiment" id="toc-étape-2-analyse-de-sentiment" class="nav-link" data-scroll-target="#%C3%A9tape-2-analyse-de-sentiment">Étape 2 — Analyse de sentiment</a></li>
+  <li><a href="#%C3%A9tape-3-mots-distinctifs" id="toc-étape-3-mots-distinctifs" class="nav-link" data-scroll-target="#%C3%A9tape-3-mots-distinctifs">Étape 3 — Mots distinctifs</a></li>
   <li><a href="#%C3%A9tape-4-cr%C3%A9ation-du-dashboard" id="toc-étape-4-création-du-dashboard" class="nav-link" data-scroll-target="#%C3%A9tape-4-cr%C3%A9ation-du-dashboard">Étape 4 — Création du dashboard</a></li>
   <li><a href="#%C3%A9tape-5-recommandations-et-analyse-finale" id="toc-étape-5-recommandations-et-analyse-finale" class="nav-link" data-scroll-target="#%C3%A9tape-5-recommandations-et-analyse-finale">Étape 5 — Recommandations et analyse finale</a></li>
   </ul>
@@ -6139,7 +6147,7 @@ margin-bottom: .05rem;
 
 
 
-</header><section id="mise-en-contexte" class="level1"><h1>Mise en contexte</h1>
+</header><section id="mise-en-contexte" class="level2"><h2 class="anchored" data-anchor-id="mise-en-contexte">Mise en contexte</h2>
 <p>Cette semaine, vous avez été <strong>engagé·e comme analyste d’affaires junior</strong> par la <strong>Faculté des sciences et de génie de l’Université Laval</strong>. Dans le cadre de la réforme du baccalauréat en statistique et science des données, la direction souhaite évaluer <strong>l’évolution du ressenti étudiant tout au long de la session</strong>.</p>
 <p>Chaque semaine, les étudiant·es ont répondu à un questionnaire sur leur expérience d’apprentissage dans le cours STT-1100. Vos analyses seront essentielles pour documenter les points forts et les pistes d’amélioration du nouveau programme.</p>
 <p>Vous êtes guidé·e par <strong>Anne-Sophie</strong>, la directrice du programme, qui vous accompagne dans la structuration de votre tableau de bord et vous aide à interpréter les résultats.</p>
@@ -6173,7 +6181,7 @@ Carte de visite
 </div>
 </div>
 <!-- adventure-brief:end -->
-</section><section id="mission" class="level1"><h1>Mission</h1>
+</section><section id="mission" class="level2"><h2 class="anchored" data-anchor-id="mission">Mission</h2>
 <p>Construire un tableau de bord interactif (avec <code>flexdashboard</code> et <code>shiny</code>) qui permet de :</p>
 <ul>
 <li>visualiser les sentiments exprimés par semaine,</li>
@@ -6200,7 +6208,7 @@ Carte de visite
 </div>
 </div>
 <!-- week-new:end -->
-</section><section id="données" class="level1"><h1>Données</h1>
+</section><section id="données" class="level2"><h2 class="anchored" data-anchor-id="données">Données</h2>
 <p>Le fichier de travail principal s’appelle <code>data/sentiments_cours.csv</code>. Il est construit progressivement pendant la session à partir des rétroactions anonymisées des étudiant·es.</p>
 <p>Au début de l’aventure, ce fichier peut ne pas encore être complet. Le dépôt du module fournit donc aussi un petit fichier exemple non réel pour tester le tableau de bord avant l’arrivée des rétroactions finales.</p>
 <p>Le format attendu du fichier final est :</p>
@@ -6219,7 +6227,7 @@ Carte de visite
 <code>plaisir</code>: niveau de plaisir (1 à 5)</li>
 </ul>
 <p>Si une variable n’est pas collectée exactement sous cette forme, documentez clairement le recodage utilisé dans votre tableau de bord.</p>
-</section><section id="outils-recommandés" class="level1"><h1>Outils recommandés</h1>
+</section><section id="outils-recommandés" class="level2"><h2 class="anchored" data-anchor-id="outils-recommandés">Outils recommandés</h2>
 <ul>
 <li>
 <code>tidytext</code>, <code>stringr</code>, <code>dplyr</code> : nettoyage et analyse du texte</li>
@@ -6228,8 +6236,8 @@ Carte de visite
 <li>
 <code>flexdashboard</code>, <code>shiny</code> : interface interactive</li>
 <li>un lexique maison en français pour l’analyse de sentiment</li>
-</ul></section><section id="étapes-guidées" class="level1"><h1>Étapes guidées</h1>
-<section id="étape-1-nettoyage-de-texte" class="level2"><h2 class="anchored" data-anchor-id="étape-1-nettoyage-de-texte">Étape 1 — Nettoyage de texte</h2>
+</ul></section><section id="étapes-guidées" class="level2"><h2 class="anchored" data-anchor-id="étapes-guidées">Étapes guidées</h2>
+<section id="étape-1-nettoyage-de-texte" class="level3"><h3 class="anchored" data-anchor-id="étape-1-nettoyage-de-texte">Étape 1 — Nettoyage de texte</h3>
 <div class="callout callout-style-default callout-important callout-titled" title="Question d’Anne-Sophie">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6276,7 +6284,7 @@ Carte de visite
 </ul>
 </div>
 </div>
-<section id="exemple-de-jeu-de-données-simulé" class="level3"><h3 class="anchored" data-anchor-id="exemple-de-jeu-de-données-simulé">Exemple de jeu de données simulé</h3>
+<section id="exemple-de-jeu-de-données-simulé" class="level4"><h4 class="anchored" data-anchor-id="exemple-de-jeu-de-données-simulé">Exemple de jeu de données simulé</h4>
 <p>Cet exemple sert seulement à comprendre les étapes. Le tableau de bord final devra être branché au fichier <code>data/sentiments_cours.csv</code> lorsque les rétroactions anonymisées seront disponibles.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6297,7 +6305,7 @@ Carte de visite
 <button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
 </div>
 </div>
-</section><section id="prétraitement-du-texte" class="level3"><h3 class="anchored" data-anchor-id="prétraitement-du-texte">Prétraitement du texte</h3>
+</section><section id="prétraitement-du-texte" class="level4"><h4 class="anchored" data-anchor-id="prétraitement-du-texte">Prétraitement du texte</h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://juliasilge.github.io/tidytext/">tidytext</a></span><span class="op">)</span></span>
@@ -6348,7 +6356,7 @@ Carte de visite
 <li><p>retirer la ponctuation, les chiffres et les mots fréquents (stopwords),</p></li>
 <li><p>transformer le texte en minuscules,</p></li>
 <li><p><strong>tokeniser</strong> le texte (découper en mots).</p></li>
-</ul></section></section><section id="étape-2-analyse-de-sentiment" class="level2"><h2 class="anchored" data-anchor-id="étape-2-analyse-de-sentiment">Étape 2 — Analyse de sentiment</h2>
+</ul></section></section><section id="étape-2-analyse-de-sentiment" class="level3"><h3 class="anchored" data-anchor-id="étape-2-analyse-de-sentiment">Étape 2 — Analyse de sentiment</h3>
 <p>On s’intéresse ici à la <strong>valence émotionnelle</strong> des mots dans les commentaires. L’analyse de sentiment permet de quantifier si un texte est plutôt positif ou négatif.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Notions clés">
 <div class="callout-header d-flex align-content-center">
@@ -6368,7 +6376,7 @@ Carte de visite
 </ul>
 </div>
 </div>
-<section id="analyse-de-sentiment-en-français" class="level3"><h3 class="anchored" data-anchor-id="analyse-de-sentiment-en-français">Analyse de sentiment en français</h3>
+<section id="analyse-de-sentiment-en-français" class="level4"><h4 class="anchored" data-anchor-id="analyse-de-sentiment-en-français">Analyse de sentiment en français</h4>
 <p>Actuellement, il <strong>n’existe pas de lexique intégré à <code><a href="https://juliasilge.github.io/tidytext/reference/get_sentiments.html">tidytext::get_sentiments()</a></code> pour le français</strong> (contrairement à l’anglais, où les lexiques <code>bing</code>, <code>afinn</code>, et <code>nrc</code> sont directement accessibles). Voici donc une approche pédagogique : créer un petit lexique personnalisé à enrichir en classe.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Suggestion d’Anne-Sophie">
 <div class="callout-header d-flex align-content-center">
@@ -6409,7 +6417,7 @@ Carte de visite
 3       3        2        0     2</code></pre>
 </div>
 </div>
-</section><section id="visualisation-des-scores-par-semaine" class="level3"><h3 class="anchored" data-anchor-id="visualisation-des-scores-par-semaine">Visualisation des scores par semaine</h3>
+</section><section id="visualisation-des-scores-par-semaine" class="level4"><h4 class="anchored" data-anchor-id="visualisation-des-scores-par-semaine">Visualisation des scores par semaine</h4>
 <p>Faisons un graphique pour visualiser l’évolution du score de sentiment par semaine :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6439,10 +6447,10 @@ Carte de visite
 <p>« Comme les lexiques intégrés à <code><a href="https://juliasilge.github.io/tidytext/reference/get_sentiments.html">get_sentiments()</a></code> ne sont disponibles qu’en anglais, je vous propose de construire un petit lexique maison pour le français. Ce sera imparfait, mais cela vous permettra de comprendre le principe. On pourra ensuite en discuter ensemble pour l’enrichir. Ce qui m’intéresse, c’est que vous soyez capables d’interpréter l’évolution du sentiment d’une semaine à l’autre, même avec des outils simples. »</p>
 </div>
 </div>
-</section><section id="collaboration-finale" class="level3"><h3 class="anchored" data-anchor-id="collaboration-finale">Collaboration finale</h3>
+</section><section id="collaboration-finale" class="level4"><h4 class="anchored" data-anchor-id="collaboration-finale">Collaboration finale</h4>
 <p>À la fin du cours, une activité en classe permettra à chaque étudiant·e ou équipe de <strong>partager son propre lexique de sentiments en français</strong> construit durant l’analyse.</p>
 <p><strong>L’enseignant collectera et fusionnera ces lexiques</strong>, en les vérifiant pour produire une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.</p>
-</section></section><section id="étape-3-mots-distinctifs" class="level2"><h2 class="anchored" data-anchor-id="étape-3-mots-distinctifs">Étape 3 — Mots distinctifs</h2>
+</section></section><section id="étape-3-mots-distinctifs" class="level3"><h3 class="anchored" data-anchor-id="étape-3-mots-distinctifs">Étape 3 — Mots distinctifs</h3>
 <p>Dans cette étape, nous allons identifier les mots qui ressortent le plus chaque semaine. Pour cela, nous utiliserons l’approche <strong>TF-IDF</strong> (Term Frequency-Inverse Document Frequency), qui permet de mettre en évidence les mots à la fois fréquents dans un document et rares dans l’ensemble des documents.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Idée d’Anne-Sophie">
 <div class="callout-header d-flex align-content-center">
@@ -6477,7 +6485,7 @@ Carte de visite
 </ul>
 </div>
 </div>
-<section id="calcul-tf-idf" class="level3"><h3 class="anchored" data-anchor-id="calcul-tf-idf">Calcul TF-IDF</h3>
+<section id="calcul-tf-idf" class="level4"><h4 class="anchored" data-anchor-id="calcul-tf-idf">Calcul TF-IDF</h4>
 <p>Calculons le TF-IDF pour chaque mot par semaine :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6501,7 +6509,7 @@ Carte de visite
 6       3 pratique         1 0.125  1.10  0.137</code></pre>
 </div>
 </div>
-</section><section id="visualisation-pour-une-semaine-donnée" class="level3"><h3 class="anchored" data-anchor-id="visualisation-pour-une-semaine-donnée">Visualisation pour une semaine donnée</h3>
+</section><section id="visualisation-pour-une-semaine-donnée" class="level4"><h4 class="anchored" data-anchor-id="visualisation-pour-une-semaine-donnée">Visualisation pour une semaine donnée</h4>
 <p>Faisons un graphique pour visualiser les mots les plus distinctifs pour une semaine spécifique. Par exemple, la semaine 2 :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6545,7 +6553,7 @@ Carte de visite
 <p>« Peux-tu repérer les mots qui ressortent le plus chaque semaine ? Tu pourrais essayer une approche TF-IDF et me faire un graphique ou même un nuage de mots. »</p>
 </div>
 </div>
-</section></section><section id="étape-4-création-du-dashboard" class="level2"><h2 class="anchored" data-anchor-id="étape-4-création-du-dashboard">Étape 4 — Création du dashboard</h2>
+</section></section><section id="étape-4-création-du-dashboard" class="level3"><h3 class="anchored" data-anchor-id="étape-4-création-du-dashboard">Étape 4 — Création du dashboard</h3>
 <p>Maintenant que nous avons nettoyé les données et effectué les analyses de sentiment et de mots distinctifs, il est temps de créer un tableau de bord interactif. Celui-ci permettra à Anne-Sophie de visualiser les résultats de manière claire et dynamique.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Rappel d’Anne-Sophie">
 <div class="callout-header d-flex align-content-center">
@@ -6560,7 +6568,7 @@ Carte de visite
 <p>Le tableau de bord final doit être <strong>clair, interactif et utile</strong>. Un <strong>modèle prêt à l’emploi (<code>modele_dashboard.Rmd</code>)</strong> se trouve dans le dépôt GitHub du module. Personnalisez-le : branchez les rétroactions anonymisées, ajustez les filtres, et ajoutez au moins deux visualisations.</p>
 </div>
 </div>
-</section><section id="étape-5-recommandations-et-analyse-finale" class="level2"><h2 class="anchored" data-anchor-id="étape-5-recommandations-et-analyse-finale">Étape 5 — Recommandations et analyse finale</h2>
+</section><section id="étape-5-recommandations-et-analyse-finale" class="level3"><h3 class="anchored" data-anchor-id="étape-5-recommandations-et-analyse-finale">Étape 5 — Recommandations et analyse finale</h3>
 <p>À la fin du tableau de bord, rédigez un résumé de vos <strong>observations clés</strong> :</p>
 <ul>
 <li>évolution du score de sentiment,</li>
@@ -6582,7 +6590,7 @@ Carte de visite
 <p>« N’oubliez pas d’explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »</p>
 </div>
 </div>
-</section></section><section id="bonus-personnalisation" class="level1"><h1>Bonus — Personnalisation</h1>
+</section></section><section id="bonus-personnalisation" class="level2"><h2 class="anchored" data-anchor-id="bonus-personnalisation">Bonus — Personnalisation</h2>
 <p>Voici quelques idées pour aller plus loin dans la personnalisation de votre tableau de bord :</p>
 <ul>
 <li>Ajouter le <strong>logo de la Faculté des sciences et de génie</strong> ou de l’Université Laval,</li>
@@ -6591,7 +6599,7 @@ Carte de visite
 <li>Ajouter une citation inspirante ou un message d’accueil dans la barre latérale.</li>
 </ul>
 <p>Vous pouvez également intégrer une barre de progression ou un indicateur visuel du sentiment général par semaine.</p>
-</section><section id="livraison-attendue" class="level1"><h1>Livraison attendue</h1>
+</section><section id="livraison-attendue" class="level2"><h2 class="anchored" data-anchor-id="livraison-attendue">Livraison attendue</h2>
 <ul>
 <li>Un dépôt GitHub contenant :
 <ul>
@@ -6626,7 +6634,7 @@ une phrase de confidentialité indiquant ce qui ne doit pas être publié.
 </ul>
 </div>
 <!-- portfolio-trace:end -->
-</section><section id="conseils-danne-sophie" class="level1"><h1>Conseils d’Anne-Sophie</h1>
+</section><section id="conseils-danne-sophie" class="level2"><h2 class="anchored" data-anchor-id="conseils-danne-sophie">Conseils d’Anne-Sophie</h2>
 <blockquote class="blockquote">
 <p>« Un bon tableau de bord, c’est comme un bon pitch : <strong>clair, lisible et ciblé</strong>. Mettez-vous à la place de votre utilisateur final. »</p>
 </blockquote>

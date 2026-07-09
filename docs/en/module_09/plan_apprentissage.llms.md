@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module Objectives
+## Module Objectives
 
 At the end of this module, you should be able to:
 
@@ -12,7 +12,7 @@ At the end of this module, you should be able to:
 - identify limits linked to missing data;
 - discuss descriptive biases in data or models with caution.
 
-# Readings
+## Readings
 
 To prepare, consult the following resources:
 
@@ -24,7 +24,7 @@ To prepare, consult the following resources:
 - [Government of Canada - Guide on Automated Decision-Making](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)
 - [NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
 
-## Posit cheat sheets
+### Posit cheat sheets
 
 - [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Table preparation before fitting and interpreting the model.
 
@@ -32,13 +32,15 @@ To prepare, consult the following resources:
 
 After the readings, complete the [module 9 formative mini-test](../module_09/mini_test.llms.md).
 
-# Adventure
+> The observed-predicted comparisons in this module are diagnostics on the data used to fit the model. They help discuss its limits, but they are not a validation of performance on new data.
+
+## Adventure
 
 You play the role of a data scientist at the Quebec Ministry of Education. Your mandate is twofold: build a predictive model from primary school data, then explore a fictitious dataset to detect a descriptive bias.
 
 Link to the adventure: [Adventure 9 - Prediction and Algorithmic Bias](../module_09/aventure.llms.md)
 
-# Challenge - Video Capsule
+## Challenge - Video Capsule
 
 You must produce a video capsule of 180 seconds maximum. Choose either the predictive model from Mission 1 or the bias analysis from Mission 2.
 
@@ -46,7 +48,7 @@ Full instructions: [Challenge 9 - Video Capsule](../module_09/defi.llms.md)
 
 Starter repository: `STT-1100/aventure-9`
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 The exercises are independent from the adventure and the challenge. They use two fictitious datasets created for this module:
 

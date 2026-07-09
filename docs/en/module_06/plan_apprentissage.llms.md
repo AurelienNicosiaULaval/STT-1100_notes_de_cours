@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module Objectives
+## Module Objectives
 
 By the end of this module, you should be able to:
 
@@ -12,7 +12,7 @@ By the end of this module, you should be able to:
 - join several tables with `dplyr`;
 - explain the data life cycle in a collaborative project.
 
-# Readings
+## Readings
 
 Before the activity, consult the following resources.
 
@@ -25,7 +25,7 @@ Before the activity, consult the following resources.
 - [Quarto Docs - Execution options](https://quarto.org/docs/computations/execution-options.html): options that affect chunk execution and display.
 - [R for Data Science (2nd ed.) - Chapter 20: Joins](https://r4ds.hadley.nz/joins.html): combining data from different sources with `dplyr`.
 
-## Posit cheat sheets
+### Posit cheat sheets
 
 - [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Joins, grouped summaries and table checks.
 
@@ -33,19 +33,19 @@ Before the activity, consult the following resources.
 
 After the readings, complete the [formative mini-test](../module_06/mini_test.llms.md). It is not graded; it only checks the basic ideas before the adventure.
 
-# Adventure
+## Adventure
 
 [Adventure 6](../module_06/aventure.llms.md)
 
 The adventure guides you through the production of a collaborative report on JFK flight delays with the `flights`, `airlines` and `weather` tables from the `nycflights23` package.
 
-# Challenge
+## Challenge
 
 [Challenge 6](../module_06/defi.llms.md)
 
 The challenge asks you to peer-review another team’s report in GitHub. You must check clarity, reproducibility, joins, visualizations and the quality of interpretations.
 
-# Exercises
+## Exercises
 
 [Consolidation exercises](../module_06/exercices.llms.md)
 

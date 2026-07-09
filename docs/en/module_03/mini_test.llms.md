@@ -2,11 +2,11 @@
 
 STT-1100 Introduction to Data Science
 
-# Formative Mini-Test
+## Formative Mini-Test
 
 This mini-test checks the readings for module 3. It is not graded. Answer first without opening the solutions, then use the explanations to identify what should be reviewed before the adventure and challenge.
 
-## Question 1
+### Question 1
 
 True or false: a categorical variable contains levels or groups, even if those levels are stored as text in R.
 
@@ -14,7 +14,7 @@ True or false: a categorical variable contains levels or groups, even if those l
 >
 > True. A categorical variable can be stored as `character` or as `factor`. What matters is that its values represent categories.
 
-## Question 2
+### Question 2
 
 Which `stringr` function detects whether a string contains a pattern?
 
@@ -27,7 +27,7 @@ Which `stringr` function detects whether a string contains a pattern?
 >
 > Answer: a. `str_detect()` returns `TRUE` or `FALSE` depending on whether the pattern is present.
 
-## Question 3
+### Question 3
 
 True or false: `str_squish()` removes leading and trailing spaces and reduces repeated spaces to a single space.
 
@@ -35,7 +35,7 @@ True or false: `str_squish()` removes leading and trailing spaces and reduces re
 >
 > True. This function is useful for harmonizing text fields before creating categories.
 
-## Question 4
+### Question 4
 
 Which function can extract a Canadian postal code from an address when given an appropriate regular expression?
 
@@ -48,7 +48,7 @@ Which function can extract a Canadian postal code from an address when given an 
 >
 > Answer: a. `str_extract()` extracts the part of a string matching the pattern.
 
-## Question 5
+### Question 5
 
 Why convert a column such as `Amende` to a numeric variable before computing a mean?
 
@@ -61,7 +61,7 @@ Why convert a column such as `Amende` to a numeric variable before computing a m
 >
 > Answer: b. If amounts are stored as text, you first need to create a reproducible numeric variable.
 
-## Question 6
+### Question 6
 
 Which `dplyr` function is the most direct way to get a frequency table?
 
@@ -74,7 +74,7 @@ Which `dplyr` function is the most direct way to get a frequency table?
 >
 > Answer: a. `count(variable)` counts the number of observations in each level.
 
-## Question 7
+### Question 7
 
 True or false: a standardized stacked bar chart with `position = "fill"` shows proportions rather than absolute counts.
 
@@ -82,7 +82,7 @@ True or false: a standardized stacked bar chart with `position = "fill"` shows p
 >
 > True. The total height of each bar is 1, which makes it possible to compare group composition.
 
-## Question 8
+### Question 8
 
 Which tool is useful for grouping rare categories into an “Other” level?
 
@@ -95,7 +95,7 @@ Which tool is useful for grouping rare categories into an “Other” level?
 >
 > Answer: a. `fct_lump()` groups infrequent levels, which can make a table or chart more readable.
 
-## Question 9
+### Question 9
 
 True or false: a categorical chart should generally be ordered by a useful variable rather than left in an arbitrary alphabetical order.
 
@@ -103,7 +103,7 @@ True or false: a categorical chart should generally be ordered by a useful varia
 >
 > True. Ordering by frequency or by a summary value often helps the reader understand the chart message.
 
-## Question 10
+### Question 10
 
 In the challenge, why should the original `listecondamnation` dataset remain intact?
 
@@ -116,7 +116,7 @@ In the challenge, why should the original `listecondamnation` dataset remain int
 >
 > Answer: a. The report must render again after restarting R, with the same cleaning choices.
 
-## Question 11
+### Question 11
 
 True or false: if a chart uses proportions, the text should state that it does not show absolute counts.
 
@@ -124,7 +124,7 @@ True or false: if a chart uses proportions, the text should state that it does n
 >
 > True. Proportions are useful, but they can hide the actual size of groups.
 
-## Question 12
+### Question 12
 
 Which sentence best matches a good narrative figure in a data article?
 

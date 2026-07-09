@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6135,8 +6162,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mise-en-situation" class="level1">
-<h1>Mise en situation</h1>
+<section id="mise-en-situation" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-situation">Mise en situation</h2>
 <p>Vous travaillez comme consultant ou consultante indépendante en science des données. À la différence d’un poste salarié, vous êtes mandaté ponctuellement par des clientes et clients pour résoudre des problèmes précis. Vous devez donc être autonome, rigoureux et capable de livrer des solutions efficaces, réutilisables et bien documentées.</p>
 <p>Aujourd’hui, vous êtes engagé par Marie-Pier, directrice de recherche à l’Institut québécois pour les données durables. Elle souhaite explorer le portail <a href="https://www.donneesquebec.ca">Données Québec</a> pour repérer des jeux de données récents et pertinents. Votre mission consiste à concevoir un outil de scraping fiable pour extraire les titres, producteurs et catégories des jeux de données, tout en respectant les bonnes pratiques techniques et éthiques.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -6180,8 +6207,8 @@ Carte de visite
 </div>
 </div>
 <!-- adventure-brief:end -->
-<section id="objectifs-de-laventure" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h2>
+<section id="objectifs-de-laventure" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h3>
 <ul>
 <li>Comprendre les bases du web scraping avec <code>rvest</code>.</li>
 <li>Créer une fonction pour extraire des métadonnées depuis une page web.</li>
@@ -6211,8 +6238,8 @@ Carte de visite
 <!-- week-new:end -->
 </section>
 </section>
-<section id="avant-de-scraper-vérifier-le-contexte" class="level1">
-<h1>Avant de scraper : vérifier le contexte</h1>
+<section id="avant-de-scraper-vérifier-le-contexte" class="level2">
+<h2 class="anchored" data-anchor-id="avant-de-scraper-vérifier-le-contexte">Avant de scraper : vérifier le contexte</h2>
 <div class="callout callout-style-default callout-important callout-titled" title="Question de Marie-Pier">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6274,8 +6301,8 @@ Avertissement
 </div>
 </div>
 </section>
-<section id="comprendre-le-web-scraping-avec-rvest" class="level1">
-<h1>Comprendre le web scraping avec <code>rvest</code></h1>
+<section id="comprendre-le-web-scraping-avec-rvest" class="level2">
+<h2 class="anchored" data-anchor-id="comprendre-le-web-scraping-avec-rvest">Comprendre le web scraping avec <code>rvest</code></h2>
 <p>Dans cette section, vous découvrez les fonctions essentielles du package <code>rvest</code>. L’objectif est d’extraire du contenu HTML structuré depuis une page de recherche.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&amp;page=1&quot;</span></span>
@@ -6394,8 +6421,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="création-guidée-de-la-fonction-scrape_page" class="level1">
-<h1>Création guidée de la fonction <code>scrape_page()</code></h1>
+<section id="création-guidée-de-la-fonction-scrape_page" class="level2">
+<h2 class="anchored" data-anchor-id="création-guidée-de-la-fonction-scrape_page">Création guidée de la fonction <code>scrape_page()</code></h2>
 <p>Marie-Pier souhaite que vous créiez une fonction réutilisable nommée <code>scrape_page()</code>. Elle prend en argument une URL et retourne un <code>data.frame</code> avec exactement les colonnes suivantes :</p>
 <ul>
 <li><code>titre</code>;</li>
@@ -6462,8 +6489,8 @@ Note
 </div>
 </div>
 </section>
-<section id="répétition-manuelle-puis-boucle-for" class="level1">
-<h1>Répétition manuelle, puis boucle <code>for</code></h1>
+<section id="répétition-manuelle-puis-boucle-for" class="level2">
+<h2 class="anchored" data-anchor-id="répétition-manuelle-puis-boucle-for">Répétition manuelle, puis boucle <code>for</code></h2>
 <p>Testez maintenant l’extraction des cinq premières pages en appelant plusieurs fois votre fonction :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">scrape_page</span>(<span class="st">&quot;https://www.donneesquebec.ca/recherche/?sort=metadata_modified+desc&amp;page=1&quot;</span>)</span>
@@ -6500,8 +6527,8 @@ Astuce
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exploration-guidée-par-marie-pier" class="level1">
-<h1>Exploration guidée par Marie-Pier</h1>
+<section id="exploration-guidée-par-marie-pier" class="level2">
+<h2 class="anchored" data-anchor-id="exploration-guidée-par-marie-pier">Exploration guidée par Marie-Pier</h2>
 <p>Utilisez le tableau <code>resultats</code> pour répondre aux questions de votre cliente. Elle attend des résultats précis et prudents.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Questions de Marie-Pier">
 <div class="callout-header d-flex align-content-center">
@@ -6521,8 +6548,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="réflexion-éthique" class="level1">
-<h1>Réflexion éthique</h1>
+<section id="réflexion-éthique" class="level2">
+<h2 class="anchored" data-anchor-id="réflexion-éthique">Réflexion éthique</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Pour votre rapport de travail">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6543,8 +6570,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="défi-à-remettre" class="level1">
-<h1>Défi à remettre</h1>
+<section id="défi-à-remettre" class="level2">
+<h2 class="anchored" data-anchor-id="défi-à-remettre">Défi à remettre</h2>
 <p>Le défi associé à cette aventure est décrit dans la page <a href="../module_08/defi.html">Défi 8 - Fonction de scraping</a>.</p>
 <p>Vous devrez remettre un fichier <code>IDUL.R</code> contenant votre fonction <code>scrape_page()</code>. Le dépôt de départ est le template GitHub <code>STT-1100/aventure-8</code>.</p>
 <!-- portfolio-trace:start -->
@@ -6572,8 +6599,8 @@ une courte exploration des résultats, si une page publique est disponible.
 </div>
 <!-- portfolio-trace:end -->
 </section>
-<section id="conclusion-de-laventure" class="level1">
-<h1>Conclusion de l’aventure</h1>
+<section id="conclusion-de-laventure" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-de-laventure">Conclusion de l’aventure</h2>
 <p>Vous avez conçu un outil de scraping fonctionnel et automatisable, utilisé une boucle <code>for</code>, extrait des métadonnées structurées et approfondi votre compréhension de l’éthique du scraping.</p>
 
 

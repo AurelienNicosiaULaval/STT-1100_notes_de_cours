@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6113,12 +6140,7 @@ margin-bottom: .05rem;
   <ul class="collapse">
   <li><a href="#outils-à-ta-disposition" id="toc-outils-à-ta-disposition" class="nav-link" data-scroll-target="#outils-à-ta-disposition">Outils à ta disposition</a></li>
   <li><a href="#analyse-1---à-quelle-heure-faut-il-éviter-de-partir" id="toc-analyse-1---à-quelle-heure-faut-il-éviter-de-partir" class="nav-link" data-scroll-target="#analyse-1---à-quelle-heure-faut-il-éviter-de-partir">Analyse 1 - À quelle heure faut-il éviter de partir ?</a></li>
-  <li><a href="#analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" id="toc-analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" class="nav-link" data-scroll-target="#analyse-2---la-météo-est-elle-vraiment-liée-aux-retards">Analyse 2 - La météo est-elle vraiment liée aux retards ?</a>
-  <ul class="collapse">
-  <li><a href="#quest-ce-que-la-corrélation" id="toc-quest-ce-que-la-corrélation" class="nav-link" data-scroll-target="#quest-ce-que-la-corrélation">Qu’est-ce que la corrélation ?</a></li>
-  <li><a href="#étape-1---calculer-la-corrélation" id="toc-étape-1---calculer-la-corrélation" class="nav-link" data-scroll-target="#étape-1---calculer-la-corrélation">Étape 1 - Calculer la corrélation</a></li>
-  <li><a href="#étape-2---visualiser-une-relation" id="toc-étape-2---visualiser-une-relation" class="nav-link" data-scroll-target="#étape-2---visualiser-une-relation">Étape 2 - Visualiser une relation</a></li>
-  </ul></li>
+  <li><a href="#analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" id="toc-analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" class="nav-link" data-scroll-target="#analyse-2---la-météo-est-elle-vraiment-liée-aux-retards">Analyse 2 - La météo est-elle vraiment liée aux retards ?</a></li>
   <li><a href="#analyse-3---les-vieux-avions-sont-ils-moins-fiables" id="toc-analyse-3---les-vieux-avions-sont-ils-moins-fiables" class="nav-link" data-scroll-target="#analyse-3---les-vieux-avions-sont-ils-moins-fiables">Analyse 3 - Les vieux avions sont-ils moins fiables ?</a></li>
   </ul></li>
   </ul>
@@ -6147,8 +6169,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mise-en-situation---aventure-5" class="level1">
-<h1>Mise en situation - Aventure 5</h1>
+<section id="mise-en-situation---aventure-5" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-situation---aventure-5">Mise en situation - Aventure 5</h2>
 <p>Tu enfiles les chaussures (et le badge sécurisé !) d’un·e <strong>statisticien·ne des opérations aéroportuaires</strong> fraîchement recruté·e par la <strong>Port Authority Data Lab (PADL)</strong>, l’équipe d’analytique du <strong>Port Authority of New York &amp; New Jersey</strong>.<br>
 Ta mission : aider l’aéroport <strong>JFK</strong> (et, à terme, <strong>EWR</strong> et <strong>LGA</strong>) à fluidifier les départs et à réduire le <strong>temps perdu au sol</strong>.</p>
 <ul>
@@ -6193,8 +6215,8 @@ Carte de visite
 </div>
 <!-- adventure-brief:end -->
 </section>
-<section id="objectifs-de-laventure" class="level1">
-<h1>Objectifs de l’aventure</h1>
+<section id="objectifs-de-laventure" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h2>
 <ul>
 <li>Utiliser les fonctions de <code>lubridate</code> pour manipuler et enrichir les données temporelles.</li>
 <li>Réaliser une analyse exploratoire des données (EDA) pour mieux comprendre leur structure et identifier des patterns intéressants.</li>
@@ -6223,8 +6245,8 @@ Carte de visite
 </div>
 <!-- week-new:end -->
 </section>
-<section id="comment-réussir-cette-aventure" class="level1">
-<h1>Comment réussir cette aventure ?</h1>
+<section id="comment-réussir-cette-aventure" class="level2">
+<h2 class="anchored" data-anchor-id="comment-réussir-cette-aventure">Comment réussir cette aventure ?</h2>
 <p>Voici quelques conseils de Sofia pour bien réussir ta mission :</p>
 <ul>
 <li>Commence par <strong>explorer les données</strong> et comprendre leur structure. Tu peux utiliser <code>glimpse()</code>, <code>summary()</code>, ou même un tableau interactif.</li>
@@ -6240,8 +6262,8 @@ Carte de visite
 </ul>
 <p>Et surtout… <strong>pose-toi des questions</strong> ! L’important, c’est de développer ton raisonnement analytique.</p>
 </section>
-<section id="github-et-rendu" class="level1">
-<h1>GitHub et rendu</h1>
+<section id="github-et-rendu" class="level2">
+<h2 class="anchored" data-anchor-id="github-et-rendu">GitHub et rendu</h2>
 <p>Comme pour les aventures précédentes :</p>
 <ul>
 <li><p><strong>Clonez</strong> le dépôt GitHub du module 5 depuis l’organisation du cours. Vous pouvez utiliser la cheat sheet du cours si vous avez un trou de mémoire.</p></li>
@@ -6270,8 +6292,8 @@ Carte de visite
 <p><strong>Rappel</strong> : Le <code>.qmd</code> est votre document principal. Il doit permettre à n’importe quel·le membre de l’équipe (ou à Sofia !) de comprendre ce que vous avez fait et pourquoi.</p>
 </blockquote>
 </section>
-<section id="comprendre-et-manipuler-les-dates-avec-lubridate" class="level1">
-<h1>Comprendre et manipuler les dates avec <code>lubridate</code></h1>
+<section id="comprendre-et-manipuler-les-dates-avec-lubridate" class="level2">
+<h2 class="anchored" data-anchor-id="comprendre-et-manipuler-les-dates-avec-lubridate">Comprendre et manipuler les dates avec <code>lubridate</code></h2>
 <p>Avant de plonger dans les analyses de retard et de performance, Sofia souhaite s’assurer que tu maîtrises bien la gestion des <strong>dates et heures</strong> en R. Le package <code>lubridate</code> est un outil incontournable pour cela.</p>
 <p>Commence ton document par charger les packages et les données. Tous les exemples qui suivent supposent que l’objet <code>flights</code> existe.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -6289,8 +6311,8 @@ Carte de visite
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_time_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(dep_time)),</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">plane_year_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(plane_year))</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<section id="fonctionnalités-essentielles" class="level2">
-<h2 class="anchored" data-anchor-id="fonctionnalités-essentielles">Fonctionnalités essentielles</h2>
+<section id="fonctionnalités-essentielles" class="level3">
+<h3 class="anchored" data-anchor-id="fonctionnalités-essentielles">Fonctionnalités essentielles</h3>
 <p>Voici les principales fonctions que tu utiliseras :</p>
 <table class="caption-top table">
 <colgroup>
@@ -6341,8 +6363,8 @@ Carte de visite
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="fu">make_datetime</span>(year, month, day, hour)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="exercice-1---quelle-est-la-structure-de-la-date" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1---quelle-est-la-structure-de-la-date">Exercice 1 - Quelle est la structure de la date ?</h2>
+<section id="exercice-1---quelle-est-la-structure-de-la-date" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-1---quelle-est-la-structure-de-la-date">Exercice 1 - Quelle est la structure de la date ?</h3>
 <div class="callout-question">
 <p><strong>Sofia te demande</strong> : <em>Crée une variable <code>date</code> à partir des colonnes <code>year</code>, <code>month</code> et <code>day</code>, puis utilise <code>class()</code> pour vérifier le type de cette nouvelle variable.</em></p>
 </div>
@@ -6367,8 +6389,8 @@ Tu peux utiliser :</p>
 </div>
 </div>
 </section>
-<section id="exercice-2---jour-de-la-semaine" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---jour-de-la-semaine">Exercice 2 - Jour de la semaine</h2>
+<section id="exercice-2---jour-de-la-semaine" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-2---jour-de-la-semaine">Exercice 2 - Jour de la semaine</h3>
 <div class="callout-question">
 <p><strong>Sofia te demande</strong> : <em>Ajoute une colonne <code>jour_semaine</code> qui donne le jour de la semaine (lundi, mardi, etc.) pour chaque vol. Affiche les 7 premiers résultats.</em></p>
 </div>
@@ -6395,8 +6417,8 @@ Voici une façon de faire :</p>
 </div>
 </div>
 </section>
-<section id="exercice-3---créneau-horaire" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---créneau-horaire">Exercice 3 - Créneau horaire</h2>
+<section id="exercice-3---créneau-horaire" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-3---créneau-horaire">Exercice 3 - Créneau horaire</h3>
 <div class="callout-question">
 <p><strong>Sofia te demande</strong> : <em>Crée une variable <code>moment_journee</code> qui classe les vols en “nuit”, “matin”, “après-midi” ou “soir” selon l’heure prévue de départ.</em></p>
 </div>
@@ -6426,8 +6448,8 @@ Voici une suggestion :</p>
 </div>
 </div>
 </section>
-<section id="exercice-4---est-ce-un-week-end" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---est-ce-un-week-end">Exercice 4 - Est-ce un week-end ?</h2>
+<section id="exercice-4---est-ce-un-week-end" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-4---est-ce-un-week-end">Exercice 4 - Est-ce un week-end ?</h3>
 <div class="callout-question">
 <p><strong>Sofia te demande</strong> : <em>Ajoute une variable logique <code>weekend</code> qui vaut <code>TRUE</code> si le vol a lieu un samedi ou un dimanche.</em></p>
 </div>
@@ -6453,12 +6475,12 @@ Utilise :</p>
 </div>
 </section>
 </section>
-<section id="explorer-et-comprendre-les-relations-entre-les-données" class="level1">
-<h1>Explorer et comprendre les relations entre les données</h1>
+<section id="explorer-et-comprendre-les-relations-entre-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="explorer-et-comprendre-les-relations-entre-les-données">Explorer et comprendre les relations entre les données</h2>
 <p>Maintenant que tu es à l’aise avec les dates et les heures, Sofia souhaite t’introduire à une étape clé de tout projet en science des données : <strong>l’analyse exploratoire des données</strong>, souvent abrégée en <strong>EDA</strong> (<em>Exploratory Data Analysis</em>).</p>
 <p>L’objectif est simple : <strong>comprendre la structure des données, repérer des patterns, des anomalies, ou des corrélations intéressantes entre les variables</strong>.</p>
-<section id="outils-à-ta-disposition" class="level2">
-<h2 class="anchored" data-anchor-id="outils-à-ta-disposition">Outils à ta disposition</h2>
+<section id="outils-à-ta-disposition" class="level3">
+<h3 class="anchored" data-anchor-id="outils-à-ta-disposition">Outils à ta disposition</h3>
 <p>Tu peux t’appuyer sur :</p>
 <ul>
 <li><strong>Statistiques descriptives</strong> : <code>summary()</code>, <code>mean()</code>, <code>median()</code>, <code>sd()</code>, <code>n_distinct()</code>, etc.</li>
@@ -6475,8 +6497,8 @@ Utilise :</p>
 <p>Sofia te propose maintenant d’examiner des <strong>questions concrètes</strong> liées à la performance des vols et aux retards. Tu devras analyser les données pour proposer une interprétation claire.</p>
 <hr>
 </section>
-<section id="analyse-1---à-quelle-heure-faut-il-éviter-de-partir" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-1---à-quelle-heure-faut-il-éviter-de-partir">Analyse 1 - À quelle heure faut-il éviter de partir ?</h2>
+<section id="analyse-1---à-quelle-heure-faut-il-éviter-de-partir" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-1---à-quelle-heure-faut-il-éviter-de-partir">Analyse 1 - À quelle heure faut-il éviter de partir ?</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6524,8 +6546,8 @@ Tu peux regrouper les vols par heure et calculer la moyenne des retards :</p>
 </div>
 </div>
 </section>
-<section id="analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-2---la-météo-est-elle-vraiment-liée-aux-retards">Analyse 2 - La météo est-elle vraiment liée aux retards ?</h2>
+<section id="analyse-2---la-météo-est-elle-vraiment-liée-aux-retards" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-2---la-météo-est-elle-vraiment-liée-aux-retards">Analyse 2 - La météo est-elle vraiment liée aux retards ?</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6543,8 +6565,8 @@ Note
 <p><strong>Sofia te demande</strong> : <em>Choisis une ou deux variables météo (ex : <code>wind_gust</code>, <code>visib</code>, <code>precip</code>) et examine leur relation avec les retards (<code>dep_delay</code>).</em></p>
 </div>
 <p>Avant de plonger dans les visualisations, un petit détour par un concept clé : la <strong>corrélation</strong>.</p>
-<section id="quest-ce-que-la-corrélation" class="level3">
-<h3 class="anchored" data-anchor-id="quest-ce-que-la-corrélation">Qu’est-ce que la corrélation ?</h3>
+<section id="quest-ce-que-la-corrélation" class="level4">
+<h4 class="anchored" data-anchor-id="quest-ce-que-la-corrélation">Qu’est-ce que la corrélation ?</h4>
 <p>La corrélation mesure la <strong>force et la direction d’une relation linéaire</strong> entre deux variables numériques. Sa valeur est comprise entre :</p>
 <ul>
 <li><strong>-1</strong> : corrélation parfaitement <strong>négative</strong> (quand l’une augmente, l’autre diminue),</li>
@@ -6554,8 +6576,8 @@ Note
 <p>Par exemple, si les rafales de vent (<code>wind_gust</code>) augmentent et que les retards aussi, on devrait observer une <strong>corrélation positive</strong>.</p>
 <hr>
 </section>
-<section id="étape-1---calculer-la-corrélation" class="level3">
-<h3 class="anchored" data-anchor-id="étape-1---calculer-la-corrélation">Étape 1 - Calculer la corrélation</h3>
+<section id="étape-1---calculer-la-corrélation" class="level4">
+<h4 class="anchored" data-anchor-id="étape-1---calculer-la-corrélation">Étape 1 - Calculer la corrélation</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dep_delay, wind_gust, visib, precip) <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -6563,8 +6585,8 @@ Note
 <p>Ce tableau te donne un aperçu rapide de la force de la relation entre les retards (<code>dep_delay</code>) et certaines variables météo.</p>
 <p>Une corrélation proche de 0 ne veut pas dire que la météo ne joue jamais de rôle. Elle indique seulement qu’il n’y a pas de relation linéaire forte dans ce résumé global.</p>
 </section>
-<section id="étape-2---visualiser-une-relation" class="level3">
-<h3 class="anchored" data-anchor-id="étape-2---visualiser-une-relation">Étape 2 - Visualiser une relation</h3>
+<section id="étape-2---visualiser-une-relation" class="level4">
+<h4 class="anchored" data-anchor-id="étape-2---visualiser-une-relation">Étape 2 - Visualiser une relation</h4>
 <p>Un graphique de dispersion permet de <strong>voir</strong> la tendance entre deux variables. Tu peux par exemple tester :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wind_gust), <span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">%&gt;%</span></span>
@@ -6601,8 +6623,8 @@ Tu peux aussi tester avec d’autres variables comme <code>visib</code> (visibil
 </div>
 </section>
 </section>
-<section id="analyse-3---les-vieux-avions-sont-ils-moins-fiables" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-3---les-vieux-avions-sont-ils-moins-fiables">Analyse 3 - Les vieux avions sont-ils moins fiables ?</h2>
+<section id="analyse-3---les-vieux-avions-sont-ils-moins-fiables" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-3---les-vieux-avions-sont-ils-moins-fiables">Analyse 3 - Les vieux avions sont-ils moins fiables ?</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

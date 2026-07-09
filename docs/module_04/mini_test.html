@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6103,11 +6130,11 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mini-test-formatif" class="level1">
-<h1>Mini-test formatif</h1>
+<section id="mini-test-formatif" class="level2">
+<h2 class="anchored" data-anchor-id="mini-test-formatif">Mini-test formatif</h2>
 <p>Ce mini-test sert à vérifier les lectures du module 4. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.</p>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>Vrai ou faux: si un fichier est séparé par des points-virgules, <code>read_csv()</code> est toujours le meilleur choix.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -6126,8 +6153,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-2" class="level2">
-<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p>Quelle fonction permet de transformer des noms de colonnes en noms plus faciles à utiliser dans R?</p>
 <ol type="a">
 <li><code>janitor::clean_names()</code></li>
@@ -6152,8 +6179,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-3" class="level2">
-<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
 <p>Vrai ou faux: un identifiant comme <code>&quot;0012&quot;</code> devrait souvent rester en texte, même s’il contient seulement des chiffres.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6172,8 +6199,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-4" class="level2">
-<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
 <p>Quelle fonction est utile pour déclarer qu’une valeur spéciale, par exemple <code>-999</code>, représente une valeur manquante?</p>
 <ol type="a">
 <li><code>na_if()</code></li>
@@ -6198,8 +6225,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-5" class="level2">
-<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
 <p>Quelle fonction permet de transformer des colonnes <code>q1</code>, <code>q2</code>, <code>q3</code>, <code>q4</code> en deux colonnes <code>trimestre</code> et <code>valeur</code>?</p>
 <ol type="a">
 <li><code>pivot_longer()</code></li>
@@ -6224,8 +6251,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-6" class="level2">
-<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <p>Vrai ou faux: une correction de données devrait être documentée seulement si elle modifie plus de 100 lignes.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -6244,8 +6271,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-7" class="level2">
-<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
 <p>Quelle fonction de <code>forcats</code> est utile pour regrouper plusieurs modalités similaires sous un même nom?</p>
 <ol type="a">
 <li><code>fct_collapse()</code></li>
@@ -6270,8 +6297,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-8" class="level2">
-<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+<section id="question-8" class="level3">
+<h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
 <p>Vrai ou faux: un fichier JSON peut contenir des structures imbriquées qui ne ressemblent pas immédiatement à un tableau rectangulaire.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -6290,8 +6317,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-9" class="level2">
-<h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
+<section id="question-9" class="level3">
+<h3 class="anchored" data-anchor-id="question-9">Question 9</h3>
 <p>Quelle fonction permet de lire une feuille précise d’un fichier Excel?</p>
 <ol type="a">
 <li><code>readxl::read_excel(sheet = ...)</code></li>
@@ -6316,8 +6343,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-10" class="level2">
-<h2 class="anchored" data-anchor-id="question-10">Question 10</h2>
+<section id="question-10" class="level3">
+<h3 class="anchored" data-anchor-id="question-10">Question 10</h3>
 <p>Vrai ou faux: une anomalie peut être signalée sans être corrigée si aucune correction défendable n’est possible.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -6336,8 +6363,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-11" class="level2">
-<h2 class="anchored" data-anchor-id="question-11">Question 11</h2>
+<section id="question-11" class="level3">
+<h3 class="anchored" data-anchor-id="question-11">Question 11</h3>
 <p>Quel champ n’appartient pas à la structure minimale d’une entrée de journal de nettoyage proposée dans le module?</p>
 <ol type="a">
 <li><code>id</code></li>
@@ -6362,8 +6389,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-12" class="level2">
-<h2 class="anchored" data-anchor-id="question-12">Question 12</h2>
+<section id="question-12" class="level3">
+<h3 class="anchored" data-anchor-id="question-12">Question 12</h3>
 <p>Pourquoi est-il utile de sauvegarder le fichier propre avec <code>write_csv()</code> à la fin d’un nettoyage?</p>
 <ol type="a">
 <li>Pour produire un artefact reproductible à partir du code</li>

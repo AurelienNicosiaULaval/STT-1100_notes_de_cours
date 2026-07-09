@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module objectives
+## Module objectives
 
 By the end of this module, you should be able to:
 
@@ -14,7 +14,7 @@ By the end of this module, you should be able to:
 - produce and interpret bar charts, stacked bars and standardized stacked bars with `ggplot2`;
 - write a short Quarto article supported by narrative figures and charts.
 
-# Readings
+## Readings
 
 These readings provide the background needed before starting the adventure.
 
@@ -26,7 +26,7 @@ These readings provide the background needed before starting the adventure.
 
 - [The `forcats` documentation](https://forcats.tidyverse.org/) To lump rare categories, reorder levels and make categorical charts easier to read.
 
-## Posit cheat sheets
+### Posit cheat sheets
 
 - [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) `stringr` functions for detecting, extracting, replacing and cleaning text.
 
@@ -36,13 +36,13 @@ These readings provide the background needed before starting the adventure.
 
 After the readings, complete the [formative mini-test](../module_03/mini_test.llms.md). It is not graded, but it checks the ideas needed for the adventure and the challenge.
 
-# Adventure
+## Adventure
 
 [Adventure 3](../module_03/aventure.llms.md)
 
 You play the role of a data journalist for Le Courrier Gourmand. The adventure guides you through cleaning the `listecondamnation` dataset, extracting postal codes, identifying offence categories and building first results for an article.
 
-# Challenge
+## Challenge
 
 [Module 3 challenge](../module_03/defi.llms.md)
 
@@ -56,7 +56,7 @@ You must submit:
 
 The article must contain at least two narrative figures and two visuals, including one categorical chart. The fines map is optional.
 
-# Consolidation exercises
+## Consolidation exercises
 
 [Module 3 exercises](../module_03/exercices.llms.md)
 

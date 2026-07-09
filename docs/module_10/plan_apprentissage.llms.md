@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de :
 
@@ -12,9 +12,9 @@ STT-1100 Introduction à la science des données
 - Utiliser TF-IDF pour repérer les mots distinctifs.
 - Créer un tableau de bord interactif avec `flexdashboard` et `shiny`.
 
-# Lectures
+## Lectures
 
-Pour vous préparer, consultez les ressources suivantes :
+Pour vous préparer, commencez par `unnest_tokens()`, `bind_tf_idf()` et le gabarit `flexdashboard`. Les ressources Shiny, les nuages de mots et les options de personnalisation viennent après un premier tableau de bord local qui fonctionne.
 
 - [Text Mining with R](https://www.tidytextmining.com/) - Chapitres 1 à 3 pour le format tidy text, l’analyse de sentiment et le TF-IDF.
 - [Documentation tidytext - `unnest_tokens()`](https://juliasilge.github.io/tidytext/reference/unnest_tokens.html)
@@ -23,7 +23,7 @@ Pour vous préparer, consultez les ressources suivantes :
 - [Using Shiny with flexdashboard](https://rstudio.github.io/flexdashboard/articles/shiny.html)
 - [Posit - Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)
 
-## Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) Préparation et nettoyage de texte avant la tokenisation.
 
@@ -39,13 +39,13 @@ Pour vous préparer, consultez les ressources suivantes :
 
 Après les lectures, faites le [mini-test formatif du module 10](../module_10/mini_test.llms.md).
 
-# Aventure
+## Aventure
 
-Vous êtes analyste d’affaires junior engagé par la Faculté des sciences et de génie de l’Université Laval. Votre mandat : analyser les commentaires anonymes des étudiant·es sur le cours STT-1100 et produire un tableau de bord interactif pour la direction du programme.
+Vous êtes analyste d’affaires junior engagé par la Faculté des sciences et de génie de l’Université Laval. Votre mandat est de produire un tableau de bord interactif à partir de commentaires fictifs. Des rétroactions réelles ne peuvent être utilisées que si l’enseignant·e fournit un fichier anonymisé et confirme explicitement le cadre d’utilisation.
 
 [Aventure 10 — Au-delà des données : texte et tableau de bord](../module_10/aventure.llms.md)
 
-# Défi - Tableau de bord local ou partagé
+## Défi - Tableau de bord local ou partagé
 
 Vous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :
 
@@ -55,11 +55,13 @@ Vous devez construire un tableau de bord interactif à partir du modèle fourni.
 - Être personnalisé (filtrage, couleurs, résumé) ;
 - Fonctionner localement ; être déployé ou partagé seulement si cette consigne est donnée en classe.
 
+Commencez par le noyau minimal: faire fonctionner le gabarit localement, ajouter un filtre, un graphique et une conclusion courte. Ajoutez ensuite le sentiment, le TF-IDF, les variables numériques et les extensions visuelles.
+
 Consigne complète : [Défi 10 — Tableau de bord de rétroactions](../module_10/defi.llms.md)
 
 Dépôt de départ : `STT-1100/aventure-10`
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Les exercices sont indépendants de l’aventure et du défi. Ils utilisent deux jeux de données fictifs propres au module:
 
@@ -70,9 +72,9 @@ La série se termine par deux études de cas: une priorisation de services de bi
 
 Lien vers les exercices: [Exercices de consolidation](../module_10/exercices.llms.md)
 
-# Grille d’évaluation
+## Grille d’évaluation
 
-Chaque équipe doit remettre un tableau de bord interactif basé sur les commentaires des étudiant·es du cours. Voici la grille utilisée pour l’évaluation :
+Chaque équipe doit remettre un tableau de bord interactif basé sur les données fictives fournies ou, seulement si cela est explicitement autorisé, sur un fichier anonymisé fourni par l’enseignant·e. Voici la grille utilisée pour l’évaluation :
 
 | Critère | Description | Points |
 |----|----|----|

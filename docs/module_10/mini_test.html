@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6103,11 +6130,11 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mini-test-formatif" class="level1">
-<h1>Mini-test formatif</h1>
+<section id="mini-test-formatif" class="level2">
+<h2 class="anchored" data-anchor-id="mini-test-formatif">Mini-test formatif</h2>
 <p>Ce mini-test sert à vérifier les lectures du module 10. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.</p>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>Dans le cadre de <code>tidytext</code>, que signifie transformer un texte en format tidy?</p>
 <ol type="a">
 <li>Obtenir une ligne par token ou unité textuelle pertinente</li>
@@ -6132,8 +6159,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-2" class="level2">
-<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p>Quelle fonction sert à découper une colonne de texte en tokens avec <code>tidytext</code>?</p>
 <ol type="a">
 <li><code>unnest_tokens()</code></li>
@@ -6158,8 +6185,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-3" class="level2">
-<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
 <p>Vrai ou faux: les stopwords sont des mots très fréquents qui peuvent masquer les mots plus informatifs.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6178,8 +6205,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-4" class="level2">
-<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
 <p>Pourquoi construire un lexique de sentiment maison en français dans ce module?</p>
 <ol type="a">
 <li>Pour comprendre le principe de l’analyse de sentiment en explicitant les limites du lexique</li>
@@ -6204,8 +6231,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-5" class="level2">
-<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
 <p>Vrai ou faux: un score de sentiment calculé avec un petit lexique maison doit être présenté comme une mesure exacte du ressenti étudiant.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -6224,8 +6251,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-6" class="level2">
-<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <p>Que mesure TF-IDF dans une analyse de texte?</p>
 <ol type="a">
 <li>Les mots fréquents dans un groupe et relativement rares dans les autres groupes</li>
@@ -6250,8 +6277,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-7" class="level2">
-<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
 <p>Quelle fonction de <code>tidytext</code> ajoute les colonnes <code>tf</code>, <code>idf</code> et <code>tf_idf</code> à un tableau de comptes?</p>
 <ol type="a">
 <li><code>bind_tf_idf()</code></li>
@@ -6276,8 +6303,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-8" class="level2">
-<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+<section id="question-8" class="level3">
+<h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
 <p>Vrai ou faux: un mot avec un TF-IDF élevé est nécessairement le mot le plus fréquent dans tout le corpus.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -6296,8 +6323,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-9" class="level2">
-<h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
+<section id="question-9" class="level3">
+<h3 class="anchored" data-anchor-id="question-9">Question 9</h3>
 <p>Dans un tableau de bord, pourquoi ajouter au moins un filtre interactif?</p>
 <ol type="a">
 <li>Pour permettre à l’utilisateur d’explorer un sous-ensemble pertinent des données</li>
@@ -6322,8 +6349,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-10" class="level2">
-<h2 class="anchored" data-anchor-id="question-10">Question 10</h2>
+<section id="question-10" class="level3">
+<h3 class="anchored" data-anchor-id="question-10">Question 10</h3>
 <p>Vrai ou faux: avant de partager un tableau de bord basé sur des commentaires, il faut vérifier qu’aucune personne n’est identifiable.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -6342,8 +6369,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-11" class="level2">
-<h2 class="anchored" data-anchor-id="question-11">Question 11</h2>
+<section id="question-11" class="level3">
+<h3 class="anchored" data-anchor-id="question-11">Question 11</h3>
 <p>Quelle affirmation décrit bien une bonne conclusion de tableau de bord?</p>
 <ol type="a">
 <li>Elle résume les tendances visibles, nomme les limites et propose une action réaliste</li>
@@ -6368,8 +6395,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-12" class="level2">
-<h2 class="anchored" data-anchor-id="question-12">Question 12</h2>
+<section id="question-12" class="level3">
+<h3 class="anchored" data-anchor-id="question-12">Question 12</h3>
 <p>Vrai ou faux: <code>flexdashboard</code> peut présenter plusieurs visualisations reliées dans une page de tableau de bord, et <code>shiny</code> peut ajouter de l’interactivité.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">

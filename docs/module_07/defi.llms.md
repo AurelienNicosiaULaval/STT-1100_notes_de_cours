@@ -2,13 +2,13 @@
 
 STT-1100 Introduction à la science des données
 
-# Mission
+## Mission
 
 Dans l’aventure 7, vous avez audité un rapport problématique et préparé une version plus responsable des données. Le défi consiste à transformer ce travail en une note courte, claire et réutilisable.
 
 Votre objectif est de convaincre une personne lectrice que vos visualisations améliorées sont plus honnêtes que la version initiale, et que vos choix de protection des données réduisent réellement les risques.
 
-# Travail attendu
+## Travail attendu
 
 À partir de votre dépôt `STT-1100/aventure-7`, produisez une version finale de `rapport_ethique.qmd`.
 
@@ -20,7 +20,7 @@ Le rapport doit contenir :
 - une section “Limites” qui explique ce que les données ne permettent pas de conclure;
 - une courte conclusion personnelle par membre de l’équipe.
 
-# Fichier anonymisé
+## Fichier anonymisé
 
 Votre dépôt doit aussi contenir un fichier `covid_module7_anonymise.csv`.
 
@@ -35,7 +35,7 @@ Ce fichier ne doit pas contenir :
 
 Si vous conservez des variables sensibles comme l’âge, le sexe, l’occupation ou certaines conditions médicales, expliquez pourquoi elles sont nécessaires et comment vous réduisez le risque de ré-identification.
 
-# Visualisations
+## Visualisations
 
 Chaque visualisation doit :
 
@@ -47,7 +47,7 @@ Chaque visualisation doit :
 
 Une bonne réponse ne cherche pas à produire les graphiques les plus spectaculaires. Elle cherche à produire des graphiques que l’on peut défendre.
 
-# Livrables
+## Livrables
 
 Votre dépôt GitHub doit contenir :
 
@@ -57,7 +57,7 @@ Votre dépôt GitHub doit contenir :
 - `README.md`;
 - les fichiers de départ si vous les avez conservés pour documenter votre démarche.
 
-# Grille d’évaluation
+## Grille d’évaluation
 
 | Critère | Excellent | Satisfaisant | À améliorer |
 |----|----|----|----|
@@ -66,7 +66,7 @@ Votre dépôt GitHub doit contenir :
 | Visualisation | Les graphiques sont clairs, honnêtes, lisibles et interprétés avec prudence | Les graphiques sont compréhensibles, mais certaines décisions restent peu justifiées | Les graphiques reproduisent des biais de la version initiale ou une seule visualisation est fournie |
 | Reproductibilité | Le rapport se rend sans erreur et le README explique la procédure | Le rapport se rend, mais la procédure est peu documentée | Le rapport ne se rend pas ou les fichiers nécessaires manquent |
 
-# Checklist avant remise
+## Checklist avant remise
 
 - `rapport_ethique.qmd` se rend sans erreur.
 - `rapport_ethique.html` est présent.

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Comment réussir ce module
+## Comment réussir ce module
 
 Bienvenue dans cette première aventure en sciences des données ! Ce module est conçu pour vous offrir une introduction complète aux outils et concepts fondamentaux qui vous accompagneront tout au long de votre parcours en science des données.
 
@@ -30,7 +30,7 @@ Données `UlavalSSD::MeteoQuebec`
 
 Livrable Court rapport Quarto HTML
 
-# Outils informatiques
+## Outils informatiques
 
 Dans ce cours, nous utiliserons des outils informatiques professionnels qui sont essentiels en science des données. Ces outils permettent de manipuler, analyser et visualiser des données de manière efficace et reproductible. Voici un aperçu des principaux outils que vous allez découvrir :
 
@@ -40,11 +40,11 @@ Dans ce cours, nous utiliserons des outils informatiques professionnels qui sont
 
 Ces outils ne se limitent pas à leur aspect technique ; ils favorisent aussi les bonnes pratiques en science des données, comme l’organisation rigoureuse des projets, la documentation claire et la reproductibilité des analyses. Ils seront vos alliés tout au long de ce cours et de vos futures expériences en science des données.
 
-## Découverte de RStudio
+### Découverte de RStudio
 
 RStudio est un environnement de développement intégré (IDE) pour R. Il facilite la rédaction, l’exécution, et la gestion de projets en R, tout en intégrant de nombreuses fonctionnalités professionnelles. Voici un aperçu de ses principales fenêtres et fonctionnalités :
 
-### Les fenêtres principales de RStudio
+#### Les fenêtres principales de RStudio
 
 RStudio est composé de quatre panneaux principaux :
 
@@ -74,7 +74,7 @@ RStudio est composé de quatre panneaux principaux :
 >
 >   Sauvegardez le fichier sous le nom `test_script.R`.
 
-### Fonctionnalités importantes
+#### Fonctionnalités importantes
 
 - **Projets** : RStudio organise votre travail en projets, ce qui est idéal pour structurer vos fichiers et données. Nous travaillerons dans des projet dès le prochain module.
 
@@ -96,7 +96,7 @@ RStudio est composé de quatre panneaux principaux :
 > library(dplyr)
 > ```
 
-### Configurer votre environnement
+#### Configurer votre environnement
 
 Pour démarrer efficacement, personnalisez les préférences (`Tools > Global Options`) pour ajuster l’apparence et les paramètres selon vos besoins.
 
@@ -104,11 +104,11 @@ Pour démarrer efficacement, personnalisez les préférences (`Tools > Global Op
 >
 > - **Exploration des options** : Accédez à `Tools > Global Options` et explorez les différentes configurations possibles. Essayez de changer le thème de l’interface (ex. : thème sombre) et observez la différence.
 
-## Bases de la programmation en R
+### Bases de la programmation en R
 
 La programmation en R est essentielle pour manipuler, analyser et visualiser des données. Cette section vous introduit aux bases de la programmation et vous propose des exercices pour vous entraîner.
 
-### Créer et manipuler des objets
+#### Créer et manipuler des objets
 
 En R, tout est un objet. Voici les bases pour créer des objets et les manipuler :
 
@@ -133,7 +133,7 @@ En R, tout est un objet. Voici les bases pour créer des objets et les manipuler
 >
 > - Créez un vecteur contenant les chiffres de 1 à 10 et calculez sa moyenne en utilisant `sum()` et `length()`.
 
-### Écrire des conditions
+#### Écrire des conditions
 
 Les conditions permettent de rendre vos scripts dynamiques.
 
@@ -156,7 +156,7 @@ Les conditions permettent de rendre vos scripts dynamiques.
 >
 > Indice: la fonction `%%` en R permet de donner le reste de la division euclidienne. Par exemple, `10 %% 2` vaut 0 car \\10=5\times2\\.
 
-### Fonctions de base intégrées
+#### Fonctions de base intégrées
 
 R dispose de nombreuses fonctions intégrées pour effectuer des calculs simples ou avancés. Par exemple, il existe la fonction `mean` qui, comme son nom l’indique, permet de calculer une moyenne.
 
@@ -171,7 +171,7 @@ mean(x) # Appelle la fonction mean sur x
 
 Lorsque vous souhaitez avoir de l’aide sur une fonction, vous pouvez simplement taper le nom de celle-ci dans l’onglet d’aide dans le cadran en bas à droite.
 
-### Définir une nouvelle fonction
+#### Définir une nouvelle fonction
 
 R nous permet aussi de définir nos propres fonctions. Nous le ferons à plusieurs reprises dans le cours. Voici un petit exemple simple.
 
@@ -190,11 +190,11 @@ R nous permet aussi de définir nos propres fonctions. Nous le ferons à plusieu
 >
 > - Créez une fonction `cube` qui calcule le cube d’un nombre, puis testez-la avec les valeurs 2, 3 et 4.
 
-### Bonnes pratiques en programmation
+#### Bonnes pratiques en programmation
 
 Voici quelques conseils pour écrire un code propre et facile à maintenir :
 
-#### Règles d’or
+##### Règles d’or
 
 1.  **Nommer vos objets de manière descriptive** :
 
@@ -242,11 +242,11 @@ Grille d’évaluation du code R selon le style tidyverse. {.caption-top .table 
 >   mean(c(1,2, 3,4,5),na.rm=TRUE)
 >   ```
 
-## Introduction à Quarto
+### Introduction à Quarto
 
 Quarto est un outil puissant pour créer des documents reproductibles combinant texte, code, et résultats. Il prend en charge différents formats, tels que HTML, PDF et Word.
 
-### Qu’est-ce que Quarto ?
+#### Qu’est-ce que Quarto ?
 
 Quarto vous permet de combiner du code R, Python ou Julia avec des explications textuelles, tout en générant des rapports professionnels. Bien sûr, dans ce cours nous l’utiliserons avec R. Ses principaux atouts incluent :
 
@@ -256,11 +256,11 @@ Quarto vous permet de combiner du code R, Python ou Julia avec des explications 
 
 - La **simplicité d’utilisation**.
 
-### Structure d’un document Quarto
+#### Structure d’un document Quarto
 
 Un fichier Quarto commence toujours par un en-tête YAML, suivi de contenu en Markdown et de blocs de code (chunks).
 
-#### Exemple de fichier Quarto de base
+##### Exemple de fichier Quarto de base
 
 ``` yaml
 ---
@@ -270,7 +270,7 @@ editor: visual
 ---
 ```
 
-#### Insérer un *chunk* (bloc de code) R
+##### Insérer un *chunk* (bloc de code) R
 
 Pour insérer un *chunk* (bloc de code) dans un document Quarto, vous pouvez cliquer sur le symbole suivant :
 
@@ -303,11 +303,11 @@ Une fois que votre rapport est final, vous pouvez générer le rapport en cliqua
 > 2.  Ajoutez un bloc de code R qui calcule la moyenne du vecteur `c(1, 3, 5, 7)`.
 > 3.  Personnalisez l’en-tête YAML pour inclure votre nom et une date.
 
-# Librairie et données
+## Librairie et données
 
 Nous avons vu plus haut que vous pouvez améliorer votre expérience de R en utilisant des librairies. Dans le cadre du cours, nous allons utiliser une librairie appelée `UlavalSSD`. Il s’agit d’une librairie développée pour le cours.
 
-## `UlavalSSD`
+### `UlavalSSD`
 
 Premièrement, vous allez installer la librairie `UlavalSSD` et la charger dans votre environnement de travail.
 
@@ -333,7 +333,7 @@ help(package = "UlavalSSD")
 >
 > - Fouillez dans le contenu de la librairie. Que remarquez-vous?
 
-## Données `MeteoQuebec`
+### Données `MeteoQuebec`
 
 Dans cette aventure, nous allons travailler avec le jeu de données appelé `MeteoQuebec` disponible dans la librairie `UlavalSSD`. Il est important de noter que si la librairie n’est pas chargée (`library(UlavalSSD)`), alors vous ne pourrez pas accéder à ce jeu de données.
 
@@ -343,15 +343,15 @@ Dans cette aventure, nous allons travailler avec le jeu de données appelé `Met
 > - Combien de lignes et de colonnes possède ce jeu de données?
 > - Explorez l’aide pour vous assurer de bien comprendre ce que représente chaque colonne.
 
-# Données propres et données rangées
+## Données propres et données rangées
 
-## Qu’est-ce que des données propres ?
+### Qu’est-ce que des données propres ?
 
 Dans le cadre de la science des données, des données propres désignent un ensemble de données qui est prêt à être utilisé pour des analyses. Cela signifie que les données sont organisées, cohérentes et que les problèmes connus ont été repérés ou corrigés. Travailler avec des données propres est essentiel pour garantir la qualité des résultats d’analyse et des modèles.
 
 On distingue aussi les données rangées, ou *tidy data* en anglais. Selon cette convention, chaque variable forme une colonne, chaque observation forme une ligne et chaque cellule contient une seule valeur. Un tableau peut être rangé tout en contenant encore des valeurs manquantes; il est alors bien structuré, mais il reste à vérifier sa qualité.
 
-### Caractéristiques des données propres
+#### Caractéristiques des données propres
 
 Les données propres doivent respecter les critères suivants :
 
@@ -362,32 +362,34 @@ Les données propres doivent respecter les critères suivants :
 - **Colonnes bien définies** : Chaque colonne a une signification claire et unique.
 - **Une ligne par observation** : Les données sont structurées de manière tabulaire, avec une ligne représentant une seule observation.
 
-### Exemple de données non propres
+#### Exemple de données non propres
+
+Les exemples suivants sont entièrement fictifs. Ils servent à discuter des formats et des doublons, et non à recueillir des renseignements personnels.
 
 Un tableau contenant les données suivantes :
 
-| Nom     | Date Naissance | Score |
-|---------|----------------|-------|
-| Alice   | 01/01/1990     | 85.5  |
-| Bob     | 1990-02-15     | 90    |
-| Charlie |                | 87.5  |
-| Alice   | 01/01/1990     | 85.5  |
+| Nom fictif | Date observée | Score |
+|------------|---------------|-------|
+| Alice      | 01/01/1990    | 85.5  |
+| Bob        | 1990-02-15    | 90    |
+| Charlie    |               | 87.5  |
+| Alice      | 01/01/1990    | 85.5  |
 
 Problèmes :
 
 - Le format des dates n’est pas cohérent.
-- Une ligne contient une valeur manquante (Date Naissance pour Charlie).
+- Une ligne contient une valeur manquante (Date observée pour Charlie).
 - Les données contiennent un doublon pour Alice.
 
-### Exemple de données propres
+#### Exemple de données propres
 
 Après nettoyage, les données deviennent :
 
-| Nom     | Date Naissance | Score |
-|---------|----------------|-------|
-| Alice   | 1990-01-01     | 85.5  |
-| Bob     | 1990-02-15     | 90.0  |
-| Charlie | 1992-03-20     | 87.5  |
+| Nom fictif | Date observée | Score |
+|------------|---------------|-------|
+| Alice      | 1990-01-01    | 85.5  |
+| Bob        | 1990-02-15    | 90.0  |
+| Charlie    | 1992-03-20    | 87.5  |
 
 - Le format des dates est uniforme (AAAA-MM-JJ).
 - Les doublons ont été supprimés.
@@ -401,11 +403,11 @@ Dans les prochaines semaines, nous aurons un module complet sur le nettoyage des
 >
 > - Les données `MeteoQuebec` sont-elles prêtes pour toutes les analyses? Justifiez votre réponse en nommant au moins une variable qui contient des valeurs manquantes.
 
-# Manipulation de données
+## Manipulation de données
 
 Dans cette section, nous allons apprendre à manipuler des tableaux de données simples en R. Vous découvrirez comment extraire une ligne, une colonne et créer une nouvelle colonne en utilisant les crochets `[]` et l’opérateur `$`.
 
-## Exemple de tableau de données
+### Exemple de tableau de données
 
 Nous allons utiliser les données `MeteoQuebec`. La fonction `head` est très pratique, car comme son nom l’indique, elle permet d’afficher le haut (la tête) de la base de données. Cela permet d’avoir un accès rapide aux informations contenues dans les variables.
 
@@ -429,7 +431,7 @@ head(MeteoQuebec)
     5        0.5        15
     6        0.0        15
 
-### Extraire une ligne avec des crochets `[]`
+#### Extraire une ligne avec des crochets `[]`
 
 Pour extraire une ligne spécifique, utilisez le format `nom_donnees[numéro_de_ligne, ]`.
 
@@ -446,7 +448,7 @@ print(ligne_2)
       total_snow snow_grnd
     2          0        18
 
-### Extraire une colonne avec des crochets `[]`
+#### Extraire une colonne avec des crochets `[]`
 
 Pour extraire une colonne, vous pouvez utiliser `nom_donnees[, numéro_de_colonne]` ou `nom_donnees[["nom_de_colonne"]]`.
 
@@ -465,7 +467,7 @@ colonne_precip_2 <- MeteoQuebec[["total_precip"]]
 print(colonne_precip_2)
 ```
 
-### Extraire une colonne avec l’opérateur `$`
+#### Extraire une colonne avec l’opérateur `$`
 
 Une méthode plus simple pour extraire une colonne consiste à utiliser l’opérateur `$`.
 
@@ -481,7 +483,7 @@ print(colonne_mean_temp)
 >
 > - Dans la console, tapez le nom de la base de données `MeteoQuebec`, ajoutez un `$` à la fin. Que se passe-t-il?
 
-### Ajouter une nouvelle colonne avec `$`
+#### Ajouter une nouvelle colonne avec `$`
 
 Pour créer une nouvelle colonne, utilisez l’opérateur `$` et assignez-y une valeur.
 
@@ -512,7 +514,7 @@ head(MeteoQuebec)
 >
 > - Créez une nouvelle colonne **mean_temp_F** qui correspond à la température moyenne par jour en degrés Fahrenheit. Utilisez la formule \\F = C \times 9 / 5 + 32\\.
 
-### Filtrer des lignes selon des conditions logiques
+#### Filtrer des lignes selon des conditions logiques
 
 Vous pouvez utiliser des conditions logiques avec les crochets `[]` pour extraire des lignes spécifiques.
 
@@ -572,11 +574,11 @@ head(
 > - une note sur les valeurs manquantes ou les variables de `MeteoQuebec`;
 > - une règle personnelle pour garder une analyse reproductible.
 >
-> #### Avant de passer au défi
+> ##### Avant de passer au défi
 >
 > Vous devriez maintenant être capable de créer un document Quarto, de charger `UlavalSSD`, d’afficher `MeteoQuebec`, de vérifier les valeurs manquantes avec `summary()`, puis d’extraire des lignes ou des colonnes à partir de conditions simples.
 
-### Résumé
+#### Résumé
 
 | Action | Commande |
 |----|----|

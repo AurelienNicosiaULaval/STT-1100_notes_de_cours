@@ -2,7 +2,7 @@ Parcours du cours
 
 # Modules
 
-Chaque module est une étape du parcours STT-1100. La page d'un module rassemble son plan d'apprentissage, ses lectures, son mini-test, son aventure, son défi, ses exercices, ses données et ses outils.
+Chaque module est une étape du parcours STT-1100. Sa page commence par les prérequis, le parcours minimal, les prolongements et le plan d'aide, puis rassemble lectures, mini-test, aventure, défi, exercices, données et outils.
 
 [Voir les modules](#liste-modules) [Cycle d'un module](#cycle-module) [Calendrier](calendrier.llms.md) [Ressources](ressources.llms.md)
 
@@ -84,7 +84,7 @@ Utilisez ces repères quand vous ne savez pas quelle page ouvrir.
 
 ### Je commence la semaine
 
-Ouvrir le module courant, lire le plan d'apprentissage et repérer les lectures, données et fichiers nécessaires.
+Ouvrir le module courant, lire « Préparer le module », puis repérer les lectures, données et fichiers nécessaires.
 
 ### Je travaille en classe
 

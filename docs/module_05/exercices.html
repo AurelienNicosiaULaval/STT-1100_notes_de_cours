@@ -4311,6 +4311,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5869,7 +5895,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6161,8 +6188,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="exercices-de-consolidation" class="level1">
-<h1>Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 5: manipuler des dates, résumer des groupes, visualiser des associations, calculer des corrélations simples et formuler des conclusions prudentes.</p>
 <p>Les données utilisées ici sont fictives et ne représentent aucun système réel.</p>
 <div class="cell">
@@ -6173,8 +6200,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="lectures-à-revoir" class="level1">
-<h1>Lectures à revoir</h1>
+<section id="lectures-à-revoir" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-à-revoir">Lectures à revoir</h2>
 <ul>
 <li><a href="https://r4ds.hadley.nz/EDA.html" target="_blank">R for Data Science - Exploratory data analysis</a></li>
 <li><a href="https://r4ds.hadley.nz/datetimes.html" target="_blank">R for Data Science - Dates and times</a></li>
@@ -6185,11 +6212,11 @@ margin-bottom: .05rem;
 </ul>
 <p>Après les lectures, faites aussi le <a href="../module_05/mini_test.html">mini-test formatif</a>. Il n’est pas noté.</p>
 </section>
-<section id="bloc-a---dates-structure-et-valeurs-manquantes" class="level1">
-<h1>Bloc A - Dates, structure et valeurs manquantes</h1>
+<section id="bloc-a---dates-structure-et-valeurs-manquantes" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-a---dates-structure-et-valeurs-manquantes">Bloc A - Dates, structure et valeurs manquantes</h2>
 <p>Le fichier <code>data/ateliers_soutien_fictif.csv</code> décrit de faux ateliers de soutien universitaire.</p>
-<section id="exercice-1---importer-et-inspecter" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1---importer-et-inspecter">Exercice 1 - Importer et inspecter</h2>
+<section id="exercice-1---importer-et-inspecter" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-1---importer-et-inspecter">Exercice 1 - Importer et inspecter</h3>
 <p>Importez le fichier, affichez sa structure et vérifiez ses dimensions.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -6245,8 +6272,8 @@ $ theme                &lt;chr&gt; "Quarto", "Visualisation", "Importation", "ED
 </div>
 </div>
 </section>
-<section id="exercice-2---préparer-les-variables-temporelles" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---préparer-les-variables-temporelles">Exercice 2 - Préparer les variables temporelles</h2>
+<section id="exercice-2---préparer-les-variables-temporelles" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-2---préparer-les-variables-temporelles">Exercice 2 - Préparer les variables temporelles</h3>
 <p>Transformez <code>date_atelier</code> en date, puis créez <code>jour_semaine</code>, <code>mois</code> et <code>moment_journee</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -6297,8 +6324,8 @@ $ theme                &lt;chr&gt; "Quarto", "Visualisation", "Importation", "ED
 </div>
 </div>
 </section>
-<section id="exercice-3---repérer-les-valeurs-manquantes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---repérer-les-valeurs-manquantes">Exercice 3 - Repérer les valeurs manquantes</h2>
+<section id="exercice-3---repérer-les-valeurs-manquantes" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-3---repérer-les-valeurs-manquantes">Exercice 3 - Repérer les valeurs manquantes</h3>
 <p>Calculez le nombre de valeurs manquantes dans <code>participants</code>, <code>pluie_mm</code> et <code>satisfaction_moyenne</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6333,8 +6360,8 @@ $ theme                &lt;chr&gt; "Quarto", "Visualisation", "Importation", "ED
 </div>
 </div>
 </section>
-<section id="exercice-4---résumer-par-moment-de-la-journée" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---résumer-par-moment-de-la-journée">Exercice 4 - Résumer par moment de la journée</h2>
+<section id="exercice-4---résumer-par-moment-de-la-journée" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-4---résumer-par-moment-de-la-journée">Exercice 4 - Résumer par moment de la journée</h3>
 <p>Calculez le nombre d’ateliers, le nombre moyen de participantes et participants, et la satisfaction moyenne selon <code>moment_journee</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -6376,10 +6403,10 @@ $ theme                &lt;chr&gt; "Quarto", "Visualisation", "Importation", "ED
 </div>
 </section>
 </section>
-<section id="bloc-b---associations-et-visualisations" class="level1">
-<h1>Bloc B - Associations et visualisations</h1>
-<section id="exercice-5---visualiser-les-participantes-et-participants" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-5---visualiser-les-participantes-et-participants">Exercice 5 - Visualiser les participantes et participants</h2>
+<section id="bloc-b---associations-et-visualisations" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-b---associations-et-visualisations">Bloc B - Associations et visualisations</h2>
+<section id="exercice-5---visualiser-les-participantes-et-participants" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-5---visualiser-les-participantes-et-participants">Exercice 5 - Visualiser les participantes et participants</h3>
 <p>Produisez un diagramme en colonnes du nombre moyen de participantes et participants selon le moment de la journée.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -6417,8 +6444,8 @@ $ theme                &lt;chr&gt; "Quarto", "Visualisation", "Importation", "ED
 </div>
 </div>
 </section>
-<section id="exercice-6---comparer-les-thèmes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6---comparer-les-thèmes">Exercice 6 - Comparer les thèmes</h2>
+<section id="exercice-6---comparer-les-thèmes" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-6---comparer-les-thèmes">Exercice 6 - Comparer les thèmes</h3>
 <p>Pour chaque thème d’atelier, calculez le nombre d’ateliers, la participation moyenne et la satisfaction moyenne.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -6461,8 +6488,8 @@ $ theme                &lt;chr&gt; "Quarto", "Visualisation", "Importation", "ED
 </div>
 </div>
 </section>
-<section id="exercice-7---calculer-une-matrice-de-corrélation" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7---calculer-une-matrice-de-corrélation">Exercice 7 - Calculer une matrice de corrélation</h2>
+<section id="exercice-7---calculer-une-matrice-de-corrélation" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-7---calculer-une-matrice-de-corrélation">Exercice 7 - Calculer une matrice de corrélation</h3>
 <p>Calculez les corrélations entre <code>duree_minutes</code>, <code>participants</code>, <code>temperature_c</code>, <code>pluie_mm</code> et <code>satisfaction_moyenne</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -6504,8 +6531,8 @@ satisfaction_moyenne                 1.00</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-8---faire-un-nuage-de-points" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8---faire-un-nuage-de-points">Exercice 8 - Faire un nuage de points</h2>
+<section id="exercice-8---faire-un-nuage-de-points" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-8---faire-un-nuage-de-points">Exercice 8 - Faire un nuage de points</h3>
 <p>Créez un graphique de <code>duree_minutes</code> et <code>participants</code>. Ajoutez une droite de tendance.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -6548,8 +6575,8 @@ satisfaction_moyenne                 1.00</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-9---comparer-les-jours-pluvieux-et-non-pluvieux" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9---comparer-les-jours-pluvieux-et-non-pluvieux">Exercice 9 - Comparer les jours pluvieux et non pluvieux</h2>
+<section id="exercice-9---comparer-les-jours-pluvieux-et-non-pluvieux" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-9---comparer-les-jours-pluvieux-et-non-pluvieux">Exercice 9 - Comparer les jours pluvieux et non pluvieux</h3>
 <p>Créez une variable <code>jour_pluvieux</code>, puis comparez la participation moyenne selon cette variable.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -6597,10 +6624,10 @@ satisfaction_moyenne                 1.00</code></pre>
 </div>
 </section>
 </section>
-<section id="bloc-c---interprétation-prudente" class="level1">
-<h1>Bloc C - Interprétation prudente</h1>
-<section id="exercice-10---écrire-une-conclusion-descriptive" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-10---écrire-une-conclusion-descriptive">Exercice 10 - Écrire une conclusion descriptive</h2>
+<section id="bloc-c---interprétation-prudente" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-c---interprétation-prudente">Bloc C - Interprétation prudente</h2>
+<section id="exercice-10---écrire-une-conclusion-descriptive" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-10---écrire-une-conclusion-descriptive">Exercice 10 - Écrire une conclusion descriptive</h3>
 <p>À partir de l’un des tableaux précédents, écrivez deux phrases:</p>
 <ol type="1">
 <li>une phrase qui décrit le résultat observé;</li>
@@ -6623,8 +6650,8 @@ satisfaction_moyenne                 1.00</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-11---choisir-une-visualisation-adaptée" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-11---choisir-une-visualisation-adaptée">Exercice 11 - Choisir une visualisation adaptée</h2>
+<section id="exercice-11---choisir-une-visualisation-adaptée" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-11---choisir-une-visualisation-adaptée">Exercice 11 - Choisir une visualisation adaptée</h3>
 <p>Choisissez une question parmi les deux suivantes, puis produisez un graphique adapté.</p>
 <ol type="1">
 <li>La satisfaction moyenne varie-t-elle selon le thème?</li>
@@ -6667,8 +6694,8 @@ satisfaction_moyenne                 1.00</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-12---construire-un-petit-tableau-de-synthèse" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-12---construire-un-petit-tableau-de-synthèse">Exercice 12 - Construire un petit tableau de synthèse</h2>
+<section id="exercice-12---construire-un-petit-tableau-de-synthèse" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-12---construire-un-petit-tableau-de-synthèse">Exercice 12 - Construire un petit tableau de synthèse</h3>
 <p>Créez un tableau de synthèse par campus avec le nombre d’ateliers, la participation totale, la participation moyenne et la satisfaction moyenne.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
@@ -6709,10 +6736,10 @@ satisfaction_moyenne                 1.00</code></pre>
 </div>
 </section>
 </section>
-<section id="études-de-cas" class="level1">
-<h1>Études de cas</h1>
-<section id="étude-de-cas-1---fréquentation-fictive-dune-bibliothèque" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-1---fréquentation-fictive-dune-bibliothèque">Étude de cas 1 - Fréquentation fictive d’une bibliothèque</h2>
+<section id="études-de-cas" class="level2">
+<h2 class="anchored" data-anchor-id="études-de-cas">Études de cas</h2>
+<section id="étude-de-cas-1---fréquentation-fictive-dune-bibliothèque" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-1---fréquentation-fictive-dune-bibliothèque">Étude de cas 1 - Fréquentation fictive d’une bibliothèque</h3>
 <p>Le fichier <code>data/frequentation_bibliotheque_fictive.csv</code> décrit de fausses observations de fréquentation dans des zones de bibliothèque.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">
@@ -6807,8 +6834,8 @@ pluie_mm          -0.27         -0.48     1.00</code></pre>
 </div>
 </div>
 </section>
-<section id="étude-de-cas-2---demandes-fictives-de-services-campus" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-2---demandes-fictives-de-services-campus">Étude de cas 2 - Demandes fictives de services campus</h2>
+<section id="étude-de-cas-2---demandes-fictives-de-services-campus" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-2---demandes-fictives-de-services-campus">Étude de cas 2 - Demandes fictives de services campus</h3>
 <p>Le fichier <code>data/demandes_services_campus_fictif.csv</code> décrit de fausses demandes adressées à des services de campus.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">

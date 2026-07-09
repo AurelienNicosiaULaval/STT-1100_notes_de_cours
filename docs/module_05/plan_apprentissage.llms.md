@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de :
 
@@ -11,7 +11,7 @@ STT-1100 Introduction à la science des données
 - calculer et interpréter une corrélation entre deux variables numériques;
 - rédiger un court rapport d’analyse exploratoire en distinguant association et causalité.
 
-# Lectures
+## Lectures
 
 Avant l’aventure, révisez les ressources suivantes :
 
@@ -22,7 +22,7 @@ Avant l’aventure, révisez les ressources suivantes :
 - [Introduction to Modern Statistics - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
 - [Introduction to Modern Statistics - Applications: Explore](https://openintrostat.github.io/ims/explore-applications)
 
-## Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [Dates and times with lubridate :: Cheatsheet](https://rstudio.github.io/cheatsheets/lubridate.pdf) Création, extraction et manipulation de dates et heures.
 
@@ -30,19 +30,19 @@ Avant l’aventure, révisez les ressources suivantes :
 
 Après les lectures, faites le [mini-test formatif](../module_05/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
-# Aventure
+## Aventure
 
 [Aventure 5](../module_05/aventure.llms.md)
 
 Suivez l’aventure pour charger `flights_merged_2023.rds`, créer les variables temporelles et pratiquer les analyses exploratoires demandées.
 
-# Défi
+## Défi
 
 [Défi 5](../module_05/defi.llms.md)
 
 Le défi consiste à remettre un rapport `rapport.qmd` et sa version `rapport.html`. Le rapport doit répondre aux trois questions de Sofia sur les créneaux horaires, la météo et l’âge des avions.
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 [Exercices du module 5](../module_05/exercices.llms.md)
 

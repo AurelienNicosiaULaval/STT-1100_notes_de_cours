@@ -5890,8 +5890,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="context" class="level1">
-<h1>Context</h1>
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
 <p>You are a team of data scientists working with Dr Sofia Martinez at the Port Authority Data Lab. Your mandate is to produce a <strong>collaborative and reproducible report</strong> on flight delays from JFK in 2023.</p>
 <p>This adventure deliberately changes the level of work. In previous modules, most of the work was individual. Here, the important product is not only the final chart. It is also the collaboration trail: branches, commits, pull requests, conflict resolution, HTML rendering and documented decisions.</p>
 <p>The report will be produced with <strong>Quarto</strong>, versioned in <strong>GitHub</strong> and based on the tables from the <strong><code>nycflights23</code></strong> package: <code>flights</code>, <code>airlines</code> and <code>weather</code>.</p>
@@ -5923,8 +5923,8 @@ Character card
 </div>
 <!-- adventure-brief:end -->
 </section>
-<section id="starter-repository" class="level1">
-<h1>Starter Repository</h1>
+<section id="starter-repository" class="level2">
+<h2 class="anchored" data-anchor-id="starter-repository">Starter Repository</h2>
 <p>Clone the module 6 GitHub repository from the course organization: <code>STT-1100/aventure-6</code>.</p>
 <p>The starter repository contains a report skeleton. Your team must complete it, render it to HTML and push the final version to GitHub.</p>
 <p>The final repository must contain:</p>
@@ -5936,10 +5936,10 @@ Character card
 </ul>
 <p>Do not keep unnecessary files such as <code>Untitled.R</code>, <code>final_final_report.qmd</code> or temporary copies.</p>
 </section>
-<section id="part-1---collaboration-with-github" class="level1">
-<h1>Part 1 - Collaboration with GitHub</h1>
-<section id="teams-and-roles" class="level2">
-<h2 class="anchored" data-anchor-id="teams-and-roles">Teams and Roles</h2>
+<section id="part-1---collaboration-with-github" class="level2">
+<h2 class="anchored" data-anchor-id="part-1---collaboration-with-github">Part 1 - Collaboration with GitHub</h2>
+<section id="teams-and-roles" class="level3">
+<h3 class="anchored" data-anchor-id="teams-and-roles">Teams and Roles</h3>
 <p>Work in <strong>teams of 3 to 4 people</strong>. Each member takes one main role. The roles structure the work, but the whole team remains responsible for the final result.</p>
 <table class="caption-top table">
 <colgroup>
@@ -5984,8 +5984,8 @@ Character card
 </tbody>
 </table>
 </section>
-<section id="recommended-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="recommended-workflow">Recommended Workflow</h2>
+<section id="recommended-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-workflow">Recommended Workflow</h3>
 <ol type="1">
 <li><p><strong>Repository lead</strong>: clone the repository, open the project in RStudio, check that <code>rapport.qmd</code> renders, then create one branch per role.</p></li>
 <li><p><strong>Reproducibility lead</strong>: work on your branch, organize the report sections, check the YAML and add a “Team roles” section.</p></li>
@@ -5996,10 +5996,10 @@ Character card
 </ol>
 </section>
 </section>
-<section id="part-2---reproducible-analysis-with-joined-data" class="level1">
-<h1>Part 2 - Reproducible Analysis with Joined Data</h1>
-<section id="expected-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="expected-preparation">Expected Preparation</h2>
+<section id="part-2---reproducible-analysis-with-joined-data" class="level2">
+<h2 class="anchored" data-anchor-id="part-2---reproducible-analysis-with-joined-data">Part 2 - Reproducible Analysis with Joined Data</h2>
+<section id="expected-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="expected-preparation">Expected Preparation</h3>
 <p>The report must explicitly load the required packages.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights23)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -6021,8 +6021,8 @@ Character card
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">wind_gust_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(wind_gust))</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="questions-to-answer" class="level2">
-<h2 class="anchored" data-anchor-id="questions-to-answer">Questions to Answer</h2>
+<section id="questions-to-answer" class="level3">
+<h3 class="anchored" data-anchor-id="questions-to-answer">Questions to Answer</h3>
 <p>Your report must answer the following three questions.</p>
 <ol type="1">
 <li>Which carriers have the highest average departure delays at JFK?</li>
@@ -6043,8 +6043,8 @@ Character card
 <li>a careful conclusion before making any operational recommendation.</li>
 </ul>
 </section>
-<section id="starting-points" class="level2">
-<h2 class="anchored" data-anchor-id="starting-points">Starting Points</h2>
+<section id="starting-points" class="level3">
+<h3 class="anchored" data-anchor-id="starting-points">Starting Points</h3>
 <p>Average delay by carrier:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>carrier_delays <span class="ot">&lt;-</span> vols_jfk <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">|&gt;</span></span>
@@ -6082,8 +6082,8 @@ Character card
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>The joined table contains <span class="in">`r nrow(vols_jfk)`</span> flights from JFK, covers <span class="in">`r n_distinct(vols_jfk$carrier)`</span> carriers and has an average departure delay of <span class="in">`r round(mean(vols_jfk$dep_delay, na.rm = TRUE), 1)`</span> minutes.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="part-3---collaboration-logbook" class="level1">
-<h1>Part 3 - Collaboration Logbook</h1>
+<section id="part-3---collaboration-logbook" class="level2">
+<h2 class="anchored" data-anchor-id="part-3---collaboration-logbook">Part 3 - Collaboration Logbook</h2>
 <p>Add a “Collaboration logbook” section to <code>rapport.qmd</code>.</p>
 <p>Each member must write one short paragraph indicating:</p>
 <ul>
@@ -6095,8 +6095,8 @@ Character card
 </ul>
 <p>The repository lead must initialize this section and create one subsection for each member.</p>
 </section>
-<section id="part-4---data-life-cycle" class="level1">
-<h1>Part 4 - Data Life Cycle</h1>
+<section id="part-4---data-life-cycle" class="level2">
+<h2 class="anchored" data-anchor-id="part-4---data-life-cycle">Part 4 - Data Life Cycle</h2>
 <p>Add a section explaining how your project illustrates the following steps:</p>
 <ol type="1">
 <li>collection;</li>
@@ -6130,8 +6130,8 @@ one logbook entry describing a decision, a difficulty or a GitHub conflict.
 </div>
 <!-- portfolio-trace:end -->
 </section>
-<section id="final-check" class="level1">
-<h1>Final Check</h1>
+<section id="final-check" class="level2">
+<h2 class="anchored" data-anchor-id="final-check">Final Check</h2>
 <p>Before submission, check that:</p>
 <ul>
 <li><code>rapport.qmd</code> renders to HTML without error;</li>

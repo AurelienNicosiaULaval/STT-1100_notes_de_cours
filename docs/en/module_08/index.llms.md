@@ -36,6 +36,24 @@ At the end of this module, you should be able to:
 - Automate repetitive tasks using loops and functions in R.
 - Identify the ethical aspects linked to the automated collection of online data.
 
+## Prepare for the module
+
+### Prerequisites
+
+You should be able to read a table, manipulate a character string and follow a simple R function. The fictitious HTML pages let you practise without relying on an external service.
+
+### Minimum route
+
+Start with a local page, extract a table whose columns meet the requested contract, then run the provided test. A live page is not required to demonstrate the move.
+
+### Responsible collection
+
+The challenge concerns one page at a time. `robots.txt` is a technical signal, not complete permission: never bypass protection or launch a bulk collection.
+
+### If the site changes
+
+Use the local page and repository test as the reference. Document the observed difference rather than forcing a fragile extraction.
+
 ## Learning Plan
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and use local HTML pages to consolidate the same moves without depending on an external website.

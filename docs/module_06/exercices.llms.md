@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, résumer une activité collaborative et formuler une revue constructive.
 
@@ -12,7 +12,7 @@ Les données utilisées ici sont fictives et ne représentent aucun dépôt GitH
 library(tidyverse)
 ```
 
-# Lectures à revoir
+## Lectures à revoir
 
 - [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world)
 - [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
@@ -25,9 +25,9 @@ library(tidyverse)
 
 Après les lectures, faites aussi le [mini-test formatif](../module_06/mini_test.llms.md). Il n’est pas noté.
 
-# Bloc A - Comprendre les clés de jointure
+## Bloc A - Comprendre les clés de jointure
 
-## Exercice 1 - Importer les tables de collaboration
+### Exercice 1 - Importer les tables de collaboration
 
 Importez `membres_equipe_fictif.csv` et `contributions_git_fictif.csv`, puis inspectez leurs dimensions.
 
@@ -81,7 +81,7 @@ Importez `membres_equipe_fictif.csv` et `contributions_git_fictif.csv`, puis ins
 >     1 membres            8        4
 >     2 contributions     12        6
 
-## Exercice 2 - Ajouter l’information sur les membres
+### Exercice 2 - Ajouter l’information sur les membres
 
 Utilisez `left_join()` pour ajouter le nom, le rôle et l’équipe à chaque contribution.
 
@@ -112,7 +112,7 @@ Utilisez `left_join()` pour ajouter le nom, le rôle et l’équipe à chaque co
 >     11 C011      M08       Malik  Communicateur     Equip… interpretation    rappor…
 >     12 C012      M05       Zoe    Responsable depot Equip… structure         README…
 
-## Exercice 3 - Repérer les contributions sans membre connu
+### Exercice 3 - Repérer les contributions sans membre connu
 
 Utilisez `anti_join()` pour repérer les contributions dont `membre_id` n’apparaît pas dans la table des membres.
 
@@ -130,7 +130,7 @@ Utilisez `anti_join()` pour repérer les contributions dont `membre_id` n’appa
 >
 > Cette vérification est utile avant de résumer le travail par personne. Une clé absente peut indiquer une erreur de saisie ou un membre non documenté.
 
-## Exercice 4 - Identifier les membres qui ont contribué
+### Exercice 4 - Identifier les membres qui ont contribué
 
 Utilisez `semi_join()` pour obtenir la liste des membres qui ont au moins une contribution.
 
@@ -154,9 +154,9 @@ Utilisez `semi_join()` pour obtenir la liste des membres qui ont au moins une co
 >     7 M05       Zoe    Responsable depot            Equipe B
 >     8 M07       Ines   Responsable reproductibilite Equipe B
 
-# Bloc B - Résumer un travail collaboratif
+## Bloc B - Résumer un travail collaboratif
 
-## Exercice 5 - Résumer les contributions par membre
+### Exercice 5 - Résumer les contributions par membre
 
 Créez un tableau qui donne, pour chaque membre connu, le nombre de commits et le nombre total de lignes modifiées.
 
@@ -188,7 +188,7 @@ Créez un tableau qui donne, pour chaque membre connu, le nombre de commits et l
 >     7 Equipe B Thomas Analyste donnees                     1               51
 >     8 Equipe B Zoe    Responsable depot                    1               29
 
-## Exercice 6 - Visualiser l’activité de l’équipe
+### Exercice 6 - Visualiser l’activité de l’équipe
 
 Produisez un graphique du nombre de commits par rôle.
 
@@ -209,7 +209,7 @@ Produisez un graphique du nombre de commits par rôle.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-6-1.png)
 
-## Exercice 7 - Vérifier les fichiers attendus
+### Exercice 7 - Vérifier les fichiers attendus
 
 Importez `fichiers_rapport_fictif.csv`. Pour chaque équipe, calculez le nombre de fichiers attendus présents et le nombre de fichiers manquants.
 
@@ -241,7 +241,7 @@ Importez `fichiers_rapport_fictif.csv`. Pour chaque équipe, calculez le nombre 
 >     2 Equipe B                 3                  1              586
 >     3 Equipe C                 2                  2              515
 
-## Exercice 8 - Trouver les équipes avec un rapport HTML manquant
+### Exercice 8 - Trouver les équipes avec un rapport HTML manquant
 
 Filtrez les lignes où `fichier_attendu == "rapport.html"` et où le fichier est absent.
 
@@ -258,9 +258,9 @@ Filtrez les lignes où `fichier_attendu == "rapport.html"` et où le fichier est
 >     1 Equipe B rapport.html    non             0
 >     2 Equipe C rapport.html    non             0
 
-# Bloc C - Issues et revue constructive
+## Bloc C - Issues et revue constructive
 
-## Exercice 9 - Joindre les issues aux membres
+### Exercice 9 - Joindre les issues aux membres
 
 Importez `issues_revue_fictif.csv`, puis ajoutez le nom et l’équipe de l’auteur de chaque issue.
 
@@ -290,7 +290,7 @@ Importez `issues_revue_fictif.csv`, puis ajoutez le nom et l’équipe de l’au
 >     6 I006     Equipe B       M03       Noah   Equipe A GitHub       fermee basse
 >     7 I007     Equipe C       M04       Emma   Equipe A Reproductib… ouver… normale
 
-## Exercice 10 - Résumer les issues par équipe révisée
+### Exercice 10 - Résumer les issues par équipe révisée
 
 Calculez le nombre d’issues ouvertes, fermées et de priorité élevée pour chaque équipe révisée.
 
@@ -316,7 +316,7 @@ Calculez le nombre d’issues ouvertes, fermées et de priorité élevée pour c
 >     2 Equipe B              3          1         2                 1
 >     3 Equipe C              1          1         0                 0
 
-## Exercice 11 - Repérer les issues sans équipe connue
+### Exercice 11 - Repérer les issues sans équipe connue
 
 Les équipes A et B sont dans la table des membres. Utilisez une jointure ou une logique équivalente pour repérer les issues qui visent une équipe absente de la liste des équipes connues.
 
@@ -335,7 +335,7 @@ Les équipes A et B sont dans la table des membres. Utilisez une jointure ou une
 >       <chr>    <chr>          <chr>     <date>     <chr>            <chr>   <chr>
 >     1 I007     Equipe C       M04       2026-02-16 Reproductibilite ouverte normale
 
-## Exercice 12 - Rédiger une issue utile
+### Exercice 12 - Rédiger une issue utile
 
 Choisissez une issue ouverte et rédigez une version améliorée avec trois sections: aspect réussi, suggestion, justification.
 
@@ -355,9 +355,9 @@ Choisissez une issue ouverte et rédigez une version améliorée avec trois sect
 > La revue devient plus facile à reproduire, car une autre équipe peut comprendre pourquoi `membre_id` est la bonne clé.
 > ```
 
-# Études de cas
+## Études de cas
 
-## Étude de cas 1 - Audit fictif d’un dépôt de projet
+### Étude de cas 1 - Audit fictif d’un dépôt de projet
 
 Utilisez `membres_equipe_fictif.csv`, `contributions_git_fictif.csv`, `issues_revue_fictif.csv` et `fichiers_rapport_fictif.csv`.
 
@@ -441,7 +441,7 @@ Réalisez les tâches suivantes:
 >
 > Une conclusion prudente pourrait indiquer que l’équipe B semble avoir une trace de données présente, mais un rapport HTML manquant. Cette observation ne suffit pas à juger tout le projet; il faudrait aussi tenter de rendre le fichier `rapport.qmd`.
 
-## Étude de cas 2 - Revue fictive d’un portail de données
+### Étude de cas 2 - Revue fictive d’un portail de données
 
 Utilisez `portail_donnees_fictif.csv`, `producteurs_fictif.csv` et `commentaires_revue_fictif.csv`.
 

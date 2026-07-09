@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 These exercises are independent from the adventure and the challenge. They consolidate the technical moves of module 8: reading an HTML page, targeting elements with CSS selectors, turning an extraction into a function, automating repeated extraction and documenting collection limits.
 
@@ -14,7 +14,7 @@ library(rvest)
 library(purrr)
 ```
 
-# Readings to Review
+## Readings to Review
 
 - [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html)
 - [R for Data Science - Functions](https://r4ds.hadley.nz/functions.html)
@@ -25,9 +25,9 @@ library(purrr)
 
 After the readings, also complete the [formative mini-test](../module_08/mini_test.llms.md). It is not graded.
 
-# Block A - Read a Local HTML Page
+## Block A - Read a Local HTML Page
 
-## Exercise 1 - Import an HTML Page
+### Exercise 1 - Import an HTML Page
 
 Read `fictitious_data_catalog.html` with `read_html()`. Locate dataset cards with the `.dataset-card` selector.
 
@@ -55,7 +55,7 @@ Read `fictitious_data_catalog.html` with `read_html()`. Locate dataset cards wit
 >     [3] <p class="dataset-category">Transport</p>
 >     [4] <p class="dataset-updated">2026-01-15</p>
 
-## Exercise 2 - Extract a First Vector
+### Exercise 2 - Extract a First Vector
 
 Extract dataset titles with the `.dataset-title` selector.
 
@@ -73,7 +73,7 @@ Extract dataset titles with the `.dataset-title` selector.
 >     [3] "Anonymized construction permits" "Air quality by sector"
 >     [5] "Library attendance"
 
-## Exercise 3 - Build a Table
+### Exercise 3 - Build a Table
 
 Extract producers, categories and update dates. Combine them into a tibble.
 
@@ -101,9 +101,9 @@ Extract producers, categories and update dates. Combine them into a tibble.
 >     4 Air quality by sector           Fictitious Environment Ob… Environ… 2026-02-08
 >     5 Library attendance              Fictitious Library Network Culture  2026-02-12
 
-# Block B - Turn Extraction into a Function
+## Block B - Turn Extraction into a Function
 
-## Exercise 4 - Create a Helper Function
+### Exercise 4 - Create a Helper Function
 
 Create an `extract_text()` function that receives an HTML node and a CSS selector, then returns the corresponding text. If the element is missing, the function must return `NA_character_`.
 
@@ -132,7 +132,7 @@ Create an `extract_text()` function that receives an HTML node and a CSS selecto
 >
 >     [1] NA
 
-## Exercise 5 - Create an Extraction Function
+### Exercise 5 - Create an Extraction Function
 
 Write an `extract_catalog(file)` function that reads a local HTML page and returns a tibble with the columns `title`, `producer`, `category`, `updated_at`.
 
@@ -164,7 +164,7 @@ Write an `extract_catalog(file)` function that reads a local HTML page and retur
 >     4 Air quality by sector           Fictitious Environment Ob… Environ… 2026-02-08
 >     5 Library attendance              Fictitious Library Network Culture  2026-02-12
 
-## Exercise 6 - Test an Irregular Page
+### Exercise 6 - Test an Irregular Page
 
 Use the same function on `fictitious_irregular_catalog.html`. Which values are missing?
 
@@ -199,7 +199,7 @@ Use the same function on `fictitious_irregular_catalog.html`. Which values are m
 >
 > The function does not stop when a field is missing. It returns `NA`, which makes the problem diagnosable in a table.
 
-## Exercise 7 - Automate Across Several Pages
+### Exercise 7 - Automate Across Several Pages
 
 Use `purrr::imap_dfr()` to apply `extract_catalog()` to both catalog pages and add a `source` column.
 
@@ -235,9 +235,9 @@ Use `purrr::imap_dfr()` to apply `extract_catalog()` to both catalog pages and a
 >     8 irregular Accessible public spaces        Fictitious Incl… <NA>     2026-03-08
 >     9 irregular Planned roadwork                Fictitious Infr… Transpo… 2026-03-12
 
-# Block C - Collection Sobriety and Ethics
+## Block C - Collection Sobriety and Ethics
 
-## Exercise 8 - Interpret a `robots.txt`
+### Exercise 8 - Interpret a `robots.txt`
 
 Here is a fictitious `robots.txt` example.
 
@@ -273,11 +273,11 @@ Identify paths to avoid and explain why this file is not full permission to coll
 >
 > `robots.txt` provides technical instructions to crawlers. It does not replace terms of use, ethical judgment, caution about server load or written permission when collection and redistribution are sensitive.
 
-# Case Study 1 - Fictitious Municipal Catalog
+## Case Study 1 - Fictitious Municipal Catalog
 
 A fictitious municipality asks you to produce a short summary of the datasets visible in its mini-catalog.
 
-## Exercise 9 - Summarize Categories
+### Exercise 9 - Summarize Categories
 
 Starting from the two combined catalog pages, compute the number of datasets by category.
 
@@ -301,7 +301,7 @@ Starting from the two combined catalog pages, compute the number of datasets by 
 >     5 Not indicated      1
 >     6 Urban planning     1
 
-## Exercise 10 - Write a Collection Note
+### Exercise 10 - Write a Collection Note
 
 Write three sentences explaining what your code collects, how it limits risks and what should be checked before applying it to a real website.
 
@@ -309,11 +309,11 @@ Write three sentences explaining what your code collects, how it limits risks an
 >
 > The code reads only local HTML pages prepared for the exercise and extracts aggregated public fields. In a real context, it would be necessary to limit the number of pages, add pauses between requests and avoid mass collection or bypassing protections. It would also be necessary to check `robots.txt`, terms of use, data licenses and redistribution rules before publishing a derived table.
 
-# Case Study 2 - Public Events Page
+## Case Study 2 - Public Events Page
 
 A fictitious association publishes a small event page. You want to extract titles, dates, locations and themes to produce a calendar.
 
-## Exercise 11 - Extract Events
+### Exercise 11 - Extract Events
 
 Create an `extract_events(file)` function that returns a tibble with the columns `title`, `date`, `location`, `theme`.
 
@@ -347,7 +347,7 @@ Create an `extract_events(file)` function that returns a tibble with the columns
 >     3 Neighbourhood climate meeting 2026-03-03 East community centre Environment
 >     4 Citizen mapping training      2026-03-10 Urban lab             Digital
 
-## Exercise 12 - Check the Result
+### Exercise 12 - Check the Result
 
 Produce a summary of the number of events by theme and write one simple check that could be used as a test.
 

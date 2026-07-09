@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6132,13 +6159,13 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mission" class="level1">
-<h1>Mission</h1>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
 <p>Dans l’aventure 8, vous avez construit les pièces nécessaires pour extraire des métadonnées à partir d’une page de recherche du portail Données Québec. Le défi consiste maintenant à transformer ce travail en une fonction stable, testable et réutilisable.</p>
 <p>Vous devez remettre un fichier <code>IDUL.R</code> dans le dépôt GitHub créé à partir du template <code>STT-1100/aventure-8</code>.</p>
 </section>
-<section id="contrat-attendu" class="level1">
-<h1>Contrat attendu</h1>
+<section id="contrat-attendu" class="level2">
+<h2 class="anchored" data-anchor-id="contrat-attendu">Contrat attendu</h2>
 <p>Votre fichier <code>IDUL.R</code> doit définir une fonction nommée exactement <code>scrape_page()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>scrape_page <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
@@ -6169,8 +6196,8 @@ Important
 </div>
 </div>
 </section>
-<section id="robustesse-minimale" class="level1">
-<h1>Robustesse minimale</h1>
+<section id="robustesse-minimale" class="level2">
+<h2 class="anchored" data-anchor-id="robustesse-minimale">Robustesse minimale</h2>
 <p>Le portail peut afficher des libellés légèrement différents. Votre fonction doit donc être capable de gérer au moins ces formes :</p>
 <ul>
 <li><code>Organisation</code>, <code>Organisme</code>, <code>Producteur</code>, <code>Producer</code> ou <code>Organization</code> pour le producteur;</li>
@@ -6178,8 +6205,8 @@ Important
 </ul>
 <p>Une approche raisonnable consiste à créer une petite fonction auxiliaire qui reçoit les textes extraits d’un bloc HTML et un motif de recherche, puis retourne la valeur nettoyée ou <code>NA_character_</code>.</p>
 </section>
-<section id="travail-recommandé" class="level1">
-<h1>Travail recommandé</h1>
+<section id="travail-recommandé" class="level2">
+<h2 class="anchored" data-anchor-id="travail-recommandé">Travail recommandé</h2>
 <ol type="1">
 <li>Travaillez d’abord dans la console ou dans un brouillon.</li>
 <li>Repérez les blocs de jeux de données avec <code>.dataset-content</code>.</li>
@@ -6191,8 +6218,8 @@ Important
 <li>Placez seulement le code final nécessaire dans <code>IDUL.R</code>.</li>
 </ol>
 </section>
-<section id="tests-locaux" class="level1">
-<h1>Tests locaux</h1>
+<section id="tests-locaux" class="level2">
+<h2 class="anchored" data-anchor-id="tests-locaux">Tests locaux</h2>
 <p>Le dépôt template contient un test local. Après avoir complété votre fonction, lancez :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> tests/test_scrape_page.R</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -6208,13 +6235,13 @@ Important
 <p>La page HTML locale fournie par le template sert de mode secours si le portail change ou si une connexion réseau n’est pas disponible au moment du test. Votre fonction doit donc traiter une source HTML locale avec le même contrat de sortie qu’une page publique.</p>
 <p>Ces tests ne remplacent pas l’évaluation finale, mais ils permettent de détecter les erreurs les plus fréquentes avant la remise.</p>
 </section>
-<section id="éthique-et-charge-serveur" class="level1">
-<h1>Éthique et charge serveur</h1>
+<section id="éthique-et-charge-serveur" class="level2">
+<h2 class="anchored" data-anchor-id="éthique-et-charge-serveur">Éthique et charge serveur</h2>
 <p>Pour le défi, votre fonction doit scraper une seule page à la fois. Si vous écrivez ensuite une boucle pour plusieurs pages, ajoutez une pause avec <code>Sys.sleep(1)</code> entre les requêtes.</p>
 <p>Ne contournez pas de mécanisme de protection. Ne lancez pas de collecte massive. Le fichier <code>robots.txt</code> donne un signal technique utile, mais il ne remplace pas les conditions d’utilisation, la prudence et le respect de la charge serveur.</p>
 </section>
-<section id="livrable" class="level1">
-<h1>Livrable</h1>
+<section id="livrable" class="level2">
+<h2 class="anchored" data-anchor-id="livrable">Livrable</h2>
 <p>Remettez le dépôt GitHub généré à partir du template <code>STT-1100/aventure-8</code>.</p>
 <p>Le dépôt doit contenir :</p>
 <ul>
@@ -6224,8 +6251,8 @@ Important
 <li>aucune donnée téléchargée inutilement.</li>
 </ul>
 </section>
-<section id="critères-dévaluation" class="level1">
-<h1>Critères d’évaluation</h1>
+<section id="critères-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="critères-dévaluation">Critères d’évaluation</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -6265,8 +6292,8 @@ Important
 </tbody>
 </table>
 </section>
-<section id="ressources" class="level1">
-<h1>Ressources</h1>
+<section id="ressources" class="level2">
+<h2 class="anchored" data-anchor-id="ressources">Ressources</h2>
 <ul>
 <li>Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund, 2023, R for Data Science, chapitre Web scraping : <a href="https://r4ds.hadley.nz/webscraping.html" class="uri">https://r4ds.hadley.nz/webscraping.html</a></li>
 <li>Documentation officielle de <code>rvest</code> : <a href="https://rvest.tidyverse.org/" class="uri">https://rvest.tidyverse.org/</a></li>

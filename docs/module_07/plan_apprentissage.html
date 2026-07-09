@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6065,6 +6092,7 @@ margin-bottom: .05rem;
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
   <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a>
   <ul class="collapse">
+  <li><a href="#crap-en-pratique" id="toc-crap-en-pratique" class="nav-link" data-scroll-target="#crap-en-pratique">CRAP en pratique</a></li>
   <li><a href="#aide-mémoire-posit" id="toc-aide-mémoire-posit" class="nav-link" data-scroll-target="#aide-mémoire-posit">Aide-mémoire Posit</a></li>
   </ul></li>
   <li><a href="#aventure" id="toc-aventure" class="nav-link" data-scroll-target="#aventure">Aventure</a></li>
@@ -6096,8 +6124,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="objectifs-du-module" class="level1">
-<h1>Objectifs du module</h1>
+<section id="objectifs-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
 <p>À la fin de ce module, vous devriez être capable de :</p>
 <ul>
 <li>repérer des problèmes éthiques dans des visualisations et un rapport;</li>
@@ -6108,42 +6136,46 @@ margin-bottom: .05rem;
 <li>expliquer les principes CRAP et FAIR dans un contexte de communication responsable.</li>
 </ul>
 </section>
-<section id="lectures" class="level1">
-<h1>Lectures</h1>
-<p>Pour vous préparer, consultez les ressources suivantes :</p>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
+<p>Pour vous préparer, commencez par les ressources marquées « Essentiel ». Elles suffisent pour entrer dans l’aventure. Les autres ressources servent à approfondir un point précis ou à préparer le défi.</p>
 <ul>
-<li><a href="https://r4ds.hadley.nz/communication.html">R for Data Science - Communication</a> : structurer un message statistique et rendre un résultat lisible.</li>
+<li><a href="https://r4ds.hadley.nz/communication.html">Essentiel — R for Data Science - Communication</a> : structurer un message statistique et rendre un résultat lisible.</li>
 <li><a href="https://clauswilke.com/dataviz/directory-of-visualizations.html">Fundamentals of Data Visualization - Directory of visualizations</a> : choisir un graphique adapté au type de comparaison.</li>
-<li><a href="https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf">Royal Statistical Society - Best Practices for Data Visualisation</a> : repères pour éviter les visualisations trompeuses.</li>
+<li><a href="https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf">Essentiel — Royal Statistical Society - Best Practices for Data Visualisation</a> : repères pour éviter les visualisations trompeuses.</li>
 <li><a href="../assets/lectures/module_07/graphics-principles-cheat-sheet.pdf" target="_blank">Graphics Principles Cheat Sheet</a> : aide-mémoire sur les principes de conception graphique.</li>
 <li><a href="../assets/lectures/module_07/conception-graphique.pdf" target="_blank">Conception graphique</a> : diaporama sur la lisibilité et la structure visuelle des graphiques.</li>
-<li><a href="https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation">Gouvernement du Québec - Anonymisation</a> : vocabulaire et enjeux liés aux renseignements personnels.</li>
+<li><a href="https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation">Essentiel — Gouvernement du Québec - Anonymisation</a> : vocabulaire et enjeux liés aux renseignements personnels.</li>
 <li><a href="https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles">CNIL - L’anonymisation de données personnelles</a> : distinction entre anonymisation, pseudonymisation et risques résiduels.</li>
 <li><a href="../assets/lectures/module_07/guide-loi-25.mp4" target="_blank">Guide de la Loi 25</a> : capsule vidéo sur la protection des renseignements personnels au Québec.</li>
-<li><a href="../assets/lectures/module_07/techniques-anonymisation-donnees.html" target="_blank">Techniques de base en anonymisation de données</a> : page de travail sur les identifiants, quasi-identifiants et risques de réidentification.</li>
-<li><a href="../assets/lectures/module_07/aide-memoire-ethique.pdf" target="_blank">Pratique responsable en statistique et science des données</a> : aide-mémoire pour vérifier les enjeux éthiques d’un projet de données.</li>
-<li><a href="https://www.nature.com/articles/sdata201618">Wilkinson et al. (2016) - FAIR Guiding Principles</a> : principes pour rendre les données trouvables, accessibles, interopérables et réutilisables.</li>
+<li><a href="../assets/lectures/module_07/techniques-anonymisation-donnees.html" target="_blank">Essentiel — Techniques de base en anonymisation de données</a> : page de travail sur les identifiants, quasi-identifiants et risques de réidentification.</li>
+<li><a href="../assets/lectures/module_07/aide-memoire-ethique.pdf" target="_blank">Essentiel — Pratique responsable en statistique et science des données</a> : aide-mémoire pour vérifier les enjeux éthiques d’un projet de données.</li>
+<li><a href="https://www.nature.com/articles/sdata201618">Essentiel — Wilkinson et al. (2016) - FAIR Guiding Principles</a> : principes pour rendre les données trouvables, accessibles, interopérables et réutilisables.</li>
 </ul>
-<section id="aide-mémoire-posit" class="level2">
-<h2 class="anchored" data-anchor-id="aide-mémoire-posit">Aide-mémoire Posit</h2>
+<section id="crap-en-pratique" class="level3">
+<h3 class="anchored" data-anchor-id="crap-en-pratique">CRAP en pratique</h3>
+<p>Pour évaluer un graphique, vérifiez explicitement le contraste, la répétition, l’alignement et la proximité. Dans votre note éthique, nommez au moins un choix visuel qui aide ou nuit à ces quatre repères.</p>
+</section>
+<section id="aide-mémoire-posit" class="level3">
+<h3 class="anchored" data-anchor-id="aide-mémoire-posit">Aide-mémoire Posit</h3>
 <ul>
 <li><a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf" target="_blank">Data visualization with ggplot2 :: Cheat Sheet</a> Référence rapide pour reconstruire des visualisations lisibles et défendables.</li>
 </ul>
 <p>Après les lectures, faites le <a href="../module_07/mini_test.html">mini-test formatif</a>. Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.</p>
 </section>
 </section>
-<section id="aventure" class="level1">
-<h1>Aventure</h1>
+<section id="aventure" class="level2">
+<h2 class="anchored" data-anchor-id="aventure">Aventure</h2>
 <p>Vous incarnerez un·e expert·e en éthique des données. Votre équipe évaluera un rapport problématique dans le dépôt <code>STT-1100/aventure-7</code>.</p>
 <p>Lien vers l’aventure : <a href="../module_07/aventure.html">Aventure 7 - Visualisation, éthique et sécurisation des données</a></p>
 </section>
-<section id="défi" class="level1">
-<h1>Défi</h1>
+<section id="défi" class="level2">
+<h2 class="anchored" data-anchor-id="défi">Défi</h2>
 <p>Le défi transforme l’audit de l’aventure en note éthique reproductible. Vous devrez remettre un rapport, deux visualisations corrigées et un fichier anonymisé.</p>
 <p>Lien vers le défi : <a href="../module_07/defi.html">Défi 7 - Note éthique et visualisations responsables</a></p>
 </section>
-<section id="exercices-de-consolidation" class="level1">
-<h1>Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Les exercices sont indépendants de l’aventure et du défi. Ils utilisent des données fictives différentes pour pratiquer les graphiques responsables, l’anonymisation, la vérification des petits effectifs et la rédaction d’une note éthique courte.</p>
 <p>Lien vers les exercices : <a href="../module_07/exercices.html">Exercices de consolidation</a></p>
 

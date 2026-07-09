@@ -44,6 +44,24 @@ At the end of this module, you should be able to
 
 - Improve chart quality with titles, legends, readable axes, units and graphical consistency.
 
+## Prepare for the module
+
+### Prerequisites
+
+You should be able to open an RStudio project, render a Quarto file and use the basic moves from Module 1. Confirm that you can sign in to GitHub before class.
+
+### Minimum route
+
+Clone the requested repository, open the project, import the Excel file, produce a first chart and make a readable commit. These five moves genuinely prepare you for the adventure.
+
+### Learning priority
+
+Start with one clear chart and a short summary before facets, secondary analyses or visual refinements. Extensions come after a first working render.
+
+### Repository and help
+
+Do not put personal data in GitHub. If access, cloning or pushing fails, keep the error message and ask for help before attempting a workaround.
+
 ## Learning Plan
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills.

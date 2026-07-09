@@ -2,11 +2,11 @@
 
 STT-1100 Introduction à la science des données
 
-# Mini-test formatif
+## Mini-test formatif
 
 Ce mini-test sert à vérifier les lectures du module 3. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu avant l’aventure et le défi.
 
-## Question 1
+### Question 1
 
 Vrai ou faux: une variable catégorique contient des modalités ou des groupes, même si ces modalités sont stockées comme du texte dans R.
 
@@ -14,7 +14,7 @@ Vrai ou faux: une variable catégorique contient des modalités ou des groupes, 
 >
 > Vrai. Une variable catégorique peut être stockée comme `character` ou comme `factor`. Ce qui compte, c’est que ses valeurs représentent des catégories.
 
-## Question 2
+### Question 2
 
 Quelle fonction de `stringr` permet de détecter si une chaîne contient un motif?
 
@@ -27,7 +27,7 @@ Quelle fonction de `stringr` permet de détecter si une chaîne contient un moti
 >
 > Réponse: a. `str_detect()` retourne `TRUE` ou `FALSE` selon la présence du motif.
 
-## Question 3
+### Question 3
 
 Vrai ou faux: `str_squish()` retire les espaces au début et à la fin, puis réduit les espaces multiples à un seul espace.
 
@@ -35,7 +35,7 @@ Vrai ou faux: `str_squish()` retire les espaces au début et à la fin, puis ré
 >
 > Vrai. Cette fonction est utile pour harmoniser des champs textuels avant de créer des catégories.
 
-## Question 4
+### Question 4
 
 Quelle fonction permet d’extraire un code postal canadien d’une adresse quand on fournit une expression régulière adaptée?
 
@@ -48,7 +48,7 @@ Quelle fonction permet d’extraire un code postal canadien d’une adresse quan
 >
 > Réponse: a. `str_extract()` extrait la partie d’une chaîne qui correspond au motif.
 
-## Question 5
+### Question 5
 
 Pourquoi convertir une colonne comme `Amende` en variable numérique avant de calculer une moyenne?
 
@@ -61,7 +61,7 @@ Pourquoi convertir une colonne comme `Amende` en variable numérique avant de ca
 >
 > Réponse: b. Si les montants sont stockés comme texte, il faut d’abord créer une variable numérique reproductible.
 
-## Question 6
+### Question 6
 
 Quelle fonction de `dplyr` est la plus directe pour obtenir un tableau de fréquences?
 
@@ -74,7 +74,7 @@ Quelle fonction de `dplyr` est la plus directe pour obtenir un tableau de fréqu
 >
 > Réponse: a. `count(variable)` compte le nombre d’observations dans chaque modalité.
 
-## Question 7
+### Question 7
 
 Vrai ou faux: un diagramme à barres empilées standardisé avec `position = "fill"` montre des proportions plutôt que des nombres absolus.
 
@@ -82,7 +82,7 @@ Vrai ou faux: un diagramme à barres empilées standardisé avec `position = "fi
 >
 > Vrai. La hauteur totale de chaque barre vaut 1, ce qui permet de comparer la composition des groupes.
 
-## Question 8
+### Question 8
 
 Quel outil est utile pour regrouper des catégories rares dans une modalité “Autre”?
 
@@ -95,7 +95,7 @@ Quel outil est utile pour regrouper des catégories rares dans une modalité “
 >
 > Réponse: a. `fct_lump()` regroupe des modalités peu fréquentes, ce qui peut rendre un tableau ou un graphique plus lisible.
 
-## Question 9
+### Question 9
 
 Vrai ou faux: un graphique de catégories devrait généralement être ordonné selon une variable utile plutôt que laissé dans un ordre alphabétique arbitraire.
 
@@ -103,7 +103,7 @@ Vrai ou faux: un graphique de catégories devrait généralement être ordonné 
 >
 > Vrai. Un ordre par fréquence ou par valeur moyenne aide souvent le lecteur à comprendre le message du graphique.
 
-## Question 10
+### Question 10
 
 Dans le défi, pourquoi faut-il garder le jeu `listecondamnation` original intact?
 
@@ -116,7 +116,7 @@ Dans le défi, pourquoi faut-il garder le jeu `listecondamnation` original intac
 >
 > Réponse: a. Le rapport doit pouvoir être rendu à nouveau après un redémarrage de R, avec les mêmes choix de nettoyage.
 
-## Question 11
+### Question 11
 
 Vrai ou faux: si un graphique utilise des proportions, le texte doit préciser qu’il ne montre pas les nombres absolus.
 
@@ -124,7 +124,7 @@ Vrai ou faux: si un graphique utilise des proportions, le texte doit préciser q
 >
 > Vrai. Les proportions sont utiles, mais elles peuvent masquer la taille réelle des groupes.
 
-## Question 12
+### Question 12
 
 Quelle phrase correspond le mieux à un bon chiffre narratif dans un article de données?
 

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Mise en situation - Aventure 5
+## Mise en situation - Aventure 5
 
 Tu enfiles les chaussures (et le badge sécurisé !) d’un·e **statisticien·ne des opérations aéroportuaires** fraîchement recruté·e par la **Port Authority Data Lab (PADL)**, l’équipe d’analytique du **Port Authority of New York & New Jersey**.
 Ta mission : aider l’aéroport **JFK** (et, à terme, **EWR** et **LGA**) à fluidifier les départs et à réduire le **temps perdu au sol**.
@@ -32,7 +32,7 @@ Données `flights_merged_2023.rds`
 
 Livrable Rapport Quarto HTML avec visualisations et interprétations
 
-# Objectifs de l’aventure
+## Objectifs de l’aventure
 
 - Utiliser les fonctions de `lubridate` pour manipuler et enrichir les données temporelles.
 - Réaliser une analyse exploratoire des données (EDA) pour mieux comprendre leur structure et identifier des patterns intéressants.
@@ -47,7 +47,7 @@ Livrable Rapport Quarto HTML avec visualisations et interprétations
 > - Vous utilisez la corrélation comme mesure d’association, sans conclure trop vite à une causalité.
 > - Vous tenez compte de la taille des groupes avant de comparer des moyennes ou des proportions.
 
-# Comment réussir cette aventure ?
+## Comment réussir cette aventure ?
 
 Voici quelques conseils de Sofia pour bien réussir ta mission :
 
@@ -62,7 +62,7 @@ Voici quelques conseils de Sofia pour bien réussir ta mission :
 
 Et surtout… **pose-toi des questions** ! L’important, c’est de développer ton raisonnement analytique.
 
-# GitHub et rendu
+## GitHub et rendu
 
 Comme pour les aventures précédentes :
 
@@ -96,7 +96,7 @@ Comme pour les aventures précédentes :
 
 > **Rappel** : Le `.qmd` est votre document principal. Il doit permettre à n’importe quel·le membre de l’équipe (ou à Sofia !) de comprendre ce que vous avez fait et pourquoi.
 
-# Comprendre et manipuler les dates avec `lubridate`
+## Comprendre et manipuler les dates avec `lubridate`
 
 Avant de plonger dans les analyses de retard et de performance, Sofia souhaite s’assurer que tu maîtrises bien la gestion des **dates et heures** en R. Le package `lubridate` est un outil incontournable pour cela.
 
@@ -124,7 +124,7 @@ flights %>%
   )
 ```
 
-## Fonctionnalités essentielles
+### Fonctionnalités essentielles
 
 Voici les principales fonctions que tu utiliseras :
 
@@ -147,7 +147,7 @@ flights <- flights %>%
   )
 ```
 
-## Exercice 1 - Quelle est la structure de la date ?
+### Exercice 1 - Quelle est la structure de la date ?
 
 **Sofia te demande** : *Crée une variable `date` à partir des colonnes `year`, `month` et `day`, puis utilise `class()` pour vérifier le type de cette nouvelle variable.*
 
@@ -163,7 +163,7 @@ flights <- flights %>%
 >
 > Le type attendu est `"Date"`. Tu peux désormais manipuler cette variable avec toutes les fonctions temporelles !
 
-## Exercice 2 - Jour de la semaine
+### Exercice 2 - Jour de la semaine
 
 **Sofia te demande** : *Ajoute une colonne `jour_semaine` qui donne le jour de la semaine (lundi, mardi, etc.) pour chaque vol. Affiche les 7 premiers résultats.*
 
@@ -181,7 +181,7 @@ flights <- flights %>%
 >
 > Cela utilise `label = TRUE` pour obtenir le nom complet (et non un chiffre).
 
-## Exercice 3 - Créneau horaire
+### Exercice 3 - Créneau horaire
 
 **Sofia te demande** : *Crée une variable `moment_journee` qui classe les vols en “nuit”, “matin”, “après-midi” ou “soir” selon l’heure prévue de départ.*
 
@@ -202,7 +202,7 @@ flights <- flights %>%
 >
 > Tu peux ensuite explorer les retards selon ces créneaux temporels.
 
-## Exercice 4 - Est-ce un week-end ?
+### Exercice 4 - Est-ce un week-end ?
 
 **Sofia te demande** : *Ajoute une variable logique `weekend` qui vaut `TRUE` si le vol a lieu un samedi ou un dimanche.*
 
@@ -218,13 +218,13 @@ flights <- flights %>%
 >
 > N’oublie pas que `jour_semaine` est une variable factor avec labels.
 
-# Explorer et comprendre les relations entre les données
+## Explorer et comprendre les relations entre les données
 
 Maintenant que tu es à l’aise avec les dates et les heures, Sofia souhaite t’introduire à une étape clé de tout projet en science des données : **l’analyse exploratoire des données**, souvent abrégée en **EDA** (*Exploratory Data Analysis*).
 
 L’objectif est simple : **comprendre la structure des données, repérer des patterns, des anomalies, ou des corrélations intéressantes entre les variables**.
 
-## Outils à ta disposition
+### Outils à ta disposition
 
 Tu peux t’appuyer sur :
 
@@ -241,7 +241,7 @@ Sofia te propose maintenant d’examiner des **questions concrètes** liées à 
 
 ------------------------------------------------------------------------
 
-## Analyse 1 - À quelle heure faut-il éviter de partir ?
+### Analyse 1 - À quelle heure faut-il éviter de partir ?
 
 > **NOTE:**
 >
@@ -271,7 +271,7 @@ Sofia te propose maintenant d’examiner des **questions concrètes** liées à 
 >
 > Attention : ne te laisse pas piéger par les heures tardives avec peu de vols. Utilise la colonne `n_vols` pour repérer les groupes trop petits.
 
-## Analyse 2 - La météo est-elle vraiment liée aux retards ?
+### Analyse 2 - La météo est-elle vraiment liée aux retards ?
 
 > **NOTE:**
 >
@@ -281,7 +281,7 @@ Sofia te propose maintenant d’examiner des **questions concrètes** liées à 
 
 Avant de plonger dans les visualisations, un petit détour par un concept clé : la **corrélation**.
 
-### Qu’est-ce que la corrélation ?
+#### Qu’est-ce que la corrélation ?
 
 La corrélation mesure la **force et la direction d’une relation linéaire** entre deux variables numériques. Sa valeur est comprise entre :
 
@@ -293,7 +293,7 @@ Par exemple, si les rafales de vent (`wind_gust`) augmentent et que les retards 
 
 ------------------------------------------------------------------------
 
-### Étape 1 - Calculer la corrélation
+#### Étape 1 - Calculer la corrélation
 
 ``` r
 flights %>%
@@ -306,7 +306,7 @@ Ce tableau te donne un aperçu rapide de la force de la relation entre les retar
 
 Une corrélation proche de 0 ne veut pas dire que la météo ne joue jamais de rôle. Elle indique seulement qu’il n’y a pas de relation linéaire forte dans ce résumé global.
 
-### Étape 2 - Visualiser une relation
+#### Étape 2 - Visualiser une relation
 
 Un graphique de dispersion permet de **voir** la tendance entre deux variables. Tu peux par exemple tester :
 
@@ -337,7 +337,7 @@ Le nuage de points te montre la tendance globale, et la ligne rouge correspond �
 >
 > - Une analyse plus avancée devrait contrôler d’autres variables comme l’heure, l’aéroport, la compagnie et la saison.
 
-## Analyse 3 - Les vieux avions sont-ils moins fiables ?
+### Analyse 3 - Les vieux avions sont-ils moins fiables ?
 
 > **NOTE:**
 >

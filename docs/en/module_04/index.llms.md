@@ -38,6 +38,24 @@ At the end of this module, you should be able to
 - transform tables with `pivot_longer()`, `pivot_wider()` and `unnest()`;
 - document cleaning decisions in a structured list.
 
+## Prepare for the module
+
+### Prerequisites
+
+You should be able to import a simple table, inspect its columns and revisit the recoding work from Module 3. Prepare your RStudio project before opening the supplied files.
+
+### Minimum route
+
+Check names, types and missing values, then document at least one cleaning decision. A cautious, explained correction is better than a changed file with no trace.
+
+### Keep for later
+
+Long-wide formats, Excel and JSON are useful extensions. Start by diagnosing one table before multiplying formats and transformations.
+
+### If you are unsure
+
+Do not delete a value simply because it looks strange. Record it in the log, explain your decision and keep the work reproducible.
+
 ## Learning Plan
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. The exercises are independent and practice the same techniques on other data.

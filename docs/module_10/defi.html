@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6065,7 +6092,11 @@ margin-bottom: .05rem;
   <li><a href="#mission" id="toc-mission" class="nav-link active" data-scroll-target="#mission">Mission</a></li>
   <li><a href="#dépôt-de-départ" id="toc-dépôt-de-départ" class="nav-link" data-scroll-target="#dépôt-de-départ">Dépôt de départ</a></li>
   <li><a href="#données" id="toc-données" class="nav-link" data-scroll-target="#données">Données</a></li>
-  <li><a href="#tableau-de-bord-attendu" id="toc-tableau-de-bord-attendu" class="nav-link" data-scroll-target="#tableau-de-bord-attendu">Tableau de bord attendu</a></li>
+  <li><a href="#tableau-de-bord-attendu" id="toc-tableau-de-bord-attendu" class="nav-link" data-scroll-target="#tableau-de-bord-attendu">Tableau de bord attendu</a>
+  <ul class="collapse">
+  <li><a href="#noyau-minimal-à-faire-fonctionner-dabord" id="toc-noyau-minimal-à-faire-fonctionner-dabord" class="nav-link" data-scroll-target="#noyau-minimal-à-faire-fonctionner-dabord">Noyau minimal à faire fonctionner d’abord</a></li>
+  <li><a href="#éléments-à-ajouter-après-le-noyau" id="toc-éléments-à-ajouter-après-le-noyau" class="nav-link" data-scroll-target="#éléments-à-ajouter-après-le-noyau">Éléments à ajouter après le noyau</a></li>
+  </ul></li>
   <li><a href="#confidentialité" id="toc-confidentialité" class="nav-link" data-scroll-target="#confidentialité">Confidentialité</a></li>
   <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
   <li><a href="#grille-dévaluation" id="toc-grille-dévaluation" class="nav-link" data-scroll-target="#grille-dévaluation">Grille d’évaluation</a></li>
@@ -6095,20 +6126,21 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mission" class="level1">
-<h1>Mission</h1>
-<p>Vous devez construire un tableau de bord interactif à partir des rétroactions anonymisées recueillies pendant la session.</p>
-<p>Le fichier principal attendu est <code>data/sentiments_cours.csv</code>. Il sera construit progressivement à partir des rétroactions des étudiant·es. Si ce fichier n’est pas encore complet au moment où vous commencez, utilisez le fichier exemple non réel fourni dans le dépôt pour tester votre code.</p>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
+<p>Vous devez construire un tableau de bord interactif à partir du fichier fictif fourni dans le dépôt. Un fichier de rétroactions réelles ne peut être utilisé que si l’enseignant·e le fournit anonymisé et confirme explicitement son usage dans ce défi.</p>
+<p>Le fichier principal de travail est <code>data/sentiments_cours.csv</code>. Par défaut, utilisez sa version exemple non réelle fournie dans le dépôt. Ne copiez pas de commentaires réels dans votre dépôt, même s’ils semblent anonymes.</p>
 </section>
-<section id="dépôt-de-départ" class="level1">
-<h1>Dépôt de départ</h1>
+<section id="dépôt-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="dépôt-de-départ">Dépôt de départ</h2>
 <p>Le dépôt de départ est :</p>
 <p><code>STT-1100/aventure-10</code></p>
 <p>Le modèle à modifier est :</p>
 <p><code>modele_dashboard.Rmd</code></p>
+<p>Le cours utilise principalement Quarto. Ce gabarit conserve le format <code>Rmd</code> parce que le tableau de bord demandé repose sur <code>flexdashboard</code>; il faut le modifier et le rendre dans ce format pour ce défi précis.</p>
 </section>
-<section id="données" class="level1">
-<h1>Données</h1>
+<section id="données" class="level2">
+<h2 class="anchored" data-anchor-id="données">Données</h2>
 <p>Le tableau de bord final doit être conçu pour fonctionner avec un fichier <code>data/sentiments_cours.csv</code> contenant, au minimum, les variables suivantes :</p>
 <ul>
 <li><code>id</code> : identifiant anonyme ;</li>
@@ -6120,8 +6152,19 @@ margin-bottom: .05rem;
 </ul>
 <p>Si vous utilisez une variable recodée ou dérivée, indiquez-le clairement dans le tableau de bord.</p>
 </section>
-<section id="tableau-de-bord-attendu" class="level1">
-<h1>Tableau de bord attendu</h1>
+<section id="tableau-de-bord-attendu" class="level2">
+<h2 class="anchored" data-anchor-id="tableau-de-bord-attendu">Tableau de bord attendu</h2>
+<section id="noyau-minimal-à-faire-fonctionner-dabord" class="level3">
+<h3 class="anchored" data-anchor-id="noyau-minimal-à-faire-fonctionner-dabord">Noyau minimal à faire fonctionner d’abord</h3>
+<ul>
+<li>ouvrir le gabarit localement sans erreur;</li>
+<li>ajouter au moins un filtre interactif;</li>
+<li>produire un graphique lisible;</li>
+<li>rédiger une courte conclusion reliée à ce graphique.</li>
+</ul>
+</section>
+<section id="éléments-à-ajouter-après-le-noyau" class="level3">
+<h3 class="anchored" data-anchor-id="éléments-à-ajouter-après-le-noyau">Éléments à ajouter après le noyau</h3>
 <p>Votre tableau de bord doit :</p>
 <ul>
 <li>afficher un score de sentiment par semaine ;</li>
@@ -6132,24 +6175,25 @@ margin-bottom: .05rem;
 <li>être personnalisé sans nuire à la lisibilité.</li>
 </ul>
 </section>
-<section id="confidentialité" class="level1">
-<h1>Confidentialité</h1>
-<p>Les rétroactions étudiantes doivent rester anonymes. Ne publiez pas de commentaires contenant des informations permettant d’identifier une personne.</p>
-<p>Si vous nettoyez ou modifiez les données, conservez seulement la version anonymisée nécessaire au tableau de bord.</p>
 </section>
-<section id="livrables" class="level1">
-<h1>Livrables</h1>
+<section id="confidentialité" class="level2">
+<h2 class="anchored" data-anchor-id="confidentialité">Confidentialité</h2>
+<p>Les rétroactions étudiantes doivent rester anonymes. Ne publiez pas de commentaires contenant des informations permettant d’identifier une personne. Par défaut, les données fictives sont la seule donnée à déposer dans GitHub.</p>
+<p>Si l’enseignant·e autorise exceptionnellement un fichier réel, utilisez uniquement la version fournie, conservez le minimum nécessaire au tableau de bord, ne la republiez pas et suivez les consignes de conservation données en classe.</p>
+</section>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <p>Votre dépôt GitHub doit contenir :</p>
 <ul>
 <li>le fichier <code>modele_dashboard.Rmd</code> modifié ;</li>
 <li>le rendu HTML final ou les instructions nécessaires pour lancer le tableau de bord localement ;</li>
-<li>le fichier de données anonymisé si sa diffusion est autorisée ;</li>
+<li>les données fictives nécessaires au rendu, sans rétroaction réelle ;</li>
 <li>un court fichier <code>README.md</code> expliquant comment ouvrir localement le tableau de bord et, si demandé, comment le déployer.</li>
 </ul>
 <p>Le livrable minimal est un tableau de bord reproductible qui fonctionne localement. Le déploiement public ou le partage d’un lien externe est requis seulement si cette consigne est donnée en classe.</p>
 </section>
-<section id="grille-dévaluation" class="level1">
-<h1>Grille d’évaluation</h1>
+<section id="grille-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="grille-dévaluation">Grille d’évaluation</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 27%">
@@ -6201,7 +6245,7 @@ margin-bottom: .05rem;
 </tr>
 <tr class="even">
 <td>Accessibilité et partage</td>
-<td>Tableau de bord fonctionnel localement, avec lien valide seulement si un déploiement est demandé</td>
+<td>Tableau de bord fonctionnel localement, filtres et graphiques lisibles, avec lien valide seulement si un déploiement est demandé</td>
 <td>/5</td>
 </tr>
 </tbody>

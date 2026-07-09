@@ -8,9 +8,9 @@ Travaillez dans un fichier `.R`, un fichier `.qmd`, ou les deux. Les réponses s
 
 Dans plusieurs exercices, le fichier Excel des manchots est lu avec le chemin `resources/manchots_donnees.xlsx`, car cette page se trouve dans le site du cours.
 
-# Bloc A - GitHub, projet et importation
+## Bloc A - GitHub, projet et importation
 
-## Exercice 1 - Remettre les étapes dans l’ordre
+### Exercice 1 - Remettre les étapes dans l’ordre
 
 Vous simulez une courte séance de travail dans un dépôt GitHub. Remettez les actions suivantes dans un ordre logique.
 
@@ -34,7 +34,7 @@ Vous simulez une courte séance de travail dans un dépôt GitHub. Remettez les 
 >
 > L’idée importante est de produire une étape vérifiable avant de la committer, puis de pousser vers GitHub.
 
-## Exercice 2 - Importer le fichier Excel
+### Exercice 2 - Importer le fichier Excel
 
 Importez le fichier des manchots dans un objet nommé `penguins_mission`.
 
@@ -48,7 +48,7 @@ Importez le fichier des manchots dans un objet nommé `penguins_mission`.
 > penguins_mission
 > ```
 
-## Exercice 3 - Inspecter la structure
+### Exercice 3 - Inspecter la structure
 
 Utilisez trois fonctions différentes pour comprendre la structure de `penguins_mission`.
 
@@ -67,7 +67,7 @@ Votre objectif est de repérer les noms de variables, les types et les première
 > head(penguins_mission)
 > ```
 
-## Exercice 4 - Repérer des valeurs problématiques
+### Exercice 4 - Repérer des valeurs problématiques
 
 Un contrôle de qualité signale que certaines observations semblent étranges. Trouvez les lignes où:
 
@@ -93,9 +93,9 @@ Un contrôle de qualité signale que certaines observations semblent étranges. 
 > observations_problematiques
 > ```
 
-# Bloc B - Manipuler les données avec `dplyr`
+## Bloc B - Manipuler les données avec `dplyr`
 
-## Exercice 5 - Sélectionner les variables utiles
+### Exercice 5 - Sélectionner les variables utiles
 
 Créez un tableau `penguins_subset` qui contient seulement `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` et `body_mass_g`.
 
@@ -120,7 +120,7 @@ Créez un tableau `penguins_subset` qui contient seulement `species`, `island`, 
 > glimpse(penguins_subset)
 > ```
 
-## Exercice 6 - Filtrer une espèce et une île
+### Exercice 6 - Filtrer une espèce et une île
 
 Gardez seulement les manchots de l’espèce `Adelie` observés sur l’île `Biscoe`. Combien de lignes restent dans le tableau?
 
@@ -138,7 +138,7 @@ Gardez seulement les manchots de l’espèce `Adelie` observés sur l’île `Bi
 > nrow(adelie_biscoe)
 > ```
 
-## Exercice 7 - Créer deux variables
+### Exercice 7 - Créer deux variables
 
 Ajoutez:
 
@@ -166,7 +166,7 @@ Affichez ensuite les cinq premières lignes de ces nouvelles variables.
 >   head(5)
 > ```
 
-## Exercice 8 - Résumer par espèce
+### Exercice 8 - Résumer par espèce
 
 Calculez, par espèce, le nombre d’observations, la moyenne et l’écart-type de `body_mass_g` et de `flipper_length_mm`.
 
@@ -192,7 +192,7 @@ Calculez, par espèce, le nombre d’observations, la moyenne et l’écart-type
 > resume_especes
 > ```
 
-## Exercice 9 - Construire une version nettoyée
+### Exercice 9 - Construire une version nettoyée
 
 Créez un tableau `penguins_clean` qui retire les observations problématiques repérées à l’exercice 4, sans modifier le fichier Excel original.
 
@@ -218,9 +218,9 @@ Créez un tableau `penguins_clean` qui retire les observations problématiques r
 > )
 > ```
 
-# Bloc C - Visualiser des variables numériques
+## Bloc C - Visualiser des variables numériques
 
-## Exercice 10 - Histogramme par espèce
+### Exercice 10 - Histogramme par espèce
 
 Avec `penguins_clean`, créez un histogramme de `bill_length_mm` par espèce.
 
@@ -251,7 +251,7 @@ Avec `penguins_clean`, créez un histogramme de `bill_length_mm` par espèce.
 >   theme_minimal()
 > ```
 
-## Exercice 11 - Boîtes à moustaches
+### Exercice 11 - Boîtes à moustaches
 
 Comparez la longueur des nageoires entre les espèces avec une boîte à moustaches.
 
@@ -282,7 +282,7 @@ Comparez la longueur des nageoires entre les espèces avec une boîte à moustac
 >   theme_minimal()
 > ```
 
-## Exercice 12 - Nuage de points
+### Exercice 12 - Nuage de points
 
 Créez `indice_grandeur = flipper_length_mm + bill_length_mm`, puis produisez un nuage de points entre `indice_grandeur` et `body_mass_g`, avec une couleur par espèce.
 
@@ -314,7 +314,7 @@ Créez `indice_grandeur = flipper_length_mm + bill_length_mm`, puis produisez un
 >   theme_minimal()
 > ```
 
-## Exercice 13 - Facettes par île
+### Exercice 13 - Facettes par île
 
 Créez un histogramme de `body_mass_g` et comparez les distributions entre les îles avec `facet_wrap()`.
 
@@ -345,9 +345,9 @@ Créez un histogramme de `body_mass_g` et comparez les distributions entre les �
 >   theme_minimal()
 > ```
 
-# Bloc D - Statistiques, style et transfert
+## Bloc D - Statistiques, style et transfert
 
-## Exercice 14 - Sommaire complet avec `mpg`
+### Exercice 14 - Sommaire complet avec `mpg`
 
 Le jeu de données `mpg` du package `ggplot2` contient des mesures de consommation de véhicules. Calculez la moyenne, la médiane, l’écart-type, l’IQR, le minimum et le maximum de `hwy`.
 
@@ -369,7 +369,7 @@ Le jeu de données `mpg` du package `ggplot2` contient des mesures de consommati
 >   )
 > ```
 
-## Exercice 15 - Comparer des groupes avec `mpg`
+### Exercice 15 - Comparer des groupes avec `mpg`
 
 Créez une boîte à moustaches de `hwy` par `class`, en triant les classes selon leur médiane.
 
@@ -389,7 +389,7 @@ Créez une boîte à moustaches de `hwy` par `class`, en triant les classes selo
 >   theme_minimal()
 > ```
 
-## Exercice 16 - Réécrire du code avec style
+### Exercice 16 - Réécrire du code avec style
 
 Réécrivez le code suivant pour le rendre plus lisible.
 
@@ -413,11 +413,11 @@ plot(mpg$displ,mpg$hwy,col=as.factor(mpg$class));title("plot")
 >   theme_minimal()
 > ```
 
-# Études de cas
+## Études de cas
 
 Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes du module avec d’autres contextes que les manchots.
 
-## Étude de cas 1 - Arbres urbains
+### Étude de cas 1 - Arbres urbains
 
 Fichier: `data/arbres_urbains_fictif.csv`
 
@@ -475,7 +475,7 @@ Réalisez les tâches suivantes:
 >   theme_minimal()
 > ```
 
-## Étude de cas 2 - Vélo-partage
+### Étude de cas 2 - Vélo-partage
 
 Fichier: `data/velo_partage_fictif.csv`
 

@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6103,11 +6130,11 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mini-test-formatif" class="level1">
-<h1>Mini-test formatif</h1>
+<section id="mini-test-formatif" class="level2">
+<h2 class="anchored" data-anchor-id="mini-test-formatif">Mini-test formatif</h2>
 <p>Ce mini-test sert à vérifier les lectures du module 9. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.</p>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>Dans une régression linéaire simple, que représente la pente associée à la variable explicative?</p>
 <ol type="a">
 <li>La variation moyenne prédite de la variable réponse lorsque la variable explicative augmente d’une unité</li>
@@ -6132,8 +6159,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-2" class="level2">
-<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p>Vrai ou faux: un coefficient de régression prouve automatiquement une relation causale.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -6152,8 +6179,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-3" class="level2">
-<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
 <p>Quelle fonction R ajuste un modèle linéaire?</p>
 <ol type="a">
 <li><code>lm()</code></li>
@@ -6178,8 +6205,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-4" class="level2">
-<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
 <p>Quelle fonction permet d’obtenir des prédictions à partir d’un modèle ajusté avec <code>lm()</code>?</p>
 <ol type="a">
 <li><code>predict()</code></li>
@@ -6204,8 +6231,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-5" class="level2">
-<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
 <p>Dans les exercices du module, on définit l’erreur par <code>valeur_observee - valeur_predite</code>. Que signifie une erreur positive?</p>
 <ol type="a">
 <li>La valeur observée est plus grande que la valeur prédite</li>
@@ -6230,8 +6257,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-6" class="level2">
-<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <p>Vrai ou faux: une prédiction faite très loin de la plage observée dans les données doit être interprétée avec prudence.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -6250,8 +6277,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-7" class="level2">
-<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
 <p>Dans une régression linéaire multiple, comment interprète-t-on généralement le coefficient d’une variable explicative?</p>
 <ol type="a">
 <li>Comme une variation moyenne prédite en gardant les autres variables du modèle constantes</li>
@@ -6276,8 +6303,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-8" class="level2">
-<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+<section id="question-8" class="level3">
+<h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
 <p>Vrai ou faux: si une nouvelle observation n’a pas toutes les variables requises par le modèle, <code>predict()</code> peut toujours produire automatiquement une bonne prédiction.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -6296,8 +6323,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-9" class="level2">
-<h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
+<section id="question-9" class="level3">
+<h3 class="anchored" data-anchor-id="question-9">Question 9</h3>
 <p>Vrai ou faux: une différence brute de taux entre deux groupes prouve à elle seule une discrimination.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -6316,8 +6343,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-10" class="level2">
-<h2 class="anchored" data-anchor-id="question-10">Question 10</h2>
+<section id="question-10" class="level3">
+<h3 class="anchored" data-anchor-id="question-10">Question 10</h3>
 <p>Quelle approche est la plus prudente pour explorer un biais descriptif?</p>
 <ol type="a">
 <li>Comparer les résultats par groupe, puis examiner aussi les variables de contexte disponibles</li>
@@ -6342,8 +6369,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-11" class="level2">
-<h2 class="anchored" data-anchor-id="question-11">Question 11</h2>
+<section id="question-11" class="level3">
+<h3 class="anchored" data-anchor-id="question-11">Question 11</h3>
 <p>Vrai ou faux: une variable de substitution peut porter indirectement de l’information liée à un groupe sensible ou contextuel.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -6362,8 +6389,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-12" class="level2">
-<h2 class="anchored" data-anchor-id="question-12">Question 12</h2>
+<section id="question-12" class="level3">
+<h3 class="anchored" data-anchor-id="question-12">Question 12</h3>
 <p>Quelle phrase convient le mieux dans une conclusion responsable?</p>
 <ol type="a">
 <li>Les résultats suggèrent une piste à vérifier, avec des limites liées aux variables disponibles et à la taille des groupes.</li>

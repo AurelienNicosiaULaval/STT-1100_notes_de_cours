@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6130,14 +6157,15 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mission" class="level1">
-<h1>Mission</h1>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
 <p>Votre équipe a produit un rapport collaboratif dans l’aventure 6. Le défi consiste maintenant à jouer le rôle d’une équipe de revue : vous devez lire le rapport d’une autre équipe, tester sa reproductibilité et formuler une rétroaction utile dans GitHub.</p>
 <p>L’objectif n’est pas de trouver des fautes pour le plaisir. L’objectif est de vérifier si une autre personne peut comprendre, exécuter et réutiliser le travail.</p>
 </section>
-<section id="organisation" class="level1">
-<h1>Organisation</h1>
+<section id="organisation" class="level2">
+<h2 class="anchored" data-anchor-id="organisation">Organisation</h2>
 <p>L’enseignant·e attribuera une équipe à examiner.</p>
+<p>Si le dépôt attribué est inaccessible, incomplet ou ne permet pas le rendu après une vérification raisonnable, notez ce qui a été tenté et avisez l’enseignant·e ou l’auxiliaire. Vous ne devez ni inventer une critique, ni attendre indéfiniment une réponse de l’autre équipe.</p>
 <p>Pour l’équipe examinatrice :</p>
 <ul>
 <li>ouvrir le dépôt GitHub de l’équipe attribuée;</li>
@@ -6153,8 +6181,8 @@ margin-bottom: .05rem;
 <li>pousser les corrections dans GitHub.</li>
 </ul>
 </section>
-<section id="revue-attendue" class="level1">
-<h1>Revue attendue</h1>
+<section id="revue-attendue" class="level2">
+<h2 class="anchored" data-anchor-id="revue-attendue">Revue attendue</h2>
 <p>Chaque membre de l’équipe examinatrice doit ouvrir au moins <strong>une issue GitHub</strong> dans le dépôt de l’équipe révisée.</p>
 <p>Chaque issue doit contenir :</p>
 <ol type="1">
@@ -6177,8 +6205,8 @@ margin-bottom: .05rem;
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="points-à-vérifier" class="level1">
-<h1>Points à vérifier</h1>
+<section id="points-à-vérifier" class="level2">
+<h2 class="anchored" data-anchor-id="points-à-vérifier">Points à vérifier</h2>
 <p>Votre revue doit porter sur au moins trois dimensions parmi les suivantes.</p>
 <ul>
 <li><strong>Clarté</strong> : les sections, titres et interprétations sont-ils faciles à suivre?</li>
@@ -6189,8 +6217,8 @@ margin-bottom: .05rem;
 <li><strong>Collaboration</strong> : les rôles, commits, branches ou pull requests sont-ils documentés?</li>
 </ul>
 </section>
-<section id="livrables" class="level1">
-<h1>Livrables</h1>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <p>Les traces GitHub du défi doivent permettre de vérifier, dans les dépôts concernés :</p>
 <ul>
 <li>au moins une issue déposée par chaque membre de l’équipe examinatrice;</li>
@@ -6198,9 +6226,10 @@ margin-bottom: .05rem;
 <li>une mise à jour du rapport si une correction était nécessaire;</li>
 <li>un <code>rapport.html</code> final qui se rend correctement.</li>
 </ul>
+<p>Lorsqu’un blocage externe a été signalé, la trace du signalement et la revue des éléments accessibles remplacent seulement la partie impossible à vérifier.</p>
 </section>
-<section id="grille-dévaluation" class="level1">
-<h1>Grille d’évaluation</h1>
+<section id="grille-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="grille-dévaluation">Grille d’évaluation</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -6237,21 +6266,22 @@ margin-bottom: .05rem;
 </tr>
 <tr class="even">
 <td>Suivi</td>
-<td>L’équipe révisée répond clairement et corrige ce qui doit l’être</td>
+<td>L’équipe révisée répond clairement et corrige ce qui doit l’être, ou le blocage externe est documenté</td>
 <td>L’équipe répond, mais sans beaucoup de détails</td>
-<td>Les issues restent sans réponse</td>
+<td>Les issues restent sans réponse sans signalement du blocage</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="checklist-avant-remise" class="level1">
-<h1>Checklist avant remise</h1>
+<section id="checklist-avant-remise" class="level2">
+<h2 class="anchored" data-anchor-id="checklist-avant-remise">Checklist avant remise</h2>
 <ul>
 <li>Chaque membre a ouvert au moins une issue.</li>
 <li>Chaque issue contient un aspect réussi et une suggestion précise.</li>
 <li>L’équipe révisée a répondu aux issues reçues.</li>
 <li>Les corrections retenues ont été poussées sur GitHub.</li>
 <li>Le rapport final se rend en HTML.</li>
+<li>Tout dépôt inaccessible ou tout blocage externe a été signalé avec une trace courte.</li>
 </ul>
 
 

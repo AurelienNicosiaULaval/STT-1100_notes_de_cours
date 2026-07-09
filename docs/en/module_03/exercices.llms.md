@@ -8,9 +8,9 @@ They are independent from the adventure and challenge. They practise the same sk
 library(tidyverse)
 ```
 
-# Block A - Categorical variables and frequencies
+## Block A - Categorical variables and frequencies
 
-## Exercise 1 - Recognize variable types
+### Exercise 1 - Recognize variable types
 
 Here is a small dataset.
 
@@ -29,7 +29,7 @@ Identify which variables are categorical and which variables are numeric.
 >
 > `program`, `campus` and `satisfaction` are categorical. `age` is numeric.
 
-## Exercise 2 - Create a frequency table
+### Exercise 2 - Create a frequency table
 
 Calculate the number of students by program.
 
@@ -51,7 +51,7 @@ Calculate the number of students by program.
 >     2 Statistics     2
 >     3 Biology        1
 
-## Exercise 3 - Add proportions
+### Exercise 3 - Add proportions
 
 Using the previous result, add a proportion and a percentage.
 
@@ -73,7 +73,7 @@ Using the previous result, add a proportion and a percentage.
 >     2 Statistics     2        0.4         40
 >     3 Biology        1        0.2         20
 
-## Exercise 4 - Build a cross-tabulation
+### Exercise 4 - Build a cross-tabulation
 
 Build a cross-tabulation between `program` and `campus`.
 
@@ -96,9 +96,9 @@ Build a cross-tabulation between `program` and `campus`.
 >     2 Economics              1        1
 >     3 Statistics             1        1
 
-# Block B - Character strings and patterns
+## Block B - Character strings and patterns
 
-## Exercise 5 - Standardize responses
+### Exercise 5 - Standardize responses
 
 Here is a response variable entered with inconsistent formats.
 
@@ -128,7 +128,7 @@ Create a variable `response_clean` in lowercase, without extra spaces.
 >     6 "NO"            no
 >     7 "I do not know" i do not know
 
-## Exercise 6 - Detect a keyword
+### Exercise 6 - Detect a keyword
 
 In the following vector, detect texts that contain `"delay"`, regardless of case.
 
@@ -160,7 +160,7 @@ comments <- tibble(
 >     4 No issue       FALSE
 >     5 REPEATED DELAY TRUE
 
-## Exercise 7 - Extract postal codes
+### Exercise 7 - Extract postal codes
 
 From the following addresses, extract a simplified Canadian postal code.
 
@@ -195,7 +195,7 @@ addresses <- tibble(
 >     3 100 Wellington Street, Gatineau J8X 2J1      J8X 2J1
 >     4 Unknown address                              <NA>
 
-## Exercise 8 - Convert a text amount
+### Exercise 8 - Convert a text amount
 
 Convert the following amounts to numeric values.
 
@@ -223,11 +223,11 @@ fines <- tibble(
 >     3 2 250 $         2250
 >     4 750 dollars      750
 
-# Block C - Practise on fictitious campus service requests
+## Block C - Practise on fictitious campus service requests
 
 Exercises 9 to 12 use a small fictitious dataset of campus service requests. This context is distinct from the adventure and challenge.
 
-## Exercise 9 - Build a clean dataset
+### Exercise 9 - Build a clean dataset
 
 Here are the raw data.
 
@@ -329,7 +329,7 @@ Create a table `campus_services` containing:
 >     11 REQ-11 Montreal    library  in progress        0
 >     12 REQ-12 Levis       wi-fi    open             200
 
-## Exercise 10 - Count requested services
+### Exercise 10 - Count requested services
 
 Calculate the number of requests by campus and service.
 
@@ -353,7 +353,7 @@ Calculate the number of requests by campus and service.
 >     8 Quebec City printing     1
 >     9 Quebec City shuttle      1
 
-## Exercise 11 - Compare statuses by campus
+### Exercise 11 - Compare statuses by campus
 
 Calculate the proportion of requests in each status for each campus.
 
@@ -379,7 +379,7 @@ Calculate the proportion of requests in each status for each campus.
 >     6 Quebec City closed          1       0.25
 >     7 Quebec City in progress     1       0.25
 
-## Exercise 12 - Detect keywords
+### Exercise 12 - Detect keywords
 
 Create two logical variables:
 
@@ -416,9 +416,9 @@ Create two logical variables:
 >     11 REQ-11 library  FALSE          FALSE
 >     12 REQ-12 wi-fi    FALSE          TRUE
 
-# Block D - Visualize categories
+## Block D - Visualize categories
 
-## Exercise 13 - Order a bar chart
+### Exercise 13 - Order a bar chart
 
 Produce a bar chart showing the number of requests by service. Order services from most frequent to least frequent.
 
@@ -440,7 +440,7 @@ Produce a bar chart showing the number of requests by service. Order services fr
 >
 > ![](exercices_files/figure-html/unnamed-chunk-18-1.png)
 
-## Exercise 14 - Compare proportions with `position = "fill"`
+### Exercise 14 - Compare proportions with `position = "fill"`
 
 Compare status composition between campuses.
 
@@ -466,7 +466,7 @@ Compare status composition between campuses.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-19-1.png)
 
-## Exercise 15 - Compare costs by service
+### Exercise 15 - Compare costs by service
 
 Create a chart comparing reported costs by service.
 
@@ -489,7 +489,7 @@ Create a chart comparing reported costs by service.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-20-1.png)
 
-## Exercise 16 - Improve the message of a chart
+### Exercise 16 - Improve the message of a chart
 
 Take one previous chart and improve it for a non-specialist reader:
 
@@ -523,9 +523,9 @@ Take one previous chart and improve it for a non-specialist reader:
 >
 > Possible comment: the chart shows which services appear most often in this fictitious sample. However, the file is for method practice and does not measure a real volume of requests.
 
-# Case studies
+## Case studies
 
-## Case study 1 - Fictitious 311 requests
+### Case study 1 - Fictitious 311 requests
 
 The file `data/fictitious_311_requests.csv` contains fictitious 311 requests for a few Quebec municipalities. It does not come from a real municipality and is used only for practice.
 
@@ -602,7 +602,7 @@ Complete the following tasks:
 >
 > Possible comment: snow removal and pothole requests stand out in this fictitious sample. Priority should be interpreted carefully because municipalities may not code requests in the same way.
 
-## Case study 2 - Fictitious public transit complaints
+### Case study 2 - Fictitious public transit complaints
 
 The file `data/fictitious_transit_complaints.csv` contains fictitious complaints for different public transit networks.
 

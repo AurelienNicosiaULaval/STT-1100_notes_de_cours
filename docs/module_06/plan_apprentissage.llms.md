@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de :
 
@@ -12,7 +12,7 @@ STT-1100 Introduction à la science des données
 - joindre plusieurs tables avec `dplyr`;
 - expliquer le cycle de vie des données dans un projet collaboratif.
 
-# Lectures
+## Lectures
 
 Avant l’activité, consultez les ressources suivantes.
 
@@ -25,7 +25,7 @@ Avant l’activité, consultez les ressources suivantes.
 - [Quarto Docs - Execution options](https://quarto.org/docs/computations/execution-options.html) : options qui influencent l’exécution et l’affichage des chunks.
 - [R for Data Science (2e éd.) - Chapitre 20 : Joins](https://r4ds.hadley.nz/joins.html) : combiner des données de différentes sources avec `dplyr`.
 
-## Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Jointures, regroupements et vérifications de tables.
 
@@ -33,19 +33,19 @@ Avant l’activité, consultez les ressources suivantes.
 
 Après les lectures, faites le [mini-test formatif](../module_06/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
-# Aventure
+## Aventure
 
 [Aventure 6](../module_06/aventure.llms.md)
 
 L’aventure vous guide dans la production d’un rapport collaboratif sur les retards de vols à JFK avec les tables `flights`, `airlines` et `weather` du package `nycflights23`.
 
-# Défi
+## Défi
 
 [Défi 6](../module_06/defi.llms.md)
 
 Le défi consiste à faire une revue croisée du rapport d’une autre équipe dans GitHub. Vous devez vérifier la clarté, la reproductibilité, les jointures, les visualisations et la qualité des interprétations.
 
-# Exercices
+## Exercices
 
 [Exercices de consolidation](../module_06/exercices.llms.md)
 

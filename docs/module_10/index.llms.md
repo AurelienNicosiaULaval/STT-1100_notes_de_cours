@@ -8,15 +8,15 @@ Fil principalTexte, sentiments et tableau de bord
 
 DonnéesCommentaires et corpus de travail
 
-DéfiAnalyse textuelle ou tableau de bord
+DéfiTableau de bord interactif local
 
 ## Produit fini du module
 
 Produit final
 
-### Un tableau de bord ou une analyse textuelle partageable
+### Un tableau de bord interactif appuyé par une analyse textuelle
 
-Le dernier module assemble exploration de texte, visualisations et communication dans un objet consultable par une autre personne.
+Le dernier module assemble exploration de texte, visualisations et communication dans un tableau de bord que l'on peut ouvrir localement.
 
 **tableau de bord**
 
@@ -37,6 +37,26 @@ texte préparé graphique lecture interactive
 - Visualiser les tendances lexicales et émotionnelles dans le temps.
 - Utiliser TF-IDF pour repérer les mots distinctifs.
 - Créer un tableau de bord interactif avec `flexdashboard` et `shiny`.
+
+## Préparer le module
+
+### Prérequis
+
+Reprenez les limites de modèle du module 9, les transformations de texte de base et les principes de confidentialité du module 7. Le gabarit est en `Rmd` parce que le tableau de bord demandé utilise `flexdashboard`; le reste du cours demeure en Quarto.
+
+### Parcours minimal
+
+Utilisez d’abord les données fictives fournies. Faites fonctionner localement le gabarit, ajoutez un filtre, un graphique et une courte conclusion. L’analyse textuelle soutient le tableau de bord: elle ne remplace pas le livrable.
+
+### Extensions après le minimum
+
+Ajoutez ensuite le sentiment, le TF-IDF, les variables numériques, puis seulement les options plus ambitieuses comme nuage de mots, `plotly` ou personnalisation avancée.
+
+### Rétroactions de cours
+
+N’utilisez des rétroactions réelles que si l’enseignant·e le confirme. Retirez les informations identifiantes, conservez la version anonymisée minimale et ne partagez jamais les données ni un lien public sans autorisation explicite.
+
+## Plan d’apprentissage
 
 ## Plan d’apprentissage
 

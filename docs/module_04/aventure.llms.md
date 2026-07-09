@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Mise en situation
+## Mise en situation
 
 Vous venez tout juste de commencer un stage comme **ingénieur·e de données junior** dans une grande **compagnie d’assurance**. Vous travaillez avec Alex, un·e analyste d’affaires expérimenté·e, qui vous a confié une mission importante.
 
@@ -24,14 +24,14 @@ Données `dataset_pratique.csv`
 
 Livrable `donnees_propres.csv`, `journal_nettoyage.Rdata` et rapport Quarto
 
-# Objectifs de l’aventure
+## Objectifs de l’aventure
 
 - Importer une base de données brute (`dataset_pratique.csv`).
 - Identifier différents types d’erreurs courantes.
 - Nettoyer et transformer les données avec `dplyr`, `forcats` et `stringr`.
 - Documenter de façon claire **toutes les modifications apportées** à la base.
 
-# Comment réussir cette aventure ?
+## Comment réussir cette aventure ?
 
 À la fin de cette aventure, vous devrez :
 
@@ -41,7 +41,7 @@ Livrable `donnees_propres.csv`, `journal_nettoyage.Rdata` et rapport Quarto
 
 > Pensez à **documenter chaque étape de votre nettoyage**. Votre rigueur est votre meilleure alliée !
 
-# Typologie des erreurs et structure de la liste
+## Typologie des erreurs et structure de la liste
 
 Voici un tableau de référence pour les types d’erreurs que vous pouvez rencontrer :
 
@@ -180,7 +180,7 @@ Chaque catégorie (`VM`, `DF`, etc.) contient une **liste de corrections**, où 
 
 > Cette structure vous aidera à **rendre compte de vos modifications** de façon propre et professionnelle.
 
-# GitHub et rendu
+## GitHub et rendu
 
 Comme pour les aventures précédentes :
 
@@ -193,7 +193,7 @@ Comme pour les aventures précédentes :
 
 Bonne chance, et que vos données soient propres !
 
-# Importation des données
+## Importation des données
 
 Avant de nettoyer une base de données, il faut savoir l’importer correctement. Pour cette mission, Alex vous a transmis le fichier `dataset_pratique.csv`. Ce fichier est séparé par des points-virgules. Il vous recommande de :
 
@@ -232,9 +232,9 @@ glimpse(base)
 
 ------------------------------------------------------------------------
 
-# Exploration initiale des problèmes potentiels
+## Exploration initiale des problèmes potentiels
 
-## Format des variables
+### Format des variables
 
 Maintenant que vous avez importé la base, il est temps de faire une première exploration pour identifier les erreurs potentielles. Voici quelques étapes clés à suivre :
 
@@ -284,7 +284,7 @@ Pensez à toujours vérifier le résultat de la transformation avec [`glimpse()`
 
 > Bref, vérifiez bien chaque type. Posez-vous la question : est-ce que cette variable est du texte ? Est-ce que je vais calculer dessus ? Est-ce que ce sont des catégories ? »
 
-## Vérification des doublons
+### Vérification des doublons
 
 Un des premiers réflexes à avoir dans toute opération de nettoyage : **vérifier les doublons**. Il peut s’agir :
 
@@ -333,7 +333,7 @@ journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
 ))
 ```
 
-# Nettoyage des facteurs avec `forcats`
+## Nettoyage des facteurs avec `forcats`
 
 On continue l’exploration avec un type de variable souvent négligé… mais qui peut faire dérailler toute une analyse : les **facteurs**.
 
@@ -353,7 +353,7 @@ Bien sûr, il faut que votre variable soit de type `factor` pour que cette fonct
 Le problème ?
 Quand on regarde les niveaux d’un facteur, on remarque souvent des **doublons déguisés** (`"car"` vs `"CAR"`), des **niveaux aberrants** (`"ANIMAL"`) ou des **catégories très rares** qui ne méritent peut-être pas leur propre niveau.
 
-## Quelques outils utiles (avec `forcats`)
+### Quelques outils utiles (avec `forcats`)
 
 Pour nettoyer tout ça, voici quelques fonctions clés du package `forcats` :
 
@@ -363,7 +363,7 @@ Pour nettoyer tout ça, voici quelques fonctions clés du package `forcats` :
 - [`fct_lump()`](https://forcats.tidyverse.org/reference/fct_lump.html) : pour regrouper les niveaux rares en “Autre”
 - [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html) ou [`fct_infreq()`](https://forcats.tidyverse.org/reference/fct_inorder.html) : pour réordonner les niveaux
 
-## Étapes proposées
+### Étapes proposées
 
 Prenez le temps de :
 
@@ -376,7 +376,7 @@ Prenez le temps de :
 
 > **Alex** : « Faites attention à ces valeurs étranges. Si une valeur n’a aucun sens dans le contexte (par exemple `"ANIMAL"` dans une colonne sur les types de véhicules), ne cherchez pas à deviner. Mettez-la à `NA`. On préfère une donnée manquante qu’une mauvaise information. »
 
-## Exemple à adapter
+### Exemple à adapter
 
 ``` downlit
 # Harmoniser les minuscules/majuscules
@@ -413,11 +413,11 @@ journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
 
 *Ce ne sont que des exemples. À vous d’explorer la base de données et de choisir ce qui est cohérent.*
 
-# Recette de nettoyage — Approfondissement
+## Recette de nettoyage — Approfondissement
 
 Bravo ! Vous avez déjà corrigé les types de variables et nettoyé les facteurs les plus visibles. Maintenant, on pousse le nettoyage plus loin, en croisant **statistiques**, **relations logiques** et **comportements aberrants**. Voici votre **recette de nettoyage avancé**.
 
-## Étape 1 – Statistiques descriptives sur les variables numériques
+### Étape 1 – Statistiques descriptives sur les variables numériques
 
 Tout comme on a vérifié les niveaux des facteurs, on doit vérifier si certaines **valeurs numériques sont aberrantes**.
 
@@ -437,7 +437,7 @@ Posez-vous la question : une distance de 150 km pour se rendre au travail est-el
 
 Si vous intervenez, n’oubliez pas de **justifier dans `journal_nettoyage`**, en utilisant le code `VA` (valeurs aberrantes) ou `VM` (valeurs manquantes).
 
-## Étape 2 – Combinaisons incohérentes de deux facteurs
+### Étape 2 – Combinaisons incohérentes de deux facteurs
 
 Il peut exister des **relations logiques** entre deux variables catégoriques. Par exemple, le trimestre (`quarter`) et la saison (`season`) devraient être cohérents.
 
@@ -458,7 +458,7 @@ ggplot(base, aes(x = quarter, fill = season)) +
 
 Si vous corrigez, utilisez le code `CI` (incohérences inter-variables).
 
-## Étape 3 – Statistiques groupées : facteur + numérique
+### Étape 3 – Statistiques groupées : facteur + numérique
 
 Autre vérification : est-ce que certaines **valeurs numériques sont incohérentes pour certains groupes** ?
 
@@ -480,7 +480,7 @@ ggplot(base, aes(x = age, fill = generation)) +
 
 S’il y a recodage ou regroupement à faire, utilisez le code `RC`.
 
-## Étape 4 – Liens logiques entre deux variables numériques
+### Étape 4 – Liens logiques entre deux variables numériques
 
 Ici, on vérifie que les relations numériques **ont du sens**.
 
@@ -498,7 +498,7 @@ ggplot(base, aes(x = age, y = years_licensed)) +
 
 Utilisez ici le code `LG` pour une **erreur logique**.
 
-## Étape 5 – Vérifications avancées (facultatives mais pros !)
+### Étape 5 – Vérifications avancées (facultatives mais pros !)
 
 Voici quelques autres choses à garder à l’œil :
 
@@ -521,7 +521,7 @@ Documentez ce qui rend votre nettoyage défendable et reproductible.
 - deux exemples de correction et un exemple de signalement sans correction automatique;
 - une courte explication de la façon de reproduire le nettoyage.
 
-# Mission accomplie !
+## Mission accomplie !
 
 Bravo d’être allé·e jusqu’au bout de cette aventure !
 Vous avez maintenant acquis une solide méthodologie pour nettoyer des données de manière rigoureuse et professionnelle. Vous avez :

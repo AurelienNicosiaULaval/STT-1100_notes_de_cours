@@ -172,7 +172,7 @@ Expected trace: clear argument, visual support and accessible video.
 
 ### Challenge 10
 
-Interactive dashboard from anonymized feedback built during the session or from the non-real example file.
+Interactive dashboard from the supplied fictitious file. A real file may be used only when it is anonymized and explicitly authorized.
 
 Expected trace: reproducible local dashboard, protected data and useful README.
 

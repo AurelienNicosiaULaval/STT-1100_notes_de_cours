@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6064,7 +6091,9 @@ margin-bottom: .05rem;
   <ul>
   <li><a href="#produit-fini-du-module" id="toc-produit-fini-du-module" class="nav-link active" data-scroll-target="#produit-fini-du-module">Produit fini du module</a></li>
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
+  <li><a href="#préparer-le-module" id="toc-préparer-le-module" class="nav-link" data-scroll-target="#préparer-le-module">Préparer le module</a></li>
   <li><a href="#plan-dapprentissage" id="toc-plan-dapprentissage" class="nav-link" data-scroll-target="#plan-dapprentissage">Plan d’apprentissage</a></li>
+  <li><a href="#plan-dapprentissage-1" id="toc-plan-dapprentissage-1" class="nav-link" data-scroll-target="#plan-dapprentissage-1">Plan d’apprentissage</a></li>
   <li><a href="#données-et-outils" id="toc-données-et-outils" class="nav-link" data-scroll-target="#données-et-outils">Données et outils</a></li>
   <li><a href="#révision-et-prolongement" id="toc-révision-et-prolongement" class="nav-link" data-scroll-target="#révision-et-prolongement">Révision et prolongement</a></li>
   </ul>
@@ -6108,7 +6137,7 @@ Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
 <p><span class="resource-icon" aria-hidden="true"><i class="bi bi-database"></i></span> <span><span class="fact-label">Données</span><span class="fact-value">Commentaires et corpus de travail</span></span></p>
 </div>
 <div class="module-fact">
-<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span> <span><span class="fact-label">Défi</span><span class="fact-value">Analyse textuelle ou tableau de bord</span></span></p>
+<p><span class="resource-icon" aria-hidden="true"><i class="bi bi-file-earmark-check"></i></span> <span><span class="fact-label">Défi</span><span class="fact-value">Tableau de bord interactif local</span></span></p>
 </div>
 </div>
 <section id="produit-fini-du-module" class="level2">
@@ -6116,8 +6145,8 @@ Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
 <div class="module-product-showcase">
   <div class="product-copy">
   <p class="showcase-kicker">Produit final</p>
-  <h3 class="anchored">Un tableau de bord ou une analyse textuelle partageable</h3>
-  <p>Le dernier module assemble exploration de texte, visualisations et communication dans un objet consultable par une autre personne.</p>
+  <h3 class="anchored">Un tableau de bord interactif appuyé par une analyse textuelle</h3>
+  <p>Le dernier module assemble exploration de texte, visualisations et communication dans un tableau de bord que l&#39;on peut ouvrir localement.</p>
   </div>
   <div class="product-visual" aria-label="Aperçu visuel du produit fini">
   <div class="mini-product-board">
@@ -6145,8 +6174,32 @@ Communiquer une analyse avec du texte, des tableaux et des sorties interactives.
 <li>Créer un tableau de bord interactif avec <code>flexdashboard</code> et <code>shiny</code>.</li>
 </ul>
 </section>
+<section id="préparer-le-module" class="level2">
+<h2 class="anchored" data-anchor-id="préparer-le-module">Préparer le module</h2>
+<div class="module-readiness">
+<section id="prérequis" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="prérequis">Prérequis</h3>
+<p>Reprenez les limites de modèle du module 9, les transformations de texte de base et les principes de confidentialité du module 7. Le gabarit est en <code>Rmd</code> parce que le tableau de bord demandé utilise <code>flexdashboard</code>; le reste du cours demeure en Quarto.</p>
+</section>
+<section id="parcours-minimal" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="parcours-minimal">Parcours minimal</h3>
+<p>Utilisez d’abord les données fictives fournies. Faites fonctionner localement le gabarit, ajoutez un filtre, un graphique et une courte conclusion. L’analyse textuelle soutient le tableau de bord: elle ne remplace pas le livrable.</p>
+</section>
+<section id="extensions-après-le-minimum" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="extensions-après-le-minimum">Extensions après le minimum</h3>
+<p>Ajoutez ensuite le sentiment, le TF-IDF, les variables numériques, puis seulement les options plus ambitieuses comme nuage de mots, <code>plotly</code> ou personnalisation avancée.</p>
+</section>
+<section id="rétroactions-de-cours" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="rétroactions-de-cours">Rétroactions de cours</h3>
+<p>N’utilisez des rétroactions réelles que si l’enseignant·e le confirme. Retirez les informations identifiantes, conservez la version anonymisée minimale et ne partagez jamais les données ni un lien public sans autorisation explicite.</p>
+</section>
+</div>
+</section>
 <section id="plan-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="plan-dapprentissage">Plan d’apprentissage</h2>
+</section>
+<section id="plan-dapprentissage-1" class="level2">
+<h2 class="anchored" data-anchor-id="plan-dapprentissage-1">Plan d’apprentissage</h2>
 <p>Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.</p>
 <div class="path-grid interactive-path module-path learning-plan-path">
 <details class="path-card learning-plan-card" id="lectures-a-faire">

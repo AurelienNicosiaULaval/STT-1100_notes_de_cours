@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module Objectives
+## Module Objectives
 
 At the end of this module, you should be able to:
 
@@ -12,7 +12,7 @@ At the end of this module, you should be able to:
 - distinguish a technical check such as `robots.txt` from full permission to collect data;
 - explain the technical and ethical limits of automated collection.
 
-# Readings
+## Readings
 
 To prepare, check out the following resources:
 
@@ -24,7 +24,7 @@ To prepare, check out the following resources:
 - [Google Search Central - Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
 - [robotstxt package documentation](https://docs.ropensci.org/robotstxt/)
 
-## Posit cheat sheets
+### Posit cheat sheets
 
 - [Apply functions with purrr :: Cheatsheet](https://rstudio.github.io/cheatsheets/purrr.pdf) Automation with `map()` and related functions.
 
@@ -32,13 +32,13 @@ To prepare, check out the following resources:
 
 After the readings, complete the [formative mini-test](../module_08/mini_test.llms.md). It is not graded; it only checks the basic ideas before the adventure.
 
-# Adventure
+## Adventure
 
 You play the role of a data science consultant hired to develop an automated metadata extraction function from the Données Québec portal.
 
 Link to the adventure: [Adventure 8 - Quebec Open Data](../module_08/aventure.llms.md)
 
-# Challenge - Scraping Function
+## Challenge - Scraping Function
 
 The challenge is to produce an `IDUL.R` file containing a `scrape_page(url)` function.
 
@@ -53,7 +53,7 @@ Full instructions: [Challenge 8 - Scraping Function](../module_08/defi.llms.md)
 
 Starter repository: `STT-1100/aventure-8`
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 These exercises are independent from the adventure and the challenge. They use fictitious local HTML pages to practise CSS selectors, extraction functions, automation across several pages, missing-field handling and ethical limits of collection.
 

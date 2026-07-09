@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6096,8 +6123,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="objectifs-du-module" class="level1">
-<h1>Objectifs du module</h1>
+<section id="objectifs-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
 <p>À la fin de ce module, vous devriez être capable de:</p>
 <ul>
 <li>manipuler des chaînes de caractères avec <code>stringr</code>;</li>
@@ -6109,8 +6136,8 @@ margin-bottom: .05rem;
 <li>rédiger un court article Quarto appuyé par des chiffres narratifs et des graphiques.</li>
 </ul>
 </section>
-<section id="lectures-à-faire" class="level1">
-<h1>Lectures à faire</h1>
+<section id="lectures-à-faire" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-à-faire">Lectures à faire</h2>
 <p>Ces lectures donnent les repères nécessaires avant de commencer l’aventure.</p>
 <ul>
 <li><p><a href="https://r4ds.hadley.nz/strings.html" target="_blank">R for Data Science - Strings</a> Pour manipuler des chaînes de caractères avec <code>stringr</code>: détecter un mot, extraire un motif, uniformiser la casse et nettoyer des espaces.</p></li>
@@ -6118,8 +6145,8 @@ margin-bottom: .05rem;
 <li><p><a href="https://openintrostat.github.io/ims/explore-categorical" target="_blank">Introduction to Modern Statistics - Explore categorical data</a> Pour revoir les fréquences, les proportions, les tableaux croisés et les graphiques adaptés aux variables catégoriques.</p></li>
 <li><p><a href="https://forcats.tidyverse.org/" target="_blank">Documentation de <code>forcats</code></a> Pour regrouper des catégories rares, réordonner des modalités et rendre les graphiques plus lisibles.</p></li>
 </ul>
-<section id="aide-mémoires-posit" class="level2">
-<h2 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h2>
+<section id="aide-mémoires-posit" class="level3">
+<h3 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h3>
 <ul>
 <li><p><a href="https://rstudio.github.io/cheatsheets/strings.pdf" target="_blank">String manipulation with stringr :: Cheatsheet</a> Fonctions <code>stringr</code> pour détecter, extraire, remplacer et nettoyer du texte.</p></li>
 <li><p><a href="https://rstudio.github.io/cheatsheets/factors.pdf" target="_blank">Factors with forcats :: Cheatsheet</a> Recodage, regroupement et réordonnancement de catégories.</p></li>
@@ -6128,13 +6155,13 @@ margin-bottom: .05rem;
 <p>Après les lectures, faites le <a href="../module_03/mini_test.html">mini-test formatif</a>. Il n’est pas évalué, mais il vérifie les idées nécessaires pour l’aventure et le défi.</p>
 </section>
 </section>
-<section id="aventure" class="level1">
-<h1>Aventure</h1>
+<section id="aventure" class="level2">
+<h2 class="anchored" data-anchor-id="aventure">Aventure</h2>
 <p><a href="../module_03/aventure.html">Aventure 3</a></p>
 <p>Vous jouez le rôle d’un journaliste de données pour Le Courrier Gourmand. L’aventure vous guide dans le nettoyage du jeu <code>listecondamnation</code>, l’extraction de codes postaux, l’identification de catégories d’infractions et la construction de premiers résultats utiles pour un article.</p>
 </section>
-<section id="défi" class="level1">
-<h1>Défi</h1>
+<section id="défi" class="level2">
+<h2 class="anchored" data-anchor-id="défi">Défi</h2>
 <p><a href="../module_03/defi.html">Défi du module 3</a></p>
 <p>Votre mission consiste à rédiger un article Quarto reproductible sur les infractions alimentaires. Le défi reprend le même contexte que l’aventure, mais vous laisse plus d’autonomie dans le choix des faits saillants et des graphiques.</p>
 <p>Vous devrez remettre:</p>
@@ -6145,8 +6172,8 @@ margin-bottom: .05rem;
 </ul>
 <p>L’article doit contenir au moins deux chiffres narratifs et deux visuels, dont un graphique de catégories. La carte des amendes est optionnelle.</p>
 </section>
-<section id="exercices-de-consolidation" class="level1">
-<h1>Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p><a href="../module_03/exercices.html">Exercices du module 3</a></p>
 <p>Les exercices sont indépendants de l’aventure et du défi. Ils sont organisés en quatre blocs:</p>
 <ol type="1">

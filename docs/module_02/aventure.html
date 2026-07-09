@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6097,11 +6124,9 @@ margin-bottom: .05rem;
     <h2 id="toc-title">Plan</h2>
 
   <ul>
-  <li><a href="#mission-antarctique-dans-la-peau-dune-scientifique-de-données" id="toc-mission-antarctique-dans-la-peau-dune-scientifique-de-données" class="nav-link active" data-scroll-target="#mission-antarctique-dans-la-peau-dune-scientifique-de-données">Mission Antarctique – Dans la peau d’un·e scientifique de données</a></li>
-  <li><a href="#déroulement-de-la-mission-et-livrables-attendus" id="toc-déroulement-de-la-mission-et-livrables-attendus" class="nav-link" data-scroll-target="#déroulement-de-la-mission-et-livrables-attendus">Déroulement de la mission et livrables attendus</a>
+  <li><a href="#mission-antarctique-dans-la-peau-dune-scientifique-de-données" id="toc-mission-antarctique-dans-la-peau-dune-scientifique-de-données" class="nav-link active" data-scroll-target="#mission-antarctique-dans-la-peau-dune-scientifique-de-données">Mission Antarctique – Dans la peau d’un·e scientifique de données</a>
   <ul class="collapse">
-  <li><a href="#partie-1-avant-le-départ-de-la-dre-adélie" id="toc-partie-1-avant-le-départ-de-la-dre-adélie" class="nav-link" data-scroll-target="#partie-1-avant-le-départ-de-la-dre-adélie">Partie 1 – Avant le départ de la Dre Adélie</a></li>
-  <li><a href="#partie-2-au-retour-de-la-dre-adélie" id="toc-partie-2-au-retour-de-la-dre-adélie" class="nav-link" data-scroll-target="#partie-2-au-retour-de-la-dre-adélie">Partie 2 – Au retour de la Dre Adélie</a></li>
+  <li><a href="#déroulement-de-la-mission-et-livrables-attendus" id="toc-déroulement-de-la-mission-et-livrables-attendus" class="nav-link" data-scroll-target="#déroulement-de-la-mission-et-livrables-attendus">Déroulement de la mission et livrables attendus</a></li>
   </ul></li>
   <li><a href="#comment-réussir-cette-aventure" id="toc-comment-réussir-cette-aventure" class="nav-link" data-scroll-target="#comment-réussir-cette-aventure">Comment réussir cette aventure</a></li>
   <li><a href="#travail-sur-github" id="toc-travail-sur-github" class="nav-link" data-scroll-target="#travail-sur-github">Travail sur GitHub</a></li>
@@ -6187,12 +6212,11 @@ Carte de visite
 </div>
 </div>
 <!-- adventure-brief:end -->
-</section>
-<section id="déroulement-de-la-mission-et-livrables-attendus" class="level2">
-<h2 class="anchored" data-anchor-id="déroulement-de-la-mission-et-livrables-attendus">Déroulement de la mission et livrables attendus</h2>
+<section id="déroulement-de-la-mission-et-livrables-attendus" class="level3">
+<h3 class="anchored" data-anchor-id="déroulement-de-la-mission-et-livrables-attendus">Déroulement de la mission et livrables attendus</h3>
 <p>La mission se déroulera en <strong>deux temps</strong>, car la Dre Adélie devra bientôt repartir en expédition en Antarctique.</p>
-<section id="partie-1-avant-le-départ-de-la-dre-adélie" class="level3">
-<h3 class="anchored" data-anchor-id="partie-1-avant-le-départ-de-la-dre-adélie">Partie 1 – Avant le départ de la Dre Adélie</h3>
+<section id="partie-1-avant-le-départ-de-la-dre-adélie" class="level4">
+<h4 class="anchored" data-anchor-id="partie-1-avant-le-départ-de-la-dre-adélie">Partie 1 – Avant le départ de la Dre Adélie</h4>
 <p>Avant son départ, vous collaborerez étroitement avec elle pour explorer les premières pistes. Elle vous demandera de :</p>
 <ul>
 <li>Nettoyer et transformer les données avec <code>dplyr</code>.</li>
@@ -6203,8 +6227,8 @@ Carte de visite
 Vous devez rédiger un <strong>journal de bord</strong> dans un rapport Quarto (format HTML) qui documente vos observations, vos explorations et les pistes que vous avez soulevées avec elle. Ce journal sert à garder une trace de vos analyses avant qu’elle ne parte sur le terrain. Un modèle de journal de bord vous sera donné.</p>
 <hr>
 </section>
-<section id="partie-2-au-retour-de-la-dre-adélie" class="level3">
-<h3 class="anchored" data-anchor-id="partie-2-au-retour-de-la-dre-adélie">Partie 2 – Au retour de la Dre Adélie</h3>
+<section id="partie-2-au-retour-de-la-dre-adélie" class="level4">
+<h4 class="anchored" data-anchor-id="partie-2-au-retour-de-la-dre-adélie">Partie 2 – Au retour de la Dre Adélie</h4>
 <p>De retour de mission, la Dre Adélie reviendra avec des <strong>questions précises</strong> à explorer et vous demandera de l’aider à préparer un rapport solide pour accompagner sa <strong>demande de subvention</strong>.</p>
 <p><strong>Livrable de la deuxième partie</strong> :<br>
 Un <strong>rapport structuré et complet</strong> répondant à ses nouvelles demandes précises, incluant :</p>
@@ -6221,8 +6245,9 @@ Un <strong>rapport structuré et complet</strong> répondant à ses nouvelles de
 </blockquote>
 </section>
 </section>
-<section id="comment-réussir-cette-aventure" class="level1 unnumbered">
-<h1 class="unnumbered">Comment réussir cette aventure</h1>
+</section>
+<section id="comment-réussir-cette-aventure" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="comment-réussir-cette-aventure">Comment réussir cette aventure</h2>
 <p>Bienvenue dans cette nouvelle aventure en science des données ! Cette fois, vous allez collaborer avec une chercheuse qui étudie les manchots de la station Palmer en Antarctique. Votre mission est d’explorer et d’analyser ses données pour l’aider à répondre à ses questions scientifiques.</p>
 <p>Pour réussir cette aventure, voici quelques conseils essentiels :</p>
 <ul>
@@ -6238,8 +6263,8 @@ Un <strong>rapport structuré et complet</strong> répondant à ses nouvelles de
 </ul>
 <p>Cette aventure vous permettra de développer vos compétences en manipulation, visualisation et analyse de données avec <code>dplyr</code> et <code>ggplot2</code>. Ce sont des compétences primordiales pour un scientifique de données. Prenez le temps d’explorer les différentes étapes et amusez-vous à apprendre !</p>
 </section>
-<section id="travail-sur-github" class="level1">
-<h1>Travail sur GitHub</h1>
+<section id="travail-sur-github" class="level2">
+<h2 class="anchored" data-anchor-id="travail-sur-github">Travail sur GitHub</h2>
 <p>La chercheuse a préparé un dépôt sur GitHub où elle souhaite que vous enregistriez tout votre travail. De son côté, elle y a déposé la base de données qu’elle a collectée ainsi qu’une description détaillée des variables. Elle souhaite notamment que vous complétiez un journal de bord modèle au format Quarto.</p>
 <p>Avant de commencer l’analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.</p>
 <ol type="1">
@@ -6256,8 +6281,8 @@ Un <strong>rapport structuré et complet</strong> répondant à ses nouvelles de
 <p>Conseil : utilisez le modèle de journal de bord pour compléter l’ensemble des analyses de la première partie de cette aventure. Prenez donc quelques minutes pour regarder la structure du document.</p>
 </blockquote>
 </section>
-<section id="lecture-des-données" class="level1">
-<h1>Lecture des données</h1>
+<section id="lecture-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-des-données">Lecture des données</h2>
 <p>La chercheuse vous a fourni un fichier Excel contenant les données des manchots qu’elle a collectées. Votre première mission consiste à <strong>charger ces données dans R</strong> en utilisant l’interface graphique de RStudio.</p>
 <p><strong>Étapes à suivre</strong></p>
 <ol type="1">
@@ -6345,10 +6370,10 @@ Attention : tout le reste de l’analyse repose sur ce nom cohérent !</p>
 </div>
 <p><strong>Une fois vos données chargées, vous êtes prêts à les explorer et à les analyser ! Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</strong></p>
 </section>
-<section id="manipulation-de-données" class="level1">
-<h1>Manipulation de données</h1>
-<section id="résumé-de-données-avec-glimpse" class="level2">
-<h2 class="anchored" data-anchor-id="résumé-de-données-avec-glimpse">Résumé de données avec <code>glimpse()</code></h2>
+<section id="manipulation-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="manipulation-de-données">Manipulation de données</h2>
+<section id="résumé-de-données-avec-glimpse" class="level3">
+<h3 class="anchored" data-anchor-id="résumé-de-données-avec-glimpse">Résumé de données avec <code>glimpse()</code></h3>
 <p>La chercheuse veut une vue rapide des données pour vérifier leur structure. Utilisez <code>glimpse()</code> pour afficher un aperçu :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -6448,8 +6473,8 @@ Note
 <p><strong>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</strong></p>
 </section>
 </section>
-<section id="sélectionner-des-variables-avec-select" class="level2">
-<h2 class="anchored" data-anchor-id="sélectionner-des-variables-avec-select">Sélectionner des variables avec <code>select()</code></h2>
+<section id="sélectionner-des-variables-avec-select" class="level3">
+<h3 class="anchored" data-anchor-id="sélectionner-des-variables-avec-select">Sélectionner des variables avec <code>select()</code></h3>
 <p>La chercheuse veut se concentrer uniquement sur certaines variables pertinentes pour son analyse. Utilisez <code>select()</code> pour ne garder que <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>body_mass_g</code> :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins_subset <span class="ot">&lt;-</span> penguins_mission <span class="sc">%&gt;%</span></span>
@@ -6482,8 +6507,8 @@ Note
 </div>
 </div>
 </section>
-<section id="créer-de-nouvelles-variables-avec-mutate" class="level2">
-<h2 class="anchored" data-anchor-id="créer-de-nouvelles-variables-avec-mutate">Créer de nouvelles variables avec <code>mutate()</code></h2>
+<section id="créer-de-nouvelles-variables-avec-mutate" class="level3">
+<h3 class="anchored" data-anchor-id="créer-de-nouvelles-variables-avec-mutate">Créer de nouvelles variables avec <code>mutate()</code></h3>
 <p><strong>Explication</strong> : La chercheuse souhaite ajouter une nouvelle colonne indiquant le poids en kilogrammes au lieu de grammes. En effet, son appareil de mesure indiquait les mesures en g, mais elle croit que cela sera plus facile à interpréter en kg.</p>
 <p><strong>Pourquoi est-ce utile ?</strong> Transformer les unités peut faciliter la compréhension et la communication des résultats.</p>
 <p>La chercheuse souhaite ajouter une nouvelle colonne indiquant le poids en kilogrammes au lieu de grammes. Utilisez <code>mutate()</code> pour créer cette nouvelle variable :</p>
@@ -6544,8 +6569,8 @@ Note
 </div>
 <p><strong>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</strong></p>
 </section>
-<section id="filtrer-les-données-avec-filter" class="level2">
-<h2 class="anchored" data-anchor-id="filtrer-les-données-avec-filter">Filtrer les données avec <code>filter()</code></h2>
+<section id="filtrer-les-données-avec-filter" class="level3">
+<h3 class="anchored" data-anchor-id="filtrer-les-données-avec-filter">Filtrer les données avec <code>filter()</code></h3>
 <p>La chercheuse veut analyser uniquement les manchots de l’île <strong>Biscoe</strong>. Utilisez <code>filter()</code> pour ne garder que ces observations :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>penguins_biscoe <span class="ot">&lt;-</span> penguins_mission <span class="sc">%&gt;%</span></span>
@@ -6565,8 +6590,8 @@ Note
 </div>
 </div>
 </section>
-<section id="regrouper-et-résumer-les-données-avec-group_by" class="level2">
-<h2 class="anchored" data-anchor-id="regrouper-et-résumer-les-données-avec-group_by">Regrouper et résumer les données avec <code>group_by()</code></h2>
+<section id="regrouper-et-résumer-les-données-avec-group_by" class="level3">
+<h3 class="anchored" data-anchor-id="regrouper-et-résumer-les-données-avec-group_by">Regrouper et résumer les données avec <code>group_by()</code></h3>
 <p>La chercheuse souhaite connaître la masse moyenne des manchots par espèce. Utilisez <code>group_by()</code> suivi de <code>summarise()</code> pour obtenir cette information :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>penguins_summary <span class="ot">&lt;-</span> penguins_mission <span class="sc">%&gt;%</span></span>
@@ -6604,16 +6629,16 @@ Note
 <p><strong>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</strong></p>
 </section>
 </section>
-<section id="un-appel-durgence-depuis-lantarctique" class="level1">
-<h1>Un appel d’urgence depuis l’Antarctique</h1>
+<section id="un-appel-durgence-depuis-lantarctique" class="level2">
+<h2 class="anchored" data-anchor-id="un-appel-durgence-depuis-lantarctique">Un appel d’urgence depuis l’Antarctique</h2>
 <p>Alors que vous avanciez bien dans votre analyse des données, vous recevez un message urgent de la chercheuse. Elle a dû partir précipitamment en Antarctique pour une mission d’urgence : aider une colonie de manchots confrontée à des conditions climatiques extrêmes.</p>
 <p>Avant son départ, elle a pris soin de vous laisser une liste de tâches essentielles à compléter. Elle compte sur vous pour poursuivre son analyse ! Cependant, la connexion est instable là-bas. La seule manière de communiquer avec elle est par Teams : elle vous enverra des messages, mais vous ne pourrez pas communiquer directement avec elle.</p>
 <blockquote class="blockquote">
 <p><strong>Note</strong> : ici vous êtes toujours dans la partie 1 de l’aventure, mais la chercheuse vous a laissé une liste de tâches à compléter avant son départ. Vous devez donc continuer à travailler sur le jeu de données <code>penguins_mission</code> que vous avez créé précédemment et continuer à compléter le journal de bord.</p>
 </blockquote>
 </section>
-<section id="visualisation-des-données" class="level1">
-<h1>Visualisation des données</h1>
+<section id="visualisation-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation-des-données">Visualisation des données</h2>
 <p>La visualisation des données est une étape essentielle de l’analyse, car elle permet de mieux comprendre les tendances et les relations entre les variables. Une bonne visualisation facilite l’interprétation des données et aide à repérer des valeurs aberrantes ou des motifs intéressants.</p>
 <p><strong>Rappel des bonnes pratiques de codage en visualisation</strong> :</p>
 <ul>
@@ -6623,8 +6648,8 @@ Note
 <li><p>Adapter le <strong>binwidth</strong> des histogrammes et la <strong>transparence</strong> des points dans les graphiques de nuage de points pour éviter une mauvaise lisibilité.</p></li>
 <li><p>Tester plusieurs types de graphiques avant de conclure sur une analyse.</p></li>
 </ul>
-<section id="histogrammes" class="level2">
-<h2 class="anchored" data-anchor-id="histogrammes">Histogrammes</h2>
+<section id="histogrammes" class="level3">
+<h3 class="anchored" data-anchor-id="histogrammes">Histogrammes</h3>
 <p><strong>Explication</strong> : Un histogramme permet de visualiser la distribution d’une variable numérique. Ici, nous allons par exemple examiner la répartition des profondeurs de bec (<code>bill_depth_mm</code>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -6707,8 +6732,8 @@ La conclusion peut varier légèrement selon la valeur de <code>binwidth</code>;
 </div>
 <p>Poussons un peu plus loin la visualisation pour essayer de répondre à sa demande.</p>
 </section>
-<section id="boîte-à-moustaches" class="level2">
-<h2 class="anchored" data-anchor-id="boîte-à-moustaches">Boîte à moustaches</h2>
+<section id="boîte-à-moustaches" class="level3">
+<h3 class="anchored" data-anchor-id="boîte-à-moustaches">Boîte à moustaches</h3>
 <p><strong>Explication</strong> : Une boîte à moustaches permet de visualiser la dispersion d’une variable numérique et d’identifier d’éventuelles valeurs aberrantes. Ici, nous allons examiner la distribution de la longueur des nageoires (<code>flipper_length_mm</code>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_mission, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> flipper_length_mm, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
@@ -6799,8 +6824,8 @@ Elle a été ajoutée exprès pour tester ta capacité à détecter visuellement
 </div>
 </div>
 </section>
-<section id="nuages-de-points" class="level2">
-<h2 class="anchored" data-anchor-id="nuages-de-points">Nuages de points</h2>
+<section id="nuages-de-points" class="level3">
+<h3 class="anchored" data-anchor-id="nuages-de-points">Nuages de points</h3>
 <p><strong>Explication</strong> : Un nuage de points permet de visualiser la relation entre deux variables numériques. Ici, nous allons examiner la relation entre la longueur du bec (<code>bill_length_mm</code>) et la profondeur du bec (<code>bill_depth_mm</code>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_mission, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
@@ -6867,8 +6892,8 @@ Elle a été ajoutée exprès pour tester ta capacité à détecter visuellement
 <p><strong>Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !</strong></p>
 </section>
 </section>
-<section id="statistiques-descriptives" class="level1">
-<h1>Statistiques descriptives</h1>
+<section id="statistiques-descriptives" class="level2">
+<h2 class="anchored" data-anchor-id="statistiques-descriptives">Statistiques descriptives</h2>
 <p><strong>Explication</strong> : Les statistiques descriptives permettent de résumer et comprendre rapidement un ensemble de données. Elles se divisent en plusieurs catégories :</p>
 <ul>
 <li><strong>Tendance centrale</strong> : moyenne, médiane</li>
@@ -6970,8 +6995,8 @@ Cela suggère une différence, mais tu pourrais aussi comparer les distributions
 </div>
 </div>
 </div>
-<section id="visualisation-avancée-et-statistiques-descriptives-optionnel" class="level2">
-<h2 class="anchored" data-anchor-id="visualisation-avancée-et-statistiques-descriptives-optionnel">Visualisation avancée et statistiques descriptives (optionnel)</h2>
+<section id="visualisation-avancée-et-statistiques-descriptives-optionnel" class="level3">
+<h3 class="anchored" data-anchor-id="visualisation-avancée-et-statistiques-descriptives-optionnel">Visualisation avancée et statistiques descriptives (optionnel)</h3>
 <p>Nous allons maintenant créer un boxplot détaillé qui affiche :</p>
 <ul>
 <li>Les quartiles (Q1-Q3)</li>
@@ -7067,8 +7092,8 @@ Cela assure la traçabilité, et te sauvera du stress si tu dois revenir en arri
 </div>
 </section>
 </section>
-<section id="le-retour-de-la-dre-adélie-fortier-2e-partie-de-laventure" class="level1">
-<h1>Le retour de la Dre Adélie Fortier ! (2e partie de l’aventure)</h1>
+<section id="le-retour-de-la-dre-adélie-fortier-2e-partie-de-laventure" class="level2">
+<h2 class="anchored" data-anchor-id="le-retour-de-la-dre-adélie-fortier-2e-partie-de-laventure">Le retour de la Dre Adélie Fortier ! (2e partie de l’aventure)</h2>
 <p>Après plusieurs semaines en Antarctique à observer les manchots, notre chercheuse est de retour avec plein de nouvelles questions en tête. Elle a remarqué que certaines espèces semblaient avoir des caractéristiques bien distinctes, mais elle aimerait une analyse plus approfondie qui l’aidera à obtenir une nouvelle subvention pour son projet de recherche.</p>
 <p>La page de consignes du défi est disponible ici : <a href="../module_02/defi.html">Défi du module 2</a>.</p>
 <p><strong>Rappel des livrables de la deuxième partie</strong> :<br>

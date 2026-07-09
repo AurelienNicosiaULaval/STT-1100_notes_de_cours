@@ -5894,8 +5894,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="scenario-quality-control-in-education" class="level1">
-<h1>Scenario: Quality Control in Education</h1>
+<section id="scenario-quality-control-in-education" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-quality-control-in-education">Scenario: Quality Control in Education</h2>
 <p>You work as a junior data scientist in the quality control and equity department at the Quebec Ministry of Education. Your mandate is to use real and fictitious data to build a first prediction, then examine the limits and possible biases of that prediction.</p>
 <p>Michel Dufour, deputy director of the department, gives you the following mandate:</p>
 <blockquote class="blockquote">
@@ -5942,8 +5942,8 @@ Character card
 </div>
 </div>
 <!-- adventure-brief:end -->
-<section id="adventure-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="adventure-objectives">Adventure Objectives</h2>
+<section id="adventure-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="adventure-objectives">Adventure Objectives</h3>
 <ul>
 <li>Fit a multiple linear regression model.</li>
 <li>Use <code>predict()</code> to produce targeted predictions.</li>
@@ -5973,8 +5973,8 @@ Character card
 <!-- week-new:end -->
 </section>
 </section>
-<section id="mission-1-predictive-model-at-the-school-level" class="level1">
-<h1>Mission 1: Predictive Model at the School Level</h1>
+<section id="mission-1-predictive-model-at-the-school-level" class="level2">
+<h2 class="anchored" data-anchor-id="mission-1-predictive-model-at-the-school-level">Mission 1: Predictive Model at the School Level</h2>
 <p>Michel gives you the <code>ecoles_primaires_qc.csv</code> file. It contains information on disadvantage indices in Quebec primary schools.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Michel explains">
 <div class="callout-header d-flex align-content-center">
@@ -5989,8 +5989,8 @@ Character card
 <p>Column names are not always intuitive. Before modeling, inspect the variables and check which rows are usable.</p>
 </div>
 </div>
-<section id="step-1-exploration-and-cleaning" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-exploration-and-cleaning">Step 1: Exploration and Cleaning</h2>
+<section id="step-1-exploration-and-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-exploration-and-cleaning">Step 1: Exploration and Cleaning</h3>
 <p>Start by loading the data and inspecting its structure.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_schools <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;ecoles_primaires_qc.csv&quot;</span>)</span>
@@ -6031,8 +6031,8 @@ Note
 </div>
 </div>
 </section>
-<section id="step-2-regression-model" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-regression-model">Step 2: Regression Model</h2>
+<section id="step-2-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-regression-model">Step 2: Regression Model</h3>
 <div class="callout callout-style-default callout-important callout-titled" title="Michel asks">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6058,8 +6058,8 @@ Note
 <li>Does a statistical association allow us to conclude that there is a causal relationship?</li>
 </ul>
 </section>
-<section id="step-3-targeted-predictions" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-targeted-predictions">Step 3: Targeted Predictions</h2>
+<section id="step-3-targeted-predictions" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-targeted-predictions">Step 3: Targeted Predictions</h3>
 <p>Use <code>predict()</code> to produce predictions on observed schools.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_predictions <span class="ot">&lt;-</span> df_model <span class="sc">|&gt;</span></span>
@@ -6067,6 +6067,19 @@ Note
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">predicted_imse =</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> df_model),</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">error =</span> IMSE <span class="sc">-</span> predicted_imse</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="What this comparison does, and does not, check">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What this comparison does, and does not, check
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The schools compared here were also used to fit the model. The errors help identify poorly described cases or visible limits in the fitting data. They do not measure the model’s performance on new schools.</p>
+</div>
 </div>
 <p>Michel asks you for two targeted comparisons.</p>
 <div class="cell">
@@ -6093,8 +6106,8 @@ Note
 </div>
 </div>
 </section>
-<section id="step-4-non-disclosed-cases-and-model-limits" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-non-disclosed-cases-and-model-limits">Step 4: Non-Disclosed Cases and Model Limits</h2>
+<section id="step-4-non-disclosed-cases-and-model-limits" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-non-disclosed-cases-and-model-limits">Step 4: Non-Disclosed Cases and Model Limits</h3>
 <p>In the file, some rows have <code>Diffusion == &quot;NON&quot;</code>. These rows do not contain values for the variables required by the model.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_schools <span class="sc">|&gt;</span></span>
@@ -6124,16 +6137,16 @@ Note
 </div>
 </section>
 </section>
-<section id="mission-2-detecting-a-descriptive-bias" class="level1">
-<h1>Mission 2: Detecting a Descriptive Bias</h1>
+<section id="mission-2-detecting-a-descriptive-bias" class="level2">
+<h2 class="anchored" data-anchor-id="mission-2-detecting-a-descriptive-bias">Mission 2: Detecting a Descriptive Bias</h2>
 <p>Michel also provides a fictitious dataset of 1000 students, <code>eleves_fictifs.csv</code>. At first glance, this dataset looks neutral. But is it really?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;eleves_fictifs.csv&quot;</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_students)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="step-1-overall-admission-rate" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-overall-admission-rate">Step 1: Overall Admission Rate</h2>
+<section id="step-1-overall-admission-rate" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-overall-admission-rate">Step 1: Overall Admission Rate</h3>
 <p>Start by calculating the overall admission rate.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>overall_rate <span class="ot">&lt;-</span> df_students <span class="sc">|&gt;</span></span>
@@ -6143,8 +6156,8 @@ Note
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>overall_rate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="step-2-admission-rate-by-sex" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-admission-rate-by-sex">Step 2: Admission Rate by Sex</h2>
+<section id="step-2-admission-rate-by-sex" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-admission-rate-by-sex">Step 2: Admission Rate by Sex</h3>
 <p>Then explore admission rates by <code>Sexe</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rate_sex <span class="ot">&lt;-</span> df_students <span class="sc">|&gt;</span></span>
@@ -6168,8 +6181,8 @@ Note
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="step-3-guided-discussion" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-guided-discussion">Step 3: Guided Discussion</h2>
+<section id="step-3-guided-discussion" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-guided-discussion">Step 3: Guided Discussion</h3>
 <p>Answer the following questions:</p>
 <ul>
 <li>Do you observe a notable difference between groups?</li>
@@ -6178,8 +6191,8 @@ Note
 <li>Can we speak of a descriptive bias in this dataset? Why?</li>
 </ul>
 </section>
-<section id="step-4-other-variables" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-other-variables">Step 4: Other Variables</h2>
+<section id="step-4-other-variables" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-other-variables">Step 4: Other Variables</h3>
 <p>Repeat the same logic for other variables, for example <code>Langue_maternelle</code>, <code>Niveau_socio_economique</code> or <code>Acces_ressources</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_students <span class="sc">|&gt;</span></span>
@@ -6190,8 +6203,8 @@ Note
 </div>
 </section>
 </section>
-<section id="challenge-to-submit" class="level1">
-<h1>Challenge to Submit</h1>
+<section id="challenge-to-submit" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-to-submit">Challenge to Submit</h2>
 <p>The challenge associated with this adventure is described on the page <a href="../module_09/defi.html">Challenge 9 - Video Capsule</a>.</p>
 <p>You must produce a video capsule of 180 seconds maximum. You may present either your predictive model from Mission 1 or your bias analysis from Mission 2. The starter repository is the GitHub template <code>STT-1100/aventure-9</code>.</p>
 <!-- portfolio-trace:start -->
@@ -6219,8 +6232,8 @@ a draft accessible explanation for the video capsule.
 </div>
 <!-- portfolio-trace:end -->
 </section>
-<section id="conclusion-of-the-adventure" class="level1">
-<h1>Conclusion of the Adventure</h1>
+<section id="conclusion-of-the-adventure" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-of-the-adventure">Conclusion of the Adventure</h2>
 <p>You built a first predictive model, produced targeted predictions and identified a descriptive bias in fictitious data. The central point of the adventure is caution: a model can be useful, but it must always be accompanied by a discussion of its limits, missing data and possible effects.</p>
 
 

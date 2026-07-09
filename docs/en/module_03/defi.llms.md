@@ -2,13 +2,13 @@
 
 STT-1100 Introduction to Data Science
 
-# Challenge overview
+## Challenge overview
 
 In this challenge, you become a data journalist for *Le Courrier Gourmand*. Your goal is to produce a short Quarto article on food offences using the `listecondamnation` dataset from the `UlavalSSD` package.
 
 Your article must be understandable to someone who does not know R. The code supports the article, but the text must clearly tell the reader what you found.
 
-# Data to use
+## Data to use
 
 Use the following dataset:
 
@@ -20,7 +20,7 @@ Your report must explicitly load the required packages, especially `tidyverse` a
 
 The report must render after restarting R, without depending on objects already present in your environment.
 
-# Expected deliverables
+## Expected deliverables
 
 Your GitHub repository must contain the following files:
 
@@ -32,7 +32,7 @@ You may rename the article title in the Quarto header, but keep the source filen
 
 Your GitHub history must show several useful commits. For example, you can make one commit after importing the data, another after cleaning, another after the charts, and a final one after proofreading.
 
-# Expected article structure
+## Expected article structure
 
 Your article must contain the following sections:
 
@@ -48,9 +48,9 @@ Your article must contain the following sections:
 
 - a conclusion with recommendations.
 
-# Required work
+## Required work
 
-## Step 1 - Import and inspect the data
+### Step 1 - Import and inspect the data
 
 Load the `UlavalSSD` package, inspect `listecondamnation`, then briefly describe:
 
@@ -62,7 +62,7 @@ Load the `UlavalSSD` package, inspect `listecondamnation`, then briefly describe
 
 - the dataset limits that you consider important.
 
-## Step 2 - Clean the useful variables
+### Step 2 - Clean the useful variables
 
 Create a clean table containing at least:
 
@@ -78,7 +78,7 @@ Create a clean table containing at least:
 
 Do not modify the original dataset. Do the cleaning in your R code so that your workflow remains reproducible.
 
-## Step 3 - Extract key facts
+### Step 3 - Extract key facts
 
 Your article must include at least two narrative figures. For example:
 
@@ -94,7 +94,7 @@ Your article must include at least two narrative figures. For example:
 
 Each figure must be accompanied by a textual interpretation.
 
-## Step 4 - Produce at least two visuals
+### Step 4 - Produce at least two visuals
 
 Your article must contain at least two visualizations:
 
@@ -114,7 +114,7 @@ Each chart must have:
 
 - units when relevant.
 
-## Step 5 - Write the article
+### Step 5 - Write the article
 
 Your article must answer a clear journalistic question. For example:
 
@@ -122,7 +122,7 @@ Your article must answer a clear journalistic question. For example:
 
 In the conclusion, add a short synthetic quote from Alexandre. This quote must summarize an implication of your results. It may be fictional, but it must be coherent with your analyses.
 
-# Checklist
+## Checklist
 
 Before submitting your challenge, check that:
 
@@ -150,7 +150,7 @@ Before submitting your challenge, check that:
 
 - the changes have been pushed to GitHub.
 
-# Evaluation grid
+## Evaluation grid
 
 | Criterion | Excellent | Satisfactory | To improve |
 |----|----|----|----|

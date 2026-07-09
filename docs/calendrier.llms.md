@@ -11,7 +11,7 @@
 | 7 | 12 octobre | Congé. Préparation autonome à l'examen. |
 | 8 | 19 octobre | Examen en classe : modules 1 à 4. |
 | 9 | 26 octobre | Semaine de lecture. |
-| 10 | 2 novembre | Module 5 : relations entre variables. |
+| 10 | 2 novembre | Module 5 : reprise après l'examen, puis relations entre variables. |
 | 11 | 9 novembre | Module 6 : collaboration, GitHub, reproductibilité et jointures. |
 | 12 | 16 novembre | Module 7 : visualisation responsable, éthique et anonymisation. |
 | 13 | 23 novembre | Module 8 : automatisation et exploration du web. |

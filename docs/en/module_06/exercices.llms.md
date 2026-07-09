@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 These exercises are independent from the adventure and challenge. They consolidate the technical moves from module 6: join several tables, check keys, find unmatched rows, summarize collaborative activity and write constructive review comments.
 
@@ -12,7 +12,7 @@ The data used here are fictitious and do not represent any real GitHub repositor
 library(tidyverse)
 ```
 
-# Readings to Review
+## Readings to Review
 
 - [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world)
 - [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
@@ -25,9 +25,9 @@ library(tidyverse)
 
 After the readings, also complete the [formative mini-test](../module_06/mini_test.llms.md). It is not graded.
 
-# Block A - Understand Join Keys
+## Block A - Understand Join Keys
 
-## Exercise 1 - Import Collaboration Tables
+### Exercise 1 - Import Collaboration Tables
 
 Import `fictitious_team_members.csv` and `fictitious_git_contributions.csv`, then inspect their dimensions.
 
@@ -81,7 +81,7 @@ Import `fictitious_team_members.csv` and `fictitious_git_contributions.csv`, the
 >     1 members           8       4
 >     2 contributions    12       6
 
-## Exercise 2 - Add Member Information
+### Exercise 2 - Add Member Information
 
 Use `left_join()` to add the name, role and team to each contribution.
 
@@ -112,7 +112,7 @@ Use `left_join()` to add the name, role and team to each contribution.
 >     11 C011      M08       Malik  Communicator         Team… interpretation    rapp…
 >     12 C012      M05       Zoe    Repository lead      Team… structure         READ…
 
-## Exercise 3 - Find Contributions Without a Known Member
+### Exercise 3 - Find Contributions Without a Known Member
 
 Use `anti_join()` to find contributions whose `member_id` does not appear in the member table.
 
@@ -130,7 +130,7 @@ Use `anti_join()` to find contributions whose `member_id` does not appear in the
 >
 > This check is useful before summarizing work by person. A missing key may indicate a data-entry error or an undocumented member.
 
-## Exercise 4 - Identify Members Who Contributed
+### Exercise 4 - Identify Members Who Contributed
 
 Use `semi_join()` to get the list of members who have at least one contribution.
 
@@ -154,9 +154,9 @@ Use `semi_join()` to get the list of members who have at least one contribution.
 >     7 M05       Zoe    Repository lead      Team B
 >     8 M07       Ines   Reproducibility lead Team B
 
-# Block B - Summarize Collaborative Work
+## Block B - Summarize Collaborative Work
 
-## Exercise 5 - Summarize Contributions by Member
+### Exercise 5 - Summarize Contributions by Member
 
 Create a table giving, for each known member, the number of commits and the total number of changed lines.
 
@@ -188,7 +188,7 @@ Create a table giving, for each known member, the number of commits and the tota
 >     7 Team B Thomas Data analyst                 1            51
 >     8 Team B Zoe    Repository lead              1            29
 
-## Exercise 6 - Visualize Team Activity
+### Exercise 6 - Visualize Team Activity
 
 Produce a chart of the number of commits by role.
 
@@ -209,7 +209,7 @@ Produce a chart of the number of commits by role.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-6-1.png)
 
-## Exercise 7 - Check Expected Files
+### Exercise 7 - Check Expected Files
 
 Import `fictitious_report_files.csv`. For each team, calculate the number of expected files present and missing.
 
@@ -241,7 +241,7 @@ Import `fictitious_report_files.csv`. For each team, calculate the number of exp
 >     2 Team B             3             1           586
 >     3 Team C             2             2           515
 
-## Exercise 8 - Find Teams Missing an HTML Report
+### Exercise 8 - Find Teams Missing an HTML Report
 
 Filter rows where `expected_file == "rapport.html"` and the file is absent.
 
@@ -258,9 +258,9 @@ Filter rows where `expected_file == "rapport.html"` and the file is absent.
 >     1 Team B rapport.html  no            0
 >     2 Team C rapport.html  no            0
 
-# Block C - Issues and Constructive Review
+## Block C - Issues and Constructive Review
 
-## Exercise 9 - Join Issues to Members
+### Exercise 9 - Join Issues to Members
 
 Import `fictitious_review_issues.csv`, then add the name and team of the author of each issue.
 
@@ -290,7 +290,7 @@ Import `fictitious_review_issues.csv`, then add the name and team of the author 
 >     6 I006     Team B        M03       Noah   Team A GitHub          closed low
 >     7 I007     Team C        M04       Emma   Team A Reproducibility open   normal
 
-## Exercise 10 - Summarize Issues by Reviewed Team
+### Exercise 10 - Summarize Issues by Reviewed Team
 
 Calculate the number of open, closed and high-priority issues for each reviewed team.
 
@@ -316,7 +316,7 @@ Calculate the number of open, closed and high-priority issues for each reviewed 
 >     2 Team B               3      1        2               1
 >     3 Team C               1      1        0               0
 
-## Exercise 11 - Find Issues Without a Known Team
+### Exercise 11 - Find Issues Without a Known Team
 
 Teams A and B are in the member table. Use a join or equivalent logic to identify issues targeting a team absent from the known team list.
 
@@ -335,7 +335,7 @@ Teams A and B are in the member table. Use a join or equivalent logic to identif
 >       <chr>    <chr>         <chr>     <date>     <chr>           <chr>  <chr>
 >     1 I007     Team C        M04       2026-02-16 Reproducibility open   normal
 
-## Exercise 12 - Write a Useful Issue
+### Exercise 12 - Write a Useful Issue
 
 Choose one open issue and rewrite it with three sections: successful aspect, suggestion, justification.
 
@@ -355,9 +355,9 @@ Choose one open issue and rewrite it with three sections: successful aspect, sug
 > The review becomes easier to reproduce because another team can understand why `member_id` is the correct key.
 > ```
 
-# Case Studies
+## Case Studies
 
-## Case Study 1 - Fictitious Project Repository Audit
+### Case Study 1 - Fictitious Project Repository Audit
 
 Use `fictitious_team_members.csv`, `fictitious_git_contributions.csv`, `fictitious_review_issues.csv` and `fictitious_report_files.csv`.
 
@@ -441,7 +441,7 @@ Complete the following tasks:
 >
 > A cautious conclusion could state that Team B appears to have its data trace present, but an HTML report is missing. This observation is not enough to judge the whole project; the next step would be to try rendering `rapport.qmd`.
 
-## Case Study 2 - Fictitious Data Portal Review
+### Case Study 2 - Fictitious Data Portal Review
 
 Use `fictitious_data_portal.csv`, `fictitious_producers.csv` and `fictitious_review_comments.csv`.
 

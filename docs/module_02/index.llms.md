@@ -44,6 +44,24 @@ commit propre graphique annoté rapport rendu
 
 - Améliorer la qualité de graphiques avec des titres, des légendes, des axes lisibles, des unités et une cohérence graphique.
 
+## Préparer le module
+
+### Prérequis
+
+Vous devez savoir ouvrir un projet RStudio, rendre un fichier Quarto et utiliser les gestes de base vus au module 1. Vérifiez aussi que vous pouvez vous connecter à GitHub avant la séance.
+
+### Parcours minimal
+
+Clonez le dépôt demandé, ouvrez le projet, importez le fichier Excel, produisez un premier graphique et faites un commit lisible. Ces cinq gestes vous préparent réellement à l’aventure.
+
+### Priorité pédagogique
+
+Commencez par un graphique clair et un court résumé avant les facettes, les analyses secondaires ou les améliorations visuelles. Les extensions viennent après un premier rendu fonctionnel.
+
+### Dépôt et aide
+
+Ne déposez pas de données personnelles dans GitHub. Si l’accès, le clone ou le push bloque, conservez le message d’erreur et demandez de l’aide avant de contourner le problème.
+
 ## Plan d’apprentissage
 
 Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et servent à consolider les gestes techniques.

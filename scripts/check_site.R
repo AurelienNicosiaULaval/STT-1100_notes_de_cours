@@ -137,6 +137,83 @@ for (page in custom_hero_pages) {
   }
 }
 
+module_page_paths <- c(
+  unlist(lapply(sprintf("module_%02d", 1:10), function(module_id) {
+    file.path(module_id, paste0(c(
+      "index", "plan_apprentissage", "aventure", "defi", "exercices", "mini_test"
+    ), ".html"))
+  })),
+  file.path("module_01", "exercices_corriges.html")
+)
+module_page_paths <- c(module_page_paths, file.path("en", module_page_paths))
+
+module_structure_issues <- character()
+duplicate_id_issues <- character()
+heading_level_issues <- character()
+
+for (page in module_page_paths) {
+  path <- file.path(docs_root, page)
+  if (!file.exists(path)) {
+    module_structure_issues <- c(module_structure_issues, sprintf("missing module page: %s", page))
+    next
+  }
+
+  doc <- read_html(path)
+  main <- xml2::xml_find_first(doc, ".//main")
+  scope <- if (inherits(main, "xml_missing")) doc else main
+  headings <- xml2::xml_find_all(scope, ".//h1|.//h2|.//h3|.//h4|.//h5|.//h6")
+  levels <- as.integer(sub("h", "", xml2::xml_name(headings)))
+  h1_count <- sum(levels == 1L)
+
+  if (h1_count != 1L) {
+    module_structure_issues <- c(
+      module_structure_issues,
+      sprintf("%s has %d h1 elements in main", page, h1_count)
+    )
+  }
+
+  if (length(levels) > 1L && any(diff(levels) > 1L)) {
+    heading_level_issues <- c(heading_level_issues, page)
+  }
+
+  ids <- xml2::xml_attr(xml2::xml_find_all(doc, ".//*[@id]"), "id")
+  ids <- ids[!is.na(ids) & nzchar(ids)]
+  duplicate_ids <- unique(ids[duplicated(ids)])
+  if (length(duplicate_ids) > 0L) {
+    duplicate_id_issues <- c(
+      duplicate_id_issues,
+      sprintf("%s duplicates: %s", page, paste(duplicate_ids, collapse = ","))
+    )
+  }
+}
+
+module_readiness_issues <- character()
+for (module_id in sprintf("module_%02d", 1:10)) {
+  for (page in c(file.path(module_id, "index.html"), file.path("en", module_id, "index.html"))) {
+    path <- file.path(docs_root, page)
+    if (!file.exists(path)) {
+      module_readiness_issues <- c(module_readiness_issues, sprintf("missing readiness page: %s", page))
+      next
+    }
+
+    doc <- read_html(path)
+    readiness <- xml2::xml_find_all(
+      doc,
+      ".//*[contains(concat(' ', normalize-space(@class), ' '), ' module-readiness ')]"
+    )
+    cards <- xml2::xml_find_all(
+      doc,
+      ".//*[contains(concat(' ', normalize-space(@class), ' '), ' module-readiness-card ')]"
+    )
+    if (length(readiness) != 1L || length(cards) != 4L) {
+      module_readiness_issues <- c(
+        module_readiness_issues,
+        sprintf("%s has readiness=%d cards=%d", page, length(readiness), length(cards))
+      )
+    }
+  }
+}
+
 extract_card_ids <- function(path) {
   doc <- read_html(path)
   xml2::xml_attr(
@@ -244,6 +321,10 @@ issues <- list(
   missing_fragments = missing_fragments,
   images_without_alt = unique(images_without_alt),
   h1_issues = h1_issues,
+  module_structure_issues = module_structure_issues,
+  heading_level_issues = heading_level_issues,
+  duplicate_id_issues = duplicate_id_issues,
+  module_readiness_issues = module_readiness_issues,
   bilingual_parity_issues = bilingual_parity_issues,
   sensitive_files = sensitive_files,
   sensitive_hits = sensitive_hits

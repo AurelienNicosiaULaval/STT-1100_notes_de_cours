@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6097,8 +6124,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="objectifs-du-module" class="level1">
-<h1>Objectifs du module</h1>
+<section id="objectifs-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
 <p>À la fin de ce module, vous devriez être capable de :</p>
 <ul>
 <li>Nettoyer et analyser des données textuelles.</li>
@@ -6108,9 +6135,9 @@ margin-bottom: .05rem;
 <li>Créer un tableau de bord interactif avec <code>flexdashboard</code> et <code>shiny</code>.</li>
 </ul>
 </section>
-<section id="lectures" class="level1">
-<h1>Lectures</h1>
-<p>Pour vous préparer, consultez les ressources suivantes :</p>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
+<p>Pour vous préparer, commencez par <code>unnest_tokens()</code>, <code>bind_tf_idf()</code> et le gabarit <code>flexdashboard</code>. Les ressources Shiny, les nuages de mots et les options de personnalisation viennent après un premier tableau de bord local qui fonctionne.</p>
 <ul>
 <li><a href="https://www.tidytextmining.com/">Text Mining with R</a> - Chapitres 1 à 3 pour le format tidy text, l’analyse de sentiment et le TF-IDF.</li>
 <li><a href="https://juliasilge.github.io/tidytext/reference/unnest_tokens.html">Documentation tidytext - <code>unnest_tokens()</code></a></li>
@@ -6119,8 +6146,8 @@ margin-bottom: .05rem;
 <li><a href="https://rstudio.github.io/flexdashboard/articles/shiny.html">Using Shiny with flexdashboard</a></li>
 <li><a href="https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/">Posit - Shiny Basics</a></li>
 </ul>
-<section id="aide-mémoires-posit" class="level2">
-<h2 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h2>
+<section id="aide-mémoires-posit" class="level3">
+<h3 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h3>
 <ul>
 <li><p><a href="https://rstudio.github.io/cheatsheets/strings.pdf" target="_blank">String manipulation with stringr :: Cheatsheet</a> Préparation et nettoyage de texte avant la tokenisation.</p></li>
 <li><p><a href="https://rstudio.github.io/cheatsheets/tidyr.pdf" target="_blank">Data tidying with tidyr :: Cheatsheet</a> Restructuration des sorties textuelles et des tableaux de bord.</p></li>
@@ -6132,13 +6159,13 @@ margin-bottom: .05rem;
 <p>Après les lectures, faites le <a href="../module_10/mini_test.html">mini-test formatif du module 10</a>.</p>
 </section>
 </section>
-<section id="aventure" class="level1">
-<h1>Aventure</h1>
-<p>Vous êtes analyste d’affaires junior engagé par la Faculté des sciences et de génie de l’Université Laval. Votre mandat : analyser les commentaires anonymes des étudiant·es sur le cours STT-1100 et produire un tableau de bord interactif pour la direction du programme.</p>
+<section id="aventure" class="level2">
+<h2 class="anchored" data-anchor-id="aventure">Aventure</h2>
+<p>Vous êtes analyste d’affaires junior engagé par la Faculté des sciences et de génie de l’Université Laval. Votre mandat est de produire un tableau de bord interactif à partir de commentaires fictifs. Des rétroactions réelles ne peuvent être utilisées que si l’enseignant·e fournit un fichier anonymisé et confirme explicitement le cadre d’utilisation.</p>
 <p><a href="../module_10/aventure.html">Aventure 10 — Au-delà des données : texte et tableau de bord</a></p>
 </section>
-<section id="défi---tableau-de-bord-local-ou-partagé" class="level1 unnumbered">
-<h1 class="unnumbered">Défi - Tableau de bord local ou partagé</h1>
+<section id="défi---tableau-de-bord-local-ou-partagé" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="défi---tableau-de-bord-local-ou-partagé">Défi - Tableau de bord local ou partagé</h2>
 <p>Vous devez construire un tableau de bord interactif à partir du modèle fourni. Ce tableau de bord devra :</p>
 <ul>
 <li>Afficher un score de sentiment par semaine ;</li>
@@ -6147,11 +6174,12 @@ margin-bottom: .05rem;
 <li>Être personnalisé (filtrage, couleurs, résumé) ;</li>
 <li>Fonctionner localement ; être déployé ou partagé seulement si cette consigne est donnée en classe.</li>
 </ul>
+<p>Commencez par le noyau minimal: faire fonctionner le gabarit localement, ajouter un filtre, un graphique et une conclusion courte. Ajoutez ensuite le sentiment, le TF-IDF, les variables numériques et les extensions visuelles.</p>
 <p>Consigne complète : <a href="../module_10/defi.html">Défi 10 — Tableau de bord de rétroactions</a></p>
 <p>Dépôt de départ : <code>STT-1100/aventure-10</code></p>
 </section>
-<section id="exercices-de-consolidation" class="level1 unnumbered">
-<h1 class="unnumbered">Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Les exercices sont indépendants de l’aventure et du défi. Ils utilisent deux jeux de données fictifs propres au module:</p>
 <ol type="1">
 <li><code>commentaires_bibliotheques_fictif.csv</code> pour pratiquer la tokenisation, les stopwords, le sentiment et le TF-IDF;</li>
@@ -6160,9 +6188,9 @@ margin-bottom: .05rem;
 <p>La série se termine par deux études de cas: une priorisation de services de bibliothèque et une synthèse d’ateliers culturels.</p>
 <p>Lien vers les exercices: <a href="../module_10/exercices.html">Exercices de consolidation</a></p>
 </section>
-<section id="grille-dévaluation" class="level1">
-<h1>Grille d’évaluation</h1>
-<p>Chaque équipe doit remettre un tableau de bord interactif basé sur les commentaires des étudiant·es du cours. Voici la grille utilisée pour l’évaluation :</p>
+<section id="grille-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="grille-dévaluation">Grille d’évaluation</h2>
+<p>Chaque équipe doit remettre un tableau de bord interactif basé sur les données fictives fournies ou, seulement si cela est explicitement autorisé, sur un fichier anonymisé fourni par l’enseignant·e. Voici la grille utilisée pour l’évaluation :</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 27%">

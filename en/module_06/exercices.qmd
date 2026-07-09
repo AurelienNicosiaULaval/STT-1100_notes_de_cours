@@ -11,7 +11,7 @@ format:
 editor: visual
 ---
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 These exercises are independent from the adventure and challenge. They consolidate the technical moves from module 6: join several tables, check keys, find unmatched rows, summarize collaborative activity and write constructive review comments.
 
@@ -21,7 +21,7 @@ The data used here are fictitious and do not represent any real GitHub repositor
 library(tidyverse)
 ```
 
-# Readings to Review
+## Readings to Review
 
 - [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world){target="_blank"}
 - [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues){target="_blank"}
@@ -34,14 +34,14 @@ library(tidyverse)
 
 After the readings, also complete the [formative mini-test](mini_test.qmd). It is not graded.
 
-# Block A - Understand Join Keys
+## Block A - Understand Join Keys
 
-## Exercise 1 - Import Collaboration Tables
+### Exercise 1 - Import Collaboration Tables
 
 Import `fictitious_team_members.csv` and `fictitious_git_contributions.csv`, then inspect their dimensions.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 members <- read_csv(
@@ -65,12 +65,12 @@ tibble(
 ```
 :::
 
-## Exercise 2 - Add Member Information
+### Exercise 2 - Add Member Information
 
 Use `left_join()` to add the name, role and team to each contribution.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 contribution_details <- contributions |>
@@ -82,12 +82,12 @@ contribution_details |>
 ```
 :::
 
-## Exercise 3 - Find Contributions Without a Known Member
+### Exercise 3 - Find Contributions Without a Known Member
 
 Use `anti_join()` to find contributions whose `member_id` does not appear in the member table.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 contributions |>
@@ -97,12 +97,12 @@ contributions |>
 This check is useful before summarizing work by person. A missing key may indicate a data-entry error or an undocumented member.
 :::
 
-## Exercise 4 - Identify Members Who Contributed
+### Exercise 4 - Identify Members Who Contributed
 
 Use `semi_join()` to get the list of members who have at least one contribution.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 members |>
@@ -111,14 +111,14 @@ members |>
 ```
 :::
 
-# Block B - Summarize Collaborative Work
+## Block B - Summarize Collaborative Work
 
-## Exercise 5 - Summarize Contributions by Member
+### Exercise 5 - Summarize Contributions by Member
 
 Create a table giving, for each known member, the number of commits and the total number of changed lines.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 member_summary <- contribution_details |>
@@ -135,12 +135,12 @@ member_summary
 ```
 :::
 
-## Exercise 6 - Visualize Team Activity
+### Exercise 6 - Visualize Team Activity
 
 Produce a chart of the number of commits by role.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 member_summary |>
@@ -156,12 +156,12 @@ member_summary |>
 ```
 :::
 
-## Exercise 7 - Check Expected Files
+### Exercise 7 - Check Expected Files
 
 Import `fictitious_report_files.csv`. For each team, calculate the number of expected files present and missing.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 files <- read_csv(
@@ -183,12 +183,12 @@ file_summary
 ```
 :::
 
-## Exercise 8 - Find Teams Missing an HTML Report
+### Exercise 8 - Find Teams Missing an HTML Report
 
 Filter rows where `expected_file == "rapport.html"` and the file is absent.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 files |>
@@ -196,14 +196,14 @@ files |>
 ```
 :::
 
-# Block C - Issues and Constructive Review
+## Block C - Issues and Constructive Review
 
-## Exercise 9 - Join Issues to Members
+### Exercise 9 - Join Issues to Members
 
 Import `fictitious_review_issues.csv`, then add the name and team of the author of each issue.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 issues <- read_csv(
@@ -219,12 +219,12 @@ issue_details |>
 ```
 :::
 
-## Exercise 10 - Summarize Issues by Reviewed Team
+### Exercise 10 - Summarize Issues by Reviewed Team
 
 Calculate the number of open, closed and high-priority issues for each reviewed team.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 issue_details |>
@@ -240,12 +240,12 @@ issue_details |>
 ```
 :::
 
-## Exercise 11 - Find Issues Without a Known Team
+### Exercise 11 - Find Issues Without a Known Team
 
 Teams A and B are in the member table. Use a join or equivalent logic to identify issues targeting a team absent from the known team list.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 known_teams <- members |>
@@ -256,12 +256,12 @@ issues |>
 ```
 :::
 
-## Exercise 12 - Write a Useful Issue
+### Exercise 12 - Write a Useful Issue
 
 Choose one open issue and rewrite it with three sections: successful aspect, suggestion, justification.
 
 ::: {.callout-note collapse="true"}
-## Example Answer
+### Example Answer
 
 ```markdown
 ## Successful aspect
@@ -278,9 +278,9 @@ The review becomes easier to reproduce because another team can understand why `
 ```
 :::
 
-# Case Studies
+## Case Studies
 
-## Case Study 1 - Fictitious Project Repository Audit
+### Case Study 1 - Fictitious Project Repository Audit
 
 Use `fictitious_team_members.csv`, `fictitious_git_contributions.csv`, `fictitious_review_issues.csv` and `fictitious_report_files.csv`.
 
@@ -294,7 +294,7 @@ Complete the following tasks:
 6. write a cautious conclusion about repository reproducibility.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 audit_contributions <- contributions |>
@@ -328,7 +328,7 @@ missing_reports
 A cautious conclusion could state that Team B appears to have its data trace present, but an HTML report is missing. This observation is not enough to judge the whole project; the next step would be to try rendering `rapport.qmd`.
 :::
 
-## Case Study 2 - Fictitious Data Portal Review
+### Case Study 2 - Fictitious Data Portal Review
 
 Use `fictitious_data_portal.csv`, `fictitious_producers.csv` and `fictitious_review_comments.csv`.
 
@@ -342,7 +342,7 @@ Complete the following tasks:
 6. write a constructive review issue for a priority problem.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 portal <- read_csv(

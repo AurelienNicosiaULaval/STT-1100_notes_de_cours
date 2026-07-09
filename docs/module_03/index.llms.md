@@ -39,6 +39,24 @@ données nettoyées catégories vérifiées article rédigé
 - recoder, regrouper et ordonner des catégories avec `dplyr` et `forcats`;
 - produire et interpréter des diagrammes à bandes, des bandes empilées et des bandes empilées standardisées avec `ggplot2`.
 
+## Préparer le module
+
+### Prérequis
+
+Reprenez `filter()`, `mutate()`, `group_by()`, `summarise()` et un graphique `ggplot2` du module 2. Vous n’avez pas besoin de tout mémoriser, mais vous devez pouvoir relire un exemple.
+
+### Parcours minimal
+
+Nettoyez une catégorie, construisez une fréquence ou une proportion, puis expliquez un graphique en une phrase précise. C’est le noyau du module.
+
+### Ce module, puis le suivant
+
+Ici, les catégories servent à compter, comparer et raconter. Le module 4 approfondira la qualité du fichier, l’importation et la documentation des corrections.
+
+### Si vous bloquez
+
+Commencez avec les données fictives des exercices. Une fois le geste compris, revenez aux infractions alimentaires et notez chaque recodage choisi.
+
 ## Plan d’apprentissage
 
 1 Lectures et mini-test Revoir chaînes, facteurs, fréquences et proportions. [Mini-test](mini_test.llms.md) Ouvrir la carteRéduire
@@ -50,7 +68,7 @@ données nettoyées catégories vérifiées article rédigé
 - [Introduction to Modern Statistics - Explore categorical data](https://openintrostat.github.io/ims/explore-categorical)
 - [Documentation de forcats](https://forcats.tidyverse.org/)
 
-#### Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf)
 - [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf)

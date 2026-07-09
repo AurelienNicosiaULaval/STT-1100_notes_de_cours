@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6103,11 +6130,11 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mini-test-formatif" class="level1">
-<h1>Mini-test formatif</h1>
+<section id="mini-test-formatif" class="level2">
+<h2 class="anchored" data-anchor-id="mini-test-formatif">Mini-test formatif</h2>
 <p>Ce mini-test sert à vérifier les lectures du module 2. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu avant l’aventure et le défi.</p>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>Vrai ou faux: un commit enregistre une étape localement, tandis qu’un push envoie cette étape vers GitHub.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -6126,8 +6153,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-2" class="level2">
-<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p>Quelle fonction sert à importer un fichier Excel dans R?</p>
 <ol type="a">
 <li><code>read_csv()</code></li>
@@ -6152,8 +6179,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-3" class="level2">
-<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
 <p>Vrai ou faux: un rapport Quarto reproductible devrait importer les données dans un bloc de code, même si on a d’abord testé l’importation avec l’interface de RStudio.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6172,8 +6199,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-4" class="level2">
-<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
 <p>À quoi sert principalement <code>glimpse()</code>?</p>
 <ol type="a">
 <li>Produire un graphique</li>
@@ -6198,8 +6225,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-5" class="level2">
-<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
 <p>Quelle fonction de <code>dplyr</code> sert à garder seulement certaines colonnes?</p>
 <ol type="a">
 <li><code>select()</code></li>
@@ -6224,8 +6251,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-6" class="level2">
-<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <p>Quelle fonction de <code>dplyr</code> sert à créer une nouvelle variable?</p>
 <ol type="a">
 <li><code>summarise()</code></li>
@@ -6250,8 +6277,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-7" class="level2">
-<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
 <p>Vous voulez calculer la moyenne et l’écart-type de la masse corporelle par espèce. Quelle combinaison est la plus appropriée?</p>
 <ol type="a">
 <li><code>group_by(species)</code> puis <code>summarise()</code></li>
@@ -6276,8 +6303,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-8" class="level2">
-<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+<section id="question-8" class="level3">
+<h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
 <p>Vrai ou faux: la moyenne est toujours plus robuste que la médiane aux valeurs extrêmes.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -6296,8 +6323,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-9" class="level2">
-<h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
+<section id="question-9" class="level3">
+<h3 class="anchored" data-anchor-id="question-9">Question 9</h3>
 <p>Quel graphique convient le mieux pour observer la distribution d’une seule variable numérique?</p>
 <ol type="a">
 <li>Un histogramme</li>
@@ -6322,8 +6349,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-10" class="level2">
-<h2 class="anchored" data-anchor-id="question-10">Question 10</h2>
+<section id="question-10" class="level3">
+<h3 class="anchored" data-anchor-id="question-10">Question 10</h3>
 <p>Quel graphique convient bien pour comparer une variable numérique entre plusieurs groupes?</p>
 <ol type="a">
 <li>Une boîte à moustaches</li>
@@ -6348,8 +6375,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-11" class="level2">
-<h2 class="anchored" data-anchor-id="question-11">Question 11</h2>
+<section id="question-11" class="level3">
+<h3 class="anchored" data-anchor-id="question-11">Question 11</h3>
 <p>Quel graphique convient bien pour étudier la relation entre deux variables numériques?</p>
 <ol type="a">
 <li>Un nuage de points</li>
@@ -6374,8 +6401,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-12" class="level2">
-<h2 class="anchored" data-anchor-id="question-12">Question 12</h2>
+<section id="question-12" class="level3">
+<h3 class="anchored" data-anchor-id="question-12">Question 12</h3>
 <p>Vrai ou faux: modifier directement le fichier Excel brut est une bonne pratique si le rapport final contient seulement les graphiques corrigés.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">

@@ -37,11 +37,29 @@ modèle simple limites biais discutés
 - Ajuster et interpréter un modèle de régression linéaire multiple.
 - Reconnaître et discuter des biais potentiels, notamment ceux liés à la discrimination, dans les données ou les modèles.
 
+## Préparer le module
+
+### Prérequis
+
+Reprenez l’interprétation d’une association du module 5 et les limites liées aux données manquantes du module 4. Une prédiction reste une aide à décrire un modèle, pas une conclusion causale.
+
+### Parcours minimal
+
+Ajustez le modèle fourni, comparez quelques valeurs observées et prédites, examinez les erreurs et nommez une limite. Ces comparaisons utilisent les données d’ajustement: elles servent au diagnostic, non à garantir une performance sur de nouvelles données.
+
+### Capsule accessible
+
+Préparez un plan de 180 secondes, un visuel lisible et un court transcript ou des sous-titres. La capsule doit pouvoir être comprise sans dépendre uniquement de l’audio.
+
+### Si vous bloquez
+
+Choisissez une seule option du défi, formulez la question en une phrase et construisez un premier résultat visuel avant d’enregistrer la capsule.
+
 ## Plan d’apprentissage
 
 Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.
 
-1 Lectures à faire Préparer prédiction, validation et biais algorithmiques. Dans la carte Ouvrir la carteRéduire
+1 Lectures à faire Préparer prédiction, diagnostics descriptifs et biais algorithmiques. Dans la carte Ouvrir la carteRéduire
 
 ### Lectures
 

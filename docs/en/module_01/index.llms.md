@@ -46,6 +46,26 @@ At the end of this module, you should be able to
 
 - Write a simple report in Quarto, including text, code blocks, section titles.
 
+## Prepare for the module
+
+### Before you start
+
+Confirm that R, RStudio and Quarto are installed. Open RStudio, create an empty `.qmd` file and render it once: this technical check comes before the analysis.
+
+### Minimum route
+
+1.  Read the essential orientation material.
+2.  Complete the mini-test before opening the answers.
+3.  Produce a small HTML report that renders after restarting R.
+
+### Personal data
+
+Use a symbolic or fictitious date for the challenge. Do not put your full date of birth in a submitted report or repository.
+
+### If you get stuck
+
+Isolate the error, keep the complete message and check the minimal render first. The toolbox then helps you make a short, reproducible help request.
+
 ## Learning Plan
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills.

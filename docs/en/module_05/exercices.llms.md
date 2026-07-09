@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 These exercises are independent from the adventure and challenge. They consolidate the technical moves from module 5: manipulate dates, summarize groups, visualize associations, calculate simple correlations and write cautious conclusions.
 
@@ -13,7 +13,7 @@ library(tidyverse)
 library(lubridate)
 ```
 
-# Readings to Review
+## Readings to Review
 
 - [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html)
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
@@ -24,11 +24,11 @@ library(lubridate)
 
 After the readings, also complete the [formative mini-test](../module_05/mini_test.llms.md). It is not graded.
 
-# Block A - Dates, Structure and Missing Values
+## Block A - Dates, Structure and Missing Values
 
 The file `data/fictitious_support_workshops.csv` describes fake university support workshops.
 
-## Exercise 1 - Import and Inspect
+### Exercise 1 - Import and Inspect
 
 Import the file, display its structure and check its dimensions.
 
@@ -68,7 +68,7 @@ Import the file, display its structure and check its dimensions.
 >       <int>   <int>
 >     1    24      10
 
-## Exercise 2 - Prepare Temporal Variables
+### Exercise 2 - Prepare Temporal Variables
 
 Transform `workshop_date` into a date, then create `weekday`, `month` and `time_of_day`.
 
@@ -104,7 +104,7 @@ Transform `workshop_date` into a date, then create `weekday`, `month` and `time_
 >     7 A-007       2026-02-03    Tuesday  February          9 morning
 >     8 A-008       2026-02-05    Thursday February         15 afternoon
 
-## Exercise 3 - Identify Missing Values
+### Exercise 3 - Identify Missing Values
 
 Calculate the number of missing values in `participants`, `rain_mm` and `mean_satisfaction`.
 
@@ -124,7 +124,7 @@ Calculate the number of missing values in `participants`, `rain_mm` and `mean_sa
 >                      <int>        <int>                <int>
 >     1                    0            1                    1
 
-## Exercise 4 - Summarize by Time of Day
+### Exercise 4 - Summarize by Time of Day
 
 Calculate the number of workshops, mean participation and mean satisfaction by `time_of_day`.
 
@@ -150,9 +150,9 @@ Calculate the number of workshops, mean participation and mean satisfaction by `
 >     2 evening               5              35.8              4.55
 >     3 morning               8              23.2              4.28
 
-# Block B - Associations and Visualizations
+## Block B - Associations and Visualizations
 
-## Exercise 5 - Visualize Participants
+### Exercise 5 - Visualize Participants
 
 Produce a column chart of the mean number of participants by time of day.
 
@@ -171,7 +171,7 @@ Produce a column chart of the mean number of participants by time of day.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
 
-## Exercise 6 - Compare Topics
+### Exercise 6 - Compare Topics
 
 For each workshop topic, calculate the number of workshops, mean participation and mean satisfaction.
 
@@ -199,7 +199,7 @@ For each workshop topic, calculate the number of workshops, mean participation a
 >     3 Quarto                  6              19.7              4.17
 >     4 Import                  5              16.8              3.88
 
-## Exercise 7 - Calculate a Correlation Matrix
+### Exercise 7 - Calculate a Correlation Matrix
 
 Calculate the correlations between `duration_minutes`, `participants`, `temperature_c`, `rain_mm` and `mean_satisfaction`.
 
@@ -227,7 +227,7 @@ Calculate the correlations between `duration_minutes`, `participants`, `temperat
 >
 > Correlation summarizes a linear association. It is not enough to establish cause and effect.
 
-## Exercise 8 - Make a Scatterplot
+### Exercise 8 - Make a Scatterplot
 
 Create a graph of `duration_minutes` and `participants`. Add a trend line.
 
@@ -250,7 +250,7 @@ Create a graph of `duration_minutes` and `participants`. Add a trend line.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
 
-## Exercise 9 - Compare Rainy and Non-Rainy Days
+### Exercise 9 - Compare Rainy and Non-Rainy Days
 
 Create a `rainy_day` variable, then compare mean participation by that variable.
 
@@ -282,9 +282,9 @@ Create a `rainy_day` variable, then compare mean participation by that variable.
 >     2 rain                  12              22.4
 >     3 unknown rain           1              19
 
-# Block C - Cautious Interpretation
+## Block C - Cautious Interpretation
 
-## Exercise 10 - Write a Descriptive Conclusion
+### Exercise 10 - Write a Descriptive Conclusion
 
 Using one of the previous tables, write two sentences:
 
@@ -295,7 +295,7 @@ Using one of the previous tables, write two sentences:
 >
 > Evening workshops seem to have higher mean participation in this small fictitious file. This comparison remains descriptive because evening workshops do not always cover the same topics and the number of observations is limited.
 
-## Exercise 11 - Choose an Appropriate Visualization
+### Exercise 11 - Choose an Appropriate Visualization
 
 Choose one of the two questions below, then produce an appropriate graph.
 
@@ -318,7 +318,7 @@ Choose one of the two questions below, then produce an appropriate graph.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-10-1.png)
 
-## Exercise 12 - Build a Small Summary Table
+### Exercise 12 - Build a Small Summary Table
 
 Create a summary table by campus with the number of workshops, total participation, mean participation and mean satisfaction.
 
@@ -342,9 +342,9 @@ Create a summary table by campus with the number of workshops, total participati
 >     1 Levis            8                 129               16.1              3.9
 >     2 Quebec          16                 461               28.8              4.41
 
-# Case Studies
+## Case Studies
 
-## Case Study 1 - Fictitious Library Visits
+### Case Study 1 - Fictitious Library Visits
 
 The file `data/fictitious_library_visits.csv` describes fake library-area visit observations.
 
@@ -419,7 +419,7 @@ Complete the following tasks:
 >
 > A cautious conclusion could state that evening observations seem busier in this file, especially in the computer area. This conclusion remains descriptive because exam week, area and campus vary at the same time.
 
-## Case Study 2 - Fictitious Campus Service Requests
+### Case Study 2 - Fictitious Campus Service Requests
 
 The file `data/fictitious_campus_service_requests.csv` describes fake requests sent to campus services.
 

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Scenario: Quality Control in Education
+## Scenario: Quality Control in Education
 
 You work as a junior data scientist in the quality control and equity department at the Quebec Ministry of Education. Your mandate is to use real and fictitious data to build a first prediction, then examine the limits and possible biases of that prediction.
 
@@ -30,7 +30,7 @@ Data `ecoles_primaires_qc.csv` and `eleves_fictifs.csv`
 
 Deliverable Short video capsule with a result, visualization and careful interpretation
 
-## Adventure Objectives
+### Adventure Objectives
 
 - Fit a multiple linear regression model.
 - Use `predict()` to produce targeted predictions.
@@ -45,7 +45,7 @@ Deliverable Short video capsule with a result, visualization and careful interpr
 > - You analyze descriptive bias without confusing an observed difference with proof of discrimination.
 > - You prepare a short, clear and accessible video explanation.
 
-# Mission 1: Predictive Model at the School Level
+## Mission 1: Predictive Model at the School Level
 
 Michel gives you the `ecoles_primaires_qc.csv` file. It contains information on disadvantage indices in Quebec primary schools.
 
@@ -53,7 +53,7 @@ Michel gives you the `ecoles_primaires_qc.csv` file. It contains information on 
 >
 > Column names are not always intuitive. Before modeling, inspect the variables and check which rows are usable.
 
-## Step 1: Exploration and Cleaning
+### Step 1: Exploration and Cleaning
 
 Start by loading the data and inspecting its structure.
 
@@ -89,7 +89,7 @@ nrow(df_model)
 >
 > Rows where `Diffusion == "NON"` do not contain `IMSE`, `SFR` or `Nbre_Eleves` in the local file. Therefore, the requested model cannot predict these rows without additional information.
 
-## Step 2: Regression Model
+### Step 2: Regression Model
 
 > **IMPORTANT:**
 >
@@ -107,7 +107,7 @@ Questions to answer:
 - What does the coefficient associated with `Nbre_Eleves` mean, if `SFR` stays constant?
 - Does a statistical association allow us to conclude that there is a causal relationship?
 
-## Step 3: Targeted Predictions
+### Step 3: Targeted Predictions
 
 Use `predict()` to produce predictions on observed schools.
 
@@ -118,6 +118,10 @@ df_predictions <- df_model |>
     error = IMSE - predicted_imse
   )
 ```
+
+> **NOTE:**
+>
+> The schools compared here were also used to fit the model. The errors help identify poorly described cases or visible limits in the fitting data. They do not measure the model’s performance on new schools.
 
 Michel asks you for two targeted comparisons.
 
@@ -137,7 +141,7 @@ df_predictions |>
 >
 > Does the model seem equally reliable for all schools? Which schools have the largest errors? What does this tell you about the model’s limits?
 
-## Step 4: Non-Disclosed Cases and Model Limits
+### Step 4: Non-Disclosed Cases and Model Limits
 
 In the file, some rows have `Diffusion == "NON"`. These rows do not contain values for the variables required by the model.
 
@@ -159,7 +163,7 @@ df_schools |>
 >
 > Can we predict the IMSE of non-disclosed schools with this model? If not, what additional data would we need? And why would it be risky to automatically replace these missing values with a prediction?
 
-# Mission 2: Detecting a Descriptive Bias
+## Mission 2: Detecting a Descriptive Bias
 
 Michel also provides a fictitious dataset of 1000 students, `eleves_fictifs.csv`. At first glance, this dataset looks neutral. But is it really?
 
@@ -169,7 +173,7 @@ df_students <- read_csv("eleves_fictifs.csv")
 glimpse(df_students)
 ```
 
-## Step 1: Overall Admission Rate
+### Step 1: Overall Admission Rate
 
 Start by calculating the overall admission rate.
 
@@ -181,7 +185,7 @@ overall_rate <- df_students |>
 overall_rate
 ```
 
-## Step 2: Admission Rate by Sex
+### Step 2: Admission Rate by Sex
 
 Then explore admission rates by `Sexe`.
 
@@ -209,7 +213,7 @@ ggplot(rate_sex, aes(x = Sexe, y = pct, fill = Admission)) +
   theme_minimal()
 ```
 
-## Step 3: Guided Discussion
+### Step 3: Guided Discussion
 
 Answer the following questions:
 
@@ -218,7 +222,7 @@ Answer the following questions:
 - What other variables should be examined before drawing a conclusion?
 - Can we speak of a descriptive bias in this dataset? Why?
 
-## Step 4: Other Variables
+### Step 4: Other Variables
 
 Repeat the same logic for other variables, for example `Langue_maternelle`, `Niveau_socio_economique` or `Acces_ressources`.
 
@@ -230,7 +234,7 @@ df_students |>
   ungroup()
 ```
 
-# Challenge to Submit
+## Challenge to Submit
 
 The challenge associated with this adventure is described on the page [Challenge 9 - Video Capsule](../module_09/defi.llms.md).
 
@@ -245,6 +249,6 @@ Your trace should show the result, but also careful interpretation.
 - one clear sentence about association, prediction and causality;
 - a draft accessible explanation for the video capsule.
 
-# Conclusion of the Adventure
+## Conclusion of the Adventure
 
 You built a first predictive model, produced targeted predictions and identified a descriptive bias in fictitious data. The central point of the adventure is caution: a model can be useful, but it must always be accompanied by a discussion of its limits, missing data and possible effects.

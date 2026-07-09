@@ -20,14 +20,14 @@ library(jsonlite)
 library(janitor)
 ```
 
-# Bloc A - Importer et inspecter
+## Bloc A - Importer et inspecter
 
-## Exercice 1 - Lire un CSV avec types contrôlés
+### Exercice 1 - Lire un CSV avec types contrôlés
 
 Importez `policies.csv` en forçant `policy_id` en texte et `premium_amount` en nombre.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 policies <- read_csv(
@@ -43,12 +43,12 @@ glimpse(policies)
 ```
 :::
 
-## Exercice 2 - Vérifier les dimensions et les noms
+### Exercice 2 - Vérifier les dimensions et les noms
 
 Vérifiez le nombre de lignes, le nombre de colonnes et les noms de variables de `policies`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 tibble(
@@ -60,12 +60,12 @@ names(policies)
 ```
 :::
 
-## Exercice 3 - Nettoyer des noms de colonnes
+### Exercice 3 - Nettoyer des noms de colonnes
 
 Créez un petit tableau avec des noms de colonnes peu pratiques, puis nettoyez-les avec `clean_names()`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 tableau_brut <- tibble(
@@ -80,12 +80,12 @@ names(tableau_propre)
 ```
 :::
 
-## Exercice 4 - Passer du format large au format long
+### Exercice 4 - Passer du format large au format long
 
 Dans `policies`, les colonnes `q1_claims` à `q4_claims` représentent des réclamations trimestrielles. Transformez-les en deux colonnes: `trimestre` et `reclamations`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 policies_long <- policies |>
@@ -101,14 +101,14 @@ policies_long |>
 ```
 :::
 
-# Bloc B - Nettoyer valeurs et catégories
+## Bloc B - Nettoyer valeurs et catégories
 
-## Exercice 5 - Revenir au format large
+### Exercice 5 - Revenir au format large
 
 À partir de `policies_long`, revenez au format large.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 policies_wide <- policies_long |>
@@ -121,12 +121,12 @@ glimpse(policies_wide)
 ```
 :::
 
-## Exercice 6 - Recoder des catégories proches
+### Exercice 6 - Recoder des catégories proches
 
 La variable `vehicle_use` contient des variantes comme `"Pleasure"`, `"pleasure"` et `"Com.mute"`. Nettoyez-la pour obtenir seulement `"Pleasure"` et `"Commute"`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 policies_use_clean <- policies |>
@@ -144,7 +144,7 @@ policies_use_clean |>
 ```
 :::
 
-## Exercice 7 - Parser un montant avec une virgule décimale
+### Exercice 7 - Parser un montant avec une virgule décimale
 
 Transformez les montants textuels suivants en nombres.
 
@@ -155,7 +155,7 @@ montants <- tibble(
 ```
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 montants |>
@@ -169,7 +169,7 @@ montants |>
 ```
 :::
 
-## Exercice 8 - Détecter des codes FSA invalides
+### Exercice 8 - Détecter des codes FSA invalides
 
 Un code FSA devrait contenir trois caractères. Dans le tableau suivant, repérez les lignes invalides.
 
@@ -181,7 +181,7 @@ codes_fsa <- tibble(
 ```
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 codes_fsa |>
@@ -190,14 +190,14 @@ codes_fsa |>
 ```
 :::
 
-# Bloc C - Documenter un nettoyage
+## Bloc C - Documenter un nettoyage
 
-## Exercice 9 - Créer une structure de journal
+### Exercice 9 - Créer une structure de journal
 
 Créez une liste `journal_nettoyage` avec les catégories `VM`, `VA`, `FT`, `RC` et `TY`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 journal_nettoyage <- list(
@@ -212,12 +212,12 @@ str(journal_nettoyage)
 ```
 :::
 
-## Exercice 10 - Ajouter une entrée de correction
+### Exercice 10 - Ajouter une entrée de correction
 
 Ajoutez une entrée indiquant que la valeur `-999` a été remplacée par `NA` dans une variable de montant.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 journal_nettoyage$VM <- append(journal_nettoyage$VM, list(
@@ -234,12 +234,12 @@ journal_nettoyage$VM
 ```
 :::
 
-## Exercice 11 - Signaler sans corriger
+### Exercice 11 - Signaler sans corriger
 
 Ajoutez une entrée indiquant qu'un code FSA invalide a été signalé, mais non corrigé automatiquement.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 journal_nettoyage$FT <- append(journal_nettoyage$FT, list(
@@ -256,12 +256,12 @@ journal_nettoyage$FT
 ```
 :::
 
-## Exercice 12 - Sauvegarder un journal dans un fichier temporaire
+### Exercice 12 - Sauvegarder un journal dans un fichier temporaire
 
 Sauvegardez `journal_nettoyage` dans un fichier temporaire, puis vérifiez que le fichier existe.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 chemin_temp <- tempfile(fileext = ".Rdata")
@@ -270,14 +270,14 @@ file.exists(chemin_temp)
 ```
 :::
 
-# Bloc D - Excel, JSON et règles de validation
+## Bloc D - Excel, JSON et règles de validation
 
-## Exercice 13 - Lire une feuille Excel précise
+### Exercice 13 - Lire une feuille Excel précise
 
 Le fichier `resources/quotes_2024.xlsx` contient une feuille `Q3`. Importez-la en sautant la première ligne.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 quotes_q3 <- read_excel(
@@ -290,12 +290,12 @@ glimpse(quotes_q3)
 ```
 :::
 
-## Exercice 14 - Lire un JSON simple
+### Exercice 14 - Lire un JSON simple
 
 Lisez `coverage.json`, puis récupérez la limite de couverture collision.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 coverage <- read_json("coverage.json")
@@ -304,12 +304,12 @@ coverage$coverage$collision$limit
 ```
 :::
 
-## Exercice 15 - Rectangulariser un JSON
+### Exercice 15 - Rectangulariser un JSON
 
 Transformez la section `coverage` du JSON en tableau.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 coverage_tbl <- tibble(
@@ -322,12 +322,12 @@ coverage_tbl
 ```
 :::
 
-## Exercice 16 - Utiliser une règle de validation
+### Exercice 16 - Utiliser une règle de validation
 
 Le fichier `data/regles_equipements_fictif.json` indique les années d'installation plausibles. Lisez ce fichier et affichez les bornes acceptées.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 regles <- fromJSON("data/regles_equipements_fictif.json")
@@ -339,9 +339,9 @@ tibble(
 ```
 :::
 
-# Études de cas
+## Études de cas
 
-## Étude de cas 1 - Demandes de bourses fictives
+### Étude de cas 1 - Demandes de bourses fictives
 
 Le fichier `data/demandes_bourses_fictif.csv` contient de fausses demandes de bourses étudiantes. Il ne représente aucun système réel.
 
@@ -356,7 +356,7 @@ Réalisez les tâches suivantes:
 7. créez au moins deux entrées dans un journal de nettoyage.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 bourses <- read_csv(
@@ -413,7 +413,7 @@ journal_bourses
 ```
 :::
 
-## Étude de cas 2 - Équipements municipaux fictifs
+### Étude de cas 2 - Équipements municipaux fictifs
 
 Le fichier `data/equipements_municipaux_fictif.csv` contient de faux enregistrements d'équipements municipaux. Le fichier `data/regles_equipements_fictif.json` contient quelques règles de validation.
 
@@ -428,7 +428,7 @@ Réalisez les tâches suivantes:
 7. documentez au moins deux décisions.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 regles <- fromJSON("data/regles_equipements_fictif.json")

@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6096,8 +6123,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="objectifs-du-module" class="level1">
-<h1>Objectifs du module</h1>
+<section id="objectifs-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
 <p>À la fin de ce module, vous devriez être capable de :</p>
 <ul>
 <li>extraire des données textuelles d’une page web avec <code>rvest</code>;</li>
@@ -6107,8 +6134,8 @@ margin-bottom: .05rem;
 <li>expliquer les limites techniques et éthiques d’une collecte automatisée.</li>
 </ul>
 </section>
-<section id="lectures" class="level1">
-<h1>Lectures</h1>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
 <p>Pour vous préparer, consultez les ressources suivantes :</p>
 <ul>
 <li><a href="https://r4ds.hadley.nz/webscraping.html">R for Data Science - Web scraping</a></li>
@@ -6119,8 +6146,8 @@ margin-bottom: .05rem;
 <li><a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro">Google Search Central - Introduction to robots.txt</a></li>
 <li><a href="https://docs.ropensci.org/robotstxt/">Documentation du package robotstxt</a></li>
 </ul>
-<section id="aide-mémoires-posit" class="level2">
-<h2 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h2>
+<section id="aide-mémoires-posit" class="level3">
+<h3 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h3>
 <ul>
 <li><p><a href="https://rstudio.github.io/cheatsheets/purrr.pdf" target="_blank">Apply functions with purrr :: Cheatsheet</a> Automatisation avec <code>map()</code> et fonctions apparentées.</p></li>
 <li><p><a href="https://rstudio.github.io/cheatsheets/strings.pdf" target="_blank">String manipulation with stringr :: Cheatsheet</a> Nettoyage et extraction de texte après la collecte.</p></li>
@@ -6128,13 +6155,13 @@ margin-bottom: .05rem;
 <p>Après les lectures, faites le <a href="../module_08/mini_test.html">mini-test formatif</a>. Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.</p>
 </section>
 </section>
-<section id="aventure" class="level1">
-<h1>Aventure</h1>
+<section id="aventure" class="level2">
+<h2 class="anchored" data-anchor-id="aventure">Aventure</h2>
 <p>Vous incarnez une personne consultante en science des données engagée pour développer une fonction d’extraction automatisée de métadonnées à partir du portail Données Québec.</p>
 <p>Lien vers l’aventure : <a href="../module_08/aventure.html">Aventure 8 - Données ouvertes du Québec</a></p>
 </section>
-<section id="défi---fonction-de-scraping" class="level1 unnumbered">
-<h1 class="unnumbered">Défi - Fonction de scraping</h1>
+<section id="défi---fonction-de-scraping" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="défi---fonction-de-scraping">Défi - Fonction de scraping</h2>
 <p>Le défi consiste à produire un fichier <code>IDUL.R</code> contenant une fonction <code>scrape_page(url)</code>.</p>
 <p>La fonction doit :</p>
 <ul>
@@ -6146,8 +6173,8 @@ margin-bottom: .05rem;
 <p>Consigne complète : <a href="../module_08/defi.html">Défi 8 - Fonction de scraping</a></p>
 <p>Dépôt de départ : <code>STT-1100/aventure-8</code></p>
 </section>
-<section id="exercices-de-consolidation" class="level1 unnumbered">
-<h1 class="unnumbered">Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils utilisent des pages HTML fictives locales pour pratiquer les sélecteurs CSS, les fonctions d’extraction, l’automatisation sur plusieurs pages, la gestion des champs manquants et les limites éthiques d’une collecte.</p>
 <p>Lien vers les exercices : <a href="../module_08/exercices.html">Exercices de consolidation</a></p>
 

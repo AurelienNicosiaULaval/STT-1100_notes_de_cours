@@ -11,7 +11,7 @@ format:
 editor: visual
 ---
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 5: manipuler des dates, résumer des groupes, visualiser des associations, calculer des corrélations simples et formuler des conclusions prudentes.
 
@@ -22,7 +22,7 @@ library(tidyverse)
 library(lubridate)
 ```
 
-# Lectures à revoir
+## Lectures à revoir
 
 - [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html){target="_blank"}
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html){target="_blank"}
@@ -33,16 +33,16 @@ library(lubridate)
 
 Après les lectures, faites aussi le [mini-test formatif](mini_test.qmd). Il n'est pas noté.
 
-# Bloc A - Dates, structure et valeurs manquantes
+## Bloc A - Dates, structure et valeurs manquantes
 
 Le fichier `data/ateliers_soutien_fictif.csv` décrit de faux ateliers de soutien universitaire.
 
-## Exercice 1 - Importer et inspecter
+### Exercice 1 - Importer et inspecter
 
 Importez le fichier, affichez sa structure et vérifiez ses dimensions.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 ateliers <- read_csv(
@@ -59,12 +59,12 @@ tibble(
 ```
 :::
 
-## Exercice 2 - Préparer les variables temporelles
+### Exercice 2 - Préparer les variables temporelles
 
 Transformez `date_atelier` en date, puis créez `jour_semaine`, `mois` et `moment_journee`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 ateliers_dates <- ateliers |>
@@ -85,12 +85,12 @@ ateliers_dates |>
 ```
 :::
 
-## Exercice 3 - Repérer les valeurs manquantes
+### Exercice 3 - Repérer les valeurs manquantes
 
 Calculez le nombre de valeurs manquantes dans `participants`, `pluie_mm` et `satisfaction_moyenne`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 ateliers_dates |>
@@ -102,12 +102,12 @@ ateliers_dates |>
 ```
 :::
 
-## Exercice 4 - Résumer par moment de la journée
+### Exercice 4 - Résumer par moment de la journée
 
 Calculez le nombre d'ateliers, le nombre moyen de participantes et participants, et la satisfaction moyenne selon `moment_journee`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 resume_moment <- ateliers_dates |>
@@ -123,14 +123,14 @@ resume_moment
 ```
 :::
 
-# Bloc B - Associations et visualisations
+## Bloc B - Associations et visualisations
 
-## Exercice 5 - Visualiser les participantes et participants
+### Exercice 5 - Visualiser les participantes et participants
 
 Produisez un diagramme en colonnes du nombre moyen de participantes et participants selon le moment de la journée.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 resume_moment |>
@@ -144,12 +144,12 @@ resume_moment |>
 ```
 :::
 
-## Exercice 6 - Comparer les thèmes
+### Exercice 6 - Comparer les thèmes
 
 Pour chaque thème d'atelier, calculez le nombre d'ateliers, la participation moyenne et la satisfaction moyenne.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 resume_theme <- ateliers_dates |>
@@ -166,12 +166,12 @@ resume_theme
 ```
 :::
 
-## Exercice 7 - Calculer une matrice de corrélation
+### Exercice 7 - Calculer une matrice de corrélation
 
 Calculez les corrélations entre `duree_minutes`, `participants`, `temperature_c`, `pluie_mm` et `satisfaction_moyenne`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 ateliers_dates |>
@@ -183,12 +183,12 @@ ateliers_dates |>
 La corrélation résume une association linéaire. Elle ne suffit pas à établir une relation de cause à effet.
 :::
 
-## Exercice 8 - Faire un nuage de points
+### Exercice 8 - Faire un nuage de points
 
 Créez un graphique de `duree_minutes` et `participants`. Ajoutez une droite de tendance.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 ateliers_dates |>
@@ -204,12 +204,12 @@ ateliers_dates |>
 ```
 :::
 
-## Exercice 9 - Comparer les jours pluvieux et non pluvieux
+### Exercice 9 - Comparer les jours pluvieux et non pluvieux
 
 Créez une variable `jour_pluvieux`, puis comparez la participation moyenne selon cette variable.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 ateliers_pluie <- ateliers_dates |>
@@ -231,9 +231,9 @@ ateliers_pluie |>
 ```
 :::
 
-# Bloc C - Interprétation prudente
+## Bloc C - Interprétation prudente
 
-## Exercice 10 - Écrire une conclusion descriptive
+### Exercice 10 - Écrire une conclusion descriptive
 
 À partir de l'un des tableaux précédents, écrivez deux phrases:
 
@@ -241,12 +241,12 @@ ateliers_pluie |>
 2. une phrase qui précise une limite.
 
 ::: {.callout-note collapse="true"}
-## Exemple de réponse
+### Exemple de réponse
 
 Les ateliers du soir semblent avoir une participation moyenne plus élevée dans ce petit fichier fictif. Cette comparaison reste descriptive, car les ateliers du soir ne portent pas toujours sur les mêmes thèmes et le nombre d'observations est limité.
 :::
 
-## Exercice 11 - Choisir une visualisation adaptée
+### Exercice 11 - Choisir une visualisation adaptée
 
 Choisissez une question parmi les deux suivantes, puis produisez un graphique adapté.
 
@@ -254,7 +254,7 @@ Choisissez une question parmi les deux suivantes, puis produisez un graphique ad
 2. La participation varie-t-elle selon la température?
 
 ::: {.callout-note collapse="true"}
-## Solution possible
+### Solution possible
 
 ```{r}
 ateliers_dates |>
@@ -269,12 +269,12 @@ ateliers_dates |>
 ```
 :::
 
-## Exercice 12 - Construire un petit tableau de synthèse
+### Exercice 12 - Construire un petit tableau de synthèse
 
 Créez un tableau de synthèse par campus avec le nombre d'ateliers, la participation totale, la participation moyenne et la satisfaction moyenne.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 ateliers_dates |>
@@ -289,9 +289,9 @@ ateliers_dates |>
 ```
 :::
 
-# Études de cas
+## Études de cas
 
-## Étude de cas 1 - Fréquentation fictive d'une bibliothèque
+### Étude de cas 1 - Fréquentation fictive d'une bibliothèque
 
 Le fichier `data/frequentation_bibliotheque_fictive.csv` décrit de fausses observations de fréquentation dans des zones de bibliothèque.
 
@@ -306,7 +306,7 @@ Réalisez les tâches suivantes:
 7. rédigez une conclusion prudente.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 bibliotheque <- read_csv(
@@ -350,7 +350,7 @@ bibliotheque |>
 Une conclusion prudente pourrait indiquer que les observations du soir semblent plus fréquentées dans ce fichier, surtout dans la zone des ordinateurs. Cette conclusion reste descriptive, car la semaine d'examens, la zone et le campus varient en même temps.
 :::
 
-## Étude de cas 2 - Demandes fictives de services campus
+### Étude de cas 2 - Demandes fictives de services campus
 
 Le fichier `data/demandes_services_campus_fictif.csv` décrit de fausses demandes adressées à des services de campus.
 
@@ -364,7 +364,7 @@ Réalisez les tâches suivantes:
 6. rédigez une conclusion prudente.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 demandes <- read_csv(

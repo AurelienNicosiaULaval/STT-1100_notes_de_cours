@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6064,6 +6091,7 @@ margin-bottom: .05rem;
   <ul>
   <li><a href="#produit-fini-du-module" id="toc-produit-fini-du-module" class="nav-link active" data-scroll-target="#produit-fini-du-module">Produit fini du module</a></li>
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
+  <li><a href="#préparer-le-module" id="toc-préparer-le-module" class="nav-link" data-scroll-target="#préparer-le-module">Préparer le module</a></li>
   <li><a href="#plan-dapprentissage" id="toc-plan-dapprentissage" class="nav-link" data-scroll-target="#plan-dapprentissage">Plan d’apprentissage</a></li>
   <li><a href="#données-et-outils" id="toc-données-et-outils" class="nav-link" data-scroll-target="#données-et-outils">Données et outils</a></li>
   <li><a href="#révision-et-prolongement" id="toc-révision-et-prolongement" class="nav-link" data-scroll-target="#révision-et-prolongement">Révision et prolongement</a></li>
@@ -6144,6 +6172,27 @@ Construire une première prédiction et discuter les biais possibles.
 <li>Reconnaître et discuter des biais potentiels, notamment ceux liés à la discrimination, dans les données ou les modèles.</li>
 </ul>
 </section>
+<section id="préparer-le-module" class="level2">
+<h2 class="anchored" data-anchor-id="préparer-le-module">Préparer le module</h2>
+<div class="module-readiness">
+<section id="prérequis" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="prérequis">Prérequis</h3>
+<p>Reprenez l’interprétation d’une association du module 5 et les limites liées aux données manquantes du module 4. Une prédiction reste une aide à décrire un modèle, pas une conclusion causale.</p>
+</section>
+<section id="parcours-minimal" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="parcours-minimal">Parcours minimal</h3>
+<p>Ajustez le modèle fourni, comparez quelques valeurs observées et prédites, examinez les erreurs et nommez une limite. Ces comparaisons utilisent les données d’ajustement: elles servent au diagnostic, non à garantir une performance sur de nouvelles données.</p>
+</section>
+<section id="capsule-accessible" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="capsule-accessible">Capsule accessible</h3>
+<p>Préparez un plan de 180 secondes, un visuel lisible et un court transcript ou des sous-titres. La capsule doit pouvoir être comprise sans dépendre uniquement de l’audio.</p>
+</section>
+<section id="si-vous-bloquez" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="si-vous-bloquez">Si vous bloquez</h3>
+<p>Choisissez une seule option du défi, formulez la question en une phrase et construisez un premier résultat visuel avant d’enregistrer la capsule.</p>
+</section>
+</div>
+</section>
 <section id="plan-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="plan-dapprentissage">Plan d’apprentissage</h2>
 <p>Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. Ouvrez les cartes pour voir l’action attendue et le lien utile.</p>
@@ -6151,7 +6200,7 @@ Construire une première prédiction et discuter les biais possibles.
 <details class="path-card learning-plan-card" id="lectures-a-faire">
   <summary><span class="path-number">1</span>
   <span class="path-title">Lectures à faire</span>
-  <span class="path-preview">Préparer prédiction, validation et biais algorithmiques.</span>
+  <span class="path-preview">Préparer prédiction, diagnostics descriptifs et biais algorithmiques.</span>
   <span class="path-resource path-note">Dans la carte</span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
       <div class="step-detail plan-section-detail">

@@ -26,11 +26,11 @@ Data `manchots_donnees.xlsx`
 
 Deliverable Logbook, then Quarto HTML analysis report
 
-## Progress of the mission and expected deliverables
+### Progress of the mission and expected deliverables
 
 The mission will take place in **two stages**, because Dr. Adélie will soon have to leave on an expedition to Antarctica.
 
-### Part 1 – Before Dr. Adélie leaves
+#### Part 1 – Before Dr. Adélie leaves
 
 Before her departure, you will work closely with her to explore the first avenues. She will ask you to:
 
@@ -43,7 +43,7 @@ You must write a **logbook** in a Quarto report (HTML format) which documents yo
 
 ------------------------------------------------------------------------
 
-### Part 2 – When Dr. Adélie returns
+#### Part 2 – When Dr. Adélie returns
 
 Back from her mission, Dr. Adélie will come back with **specific questions** to explore and will ask you to help her prepare a solid report to accompany her **grant application**.
 
@@ -54,7 +54,7 @@ A **structured and complete report** responding to its new specific requests, in
 
 > **Field note**: During your mission, a more experienced colleague (Jules Tremblay) will come see you from time to time to check that everything is going well. He or she will ask you a few **quick questions** to test your understanding. Answer them seriously, these checks will help you consolidate your learning!
 
-# How to succeed in this adventure
+## How to succeed in this adventure
 
 Welcome to this new adventure in data science! This time, you will collaborate with a researcher who studies penguins at Palmer Station in Antarctica. Your mission is to explore and analyze its data to help it answer its scientific questions.
 
@@ -68,7 +68,7 @@ To succeed in this adventure, here are some essential tips:
 
 This adventure will allow you to develop your skills in data manipulation, visualization and analysis with `dplyr` and `ggplot2`. These are essential skills for a data scientist. Take the time to explore the different steps and have fun learning!
 
-# Working on GitHub
+## Working on GitHub
 
 The researcher has prepared a repository on GitHub where she wants you to save all your work. For her part, she submitted the database she collected as well as a detailed description of the variables. In particular, she would like you to complete a model logbook in Quarto format.
 
@@ -88,7 +88,7 @@ Congratulations! You are now ready to begin scientific analysis of penguins!
 
 > Tip: Use the logbook template to complete all the analyzes of the first part of this adventure. So take a few minutes to look at the structure of the document.
 
-# Reading data
+## Reading data
 
 The researcher has provided you with an Excel file containing the penguin data she collected. Your first mission is to **load this data into R** using the RStudio GUI.
 
@@ -155,9 +155,9 @@ This ensures that your analysis is **reproducible**: if another researcher wants
 
 \*\* Once your data is loaded, you are ready to explore and analyze it ! Remember to generate your report, commit your changes and push to GitHub to keep track of your work! \*\*
 
-# Data manipulation
+## Data manipulation
 
-## Data summary with `glimpse()`
+### Data summary with `glimpse()`
 
 The researcher wants a quick view of the data to check its structure. Use `glimpse()` to preview:
 
@@ -212,7 +212,7 @@ Don’t worry if this seems complicated! We will return to this aspect later in 
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
 
-## Select variables with `select()`
+### Select variables with `select()`
 
 The researcher wants to focus only on certain variables relevant to her analysis. Use `select()` to keep only `species`, `island`, `bill_length_mm` and `body_mass_g`:
 
@@ -229,7 +229,7 @@ penguins_subset <- penguins_mission %>%
 >
 > Select all variables except `flipper_length_mm` and `body_mass_g`. Be careful there is a quick way to do this!
 
-## Create new variables with `mutate()`
+### Create new variables with `mutate()`
 
 **Explanation**: The researcher wants to add a new column indicating the weight in kilograms instead of grams. Indeed, her measuring device indicated the measurements in g, but she believes that it will be easier to interpret in kg.
 
@@ -266,7 +266,7 @@ We will now continue with a new variable in which the researcher is very interes
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
 
-## Filter data with `filter()`
+### Filter data with `filter()`
 
 The researcher wants to analyze only penguins from **Biscoe** Island. Use `filter()` to keep only these observations:
 
@@ -279,7 +279,7 @@ penguins_biscoe <- penguins_mission %>%
 >
 > Filter the data to only keep penguins of the **Adelie** species from Biscoe Island.
 
-## Group and summarize data with `group_by()`
+### Group and summarize data with `group_by()`
 
 The researcher wants to know the average mass of penguins by species. Use `group_by()` followed by `summarise()` to get this information:
 
@@ -303,7 +303,7 @@ Thanks to `group_by` we can also, for example, filter by group, which can be ver
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
 
-# An emergency call from Antarctica
+## An emergency call from Antarctica
 
 While you are making good progress in your data analysis, you receive an urgent message from the researcher. She had to rush to Antarctica for an emergency mission: to help a colony of penguins facing extreme weather conditions.
 
@@ -311,7 +311,7 @@ Before her departure, she took care to leave you a list of essential tasks to co
 
 > **Note:** here you are still in part 1 of the adventure, but the researcher has left you a list of tasks to complete before she leaves. So you need to continue working on the `penguins_mission` dataset that you created previously. You must therefore continue to complete the logbook.
 
-# Data visualization
+## Data visualization
 
 Data visualization is an essential step in analysis because it provides a better understanding of trends and relationships between variables. Good visualization makes data easier to interpret and helps spot outliers or interesting patterns.
 
@@ -327,7 +327,7 @@ Data visualization is an essential step in analysis because it provides a better
 
 - Test several types of graphs before concluding on an analysis.
 
-## Histograms
+### Histograms
 
 **Explanation**: A histogram allows you to visualize the distribution of a numerical variable. Here we will for example examine the distribution of bill depths (`bill_depth_mm`).
 
@@ -373,7 +373,7 @@ To find out the researcher’s first request, here is the message she received:
 
 Let’s take the visualization a little further to try to answer his request.
 
-## Boxplot
+### Boxplot
 
 **Explanation**: A boxplot allows you to visualize the dispersion of a numerical variable and to identify possible outliers. Here we will look at the distribution of fin length (`flipper_length_mm`).
 
@@ -414,7 +414,7 @@ ggplot(penguins_mission, aes(x = species, y = flipper_length_mm, fill = species)
 >
 > In the previous graph, the legend title is “species”, which is by default the name of the variable. Change it to “Species” in English. You have to figure out for yourself how to do this.
 
-## Scatter plots
+### Scatter plots
 
 **Explanation**: A scatter plot (or cloud of points) allows you to visualize the relationship between two numerical variables. Here we will look at the relationship between bill length (`bill_length_mm`) and bill depth (`bill_depth_mm`).
 
@@ -442,7 +442,7 @@ To find out the researcher’s next request, here is the message you just receiv
 
 **Remember to generate your report, commit your changes and push to GitHub to keep track of your work!**
 
-# Descriptive statistics
+## Descriptive statistics
 
 **Explanation**: Descriptive statistics allow you to quickly summarize and understand a set of data. They are divided into several categories:
 
@@ -509,7 +509,7 @@ Advantages:
 > An average of **2.94**, much lower than 3.5, contradicts the colleague’s hypothesis.
 > This suggests a difference, but you could also compare the distributions, for example with a histogram or a boxplot, to better visualize the variations.
 
-## Advanced visualization and descriptive statistics (optional)
+### Advanced visualization and descriptive statistics (optional)
 
 We will now create a detailed boxplot which displays:
 
@@ -563,7 +563,7 @@ Congratulations! You have now completed part 1 of this adventure, you can go and
 > You must make a commit **after each significant step** (import, filter, graph, analysis).
 > This ensures traceability, and will save you stress if you have to go back.
 
-# The return of Dr Adélie Fortier! (2nd part of the adventure)
+## The return of Dr Adélie Fortier! (2nd part of the adventure)
 
 After several weeks in Antarctica observing penguins, our researcher is back with lots of new questions in mind. She noticed that some species seemed to have very distinct characteristics, but she would like a more in-depth analysis which will help her obtain a new grant for her research project.
 

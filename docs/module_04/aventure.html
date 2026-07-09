@@ -4301,6 +4301,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5859,7 +5885,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6133,7 +6160,7 @@ margin-bottom: .05rem;
 
 
 
-</header><section id="mise-en-situation" class="level1"><h1>Mise en situation</h1>
+</header><section id="mise-en-situation" class="level2"><h2 class="anchored" data-anchor-id="mise-en-situation">Mise en situation</h2>
 <p>Vous venez tout juste de commencer un stage comme <strong>ingénieur·e de données junior</strong> dans une grande <strong>compagnie d’assurance</strong>. Vous travaillez avec Alex, un·e analyste d’affaires expérimenté·e, qui vous a confié une mission importante.</p>
 <p>Alex vous a fourni une base de données extraite d’un ancien système d’archives. Cette base contient des informations clés sur les clients, les polices d’assurance et les réclamations. Malheureusement, la base est <strong>truffée d’erreurs potentielles</strong> : valeurs manquantes, incohérences, erreurs de format, fautes de frappe, valeurs aberrantes et doublons possibles à vérifier.</p>
 <p>Votre rôle sera d’assurer la <strong>qualité des données</strong> pour permettre à Alex de faire une analyse fiable. Certaines erreurs seront corrigées; d’autres seront seulement signalées si l’information disponible ne permet pas de choisir une correction défendable.</p>
@@ -6164,13 +6191,13 @@ Carte de visite
 </div>
 </div>
 <!-- adventure-brief:end -->
-</section><section id="objectifs-de-laventure" class="level1"><h1>Objectifs de l’aventure</h1>
+</section><section id="objectifs-de-laventure" class="level2"><h2 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h2>
 <ul>
 <li>Importer une base de données brute (<code>dataset_pratique.csv</code>).</li>
 <li>Identifier différents types d’erreurs courantes.</li>
 <li>Nettoyer et transformer les données avec <code>dplyr</code>, <code>forcats</code> et <code>stringr</code>.</li>
 <li>Documenter de façon claire <strong>toutes les modifications apportées</strong> à la base.</li>
-</ul></section><section id="comment-réussir-cette-aventure" class="level1"><h1>Comment réussir cette aventure ?</h1>
+</ul></section><section id="comment-réussir-cette-aventure" class="level2"><h2 class="anchored" data-anchor-id="comment-réussir-cette-aventure">Comment réussir cette aventure ?</h2>
 <p>À la fin de cette aventure, vous devrez :</p>
 <ol type="1">
 <li>Fournir une <strong>base de données propre</strong> (<code>donnees_propres.csv</code>).</li>
@@ -6180,7 +6207,7 @@ Carte de visite
 <blockquote class="blockquote">
 <p>Pensez à <strong>documenter chaque étape de votre nettoyage</strong>. Votre rigueur est votre meilleure alliée !</p>
 </blockquote>
-</section><section id="typologie-des-erreurs-et-structure-de-la-liste" class="level1"><h1>Typologie des erreurs et structure de la liste</h1>
+</section><section id="typologie-des-erreurs-et-structure-de-la-liste" class="level2"><h2 class="anchored" data-anchor-id="typologie-des-erreurs-et-structure-de-la-liste">Typologie des erreurs et structure de la liste</h2>
 <p>Voici un tableau de référence pour les types d’erreurs que vous pouvez rencontrer :</p>
 <table class="caption-top table">
 <colgroup>
@@ -6390,7 +6417,7 @@ list()</code></pre>
 <blockquote class="blockquote">
 <p>Cette structure vous aidera à <strong>rendre compte de vos modifications</strong> de façon propre et professionnelle.</p>
 </blockquote>
-</section><section id="github-et-rendu" class="level1"><h1>GitHub et rendu</h1>
+</section><section id="github-et-rendu" class="level2"><h2 class="anchored" data-anchor-id="github-et-rendu">GitHub et rendu</h2>
 <p>Comme pour les aventures précédentes :</p>
 <ul>
 <li>
@@ -6405,7 +6432,7 @@ list()</code></pre>
 </li>
 </ul>
 <p>Bonne chance, et que vos données soient propres !</p>
-</section><section id="importation-des-données" class="level1"><h1>Importation des données</h1>
+</section><section id="importation-des-données" class="level2"><h2 class="anchored" data-anchor-id="importation-des-données">Importation des données</h2>
 <p>Avant de nettoyer une base de données, il faut savoir l’importer correctement. Pour cette mission, Alex vous a transmis le fichier <code>dataset_pratique.csv</code>. Ce fichier est séparé par des points-virgules. Il vous recommande de :</p>
 <ul>
 <li>charger les données dans R avec la fonction <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim()</a></code> du package <code>readr</code>,</li>
@@ -6440,8 +6467,8 @@ list()</code></pre>
 <blockquote class="blockquote">
 <p><strong>Alex</strong> : « Cette base est un vrai casse-tête ! J’ai besoin que tu la rendes exploitable rapidement. Tu devrais commencer par repérer ce qui cloche dans les noms, les formats ou les valeurs. »</p>
 </blockquote>
-<hr></section><section id="exploration-initiale-des-problèmes-potentiels" class="level1"><h1>Exploration initiale des problèmes potentiels</h1>
-<section id="format-des-variables" class="level2"><h2 class="anchored" data-anchor-id="format-des-variables">Format des variables</h2>
+<hr></section><section id="exploration-initiale-des-problèmes-potentiels" class="level2"><h2 class="anchored" data-anchor-id="exploration-initiale-des-problèmes-potentiels">Exploration initiale des problèmes potentiels</h2>
+<section id="format-des-variables" class="level3"><h3 class="anchored" data-anchor-id="format-des-variables">Format des variables</h3>
 <p>Maintenant que vous avez importé la base, il est temps de faire une première exploration pour identifier les erreurs potentielles. Voici quelques étapes clés à suivre :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Dimensions de la base</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span></span>
@@ -6481,7 +6508,7 @@ as.factor(base$colonne)</code></pre>
 <blockquote class="blockquote">
 <p>Bref, vérifiez bien chaque type. Posez-vous la question : est-ce que cette variable est du texte ? Est-ce que je vais calculer dessus ? Est-ce que ce sont des catégories ? »</p>
 </blockquote>
-</section><section id="vérification-des-doublons" class="level2"><h2 class="anchored" data-anchor-id="vérification-des-doublons">Vérification des doublons</h2>
+</section><section id="vérification-des-doublons" class="level3"><h3 class="anchored" data-anchor-id="vérification-des-doublons">Vérification des doublons</h3>
 <p>Un des premiers réflexes à avoir dans toute opération de nettoyage : <strong>vérifier les doublons</strong>. Il peut s’agir :</p>
 <ul>
 <li>de doublons <strong>complets</strong> (lignes identiques sur toutes les colonnes),</li>
@@ -6510,8 +6537,8 @@ as.factor(base$colonne)</code></pre>
 <span>    justification <span class="op">=</span> <span class="st">&quot;Exemple illustratif: à adapter seulement si des doublons sont détectés&quot;</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</section></section><section id="nettoyage-des-facteurs-avec-forcats" class="level1"><h1>Nettoyage des facteurs avec <code>forcats</code>
-</h1>
+</section></section><section id="nettoyage-des-facteurs-avec-forcats" class="level2"><h2 class="anchored" data-anchor-id="nettoyage-des-facteurs-avec-forcats">Nettoyage des facteurs avec <code>forcats</code>
+</h2>
 <p>On continue l’exploration avec un type de variable souvent négligé… mais qui peut faire dérailler toute une analyse : les <strong>facteurs</strong>.</p>
 <p>En R, les facteurs sont utilisés pour représenter des <strong>catégories</strong>. Par exemple, dans la colonne <code>vehicle_type</code>, chaque valeur correspond à un type de véhicule : <code>&quot;CAR&quot;</code>, <code>&quot;TRUCK&quot;</code>, <code>&quot;VAN&quot;</code>, <code>&quot;ANIMAL&quot;</code>, etc.</p>
 <p>Pour voir l’ensemble des niveaux d’un facteur, vous pouvez utiliser la fonction <code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code> :</p>
@@ -6524,7 +6551,7 @@ as.factor(base$colonne)</code></pre>
 <p>Bien sûr, il faut que votre variable soit de type <code>factor</code> pour que cette fonction fonctionne. Si ce n’est pas le cas, vous pouvez la convertir avec <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code> (voir section précédente).</p>
 <p>Le problème ?<br>
 Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>doublons déguisés</strong> (<code>&quot;car&quot;</code> vs <code>&quot;CAR&quot;</code>), des <strong>niveaux aberrants</strong> (<code>&quot;ANIMAL&quot;</code>) ou des <strong>catégories très rares</strong> qui ne méritent peut-être pas leur propre niveau.</p>
-<section id="quelques-outils-utiles-avec-forcats" class="level2"><h2 class="anchored" data-anchor-id="quelques-outils-utiles-avec-forcats">Quelques outils utiles (avec <code>forcats</code>)</h2>
+<section id="quelques-outils-utiles-avec-forcats" class="level3"><h3 class="anchored" data-anchor-id="quelques-outils-utiles-avec-forcats">Quelques outils utiles (avec <code>forcats</code>)</h3>
 <p>Pour nettoyer tout ça, voici quelques fonctions clés du package <code>forcats</code> :</p>
 <ul>
 <li>
@@ -6537,7 +6564,7 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <code><a href="https://forcats.tidyverse.org/reference/fct_lump.html">fct_lump()</a></code> : pour regrouper les niveaux rares en “Autre”</li>
 <li>
 <code><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel()</a></code> ou <code><a href="https://forcats.tidyverse.org/reference/fct_inorder.html">fct_infreq()</a></code> : pour réordonner les niveaux</li>
-</ul></section><section id="étapes-proposées" class="level2"><h2 class="anchored" data-anchor-id="étapes-proposées">Étapes proposées</h2>
+</ul></section><section id="étapes-proposées" class="level3"><h3 class="anchored" data-anchor-id="étapes-proposées">Étapes proposées</h3>
 <p>Prenez le temps de :</p>
 <ol type="1">
 <li>
@@ -6556,7 +6583,7 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <blockquote class="blockquote">
 <p><strong>Alex</strong> : « Faites attention à ces valeurs étranges. Si une valeur n’a aucun sens dans le contexte (par exemple <code>&quot;ANIMAL&quot;</code> dans une colonne sur les types de véhicules), ne cherchez pas à deviner. Mettez-la à <code>NA</code>. On préfère une donnée manquante qu’une mauvaise information. »</p>
 </blockquote>
-</section><section id="exemple-à-adapter" class="level2"><h2 class="anchored" data-anchor-id="exemple-à-adapter">Exemple à adapter</h2>
+</section><section id="exemple-à-adapter" class="level3"><h3 class="anchored" data-anchor-id="exemple-à-adapter">Exemple à adapter</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Harmoniser les minuscules/majuscules</span></span>
 <span><span class="va">base</span> <span class="op">&lt;-</span> <span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
@@ -6582,9 +6609,9 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><em>Ce ne sont que des exemples. À vous d’explorer la base de données et de choisir ce qui est cohérent.</em></p>
-</section></section><section id="recette-de-nettoyage-approfondissement" class="level1"><h1>Recette de nettoyage — Approfondissement</h1>
+</section></section><section id="recette-de-nettoyage-approfondissement" class="level2"><h2 class="anchored" data-anchor-id="recette-de-nettoyage-approfondissement">Recette de nettoyage — Approfondissement</h2>
 <p>Bravo ! Vous avez déjà corrigé les types de variables et nettoyé les facteurs les plus visibles. Maintenant, on pousse le nettoyage plus loin, en croisant <strong>statistiques</strong>, <strong>relations logiques</strong> et <strong>comportements aberrants</strong>. Voici votre <strong>recette de nettoyage avancé</strong>.</p>
-<section id="étape-1-statistiques-descriptives-sur-les-variables-numériques" class="level2"><h2 class="anchored" data-anchor-id="étape-1-statistiques-descriptives-sur-les-variables-numériques">Étape 1 – Statistiques descriptives sur les variables numériques</h2>
+<section id="étape-1-statistiques-descriptives-sur-les-variables-numériques" class="level3"><h3 class="anchored" data-anchor-id="étape-1-statistiques-descriptives-sur-les-variables-numériques">Étape 1 – Statistiques descriptives sur les variables numériques</h3>
 <p>Tout comme on a vérifié les niveaux des facteurs, on doit vérifier si certaines <strong>valeurs numériques sont aberrantes</strong>.</p>
 <p>Prenez chaque variable numérique et résumez-la avec <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> ou un boxplot pour identifier les extrêmes.</p>
 <p><strong>Exemple : <code>commute_distance</code></strong></p>
@@ -6595,7 +6622,7 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <span>       x <span class="op">=</span> <span class="st">&quot;Distance (km)&quot;</span>, y <span class="op">=</span> <span class="st">&quot;Fréquence&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Posez-vous la question : une distance de 150 km pour se rendre au travail est-elle plausible ou simplement rare ? Est-ce que certaines valeurs sont manquantes ou négatives ?</p>
 <p>Si vous intervenez, n’oubliez pas de <strong>justifier dans <code>journal_nettoyage</code></strong>, en utilisant le code <code>VA</code> (valeurs aberrantes) ou <code>VM</code> (valeurs manquantes).</p>
-</section><section id="étape-2-combinaisons-incohérentes-de-deux-facteurs" class="level2"><h2 class="anchored" data-anchor-id="étape-2-combinaisons-incohérentes-de-deux-facteurs">Étape 2 – Combinaisons incohérentes de deux facteurs</h2>
+</section><section id="étape-2-combinaisons-incohérentes-de-deux-facteurs" class="level3"><h3 class="anchored" data-anchor-id="étape-2-combinaisons-incohérentes-de-deux-facteurs">Étape 2 – Combinaisons incohérentes de deux facteurs</h3>
 <p>Il peut exister des <strong>relations logiques</strong> entre deux variables catégoriques. Par exemple, le trimestre (<code>quarter</code>) et la saison (<code>season</code>) devraient être cohérents.</p>
 <p><strong>Exemple : <code>quarter</code> et <code>season</code></strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">quarter</span>, <span class="va">base</span><span class="op">$</span><span class="va">season</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -6606,7 +6633,7 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">base</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">quarter</span>, fill <span class="op">=</span> <span class="va">season</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">&quot;fill&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si vous corrigez, utilisez le code <code>CI</code> (incohérences inter-variables).</p>
-</section><section id="étape-3-statistiques-groupées-facteur-numérique" class="level2"><h2 class="anchored" data-anchor-id="étape-3-statistiques-groupées-facteur-numérique">Étape 3 – Statistiques groupées : facteur + numérique</h2>
+</section><section id="étape-3-statistiques-groupées-facteur-numérique" class="level3"><h3 class="anchored" data-anchor-id="étape-3-statistiques-groupées-facteur-numérique">Étape 3 – Statistiques groupées : facteur + numérique</h3>
 <p>Autre vérification : est-ce que certaines <strong>valeurs numériques sont incohérentes pour certains groupes</strong> ?</p>
 <p><strong>Exemple : <code>age</code> selon <code>generation</code></strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -6622,7 +6649,7 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <li>Est-ce que les bornes d’âge de chaque génération semblent raisonnables ?</li>
 </ul>
 <p>S’il y a recodage ou regroupement à faire, utilisez le code <code>RC</code>.</p>
-</section><section id="étape-4-liens-logiques-entre-deux-variables-numériques" class="level2"><h2 class="anchored" data-anchor-id="étape-4-liens-logiques-entre-deux-variables-numériques">Étape 4 – Liens logiques entre deux variables numériques</h2>
+</section><section id="étape-4-liens-logiques-entre-deux-variables-numériques" class="level3"><h3 class="anchored" data-anchor-id="étape-4-liens-logiques-entre-deux-variables-numériques">Étape 4 – Liens logiques entre deux variables numériques</h3>
 <p>Ici, on vérifie que les relations numériques <strong>ont du sens</strong>.</p>
 <p><strong>Exemple : <code>age</code> vs <code>years_licensed</code></strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">base</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, y <span class="op">=</span> <span class="va">years_licensed</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -6635,7 +6662,7 @@ Quand on regarde les niveaux d’un facteur, on remarque souvent des <strong>dou
 <p><strong>Alex</strong> : « Tu n’es pas obligé de corriger ici. Par contre, <strong>si tu remarques quelque chose d’étrange</strong>, prends deux minutes pour l’écrire dans le <code>journal_nettoyage</code>. Juste pour montrer que tu l’as vu, réfléchi, et que tu as pris une décision. C’est ça être rigoureux. »</p>
 </blockquote>
 <p>Utilisez ici le code <code>LG</code> pour une <strong>erreur logique</strong>.</p>
-</section><section id="étape-5-vérifications-avancées-facultatives-mais-pros" class="level2"><h2 class="anchored" data-anchor-id="étape-5-vérifications-avancées-facultatives-mais-pros">Étape 5 – Vérifications avancées (facultatives mais pros !)</h2>
+</section><section id="étape-5-vérifications-avancées-facultatives-mais-pros" class="level3"><h3 class="anchored" data-anchor-id="étape-5-vérifications-avancées-facultatives-mais-pros">Étape 5 – Vérifications avancées (facultatives mais pros !)</h3>
 <p>Voici quelques autres choses à garder à l’œil :</p>
 <ul>
 <li>
@@ -6678,7 +6705,7 @@ une courte explication de la façon de reproduire le nettoyage.
 </ul>
 </div>
 <!-- portfolio-trace:end -->
-</section></section><section id="mission-accomplie" class="level1"><h1>Mission accomplie !</h1>
+</section></section><section id="mission-accomplie" class="level2"><h2 class="anchored" data-anchor-id="mission-accomplie">Mission accomplie !</h2>
 <p>Bravo d’être allé·e jusqu’au bout de cette aventure !<br>
 Vous avez maintenant acquis une solide méthodologie pour nettoyer des données de manière rigoureuse et professionnelle. Vous avez :</p>
 <ul>

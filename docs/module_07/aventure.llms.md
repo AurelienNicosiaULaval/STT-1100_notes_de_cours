@@ -2,7 +2,7 @@
 
 STT-1100 - Introduction à la science des données
 
-# Mise en contexte
+## Mise en contexte
 
 Vous êtes une équipe mandatée par un comité d’éthique en science des données. Une organisation vous remet un rapport interne volontairement problématique sur des tests COVID-19 simulés. Le rapport contient des visualisations, des interprétations rapides et des renseignements personnels identifiables.
 
@@ -22,7 +22,7 @@ Données `covid_module7_douteux.csv`
 
 Livrable Rapport éthique, fichier anonymisé et visualisations corrigées
 
-# Dépôt de départ
+## Dépôt de départ
 
 Clonez le dépôt GitHub du module 7 depuis l’organisation du cours : `STT-1100/aventure-7`.
 
@@ -41,7 +41,7 @@ Le dépôt final doit contenir :
 - `README.md` : une courte description du projet et de la procédure de rendu;
 - tout fichier supplémentaire réellement nécessaire.
 
-# Partie 1 - Audit du rapport problématique
+## Partie 1 - Audit du rapport problématique
 
 Lisez d’abord `Rapport_COVID_Douteux.html`, puis consultez `Rapport_COVID_Douteux.qmd` pour comprendre comment le rapport a été produit.
 
@@ -59,7 +59,7 @@ Pour chaque problème retenu, indiquez :
 2.  pourquoi c’est problématique;
 3.  ce que vous changeriez.
 
-# Partie 2 - Préparation responsable des données
+## Partie 2 - Préparation responsable des données
 
 À partir de `covid_module7_douteux.csv`, préparez une version mieux adaptée à une communication publique ou pédagogique.
 
@@ -104,7 +104,7 @@ covid_prepare <- covid_brut |>
 
 Cette étape n’a pas pour but d’effacer toute information utile. Elle vise à réduire les risques tout en gardant une analyse compréhensible.
 
-# Partie 3 - Visualisations corrigées
+## Partie 3 - Visualisations corrigées
 
 Produisez au moins deux visualisations corrigées.
 
@@ -143,7 +143,7 @@ positivite_arrondissement |>
   )
 ```
 
-# Partie 4 - Note éthique
+## Partie 4 - Note éthique
 
 Ajoutez une section “Note éthique” dans `rapport_ethique.qmd`.
 
@@ -154,7 +154,7 @@ Votre note doit répondre aux questions suivantes :
 - Quelles limites empêchent de formuler des recommandations fortes?
 - Comment présenteriez-vous ces résultats à un public non spécialiste sans créer de panique ou de stigmatisation?
 
-# Partie 5 - Conclusion personnelle
+## Partie 5 - Conclusion personnelle
 
 Chaque membre de l’équipe ajoute une courte conclusion personnelle d’environ cinq lignes.
 
@@ -173,7 +173,7 @@ Conservez les preuves que votre audit améliore le rapport et protège les perso
 - deux visualisations corrigées;
 - une note éthique expliquant les limites et les décisions de confidentialité.
 
-# Vérification finale
+## Vérification finale
 
 Avant la remise, vérifiez que :
 

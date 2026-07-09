@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6131,8 +6158,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mise-en-contexte" class="level1">
-<h1>Mise en contexte</h1>
+<section id="mise-en-contexte" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-contexte">Mise en contexte</h2>
 <p>Vous êtes une équipe mandatée par un comité d’éthique en science des données. Une organisation vous remet un rapport interne volontairement problématique sur des tests COVID-19 simulés. Le rapport contient des visualisations, des interprétations rapides et des renseignements personnels identifiables.</p>
 <p>Votre mandat n’est pas seulement de refaire un graphique. Vous devez montrer qu’une analyse peut être techniquement reproductible, visuellement honnête et responsable envers les personnes représentées dans les données.</p>
 <!-- adventure-brief:start -->
@@ -6163,8 +6190,8 @@ Carte de visite
 </div>
 <!-- adventure-brief:end -->
 </section>
-<section id="dépôt-de-départ" class="level1">
-<h1>Dépôt de départ</h1>
+<section id="dépôt-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="dépôt-de-départ">Dépôt de départ</h2>
 <p>Clonez le dépôt GitHub du module 7 depuis l’organisation du cours : <code>STT-1100/aventure-7</code>.</p>
 <p>Le dépôt contient :</p>
 <ul>
@@ -6182,8 +6209,8 @@ Carte de visite
 <li>tout fichier supplémentaire réellement nécessaire.</li>
 </ul>
 </section>
-<section id="partie-1---audit-du-rapport-problématique" class="level1">
-<h1>Partie 1 - Audit du rapport problématique</h1>
+<section id="partie-1---audit-du-rapport-problématique" class="level2">
+<h2 class="anchored" data-anchor-id="partie-1---audit-du-rapport-problématique">Partie 1 - Audit du rapport problématique</h2>
 <p>Lisez d’abord <code>Rapport_COVID_Douteux.html</code>, puis consultez <code>Rapport_COVID_Douteux.qmd</code> pour comprendre comment le rapport a été produit.</p>
 <p>Repérez des problèmes dans au moins quatre dimensions :</p>
 <ul>
@@ -6200,8 +6227,8 @@ Carte de visite
 <li>ce que vous changeriez.</li>
 </ol>
 </section>
-<section id="partie-2---préparation-responsable-des-données" class="level1">
-<h1>Partie 2 - Préparation responsable des données</h1>
+<section id="partie-2---préparation-responsable-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="partie-2---préparation-responsable-des-données">Partie 2 - Préparation responsable des données</h2>
 <p>À partir de <code>covid_module7_douteux.csv</code>, préparez une version mieux adaptée à une communication publique ou pédagogique.</p>
 <p>Votre préparation doit au minimum :</p>
 <ul>
@@ -6240,8 +6267,8 @@ Carte de visite
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Cette étape n’a pas pour but d’effacer toute information utile. Elle vise à réduire les risques tout en gardant une analyse compréhensible.</p>
 </section>
-<section id="partie-3---visualisations-corrigées" class="level1">
-<h1>Partie 3 - Visualisations corrigées</h1>
+<section id="partie-3---visualisations-corrigées" class="level2">
+<h2 class="anchored" data-anchor-id="partie-3---visualisations-corrigées">Partie 3 - Visualisations corrigées</h2>
 <p>Produisez au moins deux visualisations corrigées.</p>
 <p>Chaque visualisation doit :</p>
 <ul>
@@ -6275,8 +6302,8 @@ Carte de visite
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Taux de positivité&quot;</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="partie-4---note-éthique" class="level1">
-<h1>Partie 4 - Note éthique</h1>
+<section id="partie-4---note-éthique" class="level2">
+<h2 class="anchored" data-anchor-id="partie-4---note-éthique">Partie 4 - Note éthique</h2>
 <p>Ajoutez une section “Note éthique” dans <code>rapport_ethique.qmd</code>.</p>
 <p>Votre note doit répondre aux questions suivantes :</p>
 <ul>
@@ -6286,8 +6313,8 @@ Carte de visite
 <li>Comment présenteriez-vous ces résultats à un public non spécialiste sans créer de panique ou de stigmatisation?</li>
 </ul>
 </section>
-<section id="partie-5---conclusion-personnelle" class="level1">
-<h1>Partie 5 - Conclusion personnelle</h1>
+<section id="partie-5---conclusion-personnelle" class="level2">
+<h2 class="anchored" data-anchor-id="partie-5---conclusion-personnelle">Partie 5 - Conclusion personnelle</h2>
 <p>Chaque membre de l’équipe ajoute une courte conclusion personnelle d’environ cinq lignes.</p>
 <p>Cette conclusion doit expliquer :</p>
 <ul>
@@ -6320,8 +6347,8 @@ une note éthique expliquant les limites et les décisions de confidentialité.
 </div>
 <!-- portfolio-trace:end -->
 </section>
-<section id="vérification-finale" class="level1">
-<h1>Vérification finale</h1>
+<section id="vérification-finale" class="level2">
+<h2 class="anchored" data-anchor-id="vérification-finale">Vérification finale</h2>
 <p>Avant la remise, vérifiez que :</p>
 <ul>
 <li><code>rapport_ethique.qmd</code> se rend en HTML sans erreur;</li>

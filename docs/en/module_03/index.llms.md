@@ -39,6 +39,24 @@ By the end of this module, you should be able to:
 - recode, lump and order categories with `dplyr` and `forcats`;
 - produce and interpret bar charts, stacked bars and standardized stacked bars with `ggplot2`.
 
+## Prepare for the module
+
+### Prerequisites
+
+Review `filter()`, `mutate()`, `group_by()`, `summarise()` and one `ggplot2` chart from Module 2. You do not need to memorize everything, but you should be able to reread an example.
+
+### Minimum route
+
+Clean one category, calculate a frequency or proportion, then explain one chart in a precise sentence. This is the core of the module.
+
+### This module, then the next
+
+Here, categories are used to count, compare and tell a story. Module 4 will deepen file quality, import and documentation of corrections.
+
+### If you get stuck
+
+Start with the fictitious exercise data. Once the move is understood, return to the food-offence data and record every recoding choice.
+
 ## Learning plan
 
 1 Readings and mini-test Review strings, factors, frequencies and proportions. [Mini-test](mini_test.llms.md) Open cardCollapse
@@ -50,7 +68,7 @@ Read before the adventure:
 - [Introduction to Modern Statistics - Explore categorical data](https://openintrostat.github.io/ims/explore-categorical)
 - [The forcats documentation](https://forcats.tidyverse.org/)
 
-#### Posit cheat sheets
+### Posit cheat sheets
 
 - [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf)
 - [Factors with forcats :: Cheatsheet](https://rstudio.github.io/cheatsheets/factors.pdf)

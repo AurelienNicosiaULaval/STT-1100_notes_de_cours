@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6131,13 +6158,13 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mission" class="level1">
-<h1>Mission</h1>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
 <p>Vous travaillez avec Dr Sofia Martínez au Port Authority Data Lab. Votre mission est de produire un court rapport exploratoire sur les retards des vols au départ de New York en 2023.</p>
 <p>Le but n’est pas de prouver une cause unique. Le but est de montrer que vous savez préparer des variables temporelles, visualiser des relations, calculer des associations simples et interpréter les résultats avec prudence.</p>
 </section>
-<section id="données-de-départ" class="level1">
-<h1>Données de départ</h1>
+<section id="données-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="données-de-départ">Données de départ</h2>
 <p>Le fichier principal est <code>flights_merged_2023.rds</code>. Il contient 435 352 vols et 50 variables.</p>
 <p>Commencez votre fichier <code>rapport.qmd</code> avec un bloc de préparation semblable à celui-ci.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -6158,8 +6185,8 @@ margin-bottom: .05rem;
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_avion =</span> <span class="dv">2023</span> <span class="sc">-</span> plane_year</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="questions-à-traiter" class="level1">
-<h1>Questions à traiter</h1>
+<section id="questions-à-traiter" class="level2">
+<h2 class="anchored" data-anchor-id="questions-à-traiter">Questions à traiter</h2>
 <p>Votre rapport doit répondre aux trois questions suivantes.</p>
 <ol type="1">
 <li>Quels créneaux horaires semblent associés aux plus grands retards au départ ?</li>
@@ -6175,8 +6202,8 @@ margin-bottom: .05rem;
 <li>une phrase de prudence sur les limites de l’analyse.</li>
 </ul>
 </section>
-<section id="points-de-vigilance" class="level1">
-<h1>Points de vigilance</h1>
+<section id="points-de-vigilance" class="level2">
+<h2 class="anchored" data-anchor-id="points-de-vigilance">Points de vigilance</h2>
 <ul>
 <li>Les retards annulés ont souvent <code>dep_time</code> et <code>dep_delay</code> manquants. Utilisez <code>is.na(dep_time)</code> pour mesurer les annulations.</li>
 <li>Les heures tardives peuvent contenir peu de vols. Affichez toujours le nombre de vols par groupe.</li>
@@ -6185,8 +6212,8 @@ margin-bottom: .05rem;
 <li>Les années de fabrication manquantes doivent être exclues ou signalées avant l’analyse de l’âge des avions.</li>
 </ul>
 </section>
-<section id="livrables" class="level1">
-<h1>Livrables</h1>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <p>Votre dépôt GitHub doit contenir les fichiers suivants :</p>
 <ul>
 <li><code>rapport.qmd</code> : votre rapport reproductible;</li>
@@ -6196,8 +6223,8 @@ margin-bottom: .05rem;
 </ul>
 <p>Votre fichier <code>.qmd</code> doit pouvoir être rendu en HTML sans erreur.</p>
 </section>
-<section id="structure-suggérée" class="level1">
-<h1>Structure suggérée</h1>
+<section id="structure-suggérée" class="level2">
+<h2 class="anchored" data-anchor-id="structure-suggérée">Structure suggérée</h2>
 <p>Vous pouvez utiliser cette structure.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6211,8 +6238,8 @@ margin-bottom: .05rem;
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conclusion</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="grille-dévaluation" class="level1">
-<h1>Grille d’évaluation</h1>
+<section id="grille-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="grille-dévaluation">Grille d’évaluation</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -6262,8 +6289,8 @@ margin-bottom: .05rem;
 </tbody>
 </table>
 </section>
-<section id="checklist-avant-remise" class="level1">
-<h1>Checklist avant remise</h1>
+<section id="checklist-avant-remise" class="level2">
+<h2 class="anchored" data-anchor-id="checklist-avant-remise">Checklist avant remise</h2>
 <ul>
 <li>Le fichier <code>rapport.qmd</code> se rend en HTML.</li>
 <li>Les packages nécessaires sont chargés explicitement.</li>

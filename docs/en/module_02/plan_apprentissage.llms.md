@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module Objectives
+## Module Objectives
 
 At the end of this module, you should be able to
 
@@ -14,11 +14,19 @@ At the end of this module, you should be able to
 - improve chart readability with titles, axes, units, legends and a coherent theme;
 - produce a short reproducible analysis report in a GitHub repository.
 
-# Initial Readings
+## Initial Readings
 
 In Fall 2026, Module 2 is prepared during the week of September 7, then worked through in class on September 14. The preparatory work sets up the GitHub workflow, Excel import and first `dplyr` verbs; the class meeting puts these skills into practice and consolidates exploratory analysis, descriptive statistics and numerical-variable visualization.
 
-## Preparatory work - Project, Import and First Charts
+### Recommended order
+
+1.  **Before class**: clone the repository, open the project, render one Quarto file and import a first Excel sheet.
+2.  **In class**: check anomalies, produce a summary and build one readable chart.
+3.  **After class**: select only the analyses that answer the question, render the report, then make a clear commit.
+
+Facets, additional comparisons and visual refinements come after this minimum core.
+
+### Preparatory work - Project, Import and First Charts
 
 - [RStudio and GitHub quick reference](../autre_materiel/aide-memoire-rstudio-github.llms.md) Clone a repository, open an RStudio project, understand commits and pushes, and recognize common authentication issues.
 
@@ -28,7 +36,7 @@ In Fall 2026, Module 2 is prepared during the week of September 7, then worked t
 
 - [readxl - Official documentation](https://readxl.tidyverse.org/) Short reference for importing Excel files with `read_excel()`.
 
-## Extension - Exploration and Distribution Comparison
+### Extension - Exploration and Distribution Comparison
 
 - [R for Data Science - Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html) Explore distributions, identify extreme values and formulate hypotheses from charts.
 
@@ -38,7 +46,7 @@ In Fall 2026, Module 2 is prepared during the week of September 7, then worked t
 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html) A few landmarks for writing readable chart code.
 
-## Posit cheat sheets
+### Posit cheat sheets
 
 - [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf) Import with `readr` and `readxl`, useful for CSV and Excel files.
 
@@ -46,21 +54,21 @@ In Fall 2026, Module 2 is prepared during the week of September 7, then worked t
 
 - [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Grammar of graphics, geoms, facets, scales and themes.
 
-## Optional Reading
+### Optional Reading
 
 - [Broman and Woo (2018) - Data Organization in Spreadsheets](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989) A useful reference for understanding why raw data should remain intact and why corrections should be documented in code.
 
-## Reading Mini-Test
+### Reading Mini-Test
 
 After the essential readings, complete the [module 2 formative mini-test](../module_02/mini_test.llms.md). It is not graded, but it checks points that return in the adventure and in the challenge.
 
-# Adventure
+## Adventure
 
 This module places you in the role of a data scientist helping Dr. Adélie Fortier explore physical measurements of penguins. You must import an Excel file, document your work in a logbook, produce charts and keep track of the work in GitHub.
 
 [Module 2 adventure](../module_02/aventure.llms.md)
 
-# Challenge
+## Challenge
 
 The module 2 challenge uses the same GitHub repository as the adventure. You must submit:
 
@@ -73,7 +81,7 @@ The analysis report must answer Dr. Adélie Fortier’s request: understand how
 
 [Module 2 challenge](../module_02/defi.llms.md)
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 The exercise series is independent from the adventure and challenge. It includes practice on GitHub, Excel import, `dplyr`, `ggplot2`, descriptive statistics, code style and two final case studies with small fictitious files.
 

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module Objectives
+## Module Objectives
 
 At the end of this module, you should be able to:
 
@@ -11,7 +11,7 @@ At the end of this module, you should be able to:
 - calculate and interpret a correlation between two numerical variables;
 - write a short exploratory analysis report while distinguishing association from causation.
 
-# Readings
+## Readings
 
 Before the adventure, review the following resources:
 
@@ -22,7 +22,7 @@ Before the adventure, review the following resources:
 - [Introduction to Modern Statistics - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
 - [Introduction to Modern Statistics - Applications: Explore](https://openintrostat.github.io/ims/explore-applications)
 
-## Posit cheat sheets
+### Posit cheat sheets
 
 - [Dates and times with lubridate :: Cheatsheet](https://rstudio.github.io/cheatsheets/lubridate.pdf) Creating, extracting and manipulating dates and times.
 
@@ -30,19 +30,19 @@ Before the adventure, review the following resources:
 
 After the readings, complete the [formative mini-test](../module_05/mini_test.llms.md). It is not graded; it only checks the basic ideas before the adventure.
 
-# Adventure
+## Adventure
 
 [Adventure 5](../module_05/aventure.llms.md)
 
 Follow the adventure to load `flights_merged_2023.rds`, create temporal variables and practise the requested exploratory analyses.
 
-# Challenge
+## Challenge
 
 [Challenge 5](../module_05/defi.llms.md)
 
 The challenge asks you to submit a `rapport.qmd` report and its rendered `rapport.html` version. The report must answer Sofia’s three questions about time slots, weather and plane age.
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 [Module 5 exercises](../module_05/exercices.llms.md)
 

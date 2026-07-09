@@ -2,11 +2,11 @@
 
 STT-1100 Introduction à la science des données
 
-# Mini-test formatif
+## Mini-test formatif
 
 Ce mini-test sert à vérifier les lectures du module 2. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu avant l’aventure et le défi.
 
-## Question 1
+### Question 1
 
 Vrai ou faux: un commit enregistre une étape localement, tandis qu’un push envoie cette étape vers GitHub.
 
@@ -14,7 +14,7 @@ Vrai ou faux: un commit enregistre une étape localement, tandis qu’un push en
 >
 > Vrai. Un commit garde une trace dans le dépôt local. Le push synchronise ensuite les commits locaux avec le dépôt GitHub.
 
-## Question 2
+### Question 2
 
 Quelle fonction sert à importer un fichier Excel dans R?
 
@@ -27,7 +27,7 @@ Quelle fonction sert à importer un fichier Excel dans R?
 >
 > Réponse: b. `read_excel()` provient du package `readxl` et permet d’importer des fichiers Excel comme `.xls` ou `.xlsx`.
 
-## Question 3
+### Question 3
 
 Vrai ou faux: un rapport Quarto reproductible devrait importer les données dans un bloc de code, même si on a d’abord testé l’importation avec l’interface de RStudio.
 
@@ -35,7 +35,7 @@ Vrai ou faux: un rapport Quarto reproductible devrait importer les données dans
 >
 > Vrai. Le rapport doit pouvoir être rendu après un redémarrage de R, sans dépendre d’objets déjà présents dans l’environnement.
 
-## Question 4
+### Question 4
 
 À quoi sert principalement `glimpse()`?
 
@@ -48,7 +48,7 @@ Vrai ou faux: un rapport Quarto reproductible devrait importer les données dans
 >
 > Réponse: b. `glimpse()` donne une vue rapide de la structure d’un tableau: noms de variables, types et premières valeurs.
 
-## Question 5
+### Question 5
 
 Quelle fonction de `dplyr` sert à garder seulement certaines colonnes?
 
@@ -61,7 +61,7 @@ Quelle fonction de `dplyr` sert à garder seulement certaines colonnes?
 >
 > Réponse: a. `select()` choisit des colonnes. Pour garder des lignes selon une condition, on utilise plutôt `filter()`.
 
-## Question 6
+### Question 6
 
 Quelle fonction de `dplyr` sert à créer une nouvelle variable?
 
@@ -74,7 +74,7 @@ Quelle fonction de `dplyr` sert à créer une nouvelle variable?
 >
 > Réponse: b. `mutate()` ajoute ou modifie des colonnes dans un tableau.
 
-## Question 7
+### Question 7
 
 Vous voulez calculer la moyenne et l’écart-type de la masse corporelle par espèce. Quelle combinaison est la plus appropriée?
 
@@ -87,7 +87,7 @@ Vous voulez calculer la moyenne et l’écart-type de la masse corporelle par es
 >
 > Réponse: a. `group_by(species)` définit les groupes, puis `summarise()` calcule les statistiques pour chaque groupe.
 
-## Question 8
+### Question 8
 
 Vrai ou faux: la moyenne est toujours plus robuste que la médiane aux valeurs extrêmes.
 
@@ -95,7 +95,7 @@ Vrai ou faux: la moyenne est toujours plus robuste que la médiane aux valeurs e
 >
 > Faux. La médiane est généralement moins influencée par des valeurs extrêmes que la moyenne.
 
-## Question 9
+### Question 9
 
 Quel graphique convient le mieux pour observer la distribution d’une seule variable numérique?
 
@@ -108,7 +108,7 @@ Quel graphique convient le mieux pour observer la distribution d’une seule var
 >
 > Réponse: a. Un histogramme montre comment les valeurs d’une variable numérique se répartissent.
 
-## Question 10
+### Question 10
 
 Quel graphique convient bien pour comparer une variable numérique entre plusieurs groupes?
 
@@ -121,7 +121,7 @@ Quel graphique convient bien pour comparer une variable numérique entre plusieu
 >
 > Réponse: a. Une boîte à moustaches permet de comparer la médiane, la dispersion et les valeurs potentiellement extrêmes entre groupes.
 
-## Question 11
+### Question 11
 
 Quel graphique convient bien pour étudier la relation entre deux variables numériques?
 
@@ -134,7 +134,7 @@ Quel graphique convient bien pour étudier la relation entre deux variables num�
 >
 > Réponse: a. Un nuage de points permet d’examiner la relation entre deux variables numériques.
 
-## Question 12
+### Question 12
 
 Vrai ou faux: modifier directement le fichier Excel brut est une bonne pratique si le rapport final contient seulement les graphiques corrigés.
 

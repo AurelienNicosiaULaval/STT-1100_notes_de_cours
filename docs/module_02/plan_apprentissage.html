@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6065,6 +6092,7 @@ margin-bottom: .05rem;
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
   <li><a href="#lectures-initiales" id="toc-lectures-initiales" class="nav-link" data-scroll-target="#lectures-initiales">Lectures initiales</a>
   <ul class="collapse">
+  <li><a href="#ordre-conseillé" id="toc-ordre-conseillé" class="nav-link" data-scroll-target="#ordre-conseillé">Ordre conseillé</a></li>
   <li><a href="#travail-préparatoire---projet-importation-et-premiers-graphiques" id="toc-travail-préparatoire---projet-importation-et-premiers-graphiques" class="nav-link" data-scroll-target="#travail-préparatoire---projet-importation-et-premiers-graphiques">Travail préparatoire - Projet, importation et premiers graphiques</a></li>
   <li><a href="#approfondissement---exploration-et-comparaison-de-distributions" id="toc-approfondissement---exploration-et-comparaison-de-distributions" class="nav-link" data-scroll-target="#approfondissement---exploration-et-comparaison-de-distributions">Approfondissement - Exploration et comparaison de distributions</a></li>
   <li><a href="#aide-mémoires-posit" id="toc-aide-mémoires-posit" class="nav-link" data-scroll-target="#aide-mémoires-posit">Aide-mémoires Posit</a></li>
@@ -6100,8 +6128,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="objectifs-du-module" class="level1">
-<h1>Objectifs du module</h1>
+<section id="objectifs-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
 <p>À la fin de ce module, vous devriez être capable de</p>
 <ul>
 <li>utiliser GitHub via RStudio pour cloner un dépôt, faire des commits et pousser vos changements;</li>
@@ -6113,11 +6141,20 @@ margin-bottom: .05rem;
 <li>produire un court rapport d’analyse reproductible dans un dépôt GitHub.</li>
 </ul>
 </section>
-<section id="lectures-initiales" class="level1">
-<h1>Lectures initiales</h1>
+<section id="lectures-initiales" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-initiales">Lectures initiales</h2>
 <p>À l’automne 2026, le module 2 est préparé pendant la semaine du 7 septembre, puis travaillé en classe le 14 septembre. Le travail préparatoire installe le flux de travail GitHub, l’importation Excel et les premiers verbes <code>dplyr</code>; la séance de classe sert à mettre ces gestes en pratique et à consolider l’analyse exploratoire, les statistiques descriptives et la visualisation de variables numériques.</p>
-<section id="travail-préparatoire---projet-importation-et-premiers-graphiques" class="level2">
-<h2 class="anchored" data-anchor-id="travail-préparatoire---projet-importation-et-premiers-graphiques">Travail préparatoire - Projet, importation et premiers graphiques</h2>
+<section id="ordre-conseillé" class="level3">
+<h3 class="anchored" data-anchor-id="ordre-conseillé">Ordre conseillé</h3>
+<ol type="1">
+<li><strong>Avant la séance</strong> : cloner le dépôt, ouvrir le projet, rendre un fichier Quarto et importer une première feuille Excel.</li>
+<li><strong>Pendant la séance</strong> : vérifier les anomalies, produire un résumé et construire un graphique lisible.</li>
+<li><strong>Après la séance</strong> : choisir seulement les analyses qui répondent à la question, rendre le rapport puis faire un commit clair.</li>
+</ol>
+<p>Les facettes, comparaisons supplémentaires et raffinements visuels viennent après ce noyau minimal.</p>
+</section>
+<section id="travail-préparatoire---projet-importation-et-premiers-graphiques" class="level3">
+<h3 class="anchored" data-anchor-id="travail-préparatoire---projet-importation-et-premiers-graphiques">Travail préparatoire - Projet, importation et premiers graphiques</h3>
 <ul>
 <li><p><a href="../autre_materiel/aide-memoire-rstudio-github.html">Aide-mémoire RStudio et GitHub</a> Cloner un dépôt, ouvrir un projet RStudio, comprendre commits et push, et reconnaître les problèmes d’authentification les plus fréquents.</p></li>
 <li><p><a href="https://r4ds.hadley.nz/data-visualize.html" target="_blank">R for Data Science - Data visualization</a> Premiers repères pour construire des graphiques avec <code>ggplot2</code>.</p></li>
@@ -6125,8 +6162,8 @@ margin-bottom: .05rem;
 <li><p><a href="https://readxl.tidyverse.org/" target="_blank">readxl - Documentation officielle</a> Référence courte pour importer des fichiers Excel avec <code>read_excel()</code>.</p></li>
 </ul>
 </section>
-<section id="approfondissement---exploration-et-comparaison-de-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="approfondissement---exploration-et-comparaison-de-distributions">Approfondissement - Exploration et comparaison de distributions</h2>
+<section id="approfondissement---exploration-et-comparaison-de-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="approfondissement---exploration-et-comparaison-de-distributions">Approfondissement - Exploration et comparaison de distributions</h3>
 <ul>
 <li><p><a href="https://r4ds.hadley.nz/EDA.html" target="_blank">R for Data Science - Exploratory Data Analysis</a> Explorer les distributions, repérer des valeurs extrêmes et formuler des hypothèses à partir des graphiques.</p></li>
 <li><p><a href="https://r4ds.hadley.nz/spreadsheets.html" target="_blank">R for Data Science - Spreadsheets</a> Reconnaître les structures de tableaux qui facilitent l’analyse et éviter les pièges fréquents des feuilles de calcul.</p></li>
@@ -6134,32 +6171,32 @@ margin-bottom: .05rem;
 <li><p><a href="https://style.tidyverse.org/ggplot2.html" target="_blank">Tidyverse Style Guide - ggplot2</a> Quelques repères pour écrire du code graphique lisible.</p></li>
 </ul>
 </section>
-<section id="aide-mémoires-posit" class="level2">
-<h2 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h2>
+<section id="aide-mémoires-posit" class="level3">
+<h3 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h3>
 <ul>
 <li><p><a href="https://rstudio.github.io/cheatsheets/data-import.pdf" target="_blank">Data import with the tidyverse :: Cheatsheet</a> Importation avec <code>readr</code> et <code>readxl</code>, utile pour les fichiers CSV et Excel.</p></li>
 <li><p><a href="https://rstudio.github.io/cheatsheets/data-transformation.pdf" target="_blank">Data transformation with dplyr :: Cheatsheet</a> Verbes de transformation qui reviennent dans l’aventure et les exercices.</p></li>
 <li><p><a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf" target="_blank">Data visualization with ggplot2 :: Cheat Sheet</a> Grammaire des graphiques, géométries, facettes, échelles et thèmes.</p></li>
 </ul>
 </section>
-<section id="lecture-optionnelle" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-optionnelle">Lecture optionnelle</h2>
+<section id="lecture-optionnelle" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-optionnelle">Lecture optionnelle</h3>
 <ul>
 <li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989" target="_blank">Broman et Woo (2018) - Data Organization in Spreadsheets</a> Une référence utile pour comprendre pourquoi on conserve les données brutes intactes et pourquoi les corrections doivent être documentées dans le code.</li>
 </ul>
 </section>
-<section id="mini-test-de-lecture" class="level2">
-<h2 class="anchored" data-anchor-id="mini-test-de-lecture">Mini-test de lecture</h2>
+<section id="mini-test-de-lecture" class="level3">
+<h3 class="anchored" data-anchor-id="mini-test-de-lecture">Mini-test de lecture</h3>
 <p>Après les lectures essentielles, complétez le <a href="../module_02/mini_test.html">mini-test formatif du module 2</a>. Il n’est pas noté, mais il vérifie les points qui reviennent dans l’aventure et dans le défi.</p>
 </section>
 </section>
-<section id="aventure" class="level1">
-<h1>Aventure</h1>
+<section id="aventure" class="level2">
+<h2 class="anchored" data-anchor-id="aventure">Aventure</h2>
 <p>Ce module vous place dans le rôle d’un ou d’une scientifique de données qui aide la Dre Adélie Fortier à explorer des mesures physiques de manchots. Vous devez importer un fichier Excel, documenter votre démarche dans un journal de bord, produire des graphiques et garder une trace du travail dans GitHub.</p>
 <p><a href="../module_02/aventure.html">Aventure du module 2</a></p>
 </section>
-<section id="défi" class="level1">
-<h1>Défi</h1>
+<section id="défi" class="level2">
+<h2 class="anchored" data-anchor-id="défi">Défi</h2>
 <p>Le défi du module 2 se fait dans le même dépôt GitHub que l’aventure. Vous devez remettre:</p>
 <ul>
 <li><code>journal de bord.qmd</code>;</li>
@@ -6170,8 +6207,8 @@ margin-bottom: .05rem;
 <p>Le rapport d’analyse doit répondre à la demande de la Dre Adélie Fortier: comprendre comment les caractéristiques physiques des manchots varient selon les espèces.</p>
 <p><a href="../module_02/defi.html">Défi du module 2</a></p>
 </section>
-<section id="exercices-de-consolidation" class="level1">
-<h1>Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>La série d’exercices est indépendante de l’aventure et du défi. Elle comprend des exercices sur GitHub, l’importation Excel, <code>dplyr</code>, <code>ggplot2</code>, les statistiques descriptives, le style de code et deux études de cas finales avec de petits fichiers fictifs.</p>
 <p><a href="../module_02/exercices.html">Exercices de consolidation du module 2</a></p>
 

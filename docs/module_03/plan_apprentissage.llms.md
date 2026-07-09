@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de:
 
@@ -14,7 +14,7 @@ STT-1100 Introduction à la science des données
 - produire et interpréter des diagrammes à bandes, des bandes empilées et des bandes empilées standardisées avec `ggplot2`;
 - rédiger un court article Quarto appuyé par des chiffres narratifs et des graphiques.
 
-# Lectures à faire
+## Lectures à faire
 
 Ces lectures donnent les repères nécessaires avant de commencer l’aventure.
 
@@ -26,7 +26,7 @@ Ces lectures donnent les repères nécessaires avant de commencer l’aventure.
 
 - [Documentation de `forcats`](https://forcats.tidyverse.org/) Pour regrouper des catégories rares, réordonner des modalités et rendre les graphiques plus lisibles.
 
-## Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) Fonctions `stringr` pour détecter, extraire, remplacer et nettoyer du texte.
 
@@ -36,13 +36,13 @@ Ces lectures donnent les repères nécessaires avant de commencer l’aventure.
 
 Après les lectures, faites le [mini-test formatif](../module_03/mini_test.llms.md). Il n’est pas évalué, mais il vérifie les idées nécessaires pour l’aventure et le défi.
 
-# Aventure
+## Aventure
 
 [Aventure 3](../module_03/aventure.llms.md)
 
 Vous jouez le rôle d’un journaliste de données pour Le Courrier Gourmand. L’aventure vous guide dans le nettoyage du jeu `listecondamnation`, l’extraction de codes postaux, l’identification de catégories d’infractions et la construction de premiers résultats utiles pour un article.
 
-# Défi
+## Défi
 
 [Défi du module 3](../module_03/defi.llms.md)
 
@@ -56,7 +56,7 @@ Vous devrez remettre:
 
 L’article doit contenir au moins deux chiffres narratifs et deux visuels, dont un graphique de catégories. La carte des amendes est optionnelle.
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 [Exercices du module 3](../module_03/exercices.llms.md)
 

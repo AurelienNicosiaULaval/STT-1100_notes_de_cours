@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Mise en situation
+## Mise en situation
 
 Vous travaillez comme consultant ou consultante indépendante en science des données. À la différence d’un poste salarié, vous êtes mandaté ponctuellement par des clientes et clients pour résoudre des problèmes précis. Vous devez donc être autonome, rigoureux et capable de livrer des solutions efficaces, réutilisables et bien documentées.
 
@@ -28,7 +28,7 @@ Données Page Données Québec ou petite page HTML locale de test
 
 Livrable `IDUL.R` avec `scrape_page()`
 
-## Objectifs de l’aventure
+### Objectifs de l’aventure
 
 - Comprendre les bases du web scraping avec `rvest`.
 - Créer une fonction pour extraire des métadonnées depuis une page web.
@@ -43,7 +43,7 @@ Livrable `IDUL.R` avec `scrape_page()`
 > - Vous testez votre fonction sur une page locale pour rester indépendant·e des changements du portail.
 > - Vous reliez le code à des limites éthiques : `robots.txt`, conditions d’utilisation et charge serveur.
 
-# Avant de scraper : vérifier le contexte
+## Avant de scraper : vérifier le contexte
 
 > **IMPORTANT:**
 >
@@ -94,7 +94,7 @@ writeLines(disinstructions)
 >
 > Un `robots.txt` qui n’interdit pas explicitement une page ne signifie pas que tout est automatiquement acceptable. Pour ce module, nous limiterons la collecte à quelques pages de résultats publiques, avec une pause entre les requêtes et sans contourner de mécanisme de protection.
 
-# Comprendre le web scraping avec `rvest`
+## Comprendre le web scraping avec `rvest`
 
 Dans cette section, vous découvrez les fonctions essentielles du package `rvest`. L’objectif est d’extraire du contenu HTML structuré depuis une page de recherche.
 
@@ -199,7 +199,7 @@ producteur
 >
 > À vous de jouer : à partir de ce même bloc HTML, trouvez comment extraire les catégories associées à chaque jeu de données. Attention, le libellé observé peut être `Catégorie`, `Catégories`, `Category` ou `Categories`.
 
-# Création guidée de la fonction `scrape_page()`
+## Création guidée de la fonction `scrape_page()`
 
 Marie-Pier souhaite que vous créiez une fonction réutilisable nommée `scrape_page()`. Elle prend en argument une URL et retourne un `data.frame` avec exactement les colonnes suivantes :
 
@@ -251,7 +251,7 @@ scrape_page <- function(url) {
 >
 > Testez votre fonction avec la page 3. Elle devrait retourner 20 lignes et exactement les colonnes `titre`, `producteur`, `categorie`.
 
-# Répétition manuelle, puis boucle `for`
+## Répétition manuelle, puis boucle `for`
 
 Testez maintenant l’extraction des cinq premières pages en appelant plusieurs fois votre fonction :
 
@@ -283,7 +283,7 @@ for (i in 1:5) {
 }
 ```
 
-# Exploration guidée par Marie-Pier
+## Exploration guidée par Marie-Pier
 
 Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. Elle attend des résultats précis et prudents.
 
@@ -293,7 +293,7 @@ Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. E
 > 2.  Quels organismes publient le plus?
 > 3.  Observe-t-on une diversité de domaines ou une concentration sur quelques thèmes?
 
-# Réflexion éthique
+## Réflexion éthique
 
 > **NOTE:**
 >
@@ -304,7 +304,7 @@ Utilisez le tableau `resultats` pour répondre aux questions de votre cliente. E
 > - les comportements adoptés pour rester respectueux, par exemple limiter le nombre de pages, ajouter une pause et ne pas contourner de protection;
 > - la situation de deux autres sites web, par exemple `bonjourquebec.com` ou `ulaval.ca`, en vous appuyant sur `robots.txt` ou les conditions d’utilisation.
 
-# Défi à remettre
+## Défi à remettre
 
 Le défi associé à cette aventure est décrit dans la page [Défi 8 - Fonction de scraping](../module_08/defi.llms.md).
 
@@ -319,6 +319,6 @@ Gardez une trace qui prouve que votre fonction est robuste et responsable.
 - une note d’éthique sur `robots.txt`, la charge serveur et les conditions d’utilisation;
 - une courte exploration des résultats, si une page publique est disponible.
 
-# Conclusion de l’aventure
+## Conclusion de l’aventure
 
 Vous avez conçu un outil de scraping fonctionnel et automatisable, utilisé une boucle `for`, extrait des métadonnées structurées et approfondi votre compréhension de l’éthique du scraping.

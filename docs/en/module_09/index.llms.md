@@ -37,11 +37,29 @@ At the end of this module, you should be able to:
 - Fit and interpret a multiple linear regression model.
 - Recognize and discuss potential biases, particularly those related to discrimination, in data or models.
 
+## Prepare for the module
+
+### Prerequisites
+
+Revisit the interpretation of an association from Module 5 and the limits of missing data from Module 4. A prediction helps describe a model; it is not a causal conclusion.
+
+### Minimum route
+
+Fit the supplied model, compare a few observed and predicted values, inspect errors and name one limit. These comparisons use the fitting data: they are diagnostics, not a guarantee of performance on new data.
+
+### Accessible video capsule
+
+Prepare a 180-second plan, a readable visual and a short transcript or captions. The capsule should be understandable without relying only on audio.
+
+### If you get stuck
+
+Choose one challenge option, state the question in one sentence and create a first visual result before recording the capsule.
+
 ## Learning Plan
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. Open the cards to see the expected action and useful link.
 
-1 Readings Prepare prediction, validation and algorithmic bias. In this card Open cardCollapse
+1 Readings Prepare prediction, descriptive diagnostics and algorithmic bias. In this card Open cardCollapse
 
 ### Readings
 

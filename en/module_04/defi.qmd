@@ -13,13 +13,13 @@ format:
 editor: visual
 ---
 
-# Mission
+## Mission
 
 You work with Alex on an insurance dataset from an old system. Your mission is to produce a cleaned version of `dataset_pratique.csv` and clearly document the decisions you made.
 
 The goal is not to correct every questionable value. The goal is to show that you can import the file correctly, identify anomalies, choose defensible corrections and keep a structured record of your work.
 
-# Starting Data
+## Starting Data
 
 The main file is `dataset_pratique.csv`. It is separated by semicolons.
 
@@ -42,7 +42,7 @@ base <- read_delim(
 
 After import, check that you have 23 columns. If you get only one column, the import is incorrect.
 
-# Deliverables
+## Deliverables
 
 Your GitHub repository must contain the following three files:
 
@@ -52,7 +52,7 @@ Your GitHub repository must contain the following three files:
 
 Your `.qmd` file must render to HTML without error.
 
-# Minimal Log Structure
+## Minimal Log Structure
 
 Your `journal_nettoyage` object must be a named list. Each entry must contain at least the fields `id`, `variables`, `probleme`, `action` and `justification`.
 
@@ -87,7 +87,7 @@ journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
 ))
 ```
 
-# Minimum Requirements
+## Minimum Requirements
 
 Your work must include:
 
@@ -101,7 +101,7 @@ Your work must include:
 
 Corrections must be cautious. If an anomaly is real but no obvious correction is defensible, record it in your log or in your text and explain why you do not correct it.
 
-# Suggested Checks
+## Suggested Checks
 
 These are useful starting points. You do not have to correct all of them.
 
@@ -113,7 +113,7 @@ These are useful starting points. You do not have to correct all of them.
 - `commute_distance` contains missing values and high values.
 - Some categorical variables are easier to work with after conversion to factors.
 
-# Saving Results
+## Saving Results
 
 At the end of your document, save both submission objects.
 
@@ -122,7 +122,7 @@ write_csv(donnees_propres, "donnees_propres.csv")
 save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 ```
 
-# Evaluation Grid
+## Evaluation Grid
 
 | Criterion | Excellent | Satisfactory | Needs improvement |
 |---|---|---|---|
@@ -132,7 +132,7 @@ save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 | Log | The log is structured, complete and consistent with the code | The log exists but some entries are incomplete | The log is missing or hard to use |
 | Reproducibility | The `.qmd` renders without error and produces the expected files | The `.qmd` needs small fixes | The work cannot be reproduced |
 
-# Checklist Before Submission
+## Checklist Before Submission
 
 - The `.qmd` file renders to HTML.
 - `donnees_propres.csv` is created by the code.

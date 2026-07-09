@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6139,8 +6166,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mise-en-contexte" class="level1">
-<h1>Mise en contexte</h1>
+<section id="mise-en-contexte" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-contexte">Mise en contexte</h2>
 <p>Vous êtes une équipe de scientifiques de données travaillant avec Dr Sofia Martinez au Port Authority Data Lab. Votre mandat est de produire un <strong>rapport collaboratif et reproductible</strong> sur les retards de vols au départ de JFK en 2023.</p>
 <p>Cette aventure change volontairement de niveau. Dans les modules précédents, vous avez surtout travaillé individuellement. Ici, le produit important n’est pas seulement le graphique final. C’est aussi la trace de collaboration : branches, commits, pull requests, résolution de conflits, rendu HTML et décisions documentées.</p>
 <p>Le rapport sera produit avec <strong>Quarto</strong>, versionné dans <strong>GitHub</strong> et basé sur les tables du package <strong><code>nycflights23</code></strong> : <code>flights</code>, <code>airlines</code> et <code>weather</code>.</p>
@@ -6172,8 +6199,8 @@ Carte de visite
 </div>
 <!-- adventure-brief:end -->
 </section>
-<section id="dépôt-de-départ" class="level1">
-<h1>Dépôt de départ</h1>
+<section id="dépôt-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="dépôt-de-départ">Dépôt de départ</h2>
 <p>Clonez le dépôt GitHub du module 6 depuis l’organisation du cours : <code>STT-1100/aventure-6</code>.</p>
 <p>Le dépôt de départ contient un squelette de rapport. Votre équipe doit le compléter, le rendre en HTML et pousser la version finale sur GitHub.</p>
 <p>Le dépôt final doit contenir :</p>
@@ -6185,10 +6212,10 @@ Carte de visite
 </ul>
 <p>Ne conservez pas de fichiers inutiles comme <code>Untitled.R</code>, <code>rapport_final_final.qmd</code> ou des copies temporaires.</p>
 </section>
-<section id="partie-1---collaboration-avec-github" class="level1">
-<h1>Partie 1 - Collaboration avec GitHub</h1>
-<section id="formation-des-équipes-et-rôles" class="level2">
-<h2 class="anchored" data-anchor-id="formation-des-équipes-et-rôles">Formation des équipes et rôles</h2>
+<section id="partie-1---collaboration-avec-github" class="level2">
+<h2 class="anchored" data-anchor-id="partie-1---collaboration-avec-github">Partie 1 - Collaboration avec GitHub</h2>
+<section id="formation-des-équipes-et-rôles" class="level3">
+<h3 class="anchored" data-anchor-id="formation-des-équipes-et-rôles">Formation des équipes et rôles</h3>
 <p>Travaillez en <strong>équipes de 3 à 4 personnes</strong>. Chaque membre prend un rôle principal. Les rôles servent à structurer le travail, mais toute l’équipe reste responsable du résultat final.</p>
 <table class="caption-top table">
 <colgroup>
@@ -6233,8 +6260,8 @@ Carte de visite
 </tbody>
 </table>
 </section>
-<section id="séquence-de-travail-recommandée" class="level2">
-<h2 class="anchored" data-anchor-id="séquence-de-travail-recommandée">Séquence de travail recommandée</h2>
+<section id="séquence-de-travail-recommandée" class="level3">
+<h3 class="anchored" data-anchor-id="séquence-de-travail-recommandée">Séquence de travail recommandée</h3>
 <ol type="1">
 <li><p><strong>Responsable du dépôt</strong> : clone le dépôt, ouvre le projet dans RStudio, vérifie que <code>rapport.qmd</code> se rend, puis crée une branche par rôle.</p></li>
 <li><p><strong>Chargé·e de la reproductibilité</strong> : travaille dans sa branche, organise les sections du rapport, vérifie le YAML et ajoute une section “Rôles de l’équipe”.</p></li>
@@ -6245,10 +6272,10 @@ Carte de visite
 </ol>
 </section>
 </section>
-<section id="partie-2---analyse-reproductible-avec-données-fusionnées" class="level1">
-<h1>Partie 2 - Analyse reproductible avec données fusionnées</h1>
-<section id="préparation-attendue" class="level2">
-<h2 class="anchored" data-anchor-id="préparation-attendue">Préparation attendue</h2>
+<section id="partie-2---analyse-reproductible-avec-données-fusionnées" class="level2">
+<h2 class="anchored" data-anchor-id="partie-2---analyse-reproductible-avec-données-fusionnées">Partie 2 - Analyse reproductible avec données fusionnées</h2>
+<section id="préparation-attendue" class="level3">
+<h3 class="anchored" data-anchor-id="préparation-attendue">Préparation attendue</h3>
 <p>Le rapport doit charger explicitement les packages nécessaires.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights23)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -6270,8 +6297,8 @@ Carte de visite
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">wind_gust_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(wind_gust))</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="questions-danalyse" class="level2">
-<h2 class="anchored" data-anchor-id="questions-danalyse">Questions d’analyse</h2>
+<section id="questions-danalyse" class="level3">
+<h3 class="anchored" data-anchor-id="questions-danalyse">Questions d’analyse</h3>
 <p>Votre rapport doit répondre aux trois questions suivantes.</p>
 <ol type="1">
 <li>Quels transporteurs ont les retards moyens au départ les plus élevés à JFK?</li>
@@ -6292,8 +6319,8 @@ Carte de visite
 <li>une conclusion prudente avant toute recommandation opérationnelle.</li>
 </ul>
 </section>
-<section id="exemples-de-points-de-départ" class="level2">
-<h2 class="anchored" data-anchor-id="exemples-de-points-de-départ">Exemples de points de départ</h2>
+<section id="exemples-de-points-de-départ" class="level3">
+<h3 class="anchored" data-anchor-id="exemples-de-points-de-départ">Exemples de points de départ</h3>
 <p>Retard moyen par transporteur :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>retards_transporteurs <span class="ot">&lt;-</span> vols_jfk <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">|&gt;</span></span>
@@ -6331,8 +6358,8 @@ Carte de visite
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Le tableau fusionné contient <span class="in">`r nrow(vols_jfk)`</span> vols au départ de JFK, couvre <span class="in">`r n_distinct(vols_jfk$carrier)`</span> transporteurs et présente un retard moyen de <span class="in">`r round(mean(vols_jfk$dep_delay, na.rm = TRUE), 1)`</span> minutes.</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="partie-3---journal-de-collaboration" class="level1">
-<h1>Partie 3 - Journal de collaboration</h1>
+<section id="partie-3---journal-de-collaboration" class="level2">
+<h2 class="anchored" data-anchor-id="partie-3---journal-de-collaboration">Partie 3 - Journal de collaboration</h2>
 <p>Ajoutez une section “Journal de collaboration” dans <code>rapport.qmd</code>.</p>
 <p>Chaque membre doit y écrire un court paragraphe indiquant :</p>
 <ul>
@@ -6344,8 +6371,8 @@ Carte de visite
 </ul>
 <p>Le responsable du dépôt doit initialiser cette section et prévoir un sous-titre pour chaque membre.</p>
 </section>
-<section id="partie-4---cycle-de-vie-des-données" class="level1">
-<h1>Partie 4 - Cycle de vie des données</h1>
+<section id="partie-4---cycle-de-vie-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="partie-4---cycle-de-vie-des-données">Partie 4 - Cycle de vie des données</h2>
 <p>Ajoutez une section expliquant comment votre projet illustre les étapes suivantes :</p>
 <ol type="1">
 <li>collecte;</li>
@@ -6379,8 +6406,8 @@ une entrée de journal décrivant une décision, une difficulté ou un conflit G
 </div>
 <!-- portfolio-trace:end -->
 </section>
-<section id="vérification-finale" class="level1">
-<h1>Vérification finale</h1>
+<section id="vérification-finale" class="level2">
+<h2 class="anchored" data-anchor-id="vérification-finale">Vérification finale</h2>
 <p>Avant la remise, vérifiez que :</p>
 <ul>
 <li><code>rapport.qmd</code> se rend en HTML sans erreur;</li>

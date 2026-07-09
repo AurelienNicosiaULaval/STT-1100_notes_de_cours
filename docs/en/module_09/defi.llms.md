@@ -2,13 +2,13 @@
 
 STT-1100 Introduction to Data Science
 
-# Mission
+## Mission
 
 In adventure 9, you built a simple predictive model and examined a fictitious dataset where admission rates vary across groups. The challenge is to communicate one analysis clearly in a video capsule.
 
 Use the GitHub repository created from the `STT-1100/aventure-9` template.
 
-# Topic Choice
+## Topic Choice
 
 Choose one option.
 
@@ -26,7 +26,7 @@ Option B: descriptive bias
 - Add at least one other variable, for example `Acces_ressources`, `Langue_maternelle` or `Niveau_socio_economique`.
 - Explain why an observed difference must be interpreted carefully.
 
-# Deliverable
+## Deliverable
 
 Submit a video capsule of 180 seconds maximum.
 
@@ -34,10 +34,11 @@ The repository must contain either:
 
 - a video file in the `video/` folder;
 - or a `LIEN_VIDEO.md` file containing an accessible link to the capsule, if the file is too large for GitHub.
+- a short transcript or captions synchronized with the capsule.
 
 Your repository must also contain the datasets provided in the template.
 
-# Expected Structure
+## Expected Structure
 
 Your capsule must include:
 
@@ -48,7 +49,7 @@ Your capsule must include:
 5.  a careful interpretation;
 6.  a recommendation or an important limitation.
 
-# Assessment Criteria
+## Assessment Criteria
 
 | Criterion | Expectation |
 |----|----|
@@ -57,9 +58,9 @@ Your capsule must include:
 | Visualization | At least one graph or table supports the argument. |
 | Caution | The capsule distinguishes an association, a prediction and a causal conclusion. |
 | Ethics | Limits, missing values or possible biases are discussed. |
-| Format | The capsule lasts 180 seconds maximum and the link or file is accessible. |
+| Format and accessibility | The capsule lasts 180 seconds maximum, the link or file is accessible and a transcript or captions accompany the video. |
 
-# Tips
+## Tips
 
 - Prepare an outline before recording.
 - Do not show too many results.
@@ -67,7 +68,7 @@ Your capsule must include:
 - Avoid saying that a model is right simply because it produces a prediction.
 - End with a concrete and careful recommendation.
 
-# Resources
+## Resources
 
 - Mine Cetinkaya-Rundel and Johanna Hardin, 2024, Introduction to Modern Statistics, chapter 7: <https://openintrostat.github.io/ims/model-slr>
 - Mine Cetinkaya-Rundel and Johanna Hardin, 2024, Introduction to Modern Statistics, chapter 8: <https://openintrostat.github.io/ims/model-mlr>

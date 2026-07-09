@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 8: lire une page HTML, cibler des éléments avec des sélecteurs CSS, transformer une extraction en fonction, automatiser une extraction répétée et documenter les limites d’une collecte.
 
@@ -14,7 +14,7 @@ library(rvest)
 library(purrr)
 ```
 
-# Lectures à revoir
+## Lectures à revoir
 
 - [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html)
 - [R for Data Science - Functions](https://r4ds.hadley.nz/functions.html)
@@ -25,9 +25,9 @@ library(purrr)
 
 Après les lectures, faites aussi le [mini-test formatif](../module_08/mini_test.llms.md). Il n’est pas noté.
 
-# Bloc A - Lire une page HTML locale
+## Bloc A - Lire une page HTML locale
 
-## Exercice 1 - Importer une page HTML
+### Exercice 1 - Importer une page HTML
 
 Lisez `catalogue_donnees_fictif.html` avec `read_html()`. Repérez les cartes de jeux de données avec le sélecteur `.dataset-card`.
 
@@ -55,7 +55,7 @@ Lisez `catalogue_donnees_fictif.html` avec `read_html()`. Repérez les cartes de
 >     [3] <p class="dataset-category">Transport</p>
 >     [4] <p class="dataset-updated">2026-01-15</p>
 
-## Exercice 2 - Extraire un premier vecteur
+### Exercice 2 - Extraire un premier vecteur
 
 Extrayez les titres des jeux de données avec le sélecteur `.dataset-title`.
 
@@ -73,7 +73,7 @@ Extrayez les titres des jeux de données avec le sélecteur `.dataset-title`.
 >     [3] "Permis de construction anonymises" "Qualite de l'air par secteur"
 >     [5] "Frequentation des bibliotheques"
 
-## Exercice 3 - Construire un tableau
+### Exercice 3 - Construire un tableau
 
 Extrayez les producteurs, les catégories et les dates de mise à jour. Combinez le tout dans un tibble.
 
@@ -101,9 +101,9 @@ Extrayez les producteurs, les catégories et les dates de mise à jour. Combinez
 >     4 Qualite de l'air par secteur      Observatoire fic… Environn… 2026-02-08
 >     5 Frequentation des bibliotheques   Reseau fictif de… Culture   2026-02-12
 
-# Bloc B - Transformer l’extraction en fonction
+## Bloc B - Transformer l’extraction en fonction
 
-## Exercice 4 - Créer une fonction auxiliaire
+### Exercice 4 - Créer une fonction auxiliaire
 
 Créez une fonction `extraire_texte()` qui reçoit un noeud HTML et un sélecteur CSS, puis retourne le texte correspondant. Si l’élément manque, la fonction doit retourner `NA_character_`.
 
@@ -132,7 +132,7 @@ Créez une fonction `extraire_texte()` qui reçoit un noeud HTML et un sélecteu
 >
 >     [1] NA
 
-## Exercice 5 - Créer une fonction d’extraction
+### Exercice 5 - Créer une fonction d’extraction
 
 Écrivez une fonction `extraire_catalogue(fichier)` qui lit une page HTML locale et retourne un tibble avec les colonnes `titre`, `producteur`, `categorie`, `date_mise_a_jour`.
 
@@ -164,7 +164,7 @@ Créez une fonction `extraire_texte()` qui reçoit un noeud HTML et un sélecteu
 >     4 Qualite de l'air par secteur      Observatoire fic… Environn… 2026-02-08
 >     5 Frequentation des bibliotheques   Reseau fictif de… Culture   2026-02-12
 
-## Exercice 6 - Tester une page irrégulière
+### Exercice 6 - Tester une page irrégulière
 
 Utilisez la même fonction sur `catalogue_irregulier_fictif.html`. Quelles valeurs manquent?
 
@@ -199,7 +199,7 @@ Utilisez la même fonction sur `catalogue_irregulier_fictif.html`. Quelles valeu
 >
 > La fonction ne s’arrête pas lorsqu’un champ manque. Elle retourne `NA`, ce qui permet de diagnostiquer le problème dans un tableau.
 
-## Exercice 7 - Automatiser sur plusieurs pages
+### Exercice 7 - Automatiser sur plusieurs pages
 
 Utilisez `purrr::imap_dfr()` pour appliquer `extraire_catalogue()` aux deux pages de catalogue et ajouter une colonne `source`.
 
@@ -235,9 +235,9 @@ Utilisez `purrr::imap_dfr()` pour appliquer `extraire_catalogue()` aux deux page
 >     8 irregulier Espaces publics accessibles   Service f… <NA>      2026-03-08
 >     9 irregulier Travaux routiers planifies    Direction… Transport 2026-03-12
 
-# Bloc C - Sobriété et éthique de collecte
+## Bloc C - Sobriété et éthique de collecte
 
-## Exercice 8 - Interpréter un `robots.txt`
+### Exercice 8 - Interpréter un `robots.txt`
 
 Voici un exemple fictif de fichier `robots.txt`.
 
@@ -273,11 +273,11 @@ Identifiez les chemins à éviter et expliquez pourquoi ce fichier ne constitue 
 >
 > `robots.txt` donne des consignes techniques aux robots. Il ne remplace pas les conditions d’utilisation, le jugement éthique, la prudence sur la charge serveur ou une autorisation écrite lorsque la collecte et la redistribution sont sensibles.
 
-# Étude de cas 1 - Catalogue municipal fictif
+## Étude de cas 1 - Catalogue municipal fictif
 
 Une municipalité fictive vous demande de produire un court résumé des jeux de données visibles dans son mini-catalogue.
 
-## Exercice 9 - Résumer les catégories
+### Exercice 9 - Résumer les catégories
 
 À partir des deux pages de catalogue combinées, calculez le nombre de jeux de données par catégorie.
 
@@ -301,7 +301,7 @@ Une municipalité fictive vous demande de produire un court résumé des jeux de
 >     5 Non indiquee       1
 >     6 Urbanisme          1
 
-## Exercice 10 - Produire une note de collecte
+### Exercice 10 - Produire une note de collecte
 
 Écrivez trois phrases qui expliquent ce que votre code collecte, comment il limite les risques et ce qu’il faudrait vérifier avant de l’appliquer à un vrai site.
 
@@ -309,11 +309,11 @@ Une municipalité fictive vous demande de produire un court résumé des jeux de
 >
 > Le code lit seulement des pages HTML locales préparées pour l’exercice et extrait des champs publics agrégés. Dans un vrai contexte, il faudrait limiter le nombre de pages, ajouter des pauses entre les requêtes et éviter toute collecte massive ou contourner des protections. Il faudrait aussi vérifier `robots.txt`, les conditions d’utilisation, la licence des données et les règles de redistribution avant de publier une table dérivée.
 
-# Étude de cas 2 - Page d’événements publics
+## Étude de cas 2 - Page d’événements publics
 
 Une association fictive publie une petite page d’événements. Vous voulez extraire les titres, les dates, les lieux et les thèmes pour produire un calendrier.
 
-## Exercice 11 - Extraire les événements
+### Exercice 11 - Extraire les événements
 
 Créez une fonction `extraire_evenements(fichier)` qui retourne un tibble avec les colonnes `titre`, `date`, `lieu`, `theme`.
 
@@ -347,7 +347,7 @@ Créez une fonction `extraire_evenements(fichier)` qui retourne un tibble avec l
 >     3 Rencontre climat quartier        2026-03-03 Centre communautaire Est Environn…
 >     4 Formation cartographie citoyenne 2026-03-10 Laboratoire urbain       Numerique
 
-## Exercice 12 - Vérifier le résultat
+### Exercice 12 - Vérifier le résultat
 
 Produisez un résumé du nombre d’événements par thème et formulez une vérification simple qui pourrait servir de test.
 

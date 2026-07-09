@@ -16,7 +16,7 @@ Expliquez en une phrase pourquoi le script est préférable pour un travail qui 
 >
 > La console est utile pour tester rapidement une commande. Le script garde une trace du code, ce qui permet de relancer et de vérifier le travail plus tard.
 
-## Exercice 2 - Créer des objets
+### Exercice 2 - Créer des objets
 
 Créez les objets suivants:
 
@@ -34,7 +34,7 @@ Créez les objets suivants:
 > temperature_moyenne
 > ```
 
-## Exercice 3 - Comprendre une valeur manquante
+### Exercice 3 - Comprendre une valeur manquante
 
 Que retourne le code suivant? Expliquez pourquoi.
 
@@ -46,7 +46,7 @@ mean(c(4, 7, NA, 10))
 >
 > Le résultat est `NA`, car R ne peut pas calculer la moyenne sans savoir quoi faire avec la valeur manquante. Il faut préciser `na.rm = TRUE` pour l’ignorer.
 
-## Exercice 4 - Écrire une condition
+### Exercice 4 - Écrire une condition
 
 Créez un objet `temperature <- -8`, puis écrivez une condition qui affiche:
 
@@ -65,7 +65,7 @@ Créez un objet `temperature <- -8`, puis écrivez une condition qui affiche:
 > }
 > ```
 
-## Exercice 5 - Écrire une fonction simple
+### Exercice 5 - Écrire une fonction simple
 
 Créez une fonction `etendue_temperature()` qui reçoit deux arguments, `minimum` et `maximum`, puis retourne la différence entre les deux.
 
@@ -81,7 +81,7 @@ Testez la fonction avec `minimum = -3` et `maximum = 8`.
 > etendue_temperature(minimum = -3, maximum = 8)
 > ```
 
-## Exercice 6 - Trouver de l’aide
+### Exercice 6 - Trouver de l’aide
 
 Utilisez l’aide intégrée de R pour consulter la documentation de `mean()`.
 
@@ -95,7 +95,7 @@ Ensuite, répondez en une phrase: à quoi sert l’argument `na.rm`?
 >
 > L’argument `na.rm` indique si les valeurs manquantes doivent être retirées avant le calcul.
 
-## Exercice 7 - Réécrire du code avec style
+### Exercice 7 - Réécrire du code avec style
 
 Réécrivez le code suivant pour respecter un style plus lisible.
 
@@ -109,7 +109,7 @@ x=mean(c(3,NA,5),na.rm=TRUE)
 > x <- mean(c(3, NA, 5), na.rm = TRUE)
 > ```
 
-## Exercice 8 - Créer un premier rapport Quarto
+### Exercice 8 - Créer un premier rapport Quarto
 
 Créez un fichier `rapport.qmd` contenant:
 
@@ -135,7 +135,7 @@ Créez un fichier `rapport.qmd` contenant:
 > mean(c(1, 2, 3, 4, 5))
 > ```
 
-## Exercice 9 - Charger les packages du module
+### Exercice 9 - Charger les packages du module
 
 Dans un script ou un document Quarto, chargez les packages nécessaires pour accéder aux données `MeteoQuebec` et manipuler des tableaux avec `dplyr`.
 
@@ -148,7 +148,7 @@ Dans un script ou un document Quarto, chargez les packages nécessaires pour acc
 >
 > Le chargement doit se trouver dans le document ou le script, pas seulement dans la console.
 
-## Exercice 10 - Inspecter `MeteoQuebec`
+### Exercice 10 - Inspecter `MeteoQuebec`
 
 Après avoir chargé `UlavalSSD`, utilisez trois fonctions différentes pour inspecter `MeteoQuebec`.
 
@@ -164,7 +164,7 @@ Votre objectif est de comprendre les noms de variables, les premières lignes et
 > summary(MeteoQuebec)
 > ```
 
-## Exercice 11 - Repérer les valeurs manquantes
+### Exercice 11 - Repérer les valeurs manquantes
 
 Utilisez `summary()` pour identifier au moins une variable de `MeteoQuebec` qui contient des valeurs manquantes.
 
@@ -182,7 +182,7 @@ Rédigez ensuite une phrase qui explique pourquoi cette information est importan
 >
 > > Certaines variables contiennent des valeurs manquantes. Je dois en tenir compte avant de calculer une moyenne ou de comparer des années, sinon l’analyse peut devenir incomplète ou produire `NA`.
 
-## Exercice 12 - Extraire des colonnes
+### Exercice 12 - Extraire des colonnes
 
 Extrayez la colonne `mean_temp` de `MeteoQuebec` de deux façons:
 
@@ -198,7 +198,7 @@ Extrayez la colonne `mean_temp` de `MeteoQuebec` de deux façons:
 > temperature_2 <- MeteoQuebec[, "mean_temp"]
 > ```
 
-## Exercice 13 - Filtrer une date
+### Exercice 13 - Filtrer une date
 
 Choisissez une date symbolique en définissant:
 
@@ -224,7 +224,7 @@ Filtrez `MeteoQuebec` pour garder seulement les observations de ce mois et de ce
 > meteo_date
 > ```
 
-## Exercice 14 - Ajouter une colonne
+### Exercice 14 - Ajouter une colonne
 
 Créez une colonne `etendue_temp` qui calcule la différence entre la température maximale et la température minimale.
 
@@ -240,11 +240,11 @@ Créez une colonne `etendue_temp` qui calcule la différence entre la températu
 > head(meteo_avec_etendue)
 > ```
 
-# Études de cas
+## Études de cas
 
 Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes techniques du module avec d’autres contextes que la météo.
 
-## Étude de cas 1 - Bibliothèques municipales
+### Étude de cas 1 - Bibliothèques municipales
 
 Fichier: `data/bibliotheques_municipales_fictif.csv`
 
@@ -279,7 +279,7 @@ Réalisez les tâches suivantes:
 > bibliotheques_ateliers
 > ```
 
-## Étude de cas 2 - Coop étudiante
+### Étude de cas 2 - Coop étudiante
 
 Fichier: `data/coop_etudiante_fictif.csv`
 

@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6167,10 +6194,10 @@ margin-bottom: .05rem;
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="bloc-a---importer-et-inspecter" class="level1">
-<h1>Bloc A - Importer et inspecter</h1>
-<section id="exercice-1---lire-un-csv-avec-types-contrôlés" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1---lire-un-csv-avec-types-contrôlés">Exercice 1 - Lire un CSV avec types contrôlés</h2>
+<section id="bloc-a---importer-et-inspecter" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-a---importer-et-inspecter">Bloc A - Importer et inspecter</h2>
+<section id="exercice-1---lire-un-csv-avec-types-contrôlés" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-1---lire-un-csv-avec-types-contrôlés">Exercice 1 - Lire un CSV avec types contrôlés</h3>
 <p>Importez <code>policies.csv</code> en forçant <code>policy_id</code> en texte et <code>premium_amount</code> en nombre.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -6213,8 +6240,8 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 </div>
 </div>
 </section>
-<section id="exercice-2---vérifier-les-dimensions-et-les-noms" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---vérifier-les-dimensions-et-les-noms">Exercice 2 - Vérifier les dimensions et les noms</h2>
+<section id="exercice-2---vérifier-les-dimensions-et-les-noms" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-2---vérifier-les-dimensions-et-les-noms">Exercice 2 - Vérifier les dimensions et les noms</h3>
 <p>Vérifiez le nombre de lignes, le nombre de colonnes et les noms de variables de <code>policies</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -6250,8 +6277,8 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 </div>
 </div>
 </section>
-<section id="exercice-3---nettoyer-des-noms-de-colonnes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---nettoyer-des-noms-de-colonnes">Exercice 3 - Nettoyer des noms de colonnes</h2>
+<section id="exercice-3---nettoyer-des-noms-de-colonnes" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-3---nettoyer-des-noms-de-colonnes">Exercice 3 - Nettoyer des noms de colonnes</h3>
 <p>Créez un petit tableau avec des noms de colonnes peu pratiques, puis nettoyez-les avec <code>clean_names()</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6283,8 +6310,8 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 </div>
 </div>
 </section>
-<section id="exercice-4---passer-du-format-large-au-format-long" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---passer-du-format-large-au-format-long">Exercice 4 - Passer du format large au format long</h2>
+<section id="exercice-4---passer-du-format-large-au-format-long" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-4---passer-du-format-large-au-format-long">Exercice 4 - Passer du format large au format long</h3>
 <p>Dans <code>policies</code>, les colonnes <code>q1_claims</code> à <code>q4_claims</code> représentent des réclamations trimestrielles. Transformez-les en deux colonnes: <code>trimestre</code> et <code>reclamations</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -6328,10 +6355,10 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 </div>
 </section>
 </section>
-<section id="bloc-b---nettoyer-valeurs-et-catégories" class="level1">
-<h1>Bloc B - Nettoyer valeurs et catégories</h1>
-<section id="exercice-5---revenir-au-format-large" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-5---revenir-au-format-large">Exercice 5 - Revenir au format large</h2>
+<section id="bloc-b---nettoyer-valeurs-et-catégories" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-b---nettoyer-valeurs-et-catégories">Bloc B - Nettoyer valeurs et catégories</h2>
+<section id="exercice-5---revenir-au-format-large" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-5---revenir-au-format-large">Exercice 5 - Revenir au format large</h3>
 <p>À partir de <code>policies_long</code>, revenez au format large.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -6371,8 +6398,8 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 </div>
 </section>
-<section id="exercice-6---recoder-des-catégories-proches" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6---recoder-des-catégories-proches">Exercice 6 - Recoder des catégories proches</h2>
+<section id="exercice-6---recoder-des-catégories-proches" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-6---recoder-des-catégories-proches">Exercice 6 - Recoder des catégories proches</h3>
 <p>La variable <code>vehicle_use</code> contient des variantes comme <code>&quot;Pleasure&quot;</code>, <code>&quot;pleasure&quot;</code> et <code>&quot;Com.mute&quot;</code>. Nettoyez-la pour obtenir seulement <code>&quot;Pleasure&quot;</code> et <code>&quot;Commute&quot;</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -6411,8 +6438,8 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 </div>
 </section>
-<section id="exercice-7---parser-un-montant-avec-une-virgule-décimale" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7---parser-un-montant-avec-une-virgule-décimale">Exercice 7 - Parser un montant avec une virgule décimale</h2>
+<section id="exercice-7---parser-un-montant-avec-une-virgule-décimale" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-7---parser-un-montant-avec-une-virgule-décimale">Exercice 7 - Parser un montant avec une virgule décimale</h3>
 <p>Transformez les montants textuels suivants en nombres.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>montants <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -6454,8 +6481,8 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 </div>
 </section>
-<section id="exercice-8---détecter-des-codes-fsa-invalides" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8---détecter-des-codes-fsa-invalides">Exercice 8 - Détecter des codes FSA invalides</h2>
+<section id="exercice-8---détecter-des-codes-fsa-invalides" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-8---détecter-des-codes-fsa-invalides">Exercice 8 - Détecter des codes FSA invalides</h3>
 <p>Un code FSA devrait contenir trois caractères. Dans le tableau suivant, repérez les lignes invalides.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>codes_fsa <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -6492,10 +6519,10 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 </section>
 </section>
-<section id="bloc-c---documenter-un-nettoyage" class="level1">
-<h1>Bloc C - Documenter un nettoyage</h1>
-<section id="exercice-9---créer-une-structure-de-journal" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9---créer-une-structure-de-journal">Exercice 9 - Créer une structure de journal</h2>
+<section id="bloc-c---documenter-un-nettoyage" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-c---documenter-un-nettoyage">Bloc C - Documenter un nettoyage</h2>
+<section id="exercice-9---créer-une-structure-de-journal" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-9---créer-une-structure-de-journal">Exercice 9 - Créer une structure de journal</h3>
 <p>Créez une liste <code>journal_nettoyage</code> avec les catégories <code>VM</code>, <code>VA</code>, <code>FT</code>, <code>RC</code> et <code>TY</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -6532,8 +6559,8 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 </div>
 </section>
-<section id="exercice-10---ajouter-une-entrée-de-correction" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-10---ajouter-une-entrée-de-correction">Exercice 10 - Ajouter une entrée de correction</h2>
+<section id="exercice-10---ajouter-une-entrée-de-correction" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-10---ajouter-une-entrée-de-correction">Exercice 10 - Ajouter une entrée de correction</h3>
 <p>Ajoutez une entrée indiquant que la valeur <code>-999</code> a été remplacée par <code>NA</code> dans une variable de montant.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -6581,8 +6608,8 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 </div>
 </section>
-<section id="exercice-11---signaler-sans-corriger" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-11---signaler-sans-corriger">Exercice 11 - Signaler sans corriger</h2>
+<section id="exercice-11---signaler-sans-corriger" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-11---signaler-sans-corriger">Exercice 11 - Signaler sans corriger</h3>
 <p>Ajoutez une entrée indiquant qu’un code FSA invalide a été signalé, mais non corrigé automatiquement.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -6630,8 +6657,8 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 </div>
 </section>
-<section id="exercice-12---sauvegarder-un-journal-dans-un-fichier-temporaire" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-12---sauvegarder-un-journal-dans-un-fichier-temporaire">Exercice 12 - Sauvegarder un journal dans un fichier temporaire</h2>
+<section id="exercice-12---sauvegarder-un-journal-dans-un-fichier-temporaire" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-12---sauvegarder-un-journal-dans-un-fichier-temporaire">Exercice 12 - Sauvegarder un journal dans un fichier temporaire</h3>
 <p>Sauvegardez <code>journal_nettoyage</code> dans un fichier temporaire, puis vérifiez que le fichier existe.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
@@ -6658,10 +6685,10 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 </section>
 </section>
-<section id="bloc-d---excel-json-et-règles-de-validation" class="level1">
-<h1>Bloc D - Excel, JSON et règles de validation</h1>
-<section id="exercice-13---lire-une-feuille-excel-précise" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-13---lire-une-feuille-excel-précise">Exercice 13 - Lire une feuille Excel précise</h2>
+<section id="bloc-d---excel-json-et-règles-de-validation" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-d---excel-json-et-règles-de-validation">Bloc D - Excel, JSON et règles de validation</h2>
+<section id="exercice-13---lire-une-feuille-excel-précise" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-13---lire-une-feuille-excel-précise">Exercice 13 - Lire une feuille Excel précise</h3>
 <p>Le fichier <code>resources/quotes_2024.xlsx</code> contient une feuille <code>Q3</code>. Importez-la en sautant la première ligne.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -6695,8 +6722,8 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-14---lire-un-json-simple" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-14---lire-un-json-simple">Exercice 14 - Lire un JSON simple</h2>
+<section id="exercice-14---lire-un-json-simple" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-14---lire-un-json-simple">Exercice 14 - Lire un JSON simple</h3>
 <p>Lisez <code>coverage.json</code>, puis récupérez la limite de couverture collision.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
@@ -6722,8 +6749,8 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-15---rectangulariser-un-json" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-15---rectangulariser-un-json">Exercice 15 - Rectangulariser un JSON</h2>
+<section id="exercice-15---rectangulariser-un-json" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-15---rectangulariser-un-json">Exercice 15 - Rectangulariser un JSON</h3>
 <p>Transformez la section <code>coverage</code> du JSON en tableau.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
@@ -6757,8 +6784,8 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-16---utiliser-une-règle-de-validation" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-16---utiliser-une-règle-de-validation">Exercice 16 - Utiliser une règle de validation</h2>
+<section id="exercice-16---utiliser-une-règle-de-validation" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-16---utiliser-une-règle-de-validation">Exercice 16 - Utiliser une règle de validation</h3>
 <p>Le fichier <code>data/regles_equipements_fictif.json</code> indique les années d’installation plausibles. Lisez ce fichier et affichez les bornes acceptées.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
@@ -6791,10 +6818,10 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 </div>
 </section>
 </section>
-<section id="études-de-cas" class="level1">
-<h1>Études de cas</h1>
-<section id="étude-de-cas-1---demandes-de-bourses-fictives" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-1---demandes-de-bourses-fictives">Étude de cas 1 - Demandes de bourses fictives</h2>
+<section id="études-de-cas" class="level2">
+<h2 class="anchored" data-anchor-id="études-de-cas">Études de cas</h2>
+<section id="étude-de-cas-1---demandes-de-bourses-fictives" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-1---demandes-de-bourses-fictives">Étude de cas 1 - Demandes de bourses fictives</h3>
 <p>Le fichier <code>data/demandes_bourses_fictif.csv</code> contient de fausses demandes de bourses étudiantes. Il ne représente aucun système réel.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">
@@ -6939,8 +6966,8 @@ list()</code></pre>
 </div>
 </div>
 </section>
-<section id="étude-de-cas-2---équipements-municipaux-fictifs" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-2---équipements-municipaux-fictifs">Étude de cas 2 - Équipements municipaux fictifs</h2>
+<section id="étude-de-cas-2---équipements-municipaux-fictifs" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-2---équipements-municipaux-fictifs">Étude de cas 2 - Équipements municipaux fictifs</h3>
 <p>Le fichier <code>data/equipements_municipaux_fictif.csv</code> contient de faux enregistrements d’équipements municipaux. Le fichier <code>data/regles_equipements_fictif.json</code> contient quelques règles de validation.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">

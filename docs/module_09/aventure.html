@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6143,8 +6170,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mise-en-situation-contrôle-de-la-qualité-en-éducation" class="level1">
-<h1>Mise en situation : contrôle de la qualité en éducation</h1>
+<section id="mise-en-situation-contrôle-de-la-qualité-en-éducation" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-situation-contrôle-de-la-qualité-en-éducation">Mise en situation : contrôle de la qualité en éducation</h2>
 <p>Vous travaillez comme scientifique de données junior au département de contrôle de la qualité et de l’équité au ministère de l’Éducation du Québec. Votre mandat consiste à utiliser des données réelles et fictives pour construire une première prédiction, puis pour examiner les limites et les biais possibles de cette prédiction.</p>
 <p>Michel Dufour, directeur adjoint du département, vous confie le mandat suivant :</p>
 <blockquote class="blockquote">
@@ -6191,8 +6218,8 @@ Carte de visite
 </div>
 </div>
 <!-- adventure-brief:end -->
-<section id="objectifs-de-laventure" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h2>
+<section id="objectifs-de-laventure" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h3>
 <ul>
 <li>Ajuster un modèle de régression linéaire multiple.</li>
 <li>Utiliser <code>predict()</code> pour produire des prédictions ciblées.</li>
@@ -6222,8 +6249,8 @@ Carte de visite
 <!-- week-new:end -->
 </section>
 </section>
-<section id="mission-1-modèle-prédictif-à-léchelle-des-écoles" class="level1">
-<h1>Mission 1 : modèle prédictif à l’échelle des écoles</h1>
+<section id="mission-1-modèle-prédictif-à-léchelle-des-écoles" class="level2">
+<h2 class="anchored" data-anchor-id="mission-1-modèle-prédictif-à-léchelle-des-écoles">Mission 1 : modèle prédictif à l’échelle des écoles</h2>
 <p>Michel vous remet le fichier <code>ecoles_primaires_qc.csv</code>. Il contient des informations sur les indices de défavorisation dans des écoles primaires du Québec.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Michel vous explique">
 <div class="callout-header d-flex align-content-center">
@@ -6238,8 +6265,8 @@ Carte de visite
 <p>Les noms de colonnes ne sont pas toujours intuitifs. Avant de modéliser, inspectez les variables et vérifiez quelles lignes sont utilisables.</p>
 </div>
 </div>
-<section id="étape-1-exploration-et-nettoyage" class="level2">
-<h2 class="anchored" data-anchor-id="étape-1-exploration-et-nettoyage">Étape 1 : exploration et nettoyage</h2>
+<section id="étape-1-exploration-et-nettoyage" class="level3">
+<h3 class="anchored" data-anchor-id="étape-1-exploration-et-nettoyage">Étape 1 : exploration et nettoyage</h3>
 <p>Commencez par charger les données et inspecter leur structure.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_ecoles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;ecoles_primaires_qc.csv&quot;</span>)</span>
@@ -6280,8 +6307,8 @@ Note
 </div>
 </div>
 </section>
-<section id="étape-2-modèle-de-régression" class="level2">
-<h2 class="anchored" data-anchor-id="étape-2-modèle-de-régression">Étape 2 : modèle de régression</h2>
+<section id="étape-2-modèle-de-régression" class="level3">
+<h3 class="anchored" data-anchor-id="étape-2-modèle-de-régression">Étape 2 : modèle de régression</h3>
 <div class="callout callout-style-default callout-important callout-titled" title="Michel vous demande">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -6307,8 +6334,8 @@ Note
 <li>Est-ce qu’une association statistique permet de conclure à une relation causale?</li>
 </ul>
 </section>
-<section id="étape-3-prédictions-ciblées" class="level2">
-<h2 class="anchored" data-anchor-id="étape-3-prédictions-ciblées">Étape 3 : prédictions ciblées</h2>
+<section id="étape-3-prédictions-ciblées" class="level3">
+<h3 class="anchored" data-anchor-id="étape-3-prédictions-ciblées">Étape 3 : prédictions ciblées</h3>
 <p>Utilisez <code>predict()</code> pour produire des prédictions sur des écoles observées.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_predictions <span class="ot">&lt;-</span> df_modele <span class="sc">|&gt;</span></span>
@@ -6316,6 +6343,19 @@ Note
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">imse_predit =</span> <span class="fu">predict</span>(modele, <span class="at">newdata =</span> df_modele),</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">erreur =</span> IMSE <span class="sc">-</span> imse_predit</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Ce que cette comparaison vérifie, et ce qu&#39;elle ne vérifie pas">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ce que cette comparaison vérifie, et ce qu’elle ne vérifie pas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les écoles comparées ici ont aussi servi à ajuster le modèle. Les erreurs aident donc à repérer des cas mal décrits ou des limites visibles dans les données d’ajustement. Elles ne mesurent pas la performance du modèle sur de nouvelles écoles.</p>
+</div>
 </div>
 <p>Michel vous demande deux comparaisons ciblées.</p>
 <div class="cell">
@@ -6342,8 +6382,8 @@ Note
 </div>
 </div>
 </section>
-<section id="étape-4-cas-non-diffusés-et-limites-du-modèle" class="level2">
-<h2 class="anchored" data-anchor-id="étape-4-cas-non-diffusés-et-limites-du-modèle">Étape 4 : cas non diffusés et limites du modèle</h2>
+<section id="étape-4-cas-non-diffusés-et-limites-du-modèle" class="level3">
+<h3 class="anchored" data-anchor-id="étape-4-cas-non-diffusés-et-limites-du-modèle">Étape 4 : cas non diffusés et limites du modèle</h3>
 <p>Dans le fichier, certaines lignes ont <code>Diffusion == &quot;NON&quot;</code>. Ces lignes n’ont pas de valeurs disponibles pour les variables nécessaires au modèle.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_ecoles <span class="sc">|&gt;</span></span>
@@ -6373,16 +6413,16 @@ Note
 </div>
 </section>
 </section>
-<section id="mission-2-détection-dun-biais-descriptif" class="level1">
-<h1>Mission 2 : détection d’un biais descriptif</h1>
+<section id="mission-2-détection-dun-biais-descriptif" class="level2">
+<h2 class="anchored" data-anchor-id="mission-2-détection-dun-biais-descriptif">Mission 2 : détection d’un biais descriptif</h2>
 <p>Michel vous fournit aussi un jeu de données fictif de 1000 élèves, <code>eleves_fictifs.csv</code>. À première vue, ce jeu semble neutre. Mais est-ce vraiment le cas?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_eleves <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;eleves_fictifs.csv&quot;</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_eleves)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="étape-1-taux-dadmission-global" class="level2">
-<h2 class="anchored" data-anchor-id="étape-1-taux-dadmission-global">Étape 1 : taux d’admission global</h2>
+<section id="étape-1-taux-dadmission-global" class="level3">
+<h3 class="anchored" data-anchor-id="étape-1-taux-dadmission-global">Étape 1 : taux d’admission global</h3>
 <p>Commencez par calculer le taux d’admission global.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>taux_global <span class="ot">&lt;-</span> df_eleves <span class="sc">|&gt;</span></span>
@@ -6392,8 +6432,8 @@ Note
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>taux_global</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="étape-2-taux-dadmission-selon-le-sexe" class="level2">
-<h2 class="anchored" data-anchor-id="étape-2-taux-dadmission-selon-le-sexe">Étape 2 : taux d’admission selon le sexe</h2>
+<section id="étape-2-taux-dadmission-selon-le-sexe" class="level3">
+<h3 class="anchored" data-anchor-id="étape-2-taux-dadmission-selon-le-sexe">Étape 2 : taux d’admission selon le sexe</h3>
 <p>Explorez ensuite les taux d’admission selon <code>Sexe</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>taux_sexe <span class="ot">&lt;-</span> df_eleves <span class="sc">|&gt;</span></span>
@@ -6417,8 +6457,8 @@ Note
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="étape-3-discussion-guidée" class="level2">
-<h2 class="anchored" data-anchor-id="étape-3-discussion-guidée">Étape 3 : discussion guidée</h2>
+<section id="étape-3-discussion-guidée" class="level3">
+<h3 class="anchored" data-anchor-id="étape-3-discussion-guidée">Étape 3 : discussion guidée</h3>
 <p>Répondez aux questions suivantes :</p>
 <ul>
 <li>Observez-vous une différence notable entre les groupes?</li>
@@ -6427,8 +6467,8 @@ Note
 <li>Peut-on parler d’un biais descriptif dans ce jeu de données? Pourquoi?</li>
 </ul>
 </section>
-<section id="étape-4-autres-variables" class="level2">
-<h2 class="anchored" data-anchor-id="étape-4-autres-variables">Étape 4 : autres variables</h2>
+<section id="étape-4-autres-variables" class="level3">
+<h3 class="anchored" data-anchor-id="étape-4-autres-variables">Étape 4 : autres variables</h3>
 <p>Répétez la même logique pour d’autres variables, par exemple <code>Langue_maternelle</code>, <code>Niveau_socio_economique</code> ou <code>Acces_ressources</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_eleves <span class="sc">|&gt;</span></span>
@@ -6439,8 +6479,8 @@ Note
 </div>
 </section>
 </section>
-<section id="défi-à-remettre" class="level1">
-<h1>Défi à remettre</h1>
+<section id="défi-à-remettre" class="level2">
+<h2 class="anchored" data-anchor-id="défi-à-remettre">Défi à remettre</h2>
 <p>Le défi associé à cette aventure est décrit dans la page <a href="../module_09/defi.html">Défi 9 - Capsule vidéo</a>.</p>
 <p>Vous devrez produire une capsule vidéo de 180 secondes maximum. Vous pouvez présenter soit votre modèle prédictif de la Mission 1, soit votre analyse de biais de la Mission 2. Le dépôt de départ est le template GitHub <code>STT-1100/aventure-9</code>.</p>
 <!-- portfolio-trace:start -->
@@ -6468,8 +6508,8 @@ un brouillon de formulation accessible pour la capsule vidéo.
 </div>
 <!-- portfolio-trace:end -->
 </section>
-<section id="conclusion-de-laventure" class="level1">
-<h1>Conclusion de l’aventure</h1>
+<section id="conclusion-de-laventure" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-de-laventure">Conclusion de l’aventure</h2>
 <p>Vous avez construit un premier modèle prédictif, produit des prédictions ciblées et identifié un biais descriptif dans des données fictives. Le point central de l’aventure est la prudence : un modèle peut être utile, mais il doit toujours être accompagné d’une discussion sur ses limites, ses données manquantes et ses effets possibles.</p>
 
 

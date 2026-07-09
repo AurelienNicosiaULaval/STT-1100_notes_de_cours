@@ -4311,6 +4311,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5869,7 +5895,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6159,8 +6186,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="exercices-de-consolidation" class="level1">
-<h1>Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes du module 7: reconnaître une visualisation trompeuse, reconstruire un graphique défendable, réduire les risques de ré-identification et écrire une note éthique courte.</p>
 <p>Les données utilisées ici sont fictives et ne représentent aucune personne, organisation ou municipalité réelle.</p>
 <div class="cell">
@@ -6171,8 +6198,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="lectures-à-revoir" class="level1">
-<h1>Lectures à revoir</h1>
+<section id="lectures-à-revoir" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-à-revoir">Lectures à revoir</h2>
 <ul>
 <li><a href="https://r4ds.hadley.nz/communication.html" target="_blank">R for Data Science - Communication</a></li>
 <li><a href="https://clauswilke.com/dataviz/directory-of-visualizations.html" target="_blank">Fundamentals of Data Visualization - Directory of visualizations</a></li>
@@ -6183,10 +6210,10 @@ margin-bottom: .05rem;
 </ul>
 <p>Après les lectures, faites aussi le <a href="../module_07/mini_test.html">mini-test formatif</a>. Il n’est pas noté.</p>
 </section>
-<section id="bloc-a---diagnostiquer-une-visualisation" class="level1">
-<h1>Bloc A - Diagnostiquer une visualisation</h1>
-<section id="exercice-1---comparer-deux-axes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1---comparer-deux-axes">Exercice 1 - Comparer deux axes</h2>
+<section id="bloc-a---diagnostiquer-une-visualisation" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-a---diagnostiquer-une-visualisation">Bloc A - Diagnostiquer une visualisation</h2>
+<section id="exercice-1---comparer-deux-axes" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-1---comparer-deux-axes">Exercice 1 - Comparer deux axes</h3>
 <p>Importez les signalements municipaux fictifs, puis produisez deux graphiques sur les mêmes données:</p>
 <ul>
 <li>un graphique avec un axe vertical tronqué;</li>
@@ -6282,8 +6309,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="exercice-2---ajouter-les-effectifs-au-message" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---ajouter-les-effectifs-au-message">Exercice 2 - Ajouter les effectifs au message</h2>
+<section id="exercice-2---ajouter-les-effectifs-au-message" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-2---ajouter-les-effectifs-au-message">Exercice 2 - Ajouter les effectifs au message</h3>
 <p>Calculez le nombre total de signalements par type. Produisez un graphique qui permet de comparer les types sans créer d’impression de risque individuel.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -6350,8 +6377,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="exercice-3---éviter-les-comparaisons-injustes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---éviter-les-comparaisons-injustes">Exercice 3 - Éviter les comparaisons injustes</h2>
+<section id="exercice-3---éviter-les-comparaisons-injustes" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-3---éviter-les-comparaisons-injustes">Exercice 3 - Éviter les comparaisons injustes</h3>
 <p>Joignez les signalements à la population fictive des quartiers. Calculez un taux par 10 000 personnes. Pourquoi ce taux est-il plus défendable qu’une comparaison brute?</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6423,10 +6450,10 @@ margin-bottom: .05rem;
 </div>
 </section>
 </section>
-<section id="bloc-b---réduire-les-risques-de-ré-identification" class="level1">
-<h1>Bloc B - Réduire les risques de ré-identification</h1>
-<section id="exercice-4---repérer-les-variables-sensibles" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---repérer-les-variables-sensibles">Exercice 4 - Repérer les variables sensibles</h2>
+<section id="bloc-b---réduire-les-risques-de-ré-identification" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-b---réduire-les-risques-de-ré-identification">Bloc B - Réduire les risques de ré-identification</h2>
+<section id="exercice-4---repérer-les-variables-sensibles" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-4---repérer-les-variables-sensibles">Exercice 4 - Repérer les variables sensibles</h3>
 <p>Importez le sondage étudiant fictif. Classez les variables en trois familles:</p>
 <ul>
 <li>identifiant direct;</li>
@@ -6505,8 +6532,8 @@ $ commentaire_libre        &lt;chr&gt; "Prefere ne pas etre citee.", "Travaille 
 </div>
 </div>
 </section>
-<section id="exercice-5---préparer-une-version-anonymisée" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-5---préparer-une-version-anonymisée">Exercice 5 - Préparer une version anonymisée</h2>
+<section id="exercice-5---préparer-une-version-anonymisée" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-5---préparer-une-version-anonymisée">Exercice 5 - Préparer une version anonymisée</h3>
 <p>Créez une version du sondage qui:</p>
 <ul>
 <li>retire l’identifiant direct;</li>
@@ -6577,8 +6604,8 @@ $ commentaire_libre        &lt;chr&gt; "Prefere ne pas etre citee.", "Travaille 
 </div>
 </div>
 </section>
-<section id="exercice-6---vérifier-les-petits-groupes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6---vérifier-les-petits-groupes">Exercice 6 - Vérifier les petits groupes</h2>
+<section id="exercice-6---vérifier-les-petits-groupes" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-6---vérifier-les-petits-groupes">Exercice 6 - Vérifier les petits groupes</h3>
 <p>Repérez les combinaisons <code>programme</code>, <code>niveau</code> et <code>genre</code> qui contiennent moins de trois personnes. Pourquoi faut-il éviter de publier ces cellules en détail?</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -6626,8 +6653,8 @@ $ commentaire_libre        &lt;chr&gt; "Prefere ne pas etre citee.", "Travaille 
 </div>
 </div>
 </section>
-<section id="exercice-7---visualiser-sans-surexposer" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7---visualiser-sans-surexposer">Exercice 7 - Visualiser sans surexposer</h2>
+<section id="exercice-7---visualiser-sans-surexposer" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-7---visualiser-sans-surexposer">Exercice 7 - Visualiser sans surexposer</h3>
 <p>Produisez un graphique du score moyen de stress par programme. Affichez aussi les effectifs et ajoutez une phrase d’interprétation prudente.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -6694,11 +6721,11 @@ $ commentaire_libre        &lt;chr&gt; "Prefere ne pas etre citee.", "Travaille 
 </div>
 </section>
 </section>
-<section id="étude-de-cas-1---publication-municipale-responsable" class="level1">
-<h1>Étude de cas 1 - Publication municipale responsable</h1>
+<section id="étude-de-cas-1---publication-municipale-responsable" class="level2">
+<h2 class="anchored" data-anchor-id="étude-de-cas-1---publication-municipale-responsable">Étude de cas 1 - Publication municipale responsable</h2>
 <p>Une ville fictive veut publier un tableau de signalements mensuels. Elle souhaite être transparente, mais ne veut pas stigmatiser de petits secteurs ou révéler indirectement des situations individuelles.</p>
-<section id="exercice-8---construire-une-version-publiable" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8---construire-une-version-publiable">Exercice 8 - Construire une version publiable</h2>
+<section id="exercice-8---construire-une-version-publiable" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-8---construire-une-version-publiable">Exercice 8 - Construire une version publiable</h3>
 <p>À partir des signalements municipaux, créez une table qui masque les cellules dont <code>niveau_detail_public</code> vaut <code>"masquer"</code>. Proposez une variable <code>nb_public</code> qui garde le nombre lorsque la publication est acceptable et remplace les autres valeurs par <code>NA</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -6746,8 +6773,8 @@ $ commentaire_libre        &lt;chr&gt; "Prefere ne pas etre citee.", "Travaille 
 </div>
 </div>
 </section>
-<section id="exercice-9---écrire-une-note-éthique-courte" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9---écrire-une-note-éthique-courte">Exercice 9 - Écrire une note éthique courte</h2>
+<section id="exercice-9---écrire-une-note-éthique-courte" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-9---écrire-une-note-éthique-courte">Exercice 9 - Écrire une note éthique courte</h3>
 <p>Rédigez trois phrases qui expliquent:</p>
 <ol type="1">
 <li>ce qui est publié;</li>
@@ -6772,11 +6799,11 @@ $ commentaire_libre        &lt;chr&gt; "Prefere ne pas etre citee.", "Travaille 
 </div>
 </section>
 </section>
-<section id="étude-de-cas-2---sondage-étudiant-et-communication-prudente" class="level1">
-<h1>Étude de cas 2 - Sondage étudiant et communication prudente</h1>
+<section id="étude-de-cas-2---sondage-étudiant-et-communication-prudente" class="level2">
+<h2 class="anchored" data-anchor-id="étude-de-cas-2---sondage-étudiant-et-communication-prudente">Étude de cas 2 - Sondage étudiant et communication prudente</h2>
 <p>Une équipe pédagogique fictive veut présenter les résultats d’un sondage sur la charge de travail. Les données peuvent aider à améliorer le cours, mais les commentaires libres et les petits groupes peuvent rendre certaines personnes reconnaissables.</p>
-<section id="exercice-10---préparer-un-résumé-publiable" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-10---préparer-un-résumé-publiable">Exercice 10 - Préparer un résumé publiable</h2>
+<section id="exercice-10---préparer-un-résumé-publiable" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-10---préparer-un-résumé-publiable">Exercice 10 - Préparer un résumé publiable</h3>
 <p>Créez un tableau par niveau d’étude avec le nombre de réponses, la moyenne d’heures d’étude et la moyenne du score de stress.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -6817,8 +6844,8 @@ $ commentaire_libre        &lt;chr&gt; "Prefere ne pas etre citee.", "Travaille 
 </div>
 </div>
 </section>
-<section id="exercice-11---produire-un-graphique-défendable" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-11---produire-un-graphique-défendable">Exercice 11 - Produire un graphique défendable</h2>
+<section id="exercice-11---produire-un-graphique-défendable" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-11---produire-un-graphique-défendable">Exercice 11 - Produire un graphique défendable</h3>
 <p>Produisez un graphique qui montre la moyenne d’heures d’étude par niveau. Le titre doit éviter de transformer une description en accusation.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -6858,8 +6885,8 @@ $ commentaire_libre        &lt;chr&gt; "Prefere ne pas etre citee.", "Travaille 
 </div>
 </div>
 </section>
-<section id="exercice-12---décider-ce-quil-ne-faut-pas-publier" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-12---décider-ce-quil-ne-faut-pas-publier">Exercice 12 - Décider ce qu’il ne faut pas publier</h2>
+<section id="exercice-12---décider-ce-quil-ne-faut-pas-publier" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-12---décider-ce-quil-ne-faut-pas-publier">Exercice 12 - Décider ce qu’il ne faut pas publier</h3>
 <p>Nommez deux éléments du fichier initial qui ne devraient pas apparaître dans une publication ouverte. Expliquez pourquoi.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">

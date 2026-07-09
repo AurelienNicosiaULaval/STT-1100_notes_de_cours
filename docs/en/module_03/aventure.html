@@ -5862,16 +5862,7 @@ margin-bottom: .05rem;
 <a href="#categorical-variables-the-basics-in-r-with-stringr" id="toc-categorical-variables-the-basics-in-r-with-stringr" class="nav-link" data-scroll-target="#categorical-variables-the-basics-in-r-with-stringr">Categorical variables: the basics in R with <code>stringr</code></a>
   <ul class="collapse">
   <li><a href="#explanations" id="toc-explanations" class="nav-link" data-scroll-target="#explanations">Explanations</a></li>
-  <li>
-<a href="#demonstration" id="toc-demonstration" class="nav-link" data-scroll-target="#demonstration">Demonstration</a>
-  <ul class="collapse">
-  <li><a href="#pattern-detection-str_detect" id="toc-pattern-detection-str_detect" class="nav-link" data-scroll-target="#pattern-detection-str_detect">Pattern detection (<code>str_detect()</code>)</a></li>
-  <li><a href="#replacement-and-numeric-conversion" id="toc-replacement-and-numeric-conversion" class="nav-link" data-scroll-target="#replacement-and-numeric-conversion">Replacement and numeric conversion</a></li>
-  <li><a href="#pattern-extraction-str_extract" id="toc-pattern-extraction-str_extract" class="nav-link" data-scroll-target="#pattern-extraction-str_extract">Pattern extraction (<code>str_extract()</code>)</a></li>
-  <li><a href="#formatting-str_to_lower-str_to_upper-etc." id="toc-formatting-str_to_lower-str_to_upper-etc." class="nav-link" data-scroll-target="#formatting-str_to_lower-str_to_upper-etc.">Formatting (<code>str_to_lower()</code>, <code>str_to_upper()</code>, etc.)</a></li>
-  <li><a href="#removing-multiple-spaces-str_squish" id="toc-removing-multiple-spaces-str_squish" class="nav-link" data-scroll-target="#removing-multiple-spaces-str_squish">Removing multiple spaces (<code>str_squish()</code>)</a></li>
-  </ul>
-</li>
+  <li><a href="#demonstration" id="toc-demonstration" class="nav-link" data-scroll-target="#demonstration">Demonstration</a></li>
   </ul>
 </li>
   <li>
@@ -5921,9 +5912,9 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="scenario-become-a-data-journalist" class="level1">
-<h1>Scenario: Become a <em>data journalist</em>
-</h1>
+<section id="scenario-become-a-data-journalist" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-become-a-data-journalist">Scenario: Become a <em>data journalist</em>
+</h2>
 <p>You are hired as a <strong>data journalist</strong> by <em>Le Courrier Gourmand</em>, a fictional local media outlet that publishes interactive investigations on food in Montreal. Your editor-in-chief wants an article that helps the public understand <strong>food offences committed in Montreal restaurants</strong>. She gives you some questions to explore:</p>
 <ul>
 <li><p>What is the proportion of establishments from the city of Montreal?</p></li>
@@ -5973,8 +5964,8 @@ Character card
 </div>
 </div>
 <!-- adventure-brief:end -->
-<section id="adventure-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="adventure-objectives">Adventure objectives</h2>
+<section id="adventure-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="adventure-objectives">Adventure objectives</h3>
 <ul>
 <li>Import and clean a real categorical dataset about food offences.</li>
 <li>Build frequency tables, descriptive statistics and visualizations.</li>
@@ -5988,8 +5979,8 @@ Throughout the analysis, you must keep these questions in mind and answer them i
 <hr>
 </section>
 </section>
-<section id="how-to-succeed-in-the-adventure" class="level1">
-<h1>How to succeed in the adventure</h1>
+<section id="how-to-succeed-in-the-adventure" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-succeed-in-the-adventure">How to succeed in the adventure</h2>
 <ol type="1">
 <li>
 <strong>Load data</strong>: You can either:
@@ -6004,8 +5995,8 @@ Throughout the analysis, you must keep these questions in mind and answer them i
 </ol>
 <hr>
 </section>
-<section id="working-on-github" class="level1">
-<h1>Working on GitHub</h1>
+<section id="working-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="working-on-github">Working on GitHub</h2>
 <p>Before you start analyzing the data, you need to grab the GitHub repository containing the necessary files.</p>
 <ol type="1">
 <li>Clone the <code>"Adventure-3-IDENTIFIANT_GITHUB"</code> repository. Create a new RStudio project from version control and use the SSH link of your GitHub repository, as shown in the help sheet.</li>
@@ -6018,11 +6009,11 @@ Throughout the analysis, you must keep these questions in mind and answer them i
 <p>Warning: remember that commit messages must be meaningful. For example “Added my name to the article”</p>
 <p>Congratulations! You are now ready to start analyzing!</p>
 </section>
-<section id="categorical-variables-the-basics-in-r-with-stringr" class="level1">
-<h1>Categorical variables: the basics in R with <code>stringr</code>
-</h1>
-<section id="explanations" class="level2">
-<h2 class="anchored" data-anchor-id="explanations">Explanations</h2>
+<section id="categorical-variables-the-basics-in-r-with-stringr" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-variables-the-basics-in-r-with-stringr">Categorical variables: the basics in R with <code>stringr</code>
+</h2>
+<section id="explanations" class="level3">
+<h3 class="anchored" data-anchor-id="explanations">Explanations</h3>
 <p>In R, a categorical variable is often represented by:</p>
 <ul>
 <li><p>A <strong>factor</strong> (<code>factor</code>) which contains a set of defined levels.</p></li>
@@ -6032,8 +6023,8 @@ Throughout the analysis, you must keep these questions in mind and answer them i
 <p>For module 3, we will focus on categorical variables of type <strong>character</strong>. In Module 4, we will look at the factors in more detail.</p>
 <p>Here are examples demonstrating how to use <code>stringr</code> (part of the <code>Tidyverse</code>) to manipulate character variables in a dataset like <code>listecondamnation</code>. The examples below target common cases: pattern detection, extraction, replacement, and string cleaning.</p>
 </section>
-<section id="demonstration" class="level2">
-<h2 class="anchored" data-anchor-id="demonstration">Demonstration</h2>
+<section id="demonstration" class="level3">
+<h3 class="anchored" data-anchor-id="demonstration">Demonstration</h3>
 <p>We will use the <code>listecondamnation</code> dataset from the <code>UlavalSSD</code> library which contains the convictions of food establishments in Quebec.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6109,8 +6100,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 </div>
 </div>
 </div>
-<section id="pattern-detection-str_detect" class="level3">
-<h3 class="anchored" data-anchor-id="pattern-detection-str_detect">Pattern detection (<code>str_detect()</code>)</h3>
+<section id="pattern-detection-str_detect" class="level4">
+<h4 class="anchored" data-anchor-id="pattern-detection-str_detect">Pattern detection (<code>str_detect()</code>)</h4>
 <p>To check whether the address mentions <code>"MONTREAL"</code>, you can do:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6169,8 +6160,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 </div>
 </div>
 </section>
-<section id="replacement-and-numeric-conversion" class="level3">
-<h3 class="anchored" data-anchor-id="replacement-and-numeric-conversion">Replacement and numeric conversion</h3>
+<section id="replacement-and-numeric-conversion" class="level4">
+<h4 class="anchored" data-anchor-id="replacement-and-numeric-conversion">Replacement and numeric conversion</h4>
 <p>The <code>Amende</code> column is a character string. It contains amounts such as <code>"5 000 $"</code>, with spaces and the <code>$</code> symbol. To use it in calculations, we need to create a numeric variable.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6233,8 +6224,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 </div>
 </div>
 </section>
-<section id="pattern-extraction-str_extract" class="level3">
-<h3 class="anchored" data-anchor-id="pattern-extraction-str_extract">Pattern extraction (<code>str_extract()</code>)</h3>
+<section id="pattern-extraction-str_extract" class="level4">
+<h4 class="anchored" data-anchor-id="pattern-extraction-str_extract">Pattern extraction (<code>str_extract()</code>)</h4>
 <p>To extract a specific element, for example if <code>Adresse_lieu_infraction</code> contains a postal code of the form <code>H2X 3E4</code>, we can try:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6296,8 +6287,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 </div>
 </div>
 </section>
-<section id="formatting-str_to_lower-str_to_upper-etc." class="level3">
-<h3 class="anchored" data-anchor-id="formatting-str_to_lower-str_to_upper-etc.">Formatting (<code>str_to_lower()</code>, <code>str_to_upper()</code>, etc.)</h3>
+<section id="formatting-str_to_lower-str_to_upper-etc." class="level4">
+<h4 class="anchored" data-anchor-id="formatting-str_to_lower-str_to_upper-etc.">Formatting (<code>str_to_lower()</code>, <code>str_to_upper()</code>, etc.)</h4>
 <p>Sometimes it is useful to harmonize case (<code>MONTREAL</code>, <code>Montréal</code>, etc.):</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6310,8 +6301,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 </div>
 </div>
 </section>
-<section id="removing-multiple-spaces-str_squish" class="level3">
-<h3 class="anchored" data-anchor-id="removing-multiple-spaces-str_squish">Removing multiple spaces (<code>str_squish()</code>)</h3>
+<section id="removing-multiple-spaces-str_squish" class="level4">
+<h4 class="anchored" data-anchor-id="removing-multiple-spaces-str_squish">Removing multiple spaces (<code>str_squish()</code>)</h4>
 <p>If the data contains unnecessary spaces:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6454,15 +6445,15 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 </section>
 </section>
 </section>
-<section id="descriptive-statistics-for-categorical-variables" class="level1">
-<h1>Descriptive statistics for categorical variables</h1>
+<section id="descriptive-statistics-for-categorical-variables" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics-for-categorical-variables">Descriptive statistics for categorical variables</h2>
 <p>In this section, we will discover how to summarize the information contained in qualitative variables, also called categorical. We will see how to count the occurrences of each category (frequency tables), calculate proportions (or percentages) in order to better visualize the distribution, and associate several variables to better understand their interactions (contingency tables). The objective is to have a clear portrait of the distribution of categories to draw quick conclusions on trends or anomalies present in the data.</p>
-<section id="explanations-1" class="level2">
-<h2 class="anchored" data-anchor-id="explanations-1">Explanations</h2>
+<section id="explanations-1" class="level3">
+<h3 class="anchored" data-anchor-id="explanations-1">Explanations</h3>
 <p><strong>Frequency tables</strong> and <strong>summary measures</strong> such as counts and percentages are a good starting point for summarizing categorical variables.</p>
 </section>
-<section id="demonstration-1" class="level2">
-<h2 class="anchored" data-anchor-id="demonstration-1">Demonstration</h2>
+<section id="demonstration-1" class="level3">
+<h3 class="anchored" data-anchor-id="demonstration-1">Demonstration</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of offences by type of establishment</span></span>
@@ -6595,10 +6586,10 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 <hr>
 </section>
 </section>
-<section id="categorical-data-visualization" class="level1">
-<h1>Categorical data visualization</h1>
-<section id="explanations-2" class="level2">
-<h2 class="anchored" data-anchor-id="explanations-2">Explanations</h2>
+<section id="categorical-data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-data-visualization">Categorical data visualization</h2>
+<section id="explanations-2" class="level3">
+<h3 class="anchored" data-anchor-id="explanations-2">Explanations</h3>
 <p>To visually represent categorical variables, we often use:</p>
 <ul>
 <li><p><strong>Bar charts</strong> (<code>geom_bar()</code> or <code>geom_col()</code>),</p></li>
@@ -6606,8 +6597,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 <li><p><strong>Standardized stacked bars</strong> to compare proportions across groups.</p></li>
 </ul>
 </section>
-<section id="demonstration-2" class="level2">
-<h2 class="anchored" data-anchor-id="demonstration-2">Demonstration</h2>
+<section id="demonstration-2" class="level3">
+<h3 class="anchored" data-anchor-id="demonstration-2">Demonstration</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -6708,8 +6699,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, "INSALUBRITE", NA, "INSALUBRITE", "INS
 <hr>
 </section>
 </section>
-<section id="go-further-map-fines-optional" class="level1">
-<h1>5. Go further: map fines (optional)</h1>
+<section id="go-further-map-fines-optional" class="level2">
+<h2 class="anchored" data-anchor-id="go-further-map-fines-optional">5. Go further: map fines (optional)</h2>
 <p>To close the investigation, <strong>Alexandre</strong> found a piece of R code written by a colleague from the City. This optional script geocodes postal codes and provides latitude and longitude for each establishment. You may use it to draw a <strong>map of the distribution of fines</strong>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold">
@@ -6801,8 +6792,8 @@ one important nuance to communicate to the public.
 </div>
 <!-- portfolio-trace:end -->
 </section>
-<section id="conclusion-of-the-adventure" class="level1">
-<h1>Conclusion of the adventure</h1>
+<section id="conclusion-of-the-adventure" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-of-the-adventure">Conclusion of the adventure</h2>
 <p>This third adventure allowed you to <strong>move from the role of analyst to that of data journalist</strong>: you cleaned a real set of food inspection records, quantified major offences, compared establishment profiles and prepared graphics for an article.</p>
 <p>You now have:</p>
 <ul>
@@ -6812,8 +6803,8 @@ one important nuance to communicate to the public.
 <li>
 <strong>qualitative observations</strong> provided by Alexandre, which direct the story towards the issues of hygiene and citizen transparency.</li>
 </ul>
-<section id="next-step-write-your-article" class="level2">
-<h2 class="anchored" data-anchor-id="next-step-write-your-article">Next step: write your article</h2>
+<section id="next-step-write-your-article" class="level3">
+<h3 class="anchored" data-anchor-id="next-step-write-your-article">Next step: write your article</h3>
 <ol type="1">
 <li>
 <strong>Structure your Quarto article</strong>: catchy hat -&gt; context -&gt; methodology -&gt; key results -&gt; recommendations.<br>

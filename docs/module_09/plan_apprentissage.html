@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6096,8 +6123,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="objectifs-du-module" class="level1">
-<h1>Objectifs du module</h1>
+<section id="objectifs-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
 <p>À la fin de ce module, vous devriez être capable de :</p>
 <ul>
 <li>ajuster et interpréter un modèle de régression linéaire;</li>
@@ -6107,8 +6134,8 @@ margin-bottom: .05rem;
 <li>discuter prudemment des biais descriptifs dans des données ou des modèles.</li>
 </ul>
 </section>
-<section id="lectures" class="level1">
-<h1>Lectures</h1>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
 <p>Pour vous préparer, consultez les ressources suivantes :</p>
 <ul>
 <li><a href="https://openintrostat.github.io/ims/model-slr">Introduction to Modern Statistics - Chapitre 7 : Linear regression with a single predictor</a></li>
@@ -6119,28 +6146,31 @@ margin-bottom: .05rem;
 <li><a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html">Gouvernement du Canada - Guide sur la prise de décisions automatisée</a></li>
 <li><a href="https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence">NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence</a></li>
 </ul>
-<section id="aide-mémoires-posit" class="level2">
-<h2 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h2>
+<section id="aide-mémoires-posit" class="level3">
+<h3 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h3>
 <ul>
 <li><p><a href="https://rstudio.github.io/cheatsheets/data-transformation.pdf" target="_blank">Data transformation with dplyr :: Cheatsheet</a> Préparation de tableaux avant l’ajustement et l’interprétation du modèle.</p></li>
 <li><p><a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf" target="_blank">Data visualization with ggplot2 :: Cheat Sheet</a> Graphiques de diagnostic descriptif, prédictions et erreurs.</p></li>
 </ul>
 <p>Après les lectures, faites le <a href="../module_09/mini_test.html">mini-test formatif du module 9</a>.</p>
+<blockquote class="blockquote">
+<p>Les comparaisons observé-prédit de ce module sont des diagnostics sur les données ayant servi à ajuster le modèle. Elles aident à discuter ses limites, mais ne constituent pas une validation de performance sur de nouvelles données.</p>
+</blockquote>
 </section>
 </section>
-<section id="aventure" class="level1">
-<h1>Aventure</h1>
+<section id="aventure" class="level2">
+<h2 class="anchored" data-anchor-id="aventure">Aventure</h2>
 <p>Vous incarnez une personne scientifique de données au ministère de l’Éducation du Québec. Votre mandat est double : construire un modèle prédictif à partir de données d’écoles primaires, puis explorer un jeu de données fictif pour y détecter un biais descriptif.</p>
 <p>Lien vers l’aventure : <a href="../module_09/aventure.html">Aventure 9 - Prédiction et biais algorithmiques</a></p>
 </section>
-<section id="défi---capsule-vidéo" class="level1 unnumbered">
-<h1 class="unnumbered">Défi - Capsule vidéo</h1>
+<section id="défi---capsule-vidéo" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="défi---capsule-vidéo">Défi - Capsule vidéo</h2>
 <p>Vous devez réaliser une capsule vidéo de 180 secondes maximum. Vous choisirez soit le modèle prédictif de la Mission 1, soit l’analyse de biais de la Mission 2.</p>
 <p>Consigne complète : <a href="../module_09/defi.html">Défi 9 - Capsule vidéo</a></p>
 <p>Dépôt de départ : <code>STT-1100/aventure-9</code></p>
 </section>
-<section id="exercices-de-consolidation" class="level1 unnumbered">
-<h1 class="unnumbered">Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Les exercices sont indépendants de l’aventure et du défi. Ils utilisent deux jeux de données fictifs propres au module:</p>
 <ol type="1">
 <li><code>logements_energie_fictif.csv</code> pour ajuster une régression linéaire, produire des prédictions et examiner les erreurs;</li>

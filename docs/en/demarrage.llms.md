@@ -104,6 +104,26 @@ The final trace tells you what to keep: files, decisions, corrected errors and r
 
 Working memory
 
+## Before opening an adventure
+
+Each module page now starts with four orientation points. They prevent you from confusing an interesting extension with the minimum required to move forward.
+
+### Prerequisites
+
+Identify the moves and files to revisit before starting. A prerequisite is a foothold, not a list to memorize.
+
+### Minimum route
+
+First make the smallest sequence work that demonstrates the module's skill.
+
+### Extensions
+
+Add advanced analyses, formats or options only after a first clear render.
+
+### Blocker
+
+Keep the error message, isolate the smallest example and use the appropriate help channel.
+
 ## If you do not know where to go
 
 The site is organized by use. Start with the situation that best matches what you need right now.
@@ -112,7 +132,7 @@ The site is organized by use. Start with the situation that best matches what yo
 
 ### I am starting a module
 
-Open the module page, then follow the learning plan in order.
+Open the module page, read “Prepare for the module” first, then follow the learning plan in order.
 
 [See modules](modules.llms.md)
 
@@ -166,7 +186,7 @@ The exercises stand apart. They use other contexts to practise without depending
 
 Each module adds a visible skill. The path moves from a first reproducible report toward more autonomous productions: collaboration, ethics, automation, prediction and dashboarding. In Fall 2026, Module 2 is prepared through independent work during the week of September 7, then worked through in class on September 14.
 
-[1 StartData Science DiveGet started with R, RStudio, Quarto and a first weather dataset.Product: mini Quarto report.](module_01/index.llms.md) [2 OrganizeGitHub and Data VisualizationStructure a repository, import an Excel file and create readable charts.Product: logbook and GitHub report.](module_02/index.llms.md) [3 TellCategories in All Their FormsClean strings, count categories and build a journalistic angle.Product: reproducible Quarto article.](module_03/index.llms.md) [4 CleanFactors and Data CleaningDiagnose errors, recode variables and document decisions.Product: clean data and cleaning log.](module_04/index.llms.md) [5 ExploreExplore and Understand Relationships Between VariablesCompare variables, visualize associations and interpret without overclaiming.Product: argued exploratory report.](module_05/index.llms.md) [6 CollaborateCollaboration and Reproducibility in GitHubJoin tables, document a workflow and review another team's work.Product: reproducible peer review.](module_06/index.llms.md) [7 ProtectVisualization, Ethics and Data SecurityImprove visualizations, anonymize data and explain risks.Product: ethics note and responsible figures.](module_07/index.llms.md) [8 AutomateAutomation and Web ExplorationExtract information from web pages and turn a procedure into a testable function.Product: `scrape_page()` function.](module_08/index.llms.md) [9 PredictPrediction and BiasBuild a first prediction, evaluate limits and discuss possible biases.Product: short video capsule.](module_09/index.llms.md) [10 ShareBeyond Data: Text and DashboardAnalyze textual feedback and communicate results through an interface.Product: dashboard or text analysis.](module_10/index.llms.md)
+[1 StartData Science DiveGet started with R, RStudio, Quarto and a first weather dataset.Product: mini Quarto report.](module_01/index.llms.md) [2 OrganizeGitHub and Data VisualizationStructure a repository, import an Excel file and create readable charts.Product: logbook and GitHub report.](module_02/index.llms.md) [3 TellCategories in All Their FormsClean strings, count categories and build a journalistic angle.Product: reproducible Quarto article.](module_03/index.llms.md) [4 CleanFactors and Data CleaningDiagnose errors, recode variables and document decisions.Product: clean data and cleaning log.](module_04/index.llms.md) [5 ExploreExplore and Understand Relationships Between VariablesCompare variables, visualize associations and interpret without overclaiming.Product: argued exploratory report.](module_05/index.llms.md) [6 CollaborateCollaboration and Reproducibility in GitHubJoin tables, document a workflow and review another team's work.Product: reproducible peer review.](module_06/index.llms.md) [7 ProtectVisualization, Ethics and Data SecurityImprove visualizations, anonymize data and explain risks.Product: ethics note and responsible figures.](module_07/index.llms.md) [8 AutomateAutomation and Web ExplorationExtract information from web pages and turn a procedure into a testable function.Product: `scrape_page()` function.](module_08/index.llms.md) [9 PredictPrediction and BiasBuild a first prediction, evaluate limits and discuss possible biases.Product: short video capsule.](module_09/index.llms.md) [10 ShareBeyond Data: Text and DashboardAnalyze fictitious feedback and communicate results through an interface.Product: local interactive dashboard supported by text analysis.](module_10/index.llms.md)
 
 ## Progression in four phases
 

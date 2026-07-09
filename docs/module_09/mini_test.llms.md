@@ -2,11 +2,11 @@
 
 STT-1100 Introduction à la science des données
 
-# Mini-test formatif
+## Mini-test formatif
 
 Ce mini-test sert à vérifier les lectures du module 9. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.
 
-## Question 1
+### Question 1
 
 Dans une régression linéaire simple, que représente la pente associée à la variable explicative?
 
@@ -19,7 +19,7 @@ Dans une régression linéaire simple, que représente la pente associée à la 
 >
 > Réponse: a. La pente décrit la variation moyenne prédite de la réponse pour une augmentation d’une unité de la variable explicative.
 
-## Question 2
+### Question 2
 
 Vrai ou faux: un coefficient de régression prouve automatiquement une relation causale.
 
@@ -27,7 +27,7 @@ Vrai ou faux: un coefficient de régression prouve automatiquement une relation 
 >
 > Faux. Un modèle de régression décrit une association conditionnelle dans les données. Une interprétation causale demande un plan d’étude et des hypothèses supplémentaires.
 
-## Question 3
+### Question 3
 
 Quelle fonction R ajuste un modèle linéaire?
 
@@ -40,7 +40,7 @@ Quelle fonction R ajuste un modèle linéaire?
 >
 > Réponse: a. `lm()` ajuste des modèles linéaires dans R.
 
-## Question 4
+### Question 4
 
 Quelle fonction permet d’obtenir des prédictions à partir d’un modèle ajusté avec `lm()`?
 
@@ -53,7 +53,7 @@ Quelle fonction permet d’obtenir des prédictions à partir d’un modèle aju
 >
 > Réponse: a. `predict()` applique le modèle à de nouvelles observations lorsque les variables nécessaires sont fournies.
 
-## Question 5
+### Question 5
 
 Dans les exercices du module, on définit l’erreur par `valeur_observee - valeur_predite`. Que signifie une erreur positive?
 
@@ -66,7 +66,7 @@ Dans les exercices du module, on définit l’erreur par `valeur_observee - vale
 >
 > Réponse: a. Une erreur positive indique que le modèle a prédit une valeur plus petite que la valeur observée.
 
-## Question 6
+### Question 6
 
 Vrai ou faux: une prédiction faite très loin de la plage observée dans les données doit être interprétée avec prudence.
 
@@ -74,7 +74,7 @@ Vrai ou faux: une prédiction faite très loin de la plage observée dans les do
 >
 > Vrai. C’est une extrapolation. Le modèle peut devenir fragile lorsque les nouvelles valeurs ne ressemblent pas aux valeurs utilisées pour l’ajuster.
 
-## Question 7
+### Question 7
 
 Dans une régression linéaire multiple, comment interprète-t-on généralement le coefficient d’une variable explicative?
 
@@ -87,7 +87,7 @@ Dans une régression linéaire multiple, comment interprète-t-on généralement
 >
 > Réponse: a. L’interprétation usuelle est conditionnelle aux autres variables incluses dans le modèle.
 
-## Question 8
+### Question 8
 
 Vrai ou faux: si une nouvelle observation n’a pas toutes les variables requises par le modèle, `predict()` peut toujours produire automatiquement une bonne prédiction.
 
@@ -95,7 +95,7 @@ Vrai ou faux: si une nouvelle observation n’a pas toutes les variables requise
 >
 > Faux. Les variables attendues doivent être disponibles et compatibles avec celles utilisées pour ajuster le modèle.
 
-## Question 9
+### Question 9
 
 Vrai ou faux: une différence brute de taux entre deux groupes prouve à elle seule une discrimination.
 
@@ -103,7 +103,7 @@ Vrai ou faux: une différence brute de taux entre deux groupes prouve à elle se
 >
 > Faux. Une différence brute peut signaler une question à examiner, mais elle ne suffit pas à établir une discrimination sans contexte, variables pertinentes et analyse prudente.
 
-## Question 10
+### Question 10
 
 Quelle approche est la plus prudente pour explorer un biais descriptif?
 
@@ -116,7 +116,7 @@ Quelle approche est la plus prudente pour explorer un biais descriptif?
 >
 > Réponse: a. Une comparaison par groupe est un point de départ, mais l’interprétation doit tenir compte du contexte et des variables disponibles.
 
-## Question 11
+### Question 11
 
 Vrai ou faux: une variable de substitution peut porter indirectement de l’information liée à un groupe sensible ou contextuel.
 
@@ -124,7 +124,7 @@ Vrai ou faux: une variable de substitution peut porter indirectement de l’info
 >
 > Vrai. Par exemple, une variable géographique peut parfois refléter indirectement des différences socioéconomiques ou démographiques.
 
-## Question 12
+### Question 12
 
 Quelle phrase convient le mieux dans une conclusion responsable?
 

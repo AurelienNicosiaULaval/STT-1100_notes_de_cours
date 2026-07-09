@@ -2,11 +2,11 @@
 
 STT-1100 Introduction to Data Science
 
-# Formative Mini-Test
+## Formative Mini-Test
 
 This mini-test checks the module 7 readings. It is not graded. Answer first without opening the responses, then use the explanations to identify what should be reread.
 
-## Question 1
+### Question 1
 
 True or false: in a bar chart, truncating the value axis can visually amplify differences.
 
@@ -14,7 +14,7 @@ True or false: in a bar chart, truncating the value axis can visually amplify di
 >
 > True. Bar length encodes quantity. If the axis does not start at zero, length differences can look larger than the actual data differences.
 
-## Question 2
+### Question 2
 
 What information should accompany a proportion calculated from a small group?
 
@@ -27,7 +27,7 @@ What information should accompany a proportion calculated from a small group?
 >
 > Answer: a. The count helps readers judge whether the proportion is based on many or very few observations.
 
-## Question 3
+### Question 3
 
 True or false: removing names is always enough to make a file anonymous.
 
@@ -35,7 +35,7 @@ True or false: removing names is always enough to make a file anonymous.
 >
 > False. Quasi-identifiers such as age, place, program or a rare combination of variables can still make a person recognizable.
 
-## Question 4
+### Question 4
 
 Which field is a direct identifier?
 
@@ -48,7 +48,7 @@ Which field is a direct identifier?
 >
 > Answer: a. A phone number can directly identify a person.
 
-## Question 5
+### Question 5
 
 True or false: a free-text comment can create a confidentiality risk even if no name is requested.
 
@@ -56,7 +56,7 @@ True or false: a free-text comment can create a confidentiality risk even if no 
 >
 > True. Free text can spontaneously include a name, personal situation, employer, address or recognizable detail.
 
-## Question 6
+### Question 6
 
 Which action reduces re-identification risk in a small survey?
 
@@ -69,7 +69,7 @@ Which action reduces re-identification risk in a small survey?
 >
 > Answer: a. Grouping a precise variable can reduce risk, although it is not always enough to fully anonymize a file.
 
-## Question 7
+### Question 7
 
 True or false: a responsible chart must always avoid any conclusion.
 
@@ -77,7 +77,7 @@ True or false: a responsible chart must always avoid any conclusion.
 >
 > False. It can provide a cautious descriptive conclusion, but it must avoid unsupported causal or operational claims.
 
-## Question 8
+### Question 8
 
 In public communication, why mention a dataset’s limitations?
 
@@ -90,7 +90,7 @@ In public communication, why mention a dataset’s limitations?
 >
 > Answer: a. Limitations help readers understand what the data can, or cannot, support.
 
-## Question 9
+### Question 9
 
 True or false: the FAIR principles include making data easier to find, access, interoperate with and reuse.
 
@@ -98,7 +98,7 @@ True or false: the FAIR principles include making data easier to find, access, i
 >
 > True. FAIR stands for Findable, Accessible, Interoperable and Reusable.
 
-## Question 10
+### Question 10
 
 What is the most careful decision for a cell containing only two people?
 
@@ -111,15 +111,20 @@ What is the most careful decision for a cell containing only two people?
 >
 > Answer: b. A very small count can make people recognizable. Grouping or suppression reduces that risk.
 
-## Question 11
+### Question 11
 
-True or false: a color palette can influence the interpretation of risk.
+In CRAP, which principle asks you to place close together elements that should be read together?
+
+1.  Contrast
+2.  Repetition
+3.  Alignment
+4.  Proximity
 
 > **TIP:**
 >
-> True. Highly alarming colors can exaggerate perceived urgency if the context does not justify them.
+> Answer: d. Proximity helps readers understand the relationship among a title, value, legend or annotation. It does not replace sufficient contrast or careful wording.
 
-## Question 12
+### Question 12
 
 Which wording is the most responsible?
 

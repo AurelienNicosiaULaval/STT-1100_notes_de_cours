@@ -2,7 +2,7 @@
 
 STT-1100 • Introduction to Data Science
 
-# Context
+## Context
 
 This week, you were **hired as a junior business analyst** by the **Faculty of Science and Engineering at Laval University**. As part of the reform of the bachelor’s program in statistics and data science, management wishes to evaluate **how student feedback evolves throughout the session**.
 
@@ -26,7 +26,7 @@ Data `data/sentiments_cours.csv` or non-real example file
 
 Deliverable Reproducible local dashboard, or shared according to course instructions
 
-# Mission
+## Mission
 
 Build an interactive dashboard with `flexdashboard` and `shiny` that allows you to:
 
@@ -42,7 +42,7 @@ Build an interactive dashboard with `flexdashboard` and `shiny` that allows you 
 > - You combine text analysis, numerical variables and an interactive dashboard.
 > - You protect feedback confidentiality before any publication or sharing.
 
-# Data
+## Data
 
 The main working file is `data/sentiments_cours.csv`. It is built progressively during the session from anonymized student feedback.
 
@@ -59,16 +59,16 @@ The expected final file contains:
 
 The column names are kept in French to match the R template. If a variable is not collected exactly in this form, clearly document the recoding used in your dashboard.
 
-# Recommended tools
+## Recommended tools
 
 - `tidytext`, `stringr`, `dplyr`: text cleaning and analysis
 - `ggplot2`, `wordcloud`, `plotly`: visualization
 - `flexdashboard`, `shiny`: interactive interface
 - a custom French lexicon for sentiment analysis
 
-# Guided steps
+## Guided steps
 
-## Step 1 — Text Cleanup
+### Step 1 — Text Cleanup
 
 > **IMPORTANT:**
 >
@@ -84,7 +84,7 @@ The column names are kept in French to match the R template. If a variable is no
 > - **Stopwords**: very frequent words (“the”, “of”, “and”, etc.) which generally do not provide useful semantic information for analysis.
 > - **Cleaning**: lowercase, removal of punctuation, numbers and special characters to standardize tokens.
 
-### Example of a simulated dataset
+#### Example of a simulated dataset
 
 This example is only used to understand the steps. The final dashboard must be connected to `data/sentiments_cours.csv` when anonymized feedback is available.
 
@@ -105,7 +105,7 @@ exemple <- tibble::tibble(
 )
 ```
 
-### Text preprocessing
+#### Text preprocessing
 
 ``` downlit
 library(tidytext)
@@ -148,7 +148,7 @@ Anne-Sophie asks you to apply a classic cleaning workflow:
 
 - **tokenize** the text (cut into words).
 
-## Step 2 — Sentiment Analysis
+### Step 2 — Sentiment Analysis
 
 We are interested here in the **emotional valence** of the words in the comments. Sentiment analysis allows you to quantify whether a text is rather positive or negative.
 
@@ -157,7 +157,7 @@ We are interested here in the **emotional valence** of the words in the comments
 > - **Sentiment of a word**: label (positive, negative) or numerical score indicating the emotional valence of the word.
 > - **Sentiment score of a text**: sum or difference of the scores/labels of the words it contains, often aggregated by document or, here, by week.
 
-### Sentiment analysis in French
+#### Sentiment analysis in French
 
 Currently, there **does not exist a lexicon integrated into [`tidytext::get_sentiments()`](https://juliasilge.github.io/tidytext/reference/get_sentiments.html) for French** (unlike English, where the lexicons `bing`, `afinn`, and `nrc` are directly accessible). Here is an educational approach: create a small personalized glossary to enrich in class.
 
@@ -188,7 +188,7 @@ sentiment_fr
     2       2        0        3    -3
     3       3        2        0     2
 
-### Viewing scores per week
+#### Viewing scores per week
 
 Let’s make a graph to visualize the evolution of the sentiment score per week:
 
@@ -205,13 +205,13 @@ ggplot(sentiment_fr, aes(x = semaine, y = score)) +
 >
 > “As the lexicons integrated into [`get_sentiments()`](https://juliasilge.github.io/tidytext/reference/get_sentiments.html) are only available in English, I suggest you build a small custom lexicon for French. It will be imperfect, but it will help you understand the principle. We can then discuss it together to enrich it. What interests me is that you are able to interpret the evolution of sentiment from one week to the next, even with simple tools.”
 
-### Final collaboration
+#### Final collaboration
 
 At the end of the course, an in-class activity will allow each student/team to **share their own French sentiment lexicon** built during the analysis.
 
 **The teacher will collect and merge these lexicons**, checking them to obtain a common enriched version. This new version will be shared with the whole class as a collective resource for future projects.
 
-## Step 3 — Distinctive words
+### Step 3 — Distinctive words
 
 In this step, we will identify the words that stand out the most each week. To do this, we will use the **TF-IDF** (Term Frequency-Inverse Document Frequency) approach, which allows us to highlight words that are both frequent in a document and rare in all documents.
 
@@ -225,7 +225,7 @@ In this step, we will identify the words that stand out the most each week. To d
 > - **IDF (Inverse Document Frequency)**: inverse importance of a word in all documents – rare words have a high IDF.
 > - **TF‑IDF**: TF × IDF product which highlights words that are both frequent in a document and rare in others (“distinctive” words).
 
-### TF-IDF calculation
+#### TF-IDF calculation
 
 Let’s calculate the TF-IDF for each word per week:
 
@@ -248,7 +248,7 @@ head(tfidf)
     5       3 outils           1 0.125  1.10  0.137
     6       3 pratique         1 0.125  1.10  0.137
 
-### Visualization for a given week
+#### Visualization for a given week
 
 Let’s make a chart to visualize the most distinctive words for a specific week. For example, week 2:
 
@@ -280,7 +280,7 @@ To create a word cloud in French:
 >
 > “Can you spot the words that stand out the most each week? You could try a TF-IDF approach and make me a graph or even a word cloud.”
 
-## Step 4 — Creating the dashboard
+### Step 4 — Creating the dashboard
 
 Now that we’ve cleaned the data and performed the sentiment and distinguishing words analyses, it’s time to create an interactive dashboard. This will allow Anne-Sophie to visualize the results in a clear and dynamic way.
 
@@ -288,7 +288,7 @@ Now that we’ve cleaned the data and performed the sentiment and distinguishing
 >
 > The final dashboard should be **clear, interactive and useful**. A **ready-to-use template (`modele_dashboard.Rmd`)** can be found in the module’s GitHub repository. Customize it: connect the anonymized feedback data, adjust filters, and add at least two visualizations.
 
-## Step 5 — Recommendations and final analysis
+### Step 5 — Recommendations and final analysis
 
 At the end of the dashboard, write a summary of your **key observations**:
 
@@ -301,7 +301,7 @@ At the end of the dashboard, write a summary of your **key observations**:
 >
 > “Don’t forget to explore the numerical scores. How does text sentiment compare to perceived enjoyment or difficulty? Present at least one visualization that cross-references this information.”
 
-# Bonus — Personalization
+## Bonus — Personalization
 
 Here are some ideas to go further in customizing your dashboard:
 
@@ -312,7 +312,7 @@ Here are some ideas to go further in customizing your dashboard:
 
 You can also integrate a progress bar or visual indicator of overall sentiment per week.
 
-# Delivery expected
+## Delivery expected
 
 - A GitHub repository containing:
   - the `.Rmd` of the dashboard,
@@ -330,6 +330,6 @@ Keep only anonymized traces that help explain the dashboard.
 - a screenshot, rendered file or local link to the dashboard;
 - one confidentiality sentence stating what must not be published.
 
-# Advice from Anne-Sophie
+## Advice from Anne-Sophie
 
 > “A good dashboard is like a good pitch: **clear, readable and targeted**. Put yourself in your end user’s shoes.”

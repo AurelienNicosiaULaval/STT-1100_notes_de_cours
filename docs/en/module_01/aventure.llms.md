@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# How to pass this module
+## How to pass this module
 
 Welcome to this first data science adventure! This module is designed to provide you with a comprehensive introduction to the fundamental tools and concepts that will support you throughout your data science journey.
 
@@ -28,7 +28,7 @@ Data `UlavalSSD::MeteoQuebec`
 
 Deliverable Short Quarto HTML report
 
-# IT tools
+## IT tools
 
 In this course, we will use professional computing tools that are essential in data science. These tools allow data to be manipulated, analyzed and visualized in an efficient and reproducible manner. Here is an overview of the main tools that you will discover:
 
@@ -38,11 +38,11 @@ In this course, we will use professional computing tools that are essential in d
 
 These tools are not limited to their technical aspect; they also promote good practices in data science, such as rigorous project organization, clear documentation and reproducibility of analyses. They will be your allies throughout this course and your future experiences in data science.
 
-## Discovery of RStudio
+### Discovery of RStudio
 
 RStudio is an integrated development environment (IDE) for R. It makes it easy to write, run, and manage projects in R, while integrating many professional features. Here is an overview of its main windows and functionalities:
 
-### The main windows of RStudio
+#### The main windows of RStudio
 
 RStudio is made up of four main panels:
 
@@ -72,7 +72,7 @@ RStudio is made up of four main panels:
 >
 >   Save the file under the name `test_script.R`.
 
-### Important features
+#### Important features
 
 - **Projects**: RStudio organizes your work into projects, which is ideal for structuring your files and data. We will work on projects from the next module.
 
@@ -94,7 +94,7 @@ RStudio is made up of four main panels:
 > library(dplyr)
 > ```
 
-### Configure your environment
+#### Configure your environment
 
 To get started efficiently, customize the preferences (`Tools > Global Options`) to adjust the appearance and settings according to your needs.
 
@@ -102,11 +102,11 @@ To get started efficiently, customize the preferences (`Tools > Global Options`)
 >
 > - **Exploring options**: Access `Tools > Global Options` and explore the different possible configurations. Try changing the interface theme (e.g. dark theme) and see the difference.
 
-## Basics of programming in R
+### Basics of programming in R
 
 R programming is essential for manipulating, analyzing and visualizing data. This section introduces you to the basics of programming and offers you exercises to practice.
 
-### Create and manipulate objects
+#### Create and manipulate objects
 
 In R, everything is an object. Here are the basics for creating objects and manipulating them:
 
@@ -130,7 +130,7 @@ In R, everything is an object. Here are the basics for creating objects and mani
 >
 > - Create a vector containing the numbers 1 to 10 and calculate its average using the `sum()` function.
 
-### Write conditions
+#### Write conditions
 
 Conditions allow you to make your scripts dynamic.
 
@@ -153,7 +153,7 @@ Conditions allow you to make your scripts dynamic.
 >
 > Hint: the `%%` function in R gives the remainder of the Euclidean division. For example `10%%2` is 0 because \\10=5\times2\\.
 
-### Built-in basic functions
+#### Built-in basic functions
 
 R has many built-in functions to perform simple or advanced calculations. For example, there is the `mean` function which, as its name suggests, allows you to calculate an average.
 
@@ -168,7 +168,7 @@ mean(x) # Call the mean function on x
 
 When you want help with a function, you can simply type the name of it in the help tab in the bottom right dial.
 
-### Define a new function
+#### Define a new function
 
 R also allows us to define our own functions. We will do this several times in the course. Here is a simple little example.
 
@@ -187,11 +187,11 @@ R also allows us to define our own functions. We will do this several times in t
 >
 > - Create a `cube` function that calculates the cube of a number, then test it with the values 2, 3 and 4.
 
-### Good programming practices
+#### Good programming practices
 
 Here are some tips for writing clean, maintainable code:
 
-#### Golden rules
+##### Golden rules
 
 1.  **Name your objects descriptively**:
 
@@ -241,11 +241,11 @@ R code evaluation grid according to tidyverse style. {.caption-top .table .table
 >   mean(c(1,2,3,4,5),na.rm=TRUE)
 >   ```
 
-## Introduction to Quarto
+### Introduction to Quarto
 
 Quarto is a powerful tool for creating reproducible documents combining text, code, and results. It supports different formats, such as HTML, PDF and Word.
 
-### What is Quarto?
+#### What is Quarto?
 
 Quarto lets you combine R, Python or Julia code with textual explanations, while generating professional reports. Of course, in this course we will use it with R. Its main advantages include:
 
@@ -255,11 +255,11 @@ Quarto lets you combine R, Python or Julia code with textual explanations, while
 
 - **Ease of use**.
 
-### Structure of a Quarto document
+#### Structure of a Quarto document
 
 A Quarto file always starts with a YAML header, followed by Markdown content and chunks of code.
 
-#### Basic Quarto file example
+##### Basic Quarto file example
 
 ``` yaml
 ---
@@ -269,7 +269,7 @@ editor: visual
 ---
 ```
 
-#### Insert a *chunk* (block of code) R
+##### Insert a *chunk* (block of code) R
 
 To insert a *chunk* (block of code) into a quarto document, you can click on the following symbol:
 
@@ -302,11 +302,11 @@ Once your report is final, you can generate the report by clicking on the Render
 > 2.  Add an R code block to display a summary of the `mtcars` dataset (this is `summary(mtcars)`).
 > 3.  Customize the YAML header to include your name and a date.
 
-# Library and data
+## Library and data
 
 We saw above that you can improve your R experience by using libraries. As part of the course, we will use a library called `UlavalSSD`. This is a library developed for the course.
 
-## `UlavalSSD`
+### `UlavalSSD`
 
 First, you will install the `UlavalSSD` library and load it into your working environment.
 
@@ -332,7 +332,7 @@ help(package = "UlavalSSD")
 >
 > - Search the contents of the bookstore. What do you notice?
 
-## `MeteoQuebec` data
+### `MeteoQuebec` data
 
 In this adventure, we will work with the dataset called `MeteoQuebec` available in the `UlavalSSD` library. It is important to note that if the library is not loaded (`library(UlavalSSD)`) then you will not be able to access this dataset.
 
@@ -342,13 +342,13 @@ In this adventure, we will work with the dataset called `MeteoQuebec` available 
 > - How many rows and columns does this dataset have?
 > - Explore the help to make sure you understand what each column represents.
 
-# Clean data (`Tidy` in English)
+## Clean data (`Tidy` in English)
 
-## What is clean data?
+### What is clean data?
 
 In the context of data science, **clean data** refers to a set of data that is ready to be used for analyses. This means that the data is organized, consistent, and free of errors or inconsistencies. Working with clean data is essential to ensure the quality of analysis results and models.
 
-### Characteristics of clean data
+#### Characteristics of clean data
 
 Clean data must meet the following criteria:
 
@@ -359,28 +359,30 @@ Clean data must meet the following criteria:
 - **Well-defined columns**: Each column has a clear and unique meaning.
 - **One line per observation**: The data is structured in a tabular manner, with one line representing a single observation.
 
-### Example of non-clean data
+#### Example of non-clean data
+
+The following examples are entirely fictional. They illustrate formatting and duplicate-record issues; they are not an invitation to collect personal information.
 
 A table containing the following data:
 
-| Name    | Date of Birth | Score |
-|---------|---------------|-------|
-| Alice   | 01/01/1990    | 85.5  |
-| Bob     | 1990-02-15    | 90    |
-| Charlie |               | 87.5  |
-| Alice   | 01/01/1990    | 85.5  |
+| Fictional name | Observed date | Score |
+|----------------|---------------|-------|
+| Alice          | 01/01/1990    | 85.5  |
+| Bob            | 1990-02-15    | 90    |
+| Charlie        |               | 87.5  |
+| Alice          | 01/01/1990    | 85.5  |
 
-Problems: - The date format is not consistent. - A line contains a missing value (Birth Date for Charlie). - The data contains a duplicate for Alice.
+Problems: - The date format is not consistent. - A line contains a missing value (Observed date for Charlie). - The data contains a duplicate for Alice.
 
-### Example of clean data
+#### Example of clean data
 
 After cleaning, the data becomes:
 
-| Name    | Date of Birth | Score |
-|---------|---------------|-------|
-| Alice   | 1990-01-01    | 85.5  |
-| Bob     | 1990-02-15    | 90.0  |
-| Charlie | 1992-03-20    | 87.5  |
+| Fictional name | Observed date | Score |
+|----------------|---------------|-------|
+| Alice          | 1990-01-01    | 85.5  |
+| Bob            | 1990-02-15    | 90.0  |
+| Charlie        | 1992-03-20    | 87.5  |
 
 - The date format is uniform (YYYY-MM-DD).
 - Duplicates have been removed.
@@ -394,11 +396,11 @@ In the coming weeks we will have a complete module on data cleansing. This is si
 >
 > - Are the `MeteoQuebec` data clean? Justify your answer.
 
-# Data manipulation
+## Data manipulation
 
 In this section, we will learn how to manipulate simple data tables in R. You will discover how to extract a row, a column and create a new column using the brackets `[]` and the operator `$`.
 
-## Example of data table
+### Example of data table
 
 We will use `MeteoQuebec` data. The `head` function is very practical, because as its name suggests, it displays the top (the head) of the database. This allows you to have quick access to the information contained in the variables.
 
@@ -422,7 +424,7 @@ head(MeteoQuebec)
     5        0.5        15
     6        0.0        15
 
-### Extract a line with brackets `[]`
+#### Extract a line with brackets `[]`
 
 To extract a specific row, use the format `data_name[row_number, ]`.
 
@@ -439,7 +441,7 @@ print(line_2)
       total_snow snow_grnd
     2          0        18
 
-### Extract a column with brackets `[]`
+#### Extract a column with brackets `[]`
 
 To extract a column, you can use `data_name[, column_number]` or `data_name[["column_name"]]`.
 
@@ -457,7 +459,7 @@ column_score2 <- MeteoQuebec[["total_precip"]]
 print(column_score2)
 ```
 
-### Extract a column with the `$` operator
+#### Extract a column with the `$` operator
 
 A simpler method to extract a column is to use the `$` operator.
 
@@ -473,7 +475,7 @@ print(column_mean_temp)
 >
 > - In the console, type the name of the database `MeteoQuebec`, add a `$` at the end. What is happening?
 
-### Add a new column with `$`
+#### Add a new column with `$`
 
 To create a new column, use the `$` operator and assign a value to it.
 
@@ -504,7 +506,7 @@ head(MeteoQuebec)
 >
 > - Create a new column **mean_temp_F** which corresponds to the average temperature per day in degrees fahrenheit.
 
-### Filter rows based on logical conditions
+#### Filter rows based on logical conditions
 
 You can use logical conditions with `[]` brackets to extract specific lines.
 
@@ -556,7 +558,7 @@ At the end of the adventure, keep a short trace of what you can redo without hel
 - a note about missing values or variables in `MeteoQuebec`;
 - one personal rule for keeping an analysis reproducible.
 
-### Summary
+#### Summary
 
 | Action | Order |
 |----|----|

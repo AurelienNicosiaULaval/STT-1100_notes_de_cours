@@ -11,7 +11,7 @@ format:
 editor: visual
 ---
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 8: lire une page HTML, cibler des éléments avec des sélecteurs CSS, transformer une extraction en fonction, automatiser une extraction répétée et documenter les limites d'une collecte.
 
@@ -23,7 +23,7 @@ library(rvest)
 library(purrr)
 ```
 
-# Lectures à revoir
+## Lectures à revoir
 
 - [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html){target="_blank"}
 - [R for Data Science - Functions](https://r4ds.hadley.nz/functions.html){target="_blank"}
@@ -34,14 +34,14 @@ library(purrr)
 
 Après les lectures, faites aussi le [mini-test formatif](mini_test.qmd). Il n'est pas noté.
 
-# Bloc A - Lire une page HTML locale
+## Bloc A - Lire une page HTML locale
 
-## Exercice 1 - Importer une page HTML
+### Exercice 1 - Importer une page HTML
 
 Lisez `catalogue_donnees_fictif.html` avec `read_html()`. Repérez les cartes de jeux de données avec le sélecteur `.dataset-card`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 page_catalogue <- read_html("data/catalogue_donnees_fictif.html")
@@ -54,12 +54,12 @@ cartes[[1]]
 ```
 :::
 
-## Exercice 2 - Extraire un premier vecteur
+### Exercice 2 - Extraire un premier vecteur
 
 Extrayez les titres des jeux de données avec le sélecteur `.dataset-title`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 titres <- cartes |>
@@ -70,12 +70,12 @@ titres
 ```
 :::
 
-## Exercice 3 - Construire un tableau
+### Exercice 3 - Construire un tableau
 
 Extrayez les producteurs, les catégories et les dates de mise à jour. Combinez le tout dans un tibble.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 catalogue <- tibble(
@@ -91,14 +91,14 @@ catalogue
 ```
 :::
 
-# Bloc B - Transformer l'extraction en fonction
+## Bloc B - Transformer l'extraction en fonction
 
-## Exercice 4 - Créer une fonction auxiliaire
+### Exercice 4 - Créer une fonction auxiliaire
 
 Créez une fonction `extraire_texte()` qui reçoit un noeud HTML et un sélecteur CSS, puis retourne le texte correspondant. Si l'élément manque, la fonction doit retourner `NA_character_`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 extraire_texte <- function(noeud, selecteur) {
@@ -117,12 +117,12 @@ extraire_texte(cartes[[1]], ".champ-inexistant")
 ```
 :::
 
-## Exercice 5 - Créer une fonction d'extraction
+### Exercice 5 - Créer une fonction d'extraction
 
 Écrivez une fonction `extraire_catalogue(fichier)` qui lit une page HTML locale et retourne un tibble avec les colonnes `titre`, `producteur`, `categorie`, `date_mise_a_jour`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 extraire_catalogue <- function(fichier) {
@@ -142,12 +142,12 @@ extraire_catalogue("data/catalogue_donnees_fictif.html")
 ```
 :::
 
-## Exercice 6 - Tester une page irrégulière
+### Exercice 6 - Tester une page irrégulière
 
 Utilisez la même fonction sur `catalogue_irregulier_fictif.html`. Quelles valeurs manquent?
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 catalogue_irregulier <- extraire_catalogue("data/catalogue_irregulier_fictif.html")
@@ -164,12 +164,12 @@ catalogue_irregulier |>
 La fonction ne s'arrête pas lorsqu'un champ manque. Elle retourne `NA`, ce qui permet de diagnostiquer le problème dans un tableau.
 :::
 
-## Exercice 7 - Automatiser sur plusieurs pages
+### Exercice 7 - Automatiser sur plusieurs pages
 
 Utilisez `purrr::imap_dfr()` pour appliquer `extraire_catalogue()` aux deux pages de catalogue et ajouter une colonne `source`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 fichiers_catalogue <- c(
@@ -189,9 +189,9 @@ catalogues_combines
 ```
 :::
 
-# Bloc C - Sobriété et éthique de collecte
+## Bloc C - Sobriété et éthique de collecte
 
-## Exercice 8 - Interpréter un `robots.txt`
+### Exercice 8 - Interpréter un `robots.txt`
 
 Voici un exemple fictif de fichier `robots.txt`.
 
@@ -209,7 +209,7 @@ writeLines(robots_exemple)
 Identifiez les chemins à éviter et expliquez pourquoi ce fichier ne constitue pas une autorisation complète de collecte.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 chemins_interdits <- robots_exemple |>
@@ -222,16 +222,16 @@ chemins_interdits
 `robots.txt` donne des consignes techniques aux robots. Il ne remplace pas les conditions d'utilisation, le jugement éthique, la prudence sur la charge serveur ou une autorisation écrite lorsque la collecte et la redistribution sont sensibles.
 :::
 
-# Étude de cas 1 - Catalogue municipal fictif
+## Étude de cas 1 - Catalogue municipal fictif
 
 Une municipalité fictive vous demande de produire un court résumé des jeux de données visibles dans son mini-catalogue.
 
-## Exercice 9 - Résumer les catégories
+### Exercice 9 - Résumer les catégories
 
 À partir des deux pages de catalogue combinées, calculez le nombre de jeux de données par catégorie.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 resume_categories <- catalogues_combines |>
@@ -242,26 +242,26 @@ resume_categories
 ```
 :::
 
-## Exercice 10 - Produire une note de collecte
+### Exercice 10 - Produire une note de collecte
 
 Écrivez trois phrases qui expliquent ce que votre code collecte, comment il limite les risques et ce qu'il faudrait vérifier avant de l'appliquer à un vrai site.
 
 ::: {.callout-note collapse="true"}
-## Exemple de réponse
+### Exemple de réponse
 
 Le code lit seulement des pages HTML locales préparées pour l'exercice et extrait des champs publics agrégés. Dans un vrai contexte, il faudrait limiter le nombre de pages, ajouter des pauses entre les requêtes et éviter toute collecte massive ou contourner des protections. Il faudrait aussi vérifier `robots.txt`, les conditions d'utilisation, la licence des données et les règles de redistribution avant de publier une table dérivée.
 :::
 
-# Étude de cas 2 - Page d'événements publics
+## Étude de cas 2 - Page d'événements publics
 
 Une association fictive publie une petite page d'événements. Vous voulez extraire les titres, les dates, les lieux et les thèmes pour produire un calendrier.
 
-## Exercice 11 - Extraire les événements
+### Exercice 11 - Extraire les événements
 
 Créez une fonction `extraire_evenements(fichier)` qui retourne un tibble avec les colonnes `titre`, `date`, `lieu`, `theme`.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 extraire_evenements <- function(fichier) {
@@ -284,12 +284,12 @@ evenements
 ```
 :::
 
-## Exercice 12 - Vérifier le résultat
+### Exercice 12 - Vérifier le résultat
 
 Produisez un résumé du nombre d'événements par thème et formulez une vérification simple qui pourrait servir de test.
 
 ::: {.callout-note collapse="true"}
-## Solution
+### Solution
 
 ```{r}
 evenements |>

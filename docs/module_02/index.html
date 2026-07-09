@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6064,6 +6091,7 @@ margin-bottom: .05rem;
   <ul>
   <li><a href="#produit-fini-du-module" id="toc-produit-fini-du-module" class="nav-link active" data-scroll-target="#produit-fini-du-module">Produit fini du module</a></li>
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
+  <li><a href="#préparer-le-module" id="toc-préparer-le-module" class="nav-link" data-scroll-target="#préparer-le-module">Préparer le module</a></li>
   <li><a href="#plan-dapprentissage" id="toc-plan-dapprentissage" class="nav-link" data-scroll-target="#plan-dapprentissage">Plan d’apprentissage</a></li>
   <li><a href="#données-et-outils" id="toc-données-et-outils" class="nav-link" data-scroll-target="#données-et-outils">Données et outils</a></li>
   <li><a href="#révision-et-prolongement" id="toc-révision-et-prolongement" class="nav-link" data-scroll-target="#révision-et-prolongement">Révision et prolongement</a></li>
@@ -6145,6 +6173,27 @@ Organiser un travail de données, importer un fichier Excel et produire des visu
 <li><p>Visualiser des variables numériques avec <code>ggplot2</code> (<code>histogramme</code>, <code>boîte à moustaches</code>, <code>nuage de points</code>, <code>facettes</code>) et interpréter les graphiques obtenus.</p></li>
 <li><p>Améliorer la qualité de graphiques avec des titres, des légendes, des axes lisibles, des unités et une cohérence graphique.</p></li>
 </ul>
+</section>
+<section id="préparer-le-module" class="level2">
+<h2 class="anchored" data-anchor-id="préparer-le-module">Préparer le module</h2>
+<div class="module-readiness">
+<section id="prérequis" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="prérequis">Prérequis</h3>
+<p>Vous devez savoir ouvrir un projet RStudio, rendre un fichier Quarto et utiliser les gestes de base vus au module 1. Vérifiez aussi que vous pouvez vous connecter à GitHub avant la séance.</p>
+</section>
+<section id="parcours-minimal" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="parcours-minimal">Parcours minimal</h3>
+<p>Clonez le dépôt demandé, ouvrez le projet, importez le fichier Excel, produisez un premier graphique et faites un commit lisible. Ces cinq gestes vous préparent réellement à l’aventure.</p>
+</section>
+<section id="priorité-pédagogique" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="priorité-pédagogique">Priorité pédagogique</h3>
+<p>Commencez par un graphique clair et un court résumé avant les facettes, les analyses secondaires ou les améliorations visuelles. Les extensions viennent après un premier rendu fonctionnel.</p>
+</section>
+<section id="dépôt-et-aide" class="level3 module-readiness-card">
+<h3 class="anchored" data-anchor-id="dépôt-et-aide">Dépôt et aide</h3>
+<p>Ne déposez pas de données personnelles dans GitHub. Si l’accès, le clone ou le push bloque, conservez le message d’erreur et demandez de l’aide avant de contourner le problème.</p>
+</section>
+</div>
 </section>
 <section id="plan-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="plan-dapprentissage">Plan d’apprentissage</h2>

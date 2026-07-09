@@ -13,13 +13,13 @@ format:
 editor: visual
 ---
 
-# Mission
+## Mission
 
 Dans l'aventure 8, vous avez construit les pièces nécessaires pour extraire des métadonnées à partir d'une page de recherche du portail Données Québec. Le défi consiste maintenant à transformer ce travail en une fonction stable, testable et réutilisable.
 
 Vous devez remettre un fichier `IDUL.R` dans le dépôt GitHub créé à partir du template `STT-1100/aventure-8`.
 
-# Contrat attendu
+## Contrat attendu
 
 Votre fichier `IDUL.R` doit définir une fonction nommée exactement `scrape_page()`.
 
@@ -43,7 +43,7 @@ La fonction doit respecter le contrat suivant :
 Les noms de colonnes seront testés automatiquement. Utilisez exactement `titre`, `producteur`, `categorie`.
 :::
 
-# Robustesse minimale
+## Robustesse minimale
 
 Le portail peut afficher des libellés légèrement différents. Votre fonction doit donc être capable de gérer au moins ces formes :
 
@@ -52,7 +52,7 @@ Le portail peut afficher des libellés légèrement différents. Votre fonction 
 
 Une approche raisonnable consiste à créer une petite fonction auxiliaire qui reçoit les textes extraits d'un bloc HTML et un motif de recherche, puis retourne la valeur nettoyée ou `NA_character_`.
 
-# Travail recommandé
+## Travail recommandé
 
 1. Travaillez d'abord dans la console ou dans un brouillon.
 2. Repérez les blocs de jeux de données avec `.dataset-content`.
@@ -63,7 +63,7 @@ Une approche raisonnable consiste à créer une petite fonction auxiliaire qui r
 7. Testez la fonction sur une page locale de test ou sur une page publique de Données Québec.
 8. Placez seulement le code final nécessaire dans `IDUL.R`.
 
-# Tests locaux
+## Tests locaux
 
 Le dépôt template contient un test local. Après avoir complété votre fonction, lancez :
 
@@ -83,13 +83,13 @@ La page HTML locale fournie par le template sert de mode secours si le portail c
 
 Ces tests ne remplacent pas l'évaluation finale, mais ils permettent de détecter les erreurs les plus fréquentes avant la remise.
 
-# Éthique et charge serveur
+## Éthique et charge serveur
 
 Pour le défi, votre fonction doit scraper une seule page à la fois. Si vous écrivez ensuite une boucle pour plusieurs pages, ajoutez une pause avec `Sys.sleep(1)` entre les requêtes.
 
 Ne contournez pas de mécanisme de protection. Ne lancez pas de collecte massive. Le fichier `robots.txt` donne un signal technique utile, mais il ne remplace pas les conditions d'utilisation, la prudence et le respect de la charge serveur.
 
-# Livrable
+## Livrable
 
 Remettez le dépôt GitHub généré à partir du template `STT-1100/aventure-8`.
 
@@ -100,7 +100,7 @@ Le dépôt doit contenir :
 - le fichier de test fourni dans `tests/`;
 - aucune donnée téléchargée inutilement.
 
-# Critères d'évaluation
+## Critères d'évaluation
 
 | Critère | Attente |
 |---|---|
@@ -111,7 +111,7 @@ Le dépôt doit contenir :
 | Reproductibilité | `IDUL.R` peut être chargé dans une nouvelle session R. |
 | Sobriété | Le code évite les messages inutiles, les objets globaux et les collectes massives. |
 
-# Ressources
+## Ressources
 
 - Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund, 2023, R for Data Science, chapitre Web scraping : <https://r4ds.hadley.nz/webscraping.html>
 - Documentation officielle de `rvest` : <https://rvest.tidyverse.org/>

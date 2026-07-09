@@ -2,11 +2,11 @@
 
 STT-1100 Introduction to Data Science
 
-# Formative mini-test
+## Formative mini-test
 
 This mini-test checks the module 4 readings. It is not graded. Answer first without opening the explanations, then use them to identify what should be reviewed.
 
-## Question 1
+### Question 1
 
 True or false: if a file is separated by semicolons, `read_csv()` is always the best choice.
 
@@ -14,7 +14,7 @@ True or false: if a file is separated by semicolons, `read_csv()` is always the 
 >
 > False. `read_csv()` expects comma-separated files. For semicolon-separated files, use `read_delim(delim = ";")` or `read_csv2()` depending on the context.
 
-## Question 2
+### Question 2
 
 Which function turns column names into names that are easier to use in R?
 
@@ -27,7 +27,7 @@ Which function turns column names into names that are easier to use in R?
 >
 > Answer: a. `clean_names()` converts names to a more regular form, often `snake_case`.
 
-## Question 3
+### Question 3
 
 True or false: an identifier such as `"0012"` should often remain text, even if it contains only digits.
 
@@ -35,7 +35,7 @@ True or false: an identifier such as `"0012"` should often remain text, even if 
 >
 > True. An identifier is a label, not a quantity. Keeping it as text avoids losing leading zeros.
 
-## Question 4
+### Question 4
 
 Which function is useful when a special value, for example `-999`, represents a missing value?
 
@@ -48,7 +48,7 @@ Which function is useful when a special value, for example `-999`, represents a 
 >
 > Answer: a. `na_if(x, -999)` replaces values equal to `-999` with `NA`.
 
-## Question 5
+### Question 5
 
 Which function transforms columns `q1`, `q2`, `q3`, `q4` into two columns named `quarter` and `value`?
 
@@ -61,7 +61,7 @@ Which function transforms columns `q1`, `q2`, `q3`, `q4` into two columns named 
 >
 > Answer: a. `pivot_longer()` turns several columns into a longer format.
 
-## Question 6
+### Question 6
 
 True or false: a data correction should be documented only if it modifies more than 100 rows.
 
@@ -69,7 +69,7 @@ True or false: a data correction should be documented only if it modifies more t
 >
 > False. Any correction that matters for interpretation should be documented, even if it affects only one row.
 
-## Question 7
+### Question 7
 
 Which `forcats` function is useful for grouping several similar levels under one name?
 
@@ -82,7 +82,7 @@ Which `forcats` function is useful for grouping several similar levels under one
 >
 > Answer: a. `fct_collapse()` merges several factor levels.
 
-## Question 8
+### Question 8
 
 True or false: a JSON file can contain nested structures that do not immediately look like a rectangular table.
 
@@ -90,7 +90,7 @@ True or false: a JSON file can contain nested structures that do not immediately
 >
 > True. A JSON file can contain lists within lists. It sometimes needs to be transformed to become a table.
 
-## Question 9
+### Question 9
 
 Which function reads a specific sheet from an Excel file?
 
@@ -103,7 +103,7 @@ Which function reads a specific sheet from an Excel file?
 >
 > Answer: a. The `sheet` argument chooses which sheet to import.
 
-## Question 10
+### Question 10
 
 True or false: an anomaly can be flagged without being corrected if no defensible correction is possible.
 
@@ -111,7 +111,7 @@ True or false: an anomaly can be flagged without being corrected if no defensibl
 >
 > True. In rigorous cleaning, it is sometimes better to flag an anomaly than to guess a correction.
 
-## Question 11
+### Question 11
 
 Which field is not part of the minimal cleaning-log entry proposed in the module?
 
@@ -124,7 +124,7 @@ Which field is not part of the minimal cleaning-log entry proposed in the module
 >
 > Answer: d. The log should at least document the identifier, affected variables, problem, action and justification.
 
-## Question 12
+### Question 12
 
 Why is it useful to save the clean file with `write_csv()` at the end of a cleaning process?
 

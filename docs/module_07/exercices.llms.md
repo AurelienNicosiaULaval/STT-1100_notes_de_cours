@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes du module 7: reconnaître une visualisation trompeuse, reconstruire un graphique défendable, réduire les risques de ré-identification et écrire une note éthique courte.
 
@@ -13,7 +13,7 @@ library(tidyverse)
 library(scales)
 ```
 
-# Lectures à revoir
+## Lectures à revoir
 
 - [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
 - [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
@@ -24,9 +24,9 @@ library(scales)
 
 Après les lectures, faites aussi le [mini-test formatif](../module_07/mini_test.llms.md). Il n’est pas noté.
 
-# Bloc A - Diagnostiquer une visualisation
+## Bloc A - Diagnostiquer une visualisation
 
-## Exercice 1 - Comparer deux axes
+### Exercice 1 - Comparer deux axes
 
 Importez les signalements municipaux fictifs, puis produisez deux graphiques sur les mêmes données:
 
@@ -94,7 +94,7 @@ Que change la perception visuelle?
 >
 > L’axe tronqué amplifie visuellement les écarts. Pour des barres, la longueur encode la quantité; commencer l’axe au-dessus de zéro peut donc donner une impression de différence plus forte que les données.
 
-## Exercice 2 - Ajouter les effectifs au message
+### Exercice 2 - Ajouter les effectifs au message
 
 Calculez le nombre total de signalements par type. Produisez un graphique qui permet de comparer les types sans créer d’impression de risque individuel.
 
@@ -140,7 +140,7 @@ Calculez le nombre total de signalements par type. Produisez un graphique qui pe
 >
 > Le graphique publie une information agrégée et lisible. Il évite les adresses ou détails individuels qui pourraient exposer une personne ou un ménage.
 
-## Exercice 3 - Éviter les comparaisons injustes
+### Exercice 3 - Éviter les comparaisons injustes
 
 Joignez les signalements à la population fictive des quartiers. Calculez un taux par 10 000 personnes. Pourquoi ce taux est-il plus défendable qu’une comparaison brute?
 
@@ -190,9 +190,9 @@ Joignez les signalements à la population fictive des quartiers. Calculez un tau
 >
 > Les nombres bruts favorisent les quartiers plus peuplés. Un taux par population rend la comparaison plus pertinente, même s’il ne suffit pas à expliquer les causes.
 
-# Bloc B - Réduire les risques de ré-identification
+## Bloc B - Réduire les risques de ré-identification
 
-## Exercice 4 - Repérer les variables sensibles
+### Exercice 4 - Repérer les variables sensibles
 
 Importez le sondage étudiant fictif. Classez les variables en trois familles:
 
@@ -255,7 +255,7 @@ Importez le sondage étudiant fictif. Classez les variables en trois familles:
 >
 > `repondant_id` identifie directement une ligne. Le commentaire libre peut contenir des détails identifiants. Le programme, le niveau, l’âge et le genre peuvent devenir identifiants lorsqu’ils sont combinés.
 
-## Exercice 5 - Préparer une version anonymisée
+### Exercice 5 - Préparer une version anonymisée
 
 Créez une version du sondage qui:
 
@@ -311,7 +311,7 @@ Créez une version du sondage qui:
 >
 > Cette version réduit le risque, mais elle n’élimine pas tout risque de ré-identification. Une combinaison rare, par exemple programme + niveau + genre + âge, peut encore isoler une personne.
 
-## Exercice 6 - Vérifier les petits groupes
+### Exercice 6 - Vérifier les petits groupes
 
 Repérez les combinaisons `programme`, `niveau` et `genre` qui contiennent moins de trois personnes. Pourquoi faut-il éviter de publier ces cellules en détail?
 
@@ -345,7 +345,7 @@ Repérez les combinaisons `programme`, `niveau` et `genre` qui contiennent moins
 >
 > Les petits groupes augmentent le risque de reconnaître une personne, surtout dans une classe où les étudiant·es se connaissent. Une solution consiste à regrouper des catégories, masquer certaines cellules ou publier seulement des résultats plus agrégés.
 
-## Exercice 7 - Visualiser sans surexposer
+### Exercice 7 - Visualiser sans surexposer
 
 Produisez un graphique du score moyen de stress par programme. Affichez aussi les effectifs et ajoutez une phrase d’interprétation prudente.
 
@@ -390,11 +390,11 @@ Produisez un graphique du score moyen de stress par programme. Affichez aussi le
 >
 > Interprétation prudente: dans ce petit sondage fictif, certains programmes ont un score moyen plus élevé, mais les effectifs sont trop faibles pour conclure que le programme cause le stress.
 
-# Étude de cas 1 - Publication municipale responsable
+## Étude de cas 1 - Publication municipale responsable
 
 Une ville fictive veut publier un tableau de signalements mensuels. Elle souhaite être transparente, mais ne veut pas stigmatiser de petits secteurs ou révéler indirectement des situations individuelles.
 
-## Exercice 8 - Construire une version publiable
+### Exercice 8 - Construire une version publiable
 
 À partir des signalements municipaux, créez une table qui masque les cellules dont `niveau_detail_public` vaut `"masquer"`. Proposez une variable `nb_public` qui garde le nombre lorsque la publication est acceptable et remplace les autres valeurs par `NA`.
 
@@ -427,7 +427,7 @@ Une ville fictive veut publier un tableau de signalements mensuels. Elle souhait
 >     11 La Cite-Limoil… securite                       5        NA masque
 >     12 Sillery         logement                       3        NA masque
 
-## Exercice 9 - Écrire une note éthique courte
+### Exercice 9 - Écrire une note éthique courte
 
 Rédigez trois phrases qui expliquent:
 
@@ -439,11 +439,11 @@ Rédigez trois phrases qui expliquent:
 >
 > La publication présente des nombres agrégés de signalements par quartier et par type, sans adresse ni coordonnées individuelles. Les cellules associées à de très petits effectifs sont masquées afin de réduire le risque d’identification ou de stigmatisation locale. Ces données décrivent des signalements reçus et ne mesurent ni la gravité réelle des situations ni les causes des différences entre quartiers.
 
-# Étude de cas 2 - Sondage étudiant et communication prudente
+## Étude de cas 2 - Sondage étudiant et communication prudente
 
 Une équipe pédagogique fictive veut présenter les résultats d’un sondage sur la charge de travail. Les données peuvent aider à améliorer le cours, mais les commentaires libres et les petits groupes peuvent rendre certaines personnes reconnaissables.
 
-## Exercice 10 - Préparer un résumé publiable
+### Exercice 10 - Préparer un résumé publiable
 
 Créez un tableau par niveau d’étude avec le nombre de réponses, la moyenne d’heures d’étude et la moyenne du score de stress.
 
@@ -469,7 +469,7 @@ Créez un tableau par niveau d’étude avec le nombre de réponses, la moyenne 
 >     2      2     6            18           6.17
 >     3      3     4            23.2         8
 
-## Exercice 11 - Produire un graphique défendable
+### Exercice 11 - Produire un graphique défendable
 
 Produisez un graphique qui montre la moyenne d’heures d’étude par niveau. Le titre doit éviter de transformer une description en accusation.
 
@@ -490,7 +490,7 @@ Produisez un graphique qui montre la moyenne d’heures d’étude par niveau. L
 >
 > ![](exercices_files/figure-html/unnamed-chunk-15-1.png)
 
-## Exercice 12 - Décider ce qu’il ne faut pas publier
+### Exercice 12 - Décider ce qu’il ne faut pas publier
 
 Nommez deux éléments du fichier initial qui ne devraient pas apparaître dans une publication ouverte. Expliquez pourquoi.
 

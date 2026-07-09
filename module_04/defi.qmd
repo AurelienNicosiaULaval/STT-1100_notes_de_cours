@@ -13,13 +13,13 @@ format:
 editor: visual
 ---
 
-# Mission
+## Mission
 
 Vous travaillez avec Alex sur une base d'assurance issue d'un ancien système. Votre mission est de produire une version nettoyée du fichier `dataset_pratique.csv` et de documenter clairement les décisions prises.
 
 Le but n'est pas de corriger tout ce qui pourrait être discutable. Le but est de montrer que vous savez importer le fichier correctement, repérer des anomalies, choisir des corrections défendables et conserver une trace structurée de votre travail.
 
-# Données de départ
+## Données de départ
 
 Le fichier principal est `dataset_pratique.csv`. Il est séparé par des points-virgules.
 
@@ -42,7 +42,7 @@ base <- read_delim(
 
 Après l'importation, vérifiez que vous obtenez 23 colonnes. Si vous obtenez une seule colonne, l'importation n'est pas correcte.
 
-# Livrables
+## Livrables
 
 Votre dépôt GitHub doit contenir les trois fichiers suivants :
 
@@ -52,7 +52,7 @@ Votre dépôt GitHub doit contenir les trois fichiers suivants :
 
 Votre fichier `.qmd` doit pouvoir être rendu en HTML sans erreur.
 
-# Structure minimale du journal
+## Structure minimale du journal
 
 Votre objet `journal_nettoyage` doit être une liste nommée. Chaque entrée doit contenir au moins les champs `id`, `variables`, `probleme`, `action` et `justification`.
 
@@ -87,7 +87,7 @@ journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
 ))
 ```
 
-# Exigences minimales
+## Exigences minimales
 
 Votre travail doit inclure :
 
@@ -101,7 +101,7 @@ Votre travail doit inclure :
 
 Les corrections doivent être prudentes. Si une anomalie est réelle mais qu'aucune correction évidente n'est défendable, notez-la dans votre journal ou dans votre texte et expliquez pourquoi vous ne la corrigez pas.
 
-# Pistes de vérification
+## Pistes de vérification
 
 Voici des pistes utiles. Vous n'êtes pas obligé de toutes les corriger.
 
@@ -113,7 +113,7 @@ Voici des pistes utiles. Vous n'êtes pas obligé de toutes les corriger.
 - `commute_distance` contient des valeurs manquantes et des valeurs élevées.
 - Certaines variables catégorielles gagnent à être converties en facteurs.
 
-# Sauvegarde des résultats
+## Sauvegarde des résultats
 
 À la fin de votre document, sauvegardez vos deux objets de remise.
 
@@ -122,7 +122,7 @@ write_csv(donnees_propres, "donnees_propres.csv")
 save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 ```
 
-# Grille d'évaluation
+## Grille d'évaluation
 
 | Critère | Excellent | Satisfaisant | À améliorer |
 |---|---|---|---|
@@ -132,7 +132,7 @@ save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 | Journal | Le journal est structuré, complet et cohérent avec le code | Le journal existe mais certaines entrées sont incomplètes | Le journal est absent ou difficile à utiliser |
 | Reproductibilité | Le `.qmd` se rend sans erreur et produit les fichiers attendus | Le `.qmd` demande de petites corrections | Le travail ne peut pas être reproduit |
 
-# Checklist avant remise
+## Checklist avant remise
 
 - Le fichier `.qmd` se rend en HTML.
 - `donnees_propres.csv` est créé par le code.

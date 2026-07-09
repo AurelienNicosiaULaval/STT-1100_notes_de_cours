@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Mise en situation : devenez journaliste de données
+## Mise en situation : devenez journaliste de données
 
 Vous êtes engagés comme **journaliste de données** par *Le Courrier Gourmand*, un média local fictif qui publie des enquêtes interactives sur l’alimentation à Montréal. Votre rédactrice en chef souhaite un article éclairant le public sur **les infractions alimentaires commises dans les établissements alimentaires montréalais**. Elle vous donne quelques pistes de réflexion :
 
@@ -35,7 +35,7 @@ Données `UlavalSSD::listecondamnation`
 
 Livrable Article Quarto HTML illustré
 
-## Objectifs de l’aventure
+### Objectifs de l’aventure
 
 - Importer et nettoyer un jeu de données catégorielles réelles (infractions alimentaires).
 - Construire des tableaux de fréquence, des statistiques descriptives et des visualisations.
@@ -48,7 +48,7 @@ Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infr
 
 ------------------------------------------------------------------------
 
-# Comment réussir l’aventure
+## Comment réussir l’aventure
 
 1.  **Charger les données** : chargez le package `UlavalSSD`. Le jeu `listecondamnation` sera alors disponible dans R.
 2.  **Suivre les sections** : Chaque section contient des explications, une démonstration, des expérimentations à réaliser, puis des exercices.
@@ -56,7 +56,7 @@ Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infr
 
 ------------------------------------------------------------------------
 
-# Travail sur GitHub
+## Travail sur GitHub
 
 Avant de commencer l’analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.
 
@@ -72,9 +72,9 @@ Attention : les messages de commit doivent être parlants. Par exemple : “Ajou
 
 Félicitations ! Vous êtes maintenant prêt à débuter l’analyse !
 
-# Variables catégoriques : les bases en R avec `stringr`
+## Variables catégoriques : les bases en R avec `stringr`
 
-## Explications
+### Explications
 
 En R, une variable catégorique est souvent représentée par :
 
@@ -88,7 +88,7 @@ Pour le module 3, nous nous concentrerons sur les variables catégoriques de typ
 
 Voici des exemples montrant comment utiliser `stringr` pour manipuler des variables de type character dans un jeu de données comme `listecondamnation`. Les exemples ci-dessous ciblent des cas fréquents : détection de motifs, extraction, remplacement et nettoyage de chaînes.
 
-## Démonstration
+### Démonstration
 
 On va utiliser le jeu de données `listecondamnation` de la librairie `UlavalSSD`, qui contient des constats de condamnation liés à des établissements alimentaires au Québec.
 
@@ -131,7 +131,7 @@ glimpse(listecondamnation)
 >
 > Alexandre vous rappelle que `?listecondamnation` vous donne la documentation du jeu de données.
 
-### Détection de motifs (`str_detect()`)
+#### Détection de motifs (`str_detect()`)
 
 Pour vérifier si l’adresse mentionne `"MONTREAL"`, on peut faire :
 
@@ -171,7 +171,7 @@ Vous obtenez `TRUE/FALSE` selon la présence du mot **MONTREAL** dans la chaîne
 >
 > **Message d’Alexandre** : *« C’est un fait très intéressant à mettre dans ton article!»*
 
-### Remplacement (`str_replace()` et `str_replace_all()`)
+#### Remplacement (`str_replace()` et `str_replace_all()`)
 
 La colonne `Amende` est une chaîne de caractères. Elle contient des montants comme `"5 000 $"`, avec des espaces et le symbole `$`. Pour l’utiliser dans des calculs, il faut créer une variable numérique.
 
@@ -215,7 +215,7 @@ Ici, `parse_number()` vient du package `readr`, inclus dans le tidyverse. Le par
 >
 > *« Pas si simple d’avoir la colonne Amende en numérique!»*
 
-### Extraction de motifs (`str_extract()`)
+#### Extraction de motifs (`str_extract()`)
 
 Pour extraire un élément précis. Par exemple, si `Adresse_lieu_infraction` contient un code postal de la forme `H2X 3E4`, on peut tenter :
 
@@ -260,7 +260,7 @@ Le motif `[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]` est une forme simplifiée d’un c
 >
 > Un bel ajout à ton article!
 
-### Mise en forme (`str_to_lower()`, `str_to_upper()`, etc.)
+#### Mise en forme (`str_to_lower()`, `str_to_upper()`, etc.)
 
 Parfois, il est utile d’harmoniser la casse (`MONTREAL`, `Montréal`, etc.) :
 
@@ -272,7 +272,7 @@ condamnations_demo <- condamnations_demo %>%
   )
 ```
 
-### Suppression d’espaces multiples (`str_squish()`)
+#### Suppression d’espaces multiples (`str_squish()`)
 
 Si les données contiennent des espaces superflus :
 
@@ -371,15 +371,15 @@ Pensez à générer votre rapport, committer vos modifications et pousser sur Gi
 
 ------------------------------------------------------------------------
 
-# Statistiques descriptives pour variables catégoriques
+## Statistiques descriptives pour variables catégoriques
 
 Dans cette section, nous allons découvrir comment résumer l’information contenue dans les variables qualitatives, appelées aussi catégorielles. Nous verrons comment compter les occurrences de chaque catégorie (tableaux de fréquences), calculer des proportions (ou pourcentages) afin de mieux visualiser la répartition, et associer plusieurs variables pour mieux comprendre leurs interactions (tableaux de contingence). L’objectif est de disposer d’un portrait clair de la distribution des catégories pour en tirer des conclusions rapides sur les tendances ou anomalies présentes dans les données.
 
-## Explications
+### Explications
 
 Les **tableaux de fréquences** et les **mesures de tendance** (nombre d’observations, pourcentages) sont un bon point de départ pour résumer des variables catégoriques.
 
-## Démonstration
+### Démonstration
 
 ``` r
 # Nombre d'infractions par type d’établissement
@@ -457,9 +457,9 @@ Pensez à générer votre rapport, committer vos modifications et pousser sur Gi
 
 ------------------------------------------------------------------------
 
-# Visualisation de données catégoriques
+## Visualisation de données catégoriques
 
-## Explications
+### Explications
 
 Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
@@ -469,7 +469,7 @@ Pour représenter visuellement des variables catégoriques, on utilise souvent :
 
 - **Diagrammes à bandes groupées ou empilées standardisées** si on veut comparer plusieurs catégories croisées.
 
-## Démonstration
+### Démonstration
 
 ``` r
 library(ggplot2)
@@ -516,7 +516,7 @@ Le **montant des amendes** est un indicateur concret qui attire souvent l’atte
 
 ------------------------------------------------------------------------
 
-# Aller plus loin : cartographier les amendes (optionnel)
+## Aller plus loin : cartographier les amendes (optionnel)
 
 Pour clore l’enquête, **Alexandre** a mis la main sur un bout de code R rédigé par une collègue de la Ville. Ce script géocode automatiquement les codes postaux et fournit une latitude/longitude pour chaque établissement. Cette activité est optionnelle, car elle dépend du package `tidygeocoder` et d’un service web externe.
 
@@ -569,7 +569,7 @@ Conservez les éléments qui montrent la transformation d’un tableau en articl
 - deux nombres clés expliqués en phrases complètes;
 - une nuance importante à communiquer au public.
 
-# Conclusion de l’aventure
+## Conclusion de l’aventure
 
 Cette troisième aventure vous a permis de **passer du rôle d’analyste à celui de journaliste de données** : vous avez nettoyé un jeu réel d’inspections alimentaires, quantifié les infractions majeures, comparé les profils d’établissements et préparé des visualisations utiles pour un article.
 
@@ -579,7 +579,7 @@ Vous disposez maintenant :
 - de **graphiques percutants** (diagrammes en barres, boîtes à moustaches ou visualisation optionnelle) pour étayer vos arguments ;
 - d’**observations qualitatives** fournies par Alexandre, qui orientent le récit vers les enjeux d’hygiène et de transparence citoyenne.
 
-## Prochaine étape : rédigez votre article
+### Prochaine étape : rédigez votre article
 
 1.  **Structurez votre article Quarto** : chapeau accrocheur -\> contexte -\> méthodologie -\> résultats clés -\> recommandations.
 2.  **Intégrez au moins deux visuels** parmi ceux produits, dont au moins un graphique de catégories.

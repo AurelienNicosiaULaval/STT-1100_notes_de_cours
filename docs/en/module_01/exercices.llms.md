@@ -16,7 +16,7 @@ Explain in one sentence why the script is preferable for work that must be submi
 >
 > The console is useful for quick testing. The script keeps a record of the code, which makes it possible to rerun and verify the work later.
 
-## Exercise 2 - Create objects
+### Exercise 2 - Create objects
 
 Create the following objects:
 
@@ -34,7 +34,7 @@ Create the following objects:
 > mean_temperature
 > ```
 
-## Exercise 3 - Understand a missing value
+### Exercise 3 - Understand a missing value
 
 What does the following code return? Explain why.
 
@@ -46,7 +46,7 @@ mean(c(4, 7, NA, 10))
 >
 > The result is `NA`, because R cannot compute the mean without knowing what to do with the missing value. You need `na.rm = TRUE` to ignore it.
 
-## Exercise 4 - Write a condition
+### Exercise 4 - Write a condition
 
 Create an object `temperature <- -8`, then write a condition that returns:
 
@@ -65,7 +65,7 @@ Create an object `temperature <- -8`, then write a condition that returns:
 > }
 > ```
 
-## Exercise 5 - Write a simple function
+### Exercise 5 - Write a simple function
 
 Create a function `temperature_range()` that receives two arguments, `minimum` and `maximum`, then returns the difference between them.
 
@@ -81,7 +81,7 @@ Test the function with `minimum = -3` and `maximum = 8`.
 > temperature_range(minimum = -3, maximum = 8)
 > ```
 
-## Exercise 6 - Find help
+### Exercise 6 - Find help
 
 Use R’s built-in help to read the documentation for `mean()`.
 
@@ -95,7 +95,7 @@ Then answer in one sentence: what is the `na.rm` argument used for?
 >
 > The `na.rm` argument indicates whether missing values should be removed before the calculation.
 
-## Exercise 7 - Rewrite code with style
+### Exercise 7 - Rewrite code with style
 
 Rewrite the following code using a more readable style.
 
@@ -109,7 +109,7 @@ x=mean(c(3,NA,5),na.rm=TRUE)
 > x <- mean(c(3, NA, 5), na.rm = TRUE)
 > ```
 
-## Exercise 8 - Create a first Quarto report
+### Exercise 8 - Create a first Quarto report
 
 Create a `report.qmd` file containing:
 
@@ -135,7 +135,7 @@ Create a `report.qmd` file containing:
 > mean(c(1, 2, 3, 4, 5))
 > ```
 
-## Exercise 9 - Load the module packages
+### Exercise 9 - Load the module packages
 
 In a script or Quarto document, load the packages needed to access `MeteoQuebec` and manipulate tables with `dplyr`.
 
@@ -148,7 +148,7 @@ In a script or Quarto document, load the packages needed to access `MeteoQuebec`
 >
 > The package loading should be in the document or script, not only in the console.
 
-## Exercise 10 - Inspect `MeteoQuebec`
+### Exercise 10 - Inspect `MeteoQuebec`
 
 After loading `UlavalSSD`, use three different functions to inspect `MeteoQuebec`.
 
@@ -164,7 +164,7 @@ Your goal is to understand variable names, first rows and possible missing value
 > summary(MeteoQuebec)
 > ```
 
-## Exercise 11 - Find missing values
+### Exercise 11 - Find missing values
 
 Use `summary()` to identify at least one variable in `MeteoQuebec` that contains missing values.
 
@@ -182,7 +182,7 @@ Then write one sentence explaining why this matters before doing an analysis.
 >
 > > Some variables contain missing values. I need to account for them before computing means or comparing years, otherwise the analysis may become incomplete or return `NA`.
 
-## Exercise 12 - Extract columns
+### Exercise 12 - Extract columns
 
 Extract the `mean_temp` column from `MeteoQuebec` in two ways:
 
@@ -198,7 +198,7 @@ Extract the `mean_temp` column from `MeteoQuebec` in two ways:
 > temperature_2 <- MeteoQuebec[, "mean_temp"]
 > ```
 
-## Exercise 13 - Filter a date
+### Exercise 13 - Filter a date
 
 Choose a symbolic date by defining:
 
@@ -224,7 +224,7 @@ Filter `MeteoQuebec` to keep only observations for this month and day.
 > weather_date
 > ```
 
-## Exercise 14 - Add a column
+### Exercise 14 - Add a column
 
 Create a column `temp_range` that computes the difference between maximum and minimum temperature.
 
@@ -240,11 +240,11 @@ Create a column `temp_range` that computes the difference between maximum and mi
 > head(weather_with_range)
 > ```
 
-# Case studies
+## Case studies
 
 The following two case studies use small fictitious files. They do not represent real data; they are only meant to practise the technical moves of the module in contexts other than weather.
 
-## Case study 1 - Municipal libraries
+### Case study 1 - Municipal libraries
 
 File: `data/fictitious_municipal_libraries.csv`
 
@@ -279,7 +279,7 @@ Complete the following tasks:
 > libraries_workshops
 > ```
 
-## Case study 2 - Student coop
+### Case study 2 - Student coop
 
 File: `data/fictitious_student_coop.csv`
 

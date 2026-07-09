@@ -172,7 +172,7 @@ Trace attendue: argument clair, support visuel et vidéo accessible.
 
 ### Défi 10
 
-Tableau de bord interactif à partir des rétroactions anonymisées construites pendant la session ou du fichier exemple non réel.
+Tableau de bord interactif à partir du fichier fictif fourni. Un fichier réel ne peut être utilisé que s'il est anonymisé et explicitement autorisé.
 
 Trace attendue: tableau de bord local reproductible, données protégées et README utile.
 

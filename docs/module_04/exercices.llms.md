@@ -14,9 +14,9 @@ library(jsonlite)
 library(janitor)
 ```
 
-# Bloc A - Importer et inspecter
+## Bloc A - Importer et inspecter
 
-## Exercice 1 - Lire un CSV avec types contrôlés
+### Exercice 1 - Lire un CSV avec types contrôlés
 
 Importez `policies.csv` en forçant `policy_id` en texte et `premium_amount` en nombre.
 
@@ -47,7 +47,7 @@ Importez `policies.csv` en forçant `policy_id` en texte et `premium_amount` en 
 >     $ q4_claims      <dbl> 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2
 >     $ claim_amount   <dbl> 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 900,…
 
-## Exercice 2 - Vérifier les dimensions et les noms
+### Exercice 2 - Vérifier les dimensions et les noms
 
 Vérifiez le nombre de lignes, le nombre de colonnes et les noms de variables de `policies`.
 
@@ -73,7 +73,7 @@ Vérifiez le nombre de lignes, le nombre de colonnes et les noms de variables de
 >     [5] "q1_claims"      "q2_claims"      "q3_claims"      "q4_claims"
 >     [9] "claim_amount"
 
-## Exercice 3 - Nettoyer des noms de colonnes
+### Exercice 3 - Nettoyer des noms de colonnes
 
 Créez un petit tableau avec des noms de colonnes peu pratiques, puis nettoyez-les avec `clean_names()`.
 
@@ -93,7 +93,7 @@ Créez un petit tableau avec des noms de colonnes peu pratiques, puis nettoyez-l
 >
 >     [1] "nom_du_programme" "montant_demande"
 
-## Exercice 4 - Passer du format large au format long
+### Exercice 4 - Passer du format large au format long
 
 Dans `policies`, les colonnes `q1_claims` à `q4_claims` représentent des réclamations trimestrielles. Transformez-les en deux colonnes: `trimestre` et `reclamations`.
 
@@ -124,9 +124,9 @@ Dans `policies`, les colonnes `q1_claims` à `q4_claims` représentent des récl
 >     7 P002      q3_claims            2
 >     8 P002      q4_claims            0
 
-# Bloc B - Nettoyer valeurs et catégories
+## Bloc B - Nettoyer valeurs et catégories
 
-## Exercice 5 - Revenir au format large
+### Exercice 5 - Revenir au format large
 
 À partir de `policies_long`, revenez au format large.
 
@@ -154,7 +154,7 @@ Dans `policies`, les colonnes `q1_claims` à `q4_claims` représentent des récl
 >     $ q3_claims      <dbl> 0, 2, 1, 1, 0, 0, 2, 1, 0, 1, 0, 1, 2, 1, 0
 >     $ q4_claims      <dbl> 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2
 
-## Exercice 6 - Recoder des catégories proches
+### Exercice 6 - Recoder des catégories proches
 
 La variable `vehicle_use` contient des variantes comme `"Pleasure"`, `"pleasure"` et `"Com.mute"`. Nettoyez-la pour obtenir seulement `"Pleasure"` et `"Commute"`.
 
@@ -181,7 +181,7 @@ La variable `vehicle_use` contient des variantes comme `"Pleasure"`, `"pleasure"
 >     1 Pleasure        7
 >     2 Commute         8
 
-## Exercice 7 - Parser un montant avec une virgule décimale
+### Exercice 7 - Parser un montant avec une virgule décimale
 
 Transformez les montants textuels suivants en nombres.
 
@@ -212,7 +212,7 @@ montants <- tibble(
 >     3 -999             NA
 >     4 2 500,25       2500.
 
-## Exercice 8 - Détecter des codes FSA invalides
+### Exercice 8 - Détecter des codes FSA invalides
 
 Un code FSA devrait contenir trois caractères. Dans le tableau suivant, repérez les lignes invalides.
 
@@ -237,9 +237,9 @@ codes_fsa <- tibble(
 >     1 C     G1V1234  TRUE
 >     2 D     <NA>     TRUE
 
-# Bloc C - Documenter un nettoyage
+## Bloc C - Documenter un nettoyage
 
-## Exercice 9 - Créer une structure de journal
+### Exercice 9 - Créer une structure de journal
 
 Créez une liste `journal_nettoyage` avec les catégories `VM`, `VA`, `FT`, `RC` et `TY`.
 
@@ -264,7 +264,7 @@ Créez une liste `journal_nettoyage` avec les catégories `VM`, `VA`, `FT`, `RC`
 >      $ RC: list()
 >      $ TY: list()
 
-## Exercice 10 - Ajouter une entrée de correction
+### Exercice 10 - Ajouter une entrée de correction
 
 Ajoutez une entrée indiquant que la valeur `-999` a été remplacée par `NA` dans une variable de montant.
 
@@ -300,7 +300,7 @@ Ajoutez une entrée indiquant que la valeur `-999` a été remplacée par `NA` d
 >     [[1]]$justification
 >     [1] "La valeur -999 ne représente pas un montant réel"
 
-## Exercice 11 - Signaler sans corriger
+### Exercice 11 - Signaler sans corriger
 
 Ajoutez une entrée indiquant qu’un code FSA invalide a été signalé, mais non corrigé automatiquement.
 
@@ -336,7 +336,7 @@ Ajoutez une entrée indiquant qu’un code FSA invalide a été signalé, mais n
 >     [[1]]$justification
 >     [1] "Le bon code ne peut pas être déduit de manière défendable"
 
-## Exercice 12 - Sauvegarder un journal dans un fichier temporaire
+### Exercice 12 - Sauvegarder un journal dans un fichier temporaire
 
 Sauvegardez `journal_nettoyage` dans un fichier temporaire, puis vérifiez que le fichier existe.
 
@@ -350,9 +350,9 @@ Sauvegardez `journal_nettoyage` dans un fichier temporaire, puis vérifiez que l
 >
 >     [1] TRUE
 
-# Bloc D - Excel, JSON et règles de validation
+## Bloc D - Excel, JSON et règles de validation
 
-## Exercice 13 - Lire une feuille Excel précise
+### Exercice 13 - Lire une feuille Excel précise
 
 Le fichier `resources/quotes_2024.xlsx` contient une feuille `Q3`. Importez-la en sautant la première ligne.
 
@@ -374,7 +374,7 @@ Le fichier `resources/quotes_2024.xlsx` contient une feuille `Q3`. Importez-la e
 >     $ quote_date   <chr> "2024-04-15", "2024-05-03", "2024-06-20", "2024-07-01"
 >     $ quote_amount <dbl> 525.40, 610.00, 845.75, 720.30
 
-## Exercice 14 - Lire un JSON simple
+### Exercice 14 - Lire un JSON simple
 
 Lisez `coverage.json`, puis récupérez la limite de couverture collision.
 
@@ -388,7 +388,7 @@ Lisez `coverage.json`, puis récupérez la limite de couverture collision.
 >
 >     [1] 10000
 
-## Exercice 15 - Rectangulariser un JSON
+### Exercice 15 - Rectangulariser un JSON
 
 Transformez la section `coverage` du JSON en tableau.
 
@@ -410,7 +410,7 @@ Transformez la section `coverage` du JSON en tableau.
 >     1 collision   10000        500
 >     2 liability  100000         NA
 
-## Exercice 16 - Utiliser une règle de validation
+### Exercice 16 - Utiliser une règle de validation
 
 Le fichier `data/regles_equipements_fictif.json` indique les années d’installation plausibles. Lisez ce fichier et affichez les bornes acceptées.
 
@@ -430,9 +430,9 @@ Le fichier `data/regles_equipements_fictif.json` indique les années d’install
 >           <int>     <int>
 >     1      1990      2026
 
-# Études de cas
+## Études de cas
 
-## Étude de cas 1 - Demandes de bourses fictives
+### Étude de cas 1 - Demandes de bourses fictives
 
 Le fichier `data/demandes_bourses_fictif.csv` contient de fausses demandes de bourses étudiantes. Il ne représente aucun système réel.
 
@@ -569,7 +569,7 @@ Réalisez les tâches suivantes:
 >     $VA
 >     list()
 
-## Étude de cas 2 - Équipements municipaux fictifs
+### Étude de cas 2 - Équipements municipaux fictifs
 
 Le fichier `data/equipements_municipaux_fictif.csv` contient de faux enregistrements d’équipements municipaux. Le fichier `data/regles_equipements_fictif.json` contient quelques règles de validation.
 

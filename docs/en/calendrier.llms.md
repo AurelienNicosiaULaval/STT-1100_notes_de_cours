@@ -11,7 +11,7 @@
 | 7 | October 12 | Holiday. Independent exam preparation. |
 | 8 | October 19 | In-class exam: Modules 1 to 4. |
 | 9 | October 26 | Reading week. |
-| 10 | November 2 | Module 5: relationships between variables. |
+| 10 | November 2 | Module 5: post-exam restart, then relationships between variables. |
 | 11 | November 9 | Module 6: collaboration, GitHub, reproducibility and joins. |
 | 12 | November 16 | Module 7: responsible visualization, ethics and anonymization. |
 | 13 | November 23 | Module 8: automation and web exploration. |

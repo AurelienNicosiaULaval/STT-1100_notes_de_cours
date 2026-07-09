@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6102,20 +6129,20 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="présentation-du-défi" class="level1">
-<h1>Présentation du défi</h1>
+<section id="présentation-du-défi" class="level2">
+<h2 class="anchored" data-anchor-id="présentation-du-défi">Présentation du défi</h2>
 <p>Dans ce défi, vous devenez journaliste de données pour <em>Le Courrier Gourmand</em>. Votre objectif est de produire un court article Quarto sur les infractions alimentaires à partir du jeu <code>listecondamnation</code> du package <code>UlavalSSD</code>.</p>
 <p>Votre article doit être compréhensible par une personne qui ne connaît pas R. Le code sert à soutenir l’article, mais le texte doit raconter clairement ce que vous avez trouvé.</p>
 </section>
-<section id="données-à-utiliser" class="level1">
-<h1>Données à utiliser</h1>
+<section id="données-à-utiliser" class="level2">
+<h2 class="anchored" data-anchor-id="données-à-utiliser">Données à utiliser</h2>
 <p>Utilisez le jeu de données suivant :</p>
 <pre class="text"><code>UlavalSSD::listecondamnation</code></pre>
 <p>Votre rapport doit charger explicitement les packages nécessaires, notamment <code>tidyverse</code> et <code>UlavalSSD</code>.</p>
 <p>Le rapport doit pouvoir être rendu après un redémarrage de R, sans dépendre d’objets déjà présents dans votre environnement.</p>
 </section>
-<section id="livrables-attendus" class="level1">
-<h1>Livrables attendus</h1>
+<section id="livrables-attendus" class="level2">
+<h2 class="anchored" data-anchor-id="livrables-attendus">Livrables attendus</h2>
 <p>Votre dépôt GitHub doit contenir les fichiers suivants :</p>
 <ul>
 <li><p><code>template_article.qmd</code> complété ;</p></li>
@@ -6124,8 +6151,8 @@ margin-bottom: .05rem;
 <p>Vous pouvez renommer le titre de l’article dans l’en-tête Quarto, mais gardez le nom du fichier source fourni dans le gabarit.</p>
 <p>Votre historique GitHub doit montrer plusieurs commits utiles. Par exemple, vous pouvez faire un commit après l’importation des données, un autre après le nettoyage, un autre après les graphiques, puis un dernier après la relecture.</p>
 </section>
-<section id="structure-attendue-de-larticle" class="level1">
-<h1>Structure attendue de l’article</h1>
+<section id="structure-attendue-de-larticle" class="level2">
+<h2 class="anchored" data-anchor-id="structure-attendue-de-larticle">Structure attendue de l’article</h2>
 <p>Votre article doit contenir les sections suivantes :</p>
 <ul>
 <li><p>un chapeau introductif ;</p></li>
@@ -6136,10 +6163,10 @@ margin-bottom: .05rem;
 <li><p>une conclusion avec recommandations.</p></li>
 </ul>
 </section>
-<section id="travail-demandé" class="level1">
-<h1>Travail demandé</h1>
-<section id="étape-1---importer-et-inspecter-les-données" class="level2">
-<h2 class="anchored" data-anchor-id="étape-1---importer-et-inspecter-les-données">Étape 1 - Importer et inspecter les données</h2>
+<section id="travail-demandé" class="level2">
+<h2 class="anchored" data-anchor-id="travail-demandé">Travail demandé</h2>
+<section id="étape-1---importer-et-inspecter-les-données" class="level3">
+<h3 class="anchored" data-anchor-id="étape-1---importer-et-inspecter-les-données">Étape 1 - Importer et inspecter les données</h3>
 <p>Chargez le package <code>UlavalSSD</code>, inspectez <code>listecondamnation</code>, puis décrivez brièvement :</p>
 <ul>
 <li><p>le nombre de lignes ;</p></li>
@@ -6148,8 +6175,8 @@ margin-bottom: .05rem;
 <li><p>les limites du jeu de données que vous jugez importantes.</p></li>
 </ul>
 </section>
-<section id="étape-2---nettoyer-les-variables-utiles" class="level2">
-<h2 class="anchored" data-anchor-id="étape-2---nettoyer-les-variables-utiles">Étape 2 - Nettoyer les variables utiles</h2>
+<section id="étape-2---nettoyer-les-variables-utiles" class="level3">
+<h3 class="anchored" data-anchor-id="étape-2---nettoyer-les-variables-utiles">Étape 2 - Nettoyer les variables utiles</h3>
 <p>Créez un tableau propre qui contient au minimum :</p>
 <ul>
 <li><p>une variable numérique pour les amendes, par exemple <code>amende_num</code> ;</p></li>
@@ -6160,8 +6187,8 @@ margin-bottom: .05rem;
 </ul>
 <p>Ne modifiez pas le jeu de données original. Faites le nettoyage dans votre code R afin que votre démarche soit reproductible.</p>
 </section>
-<section id="étape-3---extraire-des-faits-marquants" class="level2">
-<h2 class="anchored" data-anchor-id="étape-3---extraire-des-faits-marquants">Étape 3 - Extraire des faits marquants</h2>
+<section id="étape-3---extraire-des-faits-marquants" class="level3">
+<h3 class="anchored" data-anchor-id="étape-3---extraire-des-faits-marquants">Étape 3 - Extraire des faits marquants</h3>
 <p>Votre article doit inclure au moins deux chiffres narratifs. Par exemple :</p>
 <ul>
 <li><p>la proportion de constats situés à Montréal ;</p></li>
@@ -6172,8 +6199,8 @@ margin-bottom: .05rem;
 </ul>
 <p>Chaque chiffre doit être accompagné d’une interprétation en texte.</p>
 </section>
-<section id="étape-4---produire-au-moins-deux-visuels" class="level2">
-<h2 class="anchored" data-anchor-id="étape-4---produire-au-moins-deux-visuels">Étape 4 - Produire au moins deux visuels</h2>
+<section id="étape-4---produire-au-moins-deux-visuels" class="level3">
+<h3 class="anchored" data-anchor-id="étape-4---produire-au-moins-deux-visuels">Étape 4 - Produire au moins deux visuels</h3>
 <p>Votre article doit contenir au moins deux visualisations :</p>
 <ol type="1">
 <li><p>un graphique de catégories, par exemple un diagramme à barres sur les types d’infractions ou les types d’établissements ;</p></li>
@@ -6188,8 +6215,8 @@ margin-bottom: .05rem;
 <li><p>des unités lorsque c’est pertinent.</p></li>
 </ul>
 </section>
-<section id="étape-5---rédiger-larticle" class="level2">
-<h2 class="anchored" data-anchor-id="étape-5---rédiger-larticle">Étape 5 - Rédiger l’article</h2>
+<section id="étape-5---rédiger-larticle" class="level3">
+<h3 class="anchored" data-anchor-id="étape-5---rédiger-larticle">Étape 5 - Rédiger l’article</h3>
 <p>Votre article doit répondre à une question journalistique claire. Par exemple :</p>
 <blockquote class="blockquote">
 <p>Que révèlent les constats d’infractions alimentaires sur les établissements montréalais ?</p>
@@ -6197,8 +6224,8 @@ margin-bottom: .05rem;
 <p>Dans la conclusion, ajoutez une courte citation synthétique d’Alexandre. Cette citation doit résumer une implication de vos résultats. Elle peut être fictive, mais elle doit être cohérente avec vos analyses.</p>
 </section>
 </section>
-<section id="liste-de-vérification" class="level1">
-<h1>Liste de vérification</h1>
+<section id="liste-de-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="liste-de-vérification">Liste de vérification</h2>
 <p>Avant de remettre votre défi, vérifiez que :</p>
 <ul>
 <li><p><code>template_article.qmd</code> se rend sans erreur ;</p></li>
@@ -6215,8 +6242,8 @@ margin-bottom: .05rem;
 <li><p>les changements ont été poussés sur GitHub.</p></li>
 </ul>
 </section>
-<section id="grille-dévaluation" class="level1">
-<h1>Grille d’évaluation</h1>
+<section id="grille-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="grille-dévaluation">Grille d’évaluation</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">

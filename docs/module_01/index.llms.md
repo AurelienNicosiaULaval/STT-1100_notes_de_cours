@@ -46,6 +46,26 @@ données chargées résumés clairs rendu reproductible
 
 - Rédiger un rapport simple dans Quarto, incluant du texte, des blocs de code, des titres de sections.
 
+## Préparer le module
+
+### Avant de commencer
+
+Vérifiez que R, RStudio et Quarto sont installés. Ouvrez RStudio, créez un fichier `.qmd` vide et rendez-le une première fois: ce test technique vient avant l’analyse.
+
+### Parcours minimal
+
+1.  Lire les repères essentiels.
+2.  Répondre au mini-test sans regarder les réponses.
+3.  Produire un petit rapport HTML qui se rend après un redémarrage de R.
+
+### Données personnelles
+
+Utilisez une date symbolique ou fictive dans le défi. Ne mettez pas votre date de naissance complète dans un rapport remis ou dans un dépôt.
+
+### Si vous bloquez
+
+Isolez l’erreur, gardez le message complet et vérifiez d’abord le rendu minimal. La boîte à outils aide ensuite à formuler une demande courte et reproductible.
+
 ## Plan d’apprentissage
 
 Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et servent à consolider les gestes techniques.

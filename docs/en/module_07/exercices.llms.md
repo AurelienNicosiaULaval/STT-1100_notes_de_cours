@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 These exercises are independent from the adventure and the challenge. They consolidate the core moves of module 7: recognizing misleading visualization choices, rebuilding a defensible chart, reducing re-identification risks and writing a short ethics note.
 
@@ -13,7 +13,7 @@ library(tidyverse)
 library(scales)
 ```
 
-# Readings to Review
+## Readings to Review
 
 - [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
 - [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
@@ -24,9 +24,9 @@ library(scales)
 
 After the readings, also complete the [formative mini-test](../module_07/mini_test.llms.md). It is not graded.
 
-# Block A - Diagnose a Visualization
+## Block A - Diagnose a Visualization
 
-## Exercise 1 - Compare Two Axes
+### Exercise 1 - Compare Two Axes
 
 Import the fictitious municipal reports, then produce two charts with the same data:
 
@@ -94,7 +94,7 @@ How does the visual perception change?
 >
 > The truncated axis visually amplifies differences. For bars, length encodes quantity; starting the axis above zero can therefore suggest a stronger difference than the data support.
 
-## Exercise 2 - Add Counts to the Message
+### Exercise 2 - Add Counts to the Message
 
 Compute the total number of reports by type. Produce a chart that compares report types without creating an impression of individual risk.
 
@@ -140,7 +140,7 @@ Compute the total number of reports by type. Produce a chart that compares repor
 >
 > The chart publishes aggregated and readable information. It avoids individual addresses or details that could expose a person or household.
 
-## Exercise 3 - Avoid Unfair Comparisons
+### Exercise 3 - Avoid Unfair Comparisons
 
 Join reports with the fictitious neighbourhood population. Compute a rate per 10,000 people. Why is this rate more defensible than a raw comparison?
 
@@ -190,9 +190,9 @@ Join reports with the fictitious neighbourhood population. Compute a rate per 10
 >
 > Raw counts favor more populated neighbourhoods. A population rate makes the comparison more relevant, although it still does not explain causes.
 
-# Block B - Reduce Re-Identification Risks
+## Block B - Reduce Re-Identification Risks
 
-## Exercise 4 - Identify Sensitive Variables
+### Exercise 4 - Identify Sensitive Variables
 
 Import the fictitious student survey. Classify variables into three families:
 
@@ -255,7 +255,7 @@ Import the fictitious student survey. Classify variables into three families:
 >
 > `respondent_id` directly identifies a row. Free-text comments can contain identifying details. Program, year level, age and gender may become identifying when combined.
 
-## Exercise 5 - Prepare an Anonymized Version
+### Exercise 5 - Prepare an Anonymized Version
 
 Create a survey version that:
 
@@ -311,7 +311,7 @@ Create a survey version that:
 >
 > This version reduces risk, but it does not eliminate all re-identification risk. A rare combination such as program + year level + gender + age can still isolate a person.
 
-## Exercise 6 - Check Small Groups
+### Exercise 6 - Check Small Groups
 
 Find combinations of `program`, `year_level` and `gender` with fewer than three people. Why should these cells not be published in detail?
 
@@ -345,7 +345,7 @@ Find combinations of `program`, `year_level` and `gender` with fewer than three 
 >
 > Small groups increase the risk of recognizing a person, especially in a class where students know each other. One option is to group categories, suppress some cells or publish only more aggregated results.
 
-## Exercise 7 - Visualize Without Overexposing
+### Exercise 7 - Visualize Without Overexposing
 
 Produce a chart of average stress score by program. Also show counts and add a cautious interpretation.
 
@@ -390,11 +390,11 @@ Produce a chart of average stress score by program. Also show counts and add a c
 >
 > Cautious interpretation: in this small fictitious survey, some programs have a higher average score, but the counts are too small to conclude that the program causes stress.
 
-# Case Study 1 - Responsible Municipal Publication
+## Case Study 1 - Responsible Municipal Publication
 
 A fictitious city wants to publish a table of monthly reports. It wants to be transparent, but it does not want to stigmatize small areas or indirectly reveal individual situations.
 
-## Exercise 8 - Build a Publishable Version
+### Exercise 8 - Build a Publishable Version
 
 Starting from the municipal reports, create a table that suppresses cells where `public_detail_level` is `"suppress"`. Create a variable `n_public` that keeps the count when publication is acceptable and replaces other values with `NA`.
 
@@ -427,7 +427,7 @@ Starting from the municipal reports, create a table that suppresses cells where 
 >     11 La Cite-Limoilou safety              5       NA suppressed
 >     12 Sillery          housing             3       NA suppressed
 
-## Exercise 9 - Write a Short Ethics Note
+### Exercise 9 - Write a Short Ethics Note
 
 Write three sentences explaining:
 
@@ -439,11 +439,11 @@ Write three sentences explaining:
 >
 > The publication presents aggregated report counts by neighbourhood and type, without addresses or individual coordinates. Cells associated with very small counts are suppressed to reduce identification risk and local stigmatization. These data describe reports received and do not measure the true severity of situations or the causes of differences between neighbourhoods.
 
-# Case Study 2 - Student Survey and Careful Communication
+## Case Study 2 - Student Survey and Careful Communication
 
 A fictitious teaching team wants to present results from a workload survey. The data can help improve the course, but free-text comments and small groups can make some people recognizable.
 
-## Exercise 10 - Prepare a Publishable Summary
+### Exercise 10 - Prepare a Publishable Summary
 
 Create a table by year level with the number of responses, average study hours and average stress score.
 
@@ -469,7 +469,7 @@ Create a table by year level with the number of responses, average study hours a
 >     2          2     6             18          6.17
 >     3          3     4             23.2        8
 
-## Exercise 11 - Produce a Defensible Chart
+### Exercise 11 - Produce a Defensible Chart
 
 Produce a chart showing average study hours by year level. The title must avoid turning a description into an accusation.
 
@@ -490,7 +490,7 @@ Produce a chart showing average study hours by year level. The title must avoid 
 >
 > ![](exercices_files/figure-html/unnamed-chunk-15-1.png)
 
-## Exercise 12 - Decide What Not to Publish
+### Exercise 12 - Decide What Not to Publish
 
 Name two elements from the initial file that should not appear in an open publication. Explain why.
 

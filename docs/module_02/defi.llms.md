@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Présentation du défi
+## Présentation du défi
 
 Dans ce défi, vous devez produire un dépôt GitHub lisible contenant deux livrables :
 
@@ -14,7 +14,9 @@ Le défi reprend la mission de la Dre Adélie Fortier. Elle souhaite comprendre 
 
 Vous devez travailler dans le même dépôt GitHub que celui utilisé pour l’aventure 2. Il n’y a pas de nouveau dépôt à créer.
 
-# Données à utiliser
+N’ajoutez pas de données personnelles, de mots de passe, de jetons ou de fichiers non demandés au dépôt. Respectez la visibilité et le mode de remise indiqués par l’enseignant·e; le dépôt sert à documenter le travail, pas à publier des informations personnelles.
+
+## Données à utiliser
 
 Dans votre dépôt GitHub, utilisez le fichier suivant :
 
@@ -24,7 +26,7 @@ data/manchots_donnees.xlsx
 
 Votre rapport doit importer les données à partir de ce fichier. Le rapport doit donc pouvoir être rendu après un redémarrage de R, sans dépendre d’objets déjà présents dans votre environnement.
 
-# Livrables attendus
+## Livrables attendus
 
 Votre dépôt GitHub doit contenir les fichiers suivants :
 
@@ -40,15 +42,15 @@ Le fichier `rapport_analyse.qmd` doit être un nouveau rapport Quarto. Il doit c
 
 Votre historique GitHub doit aussi montrer plusieurs commits utiles. Par exemple, vous pouvez faire un commit après l’importation des données, un autre après le traitement des anomalies, un autre après les graphiques, puis un dernier après la relecture.
 
-# Travail demandé
+## Travail demandé
 
-## Étape 1 - Importer et inspecter les données
+### Étape 1 - Importer et inspecter les données
 
 Importez le fichier `data/manchots_donnees.xlsx` avec `read_excel()`.
 
 Dans votre rapport, montrez que vous comprenez la structure des données. Par exemple, vous pouvez afficher les premières lignes, utiliser `glimpse()` ou présenter un court résumé des variables importantes.
 
-## Étape 2 - Repérer les valeurs problématiques
+### Étape 2 - Repérer les valeurs problématiques
 
 Reprenez les valeurs aberrantes repérées dans l’aventure 2.
 
@@ -62,7 +64,7 @@ Dans votre rapport :
 
 Ne modifiez pas directement le fichier Excel. Faites le traitement dans votre code R afin que votre démarche soit reproductible.
 
-## Étape 3 - Comparer les espèces
+### Étape 3 - Comparer les espèces
 
 Répondez à la question suivante :
 
@@ -80,7 +82,7 @@ Calculez, par espèce, la moyenne et l’écart-type des variables suivantes :
 
 Présentez les résultats sous forme de tableau clair.
 
-## Étape 4 - Créer un indicateur de grandeur
+### Étape 4 - Créer un indicateur de grandeur
 
 Créez une variable nommée `indice_grandeur`, définie comme :
 
@@ -92,7 +94,7 @@ Affichez quelques lignes du tableau pour vérifier que la variable a été cré�
 
 Si vous retirez des observations aberrantes, faites-le avant de calculer `indice_grandeur`.
 
-## Étape 5 - Produire deux graphiques
+### Étape 5 - Produire deux graphiques
 
 Votre rapport doit contenir deux graphiques :
 
@@ -112,7 +114,7 @@ Chaque graphique doit avoir :
 
 - des unités lorsque c’est pertinent.
 
-## Étape 6 - Conclure
+### Étape 6 - Conclure
 
 Dans la conclusion, répondez en quelques phrases aux questions suivantes :
 
@@ -122,7 +124,7 @@ Dans la conclusion, répondez en quelques phrases aux questions suivantes :
 
 - Votre traitement des valeurs aberrantes change-t-il votre interprétation ?
 
-# Liste de vérification
+## Liste de vérification
 
 Avant de remettre votre défi, vérifiez que :
 
@@ -146,7 +148,7 @@ Avant de remettre votre défi, vérifiez que :
 
 - les changements ont été poussés sur GitHub.
 
-# Grille d’évaluation
+## Grille d’évaluation
 
 | Critère | Excellent | Satisfaisant | À améliorer |
 |----|----|----|----|

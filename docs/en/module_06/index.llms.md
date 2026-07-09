@@ -38,6 +38,24 @@ By the end of this module, you should be able to:
 - produce a reproducible Quarto report;
 - provide constructive feedback in a GitHub issue.
 
+## Prepare for the module
+
+### Prerequisites
+
+Revisit the Module 2 GitHub repository and one rendered Quarto report. You should be able to locate a file, read commit history and recognize a simple join before starting.
+
+### Minimum route
+
+Read the `README`, check one join, render one report and write one precise issue. The goal is to make another team’s work understandable and actionable.
+
+### Team work
+
+A useful issue names one successful element, one precise suggestion, the relevant location and its rationale. Stay with observable work, never the person.
+
+### If the assigned team is blocked
+
+Document what you could verify, do not invent a problem and promptly tell the instructor or TA. Do not remain dependent on an external response.
+
 ## Learning Plan
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are independent and consolidate joins, reproducibility and constructive review on other data.

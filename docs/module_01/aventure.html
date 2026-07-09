@@ -4448,6 +4448,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -6006,7 +6032,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6239,25 +6266,9 @@ margin-bottom: .05rem;
   <li><a href="#comment-réussir-ce-module" id="toc-comment-réussir-ce-module" class="nav-link active" data-scroll-target="#comment-réussir-ce-module">Comment réussir ce module</a></li>
   <li><a href="#outils-informatiques" id="toc-outils-informatiques" class="nav-link" data-scroll-target="#outils-informatiques">Outils informatiques</a>
   <ul class="collapse">
-  <li><a href="#découverte-de-rstudio" id="toc-découverte-de-rstudio" class="nav-link" data-scroll-target="#découverte-de-rstudio">Découverte de RStudio</a>
-  <ul class="collapse">
-  <li><a href="#les-fenêtres-principales-de-rstudio" id="toc-les-fenêtres-principales-de-rstudio" class="nav-link" data-scroll-target="#les-fenêtres-principales-de-rstudio">Les fenêtres principales de RStudio</a></li>
-  <li><a href="#fonctionnalités-importantes" id="toc-fonctionnalités-importantes" class="nav-link" data-scroll-target="#fonctionnalités-importantes">Fonctionnalités importantes</a></li>
-  <li><a href="#configurer-votre-environnement" id="toc-configurer-votre-environnement" class="nav-link" data-scroll-target="#configurer-votre-environnement">Configurer votre environnement</a></li>
-  </ul></li>
-  <li><a href="#bases-de-la-programmation-en-r" id="toc-bases-de-la-programmation-en-r" class="nav-link" data-scroll-target="#bases-de-la-programmation-en-r">Bases de la programmation en R</a>
-  <ul class="collapse">
-  <li><a href="#créer-et-manipuler-des-objets" id="toc-créer-et-manipuler-des-objets" class="nav-link" data-scroll-target="#créer-et-manipuler-des-objets">Créer et manipuler des objets</a></li>
-  <li><a href="#écrire-des-conditions" id="toc-écrire-des-conditions" class="nav-link" data-scroll-target="#écrire-des-conditions">Écrire des conditions</a></li>
-  <li><a href="#fonctions-de-base-intégrées" id="toc-fonctions-de-base-intégrées" class="nav-link" data-scroll-target="#fonctions-de-base-intégrées">Fonctions de base intégrées</a></li>
-  <li><a href="#définir-une-nouvelle-fonction" id="toc-définir-une-nouvelle-fonction" class="nav-link" data-scroll-target="#définir-une-nouvelle-fonction">Définir une nouvelle fonction</a></li>
-  <li><a href="#bonnes-pratiques-en-programmation" id="toc-bonnes-pratiques-en-programmation" class="nav-link" data-scroll-target="#bonnes-pratiques-en-programmation">Bonnes pratiques en programmation</a></li>
-  </ul></li>
-  <li><a href="#introduction-à-quarto" id="toc-introduction-à-quarto" class="nav-link" data-scroll-target="#introduction-à-quarto">Introduction à Quarto</a>
-  <ul class="collapse">
-  <li><a href="#quest-ce-que-quarto" id="toc-quest-ce-que-quarto" class="nav-link" data-scroll-target="#quest-ce-que-quarto">Qu’est-ce que Quarto ?</a></li>
-  <li><a href="#structure-dun-document-quarto" id="toc-structure-dun-document-quarto" class="nav-link" data-scroll-target="#structure-dun-document-quarto">Structure d’un document Quarto</a></li>
-  </ul></li>
+  <li><a href="#découverte-de-rstudio" id="toc-découverte-de-rstudio" class="nav-link" data-scroll-target="#découverte-de-rstudio">Découverte de RStudio</a></li>
+  <li><a href="#bases-de-la-programmation-en-r" id="toc-bases-de-la-programmation-en-r" class="nav-link" data-scroll-target="#bases-de-la-programmation-en-r">Bases de la programmation en R</a></li>
+  <li><a href="#introduction-à-quarto" id="toc-introduction-à-quarto" class="nav-link" data-scroll-target="#introduction-à-quarto">Introduction à Quarto</a></li>
   </ul></li>
   <li><a href="#librairie-et-données" id="toc-librairie-et-données" class="nav-link" data-scroll-target="#librairie-et-données">Librairie et données</a>
   <ul class="collapse">
@@ -6266,24 +6277,11 @@ margin-bottom: .05rem;
   </ul></li>
   <li><a href="#données-propres-et-données-rangées" id="toc-données-propres-et-données-rangées" class="nav-link" data-scroll-target="#données-propres-et-données-rangées">Données propres et données rangées</a>
   <ul class="collapse">
-  <li><a href="#quest-ce-que-des-données-propres" id="toc-quest-ce-que-des-données-propres" class="nav-link" data-scroll-target="#quest-ce-que-des-données-propres">Qu’est-ce que des données propres ?</a>
-  <ul class="collapse">
-  <li><a href="#caractéristiques-des-données-propres" id="toc-caractéristiques-des-données-propres" class="nav-link" data-scroll-target="#caractéristiques-des-données-propres">Caractéristiques des données propres</a></li>
-  <li><a href="#exemple-de-données-non-propres" id="toc-exemple-de-données-non-propres" class="nav-link" data-scroll-target="#exemple-de-données-non-propres">Exemple de données non propres</a></li>
-  <li><a href="#exemple-de-données-propres" id="toc-exemple-de-données-propres" class="nav-link" data-scroll-target="#exemple-de-données-propres">Exemple de données propres</a></li>
-  </ul></li>
+  <li><a href="#quest-ce-que-des-données-propres" id="toc-quest-ce-que-des-données-propres" class="nav-link" data-scroll-target="#quest-ce-que-des-données-propres">Qu’est-ce que des données propres ?</a></li>
   </ul></li>
   <li><a href="#manipulation-de-données" id="toc-manipulation-de-données" class="nav-link" data-scroll-target="#manipulation-de-données">Manipulation de données</a>
   <ul class="collapse">
-  <li><a href="#exemple-de-tableau-de-données" id="toc-exemple-de-tableau-de-données" class="nav-link" data-scroll-target="#exemple-de-tableau-de-données">Exemple de tableau de données</a>
-  <ul class="collapse">
-  <li><a href="#extraire-une-ligne-avec-des-crochets" id="toc-extraire-une-ligne-avec-des-crochets" class="nav-link" data-scroll-target="#extraire-une-ligne-avec-des-crochets">Extraire une ligne avec des crochets <code>[]</code></a></li>
-  <li><a href="#extraire-une-colonne-avec-des-crochets" id="toc-extraire-une-colonne-avec-des-crochets" class="nav-link" data-scroll-target="#extraire-une-colonne-avec-des-crochets">Extraire une colonne avec des crochets <code>[]</code></a></li>
-  <li><a href="#extraire-une-colonne-avec-lopérateur" id="toc-extraire-une-colonne-avec-lopérateur" class="nav-link" data-scroll-target="#extraire-une-colonne-avec-lopérateur">Extraire une colonne avec l’opérateur <code>$</code></a></li>
-  <li><a href="#ajouter-une-nouvelle-colonne-avec" id="toc-ajouter-une-nouvelle-colonne-avec" class="nav-link" data-scroll-target="#ajouter-une-nouvelle-colonne-avec">Ajouter une nouvelle colonne avec <code>$</code></a></li>
-  <li><a href="#filtrer-des-lignes-selon-des-conditions-logiques" id="toc-filtrer-des-lignes-selon-des-conditions-logiques" class="nav-link" data-scroll-target="#filtrer-des-lignes-selon-des-conditions-logiques">Filtrer des lignes selon des conditions logiques</a></li>
-  <li><a href="#résumé" id="toc-résumé" class="nav-link" data-scroll-target="#résumé">Résumé</a></li>
-  </ul></li>
+  <li><a href="#exemple-de-tableau-de-données" id="toc-exemple-de-tableau-de-données" class="nav-link" data-scroll-target="#exemple-de-tableau-de-données">Exemple de tableau de données</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -6311,8 +6309,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="comment-réussir-ce-module" class="level1 unnumbered">
-<h1 class="unnumbered">Comment réussir ce module</h1>
+<section id="comment-réussir-ce-module" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="comment-réussir-ce-module">Comment réussir ce module</h2>
 <p>Bienvenue dans cette première aventure en sciences des données ! Ce module est conçu pour vous offrir une introduction complète aux outils et concepts fondamentaux qui vous accompagneront tout au long de votre parcours en science des données.</p>
 <p>Votre mission est de préparer les bases d’un premier rapport reproductible sur les données météorologiques du Québec. À la fin de l’aventure, vous devriez avoir exécuté du code R, créé un court document Quarto, chargé les données <code>MeteoQuebec</code>, puis extrait quelques informations simples de ce tableau.</p>
 <ul>
@@ -6349,17 +6347,17 @@ Carte de visite
 </div>
 <!-- adventure-brief:end -->
 </section>
-<section id="outils-informatiques" class="level1">
-<h1>Outils informatiques</h1>
+<section id="outils-informatiques" class="level2">
+<h2 class="anchored" data-anchor-id="outils-informatiques">Outils informatiques</h2>
 <p>Dans ce cours, nous utiliserons des outils informatiques professionnels qui sont essentiels en science des données. Ces outils permettent de manipuler, analyser et visualiser des données de manière efficace et reproductible. Voici un aperçu des principaux outils que vous allez découvrir :</p>
 <p><strong>RStudio</strong> : un environnement de développement intégré (IDE pour <em>Integrated Development Environment</em>) pour R qui facilite la rédaction de scripts, l’exécution de code et la gestion de projets. Il propose une interface intuitive et de nombreuses fonctionnalités professionnelles pour vous aider à structurer vos analyses.</p>
 <p><strong>Quarto</strong> : un outil puissant pour produire des documents reproductibles qui combinent texte explicatif, code et résultats. Avec Quarto, vous pourrez générer des rapports professionnels, des présentations et même des sites web.</p>
 <p>Ces outils ne se limitent pas à leur aspect technique ; ils favorisent aussi les bonnes pratiques en science des données, comme l’organisation rigoureuse des projets, la documentation claire et la reproductibilité des analyses. Ils seront vos alliés tout au long de ce cours et de vos futures expériences en science des données.</p>
-<section id="découverte-de-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="découverte-de-rstudio">Découverte de RStudio</h2>
+<section id="découverte-de-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="découverte-de-rstudio">Découverte de RStudio</h3>
 <p>RStudio est un environnement de développement intégré (IDE) pour R. Il facilite la rédaction, l’exécution, et la gestion de projets en R, tout en intégrant de nombreuses fonctionnalités professionnelles. Voici un aperçu de ses principales fenêtres et fonctionnalités :</p>
-<section id="les-fenêtres-principales-de-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="les-fenêtres-principales-de-rstudio">Les fenêtres principales de RStudio</h3>
+<section id="les-fenêtres-principales-de-rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="les-fenêtres-principales-de-rstudio">Les fenêtres principales de RStudio</h4>
 <p>RStudio est composé de quatre panneaux principaux :</p>
 <ul>
 <li><p><strong>Console</strong> : située généralement en bas à gauche, elle permet d’exécuter directement des commandes en R.</p></li>
@@ -6388,8 +6386,8 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="fonctionnalités-importantes" class="level3">
-<h3 class="anchored" data-anchor-id="fonctionnalités-importantes">Fonctionnalités importantes</h3>
+<section id="fonctionnalités-importantes" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-importantes">Fonctionnalités importantes</h4>
 <ul>
 <li><p><strong>Projets</strong> : RStudio organise votre travail en projets, ce qui est idéal pour structurer vos fichiers et données. Nous travaillerons dans des projet dès le prochain module.</p></li>
 <li><p><strong>Terminal intégré</strong> : pour exécuter des commandes système sans quitter RStudio. On ne l’utilisera pas pour l’instant mais sachez qu’il existe.</p></li>
@@ -6416,8 +6414,8 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="configurer-votre-environnement" class="level3">
-<h3 class="anchored" data-anchor-id="configurer-votre-environnement">Configurer votre environnement</h3>
+<section id="configurer-votre-environnement" class="level4">
+<h4 class="anchored" data-anchor-id="configurer-votre-environnement">Configurer votre environnement</h4>
 <p>Pour démarrer efficacement, personnalisez les préférences (<code>Tools &gt; Global Options</code>) pour ajuster l’apparence et les paramètres selon vos besoins.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -6436,11 +6434,11 @@ Carte de visite
 </div>
 </section>
 </section>
-<section id="bases-de-la-programmation-en-r" class="level2">
-<h2 class="anchored" data-anchor-id="bases-de-la-programmation-en-r">Bases de la programmation en R</h2>
+<section id="bases-de-la-programmation-en-r" class="level3">
+<h3 class="anchored" data-anchor-id="bases-de-la-programmation-en-r">Bases de la programmation en R</h3>
 <p>La programmation en R est essentielle pour manipuler, analyser et visualiser des données. Cette section vous introduit aux bases de la programmation et vous propose des exercices pour vous entraîner.</p>
-<section id="créer-et-manipuler-des-objets" class="level3">
-<h3 class="anchored" data-anchor-id="créer-et-manipuler-des-objets">Créer et manipuler des objets</h3>
+<section id="créer-et-manipuler-des-objets" class="level4">
+<h4 class="anchored" data-anchor-id="créer-et-manipuler-des-objets">Créer et manipuler des objets</h4>
 <p>En R, tout est un objet. Voici les bases pour créer des objets et les manipuler :</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -6467,8 +6465,8 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="écrire-des-conditions" class="level3">
-<h3 class="anchored" data-anchor-id="écrire-des-conditions">Écrire des conditions</h3>
+<section id="écrire-des-conditions" class="level4">
+<h4 class="anchored" data-anchor-id="écrire-des-conditions">Écrire des conditions</h4>
 <p>Les conditions permettent de rendre vos scripts dynamiques.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -6508,8 +6506,8 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="fonctions-de-base-intégrées" class="level3">
-<h3 class="anchored" data-anchor-id="fonctions-de-base-intégrées">Fonctions de base intégrées</h3>
+<section id="fonctions-de-base-intégrées" class="level4">
+<h4 class="anchored" data-anchor-id="fonctions-de-base-intégrées">Fonctions de base intégrées</h4>
 <p>R dispose de nombreuses fonctions intégrées pour effectuer des calculs simples ou avancés. Par exemple, il existe la fonction <code>mean</code> qui, comme son nom l’indique, permet de calculer une moyenne.</p>
 <p>Le bloc de code suivant nous permet de calculer la moyenne du vecteur <code>(1, 3, 5, 7)</code>.</p>
 <div class="cell">
@@ -6521,8 +6519,8 @@ Carte de visite
 </div>
 <p>Lorsque vous souhaitez avoir de l’aide sur une fonction, vous pouvez simplement taper le nom de celle-ci dans l’onglet d’aide dans le cadran en bas à droite.</p>
 </section>
-<section id="définir-une-nouvelle-fonction" class="level3">
-<h3 class="anchored" data-anchor-id="définir-une-nouvelle-fonction">Définir une nouvelle fonction</h3>
+<section id="définir-une-nouvelle-fonction" class="level4">
+<h4 class="anchored" data-anchor-id="définir-une-nouvelle-fonction">Définir une nouvelle fonction</h4>
 <p>R nous permet aussi de définir nos propres fonctions. Nous le ferons à plusieurs reprises dans le cours. Voici un petit exemple simple.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -6559,11 +6557,11 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="bonnes-pratiques-en-programmation" class="level3">
-<h3 class="anchored" data-anchor-id="bonnes-pratiques-en-programmation">Bonnes pratiques en programmation</h3>
+<section id="bonnes-pratiques-en-programmation" class="level4">
+<h4 class="anchored" data-anchor-id="bonnes-pratiques-en-programmation">Bonnes pratiques en programmation</h4>
 <p>Voici quelques conseils pour écrire un code propre et facile à maintenir :</p>
-<section id="règles-dor" class="level4">
-<h4 class="anchored" data-anchor-id="règles-dor">Règles d’or</h4>
+<section id="règles-dor" class="level5">
+<h5 class="anchored" data-anchor-id="règles-dor">Règles d’or</h5>
 <ol type="1">
 <li><p><strong>Nommer vos objets de manière descriptive</strong> :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>moyenne_notes <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">90</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div></li>
@@ -6651,11 +6649,11 @@ Carte de visite
 </section>
 </section>
 </section>
-<section id="introduction-à-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-à-quarto">Introduction à Quarto</h2>
+<section id="introduction-à-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-à-quarto">Introduction à Quarto</h3>
 <p>Quarto est un outil puissant pour créer des documents reproductibles combinant texte, code, et résultats. Il prend en charge différents formats, tels que HTML, PDF et Word.</p>
-<section id="quest-ce-que-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="quest-ce-que-quarto">Qu’est-ce que Quarto ?</h3>
+<section id="quest-ce-que-quarto" class="level4">
+<h4 class="anchored" data-anchor-id="quest-ce-que-quarto">Qu’est-ce que Quarto ?</h4>
 <p>Quarto vous permet de combiner du code R, Python ou Julia avec des explications textuelles, tout en générant des rapports professionnels. Bien sûr, dans ce cours nous l’utiliserons avec R. Ses principaux atouts incluent :</p>
 <ul>
 <li><p>La <strong>reproductibilité</strong> : le code et les résultats sont directement intégrés dans le même document.</p></li>
@@ -6663,19 +6661,19 @@ Carte de visite
 <li><p>La <strong>simplicité d’utilisation</strong>.</p></li>
 </ul>
 </section>
-<section id="structure-dun-document-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="structure-dun-document-quarto">Structure d’un document Quarto</h3>
+<section id="structure-dun-document-quarto" class="level4">
+<h4 class="anchored" data-anchor-id="structure-dun-document-quarto">Structure d’un document Quarto</h4>
 <p>Un fichier Quarto commence toujours par un en-tête YAML, suivi de contenu en Markdown et de blocs de code (chunks).</p>
-<section id="exemple-de-fichier-quarto-de-base" class="level4">
-<h4 class="anchored" data-anchor-id="exemple-de-fichier-quarto-de-base">Exemple de fichier Quarto de base</h4>
+<section id="exemple-de-fichier-quarto-de-base" class="level5">
+<h5 class="anchored" data-anchor-id="exemple-de-fichier-quarto-de-base">Exemple de fichier Quarto de base</h5>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Mon premier document Quarto&quot;</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">editor</span><span class="kw">:</span><span class="at"> visual</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="insérer-un-chunk-bloc-de-code-r" class="level4">
-<h4 class="anchored" data-anchor-id="insérer-un-chunk-bloc-de-code-r">Insérer un <em>chunk</em> (bloc de code) R</h4>
+<section id="insérer-un-chunk-bloc-de-code-r" class="level5">
+<h5 class="anchored" data-anchor-id="insérer-un-chunk-bloc-de-code-r">Insérer un <em>chunk</em> (bloc de code) R</h5>
 <p>Pour insérer un <em>chunk</em> (bloc de code) dans un document Quarto, vous pouvez cliquer sur le symbole suivant :</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -6734,11 +6732,11 @@ Carte de visite
 </section>
 </section>
 </section>
-<section id="librairie-et-données" class="level1">
-<h1>Librairie et données</h1>
+<section id="librairie-et-données" class="level2">
+<h2 class="anchored" data-anchor-id="librairie-et-données">Librairie et données</h2>
 <p>Nous avons vu plus haut que vous pouvez améliorer votre expérience de R en utilisant des librairies. Dans le cadre du cours, nous allons utiliser une librairie appelée <code>UlavalSSD</code>. Il s’agit d’une librairie développée pour le cours.</p>
-<section id="ulavalssd" class="level2">
-<h2 class="anchored" data-anchor-id="ulavalssd"><code>UlavalSSD</code></h2>
+<section id="ulavalssd" class="level3">
+<h3 class="anchored" data-anchor-id="ulavalssd"><code>UlavalSSD</code></h3>
 <p>Premièrement, vous allez installer la librairie <code>UlavalSSD</code> et la charger dans votre environnement de travail.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer le package remotes si nécessaire</span></span>
@@ -6770,8 +6768,8 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="données-meteoquebec" class="level2">
-<h2 class="anchored" data-anchor-id="données-meteoquebec">Données <code>MeteoQuebec</code></h2>
+<section id="données-meteoquebec" class="level3">
+<h3 class="anchored" data-anchor-id="données-meteoquebec">Données <code>MeteoQuebec</code></h3>
 <p>Dans cette aventure, nous allons travailler avec le jeu de données appelé <code>MeteoQuebec</code> disponible dans la librairie <code>UlavalSSD</code>. Il est important de noter que si la librairie n’est pas chargée (<code>library(UlavalSSD)</code>), alors vous ne pourrez pas accéder à ce jeu de données.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -6792,14 +6790,14 @@ Carte de visite
 </div>
 </section>
 </section>
-<section id="données-propres-et-données-rangées" class="level1">
-<h1>Données propres et données rangées</h1>
-<section id="quest-ce-que-des-données-propres" class="level2">
-<h2 class="anchored" data-anchor-id="quest-ce-que-des-données-propres">Qu’est-ce que des données propres ?</h2>
+<section id="données-propres-et-données-rangées" class="level2">
+<h2 class="anchored" data-anchor-id="données-propres-et-données-rangées">Données propres et données rangées</h2>
+<section id="quest-ce-que-des-données-propres" class="level3">
+<h3 class="anchored" data-anchor-id="quest-ce-que-des-données-propres">Qu’est-ce que des données propres ?</h3>
 <p>Dans le cadre de la science des données, des données propres désignent un ensemble de données qui est prêt à être utilisé pour des analyses. Cela signifie que les données sont organisées, cohérentes et que les problèmes connus ont été repérés ou corrigés. Travailler avec des données propres est essentiel pour garantir la qualité des résultats d’analyse et des modèles.</p>
 <p>On distingue aussi les données rangées, ou <em>tidy data</em> en anglais. Selon cette convention, chaque variable forme une colonne, chaque observation forme une ligne et chaque cellule contient une seule valeur. Un tableau peut être rangé tout en contenant encore des valeurs manquantes; il est alors bien structuré, mais il reste à vérifier sa qualité.</p>
-<section id="caractéristiques-des-données-propres" class="level3">
-<h3 class="anchored" data-anchor-id="caractéristiques-des-données-propres">Caractéristiques des données propres</h3>
+<section id="caractéristiques-des-données-propres" class="level4">
+<h4 class="anchored" data-anchor-id="caractéristiques-des-données-propres">Caractéristiques des données propres</h4>
 <p>Les données propres doivent respecter les critères suivants :</p>
 <ul>
 <li><strong>Valeurs manquantes comprises</strong> : Les données nécessaires pour l’analyse sont présentes, ou les valeurs manquantes sont repérées et justifiées.</li>
@@ -6810,14 +6808,15 @@ Carte de visite
 <li><strong>Une ligne par observation</strong> : Les données sont structurées de manière tabulaire, avec une ligne représentant une seule observation.</li>
 </ul>
 </section>
-<section id="exemple-de-données-non-propres" class="level3">
-<h3 class="anchored" data-anchor-id="exemple-de-données-non-propres">Exemple de données non propres</h3>
+<section id="exemple-de-données-non-propres" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-données-non-propres">Exemple de données non propres</h4>
+<p>Les exemples suivants sont entièrement fictifs. Ils servent à discuter des formats et des doublons, et non à recueillir des renseignements personnels.</p>
 <p>Un tableau contenant les données suivantes :</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Nom</th>
-<th>Date Naissance</th>
+<th>Nom fictif</th>
+<th>Date observée</th>
 <th>Score</th>
 </tr>
 </thead>
@@ -6847,18 +6846,18 @@ Carte de visite
 <p>Problèmes :</p>
 <ul>
 <li>Le format des dates n’est pas cohérent.</li>
-<li>Une ligne contient une valeur manquante (Date Naissance pour Charlie).</li>
+<li>Une ligne contient une valeur manquante (Date observée pour Charlie).</li>
 <li>Les données contiennent un doublon pour Alice.</li>
 </ul>
 </section>
-<section id="exemple-de-données-propres" class="level3">
-<h3 class="anchored" data-anchor-id="exemple-de-données-propres">Exemple de données propres</h3>
+<section id="exemple-de-données-propres" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-données-propres">Exemple de données propres</h4>
 <p>Après nettoyage, les données deviennent :</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Nom</th>
-<th>Date Naissance</th>
+<th>Nom fictif</th>
+<th>Date observée</th>
 <th>Score</th>
 </tr>
 </thead>
@@ -6905,11 +6904,11 @@ Carte de visite
 </section>
 </section>
 </section>
-<section id="manipulation-de-données" class="level1">
-<h1>Manipulation de données</h1>
+<section id="manipulation-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="manipulation-de-données">Manipulation de données</h2>
 <p>Dans cette section, nous allons apprendre à manipuler des tableaux de données simples en R. Vous découvrirez comment extraire une ligne, une colonne et créer une nouvelle colonne en utilisant les crochets <code>[]</code> et l’opérateur <code>$</code>.</p>
-<section id="exemple-de-tableau-de-données" class="level2">
-<h2 class="anchored" data-anchor-id="exemple-de-tableau-de-données">Exemple de tableau de données</h2>
+<section id="exemple-de-tableau-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-de-tableau-de-données">Exemple de tableau de données</h3>
 <p>Nous allons utiliser les données <code>MeteoQuebec</code>. La fonction <code>head</code> est très pratique, car comme son nom l’indique, elle permet d’afficher le haut (la tête) de la base de données. Cela permet d’avoir un accès rapide aux informations contenues dans les variables.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Affichage du haut du jeu de données</span></span>
@@ -6931,8 +6930,8 @@ Carte de visite
 6        0.0        15</code></pre>
 </div>
 </div>
-<section id="extraire-une-ligne-avec-des-crochets" class="level3">
-<h3 class="anchored" data-anchor-id="extraire-une-ligne-avec-des-crochets">Extraire une ligne avec des crochets <code>[]</code></h3>
+<section id="extraire-une-ligne-avec-des-crochets" class="level4">
+<h4 class="anchored" data-anchor-id="extraire-une-ligne-avec-des-crochets">Extraire une ligne avec des crochets <code>[]</code></h4>
 <p>Pour extraire une ligne spécifique, utilisez le format <code>nom_donnees[numéro_de_ligne, ]</code>.</p>
 <p>Exemple : Obtenons la 2e ligne :</p>
 <div class="cell">
@@ -6947,8 +6946,8 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="extraire-une-colonne-avec-des-crochets" class="level3">
-<h3 class="anchored" data-anchor-id="extraire-une-colonne-avec-des-crochets">Extraire une colonne avec des crochets <code>[]</code></h3>
+<section id="extraire-une-colonne-avec-des-crochets" class="level4">
+<h4 class="anchored" data-anchor-id="extraire-une-colonne-avec-des-crochets">Extraire une colonne avec des crochets <code>[]</code></h4>
 <p>Pour extraire une colonne, vous pouvez utiliser <code>nom_donnees[, numéro_de_colonne]</code> ou <code>nom_donnees[[&quot;nom_de_colonne&quot;]]</code>.</p>
 <p><strong>Attention</strong>, habituellement on préfère extraire une colonne par son nom que par son numéro. Tout d’abord, si votre ensemble de données contient de nombreuses colonnes, cela va devenir fastidieux de trouver le bon numéro. Aussi, pour être reproductible, il vaut mieux travailler avec le nom, puisque même si l’ordre des colonnes change, votre analyse restera valide.</p>
 <p>Exemple : Obtenons la colonne <strong>total_precip</strong> :</p>
@@ -6963,8 +6962,8 @@ Carte de visite
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(colonne_precip_2)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="extraire-une-colonne-avec-lopérateur" class="level3">
-<h3 class="anchored" data-anchor-id="extraire-une-colonne-avec-lopérateur">Extraire une colonne avec l’opérateur <code>$</code></h3>
+<section id="extraire-une-colonne-avec-lopérateur" class="level4">
+<h4 class="anchored" data-anchor-id="extraire-une-colonne-avec-lopérateur">Extraire une colonne avec l’opérateur <code>$</code></h4>
 <p>Une méthode plus simple pour extraire une colonne consiste à utiliser l’opérateur <code>$</code>.</p>
 <p>Exemple : Obtenons la colonne <strong>mean_temp</strong> :</p>
 <div class="cell">
@@ -6988,8 +6987,8 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="ajouter-une-nouvelle-colonne-avec" class="level3">
-<h3 class="anchored" data-anchor-id="ajouter-une-nouvelle-colonne-avec">Ajouter une nouvelle colonne avec <code>$</code></h3>
+<section id="ajouter-une-nouvelle-colonne-avec" class="level4">
+<h4 class="anchored" data-anchor-id="ajouter-une-nouvelle-colonne-avec">Ajouter une nouvelle colonne avec <code>$</code></h4>
 <p>Pour créer une nouvelle colonne, utilisez l’opérateur <code>$</code> et assignez-y une valeur.</p>
 <p>Exemple : Ajoutons une colonne <strong>etendue_temp</strong>, égale à <strong>max_temp - min_temp</strong> :</p>
 <div class="cell">
@@ -7029,8 +7028,8 @@ Carte de visite
 </div>
 </div>
 </section>
-<section id="filtrer-des-lignes-selon-des-conditions-logiques" class="level3">
-<h3 class="anchored" data-anchor-id="filtrer-des-lignes-selon-des-conditions-logiques">Filtrer des lignes selon des conditions logiques</h3>
+<section id="filtrer-des-lignes-selon-des-conditions-logiques" class="level4">
+<h4 class="anchored" data-anchor-id="filtrer-des-lignes-selon-des-conditions-logiques">Filtrer des lignes selon des conditions logiques</h4>
 <p>Vous pouvez utiliser des conditions logiques avec les crochets <code>[]</code> pour extraire des lignes spécifiques.</p>
 <p>Exemple : Obtenons les lignes où la température moyenne <strong>mean_temp</strong> est supérieure à 25. On ajoute <code>!is.na(MeteoQuebec$mean_temp)</code> pour retirer les valeurs manquantes avant de filtrer.</p>
 <div class="cell">
@@ -7119,15 +7118,15 @@ une règle personnelle pour garder une analyse reproductible.
 </ul>
 </div>
 <!-- portfolio-trace:end -->
-<section id="avant-de-passer-au-défi" class="level4">
-<h4 class="anchored" data-anchor-id="avant-de-passer-au-défi">Avant de passer au défi</h4>
+<section id="avant-de-passer-au-défi" class="level5">
+<h5 class="anchored" data-anchor-id="avant-de-passer-au-défi">Avant de passer au défi</h5>
 <p>Vous devriez maintenant être capable de créer un document Quarto, de charger <code>UlavalSSD</code>, d’afficher <code>MeteoQuebec</code>, de vérifier les valeurs manquantes avec <code>summary()</code>, puis d’extraire des lignes ou des colonnes à partir de conditions simples.</p>
 </section>
 </div>
 </div>
 </section>
-<section id="résumé" class="level3">
-<h3 class="anchored" data-anchor-id="résumé">Résumé</h3>
+<section id="résumé" class="level4">
+<h4 class="anchored" data-anchor-id="résumé">Résumé</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">

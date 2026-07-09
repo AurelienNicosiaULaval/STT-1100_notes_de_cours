@@ -8,15 +8,15 @@ Main threadText, sentiment and dashboard
 
 DataComments and working corpora
 
-ChallengeText analysis or dashboard
+ChallengeLocal interactive dashboard
 
 ## Finished Product
 
 Final product
 
-### A shareable dashboard or text analysis
+### An interactive dashboard supported by text analysis
 
-The final module combines text exploration, visualizations and communication in an object another person can consult.
+The final module combines text exploration, visualizations and communication in a dashboard that can be opened locally.
 
 **dashboard**
 
@@ -37,6 +37,24 @@ At the end of this module, you should be able to:
 - Visualize lexical and emotional trends over time.
 - Use TF-IDF to identify distinctive words.
 - Create an interactive dashboard with `flexdashboard` and `shiny`.
+
+## Prepare for the module
+
+### Prerequisites
+
+Revisit model limits from Module 9, basic text transformations and privacy principles from Module 7. The template is in `Rmd` because the requested dashboard uses `flexdashboard`; the rest of the course remains in Quarto.
+
+### Minimum route
+
+Start with the supplied fictitious data. Make the template work locally, add one filter, one chart and a short conclusion. Text analysis supports the dashboard: it does not replace the deliverable.
+
+### Extensions after the minimum
+
+Then add sentiment, TF-IDF and numerical variables, followed only by more ambitious options such as a word cloud, `plotly` or advanced customization.
+
+### Course feedback
+
+Use real feedback only when the instructor confirms it. Remove identifying information, keep the minimum anonymized version and never share the data or a public link without explicit permission.
 
 ## Learning Plan
 

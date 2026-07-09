@@ -5816,7 +5816,11 @@ margin-bottom: .05rem;
   <li><a href="#mission" id="toc-mission" class="nav-link active" data-scroll-target="#mission">Mission</a></li>
   <li><a href="#starter-repository" id="toc-starter-repository" class="nav-link" data-scroll-target="#starter-repository">Starter repository</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#expected-dashboard" id="toc-expected-dashboard" class="nav-link" data-scroll-target="#expected-dashboard">Expected dashboard</a></li>
+  <li><a href="#expected-dashboard" id="toc-expected-dashboard" class="nav-link" data-scroll-target="#expected-dashboard">Expected dashboard</a>
+  <ul class="collapse">
+  <li><a href="#minimum-core-to-make-work-first" id="toc-minimum-core-to-make-work-first" class="nav-link" data-scroll-target="#minimum-core-to-make-work-first">Minimum core to make work first</a></li>
+  <li><a href="#elements-to-add-after-the-core" id="toc-elements-to-add-after-the-core" class="nav-link" data-scroll-target="#elements-to-add-after-the-core">Elements to add after the core</a></li>
+  </ul></li>
   <li><a href="#confidentiality" id="toc-confidentiality" class="nav-link" data-scroll-target="#confidentiality">Confidentiality</a></li>
   <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables</a></li>
   <li><a href="#evaluation-grid" id="toc-evaluation-grid" class="nav-link" data-scroll-target="#evaluation-grid">Evaluation grid</a></li>
@@ -5846,20 +5850,21 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mission" class="level1">
-<h1>Mission</h1>
-<p>Build an interactive dashboard from anonymized feedback collected during the session.</p>
-<p>The expected working file is <code>data/sentiments_cours.csv</code>. It is built progressively from student feedback. If this file is not complete when you start, use the non-real example file provided in the repository to test your code.</p>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
+<p>Build an interactive dashboard from the fictitious file supplied in the repository. Real feedback may be used only when the instructor provides it in anonymized form and explicitly confirms its permitted use in this challenge.</p>
+<p>The working file is <code>data/sentiments_cours.csv</code>. By default, use the non-real example version supplied in the repository. Do not copy real comments into your repository, even when they appear anonymous.</p>
 </section>
-<section id="starter-repository" class="level1">
-<h1>Starter repository</h1>
+<section id="starter-repository" class="level2">
+<h2 class="anchored" data-anchor-id="starter-repository">Starter repository</h2>
 <p>The starter repository is:</p>
 <p><code>STT-1100/aventure-10</code></p>
 <p>The template to modify is:</p>
 <p><code>modele_dashboard.Rmd</code></p>
+<p>The course primarily uses Quarto. This template retains the <code>Rmd</code> format because the requested dashboard relies on <code>flexdashboard</code>; modify and render it in that format for this specific challenge.</p>
 </section>
-<section id="data" class="level1">
-<h1>Data</h1>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The final dashboard must be designed to work with a <code>data/sentiments_cours.csv</code> file containing at least the following variables. The column names are kept in French to match the R template.</p>
 <ul>
 <li><code>id</code>: anonymous identifier;</li>
@@ -5871,8 +5876,19 @@ margin-bottom: .05rem;
 </ul>
 <p>If you use a recoded or derived variable, state that clearly in the dashboard.</p>
 </section>
-<section id="expected-dashboard" class="level1">
-<h1>Expected dashboard</h1>
+<section id="expected-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="expected-dashboard">Expected dashboard</h2>
+<section id="minimum-core-to-make-work-first" class="level3">
+<h3 class="anchored" data-anchor-id="minimum-core-to-make-work-first">Minimum core to make work first</h3>
+<ul>
+<li>open the template locally without an error;</li>
+<li>add at least one interactive filter;</li>
+<li>produce one readable chart;</li>
+<li>write a short conclusion linked to that chart.</li>
+</ul>
+</section>
+<section id="elements-to-add-after-the-core" class="level3">
+<h3 class="anchored" data-anchor-id="elements-to-add-after-the-core">Elements to add after the core</h3>
 <p>Your dashboard must:</p>
 <ul>
 <li>display a sentiment score by week;</li>
@@ -5883,24 +5899,25 @@ margin-bottom: .05rem;
 <li>be personalized without reducing readability.</li>
 </ul>
 </section>
-<section id="confidentiality" class="level1">
-<h1>Confidentiality</h1>
-<p>Student feedback must remain anonymous. Do not publish comments that could identify a person.</p>
-<p>If you clean or modify the data, keep only the anonymized version needed for the dashboard.</p>
 </section>
-<section id="deliverables" class="level1">
-<h1>Deliverables</h1>
+<section id="confidentiality" class="level2">
+<h2 class="anchored" data-anchor-id="confidentiality">Confidentiality</h2>
+<p>Student feedback must remain anonymous. Do not publish comments that could identify a person. By default, fictitious data are the only data to place in GitHub.</p>
+<p>If the instructor exceptionally authorizes a real file, use only the supplied version, keep the minimum required for the dashboard, do not republish it and follow the retention instructions given in class.</p>
+</section>
+<section id="deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="deliverables">Deliverables</h2>
 <p>Your GitHub repository must contain:</p>
 <ul>
 <li>the modified <code>modele_dashboard.Rmd</code> file;</li>
 <li>the final HTML output or the instructions needed to run the dashboard locally;</li>
-<li>the anonymized data file if sharing it is allowed;</li>
+<li>the fictitious data needed for rendering, with no real feedback;</li>
 <li>a short <code>README.md</code> explaining how to open the dashboard locally and, if requested, how to deploy it.</li>
 </ul>
 <p>The minimal deliverable is a reproducible dashboard that works locally. Public deployment or sharing an external link is required only if that instruction is given in class.</p>
 </section>
-<section id="evaluation-grid" class="level1">
-<h1>Evaluation grid</h1>
+<section id="evaluation-grid" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-grid">Evaluation grid</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 28%">
@@ -5952,7 +5969,7 @@ margin-bottom: .05rem;
 </tr>
 <tr class="even">
 <td>Accessibility and sharing</td>
-<td>Dashboard works locally, with a valid link only if deployment is requested</td>
+<td>Dashboard works locally, filters and charts are readable, with a valid link only if deployment is requested</td>
 <td>/5</td>
 </tr>
 </tbody>

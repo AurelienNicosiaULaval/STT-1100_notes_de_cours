@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module Objectives
+## Module Objectives
 
 At the end of this module, you should be able to:
 
@@ -13,41 +13,45 @@ At the end of this module, you should be able to:
 - distinguish description, association and operational recommendation;
 - explain the CRAP and FAIR principles in a responsible communication context.
 
-# Readings
+## Readings
 
-To prepare, consult the following resources:
+To prepare, start with the resources marked “Essential”. They are sufficient to enter the adventure. The other resources deepen a specific point or prepare the challenge.
 
-- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html): structure a statistical message and make a result readable.
+- [Essential — R for Data Science - Communication](https://r4ds.hadley.nz/communication.html): structure a statistical message and make a result readable.
 - [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html): choose a chart suited to the comparison.
-- [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf): guidance for avoiding misleading visualizations.
+- [Essential — Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf): guidance for avoiding misleading visualizations.
 - [Graphics Principles Cheat Sheet](../../assets/lectures/module_07/graphics-principles-cheat-sheet.pdf): cheat sheet on graphic design principles.
 - [Conception graphique](../../assets/lectures/module_07/conception-graphique.pdf): slide deck on readability and visual structure in graphs.
-- [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation): vocabulary and issues related to personal information.
+- [Essential — Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation): vocabulary and issues related to personal information.
 - [CNIL - Anonymisation of personal data](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles): distinction between anonymization, pseudonymization and residual risks.
 - [Guide de la Loi 25](../../assets/lectures/module_07/guide-loi-25.mp4): short video on personal information protection in Quebec.
-- [Techniques de base en anonymisation de données](../../assets/lectures/module_07/techniques-anonymisation-donnees.llms.md): working page on identifiers, quasi-identifiers and re-identification risks.
-- [Pratique responsable en statistique et science des données](../../assets/lectures/module_07/aide-memoire-ethique.pdf): checklist for reviewing ethical issues in a data project.
-- [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618): principles for making data findable, accessible, interoperable and reusable.
+- [Essential — Techniques de base en anonymisation de données](../../assets/lectures/module_07/techniques-anonymisation-donnees.llms.md): working page on identifiers, quasi-identifiers and re-identification risks.
+- [Essential — Pratique responsable en statistique et science des données](../../assets/lectures/module_07/aide-memoire-ethique.pdf): checklist for reviewing ethical issues in a data project.
+- [Essential — Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618): principles for making data findable, accessible, interoperable and reusable.
 
-## Posit cheat sheet
+### CRAP in practice
+
+To assess a chart, explicitly check contrast, repetition, alignment and proximity. In your ethics note, name at least one visual choice that supports or harms these four principles.
+
+### Posit cheat sheet
 
 - [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Quick reference for rebuilding readable and defensible visualizations.
 
 After the readings, complete the [formative mini-test](../module_07/mini_test.llms.md). It is not graded; it only checks the basic ideas before the adventure.
 
-# Adventure
+## Adventure
 
 You will act as a data ethics expert. Your team will evaluate a problematic report in the `STT-1100/aventure-7` repository.
 
 Link to the adventure: [Adventure 7 - Visualization, Ethics and Data Security](../module_07/aventure.llms.md)
 
-# Challenge
+## Challenge
 
 The challenge turns the adventure audit into a reproducible ethics note. You will submit a report, two corrected visualizations and an anonymized file.
 
 Link to the challenge: [Challenge 7 - Ethics Note and Responsible Visualizations](../module_07/defi.llms.md)
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 The exercises are independent from the adventure and the challenge. They use different fictitious data to practise responsible charts, anonymization, small-count checks and short ethics notes.
 

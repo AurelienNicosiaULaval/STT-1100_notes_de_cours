@@ -95,7 +95,7 @@ extract_value <- function(text, pattern) {
 }
 ```
 
-# Scenario
+## Scenario
 
 You work as an independent data science consultant. Unlike a salaried position, consulting work is organized around specific client mandates. You must be autonomous, rigorous and able to deliver effective, reusable and well-documented solutions.
 
@@ -139,7 +139,7 @@ She accompanies you throughout this adventure. She asks key questions, checks yo
 </div>
 <!-- adventure-brief:end -->
 
-## Adventure Objectives
+### Adventure Objectives
 
 - Understand the basics of web scraping with `rvest`.
 - Create a function to extract metadata from a web page.
@@ -157,7 +157,7 @@ She accompanies you throughout this adventure. She asks key questions, checks yo
 
 <!-- week-new:end -->
 
-# Before Scraping: Check the Context
+## Before Scraping: Check the Context
 
 ::: {.callout-important title="Question from Marie-Pier"}
 *What can we extract from this portal? Is scraping reasonable here?*
@@ -188,7 +188,7 @@ writeLines(disinstructions)
 A `robots.txt` file that does not explicitly forbid a page does not mean that everything is automatically acceptable. In this module, we limit collection to a few public result pages, add a pause between requests and do not bypass protection mechanisms.
 :::
 
-# Understanding Web Scraping with `rvest`
+## Understanding Web Scraping with `rvest`
 
 In this section, you discover the essential functions of the `rvest` package. The goal is to extract structured HTML content from a search page.
 
@@ -267,7 +267,7 @@ producteurs <- map_chr(blocks, function(block) {
 Your turn: from this same HTML block, find how to extract the categories associated with each dataset. The observed label may be `Catégorie`, `Catégories`, `Category` or `Categories`.
 :::
 
-# Guided Creation of the `scrape_page()` Function
+## Guided Creation of the `scrape_page()` Function
 
 Marie-Pier wants you to create a reusable function named `scrape_page()`. It takes a URL as input and returns a `data.frame` with exactly the following columns:
 
@@ -319,7 +319,7 @@ scrape_page <- function(url) {
 Test your function with page 3. It should return 20 rows and exactly the columns `titre`, `producteur`, `categorie`.
 :::
 
-# Manual Repetition, Then a `for` Loop
+## Manual Repetition, Then a `for` Loop
 
 Now test the extraction of the first five pages by calling your function several times:
 
@@ -351,7 +351,7 @@ for (i in 1:5) {
 }
 ```
 
-# Exploration Guided by Marie-Pier
+## Exploration Guided by Marie-Pier
 
 Use the `results` table to answer your client's questions. She expects precise and careful results.
 
@@ -361,7 +361,7 @@ Use the `results` table to answer your client's questions. She expects precise a
 3. Do we observe a diversity of fields or a concentration around a few themes?
 :::
 
-# Ethical Reflection
+## Ethical Reflection
 
 ::: {.callout-note title="For your working notes"}
 Briefly report:
@@ -372,7 +372,7 @@ Briefly report:
 - the situation for two other websites, for example `bonjourquebec.com` or `ulaval.ca`, using `robots.txt` or terms of use.
 :::
 
-# Challenge to Submit
+## Challenge to Submit
 
 The challenge associated with this adventure is described on the page [Challenge 8 - Scraping Function](defi.qmd).
 
@@ -391,6 +391,6 @@ You must submit an `IDUL.R` file containing your `scrape_page()` function. The s
 </div>
 <!-- portfolio-trace:end -->
 
-# Conclusion of the Adventure
+## Conclusion of the Adventure
 
 You have designed a functional and automatable scraping tool, used a `for` loop, extracted structured metadata and deepened your understanding of scraping ethics.

@@ -37,6 +37,24 @@ At the end of this module, you should be able to:
 - Calculate and interpret the correlation between two numerical variables.
 - Write an exploratory data analysis (EDA) report highlighting trends and patterns in the data.
 
+## Prepare for the module
+
+### Returning after the exam
+
+Before starting, render an earlier Quarto document again, revisit a chart from Module 3 or 4 and check a small `dplyr` summary. This restart is intentional after the break and exam.
+
+### Minimum route
+
+Create a date variable, summarize a relationship with group sizes, produce a chart and write a descriptive conclusion. Keep the terms “association” and “causation” distinct.
+
+### Do not overclaim
+
+A correlation or visible trend does not prove that one variable causes another. Small groups and missing values belong in the interpretation.
+
+### If you get stuck
+
+First reproduce one guided analysis of the flights, then adapt one variable or one chart. Add secondary analyses only after a clear render.
+
 ## Learning Plan
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are independent and consolidate the same moves on other data.

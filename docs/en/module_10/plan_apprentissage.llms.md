@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Module objectives
+## Module objectives
 
 At the end of this module, you should be able to:
 
@@ -12,9 +12,9 @@ At the end of this module, you should be able to:
 - Use TF-IDF to identify distinctive words.
 - Create an interactive dashboard with `flexdashboard` and `shiny`.
 
-# Readings
+## Readings
 
-To prepare, check out the following resources:
+To prepare, start with `unnest_tokens()`, `bind_tf_idf()` and the `flexdashboard` template. Shiny resources, word clouds and customization options come after a first local dashboard works.
 
 - [Text Mining with R](https://www.tidytextmining.com/) - Chapters 1 to 3 for tidy text format, sentiment analysis and TF-IDF.
 - [tidytext documentation - `unnest_tokens()`](https://juliasilge.github.io/tidytext/reference/unnest_tokens.html)
@@ -23,7 +23,7 @@ To prepare, check out the following resources:
 - [Using Shiny with flexdashboard](https://rstudio.github.io/flexdashboard/articles/shiny.html)
 - [Posit - Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/)
 
-## Posit cheat sheets
+### Posit cheat sheets
 
 - [String manipulation with stringr :: Cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) Text preparation and cleaning before tokenization.
 
@@ -39,13 +39,13 @@ To prepare, check out the following resources:
 
 After the readings, complete the [module 10 formative mini-test](../module_10/mini_test.llms.md).
 
-# Adventure
+## Adventure
 
-You are a junior business analyst hired by the Faculty of Science and Engineering at Laval University. Your mandate: analyze anonymous student comments on the STT-1100 course and produce an interactive dashboard for program management.
+You are a junior business analyst hired by the Faculty of Science and Engineering at Laval University. Your mandate is to produce an interactive dashboard from fictitious comments. Real feedback may be used only when the instructor provides an anonymized file and explicitly confirms the permitted use.
 
 [Adventure 10 — Beyond data: text and dashboard](../module_10/aventure.llms.md)
 
-# Challenge - Local or shared dashboard
+## Challenge - Local or shared dashboard
 
 You need to build an interactive dashboard from the template provided. This dashboard must:
 
@@ -55,11 +55,13 @@ You need to build an interactive dashboard from the template provided. This dash
 - Be personalized (filtering, colors, summary);
 - Work locally; be deployed or shared only if that instruction is given in class.
 
+Start with the minimum core: make the template work locally, add one filter, one chart and a short conclusion. Then add sentiment, TF-IDF, numerical variables and visual extensions.
+
 Complete instructions: [Challenge 10 — Feedback dashboard](../module_10/defi.llms.md)
 
 Starter repository: `STT-1100/aventure-10`
 
-# Consolidation Exercises
+## Consolidation Exercises
 
 The exercises are independent from the adventure and the challenge. They use two fictitious datasets created for this module:
 
@@ -70,9 +72,9 @@ The series ends with two case studies: a library-service prioritization and a cu
 
 Link to the exercises: [Consolidation Exercises](../module_10/exercices.llms.md)
 
-# Evaluation grid
+## Evaluation grid
 
-Each team must submit an interactive dashboard based on feedback from students in the course. Here is the grid used for the evaluation:
+Each team must submit an interactive dashboard based on the supplied fictitious data or, only when explicitly authorized, on an anonymized file provided by the instructor. Here is the grid used for the evaluation:
 
 | Criterion | Description | Points |
 |----|----|----|

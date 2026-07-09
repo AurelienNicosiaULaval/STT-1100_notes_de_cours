@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6094,39 +6121,39 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="présentation-du-défi" class="level1">
-<h1>Présentation du défi</h1>
+<section id="présentation-du-défi" class="level2">
+<h2 class="anchored" data-anchor-id="présentation-du-défi">Présentation du défi</h2>
 <p>Vous devez créer un rapport Quarto au format HTML. Votre rapport doit inclure :</p>
 <ul>
 <li>un en-tête parlant (titre, date et auteur) ;</li>
 <li>trois sections : introduction, analyse et conclusion.</li>
 </ul>
-<p>Le rapport doit répondre à la question suivante : “Suis-je né ou née la bonne année ?”. On pourra répondre à cette question en s’intéressant à la température moyenne observée le jour de votre naissance, en la comparant à celles des années précédentes ou suivantes.</p>
+<p>Le rapport doit répondre à la question suivante : « Cette date symbolique a-t-elle été une année particulièrement chaude, fraîche ou proche de la moyenne? ». Vous travaillerez avec une date choisie dans le jeu de données et la comparerez aux années précédentes ou suivantes.</p>
 <p>Dans l’introduction, vous devrez nommer l’objectif de votre analyse, la date choisie, la base de données que vous allez utiliser et ce que vous considérez comme une température plus favorable. Par exemple, vous pouvez décider qu’une année est plus favorable si elle est plus chaude, plus fraîche ou plus proche de la moyenne des années comparées.</p>
 <p>Dans la section analyse, vous devrez réaliser une analyse simple de la base de données <code>MeteoQuebec</code> de la librairie <code>UlavalSSD</code>. Votre fichier <code>.qmd</code> doit charger la librairie avec <code>library(UlavalSSD)</code> afin que le rapport puisse être rendu après un redémarrage de R.</p>
 <p>Voici les étapes à suivre :</p>
 <ol type="1">
-<li><p>Définissez dans votre code la date étudiée : le jour, le mois et l’année de naissance. Attention : dans <code>MeteoQuebec</code>, les variables <code>month</code> et <code>day</code> sont écrites avec deux caractères. Par exemple, juin correspond à <code>&quot;06&quot;</code>.</p></li>
-<li><p>Donnez la température moyenne observée à cette date pour votre année de naissance.</p></li>
-<li><p>Comparez cette valeur avec les températures moyennes observées à la même date pour les 5 années précédentes et les 5 années suivantes. Au total, votre comparaison devrait donc porter sur 11 années, de <code>annee_naissance - 5</code> à <code>annee_naissance + 5</code>.</p></li>
+<li><p>Définissez dans votre code une date symbolique ou fictive : jour, mois et année de référence. Ne choisissez pas une date de naissance personnelle. Attention : dans <code>MeteoQuebec</code>, les variables <code>month</code> et <code>day</code> sont écrites avec deux caractères. Par exemple, juin correspond à <code>&quot;06&quot;</code>.</p></li>
+<li><p>Donnez la température moyenne observée à cette date pour votre année de référence.</p></li>
+<li><p>Comparez cette valeur avec les températures moyennes observées à la même date pour les 5 années précédentes et les 5 années suivantes. Au total, votre comparaison devrait donc porter sur 11 années, de <code>annee_reference - 5</code> à <code>annee_reference + 5</code>.</p></li>
 <li><p>Signalez les valeurs manquantes, s’il y en a. Si elles empêchent de faire une comparaison raisonnable, choisissez une autre date symbolique.</p></li>
 </ol>
 <p>Aucun graphique n’est obligatoire dans ce premier défi. Si vous choisissez d’en ajouter un, il doit aider à comprendre la comparaison.</p>
 <p>Dans la section conclusion, vous devez répondre avec du texte à la question du défi en vous appuyant sur vos résultats.</p>
-<p>Remarque importante : si les données correspondant à votre jour de naissance contiennent des valeurs manquantes, par exemple pour la température moyenne, vous pouvez choisir une autre date symbolique, comme la date de fête d’un membre de votre famille ou d’un ami. Si votre date est le 29 février, vous pouvez aussi choisir une date proche et l’indiquer clairement.</p>
+<p>Remarque importante : choisissez dès le départ une date non personnelle, par exemple la date de fondation d’une organisation, la date d’un événement historique ou une date fictive. Si les données sont manquantes ou si la date est le 29 février, choisissez une autre date symbolique et indiquez-le clairement.</p>
 </section>
-<section id="livrables-attendus" class="level1">
-<h1>Livrables attendus</h1>
+<section id="livrables-attendus" class="level2">
+<h2 class="anchored" data-anchor-id="livrables-attendus">Livrables attendus</h2>
 <ul>
 <li><p>Un rapport HTML ;</p></li>
 <li><p>Votre fichier source <code>.qmd</code>.</p></li>
 <li><p>Votre rapport <code>.qmd</code> doit respecter les bonnes pratiques de codage du tidyverse (chapitres 1 et 2).</p></li>
 </ul>
 </section>
-<section id="grille-dévaluation" class="level1">
-<h1>Grille d’évaluation</h1>
-<section id="note-importante" class="level2">
-<h2 class="anchored" data-anchor-id="note-importante">Note importante</h2>
+<section id="grille-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="grille-dévaluation">Grille d’évaluation</h2>
+<section id="note-importante" class="level3">
+<h3 class="anchored" data-anchor-id="note-importante">Note importante</h3>
 <blockquote class="blockquote">
 <p>Pour ce <strong>premier rendu d’un rapport Quarto</strong>, vous recevrez une <strong>rétroaction formative</strong> de la part de l’enseignant·e.<br>
 Elle sera basée sur la grille suivante afin de vous aider à progresser et à améliorer vos prochains livrables.</p>

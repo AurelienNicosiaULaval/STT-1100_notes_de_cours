@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6132,13 +6159,13 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mission" class="level1">
-<h1>Mission</h1>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
 <p>Vous travaillez avec Alex sur une base d’assurance issue d’un ancien système. Votre mission est de produire une version nettoyée du fichier <code>dataset_pratique.csv</code> et de documenter clairement les décisions prises.</p>
 <p>Le but n’est pas de corriger tout ce qui pourrait être discutable. Le but est de montrer que vous savez importer le fichier correctement, repérer des anomalies, choisir des corrections défendables et conserver une trace structurée de votre travail.</p>
 </section>
-<section id="données-de-départ" class="level1">
-<h1>Données de départ</h1>
+<section id="données-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="données-de-départ">Données de départ</h2>
 <p>Le fichier principal est <code>dataset_pratique.csv</code>. Il est séparé par des points-virgules.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -6156,8 +6183,8 @@ margin-bottom: .05rem;
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Après l’importation, vérifiez que vous obtenez 23 colonnes. Si vous obtenez une seule colonne, l’importation n’est pas correcte.</p>
 </section>
-<section id="livrables" class="level1">
-<h1>Livrables</h1>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <p>Votre dépôt GitHub doit contenir les trois fichiers suivants :</p>
 <ul>
 <li><code>defi_04.qmd</code> : votre document de travail reproductible;</li>
@@ -6166,8 +6193,8 @@ margin-bottom: .05rem;
 </ul>
 <p>Votre fichier <code>.qmd</code> doit pouvoir être rendu en HTML sans erreur.</p>
 </section>
-<section id="structure-minimale-du-journal" class="level1">
-<h1>Structure minimale du journal</h1>
+<section id="structure-minimale-du-journal" class="level2">
+<h2 class="anchored" data-anchor-id="structure-minimale-du-journal">Structure minimale du journal</h2>
 <p>Votre objet <code>journal_nettoyage</code> doit être une liste nommée. Chaque entrée doit contenir au moins les champs <code>id</code>, <code>variables</code>, <code>probleme</code>, <code>action</code> et <code>justification</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">VM =</span> <span class="fu">list</span>(),</span>
@@ -6194,8 +6221,8 @@ margin-bottom: .05rem;
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="exigences-minimales" class="level1">
-<h1>Exigences minimales</h1>
+<section id="exigences-minimales" class="level2">
+<h2 class="anchored" data-anchor-id="exigences-minimales">Exigences minimales</h2>
 <p>Votre travail doit inclure :</p>
 <ol type="1">
 <li>une importation correcte du fichier;</li>
@@ -6208,8 +6235,8 @@ margin-bottom: .05rem;
 </ol>
 <p>Les corrections doivent être prudentes. Si une anomalie est réelle mais qu’aucune correction évidente n’est défendable, notez-la dans votre journal ou dans votre texte et expliquez pourquoi vous ne la corrigez pas.</p>
 </section>
-<section id="pistes-de-vérification" class="level1">
-<h1>Pistes de vérification</h1>
+<section id="pistes-de-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="pistes-de-vérification">Pistes de vérification</h2>
 <p>Voici des pistes utiles. Vous n’êtes pas obligé de toutes les corriger.</p>
 <ul>
 <li><code>vehicle_type</code> contient une valeur aberrante.</li>
@@ -6221,14 +6248,14 @@ margin-bottom: .05rem;
 <li>Certaines variables catégorielles gagnent à être converties en facteurs.</li>
 </ul>
 </section>
-<section id="sauvegarde-des-résultats" class="level1">
-<h1>Sauvegarde des résultats</h1>
+<section id="sauvegarde-des-résultats" class="level2">
+<h2 class="anchored" data-anchor-id="sauvegarde-des-résultats">Sauvegarde des résultats</h2>
 <p>À la fin de votre document, sauvegardez vos deux objets de remise.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(donnees_propres, <span class="st">&quot;donnees_propres.csv&quot;</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(journal_nettoyage, <span class="at">file =</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="grille-dévaluation" class="level1">
-<h1>Grille d’évaluation</h1>
+<section id="grille-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="grille-dévaluation">Grille d’évaluation</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -6278,8 +6305,8 @@ margin-bottom: .05rem;
 </tbody>
 </table>
 </section>
-<section id="checklist-avant-remise" class="level1">
-<h1>Checklist avant remise</h1>
+<section id="checklist-avant-remise" class="level2">
+<h2 class="anchored" data-anchor-id="checklist-avant-remise">Checklist avant remise</h2>
 <ul>
 <li>Le fichier <code>.qmd</code> se rend en HTML.</li>
 <li><code>donnees_propres.csv</code> est créé par le code.</li>

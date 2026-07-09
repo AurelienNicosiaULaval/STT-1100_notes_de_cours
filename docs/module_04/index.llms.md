@@ -38,6 +38,24 @@ types vérifiés valeurs recodées décisions tracées
 - transformer des tableaux avec `pivot_longer()`, `pivot_wider()` et `unnest()`;
 - documenter les décisions de nettoyage dans une liste structurée.
 
+## Préparer le module
+
+### Prérequis
+
+Vous devez pouvoir importer un tableau simple, inspecter ses colonnes et relire les recodages du module 3. Préparez aussi votre projet RStudio avant d’ouvrir les fichiers fournis.
+
+### Parcours minimal
+
+Vérifiez les noms, les types et les valeurs manquantes, puis documentez au moins une décision de nettoyage. Une correction prudente et expliquée vaut mieux qu’un fichier modifié sans trace.
+
+### À garder pour plus tard
+
+Les formats long-large, Excel et JSON sont des prolongements utiles. Commencez par le diagnostic d’un tableau avant de multiplier les formats et les transformations.
+
+### Si vous hésitez
+
+N’effacez pas une valeur seulement parce qu’elle semble étrange. Signalez-la dans le journal, expliquez votre décision et conservez une démarche reproductible.
+
 ## Plan d’apprentissage
 
 Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à pratiquer les mêmes gestes sur d’autres données.

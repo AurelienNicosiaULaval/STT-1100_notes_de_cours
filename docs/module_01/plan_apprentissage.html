@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6105,8 +6132,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="objectifs-du-module" class="level1">
-<h1>Objectifs du module</h1>
+<section id="objectifs-du-module" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-du-module">Objectifs du module</h2>
 <p>À la fin de ce module, vous devriez être capable de:</p>
 <ul>
 <li>utiliser RStudio pour rédiger et exécuter du code R dans la console et dans des scripts;</li>
@@ -6120,16 +6147,16 @@ margin-bottom: .05rem;
 <li>rédiger un rapport simple dans Quarto avec du texte, du code et des sections.</li>
 </ul>
 </section>
-<section id="lectures-initiales" class="level1">
-<h1>Lectures initiales</h1>
-<section id="livre-de-référence" class="level2">
-<h2 class="anchored" data-anchor-id="livre-de-référence">Livre de référence</h2>
+<section id="lectures-initiales" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-initiales">Lectures initiales</h2>
+<section id="livre-de-référence" class="level3">
+<h3 class="anchored" data-anchor-id="livre-de-référence">Livre de référence</h3>
 <p>Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage R for Data Science, 2e édition, par Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund.</p>
 <p>On abrègera souvent ce livre par R4DS. Il est accessible gratuitement en ligne et propose des exemples concrets pour apprendre à travailler efficacement avec R et le tidyverse.</p>
 <p>En cas de blocage, consultez aussi le document <a href="../references.html">Comment rechercher et obtenir de l’aide</a>.</p>
 </section>
-<section id="lectures-essentielles" class="level2">
-<h2 class="anchored" data-anchor-id="lectures-essentielles">Lectures essentielles</h2>
+<section id="lectures-essentielles" class="level3">
+<h3 class="anchored" data-anchor-id="lectures-essentielles">Lectures essentielles</h3>
 <ul>
 <li><p><a href="https://r4ds.hadley.nz/" target="_blank">Page d’accueil de R4DS</a> Vue d’ensemble du livre, de ses auteurs et de la progression générale.</p></li>
 <li><p><a href="https://r4ds.hadley.nz/intro.html" target="_blank">Introduction</a> Pourquoi apprendre R pour la science des données et comment aborder le cours.</p></li>
@@ -6137,56 +6164,56 @@ margin-bottom: .05rem;
 <li><p><a href="https://r4ds.hadley.nz/workflow-scripts.html" target="_blank">Workflow: scripts and projects</a> Pourquoi garder le code dans des fichiers pour rendre le travail reproductible.</p></li>
 </ul>
 </section>
-<section id="lectures-pour-réussir-laventure-et-le-défi" class="level2">
-<h2 class="anchored" data-anchor-id="lectures-pour-réussir-laventure-et-le-défi">Lectures pour réussir l’aventure et le défi</h2>
+<section id="lectures-pour-réussir-laventure-et-le-défi" class="level3">
+<h3 class="anchored" data-anchor-id="lectures-pour-réussir-laventure-et-le-défi">Lectures pour réussir l’aventure et le défi</h3>
 <ul>
 <li><p><a href="https://quarto.org/docs/get-started/hello/rstudio.html" target="_blank">Hello, Quarto</a> Créer un premier document Quarto, insérer du code et produire une sortie HTML.</p></li>
 <li><p><a href="https://r4ds.hadley.nz/data-transform.html" target="_blank">Data transformation</a> Introduction à <code>dplyr</code>, avec les verbes utiles pour filtrer, choisir des colonnes et créer des variables.</p></li>
 </ul>
 </section>
-<section id="aide-mémoires-posit" class="level2">
-<h2 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h2>
+<section id="aide-mémoires-posit" class="level3">
+<h3 class="anchored" data-anchor-id="aide-mémoires-posit">Aide-mémoires Posit</h3>
 <ul>
 <li><p><a href="https://rstudio.github.io/cheatsheets/rstudio-ide.pdf" target="_blank">RStudio IDE :: Cheatsheet</a> Repères rapides pour l’environnement RStudio.</p></li>
 <li><p><a href="https://rstudio.github.io/cheatsheets/quarto.pdf" target="_blank">Publish and Share with Quarto :: Cheatsheet</a> Référence courte pour créer, rendre et partager un document Quarto.</p></li>
 <li><p><a href="https://rstudio.github.io/cheatsheets/data-transformation.pdf" target="_blank">Data transformation with dplyr :: Cheatsheet</a> Verbes <code>dplyr</code> utilisés dans les premières manipulations de tableaux.</p></li>
 </ul>
 </section>
-<section id="mini-test-de-lecture" class="level2">
-<h2 class="anchored" data-anchor-id="mini-test-de-lecture">Mini-test de lecture</h2>
+<section id="mini-test-de-lecture" class="level3">
+<h3 class="anchored" data-anchor-id="mini-test-de-lecture">Mini-test de lecture</h3>
 <p>Après les lectures essentielles, complétez le <a href="../module_01/mini_test.html">mini-test formatif du module 1</a>. Il n’est pas noté, mais il vérifie les points qui reviennent dans l’aventure et dans le défi.</p>
 </section>
 </section>
-<section id="aventure" class="level1">
-<h1>Aventure</h1>
+<section id="aventure" class="level2">
+<h2 class="anchored" data-anchor-id="aventure">Aventure</h2>
 <p>Ce module vous place dans le rôle d’un ou d’une analyste en démarrage. Vous préparez les bases d’un premier rapport reproductible avec R, RStudio et Quarto, à partir des données <code>UlavalSSD::MeteoQuebec</code>.</p>
 <p><a href="../module_01/aventure.html">Aventure du module 1</a></p>
 </section>
-<section id="défi" class="level1">
-<h1>Défi</h1>
+<section id="défi" class="level2">
+<h2 class="anchored" data-anchor-id="défi">Défi</h2>
 <p>Dans ce premier défi, vous devez créer un rapport Quarto au format HTML. Le rapport répond à une question simple à partir de <code>MeteoQuebec</code>: comparer la température moyenne observée à une date choisie sur plusieurs années.</p>
 <p><a href="../module_01/defi.html">Défi du module 1</a></p>
 </section>
-<section id="lectures-additionnelles" class="level1">
-<h1>Lectures additionnelles</h1>
-<section id="approfondir-les-bonnes-pratiques" class="level2">
-<h2 class="anchored" data-anchor-id="approfondir-les-bonnes-pratiques">Approfondir les bonnes pratiques</h2>
+<section id="lectures-additionnelles" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-additionnelles">Lectures additionnelles</h2>
+<section id="approfondir-les-bonnes-pratiques" class="level3">
+<h3 class="anchored" data-anchor-id="approfondir-les-bonnes-pratiques">Approfondir les bonnes pratiques</h3>
 <ul>
 <li><p><a href="https://r4ds.hadley.nz/workflow-help.html" target="_blank">Workflow: help</a> Chercher efficacement dans la documentation et formuler une demande d’aide utile.</p></li>
 <li><p><a href="https://r4ds.hadley.nz/quarto-formats.html" target="_blank">Quarto formats</a> Comprendre les formats possibles de Quarto et les options de sortie.</p></li>
 <li><p><a href="https://r4ds.hadley.nz/workflow-style.html" target="_blank">Workflow: style</a> Pourquoi un style de code cohérent facilite la lecture, la collaboration et la correction.</p></li>
 </ul>
 </section>
-<section id="guide-de-style-du-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="guide-de-style-du-tidyverse">Guide de style du tidyverse</h2>
+<section id="guide-de-style-du-tidyverse" class="level3">
+<h3 class="anchored" data-anchor-id="guide-de-style-du-tidyverse">Guide de style du tidyverse</h3>
 <ul>
 <li><p><a href="https://style.tidyverse.org/files.html" target="_blank">Files</a> Organiser les fichiers, nommer les scripts et structurer un projet.</p></li>
 <li><p><a href="https://style.tidyverse.org/syntax.html" target="_blank">Syntax</a> Écrire du code lisible avec une syntaxe claire et régulière.</p></li>
 </ul>
 </section>
 </section>
-<section id="exercices-de-consolidation" class="level1">
-<h1>Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Les exercices sont regroupés dans une page autonome. Ils servent à consolider les gestes techniques du module et ne sont pas une étape du défi.</p>
 <p><a href="../module_01/exercices.html">Exercices du module 1</a></p>
 <p>La série comprend des exercices sur RStudio, les objets, les valeurs manquantes, le style, Quarto, <code>MeteoQuebec</code> et deux études de cas finales avec de petits fichiers fictifs.</p>

@@ -41,6 +41,24 @@ At the end of this module, you should be able to:
 - Explain the CRAP principles.
 - Explain the FAIR principles.
 
+## Prepare for the module
+
+### Prerequisites
+
+Revisit one chart from Module 5 and one cleaning decision from Module 4. This module asks you to connect a technical output to its consequences for people represented in the data.
+
+### Minimum route
+
+Identify one chart problem, one re-identification risk and one limit of the analysis, then propose a verifiable correction. A short, precise ethics note is better than a general promise.
+
+### CRAP and FAIR in practice
+
+Use CRAP to review contrast, repetition, alignment and proximity in a visualization. Use FAIR to ask whether data and documentation can be found, understood and responsibly reused.
+
+### Readings and help
+
+Start with the essential resources listed in the plan, then reserve deeper readings for review. When uncertain, do not publish potentially identifying information.
+
 ## Learning Plan
 
 The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and consolidate the same reflexes in other contexts.

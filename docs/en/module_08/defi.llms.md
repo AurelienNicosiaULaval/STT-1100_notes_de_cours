@@ -2,13 +2,13 @@
 
 STT-1100 Introduction to Data Science
 
-# Mission
+## Mission
 
 In adventure 8, you built the pieces needed to extract metadata from a Données Québec search page. The challenge now is to turn that work into a stable, testable and reusable function.
 
 Submit an `IDUL.R` file in the GitHub repository created from the `STT-1100/aventure-8` template.
 
-# Expected Contract
+## Expected Contract
 
 Your `IDUL.R` file must define a function named exactly `scrape_page()`.
 
@@ -32,7 +32,7 @@ The function must respect the following contract:
 >
 > The column names are intentionally in French because they will be checked automatically. Use exactly `titre`, `producteur`, `categorie`.
 
-# Minimal Robustness
+## Minimal Robustness
 
 The portal may display slightly different labels. Your function must therefore be able to handle at least these forms:
 
@@ -41,7 +41,7 @@ The portal may display slightly different labels. Your function must therefore b
 
 A reasonable approach is to create a small helper function that receives the text extracted from an HTML block and a search pattern, then returns the cleaned value or `NA_character_`.
 
-# Recommended Workflow
+## Recommended Workflow
 
 1.  Work first in the console or in a draft file.
 2.  Locate dataset blocks with `.dataset-content`.
@@ -52,7 +52,7 @@ A reasonable approach is to create a small helper function that receives the tex
 7.  Test the function on a local test page or on a public Données Québec page.
 8.  Place only the final required code in `IDUL.R`.
 
-# Local Tests
+## Local Tests
 
 The template repository contains a local test. After completing your function, run:
 
@@ -72,13 +72,13 @@ The local HTML page provided by the template is a fallback mode if the portal ch
 
 These tests do not replace the final assessment, but they detect the most common mistakes before submission.
 
-# Ethics and Server Load
+## Ethics and Server Load
 
 For the challenge, your function must scrape one page at a time. If you later write a loop over several pages, add a pause with `Sys.sleep(1)` between requests.
 
 Do not bypass protection mechanisms. Do not launch large automated collections. The `robots.txt` file provides a useful technical signal, but it does not replace terms of use, caution or respect for server load.
 
-# Deliverable
+## Deliverable
 
 Submit the GitHub repository generated from the `STT-1100/aventure-8` template.
 
@@ -89,7 +89,7 @@ The repository must contain:
 - the test file provided in `tests/`;
 - no unnecessary downloaded data.
 
-# Assessment Criteria
+## Assessment Criteria
 
 | Criterion | Expectation |
 |----|----|
@@ -100,7 +100,7 @@ The repository must contain:
 | Reproducibility | `IDUL.R` can be loaded in a fresh R session. |
 | Sobriety | The code avoids unnecessary messages, global objects and large collections. |
 
-# Resources
+## Resources
 
 - Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund, 2023, R for Data Science, Web scraping chapter: <https://r4ds.hadley.nz/webscraping.html>
 - Official `rvest` documentation: <https://rvest.tidyverse.org/>

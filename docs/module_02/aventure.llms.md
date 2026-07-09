@@ -26,11 +26,11 @@ Données `manchots_donnees.xlsx`
 
 Livrable Journal de bord, puis rapport d’analyse Quarto HTML
 
-## Déroulement de la mission et livrables attendus
+### Déroulement de la mission et livrables attendus
 
 La mission se déroulera en **deux temps**, car la Dre Adélie devra bientôt repartir en expédition en Antarctique.
 
-### Partie 1 – Avant le départ de la Dre Adélie
+#### Partie 1 – Avant le départ de la Dre Adélie
 
 Avant son départ, vous collaborerez étroitement avec elle pour explorer les premières pistes. Elle vous demandera de :
 
@@ -43,7 +43,7 @@ Vous devez rédiger un **journal de bord** dans un rapport Quarto (format HTML) 
 
 ------------------------------------------------------------------------
 
-### Partie 2 – Au retour de la Dre Adélie
+#### Partie 2 – Au retour de la Dre Adélie
 
 De retour de mission, la Dre Adélie reviendra avec des **questions précises** à explorer et vous demandera de l’aider à préparer un rapport solide pour accompagner sa **demande de subvention**.
 
@@ -60,7 +60,7 @@ Un **rapport structuré et complet** répondant à ses nouvelles demandes préci
 
 > **Note de terrain** : Pendant votre mission, un·e collègue plus expérimenté·e (Jules Tremblay) passera vous voir de temps en temps pour vérifier que tout se passe bien. Il ou elle vous posera quelques **questions rapides** pour tester votre compréhension. Répondez-y sérieusement, ces vérifications vous aideront à consolider vos apprentissages !
 
-# Comment réussir cette aventure
+## Comment réussir cette aventure
 
 Bienvenue dans cette nouvelle aventure en science des données ! Cette fois, vous allez collaborer avec une chercheuse qui étudie les manchots de la station Palmer en Antarctique. Votre mission est d’explorer et d’analyser ses données pour l’aider à répondre à ses questions scientifiques.
 
@@ -74,7 +74,7 @@ Pour réussir cette aventure, voici quelques conseils essentiels :
 
 Cette aventure vous permettra de développer vos compétences en manipulation, visualisation et analyse de données avec `dplyr` et `ggplot2`. Ce sont des compétences primordiales pour un scientifique de données. Prenez le temps d’explorer les différentes étapes et amusez-vous à apprendre !
 
-# Travail sur GitHub
+## Travail sur GitHub
 
 La chercheuse a préparé un dépôt sur GitHub où elle souhaite que vous enregistriez tout votre travail. De son côté, elle y a déposé la base de données qu’elle a collectée ainsi qu’une description détaillée des variables. Elle souhaite notamment que vous complétiez un journal de bord modèle au format Quarto.
 
@@ -94,7 +94,7 @@ Félicitations ! Vous êtes maintenant prêt à débuter l’analyse scientifiqu
 
 > Conseil : utilisez le modèle de journal de bord pour compléter l’ensemble des analyses de la première partie de cette aventure. Prenez donc quelques minutes pour regarder la structure du document.
 
-# Lecture des données
+## Lecture des données
 
 La chercheuse vous a fourni un fichier Excel contenant les données des manchots qu’elle a collectées. Votre première mission consiste à **charger ces données dans R** en utilisant l’interface graphique de RStudio.
 
@@ -170,9 +170,9 @@ penguins_mission <- read_excel("data/manchots_donnees.xlsx")
 
 **Une fois vos données chargées, vous êtes prêts à les explorer et à les analyser ! Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
-# Manipulation de données
+## Manipulation de données
 
-## Résumé de données avec `glimpse()`
+### Résumé de données avec `glimpse()`
 
 La chercheuse veut une vue rapide des données pour vérifier leur structure. Utilisez `glimpse()` pour afficher un aperçu :
 
@@ -229,7 +229,7 @@ Ne vous inquiétez pas si cela vous semble complexe ! Nous reviendrons sur cet a
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
-## Sélectionner des variables avec `select()`
+### Sélectionner des variables avec `select()`
 
 La chercheuse veut se concentrer uniquement sur certaines variables pertinentes pour son analyse. Utilisez `select()` pour ne garder que `species`, `island`, `bill_length_mm` et `body_mass_g` :
 
@@ -246,7 +246,7 @@ penguins_subset <- penguins_mission %>%
 >
 > Sélectionnez toutes les variables sauf `flipper_length_mm` et `body_mass_g`. Attention, il y a une façon rapide de le faire !
 
-## Créer de nouvelles variables avec `mutate()`
+### Créer de nouvelles variables avec `mutate()`
 
 **Explication** : La chercheuse souhaite ajouter une nouvelle colonne indiquant le poids en kilogrammes au lieu de grammes. En effet, son appareil de mesure indiquait les mesures en g, mais elle croit que cela sera plus facile à interpréter en kg.
 
@@ -283,7 +283,7 @@ On va maintenant continuer avec une nouvelle variable qui intéresse beaucoup la
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
-## Filtrer les données avec `filter()`
+### Filtrer les données avec `filter()`
 
 La chercheuse veut analyser uniquement les manchots de l’île **Biscoe**. Utilisez `filter()` pour ne garder que ces observations :
 
@@ -296,7 +296,7 @@ penguins_biscoe <- penguins_mission %>%
 >
 > Filtrez les données pour ne garder que les manchots de l’espèce **Adelie** de l’île Biscoe.
 
-## Regrouper et résumer les données avec `group_by()`
+### Regrouper et résumer les données avec `group_by()`
 
 La chercheuse souhaite connaître la masse moyenne des manchots par espèce. Utilisez `group_by()` suivi de `summarise()` pour obtenir cette information :
 
@@ -320,7 +320,7 @@ Grâce à `group_by()`, on peut aussi travailler par groupe, ce qui peut être t
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
-# Un appel d’urgence depuis l’Antarctique
+## Un appel d’urgence depuis l’Antarctique
 
 Alors que vous avanciez bien dans votre analyse des données, vous recevez un message urgent de la chercheuse. Elle a dû partir précipitamment en Antarctique pour une mission d’urgence : aider une colonie de manchots confrontée à des conditions climatiques extrêmes.
 
@@ -328,7 +328,7 @@ Avant son départ, elle a pris soin de vous laisser une liste de tâches essenti
 
 > **Note** : ici vous êtes toujours dans la partie 1 de l’aventure, mais la chercheuse vous a laissé une liste de tâches à compléter avant son départ. Vous devez donc continuer à travailler sur le jeu de données `penguins_mission` que vous avez créé précédemment et continuer à compléter le journal de bord.
 
-# Visualisation des données
+## Visualisation des données
 
 La visualisation des données est une étape essentielle de l’analyse, car elle permet de mieux comprendre les tendances et les relations entre les variables. Une bonne visualisation facilite l’interprétation des données et aide à repérer des valeurs aberrantes ou des motifs intéressants.
 
@@ -344,7 +344,7 @@ La visualisation des données est une étape essentielle de l’analyse, car ell
 
 - Tester plusieurs types de graphiques avant de conclure sur une analyse.
 
-## Histogrammes
+### Histogrammes
 
 **Explication** : Un histogramme permet de visualiser la distribution d’une variable numérique. Ici, nous allons par exemple examiner la répartition des profondeurs de bec (`bill_depth_mm`).
 
@@ -386,7 +386,7 @@ Pour connaître la première demande de la chercheuse, voici son message reçu :
 
 Poussons un peu plus loin la visualisation pour essayer de répondre à sa demande.
 
-## Boîte à moustaches
+### Boîte à moustaches
 
 **Explication** : Une boîte à moustaches permet de visualiser la dispersion d’une variable numérique et d’identifier d’éventuelles valeurs aberrantes. Ici, nous allons examiner la distribution de la longueur des nageoires (`flipper_length_mm`).
 
@@ -427,7 +427,7 @@ ggplot(penguins_mission, aes(x = species, y = flipper_length_mm, fill = species)
 >
 > Dans le graphique précédent, le titre de la légende est “species”, en anglais, ce qui correspond au nom de la variable par défaut. Changez-le pour “Espèce” en français. Vous devez trouver par vous-même comment faire cela.
 
-## Nuages de points
+### Nuages de points
 
 **Explication** : Un nuage de points permet de visualiser la relation entre deux variables numériques. Ici, nous allons examiner la relation entre la longueur du bec (`bill_length_mm`) et la profondeur du bec (`bill_depth_mm`).
 
@@ -459,7 +459,7 @@ Pour connaître la prochaine demande de la chercheuse, voici le message que vous
 
 **Pensez à générer votre rapport, committer vos modifications et pousser sur GitHub pour garder une trace de votre travail !**
 
-# Statistiques descriptives
+## Statistiques descriptives
 
 **Explication** : Les statistiques descriptives permettent de résumer et comprendre rapidement un ensemble de données. Elles se divisent en plusieurs catégories :
 
@@ -537,7 +537,7 @@ Avantages :
 > Une moyenne d’environ **2.70**, inférieure à 3, contredit l’hypothèse du collègue.
 > Cela suggère une différence, mais tu pourrais aussi comparer les distributions, par exemple avec un histogramme ou un boxplot, pour mieux visualiser les variations.
 
-## Visualisation avancée et statistiques descriptives (optionnel)
+### Visualisation avancée et statistiques descriptives (optionnel)
 
 Nous allons maintenant créer un boxplot détaillé qui affiche :
 
@@ -591,7 +591,7 @@ Félicitations ! Vous avez maintenant terminé la partie 1 de cette aventure. Vo
 > Tu dois faire un commit **après chaque étape significative** (import, filtre, graphique, analyse).
 > Cela assure la traçabilité, et te sauvera du stress si tu dois revenir en arrière.
 
-# Le retour de la Dre Adélie Fortier ! (2e partie de l’aventure)
+## Le retour de la Dre Adélie Fortier ! (2e partie de l’aventure)
 
 Après plusieurs semaines en Antarctique à observer les manchots, notre chercheuse est de retour avec plein de nouvelles questions en tête. Elle a remarqué que certaines espèces semblaient avoir des caractéristiques bien distinctes, mais elle aimerait une analyse plus approfondie qui l’aidera à obtenir une nouvelle subvention pour son projet de recherche.
 

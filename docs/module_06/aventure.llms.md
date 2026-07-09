@@ -2,7 +2,7 @@
 
 STT-1100 - Introduction à la science des données
 
-# Mise en contexte
+## Mise en contexte
 
 Vous êtes une équipe de scientifiques de données travaillant avec Dr Sofia Martinez au Port Authority Data Lab. Votre mandat est de produire un **rapport collaboratif et reproductible** sur les retards de vols au départ de JFK en 2023.
 
@@ -24,7 +24,7 @@ Données `nycflights23::flights`, `airlines` et `weather`
 
 Livrable Rapport collaboratif, rendu HTML, README et traces GitHub
 
-# Dépôt de départ
+## Dépôt de départ
 
 Clonez le dépôt GitHub du module 6 depuis l’organisation du cours : `STT-1100/aventure-6`.
 
@@ -39,9 +39,9 @@ Le dépôt final doit contenir :
 
 Ne conservez pas de fichiers inutiles comme `Untitled.R`, `rapport_final_final.qmd` ou des copies temporaires.
 
-# Partie 1 - Collaboration avec GitHub
+## Partie 1 - Collaboration avec GitHub
 
-## Formation des équipes et rôles
+### Formation des équipes et rôles
 
 Travaillez en **équipes de 3 à 4 personnes**. Chaque membre prend un rôle principal. Les rôles servent à structurer le travail, mais toute l’équipe reste responsable du résultat final.
 
@@ -52,7 +52,7 @@ Travaillez en **équipes de 3 à 4 personnes**. Chaque membre prend un rôle pri
 | **Chargé·e de la reproductibilité** | Vérifie le rendu, les packages, les chunks et le texte dynamique | Documentation et reproductibilité | Ajoute une phrase avec au moins trois morceaux de code en ligne |
 | **Visualiseur·se** | Produit les graphiques et améliore leur lisibilité | Communication des résultats | Ajoute au moins deux visualisations interprétables |
 
-## Séquence de travail recommandée
+### Séquence de travail recommandée
 
 1.  **Responsable du dépôt** : clone le dépôt, ouvre le projet dans RStudio, vérifie que `rapport.qmd` se rend, puis crée une branche par rôle.
 
@@ -66,9 +66,9 @@ Travaillez en **équipes de 3 à 4 personnes**. Chaque membre prend un rôle pri
 
 6.  Le responsable du dépôt fusionne les pull requests une par une. Si un conflit survient, l’équipe le résout ensemble et documente brièvement ce qui s’est passé.
 
-# Partie 2 - Analyse reproductible avec données fusionnées
+## Partie 2 - Analyse reproductible avec données fusionnées
 
-## Préparation attendue
+### Préparation attendue
 
 Le rapport doit charger explicitement les packages nécessaires.
 
@@ -103,7 +103,7 @@ vols_jfk |>
   )
 ```
 
-## Questions d’analyse
+### Questions d’analyse
 
 Votre rapport doit répondre aux trois questions suivantes.
 
@@ -124,7 +124,7 @@ Pour la question 3, incluez :
 - une explication de ce qui peut être décrit avec ces données et de ce qui ne peut pas être conclu;
 - une conclusion prudente avant toute recommandation opérationnelle.
 
-## Exemples de points de départ
+### Exemples de points de départ
 
 Retard moyen par transporteur :
 
@@ -177,7 +177,7 @@ Exemple de phrase reproductible avec du code en ligne :
 Le tableau fusionné contient `r nrow(vols_jfk)` vols au départ de JFK, couvre `r n_distinct(vols_jfk$carrier)` transporteurs et présente un retard moyen de `r round(mean(vols_jfk$dep_delay, na.rm = TRUE), 1)` minutes.
 ```
 
-# Partie 3 - Journal de collaboration
+## Partie 3 - Journal de collaboration
 
 Ajoutez une section “Journal de collaboration” dans `rapport.qmd`.
 
@@ -191,7 +191,7 @@ Chaque membre doit y écrire un court paragraphe indiquant :
 
 Le responsable du dépôt doit initialiser cette section et prévoir un sous-titre pour chaque membre.
 
-# Partie 4 - Cycle de vie des données
+## Partie 4 - Cycle de vie des données
 
 Ajoutez une section expliquant comment votre projet illustre les étapes suivantes :
 
@@ -210,7 +210,7 @@ La trace de collaboration compte autant que le graphique final.
 - deux visualisations ou éléments reproductibles ajoutés au rapport;
 - une entrée de journal décrivant une décision, une difficulté ou un conflit GitHub.
 
-# Vérification finale
+## Vérification finale
 
 Avant la remise, vérifiez que :
 

@@ -14,9 +14,9 @@ Work in a `.R` file, a `.qmd` file, or both. The answers are collapsed so you ca
 
 In several exercises, the penguin Excel file is read with the path `resources/manchots_donnees.xlsx`, because this page belongs to the course site.
 
-# Block A - GitHub, Project and Import
+## Block A - GitHub, Project and Import
 
-## Exercise 1 - Put the steps in order
+### Exercise 1 - Put the steps in order
 
 You are simulating a short work session in a GitHub repository. Put the following actions in a logical order.
 
@@ -40,7 +40,7 @@ One possible order:
 The important idea is to produce a verifiable step before committing it, then push to GitHub.
 :::
 
-## Exercise 2 - Import the Excel File
+### Exercise 2 - Import the Excel File
 
 Import the penguin file into an object named `penguins_mission`.
 
@@ -55,7 +55,7 @@ penguins_mission
 
 :::
 
-## Exercise 3 - Inspect the Structure
+### Exercise 3 - Inspect the Structure
 
 Use three different functions to understand the structure of `penguins_mission`.
 
@@ -74,7 +74,7 @@ head(penguins_mission)
 ```
 :::
 
-## Exercise 4 - Identify Problematic Values
+### Exercise 4 - Identify Problematic Values
 
 A quality check flags some observations as strange. Find rows where:
 
@@ -100,9 +100,9 @@ problematic_observations
 ```
 :::
 
-# Block B - Manipulate Data with `dplyr`
+## Block B - Manipulate Data with `dplyr`
 
-## Exercise 5 - Select Useful Variables
+### Exercise 5 - Select Useful Variables
 
 Create a table `penguins_subset` containing only `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm` and `body_mass_g`.
 
@@ -127,7 +127,7 @@ glimpse(penguins_subset)
 ```
 :::
 
-## Exercise 6 - Filter One Species and One Island
+### Exercise 6 - Filter One Species and One Island
 
 Keep only `Adelie` penguins observed on `Biscoe` island. How many rows remain?
 
@@ -145,7 +145,7 @@ nrow(adelie_biscoe)
 ```
 :::
 
-## Exercise 7 - Create Two Variables
+### Exercise 7 - Create Two Variables
 
 Add:
 
@@ -173,7 +173,7 @@ penguins_variables |>
 ```
 :::
 
-## Exercise 8 - Summarise by Species
+### Exercise 8 - Summarise by Species
 
 For each species, compute the number of observations, the mean and the standard deviation of `body_mass_g` and `flipper_length_mm`.
 
@@ -199,7 +199,7 @@ species_summary
 ```
 :::
 
-## Exercise 9 - Build a Cleaned Version
+### Exercise 9 - Build a Cleaned Version
 
 Create a table `penguins_clean` that removes the problematic observations identified in Exercise 4, without modifying the original Excel file.
 
@@ -225,9 +225,9 @@ tibble(
 ```
 :::
 
-# Block C - Visualize Numerical Variables
+## Block C - Visualize Numerical Variables
 
-## Exercise 10 - Histogram by Species
+### Exercise 10 - Histogram by Species
 
 Using `penguins_clean`, create a histogram of `bill_length_mm` by species.
 
@@ -258,7 +258,7 @@ ggplot(penguins_clean, aes(x = bill_length_mm)) +
 ```
 :::
 
-## Exercise 11 - Box Plots
+### Exercise 11 - Box Plots
 
 Compare flipper length between species with a box plot.
 
@@ -289,7 +289,7 @@ ggplot(penguins_clean, aes(x = species, y = flipper_length_mm, fill = species)) 
 ```
 :::
 
-## Exercise 12 - Scatterplot
+### Exercise 12 - Scatterplot
 
 Create `indice_grandeur = flipper_length_mm + bill_length_mm`, then produce a scatterplot of `indice_grandeur` and `body_mass_g`, with one color per species.
 
@@ -321,7 +321,7 @@ ggplot(penguins_clean, aes(x = indice_grandeur, y = body_mass_g, colour = specie
 ```
 :::
 
-## Exercise 13 - Facets by Island
+### Exercise 13 - Facets by Island
 
 Create a histogram of `body_mass_g` and compare distributions between islands with `facet_wrap()`.
 
@@ -352,9 +352,9 @@ ggplot(penguins_clean, aes(x = body_mass_g)) +
 ```
 :::
 
-# Block D - Statistics, Style and Transfer
+## Block D - Statistics, Style and Transfer
 
-## Exercise 14 - Complete Summary with `mpg`
+### Exercise 14 - Complete Summary with `mpg`
 
 The `mpg` dataset from `ggplot2` contains vehicle fuel economy measurements. Compute the mean, median, standard deviation, IQR, minimum and maximum of `hwy`.
 
@@ -376,7 +376,7 @@ mpg |>
 ```
 :::
 
-## Exercise 15 - Compare Groups with `mpg`
+### Exercise 15 - Compare Groups with `mpg`
 
 Create a box plot of `hwy` by `class`, ordering classes by their median.
 
@@ -396,7 +396,7 @@ ggplot(mpg, aes(x = reorder(class, hwy, median), y = hwy)) +
 ```
 :::
 
-## Exercise 16 - Rewrite Code with Style
+### Exercise 16 - Rewrite Code with Style
 
 Rewrite the following code to make it more readable.
 
@@ -420,11 +420,11 @@ ggplot(mpg, aes(x = displ, y = hwy, colour = class)) +
 ```
 :::
 
-# Case Studies
+## Case Studies
 
 The following two case studies use small fictitious files. They do not represent real data; they only help practise module skills in contexts other than penguins.
 
-## Case Study 1 - Urban Trees
+### Case Study 1 - Urban Trees
 
 File: `data/fictitious_urban_trees.csv`
 
@@ -482,7 +482,7 @@ ggplot(trees, aes(x = estimated_age_years, y = diameter_cm, colour = health_stat
 ```
 :::
 
-## Case Study 2 - Bike Share
+### Case Study 2 - Bike Share
 
 File: `data/fictitious_bike_share.csv`
 

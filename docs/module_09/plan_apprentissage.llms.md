@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de :
 
@@ -12,7 +12,7 @@ STT-1100 Introduction à la science des données
 - repérer des limites liées aux données manquantes;
 - discuter prudemment des biais descriptifs dans des données ou des modèles.
 
-# Lectures
+## Lectures
 
 Pour vous préparer, consultez les ressources suivantes :
 
@@ -24,7 +24,7 @@ Pour vous préparer, consultez les ressources suivantes :
 - [Gouvernement du Canada - Guide sur la prise de décisions automatisée](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-scope-directive-automated-decision-making.html)
 - [NIST SP 1270 - Towards a Standard for Identifying and Managing Bias in Artificial Intelligence](https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence)
 
-## Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Préparation de tableaux avant l’ajustement et l’interprétation du modèle.
 
@@ -32,13 +32,15 @@ Pour vous préparer, consultez les ressources suivantes :
 
 Après les lectures, faites le [mini-test formatif du module 9](../module_09/mini_test.llms.md).
 
-# Aventure
+> Les comparaisons observé-prédit de ce module sont des diagnostics sur les données ayant servi à ajuster le modèle. Elles aident à discuter ses limites, mais ne constituent pas une validation de performance sur de nouvelles données.
+
+## Aventure
 
 Vous incarnez une personne scientifique de données au ministère de l’Éducation du Québec. Votre mandat est double : construire un modèle prédictif à partir de données d’écoles primaires, puis explorer un jeu de données fictif pour y détecter un biais descriptif.
 
 Lien vers l’aventure : [Aventure 9 - Prédiction et biais algorithmiques](../module_09/aventure.llms.md)
 
-# Défi - Capsule vidéo
+## Défi - Capsule vidéo
 
 Vous devez réaliser une capsule vidéo de 180 secondes maximum. Vous choisirez soit le modèle prédictif de la Mission 1, soit l’analyse de biais de la Mission 2.
 
@@ -46,7 +48,7 @@ Consigne complète : [Défi 9 - Capsule vidéo](../module_09/defi.llms.md)
 
 Dépôt de départ : `STT-1100/aventure-9`
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Les exercices sont indépendants de l’aventure et du défi. Ils utilisent deux jeux de données fictifs propres au module:
 

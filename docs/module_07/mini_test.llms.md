@@ -2,11 +2,11 @@
 
 STT-1100 Introduction à la science des données
 
-# Mini-test formatif
+## Mini-test formatif
 
 Ce mini-test sert à vérifier les lectures du module 7. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.
 
-## Question 1
+### Question 1
 
 Vrai ou faux: dans un graphique à barres, tronquer l’axe des valeurs peut amplifier visuellement les écarts.
 
@@ -14,7 +14,7 @@ Vrai ou faux: dans un graphique à barres, tronquer l’axe des valeurs peut amp
 >
 > Vrai. La longueur des barres encode la quantité. Si l’axe ne commence pas à zéro, les différences de longueur peuvent paraître plus grandes que les différences réelles.
 
-## Question 2
+### Question 2
 
 Quelle information devrait accompagner une proportion calculée sur un petit groupe?
 
@@ -27,7 +27,7 @@ Quelle information devrait accompagner une proportion calculée sur un petit gro
 >
 > Réponse: a. L’effectif aide à juger si la proportion repose sur beaucoup ou très peu d’observations.
 
-## Question 3
+### Question 3
 
 Vrai ou faux: retirer les noms suffit toujours à rendre un fichier anonyme.
 
@@ -35,7 +35,7 @@ Vrai ou faux: retirer les noms suffit toujours à rendre un fichier anonyme.
 >
 > Faux. Des quasi-identifiants comme l’âge, le lieu, le programme ou une combinaison rare de variables peuvent encore permettre de reconnaître une personne.
 
-## Question 4
+### Question 4
 
 Quel champ est un identifiant direct?
 
@@ -48,7 +48,7 @@ Quel champ est un identifiant direct?
 >
 > Réponse: a. Un numéro de téléphone peut identifier directement une personne.
 
-## Question 5
+### Question 5
 
 Vrai ou faux: un commentaire libre peut poser un risque de confidentialité même si aucun nom n’est demandé.
 
@@ -56,7 +56,7 @@ Vrai ou faux: un commentaire libre peut poser un risque de confidentialité mêm
 >
 > Vrai. Un commentaire libre peut contenir spontanément un nom, une situation personnelle, un employeur, une adresse ou un détail reconnaissable.
 
-## Question 6
+### Question 6
 
 Quelle action réduit le risque de ré-identification dans un petit sondage?
 
@@ -69,7 +69,7 @@ Quelle action réduit le risque de ré-identification dans un petit sondage?
 >
 > Réponse: a. Regrouper une variable précise peut réduire le risque, même si cela ne suffit pas toujours à anonymiser complètement.
 
-## Question 7
+### Question 7
 
 Vrai ou faux: un graphique responsable doit toujours éviter toute conclusion.
 
@@ -77,7 +77,7 @@ Vrai ou faux: un graphique responsable doit toujours éviter toute conclusion.
 >
 > Faux. Il peut proposer une conclusion descriptive prudente, mais il doit éviter les affirmations causales ou opérationnelles non appuyées.
 
-## Question 8
+### Question 8
 
 Dans une communication publique, pourquoi mentionner les limites d’un jeu de données?
 
@@ -90,7 +90,7 @@ Dans une communication publique, pourquoi mentionner les limites d’un jeu de d
 >
 > Réponse: a. Les limites aident la personne lectrice à comprendre ce que les données permettent, ou ne permettent pas, de conclure.
 
-## Question 9
+### Question 9
 
 Vrai ou faux: les principes FAIR concernent notamment la facilité de trouver, d’accéder, d’interopérer et de réutiliser des données.
 
@@ -98,7 +98,7 @@ Vrai ou faux: les principes FAIR concernent notamment la facilité de trouver, d
 >
 > Vrai. FAIR signifie Findable, Accessible, Interoperable et Reusable.
 
-## Question 10
+### Question 10
 
 Quelle décision est la plus prudente pour une cellule contenant seulement deux personnes?
 
@@ -111,15 +111,20 @@ Quelle décision est la plus prudente pour une cellule contenant seulement deux 
 >
 > Réponse: b. Un très petit effectif peut rendre des personnes reconnaissables. Le regroupement ou le masquage réduit ce risque.
 
-## Question 11
+### Question 11
 
-Vrai ou faux: une palette de couleurs peut influencer l’interprétation d’un risque.
+Dans CRAP, quel principe demande de placer près l’un de l’autre les éléments qui doivent être lus ensemble?
+
+1.  Contraste
+2.  Répétition
+3.  Alignement
+4.  Proximité
 
 > **TIP:**
 >
-> Vrai. Des couleurs très alarmantes peuvent exagérer la perception d’urgence si elles ne sont pas justifiées par le contexte.
+> Réponse: d. La proximité aide à faire comprendre les liens entre un titre, une valeur, une légende ou une annotation. Elle ne remplace pas un contraste suffisant ni une formulation prudente.
 
-## Question 12
+### Question 12
 
 Quelle formulation est la plus responsable?
 

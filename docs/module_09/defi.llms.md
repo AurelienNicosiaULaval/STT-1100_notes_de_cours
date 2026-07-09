@@ -2,13 +2,13 @@
 
 STT-1100 Introduction à la science des données
 
-# Mission
+## Mission
 
 Dans l’aventure 9, vous avez construit un modèle prédictif simple et examiné un jeu de données fictif où les taux d’admission varient selon certains groupes. Le défi consiste à communiquer clairement une analyse en capsule vidéo.
 
 Vous devez utiliser le dépôt GitHub créé à partir du template `STT-1100/aventure-9`.
 
-# Choix du sujet
+## Choix du sujet
 
 Choisissez une seule option.
 
@@ -26,7 +26,7 @@ Option B : biais descriptif
 - Ajoutez au moins une autre variable, par exemple `Acces_ressources`, `Langue_maternelle` ou `Niveau_socio_economique`.
 - Expliquez pourquoi une différence observée doit être interprétée avec prudence.
 
-# Livrable
+## Livrable
 
 Vous devez remettre une capsule vidéo de 180 secondes maximum.
 
@@ -34,10 +34,11 @@ Le dépôt doit contenir au choix :
 
 - un fichier vidéo dans le dossier `video/`;
 - ou un fichier `LIEN_VIDEO.md` contenant un lien accessible vers la capsule, si le fichier est trop volumineux pour GitHub.
+- un court transcript ou des sous-titres synchronisés avec la capsule.
 
 Votre dépôt doit aussi contenir les données fournies dans le template.
 
-# Structure attendue
+## Structure attendue
 
 Votre capsule doit inclure :
 
@@ -48,7 +49,7 @@ Votre capsule doit inclure :
 5.  une interprétation prudente;
 6.  une recommandation ou une limite importante.
 
-# Critères d’évaluation
+## Critères d’évaluation
 
 | Critère | Attente |
 |----|----|
@@ -57,9 +58,9 @@ Votre capsule doit inclure :
 | Visualisation | Au moins un graphique ou tableau soutient l’argument. |
 | Prudence | La capsule distingue une association, une prédiction et une conclusion causale. |
 | Éthique | Les limites, les valeurs manquantes ou les biais possibles sont discutés. |
-| Respect du format | La capsule dure 180 secondes maximum et le lien ou fichier est accessible. |
+| Respect du format et accessibilité | La capsule dure 180 secondes maximum, le lien ou fichier est accessible et un transcript ou des sous-titres accompagne la vidéo. |
 
-# Conseils
+## Conseils
 
 - Préparez un plan avant d’enregistrer.
 - Ne montrez pas trop de résultats.
@@ -67,7 +68,7 @@ Votre capsule doit inclure :
 - Évitez de dire qu’un modèle est juste parce qu’il produit une prédiction.
 - Terminez par une recommandation concrète et prudente.
 
-# Ressources
+## Ressources
 
 - Mine Cetinkaya-Rundel et Johanna Hardin, 2024, Introduction to Modern Statistics, chapitre 7 : <https://openintrostat.github.io/ims/model-slr>
 - Mine Cetinkaya-Rundel et Johanna Hardin, 2024, Introduction to Modern Statistics, chapitre 8 : <https://openintrostat.github.io/ims/model-mlr>

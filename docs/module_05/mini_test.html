@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6103,11 +6130,11 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mini-test-formatif" class="level1">
-<h1>Mini-test formatif</h1>
+<section id="mini-test-formatif" class="level2">
+<h2 class="anchored" data-anchor-id="mini-test-formatif">Mini-test formatif</h2>
 <p>Ce mini-test sert à vérifier les lectures du module 5. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.</p>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
 <p>Vrai ou faux: une analyse exploratoire des données sert seulement à produire des graphiques jolis.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -6126,8 +6153,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-2" class="level2">
-<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p>Quelle fonction de <code>lubridate</code> permet de créer une date à partir d’une année, d’un mois et d’un jour?</p>
 <ol type="a">
 <li><code>make_date()</code></li>
@@ -6152,8 +6179,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-3" class="level2">
-<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
 <p>Vrai ou faux: une corrélation élevée prouve qu’une variable cause l’autre.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6172,8 +6199,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-4" class="level2">
-<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
 <p>Quelle visualisation est généralement utile pour étudier la relation entre deux variables numériques?</p>
 <ol type="a">
 <li>Un nuage de points</li>
@@ -6198,8 +6225,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-5" class="level2">
-<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
 <p>Vrai ou faux: avant de comparer des moyennes par groupe, il est utile d’afficher le nombre d’observations par groupe.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -6218,8 +6245,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-6" class="level2">
-<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <p>Quelle option de <code>cor()</code> permet de calculer une corrélation en utilisant seulement les lignes complètes?</p>
 <ol type="a">
 <li><code>use = &quot;complete.obs&quot;</code></li>
@@ -6244,8 +6271,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-7" class="level2">
-<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<section id="question-7" class="level3">
+<h3 class="anchored" data-anchor-id="question-7">Question 7</h3>
 <p>Vrai ou faux: une valeur manquante peut changer l’interprétation d’un résumé numérique.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -6264,8 +6291,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-8" class="level2">
-<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+<section id="question-8" class="level3">
+<h3 class="anchored" data-anchor-id="question-8">Question 8</h3>
 <p>Quelle fonction permet d’extraire le jour de la semaine à partir d’une date?</p>
 <ol type="a">
 <li><code>wday()</code></li>
@@ -6290,8 +6317,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-9" class="level2">
-<h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
+<section id="question-9" class="level3">
+<h3 class="anchored" data-anchor-id="question-9">Question 9</h3>
 <p>Vrai ou faux: une droite de tendance ajoutée à un nuage de points résume toute la structure possible d’une relation.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -6310,8 +6337,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-10" class="level2">
-<h2 class="anchored" data-anchor-id="question-10">Question 10</h2>
+<section id="question-10" class="level3">
+<h3 class="anchored" data-anchor-id="question-10">Question 10</h3>
 <p>Quelle affirmation est la plus prudente?</p>
 <ol type="a">
 <li>Les ateliers du soir causent une plus forte participation.</li>
@@ -6336,8 +6363,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-11" class="level2">
-<h2 class="anchored" data-anchor-id="question-11">Question 11</h2>
+<section id="question-11" class="level3">
+<h3 class="anchored" data-anchor-id="question-11">Question 11</h3>
 <p>Vrai ou faux: un graphique doit avoir des axes et un titre compréhensibles.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -6356,8 +6383,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="question-12" class="level2">
-<h2 class="anchored" data-anchor-id="question-12">Question 12</h2>
+<section id="question-12" class="level3">
+<h3 class="anchored" data-anchor-id="question-12">Question 12</h3>
 <p>Pourquoi est-il utile de séparer les exercices du défi?</p>
 <ol type="a">
 <li>Pour pratiquer les mêmes compétences sans donner directement la solution du défi</li>

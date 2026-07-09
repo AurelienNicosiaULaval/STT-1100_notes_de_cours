@@ -2,14 +2,14 @@
 
 STT-1100 Introduction à la science des données
 
-# Présentation du défi
+## Présentation du défi
 
 Vous devez créer un rapport Quarto au format HTML. Votre rapport doit inclure :
 
 - un en-tête parlant (titre, date et auteur) ;
 - trois sections : introduction, analyse et conclusion.
 
-Le rapport doit répondre à la question suivante : “Suis-je né ou née la bonne année ?”. On pourra répondre à cette question en s’intéressant à la température moyenne observée le jour de votre naissance, en la comparant à celles des années précédentes ou suivantes.
+Le rapport doit répondre à la question suivante : « Cette date symbolique a-t-elle été une année particulièrement chaude, fraîche ou proche de la moyenne? ». Vous travaillerez avec une date choisie dans le jeu de données et la comparerez aux années précédentes ou suivantes.
 
 Dans l’introduction, vous devrez nommer l’objectif de votre analyse, la date choisie, la base de données que vous allez utiliser et ce que vous considérez comme une température plus favorable. Par exemple, vous pouvez décider qu’une année est plus favorable si elle est plus chaude, plus fraîche ou plus proche de la moyenne des années comparées.
 
@@ -17,11 +17,11 @@ Dans la section analyse, vous devrez réaliser une analyse simple de la base de 
 
 Voici les étapes à suivre :
 
-1.  Définissez dans votre code la date étudiée : le jour, le mois et l’année de naissance. Attention : dans `MeteoQuebec`, les variables `month` et `day` sont écrites avec deux caractères. Par exemple, juin correspond à `"06"`.
+1.  Définissez dans votre code une date symbolique ou fictive : jour, mois et année de référence. Ne choisissez pas une date de naissance personnelle. Attention : dans `MeteoQuebec`, les variables `month` et `day` sont écrites avec deux caractères. Par exemple, juin correspond à `"06"`.
 
-2.  Donnez la température moyenne observée à cette date pour votre année de naissance.
+2.  Donnez la température moyenne observée à cette date pour votre année de référence.
 
-3.  Comparez cette valeur avec les températures moyennes observées à la même date pour les 5 années précédentes et les 5 années suivantes. Au total, votre comparaison devrait donc porter sur 11 années, de `annee_naissance - 5` à `annee_naissance + 5`.
+3.  Comparez cette valeur avec les températures moyennes observées à la même date pour les 5 années précédentes et les 5 années suivantes. Au total, votre comparaison devrait donc porter sur 11 années, de `annee_reference - 5` à `annee_reference + 5`.
 
 4.  Signalez les valeurs manquantes, s’il y en a. Si elles empêchent de faire une comparaison raisonnable, choisissez une autre date symbolique.
 
@@ -29,9 +29,9 @@ Aucun graphique n’est obligatoire dans ce premier défi. Si vous choisissez d�
 
 Dans la section conclusion, vous devez répondre avec du texte à la question du défi en vous appuyant sur vos résultats.
 
-Remarque importante : si les données correspondant à votre jour de naissance contiennent des valeurs manquantes, par exemple pour la température moyenne, vous pouvez choisir une autre date symbolique, comme la date de fête d’un membre de votre famille ou d’un ami. Si votre date est le 29 février, vous pouvez aussi choisir une date proche et l’indiquer clairement.
+Remarque importante : choisissez dès le départ une date non personnelle, par exemple la date de fondation d’une organisation, la date d’un événement historique ou une date fictive. Si les données sont manquantes ou si la date est le 29 février, choisissez une autre date symbolique et indiquez-le clairement.
 
-# Livrables attendus
+## Livrables attendus
 
 - Un rapport HTML ;
 
@@ -39,9 +39,9 @@ Remarque importante : si les données correspondant à votre jour de naissance c
 
 - Votre rapport `.qmd` doit respecter les bonnes pratiques de codage du tidyverse (chapitres 1 et 2).
 
-# Grille d’évaluation
+## Grille d’évaluation
 
-## Note importante
+### Note importante
 
 > Pour ce **premier rendu d’un rapport Quarto**, vous recevrez une **rétroaction formative** de la part de l’enseignant·e.
 > Elle sera basée sur la grille suivante afin de vous aider à progresser et à améliorer vos prochains livrables.

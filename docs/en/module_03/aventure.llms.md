@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Scenario: Become a *data journalist*
+## Scenario: Become a *data journalist*
 
 You are hired as a **data journalist** by *Le Courrier Gourmand*, a fictional local media outlet that publishes interactive investigations on food in Montreal. Your editor-in-chief wants an article that helps the public understand **food offences committed in Montreal restaurants**. She gives you some questions to explore:
 
@@ -35,7 +35,7 @@ Data `UlavalSSD::listecondamnation`
 
 Deliverable Illustrated Quarto HTML article
 
-## Adventure objectives
+### Adventure objectives
 
 - Import and clean a real categorical dataset about food offences.
 - Build frequency tables, descriptive statistics and visualizations.
@@ -48,7 +48,7 @@ In this module, you will explore a **dataset** that describes various offences, 
 
 ------------------------------------------------------------------------
 
-# How to succeed in the adventure
+## How to succeed in the adventure
 
 1.  **Load data**: You can either:
     - Load the `UlavalSSD` package and call `data(listecondamnation)`.
@@ -57,7 +57,7 @@ In this module, you will explore a **dataset** that describes various offences, 
 
 ------------------------------------------------------------------------
 
-# Working on GitHub
+## Working on GitHub
 
 Before you start analyzing the data, you need to grab the GitHub repository containing the necessary files.
 
@@ -73,9 +73,9 @@ Warning: remember that commit messages must be meaningful. For example “Added 
 
 Congratulations! You are now ready to start analyzing!
 
-# Categorical variables: the basics in R with `stringr`
+## Categorical variables: the basics in R with `stringr`
 
-## Explanations
+### Explanations
 
 In R, a categorical variable is often represented by:
 
@@ -89,7 +89,7 @@ For module 3, we will focus on categorical variables of type **character**. In M
 
 Here are examples demonstrating how to use `stringr` (part of the `Tidyverse`) to manipulate character variables in a dataset like `listecondamnation`. The examples below target common cases: pattern detection, extraction, replacement, and string cleaning.
 
-## Demonstration
+### Demonstration
 
 We will use the `listecondamnation` dataset from the `UlavalSSD` library which contains the convictions of food establishments in Quebec.
 
@@ -132,7 +132,7 @@ glimpse(listecondamnation)
 >
 > Alexandre reminds you that `?listecondamnation` gives the dataset documentation.
 
-### Pattern detection (`str_detect()`)
+#### Pattern detection (`str_detect()`)
 
 To check whether the address mentions `"MONTREAL"`, you can do:
 
@@ -172,7 +172,7 @@ You get `TRUE/FALSE` depending on the presence of the word **MONTREAL** in the s
 >
 > **Message from Alexandre**: *“This is a very interesting fact to put in your article!”*
 
-### Replacement and numeric conversion
+#### Replacement and numeric conversion
 
 The `Amende` column is a character string. It contains amounts such as `"5 000 $"`, with spaces and the `$` symbol. To use it in calculations, we need to create a numeric variable.
 
@@ -216,7 +216,7 @@ Here, `parse_number()` comes from `readr`, which is included in the tidyverse. T
 >
 > *“Not so easy to turn the Amende column into a numeric variable!”*
 
-### Pattern extraction (`str_extract()`)
+#### Pattern extraction (`str_extract()`)
 
 To extract a specific element, for example if `Adresse_lieu_infraction` contains a postal code of the form `H2X 3E4`, we can try:
 
@@ -261,7 +261,7 @@ The pattern `[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]` is a simplified form of a Canad
 >
 > A nice addition to your article!
 
-### Formatting (`str_to_lower()`, `str_to_upper()`, etc.)
+#### Formatting (`str_to_lower()`, `str_to_upper()`, etc.)
 
 Sometimes it is useful to harmonize case (`MONTREAL`, `Montréal`, etc.):
 
@@ -273,7 +273,7 @@ convictions_demo <- convictions_demo %>%
   )
 ```
 
-### Removing multiple spaces (`str_squish()`)
+#### Removing multiple spaces (`str_squish()`)
 
 If the data contains unnecessary spaces:
 
@@ -372,15 +372,15 @@ Remember to generate your report, commit your changes and push to GitHub to keep
 
 ------------------------------------------------------------------------
 
-# Descriptive statistics for categorical variables
+## Descriptive statistics for categorical variables
 
 In this section, we will discover how to summarize the information contained in qualitative variables, also called categorical. We will see how to count the occurrences of each category (frequency tables), calculate proportions (or percentages) in order to better visualize the distribution, and associate several variables to better understand their interactions (contingency tables). The objective is to have a clear portrait of the distribution of categories to draw quick conclusions on trends or anomalies present in the data.
 
-## Explanations
+### Explanations
 
 **Frequency tables** and **summary measures** such as counts and percentages are a good starting point for summarizing categorical variables.
 
-## Demonstration
+### Demonstration
 
 ``` r
 # Number of offences by type of establishment
@@ -458,9 +458,9 @@ Remember to generate your report, commit your changes and push to GitHub to keep
 
 ------------------------------------------------------------------------
 
-# Categorical data visualization
+## Categorical data visualization
 
-## Explanations
+### Explanations
 
 To visually represent categorical variables, we often use:
 
@@ -470,7 +470,7 @@ To visually represent categorical variables, we often use:
 
 - **Standardized stacked bars** to compare proportions across groups.
 
-## Demonstration
+### Demonstration
 
 ``` r
 library(ggplot2)
@@ -519,7 +519,7 @@ The **amount of fines** is a concrete indicator that often attracts the attentio
 
 ------------------------------------------------------------------------
 
-# 5. Go further: map fines (optional)
+## 5. Go further: map fines (optional)
 
 To close the investigation, **Alexandre** found a piece of R code written by a colleague from the City. This optional script geocodes postal codes and provides latitude and longitude for each establishment. You may use it to draw a **map of the distribution of fines**.
 
@@ -569,7 +569,7 @@ Keep the elements that show how a table became an article.
 - two key numbers explained in complete sentences;
 - one important nuance to communicate to the public.
 
-# Conclusion of the adventure
+## Conclusion of the adventure
 
 This third adventure allowed you to **move from the role of analyst to that of data journalist**: you cleaned a real set of food inspection records, quantified major offences, compared establishment profiles and prepared graphics for an article.
 
@@ -579,7 +579,7 @@ You now have:
 - **impactful graphs** (bar charts, boxplots and, optionally, a map) to support your arguments;
 - **qualitative observations** provided by Alexandre, which direct the story towards the issues of hygiene and citizen transparency.
 
-## Next step: write your article
+### Next step: write your article
 
 1.  **Structure your Quarto article**: catchy hat -\> context -\> methodology -\> key results -\> recommendations.
 2.  **Integrate at least two visuals** among those produced, including one categorical chart. The fines map is optional.

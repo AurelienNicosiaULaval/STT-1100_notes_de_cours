@@ -15,13 +15,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Mission
+## Mission
 
-Vous devez construire un tableau de bord interactif à partir des rétroactions anonymisées recueillies pendant la session.
+Vous devez construire un tableau de bord interactif à partir du fichier fictif fourni dans le dépôt. Un fichier de rétroactions réelles ne peut être utilisé que si l'enseignant·e le fournit anonymisé et confirme explicitement son usage dans ce défi.
 
-Le fichier principal attendu est `data/sentiments_cours.csv`. Il sera construit progressivement à partir des rétroactions des étudiant·es. Si ce fichier n'est pas encore complet au moment où vous commencez, utilisez le fichier exemple non réel fourni dans le dépôt pour tester votre code.
+Le fichier principal de travail est `data/sentiments_cours.csv`. Par défaut, utilisez sa version exemple non réelle fournie dans le dépôt. Ne copiez pas de commentaires réels dans votre dépôt, même s'ils semblent anonymes.
 
-# Dépôt de départ
+## Dépôt de départ
 
 Le dépôt de départ est :
 
@@ -31,7 +31,9 @@ Le modèle à modifier est :
 
 `modele_dashboard.Rmd`
 
-# Données
+Le cours utilise principalement Quarto. Ce gabarit conserve le format `Rmd` parce que le tableau de bord demandé repose sur `flexdashboard`; il faut le modifier et le rendre dans ce format pour ce défi précis.
+
+## Données
 
 Le tableau de bord final doit être conçu pour fonctionner avec un fichier `data/sentiments_cours.csv` contenant, au minimum, les variables suivantes :
 
@@ -44,7 +46,16 @@ Le tableau de bord final doit être conçu pour fonctionner avec un fichier `dat
 
 Si vous utilisez une variable recodée ou dérivée, indiquez-le clairement dans le tableau de bord.
 
-# Tableau de bord attendu
+## Tableau de bord attendu
+
+### Noyau minimal à faire fonctionner d'abord
+
+- ouvrir le gabarit localement sans erreur;
+- ajouter au moins un filtre interactif;
+- produire un graphique lisible;
+- rédiger une courte conclusion reliée à ce graphique.
+
+### Éléments à ajouter après le noyau
 
 Votre tableau de bord doit :
 
@@ -55,24 +66,24 @@ Votre tableau de bord doit :
 -   présenter un court résumé des observations principales ;
 -   être personnalisé sans nuire à la lisibilité.
 
-# Confidentialité
+## Confidentialité
 
-Les rétroactions étudiantes doivent rester anonymes. Ne publiez pas de commentaires contenant des informations permettant d'identifier une personne.
+Les rétroactions étudiantes doivent rester anonymes. Ne publiez pas de commentaires contenant des informations permettant d'identifier une personne. Par défaut, les données fictives sont la seule donnée à déposer dans GitHub.
 
-Si vous nettoyez ou modifiez les données, conservez seulement la version anonymisée nécessaire au tableau de bord.
+Si l'enseignant·e autorise exceptionnellement un fichier réel, utilisez uniquement la version fournie, conservez le minimum nécessaire au tableau de bord, ne la republiez pas et suivez les consignes de conservation données en classe.
 
-# Livrables
+## Livrables
 
 Votre dépôt GitHub doit contenir :
 
 -   le fichier `modele_dashboard.Rmd` modifié ;
 -   le rendu HTML final ou les instructions nécessaires pour lancer le tableau de bord localement ;
--   le fichier de données anonymisé si sa diffusion est autorisée ;
+-   les données fictives nécessaires au rendu, sans rétroaction réelle ;
 -   un court fichier `README.md` expliquant comment ouvrir localement le tableau de bord et, si demandé, comment le déployer.
 
 Le livrable minimal est un tableau de bord reproductible qui fonctionne localement. Le déploiement public ou le partage d'un lien externe est requis seulement si cette consigne est donnée en classe.
 
-# Grille d’évaluation
+## Grille d’évaluation
 
 | Critère | Description | Points |
 |--------------------|--------------------------------------|--------------|
@@ -83,6 +94,6 @@ Le livrable minimal est un tableau de bord reproductible qui fonctionne localeme
 | Visualisations | Graphiques pertinents, lisibles et bien titrés | /15 |
 | Interactivité | Filtres ou composants Shiny utiles pour explorer les données | /15 |
 | Personnalisation | Adaptation du modèle, choix visuels cohérents, résumé utile | /10 |
-| Accessibilité et partage | Tableau de bord fonctionnel localement, avec lien valide seulement si un déploiement est demandé | /5 |
+| Accessibilité et partage | Tableau de bord fonctionnel localement, filtres et graphiques lisibles, avec lien valide seulement si un déploiement est demandé | /5 |
 
 Total : /100

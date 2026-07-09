@@ -5883,13 +5883,13 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mission" class="level1">
-<h1>Mission</h1>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
 <p>In adventure 8, you built the pieces needed to extract metadata from a Données Québec search page. The challenge now is to turn that work into a stable, testable and reusable function.</p>
 <p>Submit an <code>IDUL.R</code> file in the GitHub repository created from the <code>STT-1100/aventure-8</code> template.</p>
 </section>
-<section id="expected-contract" class="level1">
-<h1>Expected Contract</h1>
+<section id="expected-contract" class="level2">
+<h2 class="anchored" data-anchor-id="expected-contract">Expected Contract</h2>
 <p>Your <code>IDUL.R</code> file must define a function named exactly <code>scrape_page()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>scrape_page <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
@@ -5920,8 +5920,8 @@ Important
 </div>
 </div>
 </section>
-<section id="minimal-robustness" class="level1">
-<h1>Minimal Robustness</h1>
+<section id="minimal-robustness" class="level2">
+<h2 class="anchored" data-anchor-id="minimal-robustness">Minimal Robustness</h2>
 <p>The portal may display slightly different labels. Your function must therefore be able to handle at least these forms:</p>
 <ul>
 <li><code>Organisation</code>, <code>Organisme</code>, <code>Producteur</code>, <code>Producer</code> or <code>Organization</code> for the producer;</li>
@@ -5929,8 +5929,8 @@ Important
 </ul>
 <p>A reasonable approach is to create a small helper function that receives the text extracted from an HTML block and a search pattern, then returns the cleaned value or <code>NA_character_</code>.</p>
 </section>
-<section id="recommended-workflow" class="level1">
-<h1>Recommended Workflow</h1>
+<section id="recommended-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-workflow">Recommended Workflow</h2>
 <ol type="1">
 <li>Work first in the console or in a draft file.</li>
 <li>Locate dataset blocks with <code>.dataset-content</code>.</li>
@@ -5942,8 +5942,8 @@ Important
 <li>Place only the final required code in <code>IDUL.R</code>.</li>
 </ol>
 </section>
-<section id="local-tests" class="level1">
-<h1>Local Tests</h1>
+<section id="local-tests" class="level2">
+<h2 class="anchored" data-anchor-id="local-tests">Local Tests</h2>
 <p>The template repository contains a local test. After completing your function, run:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> tests/test_scrape_page.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -5959,13 +5959,13 @@ Important
 <p>The local HTML page provided by the template is a fallback mode if the portal changes or if no network connection is available during testing. Your function must therefore handle a local HTML source with the same output contract as a public page.</p>
 <p>These tests do not replace the final assessment, but they detect the most common mistakes before submission.</p>
 </section>
-<section id="ethics-and-server-load" class="level1">
-<h1>Ethics and Server Load</h1>
+<section id="ethics-and-server-load" class="level2">
+<h2 class="anchored" data-anchor-id="ethics-and-server-load">Ethics and Server Load</h2>
 <p>For the challenge, your function must scrape one page at a time. If you later write a loop over several pages, add a pause with <code>Sys.sleep(1)</code> between requests.</p>
 <p>Do not bypass protection mechanisms. Do not launch large automated collections. The <code>robots.txt</code> file provides a useful technical signal, but it does not replace terms of use, caution or respect for server load.</p>
 </section>
-<section id="deliverable" class="level1">
-<h1>Deliverable</h1>
+<section id="deliverable" class="level2">
+<h2 class="anchored" data-anchor-id="deliverable">Deliverable</h2>
 <p>Submit the GitHub repository generated from the <code>STT-1100/aventure-8</code> template.</p>
 <p>The repository must contain:</p>
 <ul>
@@ -5975,8 +5975,8 @@ Important
 <li>no unnecessary downloaded data.</li>
 </ul>
 </section>
-<section id="assessment-criteria" class="level1">
-<h1>Assessment Criteria</h1>
+<section id="assessment-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="assessment-criteria">Assessment Criteria</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -6016,8 +6016,8 @@ Important
 </tbody>
 </table>
 </section>
-<section id="resources" class="level1">
-<h1>Resources</h1>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
 <li>Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund, 2023, R for Data Science, Web scraping chapter: <a href="https://r4ds.hadley.nz/webscraping.html" class="uri">https://r4ds.hadley.nz/webscraping.html</a></li>
 <li>Official <code>rvest</code> documentation: <a href="https://rvest.tidyverse.org/" class="uri">https://rvest.tidyverse.org/</a></li>

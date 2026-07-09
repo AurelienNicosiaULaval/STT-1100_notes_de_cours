@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Challenge overview
+## Challenge overview
 
 In this challenge, you must produce a readable GitHub repository containing two deliverables:
 
@@ -14,7 +14,9 @@ The challenge continues Dr. Adélie Fortier’s mission. She wants to understan
 
 You must work in the same GitHub repository used for Adventure 2. There is no new repository to create.
 
-# Data to use
+Do not add personal data, passwords, tokens or unrequested files to the repository. Follow the visibility and submission method specified by the instructor; the repository documents the work and is not a place to publish personal information.
+
+## Data to use
 
 In your GitHub repository, use the following file:
 
@@ -24,7 +26,7 @@ data/manchots_donnees.xlsx
 
 Your report must import the data from this file. The report must therefore render after restarting R, without depending on objects already present in your environment.
 
-# Expected deliverables
+## Expected deliverables
 
 Your GitHub repository must contain the following files:
 
@@ -40,15 +42,15 @@ The file `rapport_analyse.qmd` must be a new Quarto report. It must contain a ti
 
 Your GitHub history must also show several useful commits. For example, you can make one commit after importing the data, another after handling anomalies, another after the charts, and a final one after proofreading.
 
-# Required work
+## Required work
 
-## Step 1 - Import and inspect the data
+### Step 1 - Import and inspect the data
 
 Import `data/manchots_donnees.xlsx` with `read_excel()`.
 
 In your report, show that you understand the structure of the data. For example, you can display the first rows, use `glimpse()` or present a short summary of the important variables.
 
-## Step 2 - Identify problematic values
+### Step 2 - Identify problematic values
 
 Use the outliers identified in Adventure 2.
 
@@ -62,7 +64,7 @@ In your report:
 
 Do not modify the Excel file directly. Do the processing in your R code so that your workflow remains reproducible.
 
-## Step 3 - Compare species
+### Step 3 - Compare species
 
 Answer the following question:
 
@@ -80,7 +82,7 @@ For each species, compute the mean and standard deviation of the following varia
 
 Present the results in a clear table.
 
-## Step 4 - Create a size indicator
+### Step 4 - Create a size indicator
 
 Create a variable named `indice_grandeur`, defined as:
 
@@ -92,7 +94,7 @@ Display a few rows of the table to check that the variable was created correctly
 
 If you remove outliers, do so before calculating `indice_grandeur`.
 
-## Step 5 - Produce two charts
+### Step 5 - Produce two charts
 
 Your report must contain two charts:
 
@@ -112,7 +114,7 @@ Each chart must have:
 
 - units when relevant.
 
-## Step 6 - Conclude
+### Step 6 - Conclude
 
 In the conclusion, answer the following questions in a few sentences:
 
@@ -122,7 +124,7 @@ In the conclusion, answer the following questions in a few sentences:
 
 - Does your treatment of outliers change your interpretation?
 
-# Checklist
+## Checklist
 
 Before submitting your challenge, check that:
 
@@ -146,7 +148,7 @@ Before submitting your challenge, check that:
 
 - the changes have been pushed to GitHub.
 
-# Evaluation grid
+## Evaluation grid
 
 | Criterion | Excellent | Satisfactory | To improve |
 |----|----|----|----|

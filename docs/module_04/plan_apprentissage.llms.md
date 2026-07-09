@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de:
 
@@ -14,7 +14,7 @@ STT-1100 Introduction à la science des données
 - transformer une liste ou un JSON simple en tableau;
 - documenter une décision de nettoyage dans une liste structurée.
 
-# Lectures à faire
+## Lectures à faire
 
 Ces lectures préparent les gestes du module: importer, nettoyer, transformer et documenter.
 
@@ -32,7 +32,7 @@ Ces lectures préparent les gestes du module: importer, nettoyer, transformer et
 
 - [R for Data Science - Hierarchical data](https://r4ds.hadley.nz/rectangling.html) Pour comprendre les listes, les données imbriquées et les premiers gestes de rectangling.
 
-## Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf) Référence rapide pour importer des fichiers délimités et Excel.
 
@@ -46,13 +46,13 @@ Ces lectures préparent les gestes du module: importer, nettoyer, transformer et
 
 Après les lectures, faites le [mini-test formatif](../module_04/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
-# Aventure
+## Aventure
 
 [Aventure 4](../module_04/aventure.llms.md)
 
 Vous jouez le rôle d’un ou d’une ingénieur·e de données junior. L’aventure vous guide dans l’importation d’une archive d’assurance, la détection d’anomalies et la documentation des décisions de nettoyage.
 
-# Défi
+## Défi
 
 [Défi 4](../module_04/defi.llms.md)
 
@@ -64,7 +64,7 @@ Le défi est la suite directe de l’aventure. Vous travaillez dans le même uni
 
 Le but n’est pas de corriger tout ce qui est discutable. Le but est de montrer que vos corrections sont prudentes, reproductibles et documentées.
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 [Exercices du module 4](../module_04/exercices.llms.md)
 

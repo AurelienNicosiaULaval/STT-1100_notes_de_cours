@@ -4311,6 +4311,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5869,7 +5895,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6161,8 +6188,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="exercices-de-consolidation" class="level1">
-<h1>Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, résumer une activité collaborative et formuler une revue constructive.</p>
 <p>Les données utilisées ici sont fictives et ne représentent aucun dépôt GitHub réel.</p>
 <div class="cell">
@@ -6172,8 +6199,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="lectures-à-revoir" class="level1">
-<h1>Lectures à revoir</h1>
+<section id="lectures-à-revoir" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-à-revoir">Lectures à revoir</h2>
 <ul>
 <li><a href="https://docs.github.com/en/get-started/quickstart/hello-world" target="_blank">GitHub Docs - Hello World</a></li>
 <li><a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues" target="_blank">GitHub Docs - About issues</a></li>
@@ -6186,10 +6213,10 @@ margin-bottom: .05rem;
 </ul>
 <p>Après les lectures, faites aussi le <a href="../module_06/mini_test.html">mini-test formatif</a>. Il n’est pas noté.</p>
 </section>
-<section id="bloc-a---comprendre-les-clés-de-jointure" class="level1">
-<h1>Bloc A - Comprendre les clés de jointure</h1>
-<section id="exercice-1---importer-les-tables-de-collaboration" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1---importer-les-tables-de-collaboration">Exercice 1 - Importer les tables de collaboration</h2>
+<section id="bloc-a---comprendre-les-clés-de-jointure" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-a---comprendre-les-clés-de-jointure">Bloc A - Comprendre les clés de jointure</h2>
+<section id="exercice-1---importer-les-tables-de-collaboration" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-1---importer-les-tables-de-collaboration">Exercice 1 - Importer les tables de collaboration</h3>
 <p>Importez <code>membres_equipe_fictif.csv</code> et <code>contributions_git_fictif.csv</code>, puis inspectez leurs dimensions.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -6260,8 +6287,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-2---ajouter-linformation-sur-les-membres" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---ajouter-linformation-sur-les-membres">Exercice 2 - Ajouter l’information sur les membres</h2>
+<section id="exercice-2---ajouter-linformation-sur-les-membres" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-2---ajouter-linformation-sur-les-membres">Exercice 2 - Ajouter l’information sur les membres</h3>
 <p>Utilisez <code>left_join()</code> pour ajouter le nom, le rôle et l’équipe à chaque contribution.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -6307,8 +6334,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-3---repérer-les-contributions-sans-membre-connu" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---repérer-les-contributions-sans-membre-connu">Exercice 3 - Repérer les contributions sans membre connu</h2>
+<section id="exercice-3---repérer-les-contributions-sans-membre-connu" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-3---repérer-les-contributions-sans-membre-connu">Exercice 3 - Repérer les contributions sans membre connu</h3>
 <p>Utilisez <code>anti_join()</code> pour repérer les contributions dont <code>membre_id</code> n’apparaît pas dans la table des membres.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6340,8 +6367,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-4---identifier-les-membres-qui-ont-contribué" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---identifier-les-membres-qui-ont-contribué">Exercice 4 - Identifier les membres qui ont contribué</h2>
+<section id="exercice-4---identifier-les-membres-qui-ont-contribué" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-4---identifier-les-membres-qui-ont-contribué">Exercice 4 - Identifier les membres qui ont contribué</h3>
 <p>Utilisez <code>semi_join()</code> pour obtenir la liste des membres qui ont au moins une contribution.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -6381,10 +6408,10 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </section>
 </section>
-<section id="bloc-b---résumer-un-travail-collaboratif" class="level1">
-<h1>Bloc B - Résumer un travail collaboratif</h1>
-<section id="exercice-5---résumer-les-contributions-par-membre" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-5---résumer-les-contributions-par-membre">Exercice 5 - Résumer les contributions par membre</h2>
+<section id="bloc-b---résumer-un-travail-collaboratif" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-b---résumer-un-travail-collaboratif">Bloc B - Résumer un travail collaboratif</h2>
+<section id="exercice-5---résumer-les-contributions-par-membre" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-5---résumer-les-contributions-par-membre">Exercice 5 - Résumer les contributions par membre</h3>
 <p>Créez un tableau qui donne, pour chaque membre connu, le nombre de commits et le nombre total de lignes modifiées.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -6431,8 +6458,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-6---visualiser-lactivité-de-léquipe" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6---visualiser-lactivité-de-léquipe">Exercice 6 - Visualiser l’activité de l’équipe</h2>
+<section id="exercice-6---visualiser-lactivité-de-léquipe" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-6---visualiser-lactivité-de-léquipe">Exercice 6 - Visualiser l’activité de l’équipe</h3>
 <p>Produisez un graphique du nombre de commits par rôle.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -6472,8 +6499,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-7---vérifier-les-fichiers-attendus" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7---vérifier-les-fichiers-attendus">Exercice 7 - Vérifier les fichiers attendus</h2>
+<section id="exercice-7---vérifier-les-fichiers-attendus" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-7---vérifier-les-fichiers-attendus">Exercice 7 - Vérifier les fichiers attendus</h3>
 <p>Importez <code>fichiers_rapport_fictif.csv</code>. Pour chaque équipe, calculez le nombre de fichiers attendus présents et le nombre de fichiers manquants.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -6520,8 +6547,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-8---trouver-les-équipes-avec-un-rapport-html-manquant" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8---trouver-les-équipes-avec-un-rapport-html-manquant">Exercice 8 - Trouver les équipes avec un rapport HTML manquant</h2>
+<section id="exercice-8---trouver-les-équipes-avec-un-rapport-html-manquant" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-8---trouver-les-équipes-avec-un-rapport-html-manquant">Exercice 8 - Trouver les équipes avec un rapport HTML manquant</h3>
 <p>Filtrez les lignes où <code>fichier_attendu == "rapport.html"</code> et où le fichier est absent.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -6554,10 +6581,10 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </section>
 </section>
-<section id="bloc-c---issues-et-revue-constructive" class="level1">
-<h1>Bloc C - Issues et revue constructive</h1>
-<section id="exercice-9---joindre-les-issues-aux-membres" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9---joindre-les-issues-aux-membres">Exercice 9 - Joindre les issues aux membres</h2>
+<section id="bloc-c---issues-et-revue-constructive" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-c---issues-et-revue-constructive">Bloc C - Issues et revue constructive</h2>
+<section id="exercice-9---joindre-les-issues-aux-membres" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-9---joindre-les-issues-aux-membres">Exercice 9 - Joindre les issues aux membres</h3>
 <p>Importez <code>issues_revue_fictif.csv</code>, puis ajoutez le nom et l’équipe de l’auteur de chaque issue.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -6602,8 +6629,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-10---résumer-les-issues-par-équipe-révisée" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-10---résumer-les-issues-par-équipe-révisée">Exercice 10 - Résumer les issues par équipe révisée</h2>
+<section id="exercice-10---résumer-les-issues-par-équipe-révisée" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-10---résumer-les-issues-par-équipe-révisée">Exercice 10 - Résumer les issues par équipe révisée</h3>
 <p>Calculez le nombre d’issues ouvertes, fermées et de priorité élevée pour chaque équipe révisée.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -6644,8 +6671,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-11---repérer-les-issues-sans-équipe-connue" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-11---repérer-les-issues-sans-équipe-connue">Exercice 11 - Repérer les issues sans équipe connue</h2>
+<section id="exercice-11---repérer-les-issues-sans-équipe-connue" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-11---repérer-les-issues-sans-équipe-connue">Exercice 11 - Repérer les issues sans équipe connue</h3>
 <p>Les équipes A et B sont dans la table des membres. Utilisez une jointure ou une logique équivalente pour repérer les issues qui visent une équipe absente de la liste des équipes connues.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -6679,8 +6706,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="exercice-12---rédiger-une-issue-utile" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-12---rédiger-une-issue-utile">Exercice 12 - Rédiger une issue utile</h2>
+<section id="exercice-12---rédiger-une-issue-utile" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-12---rédiger-une-issue-utile">Exercice 12 - Rédiger une issue utile</h3>
 <p>Choisissez une issue ouverte et rédigez une version améliorée avec trois sections: aspect réussi, suggestion, justification.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
@@ -6713,10 +6740,10 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </section>
 </section>
-<section id="études-de-cas" class="level1">
-<h1>Études de cas</h1>
-<section id="étude-de-cas-1---audit-fictif-dun-dépôt-de-projet" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-1---audit-fictif-dun-dépôt-de-projet">Étude de cas 1 - Audit fictif d’un dépôt de projet</h2>
+<section id="études-de-cas" class="level2">
+<h2 class="anchored" data-anchor-id="études-de-cas">Études de cas</h2>
+<section id="étude-de-cas-1---audit-fictif-dun-dépôt-de-projet" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-1---audit-fictif-dun-dépôt-de-projet">Étude de cas 1 - Audit fictif d’un dépôt de projet</h3>
 <p>Utilisez <code>membres_equipe_fictif.csv</code>, <code>contributions_git_fictif.csv</code>, <code>issues_revue_fictif.csv</code> et <code>fichiers_rapport_fictif.csv</code>.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">
@@ -6817,8 +6844,8 @@ $ lignes_modifiees  &lt;dbl&gt; 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29</c
 </div>
 </div>
 </section>
-<section id="étude-de-cas-2---revue-fictive-dun-portail-de-données" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-2---revue-fictive-dun-portail-de-données">Étude de cas 2 - Revue fictive d’un portail de données</h2>
+<section id="étude-de-cas-2---revue-fictive-dun-portail-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-2---revue-fictive-dun-portail-de-données">Étude de cas 2 - Revue fictive d’un portail de données</h3>
 <p>Utilisez <code>portail_donnees_fictif.csv</code>, <code>producteurs_fictif.csv</code> et <code>commentaires_revue_fictif.csv</code>.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">

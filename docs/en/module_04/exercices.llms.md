@@ -14,9 +14,9 @@ library(jsonlite)
 library(janitor)
 ```
 
-# Block A - Import and inspect
+## Block A - Import and inspect
 
-## Exercise 1 - Read a CSV with controlled types
+### Exercise 1 - Read a CSV with controlled types
 
 Import `policies.csv`, forcing `policy_id` to text and `premium_amount` to numeric.
 
@@ -47,7 +47,7 @@ Import `policies.csv`, forcing `policy_id` to text and `premium_amount` to numer
 >     $ q4_claims      <dbl> 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2
 >     $ claim_amount   <dbl> 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 900,…
 
-## Exercise 2 - Check dimensions and names
+### Exercise 2 - Check dimensions and names
 
 Check the number of rows, number of columns and variable names in `policies`.
 
@@ -73,7 +73,7 @@ Check the number of rows, number of columns and variable names in `policies`.
 >     [5] "q1_claims"      "q2_claims"      "q3_claims"      "q4_claims"
 >     [9] "claim_amount"
 
-## Exercise 3 - Clean column names
+### Exercise 3 - Clean column names
 
 Create a small table with inconvenient column names, then clean them with `clean_names()`.
 
@@ -93,7 +93,7 @@ Create a small table with inconvenient column names, then clean them with `clean
 >
 >     [1] "program_name"     "requested_amount"
 
-## Exercise 4 - Move from wide to long format
+### Exercise 4 - Move from wide to long format
 
 In `policies`, columns `q1_claims` to `q4_claims` represent quarterly claims. Transform them into two columns: `quarter` and `claims`.
 
@@ -124,9 +124,9 @@ In `policies`, columns `q1_claims` to `q4_claims` represent quarterly claims. Tr
 >     7 P002      q3_claims      2
 >     8 P002      q4_claims      0
 
-# Block B - Clean values and categories
+## Block B - Clean values and categories
 
-## Exercise 5 - Return to wide format
+### Exercise 5 - Return to wide format
 
 Starting from `policies_long`, return to wide format.
 
@@ -154,7 +154,7 @@ Starting from `policies_long`, return to wide format.
 >     $ q3_claims      <dbl> 0, 2, 1, 1, 0, 0, 2, 1, 0, 1, 0, 1, 2, 1, 0
 >     $ q4_claims      <dbl> 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2
 
-## Exercise 6 - Recode similar categories
+### Exercise 6 - Recode similar categories
 
 The `vehicle_use` variable contains variants such as `"Pleasure"`, `"pleasure"` and `"Com.mute"`. Clean it to keep only `"Pleasure"` and `"Commute"`.
 
@@ -181,7 +181,7 @@ The `vehicle_use` variable contains variants such as `"Pleasure"`, `"pleasure"` 
 >     1 Pleasure        7
 >     2 Commute         8
 
-## Exercise 7 - Parse an amount
+### Exercise 7 - Parse an amount
 
 Transform the following text amounts into numbers.
 
@@ -212,7 +212,7 @@ amounts <- tibble(
 >     3 -999            NA
 >     4 2 500.25      2500.
 
-## Exercise 8 - Detect invalid FSA codes
+### Exercise 8 - Detect invalid FSA codes
 
 An FSA code should contain three characters. In the following table, identify invalid rows.
 
@@ -237,9 +237,9 @@ fsa_codes <- tibble(
 >     1 C     G1V1234  TRUE
 >     2 D     <NA>     TRUE
 
-# Block C - Document cleaning
+## Block C - Document cleaning
 
-## Exercise 9 - Create a log structure
+### Exercise 9 - Create a log structure
 
 Create a list `cleaning_log` with categories `VM`, `VA`, `FT`, `RC` and `TY`.
 
@@ -264,7 +264,7 @@ Create a list `cleaning_log` with categories `VM`, `VA`, `FT`, `RC` and `TY`.
 >      $ RC: list()
 >      $ TY: list()
 
-## Exercise 10 - Add a correction entry
+### Exercise 10 - Add a correction entry
 
 Add an entry indicating that `-999` was replaced by `NA` in an amount variable.
 
@@ -300,7 +300,7 @@ Add an entry indicating that `-999` was replaced by `NA` in an amount variable.
 >     [[1]]$justification
 >     [1] "The value -999 is not a real amount"
 
-## Exercise 11 - Flag without correcting
+### Exercise 11 - Flag without correcting
 
 Add an entry indicating that an invalid FSA code was flagged, but not corrected automatically.
 
@@ -336,7 +336,7 @@ Add an entry indicating that an invalid FSA code was flagged, but not corrected 
 >     [[1]]$justification
 >     [1] "The correct code cannot be inferred defensibly"
 
-## Exercise 12 - Save a log to a temporary file
+### Exercise 12 - Save a log to a temporary file
 
 Save `cleaning_log` to a temporary file, then check that the file exists.
 
@@ -350,9 +350,9 @@ Save `cleaning_log` to a temporary file, then check that the file exists.
 >
 >     [1] TRUE
 
-# Block D - Excel, JSON and validation rules
+## Block D - Excel, JSON and validation rules
 
-## Exercise 13 - Read a specific Excel sheet
+### Exercise 13 - Read a specific Excel sheet
 
 The file `resources/quotes_2024.xlsx` contains a sheet named `Q3`. Import it while skipping the first row.
 
@@ -374,7 +374,7 @@ The file `resources/quotes_2024.xlsx` contains a sheet named `Q3`. Import it whi
 >     $ quote_date   <chr> "2024-04-15", "2024-05-03", "2024-06-20", "2024-07-01"
 >     $ quote_amount <dbl> 525.40, 610.00, 845.75, 720.30
 
-## Exercise 14 - Read a simple JSON file
+### Exercise 14 - Read a simple JSON file
 
 Read `coverage.json`, then retrieve the collision coverage limit.
 
@@ -388,7 +388,7 @@ Read `coverage.json`, then retrieve the collision coverage limit.
 >
 >     [1] 10000
 
-## Exercise 15 - Rectangle a JSON object
+### Exercise 15 - Rectangle a JSON object
 
 Transform the `coverage` section of the JSON file into a table.
 
@@ -410,7 +410,7 @@ Transform the `coverage` section of the JSON file into a table.
 >     1 collision      10000        500
 >     2 liability     100000         NA
 
-## Exercise 16 - Use a validation rule
+### Exercise 16 - Use a validation rule
 
 The file `data/fictitious_equipment_rules.json` gives plausible installation years. Read this file and display the accepted bounds.
 
@@ -430,9 +430,9 @@ The file `data/fictitious_equipment_rules.json` gives plausible installation yea
 >          <int>    <int>
 >     1     1990     2026
 
-# Case studies
+## Case studies
 
-## Case study 1 - Fictitious scholarship applications
+### Case study 1 - Fictitious scholarship applications
 
 The file `data/fictitious_scholarship_applications.csv` contains fictitious student scholarship applications. It does not represent a real system.
 
@@ -567,7 +567,7 @@ Complete the following tasks:
 >     $VA
 >     list()
 
-## Case study 2 - Fictitious municipal equipment records
+### Case study 2 - Fictitious municipal equipment records
 
 The file `data/fictitious_municipal_equipment.csv` contains fictitious municipal equipment records. The file `data/fictitious_equipment_rules.json` contains validation rules.
 

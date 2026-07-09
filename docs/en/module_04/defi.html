@@ -5883,13 +5883,13 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mission" class="level1">
-<h1>Mission</h1>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
 <p>You work with Alex on an insurance dataset from an old system. Your mission is to produce a cleaned version of <code>dataset_pratique.csv</code> and clearly document the decisions you made.</p>
 <p>The goal is not to correct every questionable value. The goal is to show that you can import the file correctly, identify anomalies, choose defensible corrections and keep a structured record of your work.</p>
 </section>
-<section id="starting-data" class="level1">
-<h1>Starting Data</h1>
+<section id="starting-data" class="level2">
+<h2 class="anchored" data-anchor-id="starting-data">Starting Data</h2>
 <p>The main file is <code>dataset_pratique.csv</code>. It is separated by semicolons.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -5907,8 +5907,8 @@ margin-bottom: .05rem;
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After import, check that you have 23 columns. If you get only one column, the import is incorrect.</p>
 </section>
-<section id="deliverables" class="level1">
-<h1>Deliverables</h1>
+<section id="deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="deliverables">Deliverables</h2>
 <p>Your GitHub repository must contain the following three files:</p>
 <ul>
 <li><code>defi_04.qmd</code>: your reproducible working document;</li>
@@ -5917,8 +5917,8 @@ margin-bottom: .05rem;
 </ul>
 <p>Your <code>.qmd</code> file must render to HTML without error.</p>
 </section>
-<section id="minimal-log-structure" class="level1">
-<h1>Minimal Log Structure</h1>
+<section id="minimal-log-structure" class="level2">
+<h2 class="anchored" data-anchor-id="minimal-log-structure">Minimal Log Structure</h2>
 <p>Your <code>journal_nettoyage</code> object must be a named list. Each entry must contain at least the fields <code>id</code>, <code>variables</code>, <code>probleme</code>, <code>action</code> and <code>justification</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">VM =</span> <span class="fu">list</span>(),</span>
@@ -5945,8 +5945,8 @@ margin-bottom: .05rem;
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="minimum-requirements" class="level1">
-<h1>Minimum Requirements</h1>
+<section id="minimum-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="minimum-requirements">Minimum Requirements</h2>
 <p>Your work must include:</p>
 <ol type="1">
 <li>a correct import of the file;</li>
@@ -5959,8 +5959,8 @@ margin-bottom: .05rem;
 </ol>
 <p>Corrections must be cautious. If an anomaly is real but no obvious correction is defensible, record it in your log or in your text and explain why you do not correct it.</p>
 </section>
-<section id="suggested-checks" class="level1">
-<h1>Suggested Checks</h1>
+<section id="suggested-checks" class="level2">
+<h2 class="anchored" data-anchor-id="suggested-checks">Suggested Checks</h2>
 <p>These are useful starting points. You do not have to correct all of them.</p>
 <ul>
 <li><code>vehicle_type</code> contains an aberrant value.</li>
@@ -5972,14 +5972,14 @@ margin-bottom: .05rem;
 <li>Some categorical variables are easier to work with after conversion to factors.</li>
 </ul>
 </section>
-<section id="saving-results" class="level1">
-<h1>Saving Results</h1>
+<section id="saving-results" class="level2">
+<h2 class="anchored" data-anchor-id="saving-results">Saving Results</h2>
 <p>At the end of your document, save both submission objects.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(donnees_propres, <span class="st">&quot;donnees_propres.csv&quot;</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(journal_nettoyage, <span class="at">file =</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="evaluation-grid" class="level1">
-<h1>Evaluation Grid</h1>
+<section id="evaluation-grid" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-grid">Evaluation Grid</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -6029,8 +6029,8 @@ margin-bottom: .05rem;
 </tbody>
 </table>
 </section>
-<section id="checklist-before-submission" class="level1">
-<h1>Checklist Before Submission</h1>
+<section id="checklist-before-submission" class="level2">
+<h2 class="anchored" data-anchor-id="checklist-before-submission">Checklist Before Submission</h2>
 <ul>
 <li>The <code>.qmd</code> file renders to HTML.</li>
 <li><code>donnees_propres.csv</code> is created by the code.</li>

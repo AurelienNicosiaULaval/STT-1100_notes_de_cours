@@ -2,7 +2,7 @@ Course Pathway
 
 # Modules
 
-Each module is one step in the STT-1100 pathway. A module page gathers its learning plan, readings, mini-test, adventure, challenge, exercises, data and tools.
+Each module is one step in the STT-1100 pathway. Its page starts with prerequisites, a minimum route, extensions and a help plan, then gathers readings, mini-test, adventure, challenge, exercises, data and tools.
 
 [See modules](#module-list) [Module cycle](#module-cycle) [Calendar](calendrier.llms.md) [Resources](ressources.llms.md)
 
@@ -84,7 +84,7 @@ Use these landmarks when you are not sure which page to open.
 
 ### I am starting the week
 
-Open the current module, read the learning plan and identify required readings, data and files.
+Open the current module, read “Prepare for the module”, then identify required readings, data and files.
 
 ### I am working in class
 

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de :
 
@@ -13,41 +13,45 @@ STT-1100 Introduction à la science des données
 - distinguer description, association et recommandation opérationnelle;
 - expliquer les principes CRAP et FAIR dans un contexte de communication responsable.
 
-# Lectures
+## Lectures
 
-Pour vous préparer, consultez les ressources suivantes :
+Pour vous préparer, commencez par les ressources marquées « Essentiel ». Elles suffisent pour entrer dans l’aventure. Les autres ressources servent à approfondir un point précis ou à préparer le défi.
 
-- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html) : structurer un message statistique et rendre un résultat lisible.
+- [Essentiel — R for Data Science - Communication](https://r4ds.hadley.nz/communication.html) : structurer un message statistique et rendre un résultat lisible.
 - [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html) : choisir un graphique adapté au type de comparaison.
-- [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf) : repères pour éviter les visualisations trompeuses.
+- [Essentiel — Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf) : repères pour éviter les visualisations trompeuses.
 - [Graphics Principles Cheat Sheet](../assets/lectures/module_07/graphics-principles-cheat-sheet.pdf) : aide-mémoire sur les principes de conception graphique.
 - [Conception graphique](../assets/lectures/module_07/conception-graphique.pdf) : diaporama sur la lisibilité et la structure visuelle des graphiques.
-- [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation) : vocabulaire et enjeux liés aux renseignements personnels.
+- [Essentiel — Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation) : vocabulaire et enjeux liés aux renseignements personnels.
 - [CNIL - L’anonymisation de données personnelles](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles) : distinction entre anonymisation, pseudonymisation et risques résiduels.
 - [Guide de la Loi 25](../assets/lectures/module_07/guide-loi-25.mp4) : capsule vidéo sur la protection des renseignements personnels au Québec.
-- [Techniques de base en anonymisation de données](../assets/lectures/module_07/techniques-anonymisation-donnees.llms.md) : page de travail sur les identifiants, quasi-identifiants et risques de réidentification.
-- [Pratique responsable en statistique et science des données](../assets/lectures/module_07/aide-memoire-ethique.pdf) : aide-mémoire pour vérifier les enjeux éthiques d’un projet de données.
-- [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618) : principes pour rendre les données trouvables, accessibles, interopérables et réutilisables.
+- [Essentiel — Techniques de base en anonymisation de données](../assets/lectures/module_07/techniques-anonymisation-donnees.llms.md) : page de travail sur les identifiants, quasi-identifiants et risques de réidentification.
+- [Essentiel — Pratique responsable en statistique et science des données](../assets/lectures/module_07/aide-memoire-ethique.pdf) : aide-mémoire pour vérifier les enjeux éthiques d’un projet de données.
+- [Essentiel — Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618) : principes pour rendre les données trouvables, accessibles, interopérables et réutilisables.
 
-## Aide-mémoire Posit
+### CRAP en pratique
+
+Pour évaluer un graphique, vérifiez explicitement le contraste, la répétition, l’alignement et la proximité. Dans votre note éthique, nommez au moins un choix visuel qui aide ou nuit à ces quatre repères.
+
+### Aide-mémoire Posit
 
 - [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Référence rapide pour reconstruire des visualisations lisibles et défendables.
 
 Après les lectures, faites le [mini-test formatif](../module_07/mini_test.llms.md). Il n’est pas noté; il sert seulement à vérifier les notions de base avant l’aventure.
 
-# Aventure
+## Aventure
 
 Vous incarnerez un·e expert·e en éthique des données. Votre équipe évaluera un rapport problématique dans le dépôt `STT-1100/aventure-7`.
 
 Lien vers l’aventure : [Aventure 7 - Visualisation, éthique et sécurisation des données](../module_07/aventure.llms.md)
 
-# Défi
+## Défi
 
 Le défi transforme l’audit de l’aventure en note éthique reproductible. Vous devrez remettre un rapport, deux visualisations corrigées et un fichier anonymisé.
 
 Lien vers le défi : [Défi 7 - Note éthique et visualisations responsables](../module_07/defi.llms.md)
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Les exercices sont indépendants de l’aventure et du défi. Ils utilisent des données fictives différentes pour pratiquer les graphiques responsables, l’anonymisation, la vérification des petits effectifs et la rédaction d’une note éthique courte.
 

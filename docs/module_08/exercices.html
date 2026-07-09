@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6152,8 +6179,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="exercices-de-consolidation" class="level1">
-<h1>Exercices de consolidation</h1>
+<section id="exercices-de-consolidation" class="level2">
+<h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 8: lire une page HTML, cibler des éléments avec des sélecteurs CSS, transformer une extraction en fonction, automatiser une extraction répétée et documenter les limites d’une collecte.</p>
 <p>Les pages HTML utilisées ici sont fictives et locales. Elles ne dépendent d’aucun site web externe.</p>
 <div class="cell">
@@ -6162,8 +6189,8 @@ margin-bottom: .05rem;
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="lectures-à-revoir" class="level1">
-<h1>Lectures à revoir</h1>
+<section id="lectures-à-revoir" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-à-revoir">Lectures à revoir</h2>
 <ul>
 <li><a href="https://r4ds.hadley.nz/webscraping.html" target="_blank">R for Data Science - Web scraping</a></li>
 <li><a href="https://r4ds.hadley.nz/functions.html" target="_blank">R for Data Science - Functions</a></li>
@@ -6174,10 +6201,10 @@ margin-bottom: .05rem;
 </ul>
 <p>Après les lectures, faites aussi le <a href="../module_08/mini_test.html">mini-test formatif</a>. Il n’est pas noté.</p>
 </section>
-<section id="bloc-a---lire-une-page-html-locale" class="level1">
-<h1>Bloc A - Lire une page HTML locale</h1>
-<section id="exercice-1---importer-une-page-html" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1---importer-une-page-html">Exercice 1 - Importer une page HTML</h2>
+<section id="bloc-a---lire-une-page-html-locale" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-a---lire-une-page-html-locale">Bloc A - Lire une page HTML locale</h2>
+<section id="exercice-1---importer-une-page-html" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-1---importer-une-page-html">Exercice 1 - Importer une page HTML</h3>
 <p>Lisez <code>catalogue_donnees_fictif.html</code> avec <code>read_html()</code>. Repérez les cartes de jeux de données avec le sélecteur <code>.dataset-card</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -6215,8 +6242,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="exercice-2---extraire-un-premier-vecteur" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---extraire-un-premier-vecteur">Exercice 2 - Extraire un premier vecteur</h2>
+<section id="exercice-2---extraire-un-premier-vecteur" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-2---extraire-un-premier-vecteur">Exercice 2 - Extraire un premier vecteur</h3>
 <p>Extrayez les titres des jeux de données avec le sélecteur <code>.dataset-title</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -6246,8 +6273,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="exercice-3---construire-un-tableau" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---construire-un-tableau">Exercice 3 - Construire un tableau</h2>
+<section id="exercice-3---construire-un-tableau" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-3---construire-un-tableau">Exercice 3 - Construire un tableau</h3>
 <p>Extrayez les producteurs, les catégories et les dates de mise à jour. Combinez le tout dans un tibble.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -6288,10 +6315,10 @@ margin-bottom: .05rem;
 </div>
 </section>
 </section>
-<section id="bloc-b---transformer-lextraction-en-fonction" class="level1">
-<h1>Bloc B - Transformer l’extraction en fonction</h1>
-<section id="exercice-4---créer-une-fonction-auxiliaire" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---créer-une-fonction-auxiliaire">Exercice 4 - Créer une fonction auxiliaire</h2>
+<section id="bloc-b---transformer-lextraction-en-fonction" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-b---transformer-lextraction-en-fonction">Bloc B - Transformer l’extraction en fonction</h2>
+<section id="exercice-4---créer-une-fonction-auxiliaire" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-4---créer-une-fonction-auxiliaire">Exercice 4 - Créer une fonction auxiliaire</h3>
 <p>Créez une fonction <code>extraire_texte()</code> qui reçoit un noeud HTML et un sélecteur CSS, puis retourne le texte correspondant. Si l’élément manque, la fonction doit retourner <code>NA_character_</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -6330,8 +6357,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="exercice-5---créer-une-fonction-dextraction" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-5---créer-une-fonction-dextraction">Exercice 5 - Créer une fonction d’extraction</h2>
+<section id="exercice-5---créer-une-fonction-dextraction" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-5---créer-une-fonction-dextraction">Exercice 5 - Créer une fonction d’extraction</h3>
 <p>Écrivez une fonction <code>extraire_catalogue(fichier)</code> qui lit une page HTML locale et retourne un tibble avec les colonnes <code>titre</code>, <code>producteur</code>, <code>categorie</code>, <code>date_mise_a_jour</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -6375,8 +6402,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="exercice-6---tester-une-page-irrégulière" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6---tester-une-page-irrégulière">Exercice 6 - Tester une page irrégulière</h2>
+<section id="exercice-6---tester-une-page-irrégulière" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-6---tester-une-page-irrégulière">Exercice 6 - Tester une page irrégulière</h3>
 <p>Utilisez la même fonction sur <code>catalogue_irregulier_fictif.html</code>. Quelles valeurs manquent?</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -6420,8 +6447,8 @@ margin-bottom: .05rem;
 </div>
 </div>
 </section>
-<section id="exercice-7---automatiser-sur-plusieurs-pages" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7---automatiser-sur-plusieurs-pages">Exercice 7 - Automatiser sur plusieurs pages</h2>
+<section id="exercice-7---automatiser-sur-plusieurs-pages" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-7---automatiser-sur-plusieurs-pages">Exercice 7 - Automatiser sur plusieurs pages</h3>
 <p>Utilisez <code>purrr::imap_dfr()</code> pour appliquer <code>extraire_catalogue()</code> aux deux pages de catalogue et ajouter une colonne <code>source</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -6470,10 +6497,10 @@ margin-bottom: .05rem;
 </div>
 </section>
 </section>
-<section id="bloc-c---sobriété-et-éthique-de-collecte" class="level1">
-<h1>Bloc C - Sobriété et éthique de collecte</h1>
-<section id="exercice-8---interpréter-un-robots.txt" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8---interpréter-un-robots.txt">Exercice 8 - Interpréter un <code>robots.txt</code></h2>
+<section id="bloc-c---sobriété-et-éthique-de-collecte" class="level2">
+<h2 class="anchored" data-anchor-id="bloc-c---sobriété-et-éthique-de-collecte">Bloc C - Sobriété et éthique de collecte</h2>
+<section id="exercice-8---interpréter-un-robots.txt" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-8---interpréter-un-robots.txt">Exercice 8 - Interpréter un <code>robots.txt</code></h3>
 <p>Voici un exemple fictif de fichier <code>robots.txt</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>robots_exemple <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
@@ -6520,11 +6547,11 @@ Crawl-delay: 1</code></pre>
 </div>
 </section>
 </section>
-<section id="étude-de-cas-1---catalogue-municipal-fictif" class="level1">
-<h1>Étude de cas 1 - Catalogue municipal fictif</h1>
+<section id="étude-de-cas-1---catalogue-municipal-fictif" class="level2">
+<h2 class="anchored" data-anchor-id="étude-de-cas-1---catalogue-municipal-fictif">Étude de cas 1 - Catalogue municipal fictif</h2>
 <p>Une municipalité fictive vous demande de produire un court résumé des jeux de données visibles dans son mini-catalogue.</p>
-<section id="exercice-9---résumer-les-catégories" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9---résumer-les-catégories">Exercice 9 - Résumer les catégories</h2>
+<section id="exercice-9---résumer-les-catégories" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-9---résumer-les-catégories">Exercice 9 - Résumer les catégories</h3>
 <p>À partir des deux pages de catalogue combinées, calculez le nombre de jeux de données par catégorie.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -6560,8 +6587,8 @@ Crawl-delay: 1</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-10---produire-une-note-de-collecte" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-10---produire-une-note-de-collecte">Exercice 10 - Produire une note de collecte</h2>
+<section id="exercice-10---produire-une-note-de-collecte" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-10---produire-une-note-de-collecte">Exercice 10 - Produire une note de collecte</h3>
 <p>Écrivez trois phrases qui expliquent ce que votre code collecte, comment il limite les risques et ce qu’il faudrait vérifier avant de l’appliquer à un vrai site.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -6581,11 +6608,11 @@ Crawl-delay: 1</code></pre>
 </div>
 </section>
 </section>
-<section id="étude-de-cas-2---page-dévénements-publics" class="level1">
-<h1>Étude de cas 2 - Page d’événements publics</h1>
+<section id="étude-de-cas-2---page-dévénements-publics" class="level2">
+<h2 class="anchored" data-anchor-id="étude-de-cas-2---page-dévénements-publics">Étude de cas 2 - Page d’événements publics</h2>
 <p>Une association fictive publie une petite page d’événements. Vous voulez extraire les titres, les dates, les lieux et les thèmes pour produire un calendrier.</p>
-<section id="exercice-11---extraire-les-événements" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-11---extraire-les-événements">Exercice 11 - Extraire les événements</h2>
+<section id="exercice-11---extraire-les-événements" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-11---extraire-les-événements">Exercice 11 - Extraire les événements</h3>
 <p>Créez une fonction <code>extraire_evenements(fichier)</code> qui retourne un tibble avec les colonnes <code>titre</code>, <code>date</code>, <code>lieu</code>, <code>theme</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -6631,8 +6658,8 @@ Crawl-delay: 1</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-12---vérifier-le-résultat" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-12---vérifier-le-résultat">Exercice 12 - Vérifier le résultat</h2>
+<section id="exercice-12---vérifier-le-résultat" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-12---vérifier-le-résultat">Exercice 12 - Vérifier le résultat</h3>
 <p>Produisez un résumé du nombre d’événements par thème et formulez une vérification simple qui pourrait servir de test.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">

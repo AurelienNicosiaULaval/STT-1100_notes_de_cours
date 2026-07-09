@@ -4274,6 +4274,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5832,7 +5858,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6102,8 +6129,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="présentation-du-défi" class="level1">
-<h1>Présentation du défi</h1>
+<section id="présentation-du-défi" class="level2">
+<h2 class="anchored" data-anchor-id="présentation-du-défi">Présentation du défi</h2>
 <p>Dans ce défi, vous devez produire un dépôt GitHub lisible contenant deux livrables :</p>
 <ul>
 <li><p>votre journal de bord de l’aventure 2 ;</p></li>
@@ -6111,15 +6138,16 @@ margin-bottom: .05rem;
 </ul>
 <p>Le défi reprend la mission de la Dre Adélie Fortier. Elle souhaite comprendre comment les caractéristiques physiques des manchots varient selon les espèces afin de préparer une demande de subvention.</p>
 <p>Vous devez travailler dans le même dépôt GitHub que celui utilisé pour l’aventure 2. Il n’y a pas de nouveau dépôt à créer.</p>
+<p>N’ajoutez pas de données personnelles, de mots de passe, de jetons ou de fichiers non demandés au dépôt. Respectez la visibilité et le mode de remise indiqués par l’enseignant·e; le dépôt sert à documenter le travail, pas à publier des informations personnelles.</p>
 </section>
-<section id="données-à-utiliser" class="level1">
-<h1>Données à utiliser</h1>
+<section id="données-à-utiliser" class="level2">
+<h2 class="anchored" data-anchor-id="données-à-utiliser">Données à utiliser</h2>
 <p>Dans votre dépôt GitHub, utilisez le fichier suivant :</p>
 <pre class="text"><code>data/manchots_donnees.xlsx</code></pre>
 <p>Votre rapport doit importer les données à partir de ce fichier. Le rapport doit donc pouvoir être rendu après un redémarrage de R, sans dépendre d’objets déjà présents dans votre environnement.</p>
 </section>
-<section id="livrables-attendus" class="level1">
-<h1>Livrables attendus</h1>
+<section id="livrables-attendus" class="level2">
+<h2 class="anchored" data-anchor-id="livrables-attendus">Livrables attendus</h2>
 <p>Votre dépôt GitHub doit contenir les fichiers suivants :</p>
 <ul>
 <li><p><code>journal de bord.qmd</code> ;</p></li>
@@ -6130,15 +6158,15 @@ margin-bottom: .05rem;
 <p>Le fichier <code>rapport_analyse.qmd</code> doit être un nouveau rapport Quarto. Il doit contenir un titre, votre nom, une courte introduction, une section d’analyse et une conclusion.</p>
 <p>Votre historique GitHub doit aussi montrer plusieurs commits utiles. Par exemple, vous pouvez faire un commit après l’importation des données, un autre après le traitement des anomalies, un autre après les graphiques, puis un dernier après la relecture.</p>
 </section>
-<section id="travail-demandé" class="level1">
-<h1>Travail demandé</h1>
-<section id="étape-1---importer-et-inspecter-les-données" class="level2">
-<h2 class="anchored" data-anchor-id="étape-1---importer-et-inspecter-les-données">Étape 1 - Importer et inspecter les données</h2>
+<section id="travail-demandé" class="level2">
+<h2 class="anchored" data-anchor-id="travail-demandé">Travail demandé</h2>
+<section id="étape-1---importer-et-inspecter-les-données" class="level3">
+<h3 class="anchored" data-anchor-id="étape-1---importer-et-inspecter-les-données">Étape 1 - Importer et inspecter les données</h3>
 <p>Importez le fichier <code>data/manchots_donnees.xlsx</code> avec <code>read_excel()</code>.</p>
 <p>Dans votre rapport, montrez que vous comprenez la structure des données. Par exemple, vous pouvez afficher les premières lignes, utiliser <code>glimpse()</code> ou présenter un court résumé des variables importantes.</p>
 </section>
-<section id="étape-2---repérer-les-valeurs-problématiques" class="level2">
-<h2 class="anchored" data-anchor-id="étape-2---repérer-les-valeurs-problématiques">Étape 2 - Repérer les valeurs problématiques</h2>
+<section id="étape-2---repérer-les-valeurs-problématiques" class="level3">
+<h3 class="anchored" data-anchor-id="étape-2---repérer-les-valeurs-problématiques">Étape 2 - Repérer les valeurs problématiques</h3>
 <p>Reprenez les valeurs aberrantes repérées dans l’aventure 2.</p>
 <p>Dans votre rapport :</p>
 <ul>
@@ -6148,8 +6176,8 @@ margin-bottom: .05rem;
 </ul>
 <p>Ne modifiez pas directement le fichier Excel. Faites le traitement dans votre code R afin que votre démarche soit reproductible.</p>
 </section>
-<section id="étape-3---comparer-les-espèces" class="level2">
-<h2 class="anchored" data-anchor-id="étape-3---comparer-les-espèces">Étape 3 - Comparer les espèces</h2>
+<section id="étape-3---comparer-les-espèces" class="level3">
+<h3 class="anchored" data-anchor-id="étape-3---comparer-les-espèces">Étape 3 - Comparer les espèces</h3>
 <p>Répondez à la question suivante :</p>
 <blockquote class="blockquote">
 <p>Existe-t-il des différences notables entre les espèces de manchots ?</p>
@@ -6163,15 +6191,15 @@ margin-bottom: .05rem;
 </ul>
 <p>Présentez les résultats sous forme de tableau clair.</p>
 </section>
-<section id="étape-4---créer-un-indicateur-de-grandeur" class="level2">
-<h2 class="anchored" data-anchor-id="étape-4---créer-un-indicateur-de-grandeur">Étape 4 - Créer un indicateur de grandeur</h2>
+<section id="étape-4---créer-un-indicateur-de-grandeur" class="level3">
+<h3 class="anchored" data-anchor-id="étape-4---créer-un-indicateur-de-grandeur">Étape 4 - Créer un indicateur de grandeur</h3>
 <p>Créez une variable nommée <code>indice_grandeur</code>, définie comme :</p>
 <pre class="text"><code>indice_grandeur = flipper_length_mm + bill_length_mm</code></pre>
 <p>Affichez quelques lignes du tableau pour vérifier que la variable a été créée correctement.</p>
 <p>Si vous retirez des observations aberrantes, faites-le avant de calculer <code>indice_grandeur</code>.</p>
 </section>
-<section id="étape-5---produire-deux-graphiques" class="level2">
-<h2 class="anchored" data-anchor-id="étape-5---produire-deux-graphiques">Étape 5 - Produire deux graphiques</h2>
+<section id="étape-5---produire-deux-graphiques" class="level3">
+<h3 class="anchored" data-anchor-id="étape-5---produire-deux-graphiques">Étape 5 - Produire deux graphiques</h3>
 <p>Votre rapport doit contenir deux graphiques :</p>
 <ol type="1">
 <li><p>un histogramme de <code>bill_length_mm</code> par espèce ;</p></li>
@@ -6186,8 +6214,8 @@ margin-bottom: .05rem;
 <li><p>des unités lorsque c’est pertinent.</p></li>
 </ul>
 </section>
-<section id="étape-6---conclure" class="level2">
-<h2 class="anchored" data-anchor-id="étape-6---conclure">Étape 6 - Conclure</h2>
+<section id="étape-6---conclure" class="level3">
+<h3 class="anchored" data-anchor-id="étape-6---conclure">Étape 6 - Conclure</h3>
 <p>Dans la conclusion, répondez en quelques phrases aux questions suivantes :</p>
 <ul>
 <li><p>Quelles différences observez-vous entre les espèces ?</p></li>
@@ -6196,8 +6224,8 @@ margin-bottom: .05rem;
 </ul>
 </section>
 </section>
-<section id="liste-de-vérification" class="level1">
-<h1>Liste de vérification</h1>
+<section id="liste-de-vérification" class="level2">
+<h2 class="anchored" data-anchor-id="liste-de-vérification">Liste de vérification</h2>
 <p>Avant de remettre votre défi, vérifiez que :</p>
 <ul>
 <li><p>le rapport <code>rapport_analyse.qmd</code> se rend sans erreur ;</p></li>
@@ -6212,8 +6240,8 @@ margin-bottom: .05rem;
 <li><p>les changements ont été poussés sur GitHub.</p></li>
 </ul>
 </section>
-<section id="grille-dévaluation" class="level1">
-<h1>Grille d’évaluation</h1>
+<section id="grille-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="grille-dévaluation">Grille d’évaluation</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">

@@ -2,13 +2,13 @@
 
 STT-1100 Introduction à la science des données
 
-# Présentation du défi
+## Présentation du défi
 
 Dans ce défi, vous devenez journaliste de données pour *Le Courrier Gourmand*. Votre objectif est de produire un court article Quarto sur les infractions alimentaires à partir du jeu `listecondamnation` du package `UlavalSSD`.
 
 Votre article doit être compréhensible par une personne qui ne connaît pas R. Le code sert à soutenir l’article, mais le texte doit raconter clairement ce que vous avez trouvé.
 
-# Données à utiliser
+## Données à utiliser
 
 Utilisez le jeu de données suivant :
 
@@ -20,7 +20,7 @@ Votre rapport doit charger explicitement les packages nécessaires, notamment `t
 
 Le rapport doit pouvoir être rendu après un redémarrage de R, sans dépendre d’objets déjà présents dans votre environnement.
 
-# Livrables attendus
+## Livrables attendus
 
 Votre dépôt GitHub doit contenir les fichiers suivants :
 
@@ -32,7 +32,7 @@ Vous pouvez renommer le titre de l’article dans l’en-tête Quarto, mais gard
 
 Votre historique GitHub doit montrer plusieurs commits utiles. Par exemple, vous pouvez faire un commit après l’importation des données, un autre après le nettoyage, un autre après les graphiques, puis un dernier après la relecture.
 
-# Structure attendue de l’article
+## Structure attendue de l’article
 
 Votre article doit contenir les sections suivantes :
 
@@ -48,9 +48,9 @@ Votre article doit contenir les sections suivantes :
 
 - une conclusion avec recommandations.
 
-# Travail demandé
+## Travail demandé
 
-## Étape 1 - Importer et inspecter les données
+### Étape 1 - Importer et inspecter les données
 
 Chargez le package `UlavalSSD`, inspectez `listecondamnation`, puis décrivez brièvement :
 
@@ -62,7 +62,7 @@ Chargez le package `UlavalSSD`, inspectez `listecondamnation`, puis décrivez br
 
 - les limites du jeu de données que vous jugez importantes.
 
-## Étape 2 - Nettoyer les variables utiles
+### Étape 2 - Nettoyer les variables utiles
 
 Créez un tableau propre qui contient au minimum :
 
@@ -78,7 +78,7 @@ Créez un tableau propre qui contient au minimum :
 
 Ne modifiez pas le jeu de données original. Faites le nettoyage dans votre code R afin que votre démarche soit reproductible.
 
-## Étape 3 - Extraire des faits marquants
+### Étape 3 - Extraire des faits marquants
 
 Votre article doit inclure au moins deux chiffres narratifs. Par exemple :
 
@@ -94,7 +94,7 @@ Votre article doit inclure au moins deux chiffres narratifs. Par exemple :
 
 Chaque chiffre doit être accompagné d’une interprétation en texte.
 
-## Étape 4 - Produire au moins deux visuels
+### Étape 4 - Produire au moins deux visuels
 
 Votre article doit contenir au moins deux visualisations :
 
@@ -114,7 +114,7 @@ Chaque graphique doit avoir :
 
 - des unités lorsque c’est pertinent.
 
-## Étape 5 - Rédiger l’article
+### Étape 5 - Rédiger l’article
 
 Votre article doit répondre à une question journalistique claire. Par exemple :
 
@@ -122,7 +122,7 @@ Votre article doit répondre à une question journalistique claire. Par exemple 
 
 Dans la conclusion, ajoutez une courte citation synthétique d’Alexandre. Cette citation doit résumer une implication de vos résultats. Elle peut être fictive, mais elle doit être cohérente avec vos analyses.
 
-# Liste de vérification
+## Liste de vérification
 
 Avant de remettre votre défi, vérifiez que :
 
@@ -150,7 +150,7 @@ Avant de remettre votre défi, vérifiez que :
 
 - les changements ont été poussés sur GitHub.
 
-# Grille d’évaluation
+## Grille d’évaluation
 
 | Critère | Excellent | Satisfaisant | À améliorer |
 |----|----|----|----|

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de:
 
@@ -16,9 +16,9 @@ STT-1100 Introduction à la science des données
 - extraire une ligne ou une colonne, ajouter une colonne et filtrer des données;
 - rédiger un rapport simple dans Quarto avec du texte, du code et des sections.
 
-# Lectures initiales
+## Lectures initiales
 
-## Livre de référence
+### Livre de référence
 
 Dans ce cours, nous nous appuierons régulièrement sur l’ouvrage R for Data Science, 2e édition, par Hadley Wickham, Mine Çetinkaya-Rundel et Garrett Grolemund.
 
@@ -26,7 +26,7 @@ On abrègera souvent ce livre par R4DS. Il est accessible gratuitement en ligne 
 
 En cas de blocage, consultez aussi le document [Comment rechercher et obtenir de l’aide](../references.llms.md).
 
-## Lectures essentielles
+### Lectures essentielles
 
 - [Page d’accueil de R4DS](https://r4ds.hadley.nz/) Vue d’ensemble du livre, de ses auteurs et de la progression générale.
 
@@ -36,13 +36,13 @@ En cas de blocage, consultez aussi le document [Comment rechercher et obtenir de
 
 - [Workflow: scripts and projects](https://r4ds.hadley.nz/workflow-scripts.html) Pourquoi garder le code dans des fichiers pour rendre le travail reproductible.
 
-## Lectures pour réussir l’aventure et le défi
+### Lectures pour réussir l’aventure et le défi
 
 - [Hello, Quarto](https://quarto.org/docs/get-started/hello/rstudio.html) Créer un premier document Quarto, insérer du code et produire une sortie HTML.
 
 - [Data transformation](https://r4ds.hadley.nz/data-transform.html) Introduction à `dplyr`, avec les verbes utiles pour filtrer, choisir des colonnes et créer des variables.
 
-## Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [RStudio IDE :: Cheatsheet](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf) Repères rapides pour l’environnement RStudio.
 
@@ -50,25 +50,25 @@ En cas de blocage, consultez aussi le document [Comment rechercher et obtenir de
 
 - [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-transformation.pdf) Verbes `dplyr` utilisés dans les premières manipulations de tableaux.
 
-## Mini-test de lecture
+### Mini-test de lecture
 
 Après les lectures essentielles, complétez le [mini-test formatif du module 1](../module_01/mini_test.llms.md). Il n’est pas noté, mais il vérifie les points qui reviennent dans l’aventure et dans le défi.
 
-# Aventure
+## Aventure
 
 Ce module vous place dans le rôle d’un ou d’une analyste en démarrage. Vous préparez les bases d’un premier rapport reproductible avec R, RStudio et Quarto, à partir des données `UlavalSSD::MeteoQuebec`.
 
 [Aventure du module 1](../module_01/aventure.llms.md)
 
-# Défi
+## Défi
 
 Dans ce premier défi, vous devez créer un rapport Quarto au format HTML. Le rapport répond à une question simple à partir de `MeteoQuebec`: comparer la température moyenne observée à une date choisie sur plusieurs années.
 
 [Défi du module 1](../module_01/defi.llms.md)
 
-# Lectures additionnelles
+## Lectures additionnelles
 
-## Approfondir les bonnes pratiques
+### Approfondir les bonnes pratiques
 
 - [Workflow: help](https://r4ds.hadley.nz/workflow-help.html) Chercher efficacement dans la documentation et formuler une demande d’aide utile.
 
@@ -76,13 +76,13 @@ Dans ce premier défi, vous devez créer un rapport Quarto au format HTML. Le ra
 
 - [Workflow: style](https://r4ds.hadley.nz/workflow-style.html) Pourquoi un style de code cohérent facilite la lecture, la collaboration et la correction.
 
-## Guide de style du tidyverse
+### Guide de style du tidyverse
 
 - [Files](https://style.tidyverse.org/files.html) Organiser les fichiers, nommer les scripts et structurer un projet.
 
 - [Syntax](https://style.tidyverse.org/syntax.html) Écrire du code lisible avec une syntaxe claire et régulière.
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Les exercices sont regroupés dans une page autonome. Ils servent à consolider les gestes techniques du module et ne sont pas une étape du défi.
 

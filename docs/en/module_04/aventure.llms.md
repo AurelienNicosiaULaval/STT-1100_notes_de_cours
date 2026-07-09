@@ -2,7 +2,7 @@
 
 STT-1100 Introduction to Data Science
 
-# Scenario
+## Scenario
 
 You have just started an internship as a **junior data engineer** at a large **insurance company**. You work with Alex, an experienced business analyst, who has entrusted you with an important mission.
 
@@ -24,14 +24,14 @@ Data `dataset_pratique.csv`
 
 Deliverable `donnees_propres.csv`, `journal_nettoyage.Rdata` and Quarto report
 
-# Adventure objectives
+## Adventure objectives
 
 - Import a raw dataset (`dataset_pratique.csv`).
 - Identify different types of common errors.
 - Clean and transform data with `dplyr`, `forcats` and `stringr`.
 - Clearly document **all modifications made** to the dataset.
 
-# How to succeed in this adventure?
+## How to succeed in this adventure?
 
 At the end of this adventure, you will:
 
@@ -41,7 +41,7 @@ At the end of this adventure, you will:
 
 > Remember to **document each step of your cleaning**. Your rigor is your best ally!
 
-# Typology of errors and structure of the list
+## Typology of errors and structure of the list
 
 Here is a reference table for the types of errors you may encounter:
 
@@ -180,7 +180,7 @@ Each category (`VM`, `DF`, etc.) contains a **list of fixes**, where each fix is
 
 > This structure will help you **report your changes** in a clean and professional manner.
 
-# GitHub and rendering
+## GitHub and rendering
 
 As for previous adventures:
 
@@ -193,7 +193,7 @@ As for previous adventures:
 
 Good luck, and may your data be clean!
 
-# Data import
+## Data import
 
 Before cleaning a dataset, you need to know how to import it correctly. For this mission, Alex has sent you the `dataset_pratique.csv` file. This file is separated by semicolons. He recommends that you:
 
@@ -232,9 +232,9 @@ glimpse(base)
 
 ------------------------------------------------------------------------
 
-# Initial exploration of potential issues
+## Initial exploration of potential issues
 
-## Format of variables
+### Format of variables
 
 Now that you have imported the dataset, it is time to do a first exploration to identify potential errors. Here are some key steps to follow:
 
@@ -284,7 +284,7 @@ Remember to always check the result of the transformation with [`glimpse()`](htt
 
 > In short, check each type carefully. Ask yourself: is this variable text? Am I going to calculate on it? Are these categories?”
 
-## Checking for duplicates
+### Checking for duplicates
 
 One of the first reflexes to have in any cleaning operation: **check for duplicates**. It could be:
 
@@ -333,7 +333,7 @@ journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
 ))
 ```
 
-# Cleaning factors with `forcats`
+## Cleaning factors with `forcats`
 
 We continue the exploration with a type of variable that is often neglected… but which can derail an entire analysis: **factors**.
 
@@ -353,7 +353,7 @@ Of course, your variable must be of type `factor` for this function to work. If 
 The problem?
 When looking at the levels of a factor, we often notice **disguised duplicates** (`"car"` vs `"CAR"`), **aberrant levels** (`"ANIMAL"`) or **very rare categories** that may not deserve their own level.
 
-## Some useful tools (with `forcats`)
+### Some useful tools (with `forcats`)
 
 To clean this up, here are some key functions of the `forcats` package:
 
@@ -363,7 +363,7 @@ To clean this up, here are some key functions of the `forcats` package:
 - [`fct_lump()`](https://forcats.tidyverse.org/reference/fct_lump.html): to group rare levels into “Other”
 - [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html) or [`fct_infreq()`](https://forcats.tidyverse.org/reference/fct_inorder.html): to reorder the levels
 
-## Suggested steps
+### Suggested steps
 
 Take the time to:
 
@@ -376,7 +376,7 @@ Take the time to:
 
 > **Alex**: “Be careful of these strange values. If a value makes no sense in context (e.g. `"ANIMAL"` in a column about vehicle types), don’t guess. Set it to `NA`. We prefer missing data to bad information.”
 
-## Example to adapt
+### Example to adapt
 
 ``` downlit
 # Harmonize lowercase/uppercase
@@ -413,11 +413,11 @@ journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
 
 *These are just examples. It’s up to you to explore the dataset and choose what is consistent.*
 
-# Cleaning recipe — Deep dive
+## Cleaning recipe — Deep dive
 
 Well done! You’ve already fixed the variable types and cleaned up the most visible factors. Now, we push the cleaning further, by crossing **statistics**, **logical relationships** and **aberrant behaviors**. Here is your **advanced cleaning recipe**.
 
-## Step 1 – Descriptive statistics on numerical variables
+### Step 1 – Descriptive statistics on numerical variables
 
 Just as we checked the factor levels, we must check if certain **numerical values are aberrant**.
 
@@ -437,7 +437,7 @@ Ask yourself: is a commuting distance of 150 km plausible or simply rare? Are so
 
 If you intervene, don’t forget to **justify in `journal_nettoyage`**, using the code `VA` (outliers) or `VM` (missing values).
 
-## Step 2 – Inconsistent combinations of two factors
+### Step 2 – Inconsistent combinations of two factors
 
 **Logical relationships** can exist between two categorical variables. For example, quarter (`quarter`) and season (`season`) should be consistent.
 
@@ -458,7 +458,7 @@ ggplot(base, aes(x = quarter, fill = season)) +
 
 If you correct, use the code `CI` (inter-variable inconsistencies).
 
-## Step 3 – Grouped Statistics: Factor + Numeric
+### Step 3 – Grouped Statistics: Factor + Numeric
 
 Another check: are some **numeric values inconsistent for certain groups**?
 
@@ -480,7 +480,7 @@ ggplot(base, aes(x = age, fill = generation)) +
 
 If there is recoding or grouping to be done, use the code `RC`.
 
-## Step 4 – Logical links between two numeric variables
+### Step 4 – Logical links between two numeric variables
 
 Here, we verify that the numerical relationships **make sense**.
 
@@ -498,7 +498,7 @@ ggplot(base, aes(x = age, y = years_licensed)) +
 
 Use the code `LG` here for a **logical error**.
 
-## Step 5 – Advanced checks (optional but professional!)
+### Step 5 – Advanced checks (optional but professional!)
 
 Here are a few other things to keep an eye out for:
 
@@ -521,7 +521,7 @@ Document what makes your cleaning defensible and reproducible.
 - two examples of corrections and one example of a flagged issue without automatic correction;
 - a short explanation of how to reproduce the cleaning.
 
-# Mission accomplished!
+## Mission accomplished!
 
 Well done for making it to the end of this adventure!
 You have now acquired a solid methodology for cleaning data in a rigorous and professional manner. You have:

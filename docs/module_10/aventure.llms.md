@@ -2,7 +2,7 @@
 
 STT-1100 • Introduction à la science des données
 
-# Mise en contexte
+## Mise en contexte
 
 Cette semaine, vous avez été **engagé·e comme analyste d’affaires junior** par la **Faculté des sciences et de génie de l’Université Laval**. Dans le cadre de la réforme du baccalauréat en statistique et science des données, la direction souhaite évaluer **l’évolution du ressenti étudiant tout au long de la session**.
 
@@ -26,7 +26,7 @@ Données `data/sentiments_cours.csv` ou fichier exemple non réel
 
 Livrable Tableau de bord local reproductible, ou partagé selon les consignes du cours
 
-# Mission
+## Mission
 
 Construire un tableau de bord interactif (avec `flexdashboard` et `shiny`) qui permet de :
 
@@ -42,7 +42,7 @@ Construire un tableau de bord interactif (avec `flexdashboard` et `shiny`) qui p
 > - Vous combinez analyse textuelle, variables numériques et tableau de bord interactif.
 > - Vous protégez la confidentialité des rétroactions avant toute publication ou partage.
 
-# Données
+## Données
 
 Le fichier de travail principal s’appelle `data/sentiments_cours.csv`. Il est construit progressivement pendant la session à partir des rétroactions anonymisées des étudiant·es.
 
@@ -59,16 +59,16 @@ Le format attendu du fichier final est :
 
 Si une variable n’est pas collectée exactement sous cette forme, documentez clairement le recodage utilisé dans votre tableau de bord.
 
-# Outils recommandés
+## Outils recommandés
 
 - `tidytext`, `stringr`, `dplyr` : nettoyage et analyse du texte
 - `ggplot2`, `wordcloud`, `plotly` : visualisation
 - `flexdashboard`, `shiny` : interface interactive
 - un lexique maison en français pour l’analyse de sentiment
 
-# Étapes guidées
+## Étapes guidées
 
-## Étape 1 — Nettoyage de texte
+### Étape 1 — Nettoyage de texte
 
 > **IMPORTANT:**
 >
@@ -84,7 +84,7 @@ Si une variable n’est pas collectée exactement sous cette forme, documentez c
 > - **Stopwords** : mots très fréquents (“le”, “de”, “et”, etc.) qui n’apportent généralement pas d’information sémantique utile pour l’analyse.
 > - **Nettoyage** : mise en minuscules, retrait de la ponctuation, chiffres et caractères spéciaux pour normaliser les tokens.
 
-### Exemple de jeu de données simulé
+#### Exemple de jeu de données simulé
 
 Cet exemple sert seulement à comprendre les étapes. Le tableau de bord final devra être branché au fichier `data/sentiments_cours.csv` lorsque les rétroactions anonymisées seront disponibles.
 
@@ -105,7 +105,7 @@ exemple <- tibble::tibble(
 )
 ```
 
-### Prétraitement du texte
+#### Prétraitement du texte
 
 ``` downlit
 library(tidytext)
@@ -148,7 +148,7 @@ Anne-Sophie vous demande d’appliquer un nettoyage classique :
 
 - **tokeniser** le texte (découper en mots).
 
-## Étape 2 — Analyse de sentiment
+### Étape 2 — Analyse de sentiment
 
 On s’intéresse ici à la **valence émotionnelle** des mots dans les commentaires. L’analyse de sentiment permet de quantifier si un texte est plutôt positif ou négatif.
 
@@ -157,7 +157,7 @@ On s’intéresse ici à la **valence émotionnelle** des mots dans les commenta
 > - **Sentiment d’un mot** : étiquette (positive, négative) ou score numérique indiquant la valence émotionnelle du mot.
 > - **Score de sentiment d’un texte** : somme ou différence des scores/étiquettes des mots qu’il contient, souvent agrégé par document ou, ici, par semaine.
 
-### Analyse de sentiment en français
+#### Analyse de sentiment en français
 
 Actuellement, il **n’existe pas de lexique intégré à [`tidytext::get_sentiments()`](https://juliasilge.github.io/tidytext/reference/get_sentiments.html) pour le français** (contrairement à l’anglais, où les lexiques `bing`, `afinn`, et `nrc` sont directement accessibles). Voici donc une approche pédagogique : créer un petit lexique personnalisé à enrichir en classe.
 
@@ -188,7 +188,7 @@ sentiment_fr
     2       2        0        3    -3
     3       3        2        0     2
 
-### Visualisation des scores par semaine
+#### Visualisation des scores par semaine
 
 Faisons un graphique pour visualiser l’évolution du score de sentiment par semaine :
 
@@ -205,13 +205,13 @@ ggplot(sentiment_fr, aes(x = semaine, y = score)) +
 >
 > « Comme les lexiques intégrés à [`get_sentiments()`](https://juliasilge.github.io/tidytext/reference/get_sentiments.html) ne sont disponibles qu’en anglais, je vous propose de construire un petit lexique maison pour le français. Ce sera imparfait, mais cela vous permettra de comprendre le principe. On pourra ensuite en discuter ensemble pour l’enrichir. Ce qui m’intéresse, c’est que vous soyez capables d’interpréter l’évolution du sentiment d’une semaine à l’autre, même avec des outils simples. »
 
-### Collaboration finale
+#### Collaboration finale
 
 À la fin du cours, une activité en classe permettra à chaque étudiant·e ou équipe de **partager son propre lexique de sentiments en français** construit durant l’analyse.
 
 **L’enseignant collectera et fusionnera ces lexiques**, en les vérifiant pour produire une version enrichie commune. Cette nouvelle version sera partagée avec toute la classe comme ressource collective pour les projets futurs.
 
-## Étape 3 — Mots distinctifs
+### Étape 3 — Mots distinctifs
 
 Dans cette étape, nous allons identifier les mots qui ressortent le plus chaque semaine. Pour cela, nous utiliserons l’approche **TF-IDF** (Term Frequency-Inverse Document Frequency), qui permet de mettre en évidence les mots à la fois fréquents dans un document et rares dans l’ensemble des documents.
 
@@ -225,7 +225,7 @@ Dans cette étape, nous allons identifier les mots qui ressortent le plus chaque
 > - **IDF (Inverse Document Frequency)** : importance inverse d’un mot dans l’ensemble des documents – les mots rares ont un IDF élevé.
 > - **TF‑IDF** : produit TF × IDF qui met en évidence les mots à la fois fréquents dans un document et rares dans les autres (mots “distinctifs”).
 
-### Calcul TF-IDF
+#### Calcul TF-IDF
 
 Calculons le TF-IDF pour chaque mot par semaine :
 
@@ -248,7 +248,7 @@ head(tfidf)
     5       3 outils           1 0.125  1.10  0.137
     6       3 pratique         1 0.125  1.10  0.137
 
-### Visualisation pour une semaine donnée
+#### Visualisation pour une semaine donnée
 
 Faisons un graphique pour visualiser les mots les plus distinctifs pour une semaine spécifique. Par exemple, la semaine 2 :
 
@@ -280,7 +280,7 @@ Pour créer un nuage de mots en français :
 >
 > « Peux-tu repérer les mots qui ressortent le plus chaque semaine ? Tu pourrais essayer une approche TF-IDF et me faire un graphique ou même un nuage de mots. »
 
-## Étape 4 — Création du dashboard
+### Étape 4 — Création du dashboard
 
 Maintenant que nous avons nettoyé les données et effectué les analyses de sentiment et de mots distinctifs, il est temps de créer un tableau de bord interactif. Celui-ci permettra à Anne-Sophie de visualiser les résultats de manière claire et dynamique.
 
@@ -288,7 +288,7 @@ Maintenant que nous avons nettoyé les données et effectué les analyses de sen
 >
 > Le tableau de bord final doit être **clair, interactif et utile**. Un **modèle prêt à l’emploi (`modele_dashboard.Rmd`)** se trouve dans le dépôt GitHub du module. Personnalisez-le : branchez les rétroactions anonymisées, ajustez les filtres, et ajoutez au moins deux visualisations.
 
-## Étape 5 — Recommandations et analyse finale
+### Étape 5 — Recommandations et analyse finale
 
 À la fin du tableau de bord, rédigez un résumé de vos **observations clés** :
 
@@ -301,7 +301,7 @@ Maintenant que nous avons nettoyé les données et effectué les analyses de sen
 >
 > « N’oubliez pas d’explorer les scores numériques. Comment le sentiment textuel se compare‑t‑il au niveau de plaisir ou de difficulté perçue ? Présentez au moins une visualisation qui croise ces informations. »
 
-# Bonus — Personnalisation
+## Bonus — Personnalisation
 
 Voici quelques idées pour aller plus loin dans la personnalisation de votre tableau de bord :
 
@@ -312,7 +312,7 @@ Voici quelques idées pour aller plus loin dans la personnalisation de votre tab
 
 Vous pouvez également intégrer une barre de progression ou un indicateur visuel du sentiment général par semaine.
 
-# Livraison attendue
+## Livraison attendue
 
 - Un dépôt GitHub contenant :
   - le `.Rmd` du tableau de bord,
@@ -330,6 +330,6 @@ Conservez seulement des traces anonymisées et utiles pour expliquer le tableau 
 - une capture, un rendu ou un lien local vers le tableau de bord;
 - une phrase de confidentialité indiquant ce qui ne doit pas être publié.
 
-# Conseils d’Anne-Sophie
+## Conseils d’Anne-Sophie
 
 > « Un bon tableau de bord, c’est comme un bon pitch : **clair, lisible et ciblé**. Mettez-vous à la place de votre utilisateur final. »

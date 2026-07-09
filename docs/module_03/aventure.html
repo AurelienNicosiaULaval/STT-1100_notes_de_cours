@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6106,14 +6133,7 @@ margin-bottom: .05rem;
   <li><a href="#variables-catégoriques-les-bases-en-r-avec-stringr" id="toc-variables-catégoriques-les-bases-en-r-avec-stringr" class="nav-link" data-scroll-target="#variables-catégoriques-les-bases-en-r-avec-stringr">Variables catégoriques : les bases en R avec <code>stringr</code></a>
   <ul class="collapse">
   <li><a href="#explications" id="toc-explications" class="nav-link" data-scroll-target="#explications">Explications</a></li>
-  <li><a href="#démonstration" id="toc-démonstration" class="nav-link" data-scroll-target="#démonstration">Démonstration</a>
-  <ul class="collapse">
-  <li><a href="#détection-de-motifs-str_detect" id="toc-détection-de-motifs-str_detect" class="nav-link" data-scroll-target="#détection-de-motifs-str_detect">Détection de motifs (<code>str_detect()</code>)</a></li>
-  <li><a href="#remplacement-str_replace-et-str_replace_all" id="toc-remplacement-str_replace-et-str_replace_all" class="nav-link" data-scroll-target="#remplacement-str_replace-et-str_replace_all">Remplacement (<code>str_replace()</code> et <code>str_replace_all()</code>)</a></li>
-  <li><a href="#extraction-de-motifs-str_extract" id="toc-extraction-de-motifs-str_extract" class="nav-link" data-scroll-target="#extraction-de-motifs-str_extract">Extraction de motifs (<code>str_extract()</code>)</a></li>
-  <li><a href="#mise-en-forme-str_to_lower-str_to_upper-etc." id="toc-mise-en-forme-str_to_lower-str_to_upper-etc." class="nav-link" data-scroll-target="#mise-en-forme-str_to_lower-str_to_upper-etc.">Mise en forme (<code>str_to_lower()</code>, <code>str_to_upper()</code>, etc.)</a></li>
-  <li><a href="#suppression-despaces-multiples-str_squish" id="toc-suppression-despaces-multiples-str_squish" class="nav-link" data-scroll-target="#suppression-despaces-multiples-str_squish">Suppression d’espaces multiples (<code>str_squish()</code>)</a></li>
-  </ul></li>
+  <li><a href="#démonstration" id="toc-démonstration" class="nav-link" data-scroll-target="#démonstration">Démonstration</a></li>
   </ul></li>
   <li><a href="#statistiques-descriptives-pour-variables-catégoriques" id="toc-statistiques-descriptives-pour-variables-catégoriques" class="nav-link" data-scroll-target="#statistiques-descriptives-pour-variables-catégoriques">Statistiques descriptives pour variables catégoriques</a>
   <ul class="collapse">
@@ -6156,8 +6176,8 @@ margin-bottom: .05rem;
 </header>
 
 
-<section id="mise-en-situation-devenez-journaliste-de-données" class="level1">
-<h1>Mise en situation : devenez journaliste de données</h1>
+<section id="mise-en-situation-devenez-journaliste-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-situation-devenez-journaliste-de-données">Mise en situation : devenez journaliste de données</h2>
 <p>Vous êtes engagés comme <strong>journaliste de données</strong> par <em>Le Courrier Gourmand</em>, un média local fictif qui publie des enquêtes interactives sur l’alimentation à Montréal. Votre rédactrice en chef souhaite un article éclairant le public sur <strong>les infractions alimentaires commises dans les établissements alimentaires montréalais</strong>. Elle vous donne quelques pistes de réflexion :</p>
 <ul>
 <li><p>Quelle est la proportion des constats qui concernent des établissements situés à Montréal ?</p></li>
@@ -6207,8 +6227,8 @@ Carte de visite
 </div>
 </div>
 <!-- adventure-brief:end -->
-<section id="objectifs-de-laventure" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h2>
+<section id="objectifs-de-laventure" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-de-laventure">Objectifs de l’aventure</h3>
 <ul>
 <li>Importer et nettoyer un jeu de données catégorielles réelles (infractions alimentaires).</li>
 <li>Construire des tableaux de fréquence, des statistiques descriptives et des visualisations.</li>
@@ -6222,8 +6242,8 @@ Tout au long de l’analyse, vous devrez garder en tête ces questions et y rép
 <hr>
 </section>
 </section>
-<section id="comment-réussir-laventure" class="level1">
-<h1>Comment réussir l’aventure</h1>
+<section id="comment-réussir-laventure" class="level2">
+<h2 class="anchored" data-anchor-id="comment-réussir-laventure">Comment réussir l’aventure</h2>
 <ol type="1">
 <li><strong>Charger les données</strong> : chargez le package <code>UlavalSSD</code>. Le jeu <code>listecondamnation</code> sera alors disponible dans R.</li>
 <li><strong>Suivre les sections</strong> : Chaque section contient des explications, une démonstration, des expérimentations à réaliser, puis des exercices.</li>
@@ -6231,8 +6251,8 @@ Tout au long de l’analyse, vous devrez garder en tête ces questions et y rép
 </ol>
 <hr>
 </section>
-<section id="travail-sur-github" class="level1">
-<h1>Travail sur GitHub</h1>
+<section id="travail-sur-github" class="level2">
+<h2 class="anchored" data-anchor-id="travail-sur-github">Travail sur GitHub</h2>
 <p>Avant de commencer l’analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.</p>
 <ol type="1">
 <li>Clonez votre dépôt <code>aventure-3-IDENTIFIANT_GITHUB</code>. Pour cela, créez un nouveau projet RStudio et collez le lien de votre dépôt GitHub selon la méthode indiquée dans la feuille aide-mémoire.</li>
@@ -6245,10 +6265,10 @@ Tout au long de l’analyse, vous devrez garder en tête ces questions et y rép
 <p>Attention : les messages de commit doivent être parlants. Par exemple : “Ajout de mon nom dans l’article”.</p>
 <p>Félicitations ! Vous êtes maintenant prêt à débuter l’analyse !</p>
 </section>
-<section id="variables-catégoriques-les-bases-en-r-avec-stringr" class="level1">
-<h1>Variables catégoriques : les bases en R avec <code>stringr</code></h1>
-<section id="explications" class="level2">
-<h2 class="anchored" data-anchor-id="explications">Explications</h2>
+<section id="variables-catégoriques-les-bases-en-r-avec-stringr" class="level2">
+<h2 class="anchored" data-anchor-id="variables-catégoriques-les-bases-en-r-avec-stringr">Variables catégoriques : les bases en R avec <code>stringr</code></h2>
+<section id="explications" class="level3">
+<h3 class="anchored" data-anchor-id="explications">Explications</h3>
 <p>En R, une variable catégorique est souvent représentée par :</p>
 <ul>
 <li><p>Un <strong>facteur</strong> (<code>factor</code>) qui contient un ensemble de niveaux définis.</p></li>
@@ -6258,8 +6278,8 @@ Tout au long de l’analyse, vous devrez garder en tête ces questions et y rép
 <p>Pour le module 3, nous nous concentrerons sur les variables catégoriques de type <strong>character</strong>. Dans le module 4, nous verrons plus en détail les facteurs.</p>
 <p>Voici des exemples montrant comment utiliser <code>stringr</code> pour manipuler des variables de type character dans un jeu de données comme <code>listecondamnation</code>. Les exemples ci-dessous ciblent des cas fréquents : détection de motifs, extraction, remplacement et nettoyage de chaînes.</p>
 </section>
-<section id="démonstration" class="level2">
-<h2 class="anchored" data-anchor-id="démonstration">Démonstration</h2>
+<section id="démonstration" class="level3">
+<h3 class="anchored" data-anchor-id="démonstration">Démonstration</h3>
 <p>On va utiliser le jeu de données <code>listecondamnation</code> de la librairie <code>UlavalSSD</code>, qui contient des constats de condamnation liés à des établissements alimentaires au Québec.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
@@ -6332,8 +6352,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </div>
 </div>
 </div>
-<section id="détection-de-motifs-str_detect" class="level3">
-<h3 class="anchored" data-anchor-id="détection-de-motifs-str_detect">Détection de motifs (<code>str_detect()</code>)</h3>
+<section id="détection-de-motifs-str_detect" class="level4">
+<h4 class="anchored" data-anchor-id="détection-de-motifs-str_detect">Détection de motifs (<code>str_detect()</code>)</h4>
 <p>Pour vérifier si l’adresse mentionne <code>&quot;MONTREAL&quot;</code>, on peut faire :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer une colonne booléenne à partir du texte de l&#39;adresse</span></span>
@@ -6389,8 +6409,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </div>
 </div>
 </section>
-<section id="remplacement-str_replace-et-str_replace_all" class="level3">
-<h3 class="anchored" data-anchor-id="remplacement-str_replace-et-str_replace_all">Remplacement (<code>str_replace()</code> et <code>str_replace_all()</code>)</h3>
+<section id="remplacement-str_replace-et-str_replace_all" class="level4">
+<h4 class="anchored" data-anchor-id="remplacement-str_replace-et-str_replace_all">Remplacement (<code>str_replace()</code> et <code>str_replace_all()</code>)</h4>
 <p>La colonne <code>Amende</code> est une chaîne de caractères. Elle contient des montants comme <code>&quot;5 000 $&quot;</code>, avec des espaces et le symbole <code>$</code>. Pour l’utiliser dans des calculs, il faut créer une variable numérique.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># parse_number() extrait la valeur numérique et ignore le symbole $</span></span>
@@ -6450,8 +6470,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </div>
 </div>
 </section>
-<section id="extraction-de-motifs-str_extract" class="level3">
-<h3 class="anchored" data-anchor-id="extraction-de-motifs-str_extract">Extraction de motifs (<code>str_extract()</code>)</h3>
+<section id="extraction-de-motifs-str_extract" class="level4">
+<h4 class="anchored" data-anchor-id="extraction-de-motifs-str_extract">Extraction de motifs (<code>str_extract()</code>)</h4>
 <p>Pour extraire un élément précis. Par exemple, si <code>Adresse_lieu_infraction</code> contient un code postal de la forme <code>H2X 3E4</code>, on peut tenter :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>condamnations_demo <span class="ot">&lt;-</span> condamnations_demo <span class="sc">%&gt;%</span></span>
@@ -6510,8 +6530,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </div>
 </div>
 </section>
-<section id="mise-en-forme-str_to_lower-str_to_upper-etc." class="level3">
-<h3 class="anchored" data-anchor-id="mise-en-forme-str_to_lower-str_to_upper-etc.">Mise en forme (<code>str_to_lower()</code>, <code>str_to_upper()</code>, etc.)</h3>
+<section id="mise-en-forme-str_to_lower-str_to_upper-etc." class="level4">
+<h4 class="anchored" data-anchor-id="mise-en-forme-str_to_lower-str_to_upper-etc.">Mise en forme (<code>str_to_lower()</code>, <code>str_to_upper()</code>, etc.)</h4>
 <p>Parfois, il est utile d’harmoniser la casse (<code>MONTREAL</code>, <code>Montréal</code>, etc.) :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>condamnations_demo <span class="ot">&lt;-</span> condamnations_demo <span class="sc">%&gt;%</span></span>
@@ -6521,8 +6541,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="suppression-despaces-multiples-str_squish" class="level3">
-<h3 class="anchored" data-anchor-id="suppression-despaces-multiples-str_squish">Suppression d’espaces multiples (<code>str_squish()</code>)</h3>
+<section id="suppression-despaces-multiples-str_squish" class="level4">
+<h4 class="anchored" data-anchor-id="suppression-despaces-multiples-str_squish">Suppression d’espaces multiples (<code>str_squish()</code>)</h4>
 <p>Si les données contiennent des espaces superflus :</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>condamnations_demo <span class="ot">&lt;-</span> condamnations_demo <span class="sc">%&gt;%</span></span>
@@ -6656,15 +6676,15 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 </section>
 </section>
 </section>
-<section id="statistiques-descriptives-pour-variables-catégoriques" class="level1">
-<h1>Statistiques descriptives pour variables catégoriques</h1>
+<section id="statistiques-descriptives-pour-variables-catégoriques" class="level2">
+<h2 class="anchored" data-anchor-id="statistiques-descriptives-pour-variables-catégoriques">Statistiques descriptives pour variables catégoriques</h2>
 <p>Dans cette section, nous allons découvrir comment résumer l’information contenue dans les variables qualitatives, appelées aussi catégorielles. Nous verrons comment compter les occurrences de chaque catégorie (tableaux de fréquences), calculer des proportions (ou pourcentages) afin de mieux visualiser la répartition, et associer plusieurs variables pour mieux comprendre leurs interactions (tableaux de contingence). L’objectif est de disposer d’un portrait clair de la distribution des catégories pour en tirer des conclusions rapides sur les tendances ou anomalies présentes dans les données.</p>
-<section id="explications-1" class="level2">
-<h2 class="anchored" data-anchor-id="explications-1">Explications</h2>
+<section id="explications-1" class="level3">
+<h3 class="anchored" data-anchor-id="explications-1">Explications</h3>
 <p>Les <strong>tableaux de fréquences</strong> et les <strong>mesures de tendance</strong> (nombre d’observations, pourcentages) sont un bon point de départ pour résumer des variables catégoriques.</p>
 </section>
-<section id="démonstration-1" class="level2">
-<h2 class="anchored" data-anchor-id="démonstration-1">Démonstration</h2>
+<section id="démonstration-1" class="level3">
+<h3 class="anchored" data-anchor-id="démonstration-1">Démonstration</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre d&#39;infractions par type d’établissement</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6785,10 +6805,10 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <hr>
 </section>
 </section>
-<section id="visualisation-de-données-catégoriques" class="level1">
-<h1>Visualisation de données catégoriques</h1>
-<section id="explications-2" class="level2">
-<h2 class="anchored" data-anchor-id="explications-2">Explications</h2>
+<section id="visualisation-de-données-catégoriques" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation-de-données-catégoriques">Visualisation de données catégoriques</h2>
+<section id="explications-2" class="level3">
+<h3 class="anchored" data-anchor-id="explications-2">Explications</h3>
 <p>Pour représenter visuellement des variables catégoriques, on utilise souvent :</p>
 <ul>
 <li><p><strong>Diagrammes en barres</strong> (<code>geom_bar()</code> ou <code>geom_col()</code>),</p></li>
@@ -6796,8 +6816,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <li><p><strong>Diagrammes à bandes groupées ou empilées standardisées</strong> si on veut comparer plusieurs catégories croisées.</p></li>
 </ul>
 </section>
-<section id="démonstration-2" class="level2">
-<h2 class="anchored" data-anchor-id="démonstration-2">Démonstration</h2>
+<section id="démonstration-2" class="level3">
+<h3 class="anchored" data-anchor-id="démonstration-2">Démonstration</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6887,8 +6907,8 @@ $ SOC_NOM_ARTCL_INFRC     &lt;chr&gt; NA, &quot;INSALUBRITE&quot;, NA, &quot;INS
 <hr>
 </section>
 </section>
-<section id="aller-plus-loin-cartographier-les-amendes-optionnel" class="level1">
-<h1>Aller plus loin : cartographier les amendes (optionnel)</h1>
+<section id="aller-plus-loin-cartographier-les-amendes-optionnel" class="level2">
+<h2 class="anchored" data-anchor-id="aller-plus-loin-cartographier-les-amendes-optionnel">Aller plus loin : cartographier les amendes (optionnel)</h2>
 <p>Pour clore l’enquête, <strong>Alexandre</strong> a mis la main sur un bout de code R rédigé par une collègue de la Ville. Ce script géocode automatiquement les codes postaux et fournit une latitude/longitude pour chaque établissement. Cette activité est optionnelle, car elle dépend du package <code>tidygeocoder</code> et d’un service web externe.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ────────────────────────────────────────────────────────────</span></span>
@@ -6977,8 +6997,8 @@ une nuance importante à communiquer au public.
 </div>
 <!-- portfolio-trace:end -->
 </section>
-<section id="conclusion-de-laventure" class="level1">
-<h1>Conclusion de l’aventure</h1>
+<section id="conclusion-de-laventure" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-de-laventure">Conclusion de l’aventure</h2>
 <p>Cette troisième aventure vous a permis de <strong>passer du rôle d’analyste à celui de journaliste de données</strong> : vous avez nettoyé un jeu réel d’inspections alimentaires, quantifié les infractions majeures, comparé les profils d’établissements et préparé des visualisations utiles pour un article.</p>
 <p>Vous disposez maintenant :</p>
 <ul>
@@ -6986,8 +7006,8 @@ une nuance importante à communiquer au public.
 <li>de <strong>graphiques percutants</strong> (diagrammes en barres, boîtes à moustaches ou visualisation optionnelle) pour étayer vos arguments ;</li>
 <li>d’<strong>observations qualitatives</strong> fournies par Alexandre, qui orientent le récit vers les enjeux d’hygiène et de transparence citoyenne.</li>
 </ul>
-<section id="prochaine-étape-rédigez-votre-article" class="level2">
-<h2 class="anchored" data-anchor-id="prochaine-étape-rédigez-votre-article">Prochaine étape : rédigez votre article</h2>
+<section id="prochaine-étape-rédigez-votre-article" class="level3">
+<h3 class="anchored" data-anchor-id="prochaine-étape-rédigez-votre-article">Prochaine étape : rédigez votre article</h3>
 <ol type="1">
 <li><strong>Structurez votre article Quarto</strong> : chapeau accrocheur -&gt; contexte -&gt; méthodologie -&gt; résultats clés -&gt; recommandations.<br>
 </li>

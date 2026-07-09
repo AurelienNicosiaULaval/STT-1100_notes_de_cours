@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 5: manipuler des dates, résumer des groupes, visualiser des associations, calculer des corrélations simples et formuler des conclusions prudentes.
 
@@ -13,7 +13,7 @@ library(tidyverse)
 library(lubridate)
 ```
 
-# Lectures à revoir
+## Lectures à revoir
 
 - [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html)
 - [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
@@ -24,11 +24,11 @@ library(lubridate)
 
 Après les lectures, faites aussi le [mini-test formatif](../module_05/mini_test.llms.md). Il n’est pas noté.
 
-# Bloc A - Dates, structure et valeurs manquantes
+## Bloc A - Dates, structure et valeurs manquantes
 
 Le fichier `data/ateliers_soutien_fictif.csv` décrit de faux ateliers de soutien universitaire.
 
-## Exercice 1 - Importer et inspecter
+### Exercice 1 - Importer et inspecter
 
 Importez le fichier, affichez sa structure et vérifiez ses dimensions.
 
@@ -68,7 +68,7 @@ Importez le fichier, affichez sa structure et vérifiez ses dimensions.
 >        <int>    <int>
 >     1     24       10
 
-## Exercice 2 - Préparer les variables temporelles
+### Exercice 2 - Préparer les variables temporelles
 
 Transformez `date_atelier` en date, puis créez `jour_semaine`, `mois` et `moment_journee`.
 
@@ -104,7 +104,7 @@ Transformez `date_atelier` en date, puis créez `jour_semaine`, `mois` et `momen
 >     7 A-007      2026-02-03   Tuesday      February           9 matin
 >     8 A-008      2026-02-05   Thursday     February          15 après-midi
 
-## Exercice 3 - Repérer les valeurs manquantes
+### Exercice 3 - Repérer les valeurs manquantes
 
 Calculez le nombre de valeurs manquantes dans `participants`, `pluie_mm` et `satisfaction_moyenne`.
 
@@ -124,7 +124,7 @@ Calculez le nombre de valeurs manquantes dans `participants`, `pluie_mm` et `sat
 >                        <int>           <int>                  <int>
 >     1                      0               1                      1
 
-## Exercice 4 - Résumer par moment de la journée
+### Exercice 4 - Résumer par moment de la journée
 
 Calculez le nombre d’ateliers, le nombre moyen de participantes et participants, et la satisfaction moyenne selon `moment_journee`.
 
@@ -150,9 +150,9 @@ Calculez le nombre d’ateliers, le nombre moyen de participantes et participant
 >     2 matin                   8                23.2                 4.28
 >     3 soir                    5                35.8                 4.55
 
-# Bloc B - Associations et visualisations
+## Bloc B - Associations et visualisations
 
-## Exercice 5 - Visualiser les participantes et participants
+### Exercice 5 - Visualiser les participantes et participants
 
 Produisez un diagramme en colonnes du nombre moyen de participantes et participants selon le moment de la journée.
 
@@ -171,7 +171,7 @@ Produisez un diagramme en colonnes du nombre moyen de participantes et participa
 >
 > ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
 
-## Exercice 6 - Comparer les thèmes
+### Exercice 6 - Comparer les thèmes
 
 Pour chaque thème d’atelier, calculez le nombre d’ateliers, la participation moyenne et la satisfaction moyenne.
 
@@ -199,7 +199,7 @@ Pour chaque thème d’atelier, calculez le nombre d’ateliers, la participatio
 >     3 Quarto                 6                19.7                 4.17
 >     4 Importation            5                16.8                 3.88
 
-## Exercice 7 - Calculer une matrice de corrélation
+### Exercice 7 - Calculer une matrice de corrélation
 
 Calculez les corrélations entre `duree_minutes`, `participants`, `temperature_c`, `pluie_mm` et `satisfaction_moyenne`.
 
@@ -227,7 +227,7 @@ Calculez les corrélations entre `duree_minutes`, `participants`, `temperature_c
 >
 > La corrélation résume une association linéaire. Elle ne suffit pas à établir une relation de cause à effet.
 
-## Exercice 8 - Faire un nuage de points
+### Exercice 8 - Faire un nuage de points
 
 Créez un graphique de `duree_minutes` et `participants`. Ajoutez une droite de tendance.
 
@@ -250,7 +250,7 @@ Créez un graphique de `duree_minutes` et `participants`. Ajoutez une droite de 
 >
 > ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
 
-## Exercice 9 - Comparer les jours pluvieux et non pluvieux
+### Exercice 9 - Comparer les jours pluvieux et non pluvieux
 
 Créez une variable `jour_pluvieux`, puis comparez la participation moyenne selon cette variable.
 
@@ -282,9 +282,9 @@ Créez une variable `jour_pluvieux`, puis comparez la participation moyenne selo
 >     2 pluie                  12                22.4
 >     3 pluie inconnue          1                19
 
-# Bloc C - Interprétation prudente
+## Bloc C - Interprétation prudente
 
-## Exercice 10 - Écrire une conclusion descriptive
+### Exercice 10 - Écrire une conclusion descriptive
 
 À partir de l’un des tableaux précédents, écrivez deux phrases:
 
@@ -295,7 +295,7 @@ Créez une variable `jour_pluvieux`, puis comparez la participation moyenne selo
 >
 > Les ateliers du soir semblent avoir une participation moyenne plus élevée dans ce petit fichier fictif. Cette comparaison reste descriptive, car les ateliers du soir ne portent pas toujours sur les mêmes thèmes et le nombre d’observations est limité.
 
-## Exercice 11 - Choisir une visualisation adaptée
+### Exercice 11 - Choisir une visualisation adaptée
 
 Choisissez une question parmi les deux suivantes, puis produisez un graphique adapté.
 
@@ -318,7 +318,7 @@ Choisissez une question parmi les deux suivantes, puis produisez un graphique ad
 >
 > ![](exercices_files/figure-html/unnamed-chunk-10-1.png)
 
-## Exercice 12 - Construire un petit tableau de synthèse
+### Exercice 12 - Construire un petit tableau de synthèse
 
 Créez un tableau de synthèse par campus avec le nombre d’ateliers, la participation totale, la participation moyenne et la satisfaction moyenne.
 
@@ -343,9 +343,9 @@ Créez un tableau de synthèse par campus avec le nombre d’ateliers, la partic
 >     2 Quebec         16                  461                  28.8
 >     # ℹ 1 more variable: satisfaction_moyenne <dbl>
 
-# Études de cas
+## Études de cas
 
-## Étude de cas 1 - Fréquentation fictive d’une bibliothèque
+### Étude de cas 1 - Fréquentation fictive d’une bibliothèque
 
 Le fichier `data/frequentation_bibliotheque_fictive.csv` décrit de fausses observations de fréquentation dans des zones de bibliothèque.
 
@@ -420,7 +420,7 @@ Réalisez les tâches suivantes:
 >
 > Une conclusion prudente pourrait indiquer que les observations du soir semblent plus fréquentées dans ce fichier, surtout dans la zone des ordinateurs. Cette conclusion reste descriptive, car la semaine d’examens, la zone et le campus varient en même temps.
 
-## Étude de cas 2 - Demandes fictives de services campus
+### Étude de cas 2 - Demandes fictives de services campus
 
 Le fichier `data/demandes_services_campus_fictif.csv` décrit de fausses demandes adressées à des services de campus.
 

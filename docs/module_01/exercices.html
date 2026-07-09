@@ -4309,6 +4309,32 @@ margin: 1.1rem 0 1.6rem;
 .module-quick-facts.three-facts {
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.module-readiness {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 1rem;
+margin: 1.25rem 0 1.75rem;
+}
+.module-readiness-card {
+min-width: 0;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: var(--soft);
+padding: 1rem 1.1rem;
+}
+.module-readiness-card h3 {
+margin-top: 0;
+margin-bottom: .45rem;
+color: var(--ink);
+font-size: 1.02rem;
+}
+.module-readiness-card p,
+.module-readiness-card ul {
+margin-bottom: 0;
+}
+.module-readiness-card ul {
+padding-left: 1.15rem;
+}
 .module-fact {
 display: grid;
 align-items: center;
@@ -5867,7 +5893,8 @@ overflow-wrap: break-word;
 .book-list,
 .module-product-showcase,
 .module-resource-panel,
-.module-quick-facts {
+.module-quick-facts,
+.module-readiness {
 grid-template-columns: 1fr;
 }
 .start-progress-panel {
@@ -6097,7 +6124,8 @@ margin-bottom: .05rem;
     <h2 id="toc-title">Sur cette page</h2>
 
   <ul>
-  <li><a href="#exercice-1---console-ou-script" id="toc-exercice-1---console-ou-script" class="nav-link active" data-scroll-target="#exercice-1---console-ou-script">Exercice 1 - Console ou script?</a></li>
+  <li><a href="#exercice-1---console-ou-script" id="toc-exercice-1---console-ou-script" class="nav-link active" data-scroll-target="#exercice-1---console-ou-script">Exercice 1 - Console ou script?</a>
+  <ul class="collapse">
   <li><a href="#exercice-2---créer-des-objets" id="toc-exercice-2---créer-des-objets" class="nav-link" data-scroll-target="#exercice-2---créer-des-objets">Exercice 2 - Créer des objets</a></li>
   <li><a href="#exercice-3---comprendre-une-valeur-manquante" id="toc-exercice-3---comprendre-une-valeur-manquante" class="nav-link" data-scroll-target="#exercice-3---comprendre-une-valeur-manquante">Exercice 3 - Comprendre une valeur manquante</a></li>
   <li><a href="#exercice-4---écrire-une-condition" id="toc-exercice-4---écrire-une-condition" class="nav-link" data-scroll-target="#exercice-4---écrire-une-condition">Exercice 4 - Écrire une condition</a></li>
@@ -6111,6 +6139,7 @@ margin-bottom: .05rem;
   <li><a href="#exercice-12---extraire-des-colonnes" id="toc-exercice-12---extraire-des-colonnes" class="nav-link" data-scroll-target="#exercice-12---extraire-des-colonnes">Exercice 12 - Extraire des colonnes</a></li>
   <li><a href="#exercice-13---filtrer-une-date" id="toc-exercice-13---filtrer-une-date" class="nav-link" data-scroll-target="#exercice-13---filtrer-une-date">Exercice 13 - Filtrer une date</a></li>
   <li><a href="#exercice-14---ajouter-une-colonne" id="toc-exercice-14---ajouter-une-colonne" class="nav-link" data-scroll-target="#exercice-14---ajouter-une-colonne">Exercice 14 - Ajouter une colonne</a></li>
+  </ul></li>
   <li><a href="#études-de-cas" id="toc-études-de-cas" class="nav-link" data-scroll-target="#études-de-cas">Études de cas</a>
   <ul class="collapse">
   <li><a href="#étude-de-cas-1---bibliothèques-municipales" id="toc-étude-de-cas-1---bibliothèques-municipales" class="nav-link" data-scroll-target="#étude-de-cas-1---bibliothèques-municipales">Étude de cas 1 - Bibliothèques municipales</a></li>
@@ -6164,9 +6193,8 @@ Astuce
 </div>
 </div>
 </div>
-</section>
-<section id="exercice-2---créer-des-objets" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2---créer-des-objets">Exercice 2 - Créer des objets</h2>
+<section id="exercice-2---créer-des-objets" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-2---créer-des-objets">Exercice 2 - Créer des objets</h3>
 <p>Créez les objets suivants:</p>
 <ul>
 <li><code>ville</code> contenant <code>&quot;Quebec&quot;</code>;</li>
@@ -6194,8 +6222,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-3---comprendre-une-valeur-manquante" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3---comprendre-une-valeur-manquante">Exercice 3 - Comprendre une valeur manquante</h2>
+<section id="exercice-3---comprendre-une-valeur-manquante" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-3---comprendre-une-valeur-manquante">Exercice 3 - Comprendre une valeur manquante</h3>
 <p>Que retourne le code suivant? Expliquez pourquoi.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6215,8 +6243,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-4---écrire-une-condition" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-4---écrire-une-condition">Exercice 4 - Écrire une condition</h2>
+<section id="exercice-4---écrire-une-condition" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-4---écrire-une-condition">Exercice 4 - Écrire une condition</h3>
 <p>Créez un objet <code>temperature &lt;- -8</code>, puis écrivez une condition qui affiche:</p>
 <ul>
 <li><code>&quot;gel&quot;</code> si la température est inférieure à 0;</li>
@@ -6245,8 +6273,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-5---écrire-une-fonction-simple" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-5---écrire-une-fonction-simple">Exercice 5 - Écrire une fonction simple</h2>
+<section id="exercice-5---écrire-une-fonction-simple" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-5---écrire-une-fonction-simple">Exercice 5 - Écrire une fonction simple</h3>
 <p>Créez une fonction <code>etendue_temperature()</code> qui reçoit deux arguments, <code>minimum</code> et <code>maximum</code>, puis retourne la différence entre les deux.</p>
 <p>Testez la fonction avec <code>minimum = -3</code> et <code>maximum = 8</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6270,8 +6298,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-6---trouver-de-laide" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-6---trouver-de-laide">Exercice 6 - Trouver de l’aide</h2>
+<section id="exercice-6---trouver-de-laide" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-6---trouver-de-laide">Exercice 6 - Trouver de l’aide</h3>
 <p>Utilisez l’aide intégrée de R pour consulter la documentation de <code>mean()</code>.</p>
 <p>Ensuite, répondez en une phrase: à quoi sert l’argument <code>na.rm</code>?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6292,8 +6320,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-7---réécrire-du-code-avec-style" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-7---réécrire-du-code-avec-style">Exercice 7 - Réécrire du code avec style</h2>
+<section id="exercice-7---réécrire-du-code-avec-style" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-7---réécrire-du-code-avec-style">Exercice 7 - Réécrire du code avec style</h3>
 <p>Réécrivez le code suivant pour respecter un style plus lisible.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="cn">NA</span>,<span class="dv">5</span>),<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6313,8 +6341,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-8---créer-un-premier-rapport-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-8---créer-un-premier-rapport-quarto">Exercice 8 - Créer un premier rapport Quarto</h2>
+<section id="exercice-8---créer-un-premier-rapport-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-8---créer-un-premier-rapport-quarto">Exercice 8 - Créer un premier rapport Quarto</h3>
 <p>Créez un fichier <code>rapport.qmd</code> contenant:</p>
 <ul>
 <li>un titre;</li>
@@ -6346,8 +6374,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-9---charger-les-packages-du-module" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-9---charger-les-packages-du-module">Exercice 9 - Charger les packages du module</h2>
+<section id="exercice-9---charger-les-packages-du-module" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-9---charger-les-packages-du-module">Exercice 9 - Charger les packages du module</h3>
 <p>Dans un script ou un document Quarto, chargez les packages nécessaires pour accéder aux données <code>MeteoQuebec</code> et manipuler des tableaux avec <code>dplyr</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -6368,8 +6396,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-10---inspecter-meteoquebec" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-10---inspecter-meteoquebec">Exercice 10 - Inspecter <code>MeteoQuebec</code></h2>
+<section id="exercice-10---inspecter-meteoquebec" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-10---inspecter-meteoquebec">Exercice 10 - Inspecter <code>MeteoQuebec</code></h3>
 <p>Après avoir chargé <code>UlavalSSD</code>, utilisez trois fonctions différentes pour inspecter <code>MeteoQuebec</code>.</p>
 <p>Votre objectif est de comprendre les noms de variables, les premières lignes et la présence possible de valeurs manquantes.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6393,8 +6421,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-11---repérer-les-valeurs-manquantes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-11---repérer-les-valeurs-manquantes">Exercice 11 - Repérer les valeurs manquantes</h2>
+<section id="exercice-11---repérer-les-valeurs-manquantes" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-11---repérer-les-valeurs-manquantes">Exercice 11 - Repérer les valeurs manquantes</h3>
 <p>Utilisez <code>summary()</code> pour identifier au moins une variable de <code>MeteoQuebec</code> qui contient des valeurs manquantes.</p>
 <p>Rédigez ensuite une phrase qui explique pourquoi cette information est importante avant de faire une analyse.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6420,8 +6448,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-12---extraire-des-colonnes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-12---extraire-des-colonnes">Exercice 12 - Extraire des colonnes</h2>
+<section id="exercice-12---extraire-des-colonnes" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-12---extraire-des-colonnes">Exercice 12 - Extraire des colonnes</h3>
 <p>Extrayez la colonne <code>mean_temp</code> de <code>MeteoQuebec</code> de deux façons:</p>
 <ol type="1">
 <li>avec l’opérateur <code>$</code>;</li>
@@ -6447,8 +6475,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-13---filtrer-une-date" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-13---filtrer-une-date">Exercice 13 - Filtrer une date</h2>
+<section id="exercice-13---filtrer-une-date" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-13---filtrer-une-date">Exercice 13 - Filtrer une date</h3>
 <p>Choisissez une date symbolique en définissant:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mois_choisi <span class="ot">&lt;-</span> <span class="st">&quot;06&quot;</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>jour_choisi <span class="ot">&lt;-</span> <span class="st">&quot;24&quot;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -6479,8 +6507,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="exercice-14---ajouter-une-colonne" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-14---ajouter-une-colonne">Exercice 14 - Ajouter une colonne</h2>
+<section id="exercice-14---ajouter-une-colonne" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-14---ajouter-une-colonne">Exercice 14 - Ajouter une colonne</h3>
 <p>Créez une colonne <code>etendue_temp</code> qui calcule la différence entre la température maximale et la température minimale.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
@@ -6505,11 +6533,12 @@ Astuce
 </div>
 </div>
 </section>
-<section id="études-de-cas" class="level1">
-<h1>Études de cas</h1>
+</section>
+<section id="études-de-cas" class="level2">
+<h2 class="anchored" data-anchor-id="études-de-cas">Études de cas</h2>
 <p>Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes techniques du module avec d’autres contextes que la météo.</p>
-<section id="étude-de-cas-1---bibliothèques-municipales" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-1---bibliothèques-municipales">Étude de cas 1 - Bibliothèques municipales</h2>
+<section id="étude-de-cas-1---bibliothèques-municipales" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-1---bibliothèques-municipales">Étude de cas 1 - Bibliothèques municipales</h3>
 <p>Fichier: <code>data/bibliotheques_municipales_fictif.csv</code></p>
 <p>Vous aidez une petite équipe municipale à préparer un aperçu de la fréquentation des bibliothèques. Le fichier contient des observations mensuelles fictives pour quelques villes.</p>
 <p>Réalisez les tâches suivantes:</p>
@@ -6552,8 +6581,8 @@ Astuce
 </div>
 </div>
 </section>
-<section id="étude-de-cas-2---coop-étudiante" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-2---coop-étudiante">Étude de cas 2 - Coop étudiante</h2>
+<section id="étude-de-cas-2---coop-étudiante" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-2---coop-étudiante">Étude de cas 2 - Coop étudiante</h3>
 <p>Fichier: <code>data/coop_etudiante_fictif.csv</code></p>
 <p>Vous préparez un mini-rapport pour une coop étudiante fictive. Le fichier contient des ventes agrégées par produit.</p>
 <p>Réalisez les tâches suivantes:</p>

@@ -2,7 +2,7 @@
 
 STT-1100 Introduction à la science des données
 
-# Objectifs du module
+## Objectifs du module
 
 À la fin de ce module, vous devriez être capable de
 
@@ -14,11 +14,19 @@ STT-1100 Introduction à la science des données
 - améliorer la lisibilité d’un graphique avec des titres, des axes, des unités, des légendes et un thème cohérent;
 - produire un court rapport d’analyse reproductible dans un dépôt GitHub.
 
-# Lectures initiales
+## Lectures initiales
 
 À l’automne 2026, le module 2 est préparé pendant la semaine du 7 septembre, puis travaillé en classe le 14 septembre. Le travail préparatoire installe le flux de travail GitHub, l’importation Excel et les premiers verbes `dplyr`; la séance de classe sert à mettre ces gestes en pratique et à consolider l’analyse exploratoire, les statistiques descriptives et la visualisation de variables numériques.
 
-## Travail préparatoire - Projet, importation et premiers graphiques
+### Ordre conseillé
+
+1.  **Avant la séance** : cloner le dépôt, ouvrir le projet, rendre un fichier Quarto et importer une première feuille Excel.
+2.  **Pendant la séance** : vérifier les anomalies, produire un résumé et construire un graphique lisible.
+3.  **Après la séance** : choisir seulement les analyses qui répondent à la question, rendre le rapport puis faire un commit clair.
+
+Les facettes, comparaisons supplémentaires et raffinements visuels viennent après ce noyau minimal.
+
+### Travail préparatoire - Projet, importation et premiers graphiques
 
 - [Aide-mémoire RStudio et GitHub](../autre_materiel/aide-memoire-rstudio-github.llms.md) Cloner un dépôt, ouvrir un projet RStudio, comprendre commits et push, et reconnaître les problèmes d’authentification les plus fréquents.
 
@@ -28,7 +36,7 @@ STT-1100 Introduction à la science des données
 
 - [readxl - Documentation officielle](https://readxl.tidyverse.org/) Référence courte pour importer des fichiers Excel avec `read_excel()`.
 
-## Approfondissement - Exploration et comparaison de distributions
+### Approfondissement - Exploration et comparaison de distributions
 
 - [R for Data Science - Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html) Explorer les distributions, repérer des valeurs extrêmes et formuler des hypothèses à partir des graphiques.
 
@@ -38,7 +46,7 @@ STT-1100 Introduction à la science des données
 
 - [Tidyverse Style Guide - ggplot2](https://style.tidyverse.org/ggplot2.html) Quelques repères pour écrire du code graphique lisible.
 
-## Aide-mémoires Posit
+### Aide-mémoires Posit
 
 - [Data import with the tidyverse :: Cheatsheet](https://rstudio.github.io/cheatsheets/data-import.pdf) Importation avec `readr` et `readxl`, utile pour les fichiers CSV et Excel.
 
@@ -46,21 +54,21 @@ STT-1100 Introduction à la science des données
 
 - [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) Grammaire des graphiques, géométries, facettes, échelles et thèmes.
 
-## Lecture optionnelle
+### Lecture optionnelle
 
 - [Broman et Woo (2018) - Data Organization in Spreadsheets](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989) Une référence utile pour comprendre pourquoi on conserve les données brutes intactes et pourquoi les corrections doivent être documentées dans le code.
 
-## Mini-test de lecture
+### Mini-test de lecture
 
 Après les lectures essentielles, complétez le [mini-test formatif du module 2](../module_02/mini_test.llms.md). Il n’est pas noté, mais il vérifie les points qui reviennent dans l’aventure et dans le défi.
 
-# Aventure
+## Aventure
 
 Ce module vous place dans le rôle d’un ou d’une scientifique de données qui aide la Dre Adélie Fortier à explorer des mesures physiques de manchots. Vous devez importer un fichier Excel, documenter votre démarche dans un journal de bord, produire des graphiques et garder une trace du travail dans GitHub.
 
 [Aventure du module 2](../module_02/aventure.llms.md)
 
-# Défi
+## Défi
 
 Le défi du module 2 se fait dans le même dépôt GitHub que l’aventure. Vous devez remettre:
 
@@ -73,7 +81,7 @@ Le rapport d’analyse doit répondre à la demande de la Dre Adélie Fortier: c
 
 [Défi du module 2](../module_02/defi.llms.md)
 
-# Exercices de consolidation
+## Exercices de consolidation
 
 La série d’exercices est indépendante de l’aventure et du défi. Elle comprend des exercices sur GitHub, l’importation Excel, `dplyr`, `ggplot2`, les statistiques descriptives, le style de code et deux études de cas finales avec de petits fichiers fictifs.
 

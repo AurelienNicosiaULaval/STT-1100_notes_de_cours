@@ -2,7 +2,7 @@
 
 STT-1100 - Introduction to Data Science
 
-# Context
+## Context
 
 You are a team mandated by a data science ethics committee. An organization gives you a deliberately problematic internal report about simulated COVID-19 tests. The report contains visualizations, quick interpretations and personally identifiable information.
 
@@ -22,7 +22,7 @@ Data `covid_module7_douteux.csv`
 
 Deliverable Ethics report, anonymized file and corrected visualizations
 
-# Starter Repository
+## Starter Repository
 
 Clone the module 7 GitHub repository from the course organization: `STT-1100/aventure-7`.
 
@@ -41,7 +41,7 @@ The final repository must contain:
 - `README.md`: a short project description and rendering procedure;
 - any additional file that is truly necessary.
 
-# Part 1 - Audit the Problematic Report
+## Part 1 - Audit the Problematic Report
 
 First read `Rapport_COVID_Douteux.html`, then consult `Rapport_COVID_Douteux.qmd` to understand how the report was produced.
 
@@ -59,7 +59,7 @@ For each selected issue, state:
 2.  why it is problematic;
 3.  what you would change.
 
-# Part 2 - Responsible Data Preparation
+## Part 2 - Responsible Data Preparation
 
 Starting from `covid_module7_douteux.csv`, prepare a version better suited to public or pedagogical communication.
 
@@ -104,7 +104,7 @@ covid_prepared <- covid_raw |>
 
 This step is not about deleting all useful information. It is about reducing risks while keeping the analysis understandable.
 
-# Part 3 - Corrected Visualizations
+## Part 3 - Corrected Visualizations
 
 Produce at least two corrected visualizations.
 
@@ -143,7 +143,7 @@ borough_positivity |>
   )
 ```
 
-# Part 4 - Ethics Note
+## Part 4 - Ethics Note
 
 Add an “Ethics note” section to `rapport_ethique.qmd`.
 
@@ -154,7 +154,7 @@ Your note must answer the following questions:
 - Which limitations prevent strong recommendations?
 - How would you present these results to a non-specialist audience without creating panic or stigma?
 
-# Part 5 - Personal Conclusion
+## Part 5 - Personal Conclusion
 
 Each team member adds a short personal conclusion of about five lines.
 
@@ -173,7 +173,7 @@ Keep evidence that your audit improves the report and protects people.
 - two corrected visualizations;
 - an ethics note explaining limits and confidentiality decisions.
 
-# Final Check
+## Final Check
 
 Before submission, check that:
 
