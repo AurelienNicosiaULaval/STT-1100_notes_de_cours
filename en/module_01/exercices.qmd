@@ -248,13 +248,13 @@ head(weather_with_range)
 
 ## Case studies
 
-The following two case studies use small fictitious files. They do not represent real data; they are only meant to practise the technical moves of the module in contexts other than weather.
+The following two case studies use extracts of Quebec open data. The files were prepared to keep simple columns and a size suitable for this first module. Their provenance, licence, and limitations are documented in `module_01/data/README.md`.
 
-### Case study 1 - Municipal libraries
+### Case study 1 - Quebec public libraries
 
-File: `data/fictitious_municipal_libraries.csv`
+File: `data/bibliotheques_publiques_quebec_2024.csv`
 
-You are helping a small municipal team prepare an overview of library attendance. The file contains fictitious monthly observations for a few cities.
+You are helping a team prepare an overview of Quebec public libraries. Each row represents one public library or regional centre in 2024. The data come from the [Bibliothèque et Archives nationales du Québec](https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec).
 
 Complete the following tasks:
 
@@ -262,15 +262,15 @@ Complete the following tasks:
 2. Display the column names and first rows.
 3. Identify variables that contain missing values.
 4. Compute the mean of `visits`, ignoring missing values.
-5. Keep only rows where `workshops` is greater than or equal to 10.
-6. Write two sentences summarizing what you observed.
+5. Keep only rows where `activites` is greater than or equal to 500.
+6. Write two descriptive sentences summarizing what you observed, taking missing values into account.
 
 ::: {.callout-tip collapse="true"}
 ```r
 library(readr)
 library(dplyr)
 
-libraries <- read_csv("data/fictitious_municipal_libraries.csv")
+libraries <- read_csv("data/bibliotheques_publiques_quebec_2024.csv")
 
 names(libraries)
 head(libraries)
@@ -278,43 +278,43 @@ summary(libraries)
 
 mean(libraries$visits, na.rm = TRUE)
 
-libraries_workshops <- libraries |>
-  filter(workshops >= 10)
+libraries_active <- libraries |>
+  filter(activites >= 500)
 
-libraries_workshops
+libraries_active
 ```
 :::
 
-### Case study 2 - Student coop
+### Case study 2 - Montréal Open Data Portal traffic
 
-File: `data/fictitious_student_coop.csv`
+File: `data/frequentation_portail_montreal_2023.csv`
 
-You are preparing a mini-report for a fictitious student coop. The file contains aggregated sales by product.
+You are preparing a mini-report on Montréal's Open Data Portal traffic. Each row represents one page viewed on June 21, 2023. The data come from the [City of Montréal](https://donnees.montreal.ca/dataset/frequentation-du-portail-de-donnees-ouvertes).
 
 Complete the following tasks:
 
 1. Import the file.
-2. Create a `revenue` column with the formula `unit_price * quantity * (1 - discount)`.
-3. Compute total revenue.
-4. Keep rows where `satisfaction` is less than or equal to 3.
-5. Identify a category that deserves attention.
-6. Create a short Quarto report with code and two interpretation sentences.
+2. Create a `pages_per_session` column with the formula `pageviews / sessions`.
+3. Compute the total number of sessions.
+4. Keep rows where `sessions` is greater than or equal to 20.
+5. Identify one page that could be highlighted in the portal.
+6. Create a short Quarto report with code and two descriptive interpretation sentences.
 
 ::: {.callout-tip collapse="true"}
 ```r
 library(readr)
 library(dplyr)
 
-coop <- read_csv("data/fictitious_student_coop.csv")
+portal <- read_csv("data/frequentation_portail_montreal_2023.csv")
 
-coop_revenue <- coop |>
-  mutate(revenue = unit_price * quantity * (1 - discount))
+portal_metrics <- portal |>
+  mutate(pages_per_session = pageviews / sessions)
 
-sum(coop_revenue$revenue, na.rm = TRUE)
+sum(portal_metrics$sessions, na.rm = TRUE)
 
-coop_to_watch <- coop_revenue |>
-  filter(satisfaction <= 3)
+pages_to_highlight <- portal_metrics |>
+  filter(sessions >= 20)
 
-coop_to_watch
+pages_to_highlight
 ```
 :::
