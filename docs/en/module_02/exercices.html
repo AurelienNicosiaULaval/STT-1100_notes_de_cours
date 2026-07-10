@@ -5878,8 +5878,8 @@ margin-bottom: .05rem;
   </ul></li>
   <li><a href="#case-studies" id="toc-case-studies" class="nav-link" data-scroll-target="#case-studies">Case Studies</a>
   <ul class="collapse">
-  <li><a href="#case-study-1---urban-trees" id="toc-case-study-1---urban-trees" class="nav-link" data-scroll-target="#case-study-1---urban-trees">Case Study 1 - Urban Trees</a></li>
-  <li><a href="#case-study-2---bike-share" id="toc-case-study-2---bike-share" class="nav-link" data-scroll-target="#case-study-2---bike-share">Case Study 2 - Bike Share</a></li>
+  <li><a href="#case-study-1---quebec-city-public-trees" id="toc-case-study-1---quebec-city-public-trees" class="nav-link" data-scroll-target="#case-study-1---quebec-city-public-trees">Case Study 1 - Quebec City public trees</a></li>
+  <li><a href="#case-study-2---québec-city-cycling-counters" id="toc-case-study-2---québec-city-cycling-counters" class="nav-link" data-scroll-target="#case-study-2---québec-city-cycling-counters">Case Study 2 - Québec City cycling counters</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -6163,7 +6163,7 @@ Tip
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>penguins_mission <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;resources/manchots_donnees.xlsx&quot;</span>)</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>species_summary <span class="ot">&lt;-</span> penguins_mission <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(essence) <span class="sc">|&gt;</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_body_mass_g =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
@@ -6481,18 +6481,18 @@ Tip
 </section>
 <section id="case-studies" class="level2">
 <h2 class="anchored" data-anchor-id="case-studies">Case Studies</h2>
-<p>The following two case studies use small fictitious files. They do not represent real data; they only help practise module skills in contexts other than penguins.</p>
-<section id="case-study-1---urban-trees" class="level3">
-<h3 class="anchored" data-anchor-id="case-study-1---urban-trees">Case Study 1 - Urban Trees</h3>
-<p>File: <code>data/fictitious_urban_trees.csv</code></p>
-<p>You are helping a municipal team prepare an overview of the urban canopy. The file contains fictitious observations on trees in a few Quebec cities.</p>
+<p>The following two case studies use extracts of Ville de Québec open data. Their provenance and limitations are documented in <code>module_02/data/README.md</code>.</p>
+<section id="case-study-1---quebec-city-public-trees" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-1---quebec-city-public-trees">Case Study 1 - Quebec City public trees</h3>
+<p>File: <code>data/arbres_repertories_quebec.csv</code></p>
+<p>You are helping a municipal team prepare an overview of trees inventoried in Québec City. Each row represents one tree; diameter is DBH when available.</p>
 <p>Complete the following tasks:</p>
 <ol type="1">
 <li>Import the file with <code>readr::read_csv()</code>.</li>
 <li>Inspect the table structure.</li>
-<li>For each tree species, compute mean height, mean diameter and number of trees.</li>
-<li>Produce a box plot of <code>height_m</code> by <code>species</code>.</li>
-<li>Produce a scatterplot of <code>estimated_age_years</code> and <code>diameter_cm</code>, colored by <code>health_status</code>.</li>
+<li>For each tree species, compute mean diameter and number of trees.</li>
+<li>Produce a box plot of <code>diameter_cm</code> by <code>tree_type</code>.</li>
+<li>Produce a coordinate scatterplot, colored by <code>tree_type</code>.</li>
 <li>Write two sentences summarizing what you observe.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6511,7 +6511,7 @@ Tip
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>trees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/fictitious_urban_trees.csv&quot;</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>trees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/arbres_repertories_quebec.csv&quot;</span>)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(trees)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -6519,47 +6519,46 @@ Tip
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_height_m =</span> <span class="fu">mean</span>(height_m, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_diameter_cm =</span> <span class="fu">mean</span>(diameter_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>tree_summary</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(trees, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> height_m, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Tree height by species&quot;</span>,</span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Height (m)&quot;</span>,</span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Species&quot;</span></span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(trees, <span class="fu">aes</span>(<span class="at">x =</span> estimated_age_years, <span class="at">y =</span> diameter_cm, <span class="at">colour =</span> health_status)) <span class="sc">+</span></span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Tree diameter and estimated age&quot;</span>,</span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Estimated age (years)&quot;</span>,</span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Diameter (cm)&quot;</span>,</span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Health status&quot;</span></span>
-<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_diameter_cm =</span> <span class="fu">mean</span>(diameter_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>tree_summary</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(trees, <span class="fu">aes</span>(<span class="at">x =</span> type_arbre, <span class="at">y =</span> diametre_cm, <span class="at">fill =</span> type_arbre)) <span class="sc">+</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Tree diameter by type&quot;</span>,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Tree type&quot;</span>,</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Diameter (cm)&quot;</span>,</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Tree type&quot;</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(trees, <span class="fu">aes</span>(<span class="at">x =</span> longitude, <span class="at">y =</span> latitude, <span class="at">colour =</span> type_arbre)) <span class="sc">+</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Location of inventoried trees&quot;</span>,</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>,</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Tree type&quot;</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </section>
-<section id="case-study-2---bike-share" class="level3">
-<h3 class="anchored" data-anchor-id="case-study-2---bike-share">Case Study 2 - Bike Share</h3>
-<p>File: <code>data/fictitious_bike_share.csv</code></p>
-<p>You are preparing a short diagnostic for a fictitious bike-share service. The file contains aggregated observations by station, month and day type.</p>
+<section id="case-study-2---québec-city-cycling-counters" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-2---québec-city-cycling-counters">Case Study 2 - Québec City cycling counters</h3>
+<p>File: <code>data/comptages_cyclistes_quebec_2026.csv</code></p>
+<p>You are preparing a short diagnostic of Québec City’s cycling counters. Each row represents one site and its cumulative total displayed on July 10, 2026.</p>
 <p>Complete the following tasks:</p>
 <ol type="1">
 <li>Import the file.</li>
-<li>Compute the mean number of trips by city and day type.</li>
-<li>Create a variable <code>rainy_day</code> equal to <code>TRUE</code> when <code>precipitation_mm</code> is greater than or equal to 5.</li>
-<li>Produce a scatterplot of <code>temperature_c</code> and <code>trips</code>, colored by city.</li>
-<li>Compare <code>median_duration_min</code> between day types with a box plot.</li>
+<li>Compute mean passages by counter type.</li>
+<li>Create a variable <code>recent_counter</code> equal to <code>TRUE</code> when <code>start_year</code> is at least 2021.</li>
+<li>Produce a scatterplot of starting year and cumulative passages, colored by counter type.</li>
+<li>Compare cumulative passages between counter types with a box plot.</li>
 <li>Write a short recommendation for the planning team.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6578,40 +6577,39 @@ Tip
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>bike <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/fictitious_bike_share.csv&quot;</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>bike <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/comptages_cyclistes_quebec_2026.csv&quot;</span>)</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>bike_summary <span class="ot">&lt;-</span> bike <span class="sc">|&gt;</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(city, day_type) <span class="sc">|&gt;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type_compteur) <span class="sc">|&gt;</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_trips =</span> <span class="fu">mean</span>(trips, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">typical_median_duration =</span> <span class="fu">median</span>(median_duration_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>bike_summary</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>bike_prepared <span class="ot">&lt;-</span> bike <span class="sc">|&gt;</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rainy_day =</span> precipitation_mm <span class="sc">&gt;=</span> <span class="dv">5</span>)</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bike_prepared, <span class="fu">aes</span>(<span class="at">x =</span> temperature_c, <span class="at">y =</span> trips, <span class="at">colour =</span> city)) <span class="sc">+</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Bike-share trips by temperature&quot;</span>,</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Number of trips&quot;</span>,</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;City&quot;</span></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bike_prepared, <span class="fu">aes</span>(<span class="at">x =</span> day_type, <span class="at">y =</span> median_duration_min, <span class="at">fill =</span> day_type)) <span class="sc">+</span></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Median trip duration by day type&quot;</span>,</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Day type&quot;</span>,</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Median duration (minutes)&quot;</span>,</span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Day type&quot;</span></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_passages =</span> <span class="fu">mean</span>(passages_velo_cumules, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>bike_summary</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>bike_prepared <span class="ot">&lt;-</span> bike <span class="sc">|&gt;</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">recent_counter =</span> annee_debut <span class="sc">&gt;=</span> <span class="dv">2021</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bike_prepared, <span class="fu">aes</span>(<span class="at">x =</span> annee_debut, <span class="at">y =</span> passages_velo_cumules, <span class="at">colour =</span> type_compteur)) <span class="sc">+</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Cycling passages by starting year&quot;</span>,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Starting year&quot;</span>,</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Cumulative passages&quot;</span>,</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Counter type&quot;</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bike_prepared, <span class="fu">aes</span>(<span class="at">x =</span> type_compteur, <span class="at">y =</span> passages_velo_cumules, <span class="at">fill =</span> type_compteur)) <span class="sc">+</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Cumulative passages by counter type&quot;</span>,</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Counter type&quot;</span>,</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Cumulative passages&quot;</span>,</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Counter type&quot;</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>

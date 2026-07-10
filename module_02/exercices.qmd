@@ -422,21 +422,21 @@ ggplot(mpg, aes(x = displ, y = hwy, colour = class)) +
 
 ## Études de cas
 
-Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes du module avec d'autres contextes que les manchots.
+Les deux études de cas suivantes utilisent des extraits de données ouvertes de la Ville de Québec. Leur provenance et leurs limites sont documentées dans `module_02/data/README.md`.
 
-### Étude de cas 1 - Arbres urbains
+### Étude de cas 1 - Arbres répertoriés de Québec
 
-Fichier: `data/arbres_urbains_fictif.csv`
+Fichier: `data/arbres_repertories_quebec.csv`
 
-Vous aidez une équipe municipale à préparer un aperçu de la canopée urbaine. Le fichier contient des observations fictives sur des arbres dans quelques villes québécoises.
+Vous aidez une équipe municipale à préparer un aperçu des arbres répertoriés à Québec. Chaque ligne représente un arbre; le diamètre correspond au DHP lorsqu'il est disponible.
 
 Réalisez les tâches suivantes:
 
 1. Importez le fichier avec `readr::read_csv()`.
 2. Inspectez la structure du tableau.
-3. Calculez, par essence, la hauteur moyenne, le diamètre moyen et le nombre d'arbres.
-4. Produisez une boîte à moustaches de `hauteur_m` par `essence`.
-5. Produisez un nuage de points entre `age_estime_ans` et `diametre_cm`, coloré par `etat_sante`.
+3. Calculez, par essence, le diamètre moyen et le nombre d'arbres.
+4. Produisez une boîte à moustaches de `diametre_cm` par `type_arbre`.
+5. Produisez un nuage de points des coordonnées, coloré par `type_arbre`.
 6. Rédigez deux phrases qui résument ce que vous observez.
 
 ::: {.callout-tip collapse="true"}
@@ -445,7 +445,7 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 
-arbres <- read_csv("data/arbres_urbains_fictif.csv")
+arbres <- read_csv("data/arbres_repertories_quebec.csv")
 
 glimpse(arbres)
 
@@ -453,48 +453,47 @@ resume_arbres <- arbres |>
   group_by(essence) |>
   summarise(
     n = n(),
-    hauteur_moyenne_m = mean(hauteur_m, na.rm = TRUE),
     diametre_moyen_cm = mean(diametre_cm, na.rm = TRUE),
     .groups = "drop"
   )
 
 resume_arbres
 
-ggplot(arbres, aes(x = essence, y = hauteur_m, fill = essence)) +
+ggplot(arbres, aes(x = type_arbre, y = diametre_cm, fill = type_arbre)) +
   geom_boxplot(alpha = 0.8) +
   labs(
-    title = "Hauteur des arbres selon l'essence",
-    x = "Essence",
-    y = "Hauteur (m)",
-    fill = "Essence"
+    title = "Diamètre des arbres selon le type",
+    x = "Type d'arbre",
+    y = "Diamètre (cm)",
+    fill = "Type d'arbre"
   ) +
   theme_minimal()
 
-ggplot(arbres, aes(x = age_estime_ans, y = diametre_cm, colour = etat_sante)) +
+ggplot(arbres, aes(x = longitude, y = latitude, colour = type_arbre)) +
   geom_point(size = 2, alpha = 0.8) +
   labs(
-    title = "Diamètre et âge estimé des arbres",
-    x = "Âge estimé (années)",
-    y = "Diamètre (cm)",
-    colour = "État de santé"
+    title = "Localisation des arbres répertoriés",
+    x = "Longitude",
+    y = "Latitude",
+    colour = "Type d'arbre"
   ) +
   theme_minimal()
 ```
 :::
 
-### Étude de cas 2 - Vélo-partage
+### Étude de cas 2 - Compteurs cyclistes de Québec
 
-Fichier: `data/velo_partage_fictif.csv`
+Fichier: `data/comptages_cyclistes_quebec_2026.csv`
 
-Vous préparez un court diagnostic pour un service fictif de vélo-partage. Le fichier contient des observations agrégées par station, mois et type de jour.
+Vous préparez un court diagnostic des compteurs cyclistes de Québec. Chaque ligne représente un site et son total cumulé affiché le 10 juillet 2026.
 
 Réalisez les tâches suivantes:
 
 1. Importez le fichier.
-2. Calculez le nombre moyen de trajets par ville et par type de jour.
-3. Créez une variable `jour_pluvieux` qui vaut `TRUE` si `precipitation_mm` est supérieure ou égale à 5.
-4. Produisez un nuage de points entre `temperature_c` et `trajets`, coloré par ville.
-5. Comparez `duree_mediane_min` entre les types de jour avec une boîte à moustaches.
+2. Calculez le nombre moyen de passages par type de compteur.
+3. Créez une variable `compteur_recent` qui vaut `TRUE` si `annee_debut` est supérieure ou égale à 2021.
+4. Produisez un nuage de points entre l'année de début et les passages cumulés, coloré par type de compteur.
+5. Comparez les passages cumulés entre les types de compteur avec une boîte à moustaches.
 6. Rédigez une recommandation courte pour l'équipe de planification.
 
 ::: {.callout-tip collapse="true"}
@@ -503,38 +502,37 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 
-velo <- read_csv("data/velo_partage_fictif.csv")
+velo <- read_csv("data/comptages_cyclistes_quebec_2026.csv")
 
 resume_velo <- velo |>
-  group_by(ville, jour_type) |>
+  group_by(type_compteur) |>
   summarise(
-    trajets_moyens = mean(trajets, na.rm = TRUE),
-    duree_mediane_typique = median(duree_mediane_min, na.rm = TRUE),
+    passages_moyens = mean(passages_velo_cumules, na.rm = TRUE),
     .groups = "drop"
   )
 
 resume_velo
 
 velo_prepare <- velo |>
-  mutate(jour_pluvieux = precipitation_mm >= 5)
+  mutate(compteur_recent = annee_debut >= 2021)
 
-ggplot(velo_prepare, aes(x = temperature_c, y = trajets, colour = ville)) +
+ggplot(velo_prepare, aes(x = annee_debut, y = passages_velo_cumules, colour = type_compteur)) +
   geom_point(size = 2, alpha = 0.8) +
   labs(
-    title = "Trajets de vélo-partage selon la température",
-    x = "Température (°C)",
-    y = "Nombre de trajets",
-    colour = "Ville"
+    title = "Passages cyclistes selon l'année de début",
+    x = "Année de début",
+    y = "Passages cumulés",
+    colour = "Type de compteur"
   ) +
   theme_minimal()
 
-ggplot(velo_prepare, aes(x = jour_type, y = duree_mediane_min, fill = jour_type)) +
+ggplot(velo_prepare, aes(x = type_compteur, y = passages_velo_cumules, fill = type_compteur)) +
   geom_boxplot(alpha = 0.8) +
   labs(
-    title = "Durée médiane des trajets selon le type de jour",
-    x = "Type de jour",
-    y = "Durée médiane (minutes)",
-    fill = "Type de jour"
+    title = "Passages cumulés selon le type de compteur",
+    x = "Type de compteur",
+    y = "Passages cumulés",
+    fill = "Type de compteur"
   ) +
   theme_minimal()
 ```

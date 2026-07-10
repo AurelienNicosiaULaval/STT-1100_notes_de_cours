@@ -151,7 +151,7 @@ Try each exercise before opening the solution, especially when the chart almost 
 
 ### Datasets
 
-[manchots_donnees.xlsx](../donnees.llms.md#dataset-card-manchots-donnees) [palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins) [Fictitious urban trees](data/fictitious_urban_trees.csv) [Fictitious bike share](data/fictitious_bike_share.csv)
+[manchots_donnees.xlsx](../donnees.llms.md#dataset-card-manchots-donnees) [palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins) [Québec City public trees](data/arbres_repertories_quebec.csv) [Québec City cycling counters](data/comptages_cyclistes_quebec_2026.csv)
 
 ### R packages
 

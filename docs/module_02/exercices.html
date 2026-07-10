@@ -6154,8 +6154,8 @@ margin-bottom: .05rem;
   </ul></li>
   <li><a href="#études-de-cas" id="toc-études-de-cas" class="nav-link" data-scroll-target="#études-de-cas">Études de cas</a>
   <ul class="collapse">
-  <li><a href="#étude-de-cas-1---arbres-urbains" id="toc-étude-de-cas-1---arbres-urbains" class="nav-link" data-scroll-target="#étude-de-cas-1---arbres-urbains">Étude de cas 1 - Arbres urbains</a></li>
-  <li><a href="#étude-de-cas-2---vélo-partage" id="toc-étude-de-cas-2---vélo-partage" class="nav-link" data-scroll-target="#étude-de-cas-2---vélo-partage">Étude de cas 2 - Vélo-partage</a></li>
+  <li><a href="#étude-de-cas-1---arbres-répertoriés-de-québec" id="toc-étude-de-cas-1---arbres-répertoriés-de-québec" class="nav-link" data-scroll-target="#étude-de-cas-1---arbres-répertoriés-de-québec">Étude de cas 1 - Arbres répertoriés de Québec</a></li>
+  <li><a href="#étude-de-cas-2---compteurs-cyclistes-de-québec" id="toc-étude-de-cas-2---compteurs-cyclistes-de-québec" class="nav-link" data-scroll-target="#étude-de-cas-2---compteurs-cyclistes-de-québec">Étude de cas 2 - Compteurs cyclistes de Québec</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -6757,18 +6757,18 @@ Astuce
 </section>
 <section id="études-de-cas" class="level2">
 <h2 class="anchored" data-anchor-id="études-de-cas">Études de cas</h2>
-<p>Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes du module avec d’autres contextes que les manchots.</p>
-<section id="étude-de-cas-1---arbres-urbains" class="level3">
-<h3 class="anchored" data-anchor-id="étude-de-cas-1---arbres-urbains">Étude de cas 1 - Arbres urbains</h3>
-<p>Fichier: <code>data/arbres_urbains_fictif.csv</code></p>
-<p>Vous aidez une équipe municipale à préparer un aperçu de la canopée urbaine. Le fichier contient des observations fictives sur des arbres dans quelques villes québécoises.</p>
+<p>Les deux études de cas suivantes utilisent des extraits de données ouvertes de la Ville de Québec. Leur provenance et leurs limites sont documentées dans <code>module_02/data/README.md</code>.</p>
+<section id="étude-de-cas-1---arbres-répertoriés-de-québec" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-1---arbres-répertoriés-de-québec">Étude de cas 1 - Arbres répertoriés de Québec</h3>
+<p>Fichier: <code>data/arbres_repertories_quebec.csv</code></p>
+<p>Vous aidez une équipe municipale à préparer un aperçu des arbres répertoriés à Québec. Chaque ligne représente un arbre; le diamètre correspond au DHP lorsqu’il est disponible.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">
 <li>Importez le fichier avec <code>readr::read_csv()</code>.</li>
 <li>Inspectez la structure du tableau.</li>
-<li>Calculez, par essence, la hauteur moyenne, le diamètre moyen et le nombre d’arbres.</li>
-<li>Produisez une boîte à moustaches de <code>hauteur_m</code> par <code>essence</code>.</li>
-<li>Produisez un nuage de points entre <code>age_estime_ans</code> et <code>diametre_cm</code>, coloré par <code>etat_sante</code>.</li>
+<li>Calculez, par essence, le diamètre moyen et le nombre d’arbres.</li>
+<li>Produisez une boîte à moustaches de <code>diametre_cm</code> par <code>type_arbre</code>.</li>
+<li>Produisez un nuage de points des coordonnées, coloré par <code>type_arbre</code>.</li>
 <li>Rédigez deux phrases qui résument ce que vous observez.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6787,7 +6787,7 @@ Astuce
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>arbres <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/arbres_urbains_fictif.csv&quot;</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>arbres <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/arbres_repertories_quebec.csv&quot;</span>)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(arbres)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -6795,47 +6795,46 @@ Astuce
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(essence) <span class="sc">|&gt;</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">hauteur_moyenne_m =</span> <span class="fu">mean</span>(hauteur_m, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">diametre_moyen_cm =</span> <span class="fu">mean</span>(diametre_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>resume_arbres</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(arbres, <span class="fu">aes</span>(<span class="at">x =</span> essence, <span class="at">y =</span> hauteur_m, <span class="at">fill =</span> essence)) <span class="sc">+</span></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Hauteur des arbres selon l&#39;essence&quot;</span>,</span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Essence&quot;</span>,</span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Hauteur (m)&quot;</span>,</span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Essence&quot;</span></span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(arbres, <span class="fu">aes</span>(<span class="at">x =</span> age_estime_ans, <span class="at">y =</span> diametre_cm, <span class="at">colour =</span> etat_sante)) <span class="sc">+</span></span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Diamètre et âge estimé des arbres&quot;</span>,</span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Âge estimé (années)&quot;</span>,</span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Diamètre (cm)&quot;</span>,</span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;État de santé&quot;</span></span>
-<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">diametre_moyen_cm =</span> <span class="fu">mean</span>(diametre_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>resume_arbres</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(arbres, <span class="fu">aes</span>(<span class="at">x =</span> type_arbre, <span class="at">y =</span> diametre_cm, <span class="at">fill =</span> type_arbre)) <span class="sc">+</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Diamètre des arbres selon le type&quot;</span>,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Type d&#39;arbre&quot;</span>,</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Diamètre (cm)&quot;</span>,</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Type d&#39;arbre&quot;</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(arbres, <span class="fu">aes</span>(<span class="at">x =</span> longitude, <span class="at">y =</span> latitude, <span class="at">colour =</span> type_arbre)) <span class="sc">+</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Localisation des arbres répertoriés&quot;</span>,</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>,</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Type d&#39;arbre&quot;</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </section>
-<section id="étude-de-cas-2---vélo-partage" class="level3">
-<h3 class="anchored" data-anchor-id="étude-de-cas-2---vélo-partage">Étude de cas 2 - Vélo-partage</h3>
-<p>Fichier: <code>data/velo_partage_fictif.csv</code></p>
-<p>Vous préparez un court diagnostic pour un service fictif de vélo-partage. Le fichier contient des observations agrégées par station, mois et type de jour.</p>
+<section id="étude-de-cas-2---compteurs-cyclistes-de-québec" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-2---compteurs-cyclistes-de-québec">Étude de cas 2 - Compteurs cyclistes de Québec</h3>
+<p>Fichier: <code>data/comptages_cyclistes_quebec_2026.csv</code></p>
+<p>Vous préparez un court diagnostic des compteurs cyclistes de Québec. Chaque ligne représente un site et son total cumulé affiché le 10 juillet 2026.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">
 <li>Importez le fichier.</li>
-<li>Calculez le nombre moyen de trajets par ville et par type de jour.</li>
-<li>Créez une variable <code>jour_pluvieux</code> qui vaut <code>TRUE</code> si <code>precipitation_mm</code> est supérieure ou égale à 5.</li>
-<li>Produisez un nuage de points entre <code>temperature_c</code> et <code>trajets</code>, coloré par ville.</li>
-<li>Comparez <code>duree_mediane_min</code> entre les types de jour avec une boîte à moustaches.</li>
+<li>Calculez le nombre moyen de passages par type de compteur.</li>
+<li>Créez une variable <code>compteur_recent</code> qui vaut <code>TRUE</code> si <code>annee_debut</code> est supérieure ou égale à 2021.</li>
+<li>Produisez un nuage de points entre l’année de début et les passages cumulés, coloré par type de compteur.</li>
+<li>Comparez les passages cumulés entre les types de compteur avec une boîte à moustaches.</li>
 <li>Rédigez une recommandation courte pour l’équipe de planification.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -6854,40 +6853,39 @@ Astuce
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>velo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/velo_partage_fictif.csv&quot;</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>velo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/comptages_cyclistes_quebec_2026.csv&quot;</span>)</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>resume_velo <span class="ot">&lt;-</span> velo <span class="sc">|&gt;</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ville, jour_type) <span class="sc">|&gt;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type_compteur) <span class="sc">|&gt;</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">trajets_moyens =</span> <span class="fu">mean</span>(trajets, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">duree_mediane_typique =</span> <span class="fu">median</span>(duree_mediane_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>resume_velo</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>velo_prepare <span class="ot">&lt;-</span> velo <span class="sc">|&gt;</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jour_pluvieux =</span> precipitation_mm <span class="sc">&gt;=</span> <span class="dv">5</span>)</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(velo_prepare, <span class="fu">aes</span>(<span class="at">x =</span> temperature_c, <span class="at">y =</span> trajets, <span class="at">colour =</span> ville)) <span class="sc">+</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Trajets de vélo-partage selon la température&quot;</span>,</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Température (°C)&quot;</span>,</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Nombre de trajets&quot;</span>,</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Ville&quot;</span></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(velo_prepare, <span class="fu">aes</span>(<span class="at">x =</span> jour_type, <span class="at">y =</span> duree_mediane_min, <span class="at">fill =</span> jour_type)) <span class="sc">+</span></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Durée médiane des trajets selon le type de jour&quot;</span>,</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Type de jour&quot;</span>,</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Durée médiane (minutes)&quot;</span>,</span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Type de jour&quot;</span></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">passages_moyens =</span> <span class="fu">mean</span>(passages_velo_cumules, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>resume_velo</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>velo_prepare <span class="ot">&lt;-</span> velo <span class="sc">|&gt;</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">compteur_recent =</span> annee_debut <span class="sc">&gt;=</span> <span class="dv">2021</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(velo_prepare, <span class="fu">aes</span>(<span class="at">x =</span> annee_debut, <span class="at">y =</span> passages_velo_cumules, <span class="at">colour =</span> type_compteur)) <span class="sc">+</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Passages cyclistes selon l&#39;année de début&quot;</span>,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Année de début&quot;</span>,</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Passages cumulés&quot;</span>,</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Type de compteur&quot;</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(velo_prepare, <span class="fu">aes</span>(<span class="at">x =</span> type_compteur, <span class="at">y =</span> passages_velo_cumules, <span class="at">fill =</span> type_compteur)) <span class="sc">+</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Passages cumulés selon le type de compteur&quot;</span>,</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Type de compteur&quot;</span>,</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Passages cumulés&quot;</span>,</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Type de compteur&quot;</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>

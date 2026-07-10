@@ -6,7 +6,7 @@ Organiser un travail de données, importer un fichier Excel et produire des visu
 
 Fil principalGitHub, importation et graphiques
 
-DonnéesManchots, Excel et cas fictifs
+DonnéesManchots, Excel et données ouvertes de Québec
 
 DéfiJournal de bord et rapport GitHub
 
@@ -143,7 +143,7 @@ Le défi du module 2 se fait dans le même dépôt GitHub que l'aventure. Vous d
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Portée Ces exercices ne sont pas une étape du défi. Ils pratiquent GitHub, l'importation Excel, les graphiques et deux cas fictifs.
+Portée Ces exercices ne sont pas une étape du défi. Ils pratiquent GitHub, l'importation Excel, les graphiques et deux cas à partir de données ouvertes de Québec.
 
 Essayez chaque exercice avant d’ouvrir la solution, surtout quand le graphique semble presque fonctionner.
 
@@ -151,7 +151,7 @@ Essayez chaque exercice avant d’ouvrir la solution, surtout quand le graphique
 
 ### Bases de données
 
-[manchots_donnees.xlsx](../donnees.llms.md#dataset-card-manchots-donnees) [palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins) [Arbres urbains fictifs](data/arbres_urbains_fictif.csv) [Vélo-partage fictif](data/velo_partage_fictif.csv)
+[manchots_donnees.xlsx](../donnees.llms.md#dataset-card-manchots-donnees) [palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins) [Arbres répertoriés de Québec](data/arbres_repertories_quebec.csv) [Compteurs cyclistes de Québec](data/comptages_cyclistes_quebec_2026.csv)
 
 ### Packages R
 

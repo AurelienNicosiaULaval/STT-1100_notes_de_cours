@@ -179,7 +179,7 @@ For each species, compute the number of observations, the mean and the standard 
 > penguins_mission <- read_excel("resources/manchots_donnees.xlsx")
 >
 > species_summary <- penguins_mission |>
->   group_by(species) |>
+>   group_by(essence) |>
 >   summarise(
 >     n = n(),
 >     mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
@@ -415,21 +415,21 @@ plot(mpg$displ,mpg$hwy,col=as.factor(mpg$class));title("plot")
 
 ## Case Studies
 
-The following two case studies use small fictitious files. They do not represent real data; they only help practise module skills in contexts other than penguins.
+The following two case studies use extracts of Ville de Québec open data. Their provenance and limitations are documented in `module_02/data/README.md`.
 
-### Case Study 1 - Urban Trees
+### Case Study 1 - Quebec City public trees
 
-File: `data/fictitious_urban_trees.csv`
+File: `data/arbres_repertories_quebec.csv`
 
-You are helping a municipal team prepare an overview of the urban canopy. The file contains fictitious observations on trees in a few Quebec cities.
+You are helping a municipal team prepare an overview of trees inventoried in Québec City. Each row represents one tree; diameter is DBH when available.
 
 Complete the following tasks:
 
 1.  Import the file with `readr::read_csv()`.
 2.  Inspect the table structure.
-3.  For each tree species, compute mean height, mean diameter and number of trees.
-4.  Produce a box plot of `height_m` by `species`.
-5.  Produce a scatterplot of `estimated_age_years` and `diameter_cm`, colored by `health_status`.
+3.  For each tree species, compute mean diameter and number of trees.
+4.  Produce a box plot of `diameter_cm` by `tree_type`.
+5.  Produce a coordinate scatterplot, colored by `tree_type`.
 6.  Write two sentences summarizing what you observe.
 
 > **TIP:**
@@ -439,7 +439,7 @@ Complete the following tasks:
 > library(dplyr)
 > library(ggplot2)
 >
-> trees <- read_csv("data/fictitious_urban_trees.csv")
+> trees <- read_csv("data/arbres_repertories_quebec.csv")
 >
 > glimpse(trees)
 >
@@ -447,47 +447,46 @@ Complete the following tasks:
 >   group_by(species) |>
 >   summarise(
 >     n = n(),
->     mean_height_m = mean(height_m, na.rm = TRUE),
 >     mean_diameter_cm = mean(diameter_cm, na.rm = TRUE),
 >     .groups = "drop"
 >   )
 >
 > tree_summary
 >
-> ggplot(trees, aes(x = species, y = height_m, fill = species)) +
+> ggplot(trees, aes(x = type_arbre, y = diametre_cm, fill = type_arbre)) +
 >   geom_boxplot(alpha = 0.8) +
 >   labs(
->     title = "Tree height by species",
->     x = "Species",
->     y = "Height (m)",
->     fill = "Species"
+>     title = "Tree diameter by type",
+>     x = "Tree type",
+>     y = "Diameter (cm)",
+>     fill = "Tree type"
 >   ) +
 >   theme_minimal()
 >
-> ggplot(trees, aes(x = estimated_age_years, y = diameter_cm, colour = health_status)) +
+> ggplot(trees, aes(x = longitude, y = latitude, colour = type_arbre)) +
 >   geom_point(size = 2, alpha = 0.8) +
 >   labs(
->     title = "Tree diameter and estimated age",
->     x = "Estimated age (years)",
->     y = "Diameter (cm)",
->     colour = "Health status"
+>     title = "Location of inventoried trees",
+>     x = "Longitude",
+>     y = "Latitude",
+>     colour = "Tree type"
 >   ) +
 >   theme_minimal()
 > ```
 
-### Case Study 2 - Bike Share
+### Case Study 2 - Québec City cycling counters
 
-File: `data/fictitious_bike_share.csv`
+File: `data/comptages_cyclistes_quebec_2026.csv`
 
-You are preparing a short diagnostic for a fictitious bike-share service. The file contains aggregated observations by station, month and day type.
+You are preparing a short diagnostic of Québec City’s cycling counters. Each row represents one site and its cumulative total displayed on July 10, 2026.
 
 Complete the following tasks:
 
 1.  Import the file.
-2.  Compute the mean number of trips by city and day type.
-3.  Create a variable `rainy_day` equal to `TRUE` when `precipitation_mm` is greater than or equal to 5.
-4.  Produce a scatterplot of `temperature_c` and `trips`, colored by city.
-5.  Compare `median_duration_min` between day types with a box plot.
+2.  Compute mean passages by counter type.
+3.  Create a variable `recent_counter` equal to `TRUE` when `start_year` is at least 2021.
+4.  Produce a scatterplot of starting year and cumulative passages, colored by counter type.
+5.  Compare cumulative passages between counter types with a box plot.
 6.  Write a short recommendation for the planning team.
 
 > **TIP:**
@@ -497,38 +496,37 @@ Complete the following tasks:
 > library(dplyr)
 > library(ggplot2)
 >
-> bike <- read_csv("data/fictitious_bike_share.csv")
+> bike <- read_csv("data/comptages_cyclistes_quebec_2026.csv")
 >
 > bike_summary <- bike |>
->   group_by(city, day_type) |>
+>   group_by(type_compteur) |>
 >   summarise(
->     mean_trips = mean(trips, na.rm = TRUE),
->     typical_median_duration = median(median_duration_min, na.rm = TRUE),
+>     mean_passages = mean(passages_velo_cumules, na.rm = TRUE),
 >     .groups = "drop"
 >   )
 >
 > bike_summary
 >
 > bike_prepared <- bike |>
->   mutate(rainy_day = precipitation_mm >= 5)
+>   mutate(recent_counter = annee_debut >= 2021)
 >
-> ggplot(bike_prepared, aes(x = temperature_c, y = trips, colour = city)) +
+> ggplot(bike_prepared, aes(x = annee_debut, y = passages_velo_cumules, colour = type_compteur)) +
 >   geom_point(size = 2, alpha = 0.8) +
 >   labs(
->     title = "Bike-share trips by temperature",
->     x = "Temperature (°C)",
->     y = "Number of trips",
->     colour = "City"
+>     title = "Cycling passages by starting year",
+>     x = "Starting year",
+>     y = "Cumulative passages",
+>     colour = "Counter type"
 >   ) +
 >   theme_minimal()
 >
-> ggplot(bike_prepared, aes(x = day_type, y = median_duration_min, fill = day_type)) +
+> ggplot(bike_prepared, aes(x = type_compteur, y = passages_velo_cumules, fill = type_compteur)) +
 >   geom_boxplot(alpha = 0.8) +
 >   labs(
->     title = "Median trip duration by day type",
->     x = "Day type",
->     y = "Median duration (minutes)",
->     fill = "Day type"
+>     title = "Cumulative passages by counter type",
+>     x = "Counter type",
+>     y = "Cumulative passages",
+>     fill = "Counter type"
 >   ) +
 >   theme_minimal()
 > ```
