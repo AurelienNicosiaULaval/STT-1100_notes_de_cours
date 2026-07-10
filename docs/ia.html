@@ -6123,6 +6123,23 @@ margin-bottom: .05rem;
     </div>
   </section>
 
+  <section class="resource-section" aria-labelledby="modes-title">
+    <div class="resource-section__header">
+      <h2 id="modes-title" class="anchored">Huit modes pour demander la bonne aide</h2>
+      <p>Commencez votre message par la commande qui correspond à votre besoin. Le GPT adapte alors sa démarche et ses limites à l&#39;activité concernée.</p>
+    </div>
+    <div class="reading-map">
+      <article><h3 class="anchored">Sources et consignes</h3><p><code>/sources</code> Vérifier une règle du cours et retrouver la source qui fait foi.</p></article>
+      <article><h3 class="anchored">Révision</h3><p><code>/revision</code> Revoir une notion avec une explication courte et une question de rappel.</p></article>
+      <article><h3 class="anchored">Exercices</h3><p><code>/exercices</code> Obtenir un exercice formatif distinct d&#39;une évaluation active, avec des indices gradués.</p></article>
+      <article><h3 class="anchored">Rétroaction</h3><p><code>/retroaction</code> Recevoir une rétroaction formative sans note officielle.</p></article>
+      <article><h3 class="anchored">Débogage R</h3><p><code>/debug-r</code> Diagnostiquer une erreur à partir du code minimal, du message complet et du résultat attendu.</p></article>
+      <article><h3 class="anchored">Projet</h3><p><code>/projet</code> Comparer des options, justifier un choix et alimenter un journal de décision.</p></article>
+      <article><h3 class="anchored">Préparation à l&#39;examen</h3><p><code>/examen</code> Construire un plan de révision et pratiquer avec des questions analogues.</p></article>
+      <article><h3 class="anchored">Intégrité et IA</h3><p><code>/integrite-ia</code> Clarifier un usage permis, restreint, à déclarer, interdit ou inconnu.</p></article>
+    </div>
+  </section>
+
   <section class="resource-section" aria-labelledby="activity-title">
     <div class="resource-section__header">
       <h2 id="activity-title" class="anchored">Usage permis de l&#39;IA</h2>
@@ -6133,6 +6150,25 @@ margin-bottom: .05rem;
       <article class="flow-card"><span class="flow-number">2</span><h3 class="anchored">Défis</h3><p>Appliquer la règle commune et garder une trace lorsque l&#39;aide influence le livrable.</p></article>
       <article class="flow-card"><span class="flow-number">3</span><h3 class="anchored">Examen</h3><p>Vérifier les outils explicitement autorisés sur Brio avant de commencer.</p></article>
       <article class="flow-card"><span class="flow-number">4</span><h3 class="anchored">Projet de session</h3><p>Appliquer la règle commune dans le dépôt d&#39;équipe et dans les remises.</p></article>
+    </div>
+  </section>
+
+  <section class="resource-section resource-split" aria-labelledby="sources-title">
+    <div>
+      <h2 id="sources-title" class="anchored">Quelle source fait foi?</h2>
+      <p>Le GPT n&#39;a pas accès à Brio. Pour une information propre au cours, il doit respecter cette hiérarchie et ne jamais compléter une information manquante par une supposition.</p>
+      <ol class="clean-steps">
+        <li>Brio pour les dates, remises, pondérations, modalités administratives et outils autorisés.</li>
+        <li>Une consigne officielle donnée par l&#39;équipe enseignante.</li>
+        <li>La page particulière de l&#39;évaluation concernée.</li>
+        <li>La page IA, puis les autres pages officielles du site du cours.</li>
+        <li>L&#39;instantané de connaissances du GPT, ses connaissances générales et les sources externes citées.</li>
+      </ol>
+    </div>
+    <div class="resource-compact-list" aria-label="Règles de fidélité aux sources">
+      <article class="resource-compact"><h3 class="anchored">Information introuvable</h3><p>Si la réponse ne peut pas être vérifiée, le GPT doit répondre exactement: « Je ne sais pas. »</p></article>
+      <article class="resource-compact"><h3 class="anchored">Sources en contradiction</h3><p>Brio et les instructions officielles de l&#39;équipe enseignante prévalent. Si le conflit demeure, demandez une clarification à l&#39;équipe.</p></article>
+      <article class="resource-compact"><h3 class="anchored">Connaissances mises en contexte</h3><p>Les fichiers du GPT constituent un instantané. Pour une modalité courante, vérifiez toujours Brio et la page officielle concernée.</p></article>
     </div>
   </section>
 
@@ -6174,12 +6210,12 @@ margin-bottom: .05rem;
       <p>Les meilleurs prompts demandent une aide ciblée et gardent la responsabilité de la décision de votre côté.</p>
     </div>
     <div class="reading-map">
-      <article><h3 class="anchored">Déboguer</h3><p>Voici mon message d&#39;erreur complet, le code minimal et ce que je voulais obtenir. Pose-moi deux questions de diagnostic, puis propose une correction que je peux tester.</p></article>
-      <article><h3 class="anchored">Comprendre</h3><p>Explique cette sortie R en langage simple. Sépare ce qui est directement visible dans la sortie de ce qui demande une vérification dans les données.</p></article>
-      <article><h3 class="anchored">Réviser</h3><p>Voici mon interprétation. Signale les phrases qui dépassent les données, les variables à vérifier et les endroits où je dois nuancer.</p></article>
-      <article><h3 class="anchored">Améliorer</h3><p>Propose une version plus claire de ce paragraphe sans changer le résultat, sans ajouter de source et sans inventer d&#39;information.</p></article>
-      <article><h3 class="anchored">Tester</h3><p>Voici ma consigne et mon document Quarto. Donne-moi une liste courte de vérifications à faire avant la remise: rendu, code, figures, interprétation et fichiers.</p></article>
-      <article><h3 class="anchored">Documenter</h3><p>Aide-moi à écrire une note de deux phrases qui nomme le GPT utilisé, le but de l&#39;aide et la vérification que j&#39;ai faite.</p></article>
+      <article><h3 class="anchored">Déboguer</h3><p><code>/debug-r</code> Voici mon message d&#39;erreur complet, le code minimal et ce que je voulais obtenir. Pose-moi deux questions de diagnostic, puis propose une correction que je peux tester.</p></article>
+      <article><h3 class="anchored">Comprendre</h3><p><code>/revision</code> Explique cette sortie R en langage simple. Sépare ce qui est directement visible dans la sortie de ce qui demande une vérification dans les données.</p></article>
+      <article><h3 class="anchored">Réviser</h3><p><code>/retroaction</code> Voici mon interprétation. Signale les phrases qui dépassent les données, les variables à vérifier et les endroits où je dois nuancer.</p></article>
+      <article><h3 class="anchored">Améliorer</h3><p><code>/retroaction</code> Propose une version plus claire de ce paragraphe sans changer le résultat, sans ajouter de source et sans inventer d&#39;information.</p></article>
+      <article><h3 class="anchored">Tester</h3><p><code>/sources</code> Voici ma consigne et mon document Quarto. Donne-moi une liste courte de vérifications à faire avant la remise: rendu, code, figures, interprétation et fichiers.</p></article>
+      <article><h3 class="anchored">Documenter</h3><p><code>/integrite-ia</code> Aide-moi à écrire une note de deux phrases qui nomme le GPT utilisé, le but de l&#39;aide et la vérification que j&#39;ai faite.</p></article>
     </div>
   </section>
 </div>
