@@ -525,152 +525,152 @@ Take one previous chart and improve it for a non-specialist reader:
 
 ## Case studies
 
-### Case study 1 - Fictitious 311 requests
+### Case study 1 - Montréal 311 requests
 
-The file `data/fictitious_311_requests.csv` contains fictitious 311 requests for a few Quebec municipalities. It does not come from a real municipality and is used only for practice.
+The file `data/requetes_311_montreal.csv` is a real extract of Montréal 311 requests. A request does not necessarily represent a municipal intervention.
 
 Complete the following tasks:
 
 1.  import the file;
-2.  clean the variable `request_type`;
-3.  calculate the number of requests by city and type;
-4.  calculate the proportion of open requests by priority;
-5.  produce a chart of the most frequent request types;
+2.  clean the variable `categorie`;
+3.  calculate the number of requests by borough and category;
+4.  calculate status proportions by request nature;
+5.  produce a chart of the most frequent categories;
 6.  write two sentences that could appear in a short report.
 
 > **NOTE:**
 >
 > ``` r
 > requests_311 <- read_csv(
->   "data/fictitious_311_requests.csv",
+>   "data/requetes_311_montreal.csv",
 >   show_col_types = FALSE
 > ) |>
->   mutate(request_type = str_squish(request_type))
+>   mutate(categorie = str_squish(categorie))
 >
 > requests_311 |>
->   count(city, request_type, sort = TRUE)
+>   count(arrondissement, categorie, sort = TRUE)
 > ```
 >
->     # A tibble: 22 × 3
->        city     request_type         n
->        <chr>    <chr>            <int>
->      1 Montreal Waste collection     2
->      2 Quebec   Waste collection     2
->      3 Gatineau Lighting             1
->      4 Gatineau Noise                1
->      5 Gatineau Snow removal         1
->      6 Gatineau Waste collection     1
->      7 Levis    Lighting             1
->      8 Levis    Potholes             1
->      9 Levis    Snow removal         1
->     10 Levis    Waste collection     1
->     # ℹ 12 more rows
+>     # A tibble: 122 × 3
+>        arrondissement categorie                                    n
+>        <chr>          <chr>                                    <int>
+>      1 Non assigné    Info-Remorquage                             75
+>      2 Non assigné    Collecte des encombrants                    50
+>      3 Non assigné    Taxes foncières                             46
+>      4 Non assigné    Collecte de déchets                         45
+>      5 Non assigné    Y-Eau - Divers                              30
+>      6 Non assigné    Organisme divers                            27
+>      7 Non assigné    Fermeture d'une conduite d'eau - Urgence    23
+>      8 Non assigné    Fermeture d'entrée d'eau                    21
+>      9 Non assigné    Manque d'eau                                20
+>     10 Non assigné    Intervention stationnement                  19
+>     # ℹ 112 more rows
 >
 > ``` r
 > requests_311 |>
->   count(priority, status) |>
->   group_by(priority) |>
+>   count(nature, statut) |>
+>   group_by(nature) |>
 >   mutate(proportion = n / sum(n)) |>
 >   ungroup()
 > ```
 >
->     # A tibble: 6 × 4
->       priority status     n proportion
->       <chr>    <chr>  <int>      <dbl>
->     1 High     Closed     3      0.5
->     2 High     Open       3      0.5
->     3 Low      Closed     3      0.75
->     4 Low      Open       1      0.25
->     5 Normal   Closed    12      0.857
->     6 Normal   Open       2      0.143
+>     # A tibble: 1 × 4
+>       nature      statut          n proportion
+>       <chr>       <chr>       <int>      <dbl>
+>     1 Information Sans statut   750          1
 >
 > ``` r
 > requests_311 |>
->   count(request_type, sort = TRUE) |>
->   ggplot(aes(x = fct_reorder(request_type, n), y = n)) +
+>   count(categorie, sort = TRUE) |>
+>   slice_head(n = 12) |>
+>   ggplot(aes(x = fct_reorder(categorie, n), y = n)) +
 >   geom_col(fill = "#4B8B3B") +
 >   coord_flip() +
 >   labs(
->     x = "Request type",
+>     x = "Category",
 >     y = "Number of requests",
->     title = "Fictitious 311 requests are concentrated in a few categories"
+>     title = "Frequent categories in the 311 extract"
 >   ) +
 >   theme_minimal()
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-22-1.png)
 >
-> Possible comment: snow removal and pothole requests stand out in this fictitious sample. Priority should be interpreted carefully because municipalities may not code requests in the same way.
+> Possible comment: the extract describes published requests, not the real workload or quality of municipal interventions.
 
-### Case study 2 - Fictitious public transit complaints
+### Case study 2 - Consumer complaints in Québec
 
-The file `data/fictitious_transit_complaints.csv` contains fictitious complaints for different public transit networks.
+The file `data/plaintes_consommation_quebec.csv` is a real extract of complaints received by Québec’s Office de la protection du consommateur. A complaint is an unverified allegation.
 
 Complete the following tasks:
 
 1.  import the file;
-2.  calculate the total number of complaints by network;
-3.  identify the most frequent complaint types;
-4.  compare complaint severity between networks with a proportional chart;
+2.  calculate the total number of complaints by head-office city;
+3.  identify the most frequent complaint reasons;
+4.  compare product categories between cities with a proportional chart;
 5.  propose an operational recommendation supported by a number.
 
 > **NOTE:**
 >
 > ``` r
 > transit_complaints <- read_csv(
->   "data/fictitious_transit_complaints.csv",
+>   "data/plaintes_consommation_quebec.csv",
 >   show_col_types = FALSE
 > )
 >
 > transit_complaints |>
->   group_by(network) |>
->   summarise(total_complaints = sum(n_complaints), .groups = "drop") |>
->   arrange(desc(total_complaints))
+>   count(ville_siege_social, sort = TRUE)
 > ```
 >
->     # A tibble: 5 × 2
->       network total_complaints
->       <chr>              <dbl>
->     1 STM                  121
->     2 exo                   71
->     3 RTC                   56
->     4 RTL                   51
->     5 STL                   41
+>     # A tibble: 158 × 2
+>        ville_siege_social     n
+>        <chr>              <int>
+>      1 Montréal             110
+>      2 <NA>                  76
+>      3 Québec                44
+>      4 Laval                 40
+>      5 Toronto               24
+>      6 Boucherville          23
+>      7 Saint-Eustache        19
+>      8 Vancouver             19
+>      9 Longueuil             16
+>     10 Gatineau              15
+>     # ℹ 148 more rows
 >
 > ``` r
 > transit_complaints |>
->   group_by(complaint_type) |>
->   summarise(total_complaints = sum(n_complaints), .groups = "drop") |>
->   arrange(desc(total_complaints))
+>   count(motif, sort = TRUE)
 > ```
 >
->     # A tibble: 5 × 2
->       complaint_type total_complaints
->       <chr>                     <dbl>
->     1 Delay                       146
->     2 Crowding                     89
->     3 Information                  51
->     4 Cleanliness                  28
->     5 Accessibility                26
+>     # A tibble: 7 × 2
+>       motif                                                              n
+>       <chr>                                                          <int>
+>     1 Qualité des biens et services                                    238
+>     2 Service à la clientèle / Absence de livraison / Non conformité   187
+>     3 Pratique trompeuse ou déloyale                                   180
+>     4 Mésentente liée au contrat conclu                                 66
+>     5 Problème de facturation ou de recouvrement de créance             51
+>     6 Mésentente avant l’achat liée au prix / au tarif                  22
+>     7 Autre                                                              6
 >
 > ``` r
 > transit_complaints |>
->   count(network, severity, wt = n_complaints, name = "total") |>
->   group_by(network) |>
+>   count(ville_siege_social, categorie_produit, name = "total") |>
+>   group_by(ville_siege_social) |>
 >   mutate(proportion = total / sum(total)) |>
 >   ungroup() |>
->   ggplot(aes(x = network, y = proportion, fill = severity)) +
+>   ggplot(aes(x = ville_siege_social, y = proportion, fill = categorie_produit)) +
 >   geom_col(position = "fill") +
 >   scale_y_continuous(labels = scales::percent) +
 >   labs(
->     x = "Network",
+>     x = "Head-office city",
 >     y = "Proportion of complaints",
->     fill = "Severity",
->     title = "Composition of fictitious complaints by network"
+>     fill = "Category",
+>     title = "Composition of consumer complaints"
 >   ) +
 >   theme_minimal()
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-23-1.png)
 >
-> Possible recommendation: prioritize complaint categories that combine high volume and high severity. In a report, cite the total by network and the share of high-severity complaints before proposing an action.
+> Possible recommendation: describe the most frequent categories while explicitly noting that a complaint does not establish an offence.
