@@ -6150,12 +6150,12 @@ margin-bottom: .05rem;
   <li><a href="#exercice-13---lire-une-feuille-excel-précise" id="toc-exercice-13---lire-une-feuille-excel-précise" class="nav-link" data-scroll-target="#exercice-13---lire-une-feuille-excel-précise">Exercice 13 - Lire une feuille Excel précise</a></li>
   <li><a href="#exercice-14---lire-un-json-simple" id="toc-exercice-14---lire-un-json-simple" class="nav-link" data-scroll-target="#exercice-14---lire-un-json-simple">Exercice 14 - Lire un JSON simple</a></li>
   <li><a href="#exercice-15---rectangulariser-un-json" id="toc-exercice-15---rectangulariser-un-json" class="nav-link" data-scroll-target="#exercice-15---rectangulariser-un-json">Exercice 15 - Rectangulariser un JSON</a></li>
-  <li><a href="#exercice-16---utiliser-une-règle-de-validation" id="toc-exercice-16---utiliser-une-règle-de-validation" class="nav-link" data-scroll-target="#exercice-16---utiliser-une-règle-de-validation">Exercice 16 - Utiliser une règle de validation</a></li>
+  <li><a href="#exercice-16---lire-les-métadonnées-dune-source-officielle" id="toc-exercice-16---lire-les-métadonnées-dune-source-officielle" class="nav-link" data-scroll-target="#exercice-16---lire-les-métadonnées-dune-source-officielle">Exercice 16 - Lire les métadonnées d’une source officielle</a></li>
   </ul></li>
   <li><a href="#études-de-cas" id="toc-études-de-cas" class="nav-link" data-scroll-target="#études-de-cas">Études de cas</a>
   <ul class="collapse">
-  <li><a href="#étude-de-cas-1---demandes-de-bourses-fictives" id="toc-étude-de-cas-1---demandes-de-bourses-fictives" class="nav-link" data-scroll-target="#étude-de-cas-1---demandes-de-bourses-fictives">Étude de cas 1 - Demandes de bourses fictives</a></li>
-  <li><a href="#étude-de-cas-2---équipements-municipaux-fictifs" id="toc-étude-de-cas-2---équipements-municipaux-fictifs" class="nav-link" data-scroll-target="#étude-de-cas-2---équipements-municipaux-fictifs">Étude de cas 2 - Équipements municipaux fictifs</a></li>
+  <li><a href="#étude-de-cas-1---aide-financière-de-dernier-recours-au-québec" id="toc-étude-de-cas-1---aide-financière-de-dernier-recours-au-québec" class="nav-link" data-scroll-target="#étude-de-cas-1---aide-financière-de-dernier-recours-au-québec">Étude de cas 1 - Aide financière de dernier recours au Québec</a></li>
+  <li><a href="#étude-de-cas-2---installations-sportives-et-récréatives-de-sherbrooke" id="toc-étude-de-cas-2---installations-sportives-et-récréatives-de-sherbrooke" class="nav-link" data-scroll-target="#étude-de-cas-2---installations-sportives-et-récréatives-de-sherbrooke">Étude de cas 2 - Installations sportives et récréatives de Sherbrooke</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -6183,6 +6183,19 @@ margin-bottom: .05rem;
 
 
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 4: importer des fichiers, vérifier les types, nettoyer des valeurs, manipuler des facteurs, lire un JSON et documenter des décisions de nettoyage.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Deux études de cas québécoises réelles
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les études de cas utilisent un tableau agrégé de l’<a href="https://www.donneesquebec.ca/recherche/dataset/aide-financiere-de-dernier-recours-afdr-clientele-et-prestations">aide financière de dernier recours</a> publié par le ministère de l’Emploi et de la Solidarité sociale, ainsi que l’inventaire des <a href="https://www.donneesquebec.ca/recherche/dataset/b6498f3436974ecbb8fa636a7d9c0b2f_0">installations sportives et récréatives de Sherbrooke</a>. Les deux sources sont diffusées sous licence CC BY 4.0. Les fichiers locaux sont des instantanés reproductibles préparés par <code>scripts/build_module04_real_data.R</code>.</p>
+</div>
+</div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -6200,7 +6213,7 @@ margin-bottom: .05rem;
 <h3 class="anchored" data-anchor-id="exercice-1---lire-un-csv-avec-types-contrôlés">Exercice 1 - Lire un CSV avec types contrôlés</h3>
 <p>Importez <code>policies.csv</code> en forçant <code>policy_id</code> en texte et <code>premium_amount</code> en nombre.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6209,7 +6222,7 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>policies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
@@ -6244,7 +6257,7 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 <h3 class="anchored" data-anchor-id="exercice-2---vérifier-les-dimensions-et-les-noms">Exercice 2 - Vérifier les dimensions et les noms</h3>
 <p>Vérifiez le nombre de lignes, le nombre de colonnes et les noms de variables de <code>policies</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6253,7 +6266,7 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
@@ -6281,7 +6294,7 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 <h3 class="anchored" data-anchor-id="exercice-3---nettoyer-des-noms-de-colonnes">Exercice 3 - Nettoyer des noms de colonnes</h3>
 <p>Créez un petit tableau avec des noms de colonnes peu pratiques, puis nettoyez-les avec <code>clean_names()</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6290,7 +6303,7 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tableau_brut <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -6314,7 +6327,7 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 <h3 class="anchored" data-anchor-id="exercice-4---passer-du-format-large-au-format-long">Exercice 4 - Passer du format large au format long</h3>
 <p>Dans <code>policies</code>, les colonnes <code>q1_claims</code> à <code>q4_claims</code> représentent des réclamations trimestrielles. Transformez-les en deux colonnes: <code>trimestre</code> et <code>reclamations</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6323,7 +6336,7 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>policies_long <span class="ot">&lt;-</span> policies <span class="sc">|&gt;</span></span>
@@ -6361,7 +6374,7 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 <h3 class="anchored" data-anchor-id="exercice-5---revenir-au-format-large">Exercice 5 - Revenir au format large</h3>
 <p>À partir de <code>policies_long</code>, revenez au format large.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6370,7 +6383,7 @@ $ claim_amount   &lt;dbl&gt; 1200, 0, 300, 2500, 0, 1800, 450, 0, 2200, 700, 0, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>policies_wide <span class="ot">&lt;-</span> policies_long <span class="sc">|&gt;</span></span>
@@ -6402,7 +6415,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 <h3 class="anchored" data-anchor-id="exercice-6---recoder-des-catégories-proches">Exercice 6 - Recoder des catégories proches</h3>
 <p>La variable <code>vehicle_use</code> contient des variantes comme <code>&quot;Pleasure&quot;</code>, <code>&quot;pleasure&quot;</code> et <code>&quot;Com.mute&quot;</code>. Nettoyez-la pour obtenir seulement <code>&quot;Pleasure&quot;</code> et <code>&quot;Commute&quot;</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6411,7 +6424,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>policies_use_clean <span class="ot">&lt;-</span> policies <span class="sc">|&gt;</span></span>
@@ -6447,7 +6460,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6456,7 +6469,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>montants <span class="sc">|&gt;</span></span>
@@ -6491,7 +6504,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6500,7 +6513,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>codes_fsa <span class="sc">|&gt;</span></span>
@@ -6525,7 +6538,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 <h3 class="anchored" data-anchor-id="exercice-9---créer-une-structure-de-journal">Exercice 9 - Créer une structure de journal</h3>
 <p>Créez une liste <code>journal_nettoyage</code> avec les catégories <code>VM</code>, <code>VA</code>, <code>FT</code>, <code>RC</code> et <code>TY</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6534,7 +6547,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
@@ -6563,7 +6576,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 <h3 class="anchored" data-anchor-id="exercice-10---ajouter-une-entrée-de-correction">Exercice 10 - Ajouter une entrée de correction</h3>
 <p>Ajoutez une entrée indiquant que la valeur <code>-999</code> a été remplacée par <code>NA</code> dans une variable de montant.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6572,7 +6585,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage<span class="sc">$</span>VM <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_nettoyage<span class="sc">$</span>VM, <span class="fu">list</span>(</span>
@@ -6612,7 +6625,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 <h3 class="anchored" data-anchor-id="exercice-11---signaler-sans-corriger">Exercice 11 - Signaler sans corriger</h3>
 <p>Ajoutez une entrée indiquant qu’un code FSA invalide a été signalé, mais non corrigé automatiquement.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6621,7 +6634,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage<span class="sc">$</span>FT <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_nettoyage<span class="sc">$</span>FT, <span class="fu">list</span>(</span>
@@ -6661,7 +6674,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 <h3 class="anchored" data-anchor-id="exercice-12---sauvegarder-un-journal-dans-un-fichier-temporaire">Exercice 12 - Sauvegarder un journal dans un fichier temporaire</h3>
 <p>Sauvegardez <code>journal_nettoyage</code> dans un fichier temporaire, puis vérifiez que le fichier existe.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6670,7 +6683,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>chemin_temp <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.Rdata&quot;</span>)</span>
@@ -6691,7 +6704,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 <h3 class="anchored" data-anchor-id="exercice-13---lire-une-feuille-excel-précise">Exercice 13 - Lire une feuille Excel précise</h3>
 <p>Le fichier <code>resources/quotes_2024.xlsx</code> contient une feuille <code>Q3</code>. Importez-la en sautant la première ligne.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6700,7 +6713,7 @@ $ q4_claims      &lt;dbl&gt; 1, 0, 0, 2, 1, 1, 0, 1, 2, 0, 1, 0, 1, 1, 2</code><
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>quotes_q3 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(</span>
@@ -6726,7 +6739,7 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 <h3 class="anchored" data-anchor-id="exercice-14---lire-un-json-simple">Exercice 14 - Lire un JSON simple</h3>
 <p>Lisez <code>coverage.json</code>, puis récupérez la limite de couverture collision.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6735,7 +6748,7 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">&lt;-</span> <span class="fu">read_json</span>(<span class="st">&quot;coverage.json&quot;</span>)</span>
@@ -6753,7 +6766,7 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 <h3 class="anchored" data-anchor-id="exercice-15---rectangulariser-un-json">Exercice 15 - Rectangulariser un JSON</h3>
 <p>Transformez la section <code>coverage</code> du JSON en tableau.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6762,7 +6775,7 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>coverage_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -6784,55 +6797,9 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 </div>
 </div>
 </section>
-<section id="exercice-16---utiliser-une-règle-de-validation" class="level3">
-<h3 class="anchored" data-anchor-id="exercice-16---utiliser-une-règle-de-validation">Exercice 16 - Utiliser une règle de validation</h3>
-<p>Le fichier <code>data/regles_equipements_fictif.json</code> indique les années d’installation plausibles. Lisez ce fichier et affichez les bornes acceptées.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>regles <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">&quot;data/regles_equipements_fictif.json&quot;</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">annee_min =</span> regles<span class="sc">$</span>annee_installation<span class="sc">$</span>min,</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">annee_max =</span> regles<span class="sc">$</span>annee_installation<span class="sc">$</span>max</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  annee_min annee_max
-      &lt;int&gt;     &lt;int&gt;
-1      1990      2026</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="études-de-cas" class="level2">
-<h2 class="anchored" data-anchor-id="études-de-cas">Études de cas</h2>
-<section id="étude-de-cas-1---demandes-de-bourses-fictives" class="level3">
-<h3 class="anchored" data-anchor-id="étude-de-cas-1---demandes-de-bourses-fictives">Étude de cas 1 - Demandes de bourses fictives</h3>
-<p>Le fichier <code>data/demandes_bourses_fictif.csv</code> contient de fausses demandes de bourses étudiantes. Il ne représente aucun système réel.</p>
-<p>Réalisez les tâches suivantes:</p>
-<ol type="1">
-<li>importez le fichier;</li>
-<li>nettoyez les noms de colonnes;</li>
-<li>transformez <code>montant_demande</code> en nombre;</li>
-<li>remplacez <code>revenu_annuel = -999</code> par <code>NA</code>;</li>
-<li>harmonisez les noms de programme;</li>
-<li>repérez les codes FSA invalides;</li>
-<li>créez au moins deux entrées dans un journal de nettoyage.</li>
-</ol>
+<section id="exercice-16---lire-les-métadonnées-dune-source-officielle" class="level3">
+<h3 class="anchored" data-anchor-id="exercice-16---lire-les-métadonnées-dune-source-officielle">Exercice 16 - Lire les métadonnées d’une source officielle</h3>
+<p>Le fichier <code>data/metadonnees_installations_sherbrooke.json</code> provient du service REST de la Ville de Sherbrooke. Lisez-le, puis affichez le nom des champs et le système de coordonnées de l’étendue.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -6846,138 +6813,46 @@ $ quote_amount &lt;dbl&gt; 525.40, 610.00, 845.75, 720.30</code></pre>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>bourses <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/demandes_bourses_fictif.csv&quot;</span>,</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">montant_demande_num =</span> <span class="fu">parse_number</span>(</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>      montant_demande,</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>, <span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>)</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">revenu_annuel =</span> <span class="fu">na_if</span>(revenu_annuel, <span class="sc">-</span><span class="dv">999</span>),</span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">programme_propre =</span> <span class="fu">str_to_lower</span>(<span class="fu">str_squish</span>(programme)),</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">programme_propre =</span> <span class="fu">case_when</span>(</span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(programme_propre, <span class="st">&quot;donnees|données|sc</span><span class="sc">\\</span><span class="st">.&quot;</span>) <span class="sc">~</span> <span class="st">&quot;science des donnees&quot;</span>,</span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(programme_propre, <span class="st">&quot;math&quot;</span>) <span class="sc">~</span> <span class="st">&quot;mathematiques&quot;</span>,</span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> programme_propre</span>
-<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">statut_propre =</span> <span class="fu">str_to_lower</span>(<span class="fu">str_squish</span>(statut)),</span>
-<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">fsa_invalide =</span> <span class="fu">is.na</span>(fsa_code) <span class="sc">|</span> <span class="fu">nchar</span>(fsa_code) <span class="sc">!=</span> <span class="dv">3</span></span>
-<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>bourses <span class="sc">|&gt;</span></span>
-<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(programme_propre, statut_propre)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>metadonnees <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/metadonnees_installations_sherbrooke.json&quot;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>metadonnees<span class="sc">$</span>fields <span class="sc">|&gt;</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, type, alias)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 3
-   programme_propre    statut_propre     n
-   &lt;chr&gt;               &lt;chr&gt;         &lt;int&gt;
- 1 informatique        complete          2
- 2 informatique        incomplete        1
- 3 mathematiques       complete          3
- 4 mathematiques       incomplete        1
- 5 science des donnees complete          3
- 6 science des donnees en attente        1
- 7 science des donnees incomplete        1
- 8 statistique         complete          2
- 9 statistique         en attente        1
-10 statistique         refusee           1</code></pre>
+<pre><code>       name                type     alias
+1      TYPE esriFieldTypeString      TYPE
+2    DETAIL esriFieldTypeString    DETAIL
+3       NOM esriFieldTypeString       NOM
+4   SURFACE esriFieldTypeString   SURFACE
+5 ECLAIRAGE esriFieldTypeString ECLAIRAGE
+6  OBJECTID    esriFieldTypeOID  OBJECTID</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>bourses <span class="sc">|&gt;</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fsa_invalide) <span class="sc">|&gt;</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dossier_id, fsa_code)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>metadonnees<span class="sc">$</span>extent<span class="sc">$</span>spatialReference<span class="sc">$</span>latestWkid</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  dossier_id fsa_code
-  &lt;chr&gt;      &lt;chr&gt;
-1 B-010      G1V1234 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>journal_bourses <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">VM =</span> <span class="fu">list</span>(), <span class="at">FT =</span> <span class="fu">list</span>(), <span class="at">RC =</span> <span class="fu">list</span>(), <span class="at">VA =</span> <span class="fu">list</span>())</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>journal_bourses<span class="sc">$</span>VM <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_bourses<span class="sc">$</span>VM, <span class="fu">list</span>(</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;B-004&quot;</span>,</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;revenu_annuel&quot;</span>,</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Valeur manquante codée par -999&quot;</span>,</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Remplacement par NA&quot;</span>,</span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;La valeur -999 ne représente pas un revenu annuel&quot;</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>journal_bourses<span class="sc">$</span>FT <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_bourses<span class="sc">$</span>FT, <span class="fu">list</span>(</span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;B-010&quot;</span>,</span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;fsa_code&quot;</span>,</span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Code FSA de longueur invalide&quot;</span>,</span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Signalement sans correction automatique&quot;</span>,</span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;Le bon code ne peut pas être déduit du fichier&quot;</span></span>
-<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>journal_bourses</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$VM
-$VM[[1]]
-$VM[[1]]$id
-[1] &quot;B-004&quot;
-
-$VM[[1]]$variables
-[1] &quot;revenu_annuel&quot;
-
-$VM[[1]]$probleme
-[1] &quot;Valeur manquante codée par -999&quot;
-
-$VM[[1]]$action
-[1] &quot;Remplacement par NA&quot;
-
-$VM[[1]]$justification
-[1] &quot;La valeur -999 ne représente pas un revenu annuel&quot;
-
-
-
-$FT
-$FT[[1]]
-$FT[[1]]$id
-[1] &quot;B-010&quot;
-
-$FT[[1]]$variables
-[1] &quot;fsa_code&quot;
-
-$FT[[1]]$probleme
-[1] &quot;Code FSA de longueur invalide&quot;
-
-$FT[[1]]$action
-[1] &quot;Signalement sans correction automatique&quot;
-
-$FT[[1]]$justification
-[1] &quot;Le bon code ne peut pas être déduit du fichier&quot;
-
-
-
-$RC
-list()
-
-$VA
-list()</code></pre>
+<pre><code>[1] 3857</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="étude-de-cas-2---équipements-municipaux-fictifs" class="level3">
-<h3 class="anchored" data-anchor-id="étude-de-cas-2---équipements-municipaux-fictifs">Étude de cas 2 - Équipements municipaux fictifs</h3>
-<p>Le fichier <code>data/equipements_municipaux_fictif.csv</code> contient de faux enregistrements d’équipements municipaux. Le fichier <code>data/regles_equipements_fictif.json</code> contient quelques règles de validation.</p>
+</section>
+<section id="études-de-cas" class="level2">
+<h2 class="anchored" data-anchor-id="études-de-cas">Études de cas</h2>
+<section id="étude-de-cas-1---aide-financière-de-dernier-recours-au-québec" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-1---aide-financière-de-dernier-recours-au-québec">Étude de cas 1 - Aide financière de dernier recours au Québec</h3>
+<p>Le fichier <code>data/afdr_clientele_prestations_2022_12.csv</code> contient 43 lignes agrégées publiées par le ministère de l’Emploi et de la Solidarité sociale pour décembre 2022. Chaque ligne décrit une caractéristique de la clientèle ou une région. Il ne contient aucun dossier individuel.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">
-<li>importez le CSV et le JSON;</li>
-<li>nettoyez <code>type_equipement</code> et <code>statut</code>;</li>
-<li>transformez <code>cout_entretien</code> en nombre;</li>
-<li>utilisez le JSON pour repérer les années impossibles;</li>
-<li>repérez les statuts non attendus, s’il y en a;</li>
-<li>créez un tableau de synthèse par ville;</li>
-<li>documentez au moins deux décisions.</li>
+<li>importez toutes les colonnes comme du texte;</li>
+<li>nettoyez les noms de colonnes;</li>
+<li>transformez les colonnes numériques dans le bon type;</li>
+<li>convertissez <code>caracteristique</code> en facteur;</li>
+<li>vérifiez que les nombres sont non négatifs;</li>
+<li>vérifiez que <code>nb_prestataires</code> est égal à la somme des adultes et des enfants;</li>
+<li>produisez un tableau des régions classées selon la prestation totale versée;</li>
+<li>documentez au moins deux décisions dans un journal de nettoyage.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
@@ -6992,129 +6867,344 @@ list()</code></pre>
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>regles <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">&quot;data/regles_equipements_fictif.json&quot;</span>)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>equipements <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/equipements_municipaux_fictif.csv&quot;</span>,</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">type_equipement =</span> <span class="fu">str_to_lower</span>(<span class="fu">str_squish</span>(type_equipement)),</span>
-<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">type_equipement =</span> <span class="fu">case_when</span>(</span>
-<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(type_equipement, <span class="st">&quot;abri&quot;</span>) <span class="sc">~</span> <span class="st">&quot;abri bus&quot;</span>,</span>
-<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(type_equipement, <span class="st">&quot;module&quot;</span>) <span class="sc">~</span> <span class="st">&quot;module de jeux&quot;</span>,</span>
-<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> type_equipement</span>
-<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">statut =</span> <span class="fu">str_to_lower</span>(<span class="fu">str_squish</span>(statut)),</span>
-<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">cout_entretien_num =</span> <span class="fu">parse_number</span>(</span>
-<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>      cout_entretien,</span>
-<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>, <span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>)</span>
-<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">cout_entretien_num =</span> <span class="fu">na_if</span>(</span>
-<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>      cout_entretien_num,</span>
-<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>      regles<span class="sc">$</span>cout_entretien<span class="sc">$</span>valeur_manquante_codee</span>
-<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">annee_invalide =</span> annee_installation <span class="sc">&lt;</span> regles<span class="sc">$</span>annee_installation<span class="sc">$</span>min <span class="sc">|</span></span>
-<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a>      annee_installation <span class="sc">&gt;</span> regles<span class="sc">$</span>annee_installation<span class="sc">$</span>max,</span>
-<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">statut_invalide =</span> <span class="sc">!</span>statut <span class="sc">%in%</span> regles<span class="sc">$</span>statuts_acceptes,</span>
-<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">mois_invalide =</span> <span class="sc">!</span>mois_inspection <span class="sc">%in%</span> regles<span class="sc">$</span>mois_inspection_attendus</span>
-<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a>equipements <span class="sc">|&gt;</span></span>
-<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(annee_invalide <span class="sc">|</span> statut_invalide <span class="sc">|</span> mois_invalide) <span class="sc">|&gt;</span></span>
-<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(equipement_id, annee_installation, statut, mois_inspection)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>afdr_brut <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/afdr_clientele_prestations_2022_12.csv&quot;</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.default =</span> <span class="fu">col_character</span>())</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>afdr <span class="ot">&lt;-</span> afdr_brut <span class="sc">|&gt;</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(nb_menages<span class="sc">:</span>prest_base_heberges, parse_double),</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caracteristique =</span> <span class="fu">as_factor</span>(caracteristique),</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">valeur =</span> <span class="fu">str_squish</span>(valeur),</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">valeur_negative =</span> <span class="fu">if_any</span>(</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>      nb_menages<span class="sc">:</span>prest_base_heberges,</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> .x <span class="sc">&lt;</span> <span class="dv">0</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_incoherent =</span> nb_prestataires <span class="sc">!=</span> nb_adultes <span class="sc">+</span> nb_enfants</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>afdr <span class="sc">|&gt;</span></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(caracteristique)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  equipement_id annee_installation statut mois_inspection
-  &lt;chr&gt;                      &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
-1 EQ-004                      1890 actif  avril
-2 EQ-006                      2028 actif  juin           </code></pre>
+<pre><code># A tibble: 5 × 2
+  caracteristique            n
+  &lt;fct&gt;                  &lt;int&gt;
+1 Programme                  2
+2 Situation familiale        5
+3 Type de résidence          6
+4 Région                    20
+5 Clientèle supplémentée    10</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>synthese_ville <span class="ot">&lt;-</span> equipements <span class="sc">|&gt;</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ville) <span class="sc">|&gt;</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_equipements =</span> <span class="fu">n</span>(),</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cout_median =</span> <span class="fu">median</span>(cout_entretien_num, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_annees_invalides =</span> <span class="fu">sum</span>(annee_invalide),</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>synthese_ville</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>afdr <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_valeurs_negatives =</span> <span class="fu">sum</span>(valeur_negative),</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_totaux_incoherents =</span> <span class="fu">sum</span>(total_incoherent)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 4
-  ville          n_equipements cout_median n_annees_invalides
-  &lt;chr&gt;                  &lt;int&gt;       &lt;dbl&gt;              &lt;int&gt;
-1 Gatineau                   3       1280                   0
-2 Levis                      3       1100                   0
-3 Quebec                     5       1250                   1
-4 Sherbrooke                 3       1500                   1
-5 Trois-Rivieres             2        598.                  0</code></pre>
+<pre><code># A tibble: 1 × 2
+  n_valeurs_negatives n_totaux_incoherents
+                &lt;int&gt;                &lt;int&gt;
+1                   0                    0</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>journal_equipements <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">VM =</span> <span class="fu">list</span>(), <span class="at">VA =</span> <span class="fu">list</span>(), <span class="at">RC =</span> <span class="fu">list</span>())</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>journal_equipements<span class="sc">$</span>VA <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_equipements<span class="sc">$</span>VA, <span class="fu">list</span>(</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> equipements<span class="sc">$</span>equipement_id[equipements<span class="sc">$</span>annee_invalide],</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;annee_installation&quot;</span>,</span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Année d&#39;installation hors des bornes définies dans le JSON&quot;</span>,</span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Signalement sans correction automatique&quot;</span>,</span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;La bonne année ne peut pas être déduite du fichier&quot;</span></span>
-<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>journal_equipements<span class="sc">$</span>VM <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_equipements<span class="sc">$</span>VM, <span class="fu">list</span>(</span>
-<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;EQ-010&quot;</span>,</span>
-<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;cout_entretien&quot;</span>,</span>
-<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Valeur manquante codée par -999&quot;</span>,</span>
-<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Remplacement par NA&quot;</span>,</span>
-<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;La règle JSON indique que -999 code une valeur manquante&quot;</span></span>
-<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>journal_equipements</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>regions_afdr <span class="ot">&lt;-</span> afdr <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(caracteristique <span class="sc">==</span> <span class="st">&quot;Région&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(valeur, nb_prestataires, prestation_totale_versee) <span class="sc">|&gt;</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(prestation_totale_versee))</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>regions_afdr</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$VM
-$VM[[1]]
-$VM[[1]]$id
-[1] &quot;EQ-010&quot;
+<pre><code># A tibble: 20 × 3
+   valeur                                nb_prestataires prestation_totale_ver…¹
+   &lt;chr&gt;                                           &lt;dbl&gt;                   &lt;dbl&gt;
+ 1 06 - Montréal                                  121238               82106940.
+ 2 16 - Montérégie                                 36472               29344504.
+ 3 03 - Capitale-Nationale                         17608               15091893.
+ 4 05 - Estrie                                     18121               14684517.
+ 5 15 - Laurentides                                16769               13716058.
+ 6 14 - Lanaudière                                 14136               11171460.
+ 7 07 - Outaouais                                  14994               11056460.
+ 8 04 - Mauricie                                   12918               10415208.
+ 9 13 - Laval                                      10472                8299737.
+10 12 - Chaudière-Appalaches                        9157                7871306.
+11 02 - Saguenay-Lac-Saint-Jean                     8780                7607960.
+12 17 - Centre-du-Québec                            9077                7235431.
+13 Directions centrales                             6677                6787207.
+14 01 - Bas-Saint-Laurent                           6457                5752814.
+15 08 - Abitibi-Témiscamingue                       4253                3507588.
+16 11 - Gaspésie-Îles-de-la-Madeleine               3619                3232252.
+17 98 - Direction provinciale à distance            3941                2231494.
+18 09 - Côte-Nord                                   2229                1849352.
+19 10 - Nord-du-Québec                              1305                 847872.
+20 10 - Nord-du-Québec                                 1                    626
+# ℹ abbreviated name: ¹​prestation_totale_versee</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>journal_afdr <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">TY =</span> <span class="fu">list</span>(), <span class="at">RC =</span> <span class="fu">list</span>(), <span class="at">VA =</span> <span class="fu">list</span>())</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>journal_afdr<span class="sc">$</span>TY <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_afdr<span class="sc">$</span>TY, <span class="fu">list</span>(</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;fichier-afdr-2022-12&quot;</span>,</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;nb_menages:prest_base_heberges&quot;</span>,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Colonnes importées volontairement comme texte&quot;</span>,</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Conversion contrôlée avec parse_double()&quot;</span>,</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;Les calculs exigent des colonnes numériques&quot;</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>journal_afdr<span class="sc">$</span>VA <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_afdr<span class="sc">$</span>VA, <span class="fu">list</span>(</span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;fichier-afdr-2022-12&quot;</span>,</span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;nb_prestataires&quot;</span>,</span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Cohérence du total à vérifier&quot;</span>,</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Comparaison avec nb_adultes + nb_enfants&quot;</span>,</span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;La relation peut être testée sans modifier la source&quot;</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a>journal_afdr</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$TY
+$TY[[1]]
+$TY[[1]]$id
+[1] &quot;fichier-afdr-2022-12&quot;
 
-$VM[[1]]$variables
-[1] &quot;cout_entretien&quot;
+$TY[[1]]$variables
+[1] &quot;nb_menages:prest_base_heberges&quot;
 
-$VM[[1]]$probleme
-[1] &quot;Valeur manquante codée par -999&quot;
+$TY[[1]]$probleme
+[1] &quot;Colonnes importées volontairement comme texte&quot;
 
-$VM[[1]]$action
-[1] &quot;Remplacement par NA&quot;
+$TY[[1]]$action
+[1] &quot;Conversion contrôlée avec parse_double()&quot;
 
-$VM[[1]]$justification
-[1] &quot;La règle JSON indique que -999 code une valeur manquante&quot;
-
-
-
-$VA
-$VA[[1]]
-$VA[[1]]$id
-[1] &quot;EQ-004&quot; &quot;EQ-006&quot;
-
-$VA[[1]]$variables
-[1] &quot;annee_installation&quot;
-
-$VA[[1]]$probleme
-[1] &quot;Année d&#39;installation hors des bornes définies dans le JSON&quot;
-
-$VA[[1]]$action
-[1] &quot;Signalement sans correction automatique&quot;
-
-$VA[[1]]$justification
-[1] &quot;La bonne année ne peut pas être déduite du fichier&quot;
+$TY[[1]]$justification
+[1] &quot;Les calculs exigent des colonnes numériques&quot;
 
 
 
 $RC
-list()</code></pre>
+list()
+
+$VA
+$VA[[1]]
+$VA[[1]]$id
+[1] &quot;fichier-afdr-2022-12&quot;
+
+$VA[[1]]$variables
+[1] &quot;nb_prestataires&quot;
+
+$VA[[1]]$probleme
+[1] &quot;Cohérence du total à vérifier&quot;
+
+$VA[[1]]$action
+[1] &quot;Comparaison avec nb_adultes + nb_enfants&quot;
+
+$VA[[1]]$justification
+[1] &quot;La relation peut être testée sans modifier la source&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="étude-de-cas-2---installations-sportives-et-récréatives-de-sherbrooke" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-2---installations-sportives-et-récréatives-de-sherbrooke">Étude de cas 2 - Installations sportives et récréatives de Sherbrooke</h3>
+<p>Le fichier <code>data/installations_sportives_sherbrooke.csv</code> contient l’inventaire municipal diffusé par la Ville de Sherbrooke. Le fichier <code>data/metadonnees_installations_sherbrooke.json</code> est la description officielle du service ArcGIS correspondant. Une valeur manquante dans <code>nom</code>, <code>detail</code> ou <code>surface</code> n’est pas automatiquement une erreur.</p>
+<p>Réalisez les tâches suivantes:</p>
+<ol type="1">
+<li>importez le CSV et le JSON;</li>
+<li>nettoyez les noms de colonnes et les espaces superflus;</li>
+<li>convertissez <code>eclairage</code> en facteur;</li>
+<li>vérifiez que les champs officiels du JSON sont présents dans le CSV;</li>
+<li>utilisez l’étendue du JSON pour repérer les coordonnées hors limites;</li>
+<li>créez un tableau de synthèse par type d’installation;</li>
+<li>signalez les noms manquants sans les inventer;</li>
+<li>documentez au moins deux décisions.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>metadonnees <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/metadonnees_installations_sherbrooke.json&quot;</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>installations_brutes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/installations_sportives_sherbrooke.csv&quot;</span>,</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>champs_attendus <span class="ot">&lt;-</span> <span class="fu">str_to_lower</span>(metadonnees<span class="sc">$</span>fields<span class="sc">$</span>name)</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>champs_manquants <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>  champs_attendus,</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(<span class="fu">clean_names</span>(installations_brutes))</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>installations <span class="ot">&lt;-</span> installations_brutes <span class="sc">|&gt;</span></span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(type, detail, nom, surface, eclairage), str_squish),</span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">eclairage =</span> <span class="fu">factor</span>(eclairage, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Non&quot;</span>, <span class="st">&quot;Oui&quot;</span>)),</span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">nom_manquant =</span> <span class="fu">is.na</span>(nom),</span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">hors_etendue =</span> x <span class="sc">&lt;</span> metadonnees<span class="sc">$</span>extent<span class="sc">$</span>xmin <span class="sc">|</span></span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>      x <span class="sc">&gt;</span> metadonnees<span class="sc">$</span>extent<span class="sc">$</span>xmax <span class="sc">|</span></span>
+<span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a>      y <span class="sc">&lt;</span> metadonnees<span class="sc">$</span>extent<span class="sc">$</span>ymin <span class="sc">|</span></span>
+<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a>      y <span class="sc">&gt;</span> metadonnees<span class="sc">$</span>extent<span class="sc">$</span>ymax</span>
+<span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-28"><a href="#cb48-28" aria-hidden="true" tabindex="-1"></a>champs_manquants</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>installations <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_hors_etendue =</span> <span class="fu">sum</span>(hors_etendue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_noms_manquants =</span> <span class="fu">sum</span>(nom_manquant)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  n_hors_etendue n_noms_manquants
+           &lt;int&gt;            &lt;int&gt;
+1              0              720</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>synthese_type <span class="ot">&lt;-</span> installations <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_installations =</span> <span class="fu">n</span>(),</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_noms_manquants =</span> <span class="fu">sum</span>(nom_manquant),</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">part_eclairee =</span> <span class="fu">mean</span>(eclairage <span class="sc">==</span> <span class="st">&quot;Oui&quot;</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_installations))</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>synthese_type</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 24 × 4
+   type                           n_installations n_noms_manquants part_eclairee
+   &lt;chr&gt;                                    &lt;int&gt;            &lt;int&gt;         &lt;dbl&gt;
+ 1 Jeu modulaire                              238              238       NaN
+ 2 Soccer                                     106                0         0.439
+ 3 Surface, anneau ou étang glacé              70               70       NaN
+ 4 Basketball                                  54               54         0.696
+ 5 Tennis                                      52               52         1
+ 6 Patinoire à bandes mobiles                  48               48       NaN
+ 7 Baseball                                    36               36         0.556
+ 8 Pétanque                                    32               32       NaN
+ 9 Jeu de galets                               30               30       NaN
+10 Volleyball                                  26               26         0.333
+# ℹ 14 more rows</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>journal_installations <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">VM =</span> <span class="fu">list</span>(), <span class="at">FT =</span> <span class="fu">list</span>(), <span class="at">RC =</span> <span class="fu">list</span>())</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>journal_installations<span class="sc">$</span>FT <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_installations<span class="sc">$</span>FT, <span class="fu">list</span>(</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> installations<span class="sc">$</span>objectid[installations<span class="sc">$</span>nom_manquant],</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;nom&quot;</span>,</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Nom absent dans la source&quot;</span>,</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Signalement sans correction automatique&quot;</span>,</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;Un nom ne peut pas être déduit des autres champs&quot;</span></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>journal_installations<span class="sc">$</span>RC <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_installations<span class="sc">$</span>RC, <span class="fu">list</span>(</span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;fichier-installations-sherbrooke&quot;</span>,</span>
+<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;eclairage&quot;</span>,</span>
+<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Variable catégorielle importée comme texte&quot;</span>,</span>
+<span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Conversion en facteur Non/Oui&quot;</span>,</span>
+<span id="cb54-19"><a href="#cb54-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">justification =</span> <span class="st">&quot;Les modalités observées sont explicites et conservées&quot;</span></span>
+<span id="cb54-20"><a href="#cb54-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb54-21"><a href="#cb54-21" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb54-22"><a href="#cb54-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-23"><a href="#cb54-23" aria-hidden="true" tabindex="-1"></a>journal_installations</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$VM
+list()
+
+$FT
+$FT[[1]]
+$FT[[1]]$id
+  [1]   1   2   5   7   8  13  14  15  16  17  18  19  20  23  24  26  27  28
+ [19]  29  30  31  33  34  35  39  42  43  44  45  46  47  48  49  50  51  52
+ [37]  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70
+ [55]  71  72  73  74  75  76  77  79  80  82  83  84  86  87  89  90  92  97
+ [73]  98  99 126 128 129 131 132 133 134 135 136 137 138 139 140 141 142 143
+ [91] 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+[109] 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+[127] 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197
+[145] 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
+[163] 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233
+[181] 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251
+[199] 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269
+[217] 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287
+[235] 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305
+[253] 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323
+[271] 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341
+[289] 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359
+[307] 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377
+[325] 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395
+[343] 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413
+[361] 426 427 430 432 433 438 439 440 441 442 443 444 445 448 449 451 452 453
+[379] 454 455 456 458 459 460 464 467 468 469 470 471 472 473 474 475 476 477
+[397] 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495
+[415] 496 497 498 499 500 501 502 504 505 507 508 509 511 512 514 515 517 522
+[433] 523 524 551 553 554 556 557 558 559 560 561 562 563 564 565 566 567 568
+[451] 569 570 571 572 573 574 575 576 577 578 579 580 581 582 583 584 585 586
+[469] 587 588 589 590 591 592 593 594 595 596 597 598 599 600 601 602 603 604
+[487] 605 606 607 608 609 610 611 612 613 614 615 616 617 618 619 620 621 622
+[505] 623 624 625 626 627 628 629 630 631 632 633 634 635 636 637 638 639 640
+[523] 641 642 643 644 645 646 647 648 649 650 651 652 653 654 655 656 657 658
+[541] 659 660 661 662 663 664 665 666 667 668 669 670 671 672 673 674 675 676
+[559] 677 678 679 680 681 682 683 684 685 686 687 688 689 690 691 692 693 694
+[577] 695 696 697 698 699 700 701 702 703 704 705 706 707 708 709 710 711 712
+[595] 713 714 715 716 717 718 719 720 721 722 723 724 725 726 727 728 729 730
+[613] 731 732 733 734 735 736 737 738 739 740 741 742 743 744 745 746 747 748
+[631] 749 750 751 752 753 754 755 756 757 758 759 760 761 762 763 764 765 766
+[649] 767 768 769 770 771 772 773 774 775 776 777 778 779 780 781 782 783 784
+[667] 785 786 787 788 789 790 791 792 793 794 795 796 797 798 799 800 801 802
+[685] 803 804 805 806 807 808 809 810 811 812 813 814 815 816 817 818 819 820
+[703] 821 822 823 824 825 826 827 828 829 830 831 832 833 834 835 836 837 838
+
+$FT[[1]]$variables
+[1] &quot;nom&quot;
+
+$FT[[1]]$probleme
+[1] &quot;Nom absent dans la source&quot;
+
+$FT[[1]]$action
+[1] &quot;Signalement sans correction automatique&quot;
+
+$FT[[1]]$justification
+[1] &quot;Un nom ne peut pas être déduit des autres champs&quot;
+
+
+
+$RC
+$RC[[1]]
+$RC[[1]]$id
+[1] &quot;fichier-installations-sherbrooke&quot;
+
+$RC[[1]]$variables
+[1] &quot;eclairage&quot;
+
+$RC[[1]]$probleme
+[1] &quot;Variable catégorielle importée comme texte&quot;
+
+$RC[[1]]$action
+[1] &quot;Conversion en facteur Non/Oui&quot;
+
+$RC[[1]]$justification
+[1] &quot;Les modalités observées sont explicites et conservées&quot;</code></pre>
 </div>
 </div>
 </div>

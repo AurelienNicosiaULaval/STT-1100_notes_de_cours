@@ -111,9 +111,9 @@ The full instructions are available in the [Challenge 4](defi.llms.md) page.
 
 Resource [Exercises page](exercices.llms.md)
 
-Scope These exercises are not a continuation of the challenge. They use `policies.csv`, `coverage.json`, `quotes_2024.xlsx` and two distinct fictitious datasets.
+Scope These exercises are not a continuation of the challenge. They use `policies.csv`, `coverage.json`, `quotes_2024.xlsx` and two Québec public data sources.
 
-Cases A university scholarship file and a municipal equipment inventory.
+Cases Last-resort financial assistance in Québec and Sherbrooke sports facilities.
 
 Redo at least one passage without looking at the solution immediately.
 
@@ -121,7 +121,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [fictitious_scholarship_applications.csv](data/fictitious_scholarship_applications.csv) [fictitious_municipal_equipment.csv](data/fictitious_municipal_equipment.csv) [fictitious_equipment_rules.json](data/fictitious_equipment_rules.json)
+[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [Québec AFDR, December 2022](data/afdr_clientele_prestations_2022_12.csv) [Sherbrooke sports facilities](data/installations_sportives_sherbrooke.csv) [Sherbrooke ArcGIS metadata](data/metadonnees_installations_sherbrooke.json)
 
 ### R packages
 

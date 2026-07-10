@@ -111,9 +111,9 @@ La consigne complète est disponible dans la page [Défi 4](defi.llms.md).
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Portée Ces exercices ne sont pas la suite du défi. Ils utilisent `policies.csv`, `coverage.json`, `quotes_2024.xlsx` et deux jeux de données fictifs distincts.
+Portée Ces exercices ne sont pas la suite du défi. Ils utilisent `policies.csv`, `coverage.json`, `quotes_2024.xlsx` et deux sources publiques québécoises.
 
-Cas Une bourse universitaire et un parc d'équipements municipaux.
+Cas L'aide financière de dernier recours au Québec et les installations sportives de Sherbrooke.
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
@@ -121,7 +121,7 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [demandes_bourses_fictif.csv](data/demandes_bourses_fictif.csv) [equipements_municipaux_fictif.csv](data/equipements_municipaux_fictif.csv) [regles_equipements_fictif.json](data/regles_equipements_fictif.json)
+[dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [AFDR, Québec, décembre 2022](data/afdr_clientele_prestations_2022_12.csv) [Installations sportives de Sherbrooke](data/installations_sportives_sherbrooke.csv) [Métadonnées ArcGIS de Sherbrooke](data/metadonnees_installations_sherbrooke.json)
 
 ### Packages R
 

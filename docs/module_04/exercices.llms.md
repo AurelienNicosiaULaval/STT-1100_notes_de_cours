@@ -2,6 +2,10 @@
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 4: importer des fichiers, vérifier les types, nettoyer des valeurs, manipuler des facteurs, lire un JSON et documenter des décisions de nettoyage.
 
+> **NOTE:**
+>
+> Les études de cas utilisent un tableau agrégé de l’[aide financière de dernier recours](https://www.donneesquebec.ca/recherche/dataset/aide-financiere-de-dernier-recours-afdr-clientele-et-prestations) publié par le ministère de l’Emploi et de la Solidarité sociale, ainsi que l’inventaire des [installations sportives et récréatives de Sherbrooke](https://www.donneesquebec.ca/recherche/dataset/b6498f3436974ecbb8fa636a7d9c0b2f_0). Les deux sources sont diffusées sous licence CC BY 4.0. Les fichiers locaux sont des instantanés reproductibles préparés par `scripts/build_module04_real_data.R`.
+
 ``` r
 library(readr)
 library(dplyr)
@@ -410,307 +414,390 @@ Transformez la section `coverage` du JSON en tableau.
 >     1 collision   10000        500
 >     2 liability  100000         NA
 
-### Exercice 16 - Utiliser une règle de validation
+### Exercice 16 - Lire les métadonnées d’une source officielle
 
-Le fichier `data/regles_equipements_fictif.json` indique les années d’installation plausibles. Lisez ce fichier et affichez les bornes acceptées.
+Le fichier `data/metadonnees_installations_sherbrooke.json` provient du service REST de la Ville de Sherbrooke. Lisez-le, puis affichez le nom des champs et le système de coordonnées de l’étendue.
 
 > **NOTE:**
 >
 > ``` r
-> regles <- fromJSON("data/regles_equipements_fictif.json")
->
-> tibble(
->   annee_min = regles$annee_installation$min,
->   annee_max = regles$annee_installation$max
+> metadonnees <- fromJSON(
+>   "data/metadonnees_installations_sherbrooke.json"
 > )
+>
+> metadonnees$fields |>
+>   select(name, type, alias)
 > ```
 >
->     # A tibble: 1 × 2
->       annee_min annee_max
->           <int>     <int>
->     1      1990      2026
+>            name                type     alias
+>     1      TYPE esriFieldTypeString      TYPE
+>     2    DETAIL esriFieldTypeString    DETAIL
+>     3       NOM esriFieldTypeString       NOM
+>     4   SURFACE esriFieldTypeString   SURFACE
+>     5 ECLAIRAGE esriFieldTypeString ECLAIRAGE
+>     6  OBJECTID    esriFieldTypeOID  OBJECTID
+>
+> ``` r
+> metadonnees$extent$spatialReference$latestWkid
+> ```
+>
+>     [1] 3857
 
 ## Études de cas
 
-### Étude de cas 1 - Demandes de bourses fictives
+### Étude de cas 1 - Aide financière de dernier recours au Québec
 
-Le fichier `data/demandes_bourses_fictif.csv` contient de fausses demandes de bourses étudiantes. Il ne représente aucun système réel.
+Le fichier `data/afdr_clientele_prestations_2022_12.csv` contient 43 lignes agrégées publiées par le ministère de l’Emploi et de la Solidarité sociale pour décembre 2022. Chaque ligne décrit une caractéristique de la clientèle ou une région. Il ne contient aucun dossier individuel.
 
 Réalisez les tâches suivantes:
 
-1.  importez le fichier;
+1.  importez toutes les colonnes comme du texte;
 2.  nettoyez les noms de colonnes;
-3.  transformez `montant_demande` en nombre;
-4.  remplacez `revenu_annuel = -999` par `NA`;
-5.  harmonisez les noms de programme;
-6.  repérez les codes FSA invalides;
-7.  créez au moins deux entrées dans un journal de nettoyage.
+3.  transformez les colonnes numériques dans le bon type;
+4.  convertissez `caracteristique` en facteur;
+5.  vérifiez que les nombres sont non négatifs;
+6.  vérifiez que `nb_prestataires` est égal à la somme des adultes et des enfants;
+7.  produisez un tableau des régions classées selon la prestation totale versée;
+8.  documentez au moins deux décisions dans un journal de nettoyage.
 
 > **NOTE:**
 >
 > ``` r
-> bourses <- read_csv(
->   "data/demandes_bourses_fictif.csv",
->   show_col_types = FALSE
+> afdr_brut <- read_csv(
+>   "data/afdr_clientele_prestations_2022_12.csv",
+>   col_types = cols(.default = col_character())
 > ) |>
->   clean_names() |>
+>   clean_names()
+>
+> afdr <- afdr_brut |>
 >   mutate(
->     montant_demande_num = parse_number(
->       montant_demande,
->       locale = locale(decimal_mark = ",", grouping_mark = " ")
+>     across(nb_menages:prest_base_heberges, parse_double),
+>     caracteristique = as_factor(caracteristique),
+>     valeur = str_squish(valeur),
+>     valeur_negative = if_any(
+>       nb_menages:prest_base_heberges,
+>       ~ .x < 0
 >     ),
->     revenu_annuel = na_if(revenu_annuel, -999),
->     programme_propre = str_to_lower(str_squish(programme)),
->     programme_propre = case_when(
->       str_detect(programme_propre, "donnees|données|sc\\.") ~ "science des donnees",
->       str_detect(programme_propre, "math") ~ "mathematiques",
->       TRUE ~ programme_propre
->     ),
->     statut_propre = str_to_lower(str_squish(statut)),
->     fsa_invalide = is.na(fsa_code) | nchar(fsa_code) != 3
+>     total_incoherent = nb_prestataires != nb_adultes + nb_enfants
 >   )
 >
-> bourses |>
->   count(programme_propre, statut_propre)
+> afdr |>
+>   count(caracteristique)
 > ```
 >
->     # A tibble: 10 × 3
->        programme_propre    statut_propre     n
->        <chr>               <chr>         <int>
->      1 informatique        complete          2
->      2 informatique        incomplete        1
->      3 mathematiques       complete          3
->      4 mathematiques       incomplete        1
->      5 science des donnees complete          3
->      6 science des donnees en attente        1
->      7 science des donnees incomplete        1
->      8 statistique         complete          2
->      9 statistique         en attente        1
->     10 statistique         refusee           1
+>     # A tibble: 5 × 2
+>       caracteristique            n
+>       <fct>                  <int>
+>     1 Programme                  2
+>     2 Situation familiale        5
+>     3 Type de résidence          6
+>     4 Région                    20
+>     5 Clientèle supplémentée    10
 >
 > ``` r
-> bourses |>
->   filter(fsa_invalide) |>
->   select(dossier_id, fsa_code)
+> afdr |>
+>   summarise(
+>     n_valeurs_negatives = sum(valeur_negative),
+>     n_totaux_incoherents = sum(total_incoherent)
+>   )
 > ```
 >
 >     # A tibble: 1 × 2
->       dossier_id fsa_code
->       <chr>      <chr>
->     1 B-010      G1V1234
+>       n_valeurs_negatives n_totaux_incoherents
+>                     <int>                <int>
+>     1                   0                    0
 >
 > ``` r
-> journal_bourses <- list(VM = list(), FT = list(), RC = list(), VA = list())
+> regions_afdr <- afdr |>
+>   filter(caracteristique == "Région") |>
+>   select(valeur, nb_prestataires, prestation_totale_versee) |>
+>   arrange(desc(prestation_totale_versee))
 >
-> journal_bourses$VM <- append(journal_bourses$VM, list(
+> regions_afdr
+> ```
+>
+>     # A tibble: 20 × 3
+>        valeur                                nb_prestataires prestation_totale_ver…¹
+>        <chr>                                           <dbl>                   <dbl>
+>      1 06 - Montréal                                  121238               82106940.
+>      2 16 - Montérégie                                 36472               29344504.
+>      3 03 - Capitale-Nationale                         17608               15091893.
+>      4 05 - Estrie                                     18121               14684517.
+>      5 15 - Laurentides                                16769               13716058.
+>      6 14 - Lanaudière                                 14136               11171460.
+>      7 07 - Outaouais                                  14994               11056460.
+>      8 04 - Mauricie                                   12918               10415208.
+>      9 13 - Laval                                      10472                8299737.
+>     10 12 - Chaudière-Appalaches                        9157                7871306.
+>     11 02 - Saguenay-Lac-Saint-Jean                     8780                7607960.
+>     12 17 - Centre-du-Québec                            9077                7235431.
+>     13 Directions centrales                             6677                6787207.
+>     14 01 - Bas-Saint-Laurent                           6457                5752814.
+>     15 08 - Abitibi-Témiscamingue                       4253                3507588.
+>     16 11 - Gaspésie-Îles-de-la-Madeleine               3619                3232252.
+>     17 98 - Direction provinciale à distance            3941                2231494.
+>     18 09 - Côte-Nord                                   2229                1849352.
+>     19 10 - Nord-du-Québec                              1305                 847872.
+>     20 10 - Nord-du-Québec                                 1                    626
+>     # ℹ abbreviated name: ¹​prestation_totale_versee
+>
+> ``` r
+> journal_afdr <- list(TY = list(), RC = list(), VA = list())
+>
+> journal_afdr$TY <- append(journal_afdr$TY, list(
 >   list(
->     id = "B-004",
->     variables = "revenu_annuel",
->     probleme = "Valeur manquante codée par -999",
->     action = "Remplacement par NA",
->     justification = "La valeur -999 ne représente pas un revenu annuel"
+>     id = "fichier-afdr-2022-12",
+>     variables = "nb_menages:prest_base_heberges",
+>     probleme = "Colonnes importées volontairement comme texte",
+>     action = "Conversion contrôlée avec parse_double()",
+>     justification = "Les calculs exigent des colonnes numériques"
 >   )
 > ))
 >
-> journal_bourses$FT <- append(journal_bourses$FT, list(
+> journal_afdr$VA <- append(journal_afdr$VA, list(
 >   list(
->     id = "B-010",
->     variables = "fsa_code",
->     probleme = "Code FSA de longueur invalide",
+>     id = "fichier-afdr-2022-12",
+>     variables = "nb_prestataires",
+>     probleme = "Cohérence du total à vérifier",
+>     action = "Comparaison avec nb_adultes + nb_enfants",
+>     justification = "La relation peut être testée sans modifier la source"
+>   )
+> ))
+>
+> journal_afdr
+> ```
+>
+>     $TY
+>     $TY[[1]]
+>     $TY[[1]]$id
+>     [1] "fichier-afdr-2022-12"
+>
+>     $TY[[1]]$variables
+>     [1] "nb_menages:prest_base_heberges"
+>
+>     $TY[[1]]$probleme
+>     [1] "Colonnes importées volontairement comme texte"
+>
+>     $TY[[1]]$action
+>     [1] "Conversion contrôlée avec parse_double()"
+>
+>     $TY[[1]]$justification
+>     [1] "Les calculs exigent des colonnes numériques"
+>
+>
+>
+>     $RC
+>     list()
+>
+>     $VA
+>     $VA[[1]]
+>     $VA[[1]]$id
+>     [1] "fichier-afdr-2022-12"
+>
+>     $VA[[1]]$variables
+>     [1] "nb_prestataires"
+>
+>     $VA[[1]]$probleme
+>     [1] "Cohérence du total à vérifier"
+>
+>     $VA[[1]]$action
+>     [1] "Comparaison avec nb_adultes + nb_enfants"
+>
+>     $VA[[1]]$justification
+>     [1] "La relation peut être testée sans modifier la source"
+
+### Étude de cas 2 - Installations sportives et récréatives de Sherbrooke
+
+Le fichier `data/installations_sportives_sherbrooke.csv` contient l’inventaire municipal diffusé par la Ville de Sherbrooke. Le fichier `data/metadonnees_installations_sherbrooke.json` est la description officielle du service ArcGIS correspondant. Une valeur manquante dans `nom`, `detail` ou `surface` n’est pas automatiquement une erreur.
+
+Réalisez les tâches suivantes:
+
+1.  importez le CSV et le JSON;
+2.  nettoyez les noms de colonnes et les espaces superflus;
+3.  convertissez `eclairage` en facteur;
+4.  vérifiez que les champs officiels du JSON sont présents dans le CSV;
+5.  utilisez l’étendue du JSON pour repérer les coordonnées hors limites;
+6.  créez un tableau de synthèse par type d’installation;
+7.  signalez les noms manquants sans les inventer;
+8.  documentez au moins deux décisions.
+
+> **NOTE:**
+>
+> ``` r
+> metadonnees <- fromJSON(
+>   "data/metadonnees_installations_sherbrooke.json"
+> )
+>
+> installations_brutes <- read_csv(
+>   "data/installations_sportives_sherbrooke.csv",
+>   show_col_types = FALSE
+> )
+>
+> champs_attendus <- str_to_lower(metadonnees$fields$name)
+> champs_manquants <- setdiff(
+>   champs_attendus,
+>   names(clean_names(installations_brutes))
+> )
+>
+> installations <- installations_brutes |>
+>   clean_names() |>
+>   mutate(
+>     across(c(type, detail, nom, surface, eclairage), str_squish),
+>     eclairage = factor(eclairage, levels = c("Non", "Oui")),
+>     nom_manquant = is.na(nom),
+>     hors_etendue = x < metadonnees$extent$xmin |
+>       x > metadonnees$extent$xmax |
+>       y < metadonnees$extent$ymin |
+>       y > metadonnees$extent$ymax
+>   )
+>
+> champs_manquants
+> ```
+>
+>     character(0)
+>
+> ``` r
+> installations |>
+>   summarise(
+>     n_hors_etendue = sum(hors_etendue, na.rm = TRUE),
+>     n_noms_manquants = sum(nom_manquant)
+>   )
+> ```
+>
+>     # A tibble: 1 × 2
+>       n_hors_etendue n_noms_manquants
+>                <int>            <int>
+>     1              0              720
+>
+> ``` r
+> synthese_type <- installations |>
+>   group_by(type) |>
+>   summarise(
+>     n_installations = n(),
+>     n_noms_manquants = sum(nom_manquant),
+>     part_eclairee = mean(eclairage == "Oui", na.rm = TRUE),
+>     .groups = "drop"
+>   ) |>
+>   arrange(desc(n_installations))
+>
+> synthese_type
+> ```
+>
+>     # A tibble: 24 × 4
+>        type                           n_installations n_noms_manquants part_eclairee
+>        <chr>                                    <int>            <int>         <dbl>
+>      1 Jeu modulaire                              238              238       NaN
+>      2 Soccer                                     106                0         0.439
+>      3 Surface, anneau ou étang glacé              70               70       NaN
+>      4 Basketball                                  54               54         0.696
+>      5 Tennis                                      52               52         1
+>      6 Patinoire à bandes mobiles                  48               48       NaN
+>      7 Baseball                                    36               36         0.556
+>      8 Pétanque                                    32               32       NaN
+>      9 Jeu de galets                               30               30       NaN
+>     10 Volleyball                                  26               26         0.333
+>     # ℹ 14 more rows
+>
+> ``` r
+> journal_installations <- list(VM = list(), FT = list(), RC = list())
+>
+> journal_installations$FT <- append(journal_installations$FT, list(
+>   list(
+>     id = installations$objectid[installations$nom_manquant],
+>     variables = "nom",
+>     probleme = "Nom absent dans la source",
 >     action = "Signalement sans correction automatique",
->     justification = "Le bon code ne peut pas être déduit du fichier"
+>     justification = "Un nom ne peut pas être déduit des autres champs"
 >   )
 > ))
 >
-> journal_bourses
+> journal_installations$RC <- append(journal_installations$RC, list(
+>   list(
+>     id = "fichier-installations-sherbrooke",
+>     variables = "eclairage",
+>     probleme = "Variable catégorielle importée comme texte",
+>     action = "Conversion en facteur Non/Oui",
+>     justification = "Les modalités observées sont explicites et conservées"
+>   )
+> ))
+>
+> journal_installations
 > ```
 >
 >     $VM
->     $VM[[1]]
->     $VM[[1]]$id
->     [1] "B-004"
->
->     $VM[[1]]$variables
->     [1] "revenu_annuel"
->
->     $VM[[1]]$probleme
->     [1] "Valeur manquante codée par -999"
->
->     $VM[[1]]$action
->     [1] "Remplacement par NA"
->
->     $VM[[1]]$justification
->     [1] "La valeur -999 ne représente pas un revenu annuel"
->
->
+>     list()
 >
 >     $FT
 >     $FT[[1]]
 >     $FT[[1]]$id
->     [1] "B-010"
+>       [1]   1   2   5   7   8  13  14  15  16  17  18  19  20  23  24  26  27  28
+>      [19]  29  30  31  33  34  35  39  42  43  44  45  46  47  48  49  50  51  52
+>      [37]  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70
+>      [55]  71  72  73  74  75  76  77  79  80  82  83  84  86  87  89  90  92  97
+>      [73]  98  99 126 128 129 131 132 133 134 135 136 137 138 139 140 141 142 143
+>      [91] 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161
+>     [109] 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179
+>     [127] 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197
+>     [145] 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
+>     [163] 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233
+>     [181] 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251
+>     [199] 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269
+>     [217] 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287
+>     [235] 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305
+>     [253] 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323
+>     [271] 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341
+>     [289] 342 343 344 345 346 347 348 349 350 351 352 353 354 355 356 357 358 359
+>     [307] 360 361 362 363 364 365 366 367 368 369 370 371 372 373 374 375 376 377
+>     [325] 378 379 380 381 382 383 384 385 386 387 388 389 390 391 392 393 394 395
+>     [343] 396 397 398 399 400 401 402 403 404 405 406 407 408 409 410 411 412 413
+>     [361] 426 427 430 432 433 438 439 440 441 442 443 444 445 448 449 451 452 453
+>     [379] 454 455 456 458 459 460 464 467 468 469 470 471 472 473 474 475 476 477
+>     [397] 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495
+>     [415] 496 497 498 499 500 501 502 504 505 507 508 509 511 512 514 515 517 522
+>     [433] 523 524 551 553 554 556 557 558 559 560 561 562 563 564 565 566 567 568
+>     [451] 569 570 571 572 573 574 575 576 577 578 579 580 581 582 583 584 585 586
+>     [469] 587 588 589 590 591 592 593 594 595 596 597 598 599 600 601 602 603 604
+>     [487] 605 606 607 608 609 610 611 612 613 614 615 616 617 618 619 620 621 622
+>     [505] 623 624 625 626 627 628 629 630 631 632 633 634 635 636 637 638 639 640
+>     [523] 641 642 643 644 645 646 647 648 649 650 651 652 653 654 655 656 657 658
+>     [541] 659 660 661 662 663 664 665 666 667 668 669 670 671 672 673 674 675 676
+>     [559] 677 678 679 680 681 682 683 684 685 686 687 688 689 690 691 692 693 694
+>     [577] 695 696 697 698 699 700 701 702 703 704 705 706 707 708 709 710 711 712
+>     [595] 713 714 715 716 717 718 719 720 721 722 723 724 725 726 727 728 729 730
+>     [613] 731 732 733 734 735 736 737 738 739 740 741 742 743 744 745 746 747 748
+>     [631] 749 750 751 752 753 754 755 756 757 758 759 760 761 762 763 764 765 766
+>     [649] 767 768 769 770 771 772 773 774 775 776 777 778 779 780 781 782 783 784
+>     [667] 785 786 787 788 789 790 791 792 793 794 795 796 797 798 799 800 801 802
+>     [685] 803 804 805 806 807 808 809 810 811 812 813 814 815 816 817 818 819 820
+>     [703] 821 822 823 824 825 826 827 828 829 830 831 832 833 834 835 836 837 838
 >
 >     $FT[[1]]$variables
->     [1] "fsa_code"
+>     [1] "nom"
 >
 >     $FT[[1]]$probleme
->     [1] "Code FSA de longueur invalide"
+>     [1] "Nom absent dans la source"
 >
 >     $FT[[1]]$action
 >     [1] "Signalement sans correction automatique"
 >
 >     $FT[[1]]$justification
->     [1] "Le bon code ne peut pas être déduit du fichier"
+>     [1] "Un nom ne peut pas être déduit des autres champs"
 >
 >
 >
 >     $RC
->     list()
+>     $RC[[1]]
+>     $RC[[1]]$id
+>     [1] "fichier-installations-sherbrooke"
 >
->     $VA
->     list()
-
-### Étude de cas 2 - Équipements municipaux fictifs
-
-Le fichier `data/equipements_municipaux_fictif.csv` contient de faux enregistrements d’équipements municipaux. Le fichier `data/regles_equipements_fictif.json` contient quelques règles de validation.
-
-Réalisez les tâches suivantes:
-
-1.  importez le CSV et le JSON;
-2.  nettoyez `type_equipement` et `statut`;
-3.  transformez `cout_entretien` en nombre;
-4.  utilisez le JSON pour repérer les années impossibles;
-5.  repérez les statuts non attendus, s’il y en a;
-6.  créez un tableau de synthèse par ville;
-7.  documentez au moins deux décisions.
-
-> **NOTE:**
+>     $RC[[1]]$variables
+>     [1] "eclairage"
 >
-> ``` r
-> regles <- fromJSON("data/regles_equipements_fictif.json")
+>     $RC[[1]]$probleme
+>     [1] "Variable catégorielle importée comme texte"
 >
-> equipements <- read_csv(
->   "data/equipements_municipaux_fictif.csv",
->   show_col_types = FALSE
-> ) |>
->   clean_names() |>
->   mutate(
->     type_equipement = str_to_lower(str_squish(type_equipement)),
->     type_equipement = case_when(
->       str_detect(type_equipement, "abri") ~ "abri bus",
->       str_detect(type_equipement, "module") ~ "module de jeux",
->       TRUE ~ type_equipement
->     ),
->     statut = str_to_lower(str_squish(statut)),
->     cout_entretien_num = parse_number(
->       cout_entretien,
->       locale = locale(decimal_mark = ",", grouping_mark = " ")
->     ),
->     cout_entretien_num = na_if(
->       cout_entretien_num,
->       regles$cout_entretien$valeur_manquante_codee
->     ),
->     annee_invalide = annee_installation < regles$annee_installation$min |
->       annee_installation > regles$annee_installation$max,
->     statut_invalide = !statut %in% regles$statuts_acceptes,
->     mois_invalide = !mois_inspection %in% regles$mois_inspection_attendus
->   )
+>     $RC[[1]]$action
+>     [1] "Conversion en facteur Non/Oui"
 >
-> equipements |>
->   filter(annee_invalide | statut_invalide | mois_invalide) |>
->   select(equipement_id, annee_installation, statut, mois_inspection)
-> ```
->
->     # A tibble: 2 × 4
->       equipement_id annee_installation statut mois_inspection
->       <chr>                      <dbl> <chr>  <chr>
->     1 EQ-004                      1890 actif  avril
->     2 EQ-006                      2028 actif  juin
->
-> ``` r
-> synthese_ville <- equipements |>
->   group_by(ville) |>
->   summarise(
->     n_equipements = n(),
->     cout_median = median(cout_entretien_num, na.rm = TRUE),
->     n_annees_invalides = sum(annee_invalide),
->     .groups = "drop"
->   )
->
-> synthese_ville
-> ```
->
->     # A tibble: 5 × 4
->       ville          n_equipements cout_median n_annees_invalides
->       <chr>                  <int>       <dbl>              <int>
->     1 Gatineau                   3       1280                   0
->     2 Levis                      3       1100                   0
->     3 Quebec                     5       1250                   1
->     4 Sherbrooke                 3       1500                   1
->     5 Trois-Rivieres             2        598.                  0
->
-> ``` r
-> journal_equipements <- list(VM = list(), VA = list(), RC = list())
->
-> journal_equipements$VA <- append(journal_equipements$VA, list(
->   list(
->     id = equipements$equipement_id[equipements$annee_invalide],
->     variables = "annee_installation",
->     probleme = "Année d'installation hors des bornes définies dans le JSON",
->     action = "Signalement sans correction automatique",
->     justification = "La bonne année ne peut pas être déduite du fichier"
->   )
-> ))
->
-> journal_equipements$VM <- append(journal_equipements$VM, list(
->   list(
->     id = "EQ-010",
->     variables = "cout_entretien",
->     probleme = "Valeur manquante codée par -999",
->     action = "Remplacement par NA",
->     justification = "La règle JSON indique que -999 code une valeur manquante"
->   )
-> ))
->
-> journal_equipements
-> ```
->
->     $VM
->     $VM[[1]]
->     $VM[[1]]$id
->     [1] "EQ-010"
->
->     $VM[[1]]$variables
->     [1] "cout_entretien"
->
->     $VM[[1]]$probleme
->     [1] "Valeur manquante codée par -999"
->
->     $VM[[1]]$action
->     [1] "Remplacement par NA"
->
->     $VM[[1]]$justification
->     [1] "La règle JSON indique que -999 code une valeur manquante"
->
->
->
->     $VA
->     $VA[[1]]
->     $VA[[1]]$id
->     [1] "EQ-004" "EQ-006"
->
->     $VA[[1]]$variables
->     [1] "annee_installation"
->
->     $VA[[1]]$probleme
->     [1] "Année d'installation hors des bornes définies dans le JSON"
->
->     $VA[[1]]$action
->     [1] "Signalement sans correction automatique"
->
->     $VA[[1]]$justification
->     [1] "La bonne année ne peut pas être déduite du fichier"
->
->
->
->     $RC
->     list()
+>     $RC[[1]]$justification
+>     [1] "Les modalités observées sont explicites et conservées"

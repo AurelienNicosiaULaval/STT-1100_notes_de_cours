@@ -8,6 +8,12 @@ format:
 
 Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 4: importer des fichiers, vérifier les types, nettoyer des valeurs, manipuler des facteurs, lire un JSON et documenter des décisions de nettoyage.
 
+::: {.callout-note}
+## Deux études de cas québécoises réelles
+
+Les études de cas utilisent un tableau agrégé de l'[aide financière de dernier recours](https://www.donneesquebec.ca/recherche/dataset/aide-financiere-de-dernier-recours-afdr-clientele-et-prestations) publié par le ministère de l'Emploi et de la Solidarité sociale, ainsi que l'inventaire des [installations sportives et récréatives de Sherbrooke](https://www.donneesquebec.ca/recherche/dataset/b6498f3436974ecbb8fa636a7d9c0b2f_0). Les deux sources sont diffusées sous licence CC BY 4.0. Les fichiers locaux sont des instantanés reproductibles préparés par `scripts/build_module04_real_data.R`.
+:::
+
 ```{r setup, warning=FALSE, message=FALSE}
 library(readr)
 library(dplyr)
@@ -322,181 +328,194 @@ coverage_tbl
 ```
 :::
 
-### Exercice 16 - Utiliser une règle de validation
+### Exercice 16 - Lire les métadonnées d'une source officielle
 
-Le fichier `data/regles_equipements_fictif.json` indique les années d'installation plausibles. Lisez ce fichier et affichez les bornes acceptées.
+Le fichier `data/metadonnees_installations_sherbrooke.json` provient du service REST de la Ville de Sherbrooke. Lisez-le, puis affichez le nom des champs et le système de coordonnées de l'étendue.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-regles <- fromJSON("data/regles_equipements_fictif.json")
-
-tibble(
-  annee_min = regles$annee_installation$min,
-  annee_max = regles$annee_installation$max
+metadonnees <- fromJSON(
+  "data/metadonnees_installations_sherbrooke.json"
 )
+
+metadonnees$fields |>
+  select(name, type, alias)
+
+metadonnees$extent$spatialReference$latestWkid
 ```
 :::
 
 ## Études de cas
 
-### Étude de cas 1 - Demandes de bourses fictives
+### Étude de cas 1 - Aide financière de dernier recours au Québec
 
-Le fichier `data/demandes_bourses_fictif.csv` contient de fausses demandes de bourses étudiantes. Il ne représente aucun système réel.
+Le fichier `data/afdr_clientele_prestations_2022_12.csv` contient 43 lignes agrégées publiées par le ministère de l'Emploi et de la Solidarité sociale pour décembre 2022. Chaque ligne décrit une caractéristique de la clientèle ou une région. Il ne contient aucun dossier individuel.
 
 Réalisez les tâches suivantes:
 
-1. importez le fichier;
+1. importez toutes les colonnes comme du texte;
 2. nettoyez les noms de colonnes;
-3. transformez `montant_demande` en nombre;
-4. remplacez `revenu_annuel = -999` par `NA`;
-5. harmonisez les noms de programme;
-6. repérez les codes FSA invalides;
-7. créez au moins deux entrées dans un journal de nettoyage.
+3. transformez les colonnes numériques dans le bon type;
+4. convertissez `caracteristique` en facteur;
+5. vérifiez que les nombres sont non négatifs;
+6. vérifiez que `nb_prestataires` est égal à la somme des adultes et des enfants;
+7. produisez un tableau des régions classées selon la prestation totale versée;
+8. documentez au moins deux décisions dans un journal de nettoyage.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-bourses <- read_csv(
-  "data/demandes_bourses_fictif.csv",
-  show_col_types = FALSE
+afdr_brut <- read_csv(
+  "data/afdr_clientele_prestations_2022_12.csv",
+  col_types = cols(.default = col_character())
 ) |>
-  clean_names() |>
+  clean_names()
+
+afdr <- afdr_brut |>
   mutate(
-    montant_demande_num = parse_number(
-      montant_demande,
-      locale = locale(decimal_mark = ",", grouping_mark = " ")
+    across(nb_menages:prest_base_heberges, parse_double),
+    caracteristique = as_factor(caracteristique),
+    valeur = str_squish(valeur),
+    valeur_negative = if_any(
+      nb_menages:prest_base_heberges,
+      ~ .x < 0
     ),
-    revenu_annuel = na_if(revenu_annuel, -999),
-    programme_propre = str_to_lower(str_squish(programme)),
-    programme_propre = case_when(
-      str_detect(programme_propre, "donnees|données|sc\\.") ~ "science des donnees",
-      str_detect(programme_propre, "math") ~ "mathematiques",
-      TRUE ~ programme_propre
-    ),
-    statut_propre = str_to_lower(str_squish(statut)),
-    fsa_invalide = is.na(fsa_code) | nchar(fsa_code) != 3
+    total_incoherent = nb_prestataires != nb_adultes + nb_enfants
   )
 
-bourses |>
-  count(programme_propre, statut_propre)
+afdr |>
+  count(caracteristique)
 
-bourses |>
-  filter(fsa_invalide) |>
-  select(dossier_id, fsa_code)
+afdr |>
+  summarise(
+    n_valeurs_negatives = sum(valeur_negative),
+    n_totaux_incoherents = sum(total_incoherent)
+  )
 
-journal_bourses <- list(VM = list(), FT = list(), RC = list(), VA = list())
+regions_afdr <- afdr |>
+  filter(caracteristique == "Région") |>
+  select(valeur, nb_prestataires, prestation_totale_versee) |>
+  arrange(desc(prestation_totale_versee))
 
-journal_bourses$VM <- append(journal_bourses$VM, list(
+regions_afdr
+
+journal_afdr <- list(TY = list(), RC = list(), VA = list())
+
+journal_afdr$TY <- append(journal_afdr$TY, list(
   list(
-    id = "B-004",
-    variables = "revenu_annuel",
-    probleme = "Valeur manquante codée par -999",
-    action = "Remplacement par NA",
-    justification = "La valeur -999 ne représente pas un revenu annuel"
+    id = "fichier-afdr-2022-12",
+    variables = "nb_menages:prest_base_heberges",
+    probleme = "Colonnes importées volontairement comme texte",
+    action = "Conversion contrôlée avec parse_double()",
+    justification = "Les calculs exigent des colonnes numériques"
   )
 ))
 
-journal_bourses$FT <- append(journal_bourses$FT, list(
+journal_afdr$VA <- append(journal_afdr$VA, list(
   list(
-    id = "B-010",
-    variables = "fsa_code",
-    probleme = "Code FSA de longueur invalide",
-    action = "Signalement sans correction automatique",
-    justification = "Le bon code ne peut pas être déduit du fichier"
+    id = "fichier-afdr-2022-12",
+    variables = "nb_prestataires",
+    probleme = "Cohérence du total à vérifier",
+    action = "Comparaison avec nb_adultes + nb_enfants",
+    justification = "La relation peut être testée sans modifier la source"
   )
 ))
 
-journal_bourses
+journal_afdr
 ```
 :::
 
-### Étude de cas 2 - Équipements municipaux fictifs
+### Étude de cas 2 - Installations sportives et récréatives de Sherbrooke
 
-Le fichier `data/equipements_municipaux_fictif.csv` contient de faux enregistrements d'équipements municipaux. Le fichier `data/regles_equipements_fictif.json` contient quelques règles de validation.
+Le fichier `data/installations_sportives_sherbrooke.csv` contient l'inventaire municipal diffusé par la Ville de Sherbrooke. Le fichier `data/metadonnees_installations_sherbrooke.json` est la description officielle du service ArcGIS correspondant. Une valeur manquante dans `nom`, `detail` ou `surface` n'est pas automatiquement une erreur.
 
 Réalisez les tâches suivantes:
 
 1. importez le CSV et le JSON;
-2. nettoyez `type_equipement` et `statut`;
-3. transformez `cout_entretien` en nombre;
-4. utilisez le JSON pour repérer les années impossibles;
-5. repérez les statuts non attendus, s'il y en a;
-6. créez un tableau de synthèse par ville;
-7. documentez au moins deux décisions.
+2. nettoyez les noms de colonnes et les espaces superflus;
+3. convertissez `eclairage` en facteur;
+4. vérifiez que les champs officiels du JSON sont présents dans le CSV;
+5. utilisez l'étendue du JSON pour repérer les coordonnées hors limites;
+6. créez un tableau de synthèse par type d'installation;
+7. signalez les noms manquants sans les inventer;
+8. documentez au moins deux décisions.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-regles <- fromJSON("data/regles_equipements_fictif.json")
+metadonnees <- fromJSON(
+  "data/metadonnees_installations_sherbrooke.json"
+)
 
-equipements <- read_csv(
-  "data/equipements_municipaux_fictif.csv",
+installations_brutes <- read_csv(
+  "data/installations_sportives_sherbrooke.csv",
   show_col_types = FALSE
-) |>
+)
+
+champs_attendus <- str_to_lower(metadonnees$fields$name)
+champs_manquants <- setdiff(
+  champs_attendus,
+  names(clean_names(installations_brutes))
+)
+
+installations <- installations_brutes |>
   clean_names() |>
   mutate(
-    type_equipement = str_to_lower(str_squish(type_equipement)),
-    type_equipement = case_when(
-      str_detect(type_equipement, "abri") ~ "abri bus",
-      str_detect(type_equipement, "module") ~ "module de jeux",
-      TRUE ~ type_equipement
-    ),
-    statut = str_to_lower(str_squish(statut)),
-    cout_entretien_num = parse_number(
-      cout_entretien,
-      locale = locale(decimal_mark = ",", grouping_mark = " ")
-    ),
-    cout_entretien_num = na_if(
-      cout_entretien_num,
-      regles$cout_entretien$valeur_manquante_codee
-    ),
-    annee_invalide = annee_installation < regles$annee_installation$min |
-      annee_installation > regles$annee_installation$max,
-    statut_invalide = !statut %in% regles$statuts_acceptes,
-    mois_invalide = !mois_inspection %in% regles$mois_inspection_attendus
+    across(c(type, detail, nom, surface, eclairage), str_squish),
+    eclairage = factor(eclairage, levels = c("Non", "Oui")),
+    nom_manquant = is.na(nom),
+    hors_etendue = x < metadonnees$extent$xmin |
+      x > metadonnees$extent$xmax |
+      y < metadonnees$extent$ymin |
+      y > metadonnees$extent$ymax
   )
 
-equipements |>
-  filter(annee_invalide | statut_invalide | mois_invalide) |>
-  select(equipement_id, annee_installation, statut, mois_inspection)
+champs_manquants
 
-synthese_ville <- equipements |>
-  group_by(ville) |>
+installations |>
   summarise(
-    n_equipements = n(),
-    cout_median = median(cout_entretien_num, na.rm = TRUE),
-    n_annees_invalides = sum(annee_invalide),
+    n_hors_etendue = sum(hors_etendue, na.rm = TRUE),
+    n_noms_manquants = sum(nom_manquant)
+  )
+
+synthese_type <- installations |>
+  group_by(type) |>
+  summarise(
+    n_installations = n(),
+    n_noms_manquants = sum(nom_manquant),
+    part_eclairee = mean(eclairage == "Oui", na.rm = TRUE),
     .groups = "drop"
-  )
+  ) |>
+  arrange(desc(n_installations))
 
-synthese_ville
+synthese_type
 
-journal_equipements <- list(VM = list(), VA = list(), RC = list())
+journal_installations <- list(VM = list(), FT = list(), RC = list())
 
-journal_equipements$VA <- append(journal_equipements$VA, list(
+journal_installations$FT <- append(journal_installations$FT, list(
   list(
-    id = equipements$equipement_id[equipements$annee_invalide],
-    variables = "annee_installation",
-    probleme = "Année d'installation hors des bornes définies dans le JSON",
+    id = installations$objectid[installations$nom_manquant],
+    variables = "nom",
+    probleme = "Nom absent dans la source",
     action = "Signalement sans correction automatique",
-    justification = "La bonne année ne peut pas être déduite du fichier"
+    justification = "Un nom ne peut pas être déduit des autres champs"
   )
 ))
 
-journal_equipements$VM <- append(journal_equipements$VM, list(
+journal_installations$RC <- append(journal_installations$RC, list(
   list(
-    id = "EQ-010",
-    variables = "cout_entretien",
-    probleme = "Valeur manquante codée par -999",
-    action = "Remplacement par NA",
-    justification = "La règle JSON indique que -999 code une valeur manquante"
+    id = "fichier-installations-sherbrooke",
+    variables = "eclairage",
+    probleme = "Variable catégorielle importée comme texte",
+    action = "Conversion en facteur Non/Oui",
+    justification = "Les modalités observées sont explicites et conservées"
   )
 ))
 
-journal_equipements
+journal_installations
 ```
 :::
