@@ -9,56 +9,72 @@ execute:
   message: false
 ---
 
-These exercises are independent from the adventure and the challenge. They consolidate linear regression, prediction and careful discussion of bias using fictitious datasets that differ from the main activity.
+These exercises are independent from the adventure and the challenge. They consolidate linear regression, prediction and careful analysis of coverage bias using real Quebec municipal data.
 
-Before starting, review the module resources if needed: chapters 7 and 8 of *Introduction to Modern Statistics*, the `lm()` documentation, the `predict.lm()` documentation and the module formative mini-test.
+Both files come from the Quebec Ministry of Municipal Affairs and Housing dataset [Stratégie québécoise d'économie d'eau potable 2019-2025](https://www.donneesquebec.ca/recherche/dataset/sqeep-2019-2025){target="_blank"}. The data were reported by participating municipalities and approved by the Ministry. They are distributed under the CC BY 4.0 licence.
 
 ```{r setup}
 library(tidyverse)
+
+mean_if_available <- function(x) {
+  if (all(is.na(x))) NA_real_ else mean(x, na.rm = TRUE)
+}
 ```
 
 ## Block A - Explore a linear relationship
 
 ### Exercise 1 - Import the data
 
-Import the file `fictitious_housing_energy.csv`. Each row represents a fictitious housing unit in the Quebec City region.
+Import `municipal_water_consumption_2023.csv`. Each row represents a Quebec municipality for which the required variables are available and whose population served reaches at least 500 people.
 
 ```{r}
-housing <- read_csv("data/fictitious_housing_energy.csv", show_col_types = FALSE)
+water <- read_csv(
+  "data/municipal_water_consumption_2023.csv",
+  show_col_types = FALSE
+)
 
-glimpse(housing)
+glimpse(water)
 ```
 
 ::: {.callout-tip collapse="true"}
-The table contains 32 fictitious housing units. The variable `annual_kwh` will be used as the response variable in the first exercises.
+The table contains 496 municipalities across all 17 administrative regions. `distributed_water_l_person_day` is the response. Filtering for available data makes modelling possible, but limits the population to which the results can be generalized.
 :::
 
 ### Exercise 2 - Visualize the main relationship
 
-Plot the relationship between housing area and annual electricity consumption. Add a regression line.
+Plot distributed water quantity against residential consumption. Add a regression line.
 
 ```{r}
-ggplot(housing, aes(x = area_m2, y = annual_kwh)) +
-  geom_point(alpha = 0.75, size = 2) +
+ggplot(
+  water,
+  aes(
+    x = residential_consumption_l_person_day,
+    y = distributed_water_l_person_day
+  )
+) +
+  geom_point(alpha = 0.55, size = 1.8) +
   geom_smooth(method = "lm", formula = y ~ x, se = FALSE) +
   labs(
-    x = "Housing area (m2)",
-    y = "Annual consumption (kWh)",
-    title = "Annual consumption by housing area"
+    x = "Residential consumption (L/person/day)",
+    y = "Distributed water (L/person/day)",
+    title = "Distributed water and residential consumption"
   ) +
   theme_minimal()
 ```
 
 ::: {.callout-tip collapse="true"}
-The relationship appears positive: larger housing units tend to have higher annual consumption. This chart does not prove that area causes all consumption, but it suggests an association that is useful for a first model.
+The relationship is positive, but substantial dispersion remains. Residential consumption accounts for only part of distributed water, and the chart does not demonstrate a causal relationship.
 :::
 
 ### Exercise 3 - Fit a simple regression
 
-Fit a model that predicts annual consumption from area.
+Fit a model that predicts distributed water from residential consumption.
 
 ```{r}
-simple_model <- lm(annual_kwh ~ area_m2, data = housing)
+simple_model <- lm(
+  distributed_water_l_person_day ~ residential_consumption_l_person_day,
+  data = water
+)
 
 summary(simple_model)
 ```
@@ -66,72 +82,81 @@ summary(simple_model)
 Interpret the slope in your own words.
 
 ::: {.callout-tip collapse="true"}
-The slope estimates the average predicted change in annual consumption when area increases by one square metre. The interpretation should remain descriptive because other variables such as occupants, building age and heating type may also play a role.
+The slope estimates the average predicted change in distributed water when residential consumption increases by one litre per person per day. It describes an association among the selected municipalities without proving that this increase alone causes the observed variation.
 :::
 
 ## Block B - Predict and diagnose
 
 ### Exercise 4 - Fit a multiple regression
 
-Now fit a model that adds the number of occupants and the year built.
+Add the population served, expressed in thousands of people, and the average number of people per residence.
 
 ```{r}
 multiple_model <- lm(
-  annual_kwh ~ area_m2 + occupants + year_built,
-  data = housing
+  distributed_water_l_person_day ~
+    residential_consumption_l_person_day +
+    population_served_thousands +
+    persons_per_residence,
+  data = water
 )
 
 summary(multiple_model)
 ```
 
-Compare the interpretation of the `area_m2` coefficient with the one obtained in the simple model.
+Compare the interpretation of the `residential_consumption_l_person_day` coefficient with the one from the simple model.
 
 ::: {.callout-tip collapse="true"}
-In the multiple model, the `area_m2` coefficient is interpreted while holding `occupants` and `year_built` fixed. It therefore does not answer exactly the same question as the simple model.
+In the multiple model, the coefficient is interpreted while holding population served and people per residence constant. It therefore does not answer exactly the same question as the simple-model slope.
 :::
 
 ### Exercise 5 - Produce predictions
 
-Create two new fictitious housing units, then use the multiple model to predict their annual consumption.
+Build two scenarios within the range of the data, then predict distributed water.
 
 ```{r}
-new_housing <- tibble(
-  area_m2 = c(70, 120),
-  occupants = c(2, 4),
-  year_built = c(1990, 2015)
+water_scenarios <- tibble(
+  residential_consumption_l_person_day = c(180, 240),
+  population_served_thousands = c(5, 45),
+  persons_per_residence = c(2.1, 2.4)
 )
 
-housing_predictions <- new_housing |>
-  mutate(predicted_consumption = predict(multiple_model, newdata = new_housing))
+water_predictions <- water_scenarios |>
+  mutate(
+    predicted_distributed_water = predict(
+      multiple_model,
+      newdata = water_scenarios
+    )
+  )
 
-housing_predictions
+water_predictions
 ```
 
 ::: {.callout-tip collapse="true"}
-Predictions are expected values according to the model. They do not replace a real measurement, and they become more fragile if the new housing unit looks very different from the units used to fit the model.
+These values are teaching scenarios, not observed municipalities. Predictions are expected values under the model and become more fragile outside the range of the fitting data.
 :::
 
 ### Exercise 6 - Compare observed and predicted values
 
-Add the multiple-model predictions to the original table, then calculate the error `observed - predicted`.
+Calculate the multiple-model errors and identify the six largest absolute errors.
 
 ```{r}
-model_diagnostics <- housing |>
+model_diagnostics <- water |>
   mutate(
-    predicted_consumption = predict(multiple_model, newdata = housing),
-    error_kwh = annual_kwh - predicted_consumption,
-    absolute_error_kwh = abs(error_kwh)
+    predicted_distributed_water = predict(multiple_model, newdata = water),
+    error_l_person_day =
+      distributed_water_l_person_day - predicted_distributed_water,
+    absolute_error = abs(error_l_person_day)
   )
 
 model_diagnostics |>
-  arrange(desc(absolute_error_kwh)) |>
+  arrange(desc(absolute_error)) |>
   select(
-    housing_id,
-    neighbourhood,
-    annual_kwh,
-    predicted_consumption,
-    error_kwh,
-    absolute_error_kwh
+    municipality_code,
+    municipality,
+    region,
+    distributed_water_l_person_day,
+    predicted_distributed_water,
+    error_l_person_day
   ) |>
   slice_head(n = 6)
 ```
@@ -139,180 +164,173 @@ model_diagnostics |>
 Then calculate a root mean squared error.
 
 ```{r}
-rmse_kwh <- sqrt(mean(model_diagnostics$error_kwh^2))
+water_rmse <- sqrt(mean(model_diagnostics$error_l_person_day^2))
 
-rmse_kwh
+water_rmse
 ```
 
 ::: {.callout-tip collapse="true"}
-Rows with the largest absolute errors deserve inspection. They may reveal unusual housing units, important variables missing from the model or simply natural variability.
+A large error may indicate an unusual municipality, an important missing variable or uncertain measurement. It does not automatically constitute a data error.
 :::
 
 ### Exercise 7 - Visualize errors
 
-Plot the errors against the predicted values. The chart should help you see whether errors remain centred around zero.
-
 ```{r}
-ggplot(model_diagnostics, aes(x = predicted_consumption, y = error_kwh)) +
+ggplot(
+  model_diagnostics,
+  aes(x = predicted_distributed_water, y = error_l_person_day)
+) +
   geom_hline(yintercept = 0, linetype = "dashed") +
-  geom_point(alpha = 0.75, size = 2) +
+  geom_point(alpha = 0.55, size = 1.8) +
   labs(
-    x = "Predicted consumption (kWh)",
-    y = "Error: observed - predicted (kWh)",
+    x = "Predicted distributed water (L/person/day)",
+    y = "Error: observed minus predicted",
     title = "Visual diagnosis of errors"
   ) +
   theme_minimal()
 ```
 
 ::: {.callout-tip collapse="true"}
-A useful reflex is to look for patterns: errors that increase with predictions, separated groups or highly isolated points. Such a pattern does not automatically invalidate the model, but it signals a limit to discuss.
+Look for patterns, separated groups and isolated points. Increasing dispersion as predictions grow can indicate that uncertainty is not constant.
 :::
 
-## Block C - Examine descriptive bias
+## Block C - Examine coverage bias
 
-### Exercise 8 - Import a second dataset
+### Exercise 8 - Import validity results
 
-Import the file `fictitious_culture_grants.csv`. Each row represents a fictitious cultural grant application.
+Import `water_audit_validity_2023.csv`. It contains all 1,104 municipalities in the source table, including those for which the validity index is unavailable.
 
 ```{r}
-grants <- read_csv("data/fictitious_culture_grants.csv", show_col_types = FALSE)
+validity <- read_csv(
+  "data/water_audit_validity_2023.csv",
+  show_col_types = FALSE
+)
 
-glimpse(grants)
+glimpse(validity)
 ```
 
 ::: {.callout-tip collapse="true"}
-This dataset is fictitious. It is used to practise descriptive reading of differences between groups without concluding too quickly about cause or discrimination.
+A missing value does not mean that an audit is invalid. It indicates that the index is unavailable in this resource. Treating absence as failure would produce an incorrect conclusion.
 :::
 
-### Exercise 9 - Compare rates by region
+### Exercise 9 - Compare availability by region
 
-Calculate the acceptance rate by region, then produce a chart.
+Calculate the proportion of municipalities for which the index is available, then produce a chart.
 
 ```{r}
-acceptance_by_region <- grants |>
+availability_by_region <- validity |>
   group_by(region) |>
   summarise(
-    applications = n(),
-    acceptance_rate = mean(decision == "Accepted"),
+    municipalities = n(),
+    available_indices = sum(validity_available),
+    availability_rate = mean(validity_available),
     .groups = "drop"
   ) |>
-  arrange(acceptance_rate)
+  arrange(availability_rate)
 
-acceptance_by_region
+availability_by_region
 ```
 
 ```{r}
-ggplot(acceptance_by_region, aes(x = acceptance_rate, y = reorder(region, acceptance_rate))) +
+ggplot(
+  availability_by_region,
+  aes(x = availability_rate, y = reorder(region, availability_rate))
+) +
   geom_col() +
   labs(
-    x = "Acceptance rate",
+    x = "Proportion with an available index",
     y = NULL,
-    title = "Acceptance rate by region"
+    title = "Coverage of the validity index by region"
   ) +
   theme_minimal()
 ```
 
 ::: {.callout-tip collapse="true"}
-Raw rates can draw attention to differences, but the groups have few observations. Avoid a definitive conclusion.
+Coverage differences are descriptive. They may reflect participation, measurement availability, network size or other unobserved mechanisms.
 :::
 
-### Exercise 10 - Add context variables
+### Exercise 10 - Add municipality type
 
-Also compare decisions by organization size and by whether the application is a first application.
-
-```{r}
-acceptance_by_size <- grants |>
-  group_by(organization_size) |>
-  summarise(
-    applications = n(),
-    acceptance_rate = mean(decision == "Accepted"),
-    mean_score = mean(committee_score),
-    .groups = "drop"
-  )
-
-acceptance_by_size
-```
+Among municipalities with an available index, compare its mean by municipality type.
 
 ```{r}
-acceptance_by_first_application <- grants |>
-  group_by(first_application) |>
+validity_by_type <- validity |>
+  filter(validity_available) |>
+  group_by(municipality_type) |>
   summarise(
-    applications = n(),
-    acceptance_rate = mean(decision == "Accepted"),
-    median_budget = median(requested_budget),
-    mean_score = mean(committee_score),
+    municipalities = n(),
+    mean_validity_index = mean(validity_index_pct),
+    median_metered_connections = median(
+      metered_non_residential_connections_pct,
+      na.rm = TRUE
+    ),
     .groups = "drop"
-  )
+  ) |>
+  arrange(mean_validity_index)
 
-acceptance_by_first_application
+validity_by_type
 ```
 
 ::: {.callout-tip collapse="true"}
-A regional difference may be linked to other available variables, such as organization size, committee score or first-application status. This does not settle the bias question, but it makes the analysis more honest.
+This comparison only includes municipalities with a published index. If availability is not random, observed means may not represent every municipality of the same type.
 :::
 
 ### Exercise 11 - Write a careful conclusion
 
-Using the previous tables, write three sentences:
-
-1. one sentence that describes an observed difference;
-2. one sentence that mentions a data limitation;
-3. one sentence that proposes an additional check.
+Write three sentences that distinguish an observed difference, a coverage limitation and an additional check.
 
 ::: {.callout-tip collapse="true"}
-Possible example: acceptance rates vary between regions in this fictitious file. However, each region contains few applications and raw rates do not account for all application characteristics. A next step would be to check whether differences remain among applications with comparable scores, comparable disciplines and comparable organization sizes.
+Possible example: the proportion of municipalities with an available index varies across regions in 2023. These differences do not demonstrate differences in management quality because index absence may depend on participation and measurement availability. A next step would document the nonresponse mechanism and compare municipalities of similar size and type.
 :::
 
-## Case Study 1 - Predict residential consumption
+## Case Study 1 - Predict a distributed water quantity
 
-A small municipal organization wants to forecast the annual consumption of new housing units in order to plan an energy-support program.
+A municipal organization wants to use the 2023 data to prepare consumption scenarios.
 
 Your task:
 
 1. choose between `simple_model` and `multiple_model`;
-2. predict consumption for three fictitious housing units;
-3. write three limits to communicate before using the predictions.
+2. produce three scenarios within the observed range;
+3. communicate three limits before using the predictions.
 
 ```{r}
-housing_to_evaluate <- tibble(
-  area_m2 = c(65, 95, 145),
-  occupants = c(1, 3, 5),
-  year_built = c(1972, 2001, 2018)
+program_scenarios <- tibble(
+  residential_consumption_l_person_day = c(160, 210, 275),
+  population_served_thousands = c(2, 18, 90),
+  persons_per_residence = c(2.0, 2.3, 2.5)
 )
 
-housing_to_evaluate |>
-  mutate(predicted_consumption = predict(multiple_model, newdata = housing_to_evaluate))
+program_scenarios |>
+  mutate(
+    predicted_distributed_water = predict(
+      multiple_model,
+      newdata = program_scenarios
+    )
+  )
 ```
 
 ::: {.callout-tip collapse="true"}
-The multiple model is preferable here because it uses more relevant information. Limits to communicate may include: the data are fictitious and small; the model does not include insulation, heating habits or appliances; predictions should remain within the range of housing units similar to those observed.
+Limitations include complete-case selection, variables omitted from the model, extreme values and the impossibility of giving coefficients a causal interpretation.
 :::
 
-## Case Study 2 - Audit a grant procedure
+## Case Study 2 - Audit water-audit coverage
 
-A committee wants to know whether its grant decisions show concerning differences between groups.
-
-Your task:
-
-1. choose two comparison variables;
-2. calculate acceptance rates and mean scores;
-3. write a short paragraph that distinguishes descriptive signal, limit and next analysis.
+A committee wants to know whether its picture of data validity covers Quebec municipalities evenly.
 
 ```{r}
-audit_summary <- grants |>
-  group_by(region, organization_size) |>
+audit_summary <- validity |>
+  group_by(region, municipality_type) |>
   summarise(
-    applications = n(),
-    acceptance_rate = mean(decision == "Accepted"),
-    mean_score = mean(committee_score),
-    median_budget = median(requested_budget),
+    municipalities = n(),
+    availability_rate = mean(validity_available),
+    mean_index_if_available = mean_if_available(validity_index_pct),
     .groups = "drop"
   ) |>
-  arrange(region, organization_size)
+  arrange(region, municipality_type)
 
 audit_summary
 ```
 
 ::: {.callout-tip collapse="true"}
-A careful paragraph could say that acceptance rates differ across some combinations of region and organization size in the fictitious data. However, several cells contain few applications, which makes comparisons unstable. Before discussing bias or discrimination, comparable applications should be examined, decision criteria should be documented and possible proxy variables should be checked.
+The table can identify less-covered groups, but cannot assign a cause to the differences. Before comparing audit quality, distinguish the observed index from its availability and investigate participation and measurement mechanisms.
 :::

@@ -304,15 +304,15 @@ Fictitious CSV file about students.Local file1,000 observations / 6 variablesVie
 
 ## ecoles_primaires_qc.csv
 
-CSV file about primary schools in Quebec.Local file1,963 observations / 11 variablesView profile [Module 09 ](#module09-logements-energie)
+CSV file about primary schools in Quebec.Local file1,963 observations / 11 variablesView profile [Module 09 ](#module09-consommation-eau)
 
-## fictitious_housing_energy.csv
+## municipal_water_consumption_2023.csv
 
-Fictitious housing units with annual electricity consumption.Local file32 observations / 8 variablesView profile [Module 09 ](#module09-subventions-culture)
+Residential consumption and distributed water quantity for 496 Quebec municipalities in 2023.Local file496 observations / 10 variablesView profile [Module 09 ](#module09-validite-audits)
 
-## fictitious_culture_grants.csv
+## water_audit_validity_2023.csv
 
-[Fictitious cultural grant applications.Local file36 observations / 8 variablesView profile](#module09-subventions-culture)
+[Availability and results of the water-audit validity index for 1,104 municipalities in 2023.Local file1,104 observations / 7 variablesView profile](#module09-validite-audits)
 
 ### Module 10
 
@@ -357,7 +357,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_student_coop.csv
 
@@ -382,7 +382,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### manchots_donnees.xlsx
 
@@ -438,7 +438,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_bike_share.csv
 
@@ -463,7 +463,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_311_requests.csv
 
@@ -488,7 +488,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_transit_complaints.csv
 
@@ -513,7 +513,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### dataset_pratique.csv
 
@@ -671,7 +671,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_scholarship_applications.csv
 
@@ -696,7 +696,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_equipment_rules.json
 
@@ -820,7 +820,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_library_visits.csv
 
@@ -845,7 +845,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_campus_service_requests.csv
 
@@ -870,7 +870,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_team_members.csv
 
@@ -895,7 +895,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_git_contributions.csv
 
@@ -920,7 +920,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_review_issues.csv
 
@@ -945,7 +945,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_report_files.csv
 
@@ -970,7 +970,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_data_portal.csv
 
@@ -995,7 +995,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_producers.csv
 
@@ -1020,7 +1020,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_review_comments.csv
 
@@ -1045,7 +1045,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_municipal_reports.csv
 
@@ -1070,7 +1070,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_neighbourhood_population.csv
 
@@ -1095,7 +1095,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### fictitious_student_survey.csv
 
@@ -1120,7 +1120,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
 
 ### catalogue_donnees_quebec.html
 
@@ -1262,20 +1262,20 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | Diffusion | character | 0 | 2 | OUI |
 | Annee_Scol | character | 0 | 1 | 2025-2026 |
 
-### fictitious_housing_energy.csv
+### municipal_water_consumption_2023.csv
 
-Fictitious housing units with annual electricity consumption.
+Residential consumption and distributed water quantity for 496 Quebec municipalities in 2023.
 
-[Download fictitious_housing_energy.csv](module_09/data/fictitious_housing_energy.csv)
+[Download municipal_water_consumption_2023.csv](module_09/data/municipal_water_consumption_2023.csv)
 
 | Information | Value |
 |:---|:---|
 | Module | Module 09 |
-| Observations | 32 |
-| Variables | 8 |
-| Course use | Practise linear regression, predictions, errors and limits of extrapolation. |
-| Source | Fictitious data created for the course. |
-| License | Simulated course data. |
+| Observations | 496 |
+| Variables | 10 |
+| Course use | Practise linear regression, predictions, errors and limits of generalization. |
+| Source | Quebec Ministry of Municipal Affairs and Housing, drinking-water conservation strategy 2019-2025. |
+| License | CC BY 4.0. |
 
 #### Preview
 
@@ -1285,29 +1285,31 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| housing_id | character | 0 | 32 | H001 |
-| neighbourhood | character | 0 | 11 | Montcalm |
-| area_m2 | numeric | 0 | 32 | 62 |
-| year_built | numeric | 0 | 32 | 1988 |
-| occupants | numeric | 0 | 5 | 1 |
-| heating_type | character | 0 | 3 | Electricity |
-| neighbourhood_median_income | numeric | 0 | 11 | 64000 |
-| annual_kwh | numeric | 0 | 32 | 11800 |
+| municipality_code | character | 0 | 50 | 88055 |
+| municipality | character | 0 | 50 | Amos |
+| municipality_type | character | 0 | 5 | City |
+| region | character | 0 | 2 | Abitibi-Témiscamingue |
+| residential_consumption_l_person_day | numeric | 0 | 47 | 243 |
+| population_served | numeric | 0 | 49 | 11771 |
+| population_served_thousands | numeric | 0 | 49 | 11.771 |
+| residences_served | numeric | 0 | 50 | 5740 |
+| persons_per_residence | numeric | 0 | 42 | 2.05063495 |
+| distributed_water_l_person_day | numeric | 0 | 48 | 414 |
 
-### fictitious_culture_grants.csv
+### water_audit_validity_2023.csv
 
-Fictitious cultural grant applications.
+Availability and results of the water-audit validity index for 1,104 municipalities in 2023.
 
-[Download fictitious_culture_grants.csv](module_09/data/fictitious_culture_grants.csv)
+[Download water_audit_validity_2023.csv](module_09/data/water_audit_validity_2023.csv)
 
 | Information | Value |
 |:---|:---|
 | Module | Module 09 |
-| Observations | 36 |
-| Variables | 8 |
-| Course use | Compare decision rates by group and discuss descriptive bias without overinterpretation. |
-| Source | Fictitious data created for the course. |
-| License | Simulated course data. |
+| Observations | 1,104 |
+| Variables | 7 |
+| Course use | Compare coverage across regions and municipality types without treating missing data as failure. |
+| Source | Quebec Ministry of Municipal Affairs and Housing, drinking-water conservation strategy 2019-2025. |
+| License | CC BY 4.0. |
 
 #### Preview
 
@@ -1317,14 +1319,13 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| application_id | character | 0 | 36 | G001 |
-| region | character | 0 | 7 | Capitale-Nationale |
-| discipline | character | 0 | 5 | Theatre |
-| organization_size | character | 0 | 3 | Large |
-| first_application | character | 0 | 2 | No |
-| requested_budget | numeric | 0 | 35 | 82000 |
-| committee_score | numeric | 0 | 26 | 86 |
-| decision | character | 0 | 2 | Accepted |
+| municipality_code | numeric | 0 | 50 | 88055 |
+| municipality | character | 0 | 50 | Amos |
+| municipality_type | character | 0 | 5 | City |
+| region | character | 0 | 1 | Abitibi-Témiscamingue |
+| validity_index_pct | numeric | 29 | 8 | 59 |
+| metered_non_residential_connections_pct | numeric | 30 | 10 | 0.08867925 |
+| validity_available | logical | 0 | 2 | TRUE |
 
 ### fictitious_library_comments.csv
 

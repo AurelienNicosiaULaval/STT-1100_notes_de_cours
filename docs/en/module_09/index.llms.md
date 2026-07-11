@@ -6,7 +6,7 @@ Build a first prediction and discuss possible biases.
 
 Main threadRegression, prediction and bias
 
-DataSchools, students and fictitious consolidation data
+DataSchools, students and municipal water data
 
 Challenge180-second video capsule
 
@@ -126,7 +126,7 @@ The full instructions are available in the [Challenge 9](defi.llms.md) page. The
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises are independent from the adventure and challenge. They consolidate prediction, model errors and bias discussion with two fictitious datasets.
+Why Exercises are independent from the adventure and challenge. They consolidate prediction, model errors and coverage bias with two real extracts from Quebec's drinking-water conservation strategy.
 
 Redo at least one passage without looking at the solution immediately.
 
@@ -134,7 +134,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc) [fictitious_housing_energy.csv](../donnees.llms.md#dataset-card-module09-logements-energie) [fictitious_culture_grants.csv](../donnees.llms.md#dataset-card-module09-subventions-culture)
+[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc) [Municipal water consumption 2023](data/municipal_water_consumption_2023.csv) [Water audit validity 2023](data/water_audit_validity_2023.csv)
 
 ### R packages
 

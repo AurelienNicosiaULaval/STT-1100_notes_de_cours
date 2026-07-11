@@ -304,15 +304,15 @@ Fichier CSV fictif sur des élèves.Fichier local1 000 observations / 6 variable
 
 ## ecoles_primaires_qc.csv
 
-Fichier CSV sur des écoles primaires du Québec.Fichier local1 963 observations / 11 variablesVoir la fiche [Module 09 ](#module09-logements-energie)
+Fichier CSV sur des écoles primaires du Québec.Fichier local1 963 observations / 11 variablesVoir la fiche [Module 09 ](#module09-consommation-eau)
 
-## logements_energie_fictif.csv
+## consommation_eau_municipalites_2023.csv
 
-Logements fictifs avec consommation annuelle d’électricité.Fichier local32 observations / 8 variablesVoir la fiche [Module 09 ](#module09-subventions-culture)
+Consommation résidentielle et quantité d’eau distribuée dans 496 municipalités québécoises en 2023.Fichier local496 observations / 10 variablesVoir la fiche [Module 09 ](#module09-validite-audits)
 
-## subventions_culture_fictif.csv
+## validite_audits_eau_2023.csv
 
-[Demandes fictives de subvention culturelle.Fichier local36 observations / 8 variablesVoir la fiche](#module09-subventions-culture)
+[Disponibilité et résultats de l’indice de validité des audits de l’eau pour 1 104 municipalités en 2023.Fichier local1 104 observations / 7 variablesVoir la fiche](#module09-validite-audits)
 
 ### Module 10
 
@@ -357,7 +357,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### coop_etudiante_fictif.csv
 
@@ -382,7 +382,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### manchots_donnees.xlsx
 
@@ -438,7 +438,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### velo_partage_fictif.csv
 
@@ -463,7 +463,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### requetes_311_fictif.csv
 
@@ -488,7 +488,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### plaintes_transport_fictif.csv
 
@@ -513,7 +513,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### dataset_pratique.csv
 
@@ -671,7 +671,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### demandes_bourses_fictif.csv
 
@@ -696,7 +696,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### regles_equipements_fictif.json
 
@@ -820,7 +820,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### frequentation_bibliotheque_fictive.csv
 
@@ -845,7 +845,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### demandes_services_campus_fictif.csv
 
@@ -870,7 +870,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### membres_equipe_fictif.csv
 
@@ -895,7 +895,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### contributions_git_fictif.csv
 
@@ -920,7 +920,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### issues_revue_fictif.csv
 
@@ -945,7 +945,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### fichiers_rapport_fictif.csv
 
@@ -970,7 +970,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### portail_donnees_fictif.csv
 
@@ -995,7 +995,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### producteurs_fictif.csv
 
@@ -1020,7 +1020,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### commentaires_revue_fictif.csv
 
@@ -1045,7 +1045,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### signalements_municipaux_fictif.csv
 
@@ -1070,7 +1070,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### population_quartiers_fictif.csv
 
@@ -1095,7 +1095,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### sondage_etudiant_fictif.csv
 
@@ -1120,7 +1120,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
 
 ### catalogue_donnees_quebec.html
 
@@ -1262,20 +1262,20 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | Diffusion | character | 0 | 2 | OUI |
 | Annee_Scol | character | 0 | 1 | 2025-2026 |
 
-### logements_energie_fictif.csv
+### consommation_eau_municipalites_2023.csv
 
-Logements fictifs avec consommation annuelle d’électricité.
+Consommation résidentielle et quantité d’eau distribuée dans 496 municipalités québécoises en 2023.
 
-[Télécharger logements_energie_fictif.csv](module_09/data/logements_energie_fictif.csv)
+[Télécharger consommation_eau_municipalites_2023.csv](module_09/data/consommation_eau_municipalites_2023.csv)
 
 | Information | Valeur |
 |:---|:---|
 | Module | Module 09 |
-| Observations | 32 |
-| Variables | 8 |
-| Utilisation | Pratiquer la régression linéaire, les prédictions, les erreurs et les limites d’extrapolation. |
-| Source | Données fictives créées pour le cours. |
-| Licence | Données simulées pour le cours. |
+| Observations | 496 |
+| Variables | 10 |
+| Utilisation | Pratiquer la régression linéaire, les prédictions, les erreurs et les limites de généralisation. |
+| Source | Ministère des Affaires municipales et de l’Habitation, Stratégie québécoise d’économie d’eau potable 2019-2025. |
+| Licence | CC BY 4.0. |
 
 #### Aperçu
 
@@ -1285,29 +1285,31 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| logement_id | character | 0 | 32 | L001 |
-| quartier | character | 0 | 11 | Montcalm |
-| superficie_m2 | numeric | 0 | 32 | 62 |
-| annee_construction | numeric | 0 | 32 | 1988 |
-| nb_occupants | numeric | 0 | 5 | 1 |
-| type_chauffage | character | 0 | 3 | Electricite |
-| revenu_median_quartier | numeric | 0 | 11 | 64000 |
-| consommation_kwh | numeric | 0 | 32 | 11800 |
+| code_municipalite | character | 0 | 50 | 88055 |
+| municipalite | character | 0 | 50 | Amos |
+| type_municipalite | character | 0 | 5 | Ville |
+| region | character | 0 | 2 | Abitibi-Témiscamingue |
+| consommation_residentielle_l_pers_j | numeric | 0 | 47 | 243 |
+| population_desservie | numeric | 0 | 49 | 11771 |
+| population_desservie_milliers | numeric | 0 | 49 | 11.771 |
+| residences_desservies | numeric | 0 | 50 | 5740 |
+| personnes_par_residence | numeric | 0 | 42 | 2.05063495 |
+| eau_distribuee_l_pers_j | numeric | 0 | 48 | 414 |
 
-### subventions_culture_fictif.csv
+### validite_audits_eau_2023.csv
 
-Demandes fictives de subvention culturelle.
+Disponibilité et résultats de l’indice de validité des audits de l’eau pour 1 104 municipalités en 2023.
 
-[Télécharger subventions_culture_fictif.csv](module_09/data/subventions_culture_fictif.csv)
+[Télécharger validite_audits_eau_2023.csv](module_09/data/validite_audits_eau_2023.csv)
 
 | Information | Valeur |
 |:---|:---|
 | Module | Module 09 |
-| Observations | 36 |
-| Variables | 8 |
-| Utilisation | Comparer des taux de décision par groupe et discuter les biais descriptifs sans surinterpréter. |
-| Source | Données fictives créées pour le cours. |
-| Licence | Données simulées pour le cours. |
+| Observations | 1 104 |
+| Variables | 7 |
+| Utilisation | Comparer la couverture entre régions et types de municipalité sans confondre donnée manquante et échec. |
+| Source | Ministère des Affaires municipales et de l’Habitation, Stratégie québécoise d’économie d’eau potable 2019-2025. |
+| Licence | CC BY 4.0. |
 
 #### Aperçu
 
@@ -1317,14 +1319,13 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| dossier_id | character | 0 | 36 | S001 |
-| region | character | 0 | 7 | Capitale-Nationale |
-| discipline | character | 0 | 5 | Theatre |
-| taille_organisme | character | 0 | 3 | Grand |
-| premiere_demande | character | 0 | 2 | Non |
-| budget_demande | numeric | 0 | 35 | 82000 |
-| score_comite | numeric | 0 | 26 | 86 |
-| decision | character | 0 | 2 | Acceptee |
+| code_municipalite | numeric | 0 | 50 | 88055 |
+| municipalite | character | 0 | 50 | Amos |
+| type_municipalite | character | 0 | 5 | Ville |
+| region | character | 0 | 1 | Abitibi-Témiscamingue |
+| indice_validite_pct | numeric | 29 | 8 | 59 |
+| branchements_non_residentiels_comptes_pct | numeric | 30 | 10 | 0.08867925 |
+| validite_disponible | logical | 0 | 2 | TRUE |
 
 ### commentaires_bibliotheques_fictif.csv
 

@@ -6,7 +6,7 @@ Construire une première prédiction et discuter les biais possibles.
 
 Fil principalRégression, prédiction et biais
 
-DonnéesÉcoles, élèves et jeux fictifs de consolidation
+DonnéesÉcoles, élèves et données municipales sur l’eau
 
 DéfiCapsule vidéo de 180 secondes
 
@@ -126,7 +126,7 @@ La consigne complète est disponible dans la page [Défi 9](defi.llms.md). Le d�
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont indépendants de l'aventure et du défi. Ils consolident la prédiction, les erreurs de modèle et la discussion des biais avec deux jeux de données fictifs.
+Pourquoi Les exercices sont indépendants de l'aventure et du défi. Ils consolident la prédiction, les erreurs de modèle et les biais de couverture avec deux extraits réels de la Stratégie québécoise d'économie d'eau potable.
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
@@ -134,7 +134,7 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc) [logements_energie_fictif.csv](../donnees.llms.md#dataset-card-module09-logements-energie) [subventions_culture_fictif.csv](../donnees.llms.md#dataset-card-module09-subventions-culture)
+[eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc) [Consommation d'eau municipale 2023](data/consommation_eau_municipalites_2023.csv) [Validité des audits de l'eau 2023](data/validite_audits_eau_2023.csv)
 
 ### Packages R
 
