@@ -109,19 +109,19 @@ You assess another team's report as a collaborator: check reproducibility, write
 
 The full instructions are available in the [Challenge 6](defi.llms.md) page.
 
-4 Exercises Practise joins and diagnostics on fictitious data. [Exercises](exercices.llms.md) Open cardCollapse
+4 Exercises Practise joins on a real Québec data catalogue. [Exercises](exercices.llms.md) Open cardCollapse
 
 Goal Consolidate joins, key diagnostics and GitHub reviews.
 
 Resource [Exercises page](exercices.llms.md)
 
-Scope These exercises are not the continuation of the challenge. They use fictitious contribution, issue, expected-file and data-portal records.
+Scope These exercises are not the continuation of the challenge. They use a real relational extract from Données Québec: organizations, datasets, resources and tags.
 
 ## Data and Tools
 
 ### Datasets
 
-[nycflights23::flights](../donnees.llms.md#dataset-card-nycflights23-flights) [nycflights23::airlines](../donnees.llms.md#dataset-card-nycflights23-airlines) [nycflights23::weather](../donnees.llms.md#dataset-card-nycflights23-weather) [fictitious_team_members.csv](../donnees.llms.md#dataset-card-module06-members) [fictitious_git_contributions.csv](../donnees.llms.md#dataset-card-module06-contributions) [fictitious_review_issues.csv](../donnees.llms.md#dataset-card-module06-issues) [fictitious_data_portal.csv](../donnees.llms.md#dataset-card-module06-data-portal)
+[nycflights23::flights](../donnees.llms.md#dataset-card-nycflights23-flights) [nycflights23::airlines](../donnees.llms.md#dataset-card-nycflights23-airlines) [nycflights23::weather](../donnees.llms.md#dataset-card-nycflights23-weather) [Données Québec organizations](data/organisations_donnees_quebec.csv) [Données Québec datasets](data/jeux_donnees_quebec.csv) [Données Québec resources](data/ressources_donnees_quebec.csv) [Données Québec tags](data/etiquettes_donnees_quebec.csv)
 
 ### R packages
 

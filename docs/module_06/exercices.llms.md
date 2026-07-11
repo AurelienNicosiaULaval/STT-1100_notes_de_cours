@@ -4,9 +4,11 @@ STT-1100 Introduction à la science des données
 
 ## Exercices de consolidation
 
-Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, résumer une activité collaborative et formuler une revue constructive.
+Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, comprendre les cardinalités et formuler une revue constructive.
 
-Les données utilisées ici sont fictives et ne représentent aucun dépôt GitHub réel.
+> **NOTE:**
+>
+> Les quatre tables proviennent de l’[API officielle de Données Québec](https://www.donneesquebec.ca/recherche/api/3/action/package_search). L’extrait regroupe 142 organisations, 312 jeux de données, 3 143 ressources et 2 101 associations à des étiquettes. Pour éviter qu’une seule organisation domine l’exercice, le script conserve au plus huit jeux parmi les 1 000 plus récemment modifiés pour chaque organisation. Il inclut ainsi des ministères et des villes de plusieurs régions, dont Laval, Lévis, Longueuil, Montréal, Québec, Rimouski, Rouyn-Noranda, Saguenay, Sherbrooke et Trois-Rivières. Le script `scripts/build_module06_real_data.R` reconstruit l’extrait.
 
 ``` r
 library(tidyverse)
@@ -27,497 +29,657 @@ Après les lectures, faites aussi le [mini-test formatif](../module_06/mini_test
 
 ## Bloc A - Comprendre les clés de jointure
 
-### Exercice 1 - Importer les tables de collaboration
+### Exercice 1 - Importer les organisations et les jeux
 
-Importez `membres_equipe_fictif.csv` et `contributions_git_fictif.csv`, puis inspectez leurs dimensions.
+Importez `organisations_donnees_quebec.csv` et `jeux_donnees_quebec.csv`, puis inspectez leurs dimensions et leurs clés.
 
 > **NOTE:**
 >
 > ``` r
-> membres <- read_csv(
->   "data/membres_equipe_fictif.csv",
+> organisations <- read_csv(
+>   "data/organisations_donnees_quebec.csv",
 >   show_col_types = FALSE
 > )
 >
-> contributions <- read_csv(
->   "data/contributions_git_fictif.csv",
+> jeux <- read_csv(
+>   "data/jeux_donnees_quebec.csv",
 >   show_col_types = FALSE
 > )
 >
-> glimpse(membres)
+> glimpse(organisations)
 > ```
 >
->     Rows: 8
->     Columns: 4
->     $ membre_id <chr> "M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08"
->     $ nom       <chr> "Amina", "Leo", "Noah", "Emma", "Zoe", "Thomas", "Ines", "Ma…
->     $ role      <chr> "Responsable depot", "Analyste donnees", "Responsable reprod…
->     $ equipe    <chr> "Equipe A", "Equipe A", "Equipe A", "Equipe A", "Equipe B", …
+>     Rows: 142
+>     Columns: 5
+>     $ organisation_id   <chr> "02ac2745-f6ac-432b-aebd-27037cbaa0fb", "b0631ca4-c8…
+>     $ organisation_nom  <chr> "AdMare", "Agence de mobilité durable", "Assemblée n…
+>     $ organisation_slug <chr> "admare", "agence-de-mobilite-durable", "assemblee-n…
+>     $ nb_jeux_catalogue <dbl> 1, 0, 5, 5, 1, 1, 2, 6, 2, 0, 1, 2, 0, 6, 1, 3, 6, 7…
+>     $ etat              <chr> "active", "active", "active", "active", "active", "a…
 >
 > ``` r
-> glimpse(contributions)
+> glimpse(jeux)
 > ```
 >
->     Rows: 12
->     Columns: 6
->     $ commit_id         <chr> "C001", "C002", "C003", "C004", "C005", "C006", "C00…
->     $ membre_id         <chr> "M01", "M02", "M03", "M04", "M02", "M03", "M09", "M0…
->     $ date_commit       <date> 2026-02-10, 2026-02-10, 2026-02-11, 2026-02-11, 202…
->     $ type_contribution <chr> "structure", "donnees", "reproductibilite", "interpr…
->     $ fichier           <chr> "README.md", "rapport.qmd", "rapport.qmd", "rapport.…
->     $ lignes_modifiees  <dbl> 32, 48, 21, 36, 44, 10, 7, 12, 51, 26, 33, 29
+>     Rows: 312
+>     Columns: 8
+>     $ jeu_id            <chr> "00ec17f8-c7f1-414c-9860-a12bd0c91824", "b10a6f01-32…
+>     $ titre             <chr> "Écocentres et points de dépôt municipaux", "Rampes …
+>     $ organisation_id   <chr> "0000b004-5e60-4585-b5b1-c0942d829fa5", "00fde186-c7…
+>     $ licence           <chr> "Attribution (CC-BY 4.0)", "Attribution (CC-BY 4.0)"…
+>     $ date_creation     <date> 2023-08-30, 2026-04-01, 2026-04-02, 2026-04-02, 202…
+>     $ date_modification <date> 2026-02-09, 2026-04-02, 2026-04-02, 2026-04-02, 202…
+>     $ nb_ressources     <dbl> 3, 1, 1, 1, 2, 2, 2, 1, 1, 1, 4, 4, 4, 4, 4, 8, 8, 3…
+>     $ nb_etiquettes     <dbl> 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4, 3, …
 >
 > ``` r
 > tibble(
->   table = c("membres", "contributions"),
->   lignes = c(nrow(membres), nrow(contributions)),
->   colonnes = c(ncol(membres), ncol(contributions))
+>   table = c("organisations", "jeux"),
+>   lignes = c(nrow(organisations), nrow(jeux)),
+>   cles_distinctes = c(
+>     n_distinct(organisations$organisation_id),
+>     n_distinct(jeux$jeu_id)
+>   )
 > )
 > ```
 >
 >     # A tibble: 2 × 3
->       table         lignes colonnes
->       <chr>          <int>    <int>
->     1 membres            8        4
->     2 contributions     12        6
+>       table         lignes cles_distinctes
+>       <chr>          <int>           <int>
+>     1 organisations    142             142
+>     2 jeux             312             312
 
-### Exercice 2 - Ajouter l’information sur les membres
+### Exercice 2 - Ajouter le nom de l’organisation
 
-Utilisez `left_join()` pour ajouter le nom, le rôle et l’équipe à chaque contribution.
+Utilisez `left_join()` pour ajouter le nom et le nombre total de jeux du catalogue à chaque jeu de l’extrait.
 
 > **NOTE:**
 >
 > ``` r
-> contributions_detail <- contributions |>
->   left_join(membres, by = "membre_id")
+> jeux_detail <- jeux |>
+>   left_join(organisations, by = "organisation_id")
 >
-> contributions_detail |>
->   select(commit_id, membre_id, nom, role, equipe, type_contribution, fichier) |>
->   arrange(commit_id)
+> jeux_detail |>
+>   select(
+>     jeu_id,
+>     titre,
+>     organisation_nom,
+>     licence,
+>     nb_ressources,
+>     nb_jeux_catalogue
+>   ) |>
+>   slice_head(n = 10)
 > ```
 >
->     # A tibble: 12 × 7
->        commit_id membre_id nom    role              equipe type_contribution fichier
->        <chr>     <chr>     <chr>  <chr>             <chr>  <chr>             <chr>
->      1 C001      M01       Amina  Responsable depot Equip… structure         README…
->      2 C002      M02       Leo    Analyste donnees  Equip… donnees           rappor…
->      3 C003      M03       Noah   Responsable repr… Equip… reproductibilite  rappor…
->      4 C004      M04       Emma   Communicatrice    Equip… interpretation    rappor…
->      5 C005      M02       Leo    Analyste donnees  Equip… visualisation     rappor…
->      6 C006      M03       Noah   Responsable repr… Equip… rendu             rappor…
->      7 C007      M09       <NA>   <NA>              <NA>   donnees           notes_…
->      8 C008      M01       Amina  Responsable depot Equip… merge             README…
->      9 C009      M06       Thomas Analyste donnees  Equip… donnees           rappor…
->     10 C010      M07       Ines   Responsable repr… Equip… reproductibilite  rappor…
->     11 C011      M08       Malik  Communicateur     Equip… interpretation    rappor…
->     12 C012      M05       Zoe    Responsable depot Equip… structure         README…
+>     # A tibble: 10 × 6
+>        jeu_id         titre organisation_nom licence nb_ressources nb_jeux_catalogue
+>        <chr>          <chr> <chr>            <chr>           <dbl>             <dbl>
+>      1 00ec17f8-c7f1… Écoc… RECYC-QUÉBEC     Attrib…             3                 1
+>      2 b10a6f01-320c… Ramp… Ville de Shawin… Attrib…             1                31
+>      3 668b7750-b71a… Dist… Ville de Shawin… Attrib…             1                31
+>      4 32f75a4d-552f… Bâti… Ville de Shawin… Attrib…             1                31
+>      5 08123b30-f795… Parc… Ville de Shawin… Attrib…             2                31
+>      6 6813f7dd-8f31… Parc… Ville de Shawin… Attrib…             2                31
+>      7 8e09581e-6963… Sent… Ville de Shawin… Attrib…             2                31
+>      8 c6138a86-5777… Sent… Ville de Shawin… Attrib…             1                31
+>      9 3f137d4d-b156… Sent… Ville de Shawin… Attrib…             1                31
+>     10 83596ebd-5845… Art_… AdMare           Attrib…             1                 1
 
-### Exercice 3 - Repérer les contributions sans membre connu
+### Exercice 3 - Repérer les jeux sans organisation connue
 
-Utilisez `anti_join()` pour repérer les contributions dont `membre_id` n’apparaît pas dans la table des membres.
+Utilisez `anti_join()` pour vérifier si des jeux ont une clé d’organisation absente de la table des organisations.
 
 > **NOTE:**
 >
 > ``` r
-> contributions |>
->   anti_join(membres, by = "membre_id")
+> jeux |>
+>   anti_join(organisations, by = "organisation_id")
 > ```
 >
->     # A tibble: 1 × 6
->       commit_id membre_id date_commit type_contribution fichier     lignes_modifiees
->       <chr>     <chr>     <date>      <chr>             <chr>                  <dbl>
->     1 C007      M09       2026-02-12  donnees           notes_temp…                7
+>     # A tibble: 0 × 8
+>     # ℹ 8 variables: jeu_id <chr>, titre <chr>, organisation_id <chr>,
+>     #   licence <chr>, date_creation <date>, date_modification <date>,
+>     #   nb_ressources <dbl>, nb_etiquettes <dbl>
 >
-> Cette vérification est utile avant de résumer le travail par personne. Une clé absente peut indiquer une erreur de saisie ou un membre non documenté.
+> Obtenir zéro ligne est un résultat utile: les clés étrangères de cet extrait trouvent toutes une correspondance.
 
-### Exercice 4 - Identifier les membres qui ont contribué
+### Exercice 4 - Identifier les organisations représentées
 
-Utilisez `semi_join()` pour obtenir la liste des membres qui ont au moins une contribution.
+Utilisez `semi_join()` pour conserver seulement les organisations ayant au moins un jeu dans l’extrait équilibré.
 
 > **NOTE:**
 >
 > ``` r
-> membres |>
->   semi_join(contributions, by = "membre_id") |>
->   arrange(equipe, role)
+> organisations_representees <- organisations |>
+>   semi_join(jeux, by = "organisation_id") |>
+>   arrange(organisation_nom)
+>
+> organisations_representees
 > ```
 >
->     # A tibble: 8 × 4
->       membre_id nom    role                         equipe
->       <chr>     <chr>  <chr>                        <chr>
->     1 M02       Leo    Analyste donnees             Equipe A
->     2 M04       Emma   Communicatrice               Equipe A
->     3 M01       Amina  Responsable depot            Equipe A
->     4 M03       Noah   Responsable reproductibilite Equipe A
->     5 M06       Thomas Analyste donnees             Equipe B
->     6 M08       Malik  Communicateur                Equipe B
->     7 M05       Zoe    Responsable depot            Equipe B
->     8 M07       Ines   Responsable reproductibilite Equipe B
+>     # A tibble: 78 × 5
+>        organisation_id    organisation_nom organisation_slug nb_jeux_catalogue etat
+>        <chr>              <chr>            <chr>                         <dbl> <chr>
+>      1 02ac2745-f6ac-432… AdMare           admare                            1 acti…
+>      2 e6ecd29a-c198-48b… Assemblée natio… assemblee-nation…                 5 acti…
+>      3 5f1f16de-5dea-4fd… Association des… l-association-de…                 5 acti…
+>      4 8d4ad35d-9d0b-4a4… Autorité des ma… autorite-des-mar…                 1 acti…
+>      5 737e8d6f-a3bd-4f4… Autorité des ma… amp                               1 acti…
+>      6 193c8a13-04c9-46d… Bibliothèque et… banq                              6 acti…
+>      7 15f2f4fc-9d79-433… Bixi Montréal    bixi                              2 acti…
+>      8 8284d83e-1b0f-4bd… Cinémathèque qu… cinematheque-que…                 6 acti…
+>      9 d6c64296-b68e-47a… Commission de p… cptaq                             3 acti…
+>     10 5d511b3d-dad9-4f1… Commission de t… commission-de-to…                 6 acti…
+>     # ℹ 68 more rows
 
-## Bloc B - Résumer un travail collaboratif
+## Bloc B - Relations un-à-plusieurs
 
-### Exercice 5 - Résumer les contributions par membre
+### Exercice 5 - Résumer les jeux par organisation
 
-Créez un tableau qui donne, pour chaque membre connu, le nombre de commits et le nombre total de lignes modifiées.
+Calculez le nombre de jeux retenus dans l’extrait et le nombre total annoncé dans le catalogue pour chaque organisation représentée.
 
 > **NOTE:**
 >
 > ``` r
-> resume_membres <- contributions_detail |>
->   filter(!is.na(nom)) |>
->   group_by(equipe, nom, role) |>
+> resume_organisations <- jeux_detail |>
+>   group_by(organisation_id, organisation_nom, nb_jeux_catalogue) |>
 >   summarise(
->     n_commits = n(),
->     lignes_modifiees = sum(lignes_modifiees),
+>     nb_jeux_extrait = n(),
+>     nb_ressources_extrait = sum(nb_ressources),
 >     .groups = "drop"
 >   ) |>
->   arrange(equipe, desc(n_commits))
+>   arrange(desc(nb_jeux_catalogue))
 >
-> resume_membres
+> resume_organisations
 > ```
 >
->     # A tibble: 8 × 5
->       equipe   nom    role                         n_commits lignes_modifiees
->       <chr>    <chr>  <chr>                            <int>            <dbl>
->     1 Equipe A Amina  Responsable depot                    2               44
->     2 Equipe A Leo    Analyste donnees                     2               92
->     3 Equipe A Noah   Responsable reproductibilite         2               31
->     4 Equipe A Emma   Communicatrice                       1               36
->     5 Equipe B Ines   Responsable reproductibilite         1               26
->     6 Equipe B Malik  Communicateur                        1               33
->     7 Equipe B Thomas Analyste donnees                     1               51
->     8 Equipe B Zoe    Responsable depot                    1               29
+>     # A tibble: 78 × 5
+>        organisation_id            organisation_nom nb_jeux_catalogue nb_jeux_extrait
+>        <chr>                      <chr>                        <dbl>           <int>
+>      1 6e1f26e1-da99-4de4-a1db-c… Ville de Montré…               389               8
+>      2 4e77c64b-22f6-469e-ad07-c… Ville de Laval                 130               8
+>      3 b65dd6f6-8f31-402e-a8e1-8… Ministère de l’…               126               8
+>      4 95c1ba5b-25ec-405d-8647-3… Ministère des R…               121               8
+>      5 23e2ed49-fd2c-4114-858e-0… Ville de Gatine…                52               2
+>      6 c1ec9cbd-c536-49f1-900e-0… Ville de Repent…                39               8
+>      7 89ffd393-6e8c-4055-a172-7… Ville de Trois-…                38               8
+>      8 06690e08-a712-4ee3-8cff-3… Ville de Québec                 37               8
+>      9 0941b44f-88b2-4b11-93fa-3… Ministère de la…                34               8
+>     10 00fde186-c76f-499e-9dfc-e… Ville de Shawin…                31               8
+>     # ℹ 68 more rows
+>     # ℹ 1 more variable: nb_ressources_extrait <dbl>
 
-### Exercice 6 - Visualiser l’activité de l’équipe
+### Exercice 6 - Visualiser les organisations les plus présentes
 
-Produisez un graphique du nombre de commits par rôle.
+Produisez un graphique des dix organisations ayant le plus de jeux dans l’ensemble du catalogue.
 
 > **NOTE:**
 >
 > ``` r
-> resume_membres |>
->   ggplot(aes(x = role, y = n_commits, fill = equipe)) +
->   geom_col(position = "dodge") +
+> organisations |>
+>   slice_max(nb_jeux_catalogue, n = 10, with_ties = FALSE) |>
+>   ggplot(
+>     aes(
+>       x = fct_reorder(organisation_nom, nb_jeux_catalogue),
+>       y = nb_jeux_catalogue
+>     )
+>   ) +
+>   geom_col(fill = "#2c7fb8") +
 >   coord_flip() +
 >   labs(
->     title = "Nombre de commits par rôle",
->     x = "Rôle",
->     y = "Nombre de commits",
->     fill = "Équipe"
+>     title = "Organisations ayant le plus de jeux dans Données Québec",
+>     x = NULL,
+>     y = "Nombre de jeux au catalogue"
 >   )
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-6-1.png)
 
-### Exercice 7 - Vérifier les fichiers attendus
+### Exercice 7 - Joindre les ressources aux jeux
 
-Importez `fichiers_rapport_fictif.csv`. Pour chaque équipe, calculez le nombre de fichiers attendus présents et le nombre de fichiers manquants.
+Importez `ressources_donnees_quebec.csv`, ajoutez le titre du jeu à chaque ressource et comptez les formats.
 
 > **NOTE:**
 >
 > ``` r
-> fichiers <- read_csv(
->   "data/fichiers_rapport_fictif.csv",
+> ressources <- read_csv(
+>   "data/ressources_donnees_quebec.csv",
 >   show_col_types = FALSE
 > )
 >
-> resume_fichiers <- fichiers |>
->   mutate(present_logique = present == "oui") |>
->   group_by(equipe) |>
->   summarise(
->     fichiers_presents = sum(present_logique),
->     fichiers_manquants = sum(!present_logique),
->     taille_totale_ko = sum(taille_ko),
->     .groups = "drop"
+> ressources_detail <- ressources |>
+>   left_join(
+>     jeux |> select(jeu_id, titre, organisation_id),
+>     by = "jeu_id",
+>     relationship = "many-to-one"
 >   )
 >
-> resume_fichiers
+> ressources_detail |>
+>   count(format, sort = TRUE) |>
+>   slice_head(n = 15)
 > ```
 >
->     # A tibble: 3 × 4
->       equipe   fichiers_presents fichiers_manquants taille_totale_ko
->       <chr>                <int>              <int>            <dbl>
->     1 Equipe A                 3                  1              870
->     2 Equipe B                 3                  1              586
->     3 Equipe C                 2                  2              515
+>     # A tibble: 15 × 2
+>        format      n
+>        <chr>   <int>
+>      1 CSV      1405
+>      2 XLSX      368
+>      3 json      275
+>      4 GeoJSON   169
+>      5 PDF       142
+>      6 SHP       136
+>      7 JSON      124
+>      8 HTML       82
+>      9 XML        60
+>     10 KML        56
+>     11 RINEX      49
+>     12 FGDB       41
+>     13 WMS        41
+>     14 GPKG       30
+>     15 xml        25
 
-### Exercice 8 - Trouver les équipes avec un rapport HTML manquant
+### Exercice 8 - Vérifier les correspondances entre jeux et ressources
 
-Filtrez les lignes où `fichier_attendu == "rapport.html"` et où le fichier est absent.
+Repérez les jeux sans ressource et les ressources sans jeu connu.
 
 > **NOTE:**
 >
 > ``` r
-> fichiers |>
->   filter(fichier_attendu == "rapport.html", present == "non")
+> jeux_sans_ressource <- jeux |>
+>   anti_join(ressources, by = "jeu_id")
+>
+> ressources_sans_jeu <- ressources |>
+>   anti_join(jeux, by = "jeu_id")
+>
+> jeux_sans_ressource
 > ```
 >
->     # A tibble: 2 × 4
->       equipe   fichier_attendu present taille_ko
->       <chr>    <chr>           <chr>       <dbl>
->     1 Equipe B rapport.html    non             0
->     2 Equipe C rapport.html    non             0
+>     # A tibble: 0 × 8
+>     # ℹ 8 variables: jeu_id <chr>, titre <chr>, organisation_id <chr>,
+>     #   licence <chr>, date_creation <date>, date_modification <date>,
+>     #   nb_ressources <dbl>, nb_etiquettes <dbl>
+>
+> ``` r
+> ressources_sans_jeu
+> ```
+>
+>     # A tibble: 0 × 7
+>     # ℹ 7 variables: ressource_id <chr>, jeu_id <chr>, ressource_nom <chr>,
+>     #   format <chr>, type_ressource <chr>, taille_octets <dbl>,
+>     #   date_modification <date>
 
-## Bloc C - Issues et revue constructive
+## Bloc C - Relations plusieurs-à-plusieurs et revue
 
-### Exercice 9 - Joindre les issues aux membres
+### Exercice 9 - Ajouter les étiquettes
 
-Importez `issues_revue_fictif.csv`, puis ajoutez le nom et l’équipe de l’auteur de chaque issue.
+Importez `etiquettes_donnees_quebec.csv`, puis ajoutez le titre et l’organisation à chaque association jeu-étiquette.
 
 > **NOTE:**
 >
 > ``` r
-> issues <- read_csv(
->   "data/issues_revue_fictif.csv",
+> etiquettes <- read_csv(
+>   "data/etiquettes_donnees_quebec.csv",
 >   show_col_types = FALSE
 > )
 >
-> issues_detail <- issues |>
->   left_join(membres, by = c("auteur_id" = "membre_id"))
+> etiquettes_detail <- etiquettes |>
+>   left_join(
+>     jeux_detail |> select(jeu_id, titre, organisation_nom),
+>     by = "jeu_id",
+>     relationship = "many-to-one"
+>   )
 >
-> issues_detail |>
->   select(issue_id, equipe_revisee, auteur_id, nom, equipe, dimension, statut, priorite)
+> etiquettes_detail |>
+>   slice_head(n = 10)
 > ```
 >
->     # A tibble: 7 × 8
->       issue_id equipe_revisee auteur_id nom    equipe   dimension    statut priorite
->       <chr>    <chr>          <chr>     <chr>  <chr>    <chr>        <chr>  <chr>
->     1 I001     Equipe A       M05       Zoe    Equipe B Reproductib… ouver… elevee
->     2 I002     Equipe A       M06       Thomas Equipe B Jointures    fermee elevee
->     3 I003     Equipe A       M07       Ines   Equipe B Visualisati… ouver… normale
->     4 I004     Equipe B       M01       Amina  Equipe A Clarte       fermee normale
->     5 I005     Equipe B       M02       Leo    Equipe A Interpretat… ouver… elevee
->     6 I006     Equipe B       M03       Noah   Equipe A GitHub       fermee basse
->     7 I007     Equipe C       M04       Emma   Equipe A Reproductib… ouver… normale
+>     # A tibble: 10 × 4
+>        jeu_id                               etiquette         titre organisation_nom
+>        <chr>                                <chr>             <chr> <chr>
+>      1 00ec17f8-c7f1-414c-9860-a12bd0c91824 Collecte des mat… Écoc… RECYC-QUÉBEC
+>      2 00ec17f8-c7f1-414c-9860-a12bd0c91824 GMR               Écoc… RECYC-QUÉBEC
+>      3 00ec17f8-c7f1-414c-9860-a12bd0c91824 Municipal         Écoc… RECYC-QUÉBEC
+>      4 00ec17f8-c7f1-414c-9860-a12bd0c91824 Point de dépôt    Écoc… RECYC-QUÉBEC
+>      5 00ec17f8-c7f1-414c-9860-a12bd0c91824 Recyclage         Écoc… RECYC-QUÉBEC
+>      6 00ec17f8-c7f1-414c-9860-a12bd0c91824 Écocentre         Écoc… RECYC-QUÉBEC
+>      7 b10a6f01-320c-4d56-b545-1ee5b70fdaeb Acces a l eau     Ramp… Ville de Shawin…
+>      8 b10a6f01-320c-4d56-b545-1ee5b70fdaeb Bateau            Ramp… Ville de Shawin…
+>      9 b10a6f01-320c-4d56-b545-1ee5b70fdaeb Canot             Ramp… Ville de Shawin…
+>     10 b10a6f01-320c-4d56-b545-1ee5b70fdaeb Descente          Ramp… Ville de Shawin…
 
-### Exercice 10 - Résumer les issues par équipe révisée
+### Exercice 10 - Résumer les étiquettes
 
-Calculez le nombre d’issues ouvertes, fermées et de priorité élevée pour chaque équipe révisée.
+Trouvez les quinze étiquettes associées au plus grand nombre de jeux distincts.
 
 > **NOTE:**
 >
 > ``` r
-> issues_detail |>
->   group_by(equipe_revisee) |>
+> resume_etiquettes <- etiquettes_detail |>
 >   summarise(
->     n_issues = n(),
->     n_ouvertes = sum(statut == "ouverte"),
->     n_fermees = sum(statut == "fermee"),
->     n_priorite_elevee = sum(priorite == "elevee"),
->     .groups = "drop"
+>     nb_jeux = n_distinct(jeu_id),
+>     .by = etiquette
 >   ) |>
->   arrange(desc(n_ouvertes))
+>   arrange(desc(nb_jeux)) |>
+>   slice_head(n = 15)
+>
+> resume_etiquettes
 > ```
 >
->     # A tibble: 3 × 5
->       equipe_revisee n_issues n_ouvertes n_fermees n_priorite_elevee
->       <chr>             <int>      <int>     <int>             <int>
->     1 Equipe A              3          2         1                 2
->     2 Equipe B              3          1         2                 1
->     3 Equipe C              1          1         0                 0
+>     # A tibble: 15 × 2
+>        etiquette           nb_jeux
+>        <chr>                 <int>
+>      1 HackQC19                 16
+>      2 Transport                15
+>      3 HackQC20                 14
+>      4 Municipal                12
+>      5 Culture                  12
+>      6 Sherbrooke                9
+>      7 Urbanisme                 9
+>      8 Donnee ouverte            8
+>      9 Eau                       8
+>     10 Ville de shawinigan       8
+>     11 Hydrographie              8
+>     12 Route                     8
+>     13 Environnement             8
+>     14 Art contemporain          8
+>     15 Prestation                8
 
-### Exercice 11 - Repérer les issues sans équipe connue
+### Exercice 11 - Observer la multiplication des lignes
 
-Les équipes A et B sont dans la table des membres. Utilisez une jointure ou une logique équivalente pour repérer les issues qui visent une équipe absente de la liste des équipes connues.
+Joignez successivement les ressources et les étiquettes aux jeux, puis comparez le nombre de lignes avant et après. Expliquez pourquoi la seconde jointure est plusieurs-à-plusieurs.
 
 > **NOTE:**
 >
 > ``` r
-> equipes_connues <- membres |>
->   distinct(equipe)
+> jeux_ressources <- jeux |>
+>   left_join(
+>     ressources,
+>     by = "jeu_id",
+>     relationship = "one-to-many"
+>   )
 >
-> issues |>
->   anti_join(equipes_connues, by = c("equipe_revisee" = "equipe"))
+> catalogue_aplati <- jeux_ressources |>
+>   left_join(
+>     etiquettes,
+>     by = "jeu_id",
+>     relationship = "many-to-many"
+>   )
+>
+> tibble(
+>   table = c("jeux", "jeux_ressources", "catalogue_aplati"),
+>   lignes = c(nrow(jeux), nrow(jeux_ressources), nrow(catalogue_aplati))
+> )
 > ```
 >
->     # A tibble: 1 × 7
->       issue_id equipe_revisee auteur_id date_issue dimension        statut  priorite
->       <chr>    <chr>          <chr>     <date>     <chr>            <chr>   <chr>
->     1 I007     Equipe C       M04       2026-02-16 Reproductibilite ouverte normale
+>     # A tibble: 3 × 2
+>       table            lignes
+>       <chr>             <int>
+>     1 jeux                312
+>     2 jeux_ressources    3143
+>     3 catalogue_aplati  20395
+>
+> Un jeu peut avoir plusieurs ressources et plusieurs étiquettes. Les combinaisons ressources-étiquettes multiplient donc les lignes sans créer de nouveaux jeux.
 
 ### Exercice 12 - Rédiger une issue utile
 
-Choisissez une issue ouverte et rédigez une version améliorée avec trois sections: aspect réussi, suggestion, justification.
+Repérez une ressource dont le format est manquant, puis rédigez une issue avec trois sections: constat, suggestion et justification.
 
 > **NOTE:**
 >
 > ``` markdown
-> ## Aspect réussi
+> ## Constat
 >
-> Le rapport indique clairement les packages utilisés et les principales étapes de préparation.
+> La fiche de la ressource ne précise pas son format dans les métadonnées du catalogue.
 >
 > ## Suggestion
 >
-> Ajouter une phrase qui explique la clé de jointure utilisée entre les contributions et les membres.
+> Renseigner le champ de format avec une valeur normalisée qui correspond au fichier ou au service diffusé.
 >
 > ## Pourquoi cette suggestion est utile
 >
-> La revue devient plus facile à reproduire, car une autre équipe peut comprendre pourquoi `membre_id` est la bonne clé.
+> Le format permet aux personnes utilisatrices de choisir leurs outils et de filtrer les ressources avant le téléchargement.
 > ```
 
 ## Études de cas
 
-### Étude de cas 1 - Audit fictif d’un dépôt de projet
+### Étude de cas 1 - Audit relationnel de Données Québec
 
-Utilisez `membres_equipe_fictif.csv`, `contributions_git_fictif.csv`, `issues_revue_fictif.csv` et `fichiers_rapport_fictif.csv`.
+Utilisez les tables des organisations, jeux, ressources et étiquettes.
 
 Réalisez les tâches suivantes:
 
-1.  joindre les contributions aux membres;
-2.  repérer les contributions sans membre connu;
-3.  produire un résumé par équipe;
-4.  joindre les issues aux auteurs;
-5.  repérer les équipes qui ont un `rapport.html` manquant;
-6.  écrire une conclusion prudente sur la reproductibilité du dépôt.
+1.  vérifiez l’unicité des trois clés primaires;
+2.  joignez les jeux aux organisations;
+3.  repérez les clés étrangères sans correspondance;
+4.  repérez les jeux sans ressource et sans étiquette;
+5.  produisez un résumé par organisation;
+6.  rédigez une conclusion prudente sur l’intégrité relationnelle de l’extrait.
 
 > **NOTE:**
 >
 > ``` r
-> audit_contributions <- contributions |>
->   left_join(membres, by = "membre_id")
+> verification_cles <- tibble(
+>   table = c("organisations", "jeux", "ressources"),
+>   lignes = c(nrow(organisations), nrow(jeux), nrow(ressources)),
+>   cles_distinctes = c(
+>     n_distinct(organisations$organisation_id),
+>     n_distinct(jeux$jeu_id),
+>     n_distinct(ressources$ressource_id)
+>   )
+> )
 >
-> contributions_sans_membre <- contributions |>
->   anti_join(membres, by = "membre_id")
+> jeux_organisations <- jeux |>
+>   left_join(organisations, by = "organisation_id")
 >
-> resume_equipes <- audit_contributions |>
->   filter(!is.na(equipe)) |>
->   group_by(equipe) |>
+> jeux_sans_organisation <- jeux |>
+>   anti_join(organisations, by = "organisation_id")
+>
+> ressources_sans_jeu <- ressources |>
+>   anti_join(jeux, by = "jeu_id")
+>
+> jeux_sans_ressource <- jeux |>
+>   anti_join(ressources, by = "jeu_id")
+>
+> jeux_sans_etiquette <- jeux |>
+>   anti_join(etiquettes, by = "jeu_id")
+>
+> resume_audit <- jeux_organisations |>
+>   group_by(organisation_nom) |>
 >   summarise(
->     n_commits = n(),
->     n_membres_actifs = n_distinct(membre_id),
->     lignes_modifiees = sum(lignes_modifiees),
+>     nb_jeux = n(),
+>     nb_ressources = sum(nb_ressources),
+>     nb_jeux_sans_etiquette = sum(nb_etiquettes == 0),
 >     .groups = "drop"
+>   ) |>
+>   arrange(desc(nb_ressources))
+>
+> verification_cles
+> ```
+>
+>     # A tibble: 3 × 3
+>       table         lignes cles_distinctes
+>       <chr>          <int>           <int>
+>     1 organisations    142             142
+>     2 jeux             312             312
+>     3 ressources      3143            3143
+>
+> ``` r
+> jeux_sans_organisation
+> ```
+>
+>     # A tibble: 0 × 8
+>     # ℹ 8 variables: jeu_id <chr>, titre <chr>, organisation_id <chr>,
+>     #   licence <chr>, date_creation <date>, date_modification <date>,
+>     #   nb_ressources <dbl>, nb_etiquettes <dbl>
+>
+> ``` r
+> ressources_sans_jeu
+> ```
+>
+>     # A tibble: 0 × 7
+>     # ℹ 7 variables: ressource_id <chr>, jeu_id <chr>, ressource_nom <chr>,
+>     #   format <chr>, type_ressource <chr>, taille_octets <dbl>,
+>     #   date_modification <date>
+>
+> ``` r
+> jeux_sans_ressource
+> ```
+>
+>     # A tibble: 0 × 8
+>     # ℹ 8 variables: jeu_id <chr>, titre <chr>, organisation_id <chr>,
+>     #   licence <chr>, date_creation <date>, date_modification <date>,
+>     #   nb_ressources <dbl>, nb_etiquettes <dbl>
+>
+> ``` r
+> jeux_sans_etiquette
+> ```
+>
+>     # A tibble: 14 × 8
+>        jeu_id          titre organisation_id licence date_creation date_modification
+>        <chr>           <chr> <chr>           <chr>   <date>        <date>
+>      1 5c88fe6f-0e8e-… Regi… 1021b38a-91ff-… Attrib… 2026-05-15    2026-07-11
+>      2 2222f024-e94d-… Regi… 1021b38a-91ff-… Attrib… 2022-06-14    2026-07-11
+>      3 14d93d62-16bf-… Regi… 737e8d6f-a3bd-… Attrib… 2015-05-01    2026-07-08
+>      4 21686a8e-2713-… Agen… 836fde8a-a7ee-… Attrib… 2015-09-22    2025-11-20
+>      5 755b45d6-7aee-… List… cebe524d-f2f6-… Attrib… 2021-01-29    2026-07-11
+>      6 126c4b33-55c2-… List… cebe524d-f2f6-… Attrib… 2021-01-29    2026-07-01
+>      7 579125c6-561b-… Tron… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-11-17
+>      8 2642706c-14a6-… Unit… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>      9 19b0d9a9-11d5-… Dist… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     10 d4357015-d0d9-… Adre… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     11 c4179790-79a3-… Dist… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     12 52e35caf-ee9d-… Gran… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     13 0c8a89da-47f2-… Zona… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     14 7185f1a1-3d97-… Born… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     # ℹ 2 more variables: nb_ressources <dbl>, nb_etiquettes <dbl>
+>
+> ``` r
+> resume_audit
+> ```
+>
+>     # A tibble: 78 × 4
+>        organisation_nom                 nb_jeux nb_ressources nb_jeux_sans_etiquette
+>        <chr>                              <int>         <dbl>                  <int>
+>      1 Secrétariat du Conseil du trésor       5           611                      0
+>      2 Ministère des Affaires municipa…       7           561                      0
+>      3 Ministère de l'Emploi et de la …       8           304                      0
+>      4 Ministère de l’Immigration, de …       4           127                      0
+>      5 Ministère de la Cybersécurité e…       5           122                      0
+>      6 Ministère de la Justice                1            90                      0
+>      7 Ville de Lévis                         8            71                      0
+>      8 Ministère des Ressources nature…       8            70                      0
+>      9 Ministère des Transports et de …       8            69                      0
+>     10 Ministère de l'Éducation et Min…       4            61                      0
+>     # ℹ 68 more rows
+>
+> Une conclusion prudente peut constater l’absence de clés orphelines dans l’extrait fourni. Elle doit aussi rappeler que l’extrait est équilibré par organisation et ne représente ni tout le catalogue ni sa distribution réelle.
+
+### Étude de cas 2 - Revue des métadonnées de ressources
+
+Utilisez les mêmes tables pour produire une revue constructive de la documentation des ressources.
+
+Réalisez les tâches suivantes:
+
+1.  joignez les ressources aux jeux et aux organisations;
+2.  repérez les formats manquants;
+3.  calculez la part des ressources sans taille déclarée;
+4.  résumez les formats par organisation;
+5.  repérez les jeux sans étiquette;
+6.  rédigez une issue précise pour un problème observé.
+
+> **NOTE:**
+>
+> ``` r
+> ressources_catalogue <- ressources |>
+>   left_join(
+>     jeux |> select(jeu_id, titre, organisation_id),
+>     by = "jeu_id",
+>     relationship = "many-to-one"
+>   ) |>
+>   left_join(
+>     organisations |> select(organisation_id, organisation_nom),
+>     by = "organisation_id",
+>     relationship = "many-to-one"
 >   )
 >
-> audit_issues <- issues |>
->   left_join(membres, by = c("auteur_id" = "membre_id"))
+> formats_manquants <- ressources_catalogue |>
+>   filter(is.na(format) | str_squish(format) == "")
 >
-> rapports_manquants <- fichiers |>
->   filter(fichier_attendu == "rapport.html", present == "non")
+> part_taille_manquante <- ressources_catalogue |>
+>   summarise(
+>     nb_ressources = n(),
+>     nb_sans_taille = sum(is.na(taille_octets)),
+>     part_sans_taille = mean(is.na(taille_octets))
+>   )
 >
-> contributions_sans_membre
+> formats_par_organisation <- ressources_catalogue |>
+>   count(organisation_nom, format, sort = TRUE)
+>
+> jeux_sans_etiquette <- jeux |>
+>   anti_join(etiquettes, by = "jeu_id")
+>
+> formats_manquants
 > ```
 >
->     # A tibble: 1 × 6
->       commit_id membre_id date_commit type_contribution fichier     lignes_modifiees
->       <chr>     <chr>     <date>      <chr>             <chr>                  <dbl>
->     1 C007      M09       2026-02-12  donnees           notes_temp…                7
+>     # A tibble: 4 × 10
+>       ressource_id          jeu_id ressource_nom format type_ressource taille_octets
+>       <chr>                 <chr>  <chr>         <chr>  <chr>                  <dbl>
+>     1 a64f32b8-ab9f-4d8e-8… 221d1… Chantiers - … <NA>   cartes                    NA
+>     2 4a88ae0f-746e-40fb-a… 67d85… Ta            <NA>   <NA>                  754713
+>     3 c9b80bfb-1f80-432f-9… e9d80… Sensibilisat… <NA>   <NA>                      NA
+>     4 20f76d05-96e5-4aa6-8… 142ff… Visualisation <NA>   cartes                    NA
+>     # ℹ 4 more variables: date_modification <date>, titre <chr>,
+>     #   organisation_id <chr>, organisation_nom <chr>
 >
 > ``` r
-> resume_equipes
+> part_taille_manquante
 > ```
 >
->     # A tibble: 2 × 4
->       equipe   n_commits n_membres_actifs lignes_modifiees
->       <chr>        <int>            <int>            <dbl>
->     1 Equipe A         7                4              203
->     2 Equipe B         4                4              139
+>     # A tibble: 1 × 3
+>       nb_ressources nb_sans_taille part_sans_taille
+>               <int>          <int>            <dbl>
+>     1          3143            889            0.283
 >
 > ``` r
-> audit_issues
+> formats_par_organisation
 > ```
 >
->     # A tibble: 7 × 10
->       issue_id equipe_revisee auteur_id date_issue dimension   statut priorite nom
->       <chr>    <chr>          <chr>     <date>     <chr>       <chr>  <chr>    <chr>
->     1 I001     Equipe A       M05       2026-02-15 Reproducti… ouver… elevee   Zoe
->     2 I002     Equipe A       M06       2026-02-15 Jointures   fermee elevee   Thom…
->     3 I003     Equipe A       M07       2026-02-15 Visualisat… ouver… normale  Ines
->     4 I004     Equipe B       M01       2026-02-15 Clarte      fermee normale  Amina
->     5 I005     Equipe B       M02       2026-02-16 Interpreta… ouver… elevee   Leo
->     6 I006     Equipe B       M03       2026-02-16 GitHub      fermee basse    Noah
->     7 I007     Equipe C       M04       2026-02-16 Reproducti… ouver… normale  Emma
->     # ℹ 2 more variables: role <chr>, equipe <chr>
+>     # A tibble: 283 × 3
+>        organisation_nom                                                 format     n
+>        <chr>                                                            <chr>  <int>
+>      1 Ministère des Affaires municipales et de l'Habitation            CSV      290
+>      2 Ministère de l'Emploi et de la Solidarité sociale                CSV      282
+>      3 Secrétariat du Conseil du trésor                                 json     275
+>      4 Ministère des Affaires municipales et de l'Habitation            XLSX     200
+>      5 Ministère de l’Immigration, de la Francisation et de l’Intégrat… CSV      119
+>      6 Secrétariat du Conseil du trésor                                 CSV      101
+>      7 Ministère de la Justice                                          CSV       90
+>      8 Secrétariat du Conseil du trésor                                 JSON      87
+>      9 Secrétariat du Conseil du trésor                                 XLSX      78
+>     10 Ministère de la Cybersécurité et du Numérique                    CSV       63
+>     # ℹ 273 more rows
 >
 > ``` r
-> rapports_manquants
+> jeux_sans_etiquette
 > ```
 >
->     # A tibble: 2 × 4
->       equipe   fichier_attendu present taille_ko
->       <chr>    <chr>           <chr>       <dbl>
->     1 Equipe B rapport.html    non             0
->     2 Equipe C rapport.html    non             0
+>     # A tibble: 14 × 8
+>        jeu_id          titre organisation_id licence date_creation date_modification
+>        <chr>           <chr> <chr>           <chr>   <date>        <date>
+>      1 5c88fe6f-0e8e-… Regi… 1021b38a-91ff-… Attrib… 2026-05-15    2026-07-11
+>      2 2222f024-e94d-… Regi… 1021b38a-91ff-… Attrib… 2022-06-14    2026-07-11
+>      3 14d93d62-16bf-… Regi… 737e8d6f-a3bd-… Attrib… 2015-05-01    2026-07-08
+>      4 21686a8e-2713-… Agen… 836fde8a-a7ee-… Attrib… 2015-09-22    2025-11-20
+>      5 755b45d6-7aee-… List… cebe524d-f2f6-… Attrib… 2021-01-29    2026-07-11
+>      6 126c4b33-55c2-… List… cebe524d-f2f6-… Attrib… 2021-01-29    2026-07-01
+>      7 579125c6-561b-… Tron… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-11-17
+>      8 2642706c-14a6-… Unit… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>      9 19b0d9a9-11d5-… Dist… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     10 d4357015-d0d9-… Adre… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     11 c4179790-79a3-… Dist… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     12 52e35caf-ee9d-… Gran… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     13 0c8a89da-47f2-… Zona… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     14 7185f1a1-3d97-… Born… f62d2ba9-89e5-… Attrib… 2025-09-30    2025-09-30
+>     # ℹ 2 more variables: nb_ressources <dbl>, nb_etiquettes <dbl>
 >
-> Une conclusion prudente pourrait indiquer que l’équipe B semble avoir une trace de données présente, mais un rapport HTML manquant. Cette observation ne suffit pas à juger tout le projet; il faudrait aussi tenter de rendre le fichier `rapport.qmd`.
-
-### Étude de cas 2 - Revue fictive d’un portail de données
-
-Utilisez `portail_donnees_fictif.csv`, `producteurs_fictif.csv` et `commentaires_revue_fictif.csv`.
-
-Réalisez les tâches suivantes:
-
-1.  joindre les jeux de données aux producteurs;
-2.  repérer les jeux de données sans producteur connu;
-3.  joindre les commentaires aux jeux de données;
-4.  compter les commentaires par dimension et sévérité;
-5.  repérer les jeux de données avec licence inconnue;
-6.  rédiger une issue de revue constructive pour un problème prioritaire.
-
-> **NOTE:**
->
-> ``` r
-> portail <- read_csv(
->   "data/portail_donnees_fictif.csv",
->   show_col_types = FALSE
-> )
->
-> producteurs <- read_csv(
->   "data/producteurs_fictif.csv",
->   show_col_types = FALSE
-> )
->
-> commentaires <- read_csv(
->   "data/commentaires_revue_fictif.csv",
->   show_col_types = FALSE
-> )
->
-> portail_producteurs <- portail |>
->   left_join(producteurs, by = "producteur_id")
->
-> jeux_sans_producteur <- portail |>
->   anti_join(producteurs, by = "producteur_id")
->
-> commentaires_detail <- commentaires |>
->   left_join(portail, by = "jeu_id")
->
-> resume_commentaires <- commentaires_detail |>
->   count(dimension, severite, sort = TRUE)
->
-> licences_inconnues <- portail_producteurs |>
->   filter(licence == "Inconnue" | is.na(organisation))
->
-> jeux_sans_producteur
-> ```
->
->     # A tibble: 1 × 5
->       jeu_id titre         producteur_id licence mis_a_jour
->       <chr>  <chr>         <chr>         <chr>   <date>
->     1 D006   Supports velo P99           Ouverte 2026-02-06
->
-> ``` r
-> resume_commentaires
-> ```
->
->     # A tibble: 6 × 3
->       dimension        severite     n
->       <chr>            <chr>    <int>
->     1 Documentation    basse        1
->     2 Interpretation   basse        1
->     3 Licence          elevee       1
->     4 Licence          normale      1
->     5 Producteur       elevee       1
->     6 Reproductibilite normale      1
->
-> ``` r
-> licences_inconnues
-> ```
->
->     # A tibble: 2 × 8
->       jeu_id titre   producteur_id licence mis_a_jour organisation type_organisation
->       <chr>  <chr>   <chr>         <chr>   <date>     <chr>        <chr>
->     1 D004   Travau… P03           Inconn… 2025-12-18 Service tra… Municipal
->     2 D006   Suppor… P99           Ouverte 2026-02-06 <NA>         <NA>
->     # ℹ 1 more variable: contact_public <chr>
->
-> Une issue prioritaire pourrait demander de clarifier la licence du jeu `Travaux routiers` avant diffusion. La justification est que la réutilisation des données dépend directement de la licence annoncée.
+> Une bonne issue cite la ressource concernée, décrit le champ absent et propose une correction vérifiable. L’absence de taille n’est pas automatiquement une erreur, notamment pour une ressource de type service ou carte interactive.

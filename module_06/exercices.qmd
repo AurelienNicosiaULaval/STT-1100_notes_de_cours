@@ -13,9 +13,13 @@ editor: visual
 
 ## Exercices de consolidation
 
-Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, résumer une activité collaborative et formuler une revue constructive.
+Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, comprendre les cardinalités et formuler une revue constructive.
 
-Les données utilisées ici sont fictives et ne représentent aucun dépôt GitHub réel.
+::: {.callout-note}
+## Un véritable catalogue relationnel québécois
+
+Les quatre tables proviennent de l'[API officielle de Données Québec](https://www.donneesquebec.ca/recherche/api/3/action/package_search). L'extrait regroupe 142 organisations, 312 jeux de données, 3 143 ressources et 2 101 associations à des étiquettes. Pour éviter qu'une seule organisation domine l'exercice, le script conserve au plus huit jeux parmi les 1 000 plus récemment modifiés pour chaque organisation. Il inclut ainsi des ministères et des villes de plusieurs régions, dont Laval, Lévis, Longueuil, Montréal, Québec, Rimouski, Rouyn-Noranda, Saguenay, Sherbrooke et Trois-Rivières. Le script `scripts/build_module06_real_data.R` reconstruit l'extrait.
+:::
 
 ```{r setup, warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -36,349 +40,402 @@ Après les lectures, faites aussi le [mini-test formatif](mini_test.qmd). Il n'e
 
 ## Bloc A - Comprendre les clés de jointure
 
-### Exercice 1 - Importer les tables de collaboration
+### Exercice 1 - Importer les organisations et les jeux
 
-Importez `membres_equipe_fictif.csv` et `contributions_git_fictif.csv`, puis inspectez leurs dimensions.
+Importez `organisations_donnees_quebec.csv` et `jeux_donnees_quebec.csv`, puis inspectez leurs dimensions et leurs clés.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-membres <- read_csv(
-  "data/membres_equipe_fictif.csv",
+organisations <- read_csv(
+  "data/organisations_donnees_quebec.csv",
   show_col_types = FALSE
 )
 
-contributions <- read_csv(
-  "data/contributions_git_fictif.csv",
+jeux <- read_csv(
+  "data/jeux_donnees_quebec.csv",
   show_col_types = FALSE
 )
 
-glimpse(membres)
-glimpse(contributions)
+glimpse(organisations)
+glimpse(jeux)
 
 tibble(
-  table = c("membres", "contributions"),
-  lignes = c(nrow(membres), nrow(contributions)),
-  colonnes = c(ncol(membres), ncol(contributions))
+  table = c("organisations", "jeux"),
+  lignes = c(nrow(organisations), nrow(jeux)),
+  cles_distinctes = c(
+    n_distinct(organisations$organisation_id),
+    n_distinct(jeux$jeu_id)
+  )
 )
 ```
 :::
 
-### Exercice 2 - Ajouter l'information sur les membres
+### Exercice 2 - Ajouter le nom de l'organisation
 
-Utilisez `left_join()` pour ajouter le nom, le rôle et l'équipe à chaque contribution.
+Utilisez `left_join()` pour ajouter le nom et le nombre total de jeux du catalogue à chaque jeu de l'extrait.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-contributions_detail <- contributions |>
-  left_join(membres, by = "membre_id")
+jeux_detail <- jeux |>
+  left_join(organisations, by = "organisation_id")
 
-contributions_detail |>
-  select(commit_id, membre_id, nom, role, equipe, type_contribution, fichier) |>
-  arrange(commit_id)
+jeux_detail |>
+  select(
+    jeu_id,
+    titre,
+    organisation_nom,
+    licence,
+    nb_ressources,
+    nb_jeux_catalogue
+  ) |>
+  slice_head(n = 10)
 ```
 :::
 
-### Exercice 3 - Repérer les contributions sans membre connu
+### Exercice 3 - Repérer les jeux sans organisation connue
 
-Utilisez `anti_join()` pour repérer les contributions dont `membre_id` n'apparaît pas dans la table des membres.
+Utilisez `anti_join()` pour vérifier si des jeux ont une clé d'organisation absente de la table des organisations.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-contributions |>
-  anti_join(membres, by = "membre_id")
+jeux |>
+  anti_join(organisations, by = "organisation_id")
 ```
 
-Cette vérification est utile avant de résumer le travail par personne. Une clé absente peut indiquer une erreur de saisie ou un membre non documenté.
+Obtenir zéro ligne est un résultat utile: les clés étrangères de cet extrait trouvent toutes une correspondance.
 :::
 
-### Exercice 4 - Identifier les membres qui ont contribué
+### Exercice 4 - Identifier les organisations représentées
 
-Utilisez `semi_join()` pour obtenir la liste des membres qui ont au moins une contribution.
+Utilisez `semi_join()` pour conserver seulement les organisations ayant au moins un jeu dans l'extrait équilibré.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-membres |>
-  semi_join(contributions, by = "membre_id") |>
-  arrange(equipe, role)
+organisations_representees <- organisations |>
+  semi_join(jeux, by = "organisation_id") |>
+  arrange(organisation_nom)
+
+organisations_representees
 ```
 :::
 
-## Bloc B - Résumer un travail collaboratif
+## Bloc B - Relations un-à-plusieurs
 
-### Exercice 5 - Résumer les contributions par membre
+### Exercice 5 - Résumer les jeux par organisation
 
-Créez un tableau qui donne, pour chaque membre connu, le nombre de commits et le nombre total de lignes modifiées.
+Calculez le nombre de jeux retenus dans l'extrait et le nombre total annoncé dans le catalogue pour chaque organisation représentée.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-resume_membres <- contributions_detail |>
-  filter(!is.na(nom)) |>
-  group_by(equipe, nom, role) |>
+resume_organisations <- jeux_detail |>
+  group_by(organisation_id, organisation_nom, nb_jeux_catalogue) |>
   summarise(
-    n_commits = n(),
-    lignes_modifiees = sum(lignes_modifiees),
+    nb_jeux_extrait = n(),
+    nb_ressources_extrait = sum(nb_ressources),
     .groups = "drop"
   ) |>
-  arrange(equipe, desc(n_commits))
+  arrange(desc(nb_jeux_catalogue))
 
-resume_membres
+resume_organisations
 ```
 :::
 
-### Exercice 6 - Visualiser l'activité de l'équipe
+### Exercice 6 - Visualiser les organisations les plus présentes
 
-Produisez un graphique du nombre de commits par rôle.
+Produisez un graphique des dix organisations ayant le plus de jeux dans l'ensemble du catalogue.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-resume_membres |>
-  ggplot(aes(x = role, y = n_commits, fill = equipe)) +
-  geom_col(position = "dodge") +
+organisations |>
+  slice_max(nb_jeux_catalogue, n = 10, with_ties = FALSE) |>
+  ggplot(
+    aes(
+      x = fct_reorder(organisation_nom, nb_jeux_catalogue),
+      y = nb_jeux_catalogue
+    )
+  ) +
+  geom_col(fill = "#2c7fb8") +
   coord_flip() +
   labs(
-    title = "Nombre de commits par rôle",
-    x = "Rôle",
-    y = "Nombre de commits",
-    fill = "Équipe"
+    title = "Organisations ayant le plus de jeux dans Données Québec",
+    x = NULL,
+    y = "Nombre de jeux au catalogue"
   )
 ```
 :::
 
-### Exercice 7 - Vérifier les fichiers attendus
+### Exercice 7 - Joindre les ressources aux jeux
 
-Importez `fichiers_rapport_fictif.csv`. Pour chaque équipe, calculez le nombre de fichiers attendus présents et le nombre de fichiers manquants.
+Importez `ressources_donnees_quebec.csv`, ajoutez le titre du jeu à chaque ressource et comptez les formats.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-fichiers <- read_csv(
-  "data/fichiers_rapport_fictif.csv",
+ressources <- read_csv(
+  "data/ressources_donnees_quebec.csv",
   show_col_types = FALSE
 )
 
-resume_fichiers <- fichiers |>
-  mutate(present_logique = present == "oui") |>
-  group_by(equipe) |>
-  summarise(
-    fichiers_presents = sum(present_logique),
-    fichiers_manquants = sum(!present_logique),
-    taille_totale_ko = sum(taille_ko),
-    .groups = "drop"
+ressources_detail <- ressources |>
+  left_join(
+    jeux |> select(jeu_id, titre, organisation_id),
+    by = "jeu_id",
+    relationship = "many-to-one"
   )
 
-resume_fichiers
+ressources_detail |>
+  count(format, sort = TRUE) |>
+  slice_head(n = 15)
 ```
 :::
 
-### Exercice 8 - Trouver les équipes avec un rapport HTML manquant
+### Exercice 8 - Vérifier les correspondances entre jeux et ressources
 
-Filtrez les lignes où `fichier_attendu == "rapport.html"` et où le fichier est absent.
+Repérez les jeux sans ressource et les ressources sans jeu connu.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-fichiers |>
-  filter(fichier_attendu == "rapport.html", present == "non")
+jeux_sans_ressource <- jeux |>
+  anti_join(ressources, by = "jeu_id")
+
+ressources_sans_jeu <- ressources |>
+  anti_join(jeux, by = "jeu_id")
+
+jeux_sans_ressource
+ressources_sans_jeu
 ```
 :::
 
-## Bloc C - Issues et revue constructive
+## Bloc C - Relations plusieurs-à-plusieurs et revue
 
-### Exercice 9 - Joindre les issues aux membres
+### Exercice 9 - Ajouter les étiquettes
 
-Importez `issues_revue_fictif.csv`, puis ajoutez le nom et l'équipe de l'auteur de chaque issue.
+Importez `etiquettes_donnees_quebec.csv`, puis ajoutez le titre et l'organisation à chaque association jeu-étiquette.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-issues <- read_csv(
-  "data/issues_revue_fictif.csv",
+etiquettes <- read_csv(
+  "data/etiquettes_donnees_quebec.csv",
   show_col_types = FALSE
 )
 
-issues_detail <- issues |>
-  left_join(membres, by = c("auteur_id" = "membre_id"))
+etiquettes_detail <- etiquettes |>
+  left_join(
+    jeux_detail |> select(jeu_id, titre, organisation_nom),
+    by = "jeu_id",
+    relationship = "many-to-one"
+  )
 
-issues_detail |>
-  select(issue_id, equipe_revisee, auteur_id, nom, equipe, dimension, statut, priorite)
+etiquettes_detail |>
+  slice_head(n = 10)
 ```
 :::
 
-### Exercice 10 - Résumer les issues par équipe révisée
+### Exercice 10 - Résumer les étiquettes
 
-Calculez le nombre d'issues ouvertes, fermées et de priorité élevée pour chaque équipe révisée.
+Trouvez les quinze étiquettes associées au plus grand nombre de jeux distincts.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-issues_detail |>
-  group_by(equipe_revisee) |>
+resume_etiquettes <- etiquettes_detail |>
   summarise(
-    n_issues = n(),
-    n_ouvertes = sum(statut == "ouverte"),
-    n_fermees = sum(statut == "fermee"),
-    n_priorite_elevee = sum(priorite == "elevee"),
-    .groups = "drop"
+    nb_jeux = n_distinct(jeu_id),
+    .by = etiquette
   ) |>
-  arrange(desc(n_ouvertes))
+  arrange(desc(nb_jeux)) |>
+  slice_head(n = 15)
+
+resume_etiquettes
 ```
 :::
 
-### Exercice 11 - Repérer les issues sans équipe connue
+### Exercice 11 - Observer la multiplication des lignes
 
-Les équipes A et B sont dans la table des membres. Utilisez une jointure ou une logique équivalente pour repérer les issues qui visent une équipe absente de la liste des équipes connues.
+Joignez successivement les ressources et les étiquettes aux jeux, puis comparez le nombre de lignes avant et après. Expliquez pourquoi la seconde jointure est plusieurs-à-plusieurs.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-equipes_connues <- membres |>
-  distinct(equipe)
+jeux_ressources <- jeux |>
+  left_join(
+    ressources,
+    by = "jeu_id",
+    relationship = "one-to-many"
+  )
 
-issues |>
-  anti_join(equipes_connues, by = c("equipe_revisee" = "equipe"))
+catalogue_aplati <- jeux_ressources |>
+  left_join(
+    etiquettes,
+    by = "jeu_id",
+    relationship = "many-to-many"
+  )
+
+tibble(
+  table = c("jeux", "jeux_ressources", "catalogue_aplati"),
+  lignes = c(nrow(jeux), nrow(jeux_ressources), nrow(catalogue_aplati))
+)
 ```
+
+Un jeu peut avoir plusieurs ressources et plusieurs étiquettes. Les combinaisons ressources-étiquettes multiplient donc les lignes sans créer de nouveaux jeux.
 :::
 
 ### Exercice 12 - Rédiger une issue utile
 
-Choisissez une issue ouverte et rédigez une version améliorée avec trois sections: aspect réussi, suggestion, justification.
+Repérez une ressource dont le format est manquant, puis rédigez une issue avec trois sections: constat, suggestion et justification.
 
 ::: {.callout-note collapse="true"}
 ### Exemple de réponse
 
 ```markdown
-## Aspect réussi
+## Constat
 
-Le rapport indique clairement les packages utilisés et les principales étapes de préparation.
+La fiche de la ressource ne précise pas son format dans les métadonnées du catalogue.
 
 ## Suggestion
 
-Ajouter une phrase qui explique la clé de jointure utilisée entre les contributions et les membres.
+Renseigner le champ de format avec une valeur normalisée qui correspond au fichier ou au service diffusé.
 
 ## Pourquoi cette suggestion est utile
 
-La revue devient plus facile à reproduire, car une autre équipe peut comprendre pourquoi `membre_id` est la bonne clé.
+Le format permet aux personnes utilisatrices de choisir leurs outils et de filtrer les ressources avant le téléchargement.
 ```
 :::
 
 ## Études de cas
 
-### Étude de cas 1 - Audit fictif d'un dépôt de projet
+### Étude de cas 1 - Audit relationnel de Données Québec
 
-Utilisez `membres_equipe_fictif.csv`, `contributions_git_fictif.csv`, `issues_revue_fictif.csv` et `fichiers_rapport_fictif.csv`.
+Utilisez les tables des organisations, jeux, ressources et étiquettes.
 
 Réalisez les tâches suivantes:
 
-1. joindre les contributions aux membres;
-2. repérer les contributions sans membre connu;
-3. produire un résumé par équipe;
-4. joindre les issues aux auteurs;
-5. repérer les équipes qui ont un `rapport.html` manquant;
-6. écrire une conclusion prudente sur la reproductibilité du dépôt.
+1. vérifiez l'unicité des trois clés primaires;
+2. joignez les jeux aux organisations;
+3. repérez les clés étrangères sans correspondance;
+4. repérez les jeux sans ressource et sans étiquette;
+5. produisez un résumé par organisation;
+6. rédigez une conclusion prudente sur l'intégrité relationnelle de l'extrait.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-audit_contributions <- contributions |>
-  left_join(membres, by = "membre_id")
-
-contributions_sans_membre <- contributions |>
-  anti_join(membres, by = "membre_id")
-
-resume_equipes <- audit_contributions |>
-  filter(!is.na(equipe)) |>
-  group_by(equipe) |>
-  summarise(
-    n_commits = n(),
-    n_membres_actifs = n_distinct(membre_id),
-    lignes_modifiees = sum(lignes_modifiees),
-    .groups = "drop"
+verification_cles <- tibble(
+  table = c("organisations", "jeux", "ressources"),
+  lignes = c(nrow(organisations), nrow(jeux), nrow(ressources)),
+  cles_distinctes = c(
+    n_distinct(organisations$organisation_id),
+    n_distinct(jeux$jeu_id),
+    n_distinct(ressources$ressource_id)
   )
+)
 
-audit_issues <- issues |>
-  left_join(membres, by = c("auteur_id" = "membre_id"))
+jeux_organisations <- jeux |>
+  left_join(organisations, by = "organisation_id")
 
-rapports_manquants <- fichiers |>
-  filter(fichier_attendu == "rapport.html", present == "non")
+jeux_sans_organisation <- jeux |>
+  anti_join(organisations, by = "organisation_id")
 
-contributions_sans_membre
-resume_equipes
-audit_issues
-rapports_manquants
+ressources_sans_jeu <- ressources |>
+  anti_join(jeux, by = "jeu_id")
+
+jeux_sans_ressource <- jeux |>
+  anti_join(ressources, by = "jeu_id")
+
+jeux_sans_etiquette <- jeux |>
+  anti_join(etiquettes, by = "jeu_id")
+
+resume_audit <- jeux_organisations |>
+  group_by(organisation_nom) |>
+  summarise(
+    nb_jeux = n(),
+    nb_ressources = sum(nb_ressources),
+    nb_jeux_sans_etiquette = sum(nb_etiquettes == 0),
+    .groups = "drop"
+  ) |>
+  arrange(desc(nb_ressources))
+
+verification_cles
+jeux_sans_organisation
+ressources_sans_jeu
+jeux_sans_ressource
+jeux_sans_etiquette
+resume_audit
 ```
 
-Une conclusion prudente pourrait indiquer que l'équipe B semble avoir une trace de données présente, mais un rapport HTML manquant. Cette observation ne suffit pas à juger tout le projet; il faudrait aussi tenter de rendre le fichier `rapport.qmd`.
+Une conclusion prudente peut constater l'absence de clés orphelines dans l'extrait fourni. Elle doit aussi rappeler que l'extrait est équilibré par organisation et ne représente ni tout le catalogue ni sa distribution réelle.
 :::
 
-### Étude de cas 2 - Revue fictive d'un portail de données
+### Étude de cas 2 - Revue des métadonnées de ressources
 
-Utilisez `portail_donnees_fictif.csv`, `producteurs_fictif.csv` et `commentaires_revue_fictif.csv`.
+Utilisez les mêmes tables pour produire une revue constructive de la documentation des ressources.
 
 Réalisez les tâches suivantes:
 
-1. joindre les jeux de données aux producteurs;
-2. repérer les jeux de données sans producteur connu;
-3. joindre les commentaires aux jeux de données;
-4. compter les commentaires par dimension et sévérité;
-5. repérer les jeux de données avec licence inconnue;
-6. rédiger une issue de revue constructive pour un problème prioritaire.
+1. joignez les ressources aux jeux et aux organisations;
+2. repérez les formats manquants;
+3. calculez la part des ressources sans taille déclarée;
+4. résumez les formats par organisation;
+5. repérez les jeux sans étiquette;
+6. rédigez une issue précise pour un problème observé.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-portail <- read_csv(
-  "data/portail_donnees_fictif.csv",
-  show_col_types = FALSE
-)
+ressources_catalogue <- ressources |>
+  left_join(
+    jeux |> select(jeu_id, titre, organisation_id),
+    by = "jeu_id",
+    relationship = "many-to-one"
+  ) |>
+  left_join(
+    organisations |> select(organisation_id, organisation_nom),
+    by = "organisation_id",
+    relationship = "many-to-one"
+  )
 
-producteurs <- read_csv(
-  "data/producteurs_fictif.csv",
-  show_col_types = FALSE
-)
+formats_manquants <- ressources_catalogue |>
+  filter(is.na(format) | str_squish(format) == "")
 
-commentaires <- read_csv(
-  "data/commentaires_revue_fictif.csv",
-  show_col_types = FALSE
-)
+part_taille_manquante <- ressources_catalogue |>
+  summarise(
+    nb_ressources = n(),
+    nb_sans_taille = sum(is.na(taille_octets)),
+    part_sans_taille = mean(is.na(taille_octets))
+  )
 
-portail_producteurs <- portail |>
-  left_join(producteurs, by = "producteur_id")
+formats_par_organisation <- ressources_catalogue |>
+  count(organisation_nom, format, sort = TRUE)
 
-jeux_sans_producteur <- portail |>
-  anti_join(producteurs, by = "producteur_id")
+jeux_sans_etiquette <- jeux |>
+  anti_join(etiquettes, by = "jeu_id")
 
-commentaires_detail <- commentaires |>
-  left_join(portail, by = "jeu_id")
-
-resume_commentaires <- commentaires_detail |>
-  count(dimension, severite, sort = TRUE)
-
-licences_inconnues <- portail_producteurs |>
-  filter(licence == "Inconnue" | is.na(organisation))
-
-jeux_sans_producteur
-resume_commentaires
-licences_inconnues
+formats_manquants
+part_taille_manquante
+formats_par_organisation
+jeux_sans_etiquette
 ```
 
-Une issue prioritaire pourrait demander de clarifier la licence du jeu `Travaux routiers` avant diffusion. La justification est que la réutilisation des données dépend directement de la licence annoncée.
+Une bonne issue cite la ressource concernée, décrit le champ absent et propose une correction vérifiable. L'absence de taille n'est pas automatiquement une erreur, notamment pour une ressource de type service ou carte interactive.
 :::

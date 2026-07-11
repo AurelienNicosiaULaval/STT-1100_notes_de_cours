@@ -109,19 +109,19 @@ Vous évaluez le rapport d'une autre équipe comme collaborateur: vérifier la r
 
 La consigne complète est disponible dans la page [Défi 6](defi.llms.md).
 
-4 Exercices Pratiquer les jointures et les diagnostics sur des données fictives. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
+4 Exercices Pratiquer les jointures sur un véritable catalogue québécois. [Exercices](exercices.llms.md) Ouvrir la carteRéduire
 
 Objectif Consolider les jointures, les diagnostics de clés et les revues GitHub.
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Portée Ces exercices ne sont pas la suite du défi. Ils utilisent des données fictives de contributions, d'issues, de fichiers attendus et de portail de données.
+Portée Ces exercices ne sont pas la suite du défi. Ils utilisent un extrait relationnel réel de Données Québec: organisations, jeux, ressources et étiquettes.
 
 ## Données et outils
 
 ### Bases de données
 
-[nycflights23::flights](../donnees.llms.md#dataset-card-nycflights23-flights) [nycflights23::airlines](../donnees.llms.md#dataset-card-nycflights23-airlines) [nycflights23::weather](../donnees.llms.md#dataset-card-nycflights23-weather) [membres_equipe_fictif.csv](../donnees.llms.md#dataset-card-module06-members) [contributions_git_fictif.csv](../donnees.llms.md#dataset-card-module06-contributions) [issues_revue_fictif.csv](../donnees.llms.md#dataset-card-module06-issues) [portail_donnees_fictif.csv](../donnees.llms.md#dataset-card-module06-data-portal)
+[nycflights23::flights](../donnees.llms.md#dataset-card-nycflights23-flights) [nycflights23::airlines](../donnees.llms.md#dataset-card-nycflights23-airlines) [nycflights23::weather](../donnees.llms.md#dataset-card-nycflights23-weather) [Organisations de Données Québec](data/organisations_donnees_quebec.csv) [Jeux de Données Québec](data/jeux_donnees_quebec.csv) [Ressources de Données Québec](data/ressources_donnees_quebec.csv) [Étiquettes de Données Québec](data/etiquettes_donnees_quebec.csv)
 
 ### Packages R
 
