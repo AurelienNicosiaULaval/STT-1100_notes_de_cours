@@ -4,9 +4,11 @@ STT-1100 Introduction to Data Science
 
 ## Consolidation Exercises
 
-These exercises are independent from the adventure and the challenge. They consolidate the core moves of module 7: recognizing misleading visualization choices, rebuilding a defensible chart, reducing re-identification risks and writing a short ethics note.
+These exercises are independent from the adventure and challenge. They consolidate the Module 7 skills: recognizing misleading visualizations, rebuilding defensible charts, reducing re-identification risks and writing short ethical notes.
 
-The data used here are fictitious and do not represent any real person, organization or municipality.
+> **NOTE:**
+>
+> The exercises use [Sherbrooke public-safety incidents](https://www.donneesquebec.ca/recherche/dataset/64d19d62f0804f5896e4b24c32aea49d_0), [Statistics Canada annual population estimates](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710015501) and the [Données Québec user survey](https://www.donneesquebec.ca/recherche/dataset/sondage). The script `scripts/build_module07_real_data.R` removes coordinates and exact incident dates, then aggregates observations by month and type. The survey is originally published as aggregate counts and percentages, without individual responses.
 
 ``` r
 library(tidyverse)
@@ -19,7 +21,7 @@ library(scales)
 - [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
 - [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf)
 - [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation)
-- [CNIL - Anonymisation of personal data](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
+- [CNIL - Data anonymization](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
 - [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618)
 
 After the readings, also complete the [formative mini-test](../module_07/mini_test.llms.md). It is not graded.
@@ -28,472 +30,439 @@ After the readings, also complete the [formative mini-test](../module_07/mini_te
 
 ### Exercise 1 - Compare Two Axes
 
-Import the fictitious municipal reports, then produce two charts with the same data:
+Import the aggregated Sherbrooke incidents, then produce two charts of the same totals by type:
 
 - one chart with a truncated vertical axis;
-- one chart with an axis starting at zero.
+- one chart whose axis starts at zero.
 
-How does the visual perception change?
+How does visual perception change?
 
 > **NOTE:**
 >
 > ``` r
-> reports <- read_csv(
->   "data/fictitious_municipal_reports.csv",
+> incidents <- read_csv(
+>   "data/incidents_securite_sherbrooke_agreges.csv",
 >   show_col_types = FALSE
 > )
 >
-> reports_neighbourhood <- reports |>
->   group_by(neighbourhood) |>
+> incidents_type <- incidents |>
+>   group_by(type_incident) |>
 >   summarise(
->     total_reports = sum(n_reports),
+>     total_incidents = sum(nb_incidents),
 >     .groups = "drop"
 >   ) |>
->   arrange(desc(total_reports))
+>   arrange(desc(total_incidents))
 >
-> reports_neighbourhood
+> incidents_type
 > ```
 >
->     # A tibble: 7 × 2
->       neighbourhood    total_reports
->       <chr>                    <dbl>
->     1 Sainte-Foy                  63
->     2 Saint-Roch                  60
->     3 Limoilou                    57
->     4 Beauport                    40
->     5 Charlesbourg                19
->     6 La Cite-Limoilou             5
->     7 Sillery                      3
+>     # A tibble: 8 × 2
+>       type_incident                      total_incidents
+>       <chr>                                        <dbl>
+>     1 Vol                                           4159
+>     2 Voie de fait                                  2001
+>     3 Menace ou acte de violence                    1421
+>     4 Méfait                                        1222
+>     5 Accident avec blessés                         1086
+>     6 Introduction par effraction                    996
+>     7 Conduite avec capacités affaiblies             530
+>     8 Accident mortel                                  6
 >
 > ``` r
-> ggplot(reports_neighbourhood, aes(x = reorder(neighbourhood, total_reports), y = total_reports)) +
+> ggplot(
+>   incidents_type,
+>   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
+> ) +
 >   geom_col(fill = "#B33A3A") +
->   coord_flip(ylim = c(20, max(reports_neighbourhood$total_reports) * 1.05)) +
+>   coord_flip(ylim = c(1000, max(incidents_type$total_incidents) * 1.05)) +
 >   labs(
 >     title = "Misleading version: truncated axis",
->     x = "Neighbourhood",
->     y = "Number of reports"
+>     x = "Incident type",
+>     y = "Number of incidents"
 >   )
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-2-1.png)
 >
 > ``` r
-> ggplot(reports_neighbourhood, aes(x = reorder(neighbourhood, total_reports), y = total_reports)) +
+> ggplot(
+>   incidents_type,
+>   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
+> ) +
 >   geom_col(fill = "#3C6E71") +
 >   coord_flip() +
->   scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, 0.05))) +
+>   scale_y_continuous(
+>     limits = c(0, NA),
+>     expand = expansion(mult = c(0, 0.05))
+>   ) +
 >   labs(
->     title = "More honest version: zero baseline",
->     x = "Neighbourhood",
->     y = "Number of reports"
+>     title = "Defensible version: axis starts at zero",
+>     x = "Incident type",
+>     y = "Number of incidents"
 >   )
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-3-1.png)
 >
-> The truncated axis visually amplifies differences. For bars, length encodes quantity; starting the axis above zero can therefore suggest a stronger difference than the data support.
+> The truncated axis magnifies differences and even makes some small categories invisible. Bar length encodes quantity, so the axis should normally start at zero.
 
-### Exercise 2 - Add Counts to the Message
+### Exercise 2 - Publish Aggregate Counts
 
-Compute the total number of reports by type. Produce a chart that compares report types without creating an impression of individual risk.
+Produce a chart showing totals by type, counts and a note defining the scope of the data.
 
 > **NOTE:**
 >
 > ``` r
-> reports_type <- reports |>
->   group_by(report_type) |>
->   summarise(
->     total_reports = sum(n_reports),
->     n_neighbourhoods = n_distinct(neighbourhood),
->     .groups = "drop"
->   ) |>
->   arrange(desc(total_reports))
->
-> reports_type
-> ```
->
->     # A tibble: 5 × 3
->       report_type total_reports n_neighbourhoods
->       <chr>               <dbl>            <int>
->     1 noise                  85                3
->     2 transport              71                2
->     3 waste                  49                2
->     4 housing                37                4
->     5 safety                  5                1
->
-> ``` r
-> ggplot(reports_type, aes(x = reorder(report_type, total_reports), y = total_reports)) +
+> ggplot(
+>   incidents_type,
+>   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
+> ) +
 >   geom_col(fill = "#4C78A8") +
->   geom_text(aes(label = total_reports), hjust = -0.15, size = 3.5) +
+>   geom_text(aes(label = comma(total_incidents)), hjust = -0.1, size = 3.4) +
 >   coord_flip() +
->   scale_y_continuous(limits = c(0, max(reports_type$total_reports) * 1.15)) +
+>   scale_y_continuous(
+>     limits = c(0, max(incidents_type$total_incidents) * 1.15)
+>   ) +
 >   labs(
->     title = "Fictitious municipal reports by type",
->     subtitle = "Numbers are aggregated; no individual address is published",
->     x = "Report type",
->     y = "Number of reports"
+>     title = "Public-safety incidents by type",
+>     subtitle = "Sherbrooke, 2022 to 2024; aggregated monthly data",
+>     x = NULL,
+>     y = "Number of incidents"
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
+> ![](exercices_files/figure-html/unnamed-chunk-4-1.png)
 >
-> The chart publishes aggregated and readable information. It avoids individual addresses or details that could expose a person or household.
+> This chart publishes no address, coordinate or exact date. It describes incidents recorded in the source, not every situation that may have occurred.
 
-### Exercise 3 - Avoid Unfair Comparisons
+### Exercise 3 - Avoid an Unfair Comparison Between Years
 
-Join reports with the fictitious neighbourhood population. Compute a rate per 10,000 people. Why is this rate more defensible than a raw comparison?
+Join annual totals to population estimates and calculate a rate per 10,000 people. Compare this rate with raw counts.
 
 > **NOTE:**
 >
 > ``` r
 > population <- read_csv(
->   "data/fictitious_neighbourhood_population.csv",
+>   "data/population_sherbrooke_2022_2024.csv",
 >   show_col_types = FALSE
 > )
 >
-> rate_neighbourhood <- reports_neighbourhood |>
->   left_join(population, by = "neighbourhood") |>
->   mutate(
->     rate_per_10000 = total_reports / estimated_population * 10000
+> incidents_year <- incidents |>
+>   group_by(annee) |>
+>   summarise(
+>     total_incidents = sum(nb_incidents),
+>     .groups = "drop"
 >   ) |>
->   arrange(desc(rate_per_10000))
+>   left_join(population, by = "annee") |>
+>   mutate(
+>     rate_per_10000 = total_incidents / population_estimee * 10000
+>   )
 >
-> rate_neighbourhood
+> incidents_year
 > ```
 >
->     # A tibble: 7 × 6
->       neighbourhood  total_reports estimated_population area_km2 vulnerability_index
->       <chr>                  <dbl>                <dbl>    <dbl>               <dbl>
->     1 Saint-Roch                60                18200      3.1                0.64
->     2 Limoilou                  57                31800      8.4                0.58
->     3 Sainte-Foy                63                74200     32.1                0.31
->     4 Beauport                  40                80500     74.4                0.39
->     5 Charlesbourg              19                82600     66.3                0.36
->     6 Sillery                    3                13700      6.8                0.22
->     7 La Cite-Limoi…             5               108000     22.2                0.55
->     # ℹ 1 more variable: rate_per_10000 <dbl>
+>     # A tibble: 3 × 5
+>       annee total_incidents population_estimee geographie             rate_per_10000
+>       <dbl>           <dbl>              <dbl> <chr>                           <dbl>
+>     1  2022            3750             177782 Sherbrooke (V), Québec           211.
+>     2  2023            3790             180135 Sherbrooke (V), Québec           210.
+>     3  2024            3881             183265 Sherbrooke (V), Québec           212.
+>
+> The rate accounts for population change. Years are still not perfectly comparable if recording practices or context changed.
+
+## Block B - Reduce Re-identification Risks
+
+### Exercise 4 - Identify Risky Variables
+
+The original source includes `OBJECTID`, `DATEINCIDENT`, `DATETEXTE`, `x`, `y`, `DESCRIPTION` and `ANNEE`. Classify these fields by disclosure risk and compare them with the course extract.
+
+> **NOTE:**
 >
 > ``` r
-> ggplot(rate_neighbourhood, aes(x = reorder(neighbourhood, rate_per_10000), y = rate_per_10000)) +
->   geom_col(fill = "#5B8E7D") +
->   coord_flip() +
->   labs(
->     title = "Fictitious reports per 10,000 people",
->     subtitle = "The comparison accounts for approximate neighbourhood size",
->     x = "Neighbourhood",
->     y = "Reports per 10,000 people"
+> tibble(
+>   source_variable = c(
+>     "OBJECTID", "DATEINCIDENT", "DATETEXTE", "x", "y",
+>     "DESCRIPTION", "ANNEE"
+>   ),
+>   assessment = c(
+>     "technical identifier removed",
+>     "exact date and time removed",
+>     "exact date removed",
+>     "coordinate removed",
+>     "coordinate removed",
+>     "category retained",
+>     "broad period retained"
+>   )
+> )
+> ```
+>
+>     # A tibble: 7 × 2
+>       source_variable assessment
+>       <chr>           <chr>
+>     1 OBJECTID        technical identifier removed
+>     2 DATEINCIDENT    exact date and time removed
+>     3 DATETEXTE       exact date removed
+>     4 x               coordinate removed
+>     5 y               coordinate removed
+>     6 DESCRIPTION     category retained
+>     7 ANNEE           broad period retained
+>
+> ``` r
+> names(incidents)
+> ```
+>
+>     [1] "annee"         "mois"          "type_incident" "nb_incidents"
+>
+> Monthly aggregation reduces temporal precision and removing coordinates eliminates fine location. This reduces risk without guaranteeing absolute anonymization.
+
+### Exercise 5 - Apply a Publication Threshold
+
+Create `public_count`, masking monthly cells containing fewer than five incidents.
+
+> **NOTE:**
+>
+> ``` r
+> public_incidents <- incidents |>
+>   mutate(
+>     public_count = if_else(nb_incidents < 5, NA_integer_, nb_incidents),
+>     publication_status = if_else(
+>       is.na(public_count),
+>       "suppressed: small count",
+>       "published"
+>     )
+>   )
+>
+> public_incidents |>
+>   filter(is.na(public_count))
+> ```
+>
+>     # A tibble: 6 × 6
+>       annee  mois type_incident   nb_incidents public_count publication_status
+>       <dbl> <dbl> <chr>                  <dbl>        <dbl> <chr>
+>     1  2022     7 Accident mortel            1           NA suppressed: small count
+>     2  2022     8 Accident mortel            1           NA suppressed: small count
+>     3  2022    11 Accident mortel            1           NA suppressed: small count
+>     4  2022    12 Accident mortel            1           NA suppressed: small count
+>     5  2023     8 Accident mortel            1           NA suppressed: small count
+>     6  2024     7 Accident mortel            1           NA suppressed: small count
+>
+> Five is a cautious teaching rule, not a universal anonymity guarantee. A real threshold depends on context, other variables and organizational rules.
+
+### Exercise 6 - Measure the Effect of Suppression
+
+Count published and suppressed cells by incident type.
+
+> **NOTE:**
+>
+> ``` r
+> public_incidents |>
+>   count(type_incident, publication_status) |>
+>   pivot_wider(
+>     names_from = publication_status,
+>     values_from = n,
+>     values_fill = 0
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-7-1.png)
+>     # A tibble: 8 × 3
+>       type_incident                      published `suppressed: small count`
+>       <chr>                                  <int>                     <int>
+>     1 Accident avec blessés                     36                         0
+>     2 Accident mortel                            0                         6
+>     3 Conduite avec capacités affaiblies        36                         0
+>     4 Introduction par effraction               36                         0
+>     5 Menace ou acte de violence                36                         0
+>     6 Méfait                                    36                         0
+>     7 Voie de fait                              36                         0
+>     8 Vol                                       36                         0
+
+### Exercise 7 - Visualize Without Overexposing Small Categories
+
+Calculate annual totals by type, retain only cells with at least 20 incidents and graph rates per 10,000 people.
+
+> **NOTE:**
 >
-> Raw counts favor more populated neighbourhoods. A population rate makes the comparison more relevant, although it still does not explain causes.
+> ``` r
+> rates_type_year <- incidents |>
+>   group_by(annee, type_incident) |>
+>   summarise(
+>     nb_incidents = sum(nb_incidents),
+>     .groups = "drop"
+>   ) |>
+>   left_join(population, by = "annee") |>
+>   filter(nb_incidents >= 20) |>
+>   mutate(
+>     rate_per_10000 = nb_incidents / population_estimee * 10000
+>   )
+>
+> ggplot(
+>   rates_type_year,
+>   aes(x = factor(annee), y = rate_per_10000, fill = type_incident)
+> ) +
+>   geom_col(position = "dodge") +
+>   labs(
+>     title = "Recorded incident rates by type",
+>     subtitle = "Annual categories with 20 incidents or more",
+>     x = "Year",
+>     y = "Incidents per 10,000 people",
+>     fill = "Type"
+>   )
+> ```
+>
+> ![](exercices_files/figure-html/unnamed-chunk-9-1.png)
+>
+> The graph should not be used to label a neighbourhood or population. It presents city-wide recorded categories.
 
-## Block B - Reduce Re-Identification Risks
+## Case Study 1 - Responsible Municipal Publication
 
-### Exercise 4 - Identify Sensitive Variables
+### Exercise 8 - Build a Publishable Table
 
-Import the fictitious student survey. Classify variables into three families:
+Using `public_incidents`, create a monthly table retaining type, year and month but not publishing small numbers.
 
-- direct identifier;
-- quasi-identifier or sensitive variable;
-- variable publishable after aggregation.
+> **NOTE:**
+>
+> ``` r
+> publication_table <- public_incidents |>
+>   select(
+>     annee,
+>     mois,
+>     type_incident,
+>     public_count,
+>     publication_status
+>   ) |>
+>   arrange(annee, mois, type_incident)
+>
+> publication_table
+> ```
+>
+>     # A tibble: 258 × 5
+>        annee  mois type_incident                     public_count publication_status
+>        <dbl> <dbl> <chr>                                    <dbl> <chr>
+>      1  2022     1 Accident avec blessés                       28 published
+>      2  2022     1 Conduite avec capacités affaibli…            6 published
+>      3  2022     1 Introduction par effraction                 18 published
+>      4  2022     1 Menace ou acte de violence                  30 published
+>      5  2022     1 Méfait                                      17 published
+>      6  2022     1 Voie de fait                                43 published
+>      7  2022     1 Vol                                         76 published
+>      8  2022     2 Accident avec blessés                       18 published
+>      9  2022     2 Conduite avec capacités affaibli…            8 published
+>     10  2022     2 Introduction par effraction                 16 published
+>     # ℹ 248 more rows
+
+### Exercise 9 - Write a Short Ethical Note
+
+Write three sentences explaining what is published, what is suppressed and the main interpretation limitation.
+
+> **NOTE:**
+>
+> The publication presents monthly aggregate counts by type, without exact dates or coordinates. Cells with fewer than five incidents are suppressed to reduce disclosure risk and overinterpretation of very small numbers. These data describe recorded incidents and measure neither every situation that occurred nor the causes of observed variation.
+
+## Case Study 2 - Public Survey and Cautious Communication
+
+The file `data/sondage_utilisateurs_donnees_quebec_2020_2025.csv` contains aggregate responses to three questions from the Données Québec public consultation. It contains neither respondent identifiers nor free-text comments.
+
+### Exercise 10 - Inspect Counts and Missing Values
+
+Import the file, count missing values and summarize recorded selections by year and question.
 
 > **NOTE:**
 >
 > ``` r
 > survey <- read_csv(
->   "data/fictitious_student_survey.csv",
+>   "data/sondage_utilisateurs_donnees_quebec_2020_2025.csv",
 >   show_col_types = FALSE
 > )
 >
-> glimpse(survey)
-> ```
->
->     Rows: 16
->     Columns: 9
->     $ respondent_id       <chr> "E001", "E002", "E003", "E004", "E005", "E006", "E…
->     $ program             <chr> "Statistics", "Computer science", "Mathematics", "…
->     $ year_level          <dbl> 1, 2, 1, 3, 1, 2, 2, 3, 2, 3, 1, 3, 1, 2, 2, 1
->     $ age                 <dbl> 19, 21, 18, 24, 20, 22, 23, 26, 21, 25, 19, 27, 18…
->     $ gender              <chr> "F", "M", "F", "Not specified", "F", "M", "F", "F"…
->     $ study_hours         <dbl> 12, 18, 10, 22, 16, 20, 14, 28, 17, 24, 15, 19, 9,…
->     $ stress_score        <dbl> 6, 7, 5, 8, 6, 7, 4, 9, 6, 8, 5, 7, 4, 7, 6, 5
->     $ publication_consent <chr> "yes", "yes", "yes", "yes", "no", "yes", "yes", "y…
->     $ free_text_comment   <chr> "Prefers not to be quoted.", "Also works evenings.…
->
-> ``` r
-> tibble(
->   variable = names(survey),
->   diagnostic = c(
->     "direct identifier",
->     "quasi-identifier",
->     "quasi-identifier",
->     "quasi-identifier",
->     "sensitive variable",
->     "analysis variable",
->     "sensitive variable",
->     "use condition",
->     "risky free text"
->   )
-> )
-> ```
->
->     # A tibble: 9 × 2
->       variable            diagnostic
->       <chr>               <chr>
->     1 respondent_id       direct identifier
->     2 program             quasi-identifier
->     3 year_level          quasi-identifier
->     4 age                 quasi-identifier
->     5 gender              sensitive variable
->     6 study_hours         analysis variable
->     7 stress_score        sensitive variable
->     8 publication_consent use condition
->     9 free_text_comment   risky free text
->
-> `respondent_id` directly identifies a row. Free-text comments can contain identifying details. Program, year level, age and gender may become identifying when combined.
-
-### Exercise 5 - Prepare an Anonymized Version
-
-Create a survey version that:
-
-- removes the direct identifier;
-- removes the free-text comment;
-- keeps only respondents who consented to publication;
-- groups age into classes;
-- keeps useful variables for aggregated analysis.
-
-> **NOTE:**
->
-> ``` r
-> survey_anonymous <- survey |>
->   filter(publication_consent == "yes") |>
->   mutate(
->     age_group = cut(
->       age,
->       breaks = c(17, 20, 23, 26, Inf),
->       labels = c("18-20", "21-23", "24-26", "27+"),
->       right = TRUE
->     )
->   ) |>
->   select(
->     program,
->     year_level,
->     age_group,
->     gender,
->     study_hours,
->     stress_score
->   )
->
-> survey_anonymous
-> ```
->
->     # A tibble: 15 × 6
->        program          year_level age_group gender        study_hours stress_score
->        <chr>                 <dbl> <fct>     <chr>               <dbl>        <dbl>
->      1 Statistics                1 18-20     F                      12            6
->      2 Computer science          2 21-23     M                      18            7
->      3 Mathematics               1 18-20     F                      10            5
->      4 Statistics                3 24-26     Not specified          22            8
->      5 Data science              2 21-23     M                      20            7
->      6 Mathematics               2 21-23     F                      14            4
->      7 Data science              3 24-26     F                      28            9
->      8 Statistics                2 21-23     M                      17            6
->      9 Computer science          3 24-26     M                      24            8
->     10 Data science              1 18-20     F                      15            5
->     11 Mathematics               3 27+       Not specified          19            7
->     12 Statistics                1 18-20     M                       9            4
->     13 Computer science          2 21-23     F                      21            7
->     14 Data science              2 21-23     M                      18            6
->     15 Mathematics               1 18-20     F                      13            5
->
-> This version reduces risk, but it does not eliminate all re-identification risk. A rare combination such as program + year level + gender + age can still isolate a person.
-
-### Exercise 6 - Check Small Groups
-
-Find combinations of `program`, `year_level` and `gender` with fewer than three people. Why should these cells not be published in detail?
-
-> **NOTE:**
->
-> ``` r
-> small_groups <- survey_anonymous |>
->   count(program, year_level, gender, name = "n") |>
->   filter(n < 3) |>
->   arrange(n, program)
->
-> small_groups
-> ```
->
->     # A tibble: 13 × 4
->        program          year_level gender            n
->        <chr>                 <dbl> <chr>         <int>
->      1 Computer science          2 F                 1
->      2 Computer science          2 M                 1
->      3 Computer science          3 M                 1
->      4 Data science              1 F                 1
->      5 Data science              3 F                 1
->      6 Mathematics               2 F                 1
->      7 Mathematics               3 Not specified     1
->      8 Statistics                1 F                 1
->      9 Statistics                1 M                 1
->     10 Statistics                2 M                 1
->     11 Statistics                3 Not specified     1
->     12 Data science              2 M                 2
->     13 Mathematics               1 F                 2
->
-> Small groups increase the risk of recognizing a person, especially in a class where students know each other. One option is to group categories, suppress some cells or publish only more aggregated results.
-
-### Exercise 7 - Visualize Without Overexposing
-
-Produce a chart of average stress score by program. Also show counts and add a cautious interpretation.
-
-> **NOTE:**
->
-> ``` r
-> stress_program <- survey_anonymous |>
->   group_by(program) |>
+> survey |>
 >   summarise(
->     n = n(),
->     mean_stress = mean(stress_score),
->     .groups = "drop"
->   ) |>
->   arrange(desc(mean_stress))
->
-> stress_program
+>     missing_counts = sum(is.na(nb_reponses)),
+>     missing_percentages = sum(is.na(pourcentage))
+>   )
 > ```
 >
->     # A tibble: 4 × 3
->       program              n mean_stress
->       <chr>            <int>       <dbl>
->     1 Computer science     3        7.33
->     2 Data science         4        6.75
->     3 Statistics           4        6
->     4 Mathematics          4        5.25
+>     # A tibble: 1 × 2
+>       missing_counts missing_percentages
+>                <int>               <int>
+>     1              8                   8
 >
 > ``` r
-> ggplot(stress_program, aes(x = reorder(program, mean_stress), y = mean_stress)) +
->   geom_col(fill = "#6B5B95") +
->   geom_text(aes(label = paste0("n = ", n)), hjust = -0.1, size = 3.5) +
+> survey_summary <- survey |>
+>   filter(!is.na(nb_reponses)) |>
+>   group_by(annee, question) |>
+>   summarise(
+>     total_selections = sum(nb_reponses),
+>     response_categories = n(),
+>     .groups = "drop"
+>   )
+>
+> survey_summary
+> ```
+>
+>     # A tibble: 17 × 4
+>        annee question total_selections response_categories
+>        <dbl>    <dbl>            <dbl>               <int>
+>      1  2020        6               88                  10
+>      2  2020       11               41                  10
+>      3  2021        3              495                   8
+>      4  2021        6              286                  10
+>      5  2021       11              291                  10
+>      6  2022        3              535                   8
+>      7  2022        6              291                  10
+>      8  2022       11              292                  10
+>      9  2023        3              511                   8
+>     10  2023        6              263                  10
+>     11  2023       11              264                  10
+>     12  2024        3              446                   8
+>     13  2024        6              259                  10
+>     14  2024       11              260                  10
+>     15  2025        3              199                   8
+>     16  2025        6              124                  10
+>     17  2025       11              124                  10
+>
+> The total number of selections is not necessarily the number of people when a question permits multiple responses.
+
+### Exercise 11 - Produce a Defensible Chart
+
+For question 6 in 2025, suppress response categories with fewer than five selections and produce a chart with counts.
+
+> **NOTE:**
+>
+> ``` r
+> survey_2025_q6 <- survey |>
+>   filter(
+>     annee == 2025,
+>     question == 6,
+>     !is.na(nb_reponses),
+>     nb_reponses >= 5
+>   )
+>
+> ggplot(
+>   survey_2025_q6,
+>   aes(x = fct_reorder(reponse, nb_reponses), y = nb_reponses)
+> ) +
+>   geom_col(fill = "#2F4B7C") +
+>   geom_text(aes(label = nb_reponses), hjust = -0.1, size = 3.4) +
 >   coord_flip() +
->   scale_y_continuous(limits = c(0, 10), breaks = 0:10) +
+>   scale_y_continuous(
+>     limits = c(0, max(survey_2025_q6$nb_reponses) * 1.2)
+>   ) +
 >   labs(
->     title = "Average stress score by program in a fictitious survey",
->     subtitle = "Counts are small; these values cannot rank programs",
->     x = "Program",
->     y = "Average stress score"
+>     title = "Reported uses of open data",
+>     subtitle = "Question 6, 2025; categories below five selections omitted",
+>     x = NULL,
+>     y = "Number of selections"
 >   )
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-12-1.png)
 >
-> Cautious interpretation: in this small fictitious survey, some programs have a higher average score, but the counts are too small to conclude that the program causes stress.
+> Participants chose to take part in an online consultation. Results should not be presented as representative of the entire Québec population.
 
-## Case Study 1 - Responsible Municipal Publication
+### Exercise 12 - Decide What Should Not Be Published
 
-A fictitious city wants to publish a table of monthly reports. It wants to be transparent, but it does not want to stigmatize small areas or indirectly reveal individual situations.
-
-### Exercise 8 - Build a Publishable Version
-
-Starting from the municipal reports, create a table that suppresses cells where `public_detail_level` is `"suppress"`. Create a variable `n_public` that keeps the count when publication is acceptable and replaces other values with `NA`.
+Name two types of information that should not be added to this open publication and explain why.
 
 > **NOTE:**
 >
-> ``` r
-> reports_public <- reports |>
->   mutate(
->     n_public = if_else(public_detail_level == "suppress", NA_integer_, n_reports),
->     publication_status = if_else(is.na(n_public), "suppressed", "published")
->   )
->
-> reports_public |>
->   select(neighbourhood, report_type, n_reports, n_public, publication_status)
-> ```
->
->     # A tibble: 12 × 5
->        neighbourhood    report_type n_reports n_public publication_status
->        <chr>            <chr>           <dbl>    <dbl> <chr>
->      1 Saint-Roch       noise              42       42 published
->      2 Saint-Roch       housing            18       18 published
->      3 Limoilou         noise              31       31 published
->      4 Limoilou         waste              26       26 published
->      5 Sainte-Foy       transport          54       54 published
->      6 Sainte-Foy       housing             9        9 published
->      7 Beauport         waste              23       23 published
->      8 Beauport         transport          17       17 published
->      9 Charlesbourg     noise              12       12 published
->     10 Charlesbourg     housing             7       NA suppressed
->     11 La Cite-Limoilou safety              5       NA suppressed
->     12 Sillery          housing             3       NA suppressed
-
-### Exercise 9 - Write a Short Ethics Note
-
-Write three sentences explaining:
-
-1.  what is published;
-2.  what is suppressed;
-3.  the main interpretive limitation.
-
-> **NOTE:**
->
-> The publication presents aggregated report counts by neighbourhood and type, without addresses or individual coordinates. Cells associated with very small counts are suppressed to reduce identification risk and local stigmatization. These data describe reports received and do not measure the true severity of situations or the causes of differences between neighbourhoods.
-
-## Case Study 2 - Student Survey and Careful Communication
-
-A fictitious teaching team wants to present results from a workload survey. The data can help improve the course, but free-text comments and small groups can make some people recognizable.
-
-### Exercise 10 - Prepare a Publishable Summary
-
-Create a table by year level with the number of responses, average study hours and average stress score.
-
-> **NOTE:**
->
-> ``` r
-> summary_level <- survey_anonymous |>
->   group_by(year_level) |>
->   summarise(
->     n = n(),
->     mean_study_hours = mean(study_hours),
->     mean_stress = mean(stress_score),
->     .groups = "drop"
->   )
->
-> summary_level
-> ```
->
->     # A tibble: 3 × 4
->       year_level     n mean_study_hours mean_stress
->            <dbl> <int>            <dbl>       <dbl>
->     1          1     5             11.8        5
->     2          2     6             18          6.17
->     3          3     4             23.2        8
-
-### Exercise 11 - Produce a Defensible Chart
-
-Produce a chart showing average study hours by year level. The title must avoid turning a description into an accusation.
-
-> **NOTE:**
->
-> ``` r
-> ggplot(summary_level, aes(x = factor(year_level), y = mean_study_hours)) +
->   geom_col(fill = "#2F4B7C") +
->   geom_text(aes(label = paste0("n = ", n)), vjust = -0.4, size = 3.5) +
->   scale_y_continuous(limits = c(0, max(summary_level$mean_study_hours) * 1.25)) +
->   labs(
->     title = "Reported study hours in a fictitious survey",
->     subtitle = "Aggregated by year level; individual responses are not published",
->     x = "Year level",
->     y = "Study hours per week"
->   )
-> ```
->
-> ![](exercices_files/figure-html/unnamed-chunk-15-1.png)
-
-### Exercise 12 - Decide What Not to Publish
-
-Name two elements from the initial file that should not appear in an open publication. Explain why.
-
-> **NOTE:**
->
-> The `respondent_id` field should not be published because it directly tracks an individual response. The `free_text_comment` field should not be published as is because it can contain a name, team, employer, personal situation or detail that makes a person recognizable.
+> An identifier linking selections from the same person should not be added because it would turn an aggregate table into an individual history. Free-text comments should not be published without a rigorous process because they may contain names, organizations, contact details or recognizable situations. Even in an aggregate table, very small counts require review before release.

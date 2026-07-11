@@ -112,7 +112,7 @@ You will turn the adventure audit into a reproducible ethics note:
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises use fictitious data different from the adventure so you can consolidate the principles without repeating the challenge.
+Why Exercises use real aggregate data from Sherbrooke, Statistics Canada and Données Québec to practise responsible publication without repeating the challenge.
 
 Before opening a solution, state the ethical or visual risk you are trying to reduce.
 
@@ -120,7 +120,7 @@ Before opening a solution, state the ethical or visual risk you are trying to re
 
 ### Datasets
 
-[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07) [fictitious_municipal_reports.csv](../donnees.llms.md#dataset-card-module07-signalements) [fictitious_neighbourhood_population.csv](../donnees.llms.md#dataset-card-module07-population) [fictitious_student_survey.csv](../donnees.llms.md#dataset-card-module07-sondage)
+[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07) [Aggregated Sherbrooke incidents](data/incidents_securite_sherbrooke_agreges.csv) [Sherbrooke population](data/population_sherbrooke_2022_2024.csv) [Données Québec user survey](data/sondage_utilisateurs_donnees_quebec_2020_2025.csv)
 
 ### R packages
 

@@ -112,7 +112,7 @@ Vous transformerez l'audit de l'aventure en note éthique reproductible :
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices utilisent des données fictives différentes de l'aventure afin de consolider les principes sans répéter le défi.
+Pourquoi Les exercices utilisent des données réelles agrégées de Sherbrooke, de Statistique Canada et de Données Québec afin de pratiquer une diffusion responsable sans répéter le défi.
 
 Avant d'ouvrir une solution, formulez le risque éthique ou visuel que vous cherchez à réduire.
 
@@ -120,7 +120,7 @@ Avant d'ouvrir une solution, formulez le risque éthique ou visuel que vous cher
 
 ### Bases de données
 
-[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07) [signalements_municipaux_fictif.csv](../donnees.llms.md#dataset-card-module07-signalements) [population_quartiers_fictif.csv](../donnees.llms.md#dataset-card-module07-population) [sondage_etudiant_fictif.csv](../donnees.llms.md#dataset-card-module07-sondage)
+[covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07) [Incidents agrégés de Sherbrooke](data/incidents_securite_sherbrooke_agreges.csv) [Population de Sherbrooke](data/population_sherbrooke_2022_2024.csv) [Sondage des utilisateurs de Données Québec](data/sondage_utilisateurs_donnees_quebec_2020_2025.csv)
 
 ### Packages R
 
