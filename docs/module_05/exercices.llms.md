@@ -6,7 +6,9 @@ STT-1100 Introduction à la science des données
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 5: manipuler des dates, résumer des groupes, visualiser des associations, calculer des corrélations simples et formuler des conclusions prudentes.
 
-Les données utilisées ici sont fictives et ne représentent aucun système réel.
+> **NOTE:**
+>
+> Les exercices utilisent les [comptages vélos de Laval](https://www.donneesquebec.ca/recherche/dataset/comptages-velos), les [mesures horaires de la qualité de l’air du Québec](https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues) à la station Québec - Vieux-Limoilou et les [débits de circulation de Gatineau](https://www.donneesquebec.ca/recherche/dataset/debits-de-circulation). Ces sources officielles sont diffusées sous licence CC BY 4.0. Les fichiers locaux sont des extraits reproductibles préparés par `scripts/build_module05_real_data.R`.
 
 ``` r
 library(tidyverse)
@@ -26,7 +28,7 @@ Après les lectures, faites aussi le [mini-test formatif](../module_05/mini_test
 
 ## Bloc A - Dates, structure et valeurs manquantes
 
-Le fichier `data/ateliers_soutien_fictif.csv` décrit de faux ateliers de soutien universitaire.
+Le fichier `data/comptages_velos_laval_2016_06.csv` contient les comptages effectués toutes les 15 minutes à la boucle Chevillon, à Laval, en juin 2016.
 
 ### Exercice 1 - Importer et inspecter
 
@@ -35,214 +37,209 @@ Importez le fichier, affichez sa structure et vérifiez ses dimensions.
 > **NOTE:**
 >
 > ``` r
-> ateliers <- read_csv(
->   "data/ateliers_soutien_fictif.csv",
+> velos <- read_csv(
+>   "data/comptages_velos_laval_2016_06.csv",
 >   show_col_types = FALSE
 > )
 >
-> glimpse(ateliers)
+> glimpse(velos)
 > ```
 >
->     Rows: 24
->     Columns: 10
->     $ atelier_id           <chr> "A-001", "A-002", "A-003", "A-004", "A-005", "A-0…
->     $ date_atelier         <date> 2026-01-15, 2026-01-16, 2026-01-18, 2026-01-22, …
->     $ heure_debut          <dbl> 9, 13, 16, 10, 14, 18, 9, 15, 17, 11, 13, 16, 9, …
->     $ campus               <chr> "Quebec", "Quebec", "Levis", "Quebec", "Levis", "…
->     $ duree_minutes        <dbl> 60, 75, 60, 90, 75, 60, 90, 60, 75, 60, 90, 75, 6…
->     $ participants         <dbl> 18, 24, 12, 31, 16, 22, 28, 14, 35, 20, 18, 33, 1…
->     $ temperature_c        <dbl> -8, -6, -5, -3, -2, -4, -10, -7, -4, -1, 0, 1, -6…
->     $ pluie_mm             <dbl> 0.0, 1.2, 0.0, 0.4, 2.1, 0.0, 0.0, 3.4, 0.2, 0.0,…
->     $ satisfaction_moyenne <dbl> 4.1, 4.2, 3.8, 4.4, 4.0, 4.3, 4.5, 3.7, 4.6, 4.2,…
->     $ theme                <chr> "Quarto", "Visualisation", "Importation", "EDA", …
+>     Rows: 2,688
+>     Columns: 5
+>     $ date           <date> 2016-06-01, 2016-06-01, 2016-06-01, 2016-06-01, 2016-0…
+>     $ heure          <time> 00:00:00, 00:15:00, 00:30:00, 00:45:00, 01:00:00, 01:1…
+>     $ velos_total    <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+>     $ velos_entrants <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+>     $ velos_sortants <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 >
 > ``` r
 > tibble(
->   lignes = nrow(ateliers),
->   colonnes = ncol(ateliers)
+>   lignes = nrow(velos),
+>   colonnes = ncol(velos)
 > )
 > ```
 >
 >     # A tibble: 1 × 2
 >       lignes colonnes
 >        <int>    <int>
->     1     24       10
+>     1   2688        5
 
 ### Exercice 2 - Préparer les variables temporelles
 
-Transformez `date_atelier` en date, puis créez `jour_semaine`, `mois` et `moment_journee`.
+Combinez `date` et `heure`, puis créez `jour_semaine`, `mois`, `heure_jour` et `moment_journee`.
 
 > **NOTE:**
 >
 > ``` r
-> ateliers_dates <- ateliers |>
+> velos_dates <- velos |>
 >   mutate(
->     date_atelier = ymd(date_atelier),
->     jour_semaine = wday(date_atelier, label = TRUE, abbr = FALSE),
->     mois = month(date_atelier, label = TRUE, abbr = FALSE),
+>     date_heure = ymd_hms(paste(date, heure)),
+>     jour_semaine = wday(date_heure, label = TRUE, abbr = FALSE),
+>     mois = month(date_heure, label = TRUE, abbr = FALSE),
+>     heure_jour = hour(date_heure),
 >     moment_journee = case_when(
->       heure_debut < 12 ~ "matin",
->       heure_debut < 17 ~ "après-midi",
+>       heure_jour < 12 ~ "matin",
+>       heure_jour < 17 ~ "après-midi",
 >       TRUE ~ "soir"
 >     )
 >   )
 >
-> ateliers_dates |>
->   select(atelier_id, date_atelier, jour_semaine, mois, heure_debut, moment_journee) |>
+> velos_dates |>
+>   select(date_heure, jour_semaine, mois, heure_jour, moment_journee) |>
 >   slice_head(n = 8)
 > ```
 >
->     # A tibble: 8 × 6
->       atelier_id date_atelier jour_semaine mois     heure_debut moment_journee
->       <chr>      <date>       <ord>        <ord>          <dbl> <chr>
->     1 A-001      2026-01-15   Thursday     January            9 matin
->     2 A-002      2026-01-16   Friday       January           13 après-midi
->     3 A-003      2026-01-18   Sunday       January           16 après-midi
->     4 A-004      2026-01-22   Thursday     January           10 matin
->     5 A-005      2026-01-24   Saturday     January           14 après-midi
->     6 A-006      2026-01-29   Thursday     January           18 soir
->     7 A-007      2026-02-03   Tuesday      February           9 matin
->     8 A-008      2026-02-05   Thursday     February          15 après-midi
+>     # A tibble: 8 × 5
+>       date_heure          jour_semaine mois  heure_jour moment_journee
+>       <dttm>              <ord>        <ord>      <int> <chr>
+>     1 2016-06-01 00:00:00 Wednesday    June           0 matin
+>     2 2016-06-01 00:15:00 Wednesday    June           0 matin
+>     3 2016-06-01 00:30:00 Wednesday    June           0 matin
+>     4 2016-06-01 00:45:00 Wednesday    June           0 matin
+>     5 2016-06-01 01:00:00 Wednesday    June           1 matin
+>     6 2016-06-01 01:15:00 Wednesday    June           1 matin
+>     7 2016-06-01 01:30:00 Wednesday    June           1 matin
+>     8 2016-06-01 01:45:00 Wednesday    June           1 matin
 
-### Exercice 3 - Repérer les valeurs manquantes
+### Exercice 3 - Vérifier les valeurs manquantes et une relation comptable
 
-Calculez le nombre de valeurs manquantes dans `participants`, `pluie_mm` et `satisfaction_moyenne`.
+Comptez les valeurs manquantes dans les trois colonnes de comptage. Vérifiez aussi que `velos_total` correspond à la somme des vélos entrants et sortants.
 
 > **NOTE:**
 >
 > ``` r
-> ateliers_dates |>
+> velos_dates |>
 >   summarise(
->     participants_manquants = sum(is.na(participants)),
->     pluie_manquante = sum(is.na(pluie_mm)),
->     satisfaction_manquante = sum(is.na(satisfaction_moyenne))
+>     total_manquant = sum(is.na(velos_total)),
+>     entrants_manquants = sum(is.na(velos_entrants)),
+>     sortants_manquants = sum(is.na(velos_sortants)),
+>     totaux_incoherents = sum(
+>       velos_total != velos_entrants + velos_sortants,
+>       na.rm = TRUE
+>     )
 >   )
 > ```
 >
->     # A tibble: 1 × 3
->       participants_manquants pluie_manquante satisfaction_manquante
->                        <int>           <int>                  <int>
->     1                      0               1                      1
+>     # A tibble: 1 × 4
+>       total_manquant entrants_manquants sortants_manquants totaux_incoherents
+>                <int>              <int>              <int>              <int>
+>     1              0                  0                  0                  0
 
 ### Exercice 4 - Résumer par moment de la journée
 
-Calculez le nombre d’ateliers, le nombre moyen de participantes et participants, et la satisfaction moyenne selon `moment_journee`.
+Calculez le nombre d’observations et le nombre moyen de vélos selon `moment_journee`.
 
 > **NOTE:**
 >
 > ``` r
-> resume_moment <- ateliers_dates |>
+> resume_moment <- velos_dates |>
 >   group_by(moment_journee) |>
 >   summarise(
->     n_ateliers = n(),
->     participants_moyens = mean(participants, na.rm = TRUE),
->     satisfaction_moyenne = mean(satisfaction_moyenne, na.rm = TRUE),
+>     n_observations = n(),
+>     velos_moyens = mean(velos_total, na.rm = TRUE),
+>     entrants_moyens = mean(velos_entrants, na.rm = TRUE),
+>     sortants_moyens = mean(velos_sortants, na.rm = TRUE),
 >     .groups = "drop"
 >   )
 >
 > resume_moment
 > ```
 >
->     # A tibble: 3 × 4
->       moment_journee n_ateliers participants_moyens satisfaction_moyenne
->       <chr>               <int>               <dbl>                <dbl>
->     1 après-midi             11                20.5                 4.08
->     2 matin                   8                23.2                 4.28
->     3 soir                    5                35.8                 4.55
+>     # A tibble: 3 × 5
+>       moment_journee n_observations velos_moyens entrants_moyens sortants_moyens
+>       <chr>                   <int>        <dbl>           <dbl>           <dbl>
+>     1 après-midi                560        18.3             9.82            8.5
+>     2 matin                    1344         7.69            3.50            4.19
+>     3 soir                      784         7.99            4.16            3.83
 
 ## Bloc B - Associations et visualisations
 
-### Exercice 5 - Visualiser les participantes et participants
+### Exercice 5 - Visualiser les comptages moyens
 
-Produisez un diagramme en colonnes du nombre moyen de participantes et participants selon le moment de la journée.
+Produisez un diagramme en colonnes du nombre moyen de vélos selon le moment de la journée.
 
 > **NOTE:**
 >
 > ``` r
 > resume_moment |>
->   ggplot(aes(x = moment_journee, y = participants_moyens)) +
+>   ggplot(aes(x = moment_journee, y = velos_moyens)) +
 >   geom_col(fill = "#2c7fb8") +
 >   labs(
->     title = "Participation moyenne selon le moment de la journée",
+>     title = "Comptage moyen selon le moment de la journée",
 >     x = "Moment de la journée",
->     y = "Nombre moyen de participantes et participants"
+>     y = "Nombre moyen de vélos par intervalle de 15 minutes"
 >   )
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
 
-### Exercice 6 - Comparer les thèmes
+### Exercice 6 - Comparer les jours de la semaine
 
-Pour chaque thème d’atelier, calculez le nombre d’ateliers, la participation moyenne et la satisfaction moyenne.
+Pour chaque jour de la semaine, calculez le nombre d’observations et le comptage moyen.
 
 > **NOTE:**
 >
 > ``` r
-> resume_theme <- ateliers_dates |>
->   group_by(theme) |>
+> resume_jour <- velos_dates |>
+>   group_by(jour_semaine) |>
 >   summarise(
->     n_ateliers = n(),
->     participants_moyens = mean(participants, na.rm = TRUE),
->     satisfaction_moyenne = mean(satisfaction_moyenne, na.rm = TRUE),
+>     n_observations = n(),
+>     velos_moyens = mean(velos_total, na.rm = TRUE),
 >     .groups = "drop"
 >   ) |>
->   arrange(desc(participants_moyens))
+>   arrange(desc(velos_moyens))
 >
-> resume_theme
+> resume_jour
 > ```
 >
->     # A tibble: 4 × 4
->       theme         n_ateliers participants_moyens satisfaction_moyenne
->       <chr>              <int>               <dbl>                <dbl>
->     1 Visualisation          7                30.9                 4.42
->     2 EDA                    6                28.7                 4.4
->     3 Quarto                 6                19.7                 4.17
->     4 Importation            5                16.8                 3.88
+>     # A tibble: 7 × 3
+>       jour_semaine n_observations velos_moyens
+>       <ord>                 <int>        <dbl>
+>     1 Sunday                  288        12.9
+>     2 Tuesday                 384        12.0
+>     3 Thursday                480        10.9
+>     4 Friday                  384        10.2
+>     5 Saturday                288         9.36
+>     6 Wednesday               480         8.01
+>     7 Monday                  384         7.38
 
 ### Exercice 7 - Calculer une matrice de corrélation
 
-Calculez les corrélations entre `duree_minutes`, `participants`, `temperature_c`, `pluie_mm` et `satisfaction_moyenne`.
+Calculez les corrélations entre `velos_total`, `velos_entrants` et `velos_sortants`.
 
 > **NOTE:**
 >
 > ``` r
-> ateliers_dates |>
->   select(duree_minutes, participants, temperature_c, pluie_mm, satisfaction_moyenne) |>
+> velos_dates |>
+>   select(velos_total, velos_entrants, velos_sortants) |>
 >   cor(use = "complete.obs") |>
 >   round(2)
 > ```
 >
->                          duree_minutes participants temperature_c pluie_mm
->     duree_minutes                 1.00         0.59          0.16     0.15
->     participants                  0.59         1.00          0.27    -0.47
->     temperature_c                 0.16         0.27          1.00     0.17
->     pluie_mm                      0.15        -0.47          0.17     1.00
->     satisfaction_moyenne          0.40         0.93          0.23    -0.65
->                          satisfaction_moyenne
->     duree_minutes                        0.40
->     participants                         0.93
->     temperature_c                        0.23
->     pluie_mm                            -0.65
->     satisfaction_moyenne                 1.00
+>                    velos_total velos_entrants velos_sortants
+>     velos_total           1.00           0.94           0.92
+>     velos_entrants        0.94           1.00           0.73
+>     velos_sortants        0.92           0.73           1.00
 >
-> La corrélation résume une association linéaire. Elle ne suffit pas à établir une relation de cause à effet.
+> La corrélation est ici influencée par la relation comptable entre le total et les deux directions. Elle ne constitue pas une preuve de causalité.
 
 ### Exercice 8 - Faire un nuage de points
 
-Créez un graphique de `duree_minutes` et `participants`. Ajoutez une droite de tendance.
+Créez un graphique des vélos entrants et sortants. Colorez les points selon le moment de la journée et ajoutez une droite de tendance.
 
 > **NOTE:**
 >
 > ``` r
-> ateliers_dates |>
->   ggplot(aes(x = duree_minutes, y = participants)) +
->   geom_point(aes(color = theme), size = 2.5, alpha = 0.8) +
+> velos_dates |>
+>   ggplot(aes(x = velos_entrants, y = velos_sortants)) +
+>   geom_point(aes(color = moment_journee), alpha = 0.45) +
 >   geom_smooth(method = "lm", se = FALSE, color = "black") +
 >   labs(
->     title = "Durée des ateliers et participation",
->     x = "Durée de l'atelier (minutes)",
->     y = "Nombre de participantes et participants",
->     color = "Thème"
+>     title = "Comptages entrants et sortants à Laval",
+>     x = "Vélos entrants",
+>     y = "Vélos sortants",
+>     color = "Moment"
 >   )
 > ```
 >
@@ -250,261 +247,325 @@ Créez un graphique de `duree_minutes` et `participants`. Ajoutez une droite de 
 >
 > ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
 
-### Exercice 9 - Comparer les jours pluvieux et non pluvieux
+### Exercice 9 - Comparer la semaine et la fin de semaine
 
-Créez une variable `jour_pluvieux`, puis comparez la participation moyenne selon cette variable.
+Créez une variable `type_jour`, puis comparez les comptages moyens entre la semaine et la fin de semaine.
 
 > **NOTE:**
 >
 > ``` r
-> ateliers_pluie <- ateliers_dates |>
+> velos_type_jour <- velos_dates |>
 >   mutate(
->     jour_pluvieux = case_when(
->       is.na(pluie_mm) ~ "pluie inconnue",
->       pluie_mm > 0 ~ "pluie",
->       TRUE ~ "pas de pluie"
+>     type_jour = if_else(
+>       wday(date_heure) %in% c(1, 7),
+>       "fin de semaine",
+>       "semaine"
 >     )
 >   )
 >
-> ateliers_pluie |>
->   group_by(jour_pluvieux) |>
+> velos_type_jour |>
+>   group_by(type_jour) |>
 >   summarise(
->     n_ateliers = n(),
->     participants_moyens = mean(participants, na.rm = TRUE),
+>     n_observations = n(),
+>     velos_moyens = mean(velos_total, na.rm = TRUE),
 >     .groups = "drop"
 >   )
 > ```
 >
->     # A tibble: 3 × 3
->       jour_pluvieux  n_ateliers participants_moyens
->       <chr>               <int>               <dbl>
->     1 pas de pluie           11                27.5
->     2 pluie                  12                22.4
->     3 pluie inconnue          1                19
+>     # A tibble: 2 × 3
+>       type_jour      n_observations velos_moyens
+>       <chr>                   <int>        <dbl>
+>     1 fin de semaine            576        11.1
+>     2 semaine                  2112         9.68
 
 ## Bloc C - Interprétation prudente
 
 ### Exercice 10 - Écrire une conclusion descriptive
 
-À partir de l’un des tableaux précédents, écrivez deux phrases:
-
-1.  une phrase qui décrit le résultat observé;
-2.  une phrase qui précise une limite.
+À partir de l’un des tableaux précédents, écrivez une phrase descriptive et une phrase qui précise une limite.
 
 > **NOTE:**
 >
-> Les ateliers du soir semblent avoir une participation moyenne plus élevée dans ce petit fichier fictif. Cette comparaison reste descriptive, car les ateliers du soir ne portent pas toujours sur les mêmes thèmes et le nombre d’observations est limité.
+> Dans cet extrait, le comptage moyen est plus élevé l’après-midi que le matin ou le soir. Le résultat décrit uniquement les mesures de la boucle Chevillon en juin 2016 et ne permet pas d’expliquer la cause de cette différence.
 
 ### Exercice 11 - Choisir une visualisation adaptée
 
-Choisissez une question parmi les deux suivantes, puis produisez un graphique adapté.
-
-1.  La satisfaction moyenne varie-t-elle selon le thème?
-2.  La participation varie-t-elle selon la température?
+Produisez un graphique du comptage moyen selon l’heure de la journée.
 
 > **NOTE:**
 >
 > ``` r
-> ateliers_dates |>
->   filter(!is.na(satisfaction_moyenne)) |>
->   ggplot(aes(x = theme, y = satisfaction_moyenne)) +
->   geom_point(size = 2.5, alpha = 0.8) +
+> velos_dates |>
+>   group_by(heure_jour) |>
+>   summarise(
+>     velos_moyens = mean(velos_total, na.rm = TRUE),
+>     .groups = "drop"
+>   ) |>
+>   ggplot(aes(x = heure_jour, y = velos_moyens)) +
+>   geom_line(linewidth = 1, color = "#2c7fb8") +
+>   geom_point(color = "#2c7fb8") +
 >   labs(
->     title = "Satisfaction moyenne selon le thème",
->     x = "Thème",
->     y = "Satisfaction moyenne"
+>     title = "Profil horaire des comptages vélos",
+>     x = "Heure",
+>     y = "Nombre moyen de vélos"
 >   )
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-10-1.png)
 
-### Exercice 12 - Construire un petit tableau de synthèse
+### Exercice 12 - Construire un tableau de synthèse quotidien
 
-Créez un tableau de synthèse par campus avec le nombre d’ateliers, la participation totale, la participation moyenne et la satisfaction moyenne.
+Créez un tableau par date avec le total quotidien, la moyenne par intervalle et le maximum observé sur 15 minutes.
 
 > **NOTE:**
 >
 > ``` r
-> ateliers_dates |>
->   group_by(campus) |>
+> velos_dates |>
+>   group_by(date) |>
 >   summarise(
->     n_ateliers = n(),
->     participation_totale = sum(participants, na.rm = TRUE),
->     participation_moyenne = mean(participants, na.rm = TRUE),
->     satisfaction_moyenne = mean(satisfaction_moyenne, na.rm = TRUE),
+>     total_quotidien = sum(velos_total, na.rm = TRUE),
+>     moyenne_intervalle = mean(velos_total, na.rm = TRUE),
+>     maximum_intervalle = max(velos_total, na.rm = TRUE),
 >     .groups = "drop"
->   )
+>   ) |>
+>   arrange(desc(total_quotidien))
 > ```
 >
->     # A tibble: 2 × 5
->       campus n_ateliers participation_totale participation_moyenne
->       <chr>       <int>                <dbl>                 <dbl>
->     1 Levis           8                  129                  16.1
->     2 Quebec         16                  461                  28.8
->     # ℹ 1 more variable: satisfaction_moyenne <dbl>
+>     # A tibble: 28 × 4
+>        date       total_quotidien moyenne_intervalle maximum_intervalle
+>        <date>               <dbl>              <dbl>              <dbl>
+>      1 2016-06-24            2003               20.9                124
+>      2 2016-06-16            1509               15.7                 53
+>      3 2016-06-15            1473               15.3                 50
+>      4 2016-06-14            1450               15.1                 56
+>      5 2016-06-18            1418               14.8                 55
+>      6 2016-06-30            1359               14.2                 41
+>      7 2016-06-19            1349               14.1                 50
+>      8 2016-06-07            1318               13.7                 66
+>      9 2016-06-21            1303               13.6                 48
+>     10 2016-06-23            1303               13.6                 58
+>     # ℹ 18 more rows
 
 ## Études de cas
 
-### Étude de cas 1 - Fréquentation fictive d’une bibliothèque
+### Étude de cas 1 - Qualité de l’air à Québec - Vieux-Limoilou
 
-Le fichier `data/frequentation_bibliotheque_fictive.csv` décrit de fausses observations de fréquentation dans des zones de bibliothèque.
+Le fichier `data/qualite_air_quebec_vieux_limoilou_2025_07.csv` contient 744 mesures horaires de juillet 2025 à la station Québec - Vieux-Limoilou. Les variables représentent des concentrations de contaminants et peuvent contenir des valeurs manquantes.
 
 Réalisez les tâches suivantes:
 
-1.  importez le fichier;
-2.  transformez `date_visite` en date;
-3.  créez `jour_semaine` et `moment_journee`;
-4.  résumez le nombre de visiteurs par zone et par moment de la journée;
-5.  calculez les corrélations entre `visiteurs`, `temperature_c` et `pluie_mm`;
-6.  produisez une visualisation utile;
+1.  importez le fichier et transformez `date_heure`;
+2.  créez `date`, `heure_jour` et `moment_journee`;
+3.  comptez les valeurs manquantes par contaminant;
+4.  résumez les concentrations moyennes par moment de la journée;
+5.  calculez une matrice de corrélation entre les contaminants;
+6.  produisez une visualisation temporelle des particules fines;
 7.  rédigez une conclusion prudente.
 
 > **NOTE:**
 >
 > ``` r
-> bibliotheque <- read_csv(
->   "data/frequentation_bibliotheque_fictive.csv",
+> air_quebec <- read_csv(
+>   "data/qualite_air_quebec_vieux_limoilou_2025_07.csv",
 >   show_col_types = FALSE
 > ) |>
 >   mutate(
->     date_visite = ymd(date_visite),
->     jour_semaine = wday(date_visite, label = TRUE, abbr = FALSE),
+>     date_heure = ymd_hms(date_heure),
+>     date = as_date(date_heure),
+>     heure_jour = hour(date_heure),
 >     moment_journee = case_when(
->       heure < 12 ~ "matin",
->       heure < 17 ~ "après-midi",
+>       heure_jour < 12 ~ "matin",
+>       heure_jour < 17 ~ "après-midi",
 >       TRUE ~ "soir"
 >     )
 >   )
+> ```
 >
-> bibliotheque |>
->   group_by(zone, moment_journee) |>
+>     Warning: There was 1 warning in `mutate()`.
+>     ℹ In argument: `date_heure = ymd_hms(date_heure)`.
+>     Caused by warning:
+>     !  31 failed to parse.
+>
+> ``` r
+> air_quebec |>
 >   summarise(
->     n_observations = n(),
->     visiteurs_moyens = mean(visiteurs),
+>     across(
+>       carbone_noir:dioxyde_soufre,
+>       ~ sum(is.na(.x)),
+>       .names = "manquants_{.col}"
+>     )
+>   )
+> ```
+>
+>     # A tibble: 1 × 5
+>       manquants_carbone_noir manquants_monoxyde_carbone manquants_ozone
+>                        <int>                      <int>           <int>
+>     1                     59                         31               7
+>     # ℹ 2 more variables: manquants_particules_fines <int>,
+>     #   manquants_dioxyde_soufre <int>
+>
+> ``` r
+> air_quebec |>
+>   group_by(moment_journee) |>
+>   summarise(
+>     across(carbone_noir:dioxyde_soufre, ~ mean(.x, na.rm = TRUE)),
 >     .groups = "drop"
 >   )
 > ```
 >
->     # A tibble: 3 × 4
->       zone          moment_journee n_observations visiteurs_moyens
->       <chr>         <chr>                   <int>            <dbl>
->     1 Collaboration après-midi                  8             58.2
->     2 Ordinateurs   soir                        8             65.9
->     3 Silence       matin                       8             44.4
+>     # A tibble: 3 × 6
+>       moment_journee carbone_noir monoxyde_carbone ozone particules_fines
+>       <chr>                 <dbl>            <dbl> <dbl>            <dbl>
+>     1 après-midi            0.560            0.220  30.9             14.8
+>     2 matin                 0.690            0.221  17.6             14.2
+>     3 soir                  0.798            0.240  26.4             16.2
+>     # ℹ 1 more variable: dioxyde_soufre <dbl>
 >
 > ``` r
-> bibliotheque |>
->   select(visiteurs, temperature_c, pluie_mm) |>
+> air_quebec |>
+>   select(carbone_noir:dioxyde_soufre) |>
 >   cor(use = "complete.obs") |>
 >   round(2)
 > ```
 >
->                   visiteurs temperature_c pluie_mm
->     visiteurs          1.00          0.63    -0.27
->     temperature_c      0.63          1.00    -0.48
->     pluie_mm          -0.27         -0.48     1.00
+>                      carbone_noir monoxyde_carbone ozone particules_fines
+>     carbone_noir             1.00             0.83  0.04             0.79
+>     monoxyde_carbone         0.83             1.00  0.20             0.93
+>     ozone                    0.04             0.20  1.00             0.28
+>     particules_fines         0.79             0.93  0.28             1.00
+>     dioxyde_soufre          -0.04            -0.12  0.02            -0.07
+>                      dioxyde_soufre
+>     carbone_noir              -0.04
+>     monoxyde_carbone          -0.12
+>     ozone                      0.02
+>     particules_fines          -0.07
+>     dioxyde_soufre             1.00
 >
 > ``` r
-> bibliotheque |>
->   ggplot(aes(x = moment_journee, y = visiteurs, color = zone)) +
->   geom_point(size = 2.5, alpha = 0.8) +
+> air_quebec |>
+>   ggplot(aes(x = date_heure, y = particules_fines)) +
+>   geom_line(color = "#7b3294", linewidth = 0.5, na.rm = TRUE) +
 >   labs(
->     title = "Fréquentation fictive selon le moment de la journée",
->     x = "Moment de la journée",
->     y = "Nombre de visiteurs",
->     color = "Zone"
+>     title = "Particules fines à Québec - Vieux-Limoilou",
+>     subtitle = "Mesures horaires, juillet 2025",
+>     x = NULL,
+>     y = "PM2,5"
 >   )
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-12-1.png)
 >
-> Une conclusion prudente pourrait indiquer que les observations du soir semblent plus fréquentées dans ce fichier, surtout dans la zone des ordinateurs. Cette conclusion reste descriptive, car la semaine d’examens, la zone et le campus varient en même temps.
+> Une conclusion prudente peut décrire les variations horaires et les associations observées. Elle doit toutefois rester limitée à une station et à un mois, sans attribuer les concentrations à une cause précise.
 
-### Étude de cas 2 - Demandes fictives de services campus
+### Étude de cas 2 - Débits de circulation à Gatineau
 
-Le fichier `data/demandes_services_campus_fictif.csv` décrit de fausses demandes adressées à des services de campus.
+Le fichier `data/debits_circulation_gatineau_2016_2023.csv` est un extrait pédagogique des débits publiés par la Ville de Gatineau pour différentes intersections, approches, directions et années. Il conserve 150 lignes par année pour alléger les calculs, mais ne constitue pas un échantillon représentatif du territoire.
 
 Réalisez les tâches suivantes:
 
-1.  importez le fichier;
-2.  transformez `date_demande` en date;
-3.  résumez les délais par service et par priorité;
-4.  calculez les corrélations entre `delai_heures`, `satisfaction` et `cout_estime`;
+1.  importez le fichier et inspectez les valeurs manquantes;
+2.  créez une estimation du nombre de véhicules lourds;
+3.  résumez les débits par secteur et par année;
+4.  calculez les corrélations entre l’année, le débit, la proportion de véhicules lourds et le nombre estimé de véhicules lourds;
 5.  produisez une visualisation utile;
 6.  rédigez une conclusion prudente.
 
 > **NOTE:**
 >
 > ``` r
-> demandes <- read_csv(
->   "data/demandes_services_campus_fictif.csv",
+> debits <- read_csv(
+>   "data/debits_circulation_gatineau_2016_2023.csv",
 >   show_col_types = FALSE
 > ) |>
 >   mutate(
->     date_demande = ymd(date_demande),
->     jour_semaine = wday(date_demande, label = TRUE, abbr = FALSE)
+>     vehicules_lourds_estimes =
+>       debit_total_24h * pourcentage_vehicules_lourds / 100
 >   )
 >
-> demandes |>
->   group_by(service, priorite) |>
->   summarise(
->     n_demandes = n(),
->     delai_moyen = mean(delai_heures, na.rm = TRUE),
->     satisfaction_moyenne = mean(satisfaction, na.rm = TRUE),
->     .groups = "drop"
->   ) |>
->   arrange(desc(delai_moyen))
+> debits |>
+>   summarise(across(everything(), ~ sum(is.na(.x))))
 > ```
 >
->     # A tibble: 12 × 5
->        service      priorite n_demandes delai_moyen satisfaction_moyenne
->        <chr>        <chr>         <int>       <dbl>                <dbl>
->      1 Entretien    Basse             2        76                   3
->      2 Entretien    Normale           2        59                   3.2
->      3 Entretien    Elevee            2        45                   3.55
->      4 Salles       Basse             1        44                   3.3
->      5 Salles       Normale           2        34.5                 3.8
->      6 Informatique Basse             1        27                   4
->      7 Bibliotheque Basse             2        22                   4.5
->      8 Salles       Elevee            2        20.5                 4.05
->      9 Informatique Normale           4        17.5                 4.3
->     10 Bibliotheque Normale           3        13                   4.77
->     11 Bibliotheque Elevee            1        10                   4.8
->     12 Informatique Elevee            2         8.5                 4.6
+>     # A tibble: 1 × 8
+>       secteur intersection approche direction_circulation debit_total_24h
+>         <int>        <int>    <int>                 <int>           <int>
+>     1       0            0      154                     4               0
+>     # ℹ 3 more variables: pourcentage_vehicules_lourds <int>, annee <int>,
+>     #   vehicules_lourds_estimes <int>
 >
 > ``` r
-> demandes |>
->   select(delai_heures, satisfaction, cout_estime) |>
+> debits |>
+>   group_by(secteur, annee) |>
+>   summarise(
+>     n_observations = n(),
+>     debit_median = median(debit_total_24h, na.rm = TRUE),
+>     pourcentage_lourds_moyen = mean(
+>       pourcentage_vehicules_lourds,
+>       na.rm = TRUE
+>     ),
+>     .groups = "drop"
+>   )
+> ```
+>
+>     # A tibble: 26 × 5
+>        secteur    annee n_observations debit_median pourcentage_lourds_moyen
+>        <chr>      <dbl>          <int>        <dbl>                    <dbl>
+>      1 Aylmer      2017             52          750                     7.85
+>      2 Aylmer      2018             72         7150                     5.93
+>      3 Aylmer      2019             45         1100                     7.93
+>      4 Aylmer      2020            150         1000                     7.32
+>      5 Aylmer      2021             48         1600                     4.40
+>      6 Aylmer      2022             52          700                     5.78
+>      7 Buckingham  2016              5         4000                     0
+>      8 Buckingham  2017              6         1200                     9.37
+>      9 Buckingham  2019             10         1800                     9.35
+>     10 Buckingham  2022              7         3100                     5.07
+>     # ℹ 16 more rows
+>
+> ``` r
+> debits |>
+>   select(
+>     annee,
+>     debit_total_24h,
+>     pourcentage_vehicules_lourds,
+>     vehicules_lourds_estimes
+>   ) |>
 >   cor(use = "complete.obs") |>
 >   round(2)
 > ```
 >
->                  delai_heures satisfaction cout_estime
->     delai_heures         1.00        -0.95        0.91
->     satisfaction        -0.95         1.00       -0.90
->     cout_estime          0.91        -0.90        1.00
+>                                  annee debit_total_24h pourcentage_vehicules_lourds
+>     annee                         1.00           -0.11                        -0.10
+>     debit_total_24h              -0.11            1.00                         0.01
+>     pourcentage_vehicules_lourds -0.10            0.01                         1.00
+>     vehicules_lourds_estimes     -0.08            0.27                         0.78
+>                                  vehicules_lourds_estimes
+>     annee                                           -0.08
+>     debit_total_24h                                  0.27
+>     pourcentage_vehicules_lourds                     0.78
+>     vehicules_lourds_estimes                         1.00
 >
 > ``` r
-> demandes |>
->   ggplot(aes(x = delai_heures, y = satisfaction, color = service)) +
->   geom_point(size = 2.5, alpha = 0.8) +
->   geom_smooth(method = "lm", se = FALSE, color = "black") +
+> debits |>
+>   ggplot(
+>     aes(
+>       x = debit_total_24h,
+>       y = pourcentage_vehicules_lourds,
+>       color = secteur
+>     )
+>   ) +
+>   geom_point(alpha = 0.35) +
 >   labs(
->     title = "Délai de traitement et satisfaction",
->     x = "Délai de traitement (heures)",
->     y = "Satisfaction",
->     color = "Service"
+>     title = "Débit total et part des véhicules lourds",
+>     x = "Débit total sur 24 heures",
+>     y = "Véhicules lourds (%)",
+>     color = "Secteur"
 >   )
 > ```
 >
->     `geom_smooth()` using formula = 'y ~ x'
->
->     Warning: Removed 1 row containing non-finite outside the scale range
->     (`stat_smooth()`).
->
->     Warning: Removed 1 row containing missing values or values outside the scale range
+>     Warning: Removed 7 rows containing missing values or values outside the scale range
 >     (`geom_point()`).
 >
 > ![](exercices_files/figure-html/unnamed-chunk-13-1.png)
 >
-> Une conclusion prudente pourrait indiquer que les demandes avec de longs délais semblent associées à une satisfaction plus faible dans ce fichier fictif. On ne peut toutefois pas conclure que le délai cause directement la satisfaction, car la priorité, le type de service et la complexité des demandes peuvent aussi intervenir.
+> Une conclusion prudente peut comparer les groupes présents dans le fichier. Elle doit rappeler que les lieux et années observés diffèrent, et que le nombre estimé de véhicules lourds est calculé directement à partir du débit total et du pourcentage.

@@ -123,7 +123,7 @@ La consigne complète est disponible dans la page [Défi 5](defi.llms.md).
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Portée Ces exercices ne sont pas la suite du défi. Ils utilisent des données fictives d'ateliers, de bibliothèque et de services campus pour pratiquer les mêmes gestes dans d'autres contextes.
+Portée Ces exercices ne sont pas la suite du défi. Ils utilisent des comptages vélos de Laval, des mesures de qualité de l'air à Québec et des débits de circulation de Gatineau.
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
@@ -131,7 +131,7 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023)
+[flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023) [Comptages vélos de Laval](data/comptages_velos_laval_2016_06.csv) [Qualité de l'air à Québec](data/qualite_air_quebec_vieux_limoilou_2025_07.csv) [Débits de circulation de Gatineau](data/debits_circulation_gatineau_2016_2023.csv)
 
 ### Packages R
 

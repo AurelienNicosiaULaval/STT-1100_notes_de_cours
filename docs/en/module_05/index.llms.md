@@ -123,7 +123,7 @@ The full instructions are available in the [Challenge 5](defi.llms.md) page.
 
 Resource [Exercises page](exercices.llms.md)
 
-Scope These exercises are not the continuation of the challenge. They use fictitious workshop, library and campus-service data to practise the same moves in other contexts.
+Scope These exercises are not the continuation of the challenge. They use Laval bicycle counts, Québec City air-quality measurements and Gatineau traffic volumes.
 
 Redo at least one passage without looking at the solution immediately.
 
@@ -131,7 +131,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023)
+[flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023) [Laval bicycle counts](data/comptages_velos_laval_2016_06.csv) [Québec City air quality](data/qualite_air_quebec_vieux_limoilou_2025_07.csv) [Gatineau traffic volumes](data/debits_circulation_gatineau_2016_2023.csv)
 
 ### R packages
 
