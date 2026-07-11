@@ -14,6 +14,7 @@ Ces exercices sont indépendants de l'aventure et du défi. Ils consolident la r
 Les deux fichiers proviennent du jeu [Stratégie québécoise d'économie d'eau potable 2019-2025](https://www.donneesquebec.ca/recherche/dataset/sqeep-2019-2025){target="_blank"} du ministère des Affaires municipales et de l'Habitation. Les données ont été déclarées par les municipalités participantes et approuvées par le Ministère. Elles sont diffusées sous licence CC BY 4.0.
 
 ```{r setup}
+#| include: false
 library(tidyverse)
 
 moyenne_si_disponible <- function(x) {
@@ -27,6 +28,9 @@ moyenne_si_disponible <- function(x) {
 
 Importez `consommation_eau_municipalites_2023.csv`. Chaque ligne représente une municipalité québécoise dont les variables nécessaires sont disponibles et dont la population desservie atteint au moins 500 personnes.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 eau <- read_csv(
   "data/consommation_eau_municipalites_2023.csv",
@@ -35,6 +39,7 @@ eau <- read_csv(
 
 glimpse(eau)
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Le tableau contient 496 municipalités réparties dans les 17 régions administratives. La variable `eau_distribuee_l_pers_j` sera la réponse. Le filtre de disponibilité rend le modèle possible, mais il limite la population à laquelle les résultats peuvent être généralisés.
@@ -43,6 +48,9 @@ Le tableau contient 496 municipalités réparties dans les 17 régions administr
 ### Exercice 2 - Visualiser la relation principale
 
 Tracez la quantité d'eau distribuée selon la consommation résidentielle. Ajoutez une droite de régression.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 ggplot(
@@ -61,6 +69,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 La relation est positive, mais la dispersion demeure importante. La consommation résidentielle ne représente qu'une partie de l'eau distribuée et le graphique ne démontre pas une relation causale.
@@ -70,6 +79,9 @@ La relation est positive, mais la dispersion demeure importante. La consommation
 
 Ajustez un modèle qui prédit la quantité d'eau distribuée à partir de la consommation résidentielle.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 modele_simple <- lm(
   eau_distribuee_l_pers_j ~ consommation_residentielle_l_pers_j,
@@ -78,6 +90,7 @@ modele_simple <- lm(
 
 summary(modele_simple)
 ```
+:::
 
 Interprétez la pente dans vos mots.
 
@@ -91,6 +104,9 @@ La pente estime la variation moyenne prédite de l'eau distribuée lorsque la co
 
 Ajoutez la population desservie, exprimée en milliers de personnes, et le nombre moyen de personnes par résidence.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 modele_multiple <- lm(
   eau_distribuee_l_pers_j ~
@@ -102,6 +118,7 @@ modele_multiple <- lm(
 
 summary(modele_multiple)
 ```
+:::
 
 Comparez l'interprétation du coefficient de `consommation_residentielle_l_pers_j` avec celle du modèle simple.
 
@@ -112,6 +129,9 @@ Dans le modèle multiple, le coefficient est interprété à population desservi
 ### Exercice 5 - Produire des prédictions
 
 Construisez deux scénarios situés dans la plage des données, puis prédisez la quantité d'eau distribuée.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 scenarios_eau <- tibble(
@@ -130,6 +150,7 @@ predictions_eau <- scenarios_eau |>
 
 predictions_eau
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Ces valeurs sont des scénarios pédagogiques, pas des municipalités observées. Les prédictions sont des valeurs attendues selon le modèle et deviennent plus fragiles loin de la plage des données d'ajustement.
@@ -138,6 +159,9 @@ Ces valeurs sont des scénarios pédagogiques, pas des municipalités observées
 ### Exercice 6 - Comparer les valeurs observées et prédites
 
 Calculez les erreurs du modèle multiple et repérez les six plus grandes erreurs absolues.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 diagnostic_modele <- eau |>
@@ -159,20 +183,28 @@ diagnostic_modele |>
   ) |>
   slice_head(n = 6)
 ```
+:::
 
 Calculez ensuite l'erreur quadratique moyenne.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 rmse_eau <- sqrt(mean(diagnostic_modele$erreur_l_pers_j^2))
 
 rmse_eau
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Une grande erreur peut signaler une municipalité atypique, une variable importante absente ou une mesure incertaine. Elle ne constitue pas automatiquement une erreur dans les données.
 :::
 
 ### Exercice 7 - Visualiser les erreurs
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 ggplot(
@@ -188,6 +220,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Cherchez des motifs, des groupes séparés et des points isolés. Une dispersion qui augmente avec les prédictions signale notamment que l'incertitude n'est peut-être pas constante.
@@ -199,6 +232,9 @@ Cherchez des motifs, des groupes séparés et des points isolés. Une dispersion
 
 Importez `validite_audits_eau_2023.csv`. Le fichier contient les 1 104 municipalités du tableau source, y compris celles pour lesquelles l'indice de validité n'est pas disponible.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 validite <- read_csv(
   "data/validite_audits_eau_2023.csv",
@@ -207,6 +243,7 @@ validite <- read_csv(
 
 glimpse(validite)
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Une valeur manquante ne signifie pas que l'audit est invalide. Elle indique que l'indice n'est pas disponible dans cette ressource. Confondre absence et échec produirait une conclusion incorrecte.
@@ -215,6 +252,9 @@ Une valeur manquante ne signifie pas que l'audit est invalide. Elle indique que 
 ### Exercice 9 - Comparer la disponibilité par région
 
 Calculez la proportion de municipalités pour lesquelles l'indice est disponible, puis produisez un graphique.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 disponibilite_region <- validite |>
@@ -243,6 +283,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Les écarts de couverture sont descriptifs. Ils peuvent refléter la participation, la disponibilité des mesures, la taille des réseaux ou d'autres mécanismes non observés.
@@ -251,6 +292,9 @@ Les écarts de couverture sont descriptifs. Ils peuvent refléter la participati
 ### Exercice 10 - Ajouter le type de municipalité
 
 Parmi les municipalités dont l'indice est disponible, comparez sa moyenne selon le type de municipalité.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 validite_type <- validite |>
@@ -269,6 +313,7 @@ validite_type <- validite |>
 
 validite_type
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Cette comparaison porte uniquement sur les municipalités avec un indice publié. Si la disponibilité n'est pas aléatoire, les moyennes observées peuvent ne pas représenter toutes les municipalités du même type.
@@ -292,6 +337,9 @@ Votre mandat:
 2. produire trois scénarios situés dans la plage observée;
 3. communiquer trois limites avant d'utiliser les prédictions.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 scenarios_programme <- tibble(
   consommation_residentielle_l_pers_j = c(160, 210, 275),
@@ -307,6 +355,7 @@ scenarios_programme |>
     )
   )
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Les limites incluent la sélection des cas complets, les variables absentes du modèle, les valeurs extrêmes et l'impossibilité de donner une interprétation causale aux coefficients.
@@ -315,6 +364,9 @@ Les limites incluent la sélection des cas complets, les variables absentes du m
 ## Étude de cas 2 - Auditer la couverture des audits
 
 Un comité veut savoir si son portrait de la validité des données couvre uniformément les municipalités québécoises.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 resume_audit <- validite |>
@@ -329,6 +381,7 @@ resume_audit <- validite |>
 
 resume_audit
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Le tableau permet de repérer des groupes moins couverts, mais pas d'attribuer une cause aux écarts. Avant de comparer la qualité des audits, il faut distinguer l'indice observé de sa disponibilité et examiner les mécanismes de participation et de mesure.

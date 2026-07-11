@@ -14,6 +14,7 @@ These exercises are independent from the adventure and the challenge. They conso
 Both files come from the Quebec Ministry of Municipal Affairs and Housing dataset [Stratégie québécoise d'économie d'eau potable 2019-2025](https://www.donneesquebec.ca/recherche/dataset/sqeep-2019-2025){target="_blank"}. The data were reported by participating municipalities and approved by the Ministry. They are distributed under the CC BY 4.0 licence.
 
 ```{r setup}
+#| include: false
 library(tidyverse)
 
 mean_if_available <- function(x) {
@@ -27,6 +28,9 @@ mean_if_available <- function(x) {
 
 Import `municipal_water_consumption_2023.csv`. Each row represents a Quebec municipality for which the required variables are available and whose population served reaches at least 500 people.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 water <- read_csv(
   "data/municipal_water_consumption_2023.csv",
@@ -35,6 +39,7 @@ water <- read_csv(
 
 glimpse(water)
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 The table contains 496 municipalities across all 17 administrative regions. `distributed_water_l_person_day` is the response. Filtering for available data makes modelling possible, but limits the population to which the results can be generalized.
@@ -43,6 +48,9 @@ The table contains 496 municipalities across all 17 administrative regions. `dis
 ### Exercise 2 - Visualize the main relationship
 
 Plot distributed water quantity against residential consumption. Add a regression line.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 ggplot(
@@ -61,6 +69,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 The relationship is positive, but substantial dispersion remains. Residential consumption accounts for only part of distributed water, and the chart does not demonstrate a causal relationship.
@@ -70,6 +79,9 @@ The relationship is positive, but substantial dispersion remains. Residential co
 
 Fit a model that predicts distributed water from residential consumption.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 simple_model <- lm(
   distributed_water_l_person_day ~ residential_consumption_l_person_day,
@@ -78,6 +90,7 @@ simple_model <- lm(
 
 summary(simple_model)
 ```
+:::
 
 Interpret the slope in your own words.
 
@@ -91,6 +104,9 @@ The slope estimates the average predicted change in distributed water when resid
 
 Add the population served, expressed in thousands of people, and the average number of people per residence.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 multiple_model <- lm(
   distributed_water_l_person_day ~
@@ -102,6 +118,7 @@ multiple_model <- lm(
 
 summary(multiple_model)
 ```
+:::
 
 Compare the interpretation of the `residential_consumption_l_person_day` coefficient with the one from the simple model.
 
@@ -112,6 +129,9 @@ In the multiple model, the coefficient is interpreted while holding population s
 ### Exercise 5 - Produce predictions
 
 Build two scenarios within the range of the data, then predict distributed water.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 water_scenarios <- tibble(
@@ -130,6 +150,7 @@ water_predictions <- water_scenarios |>
 
 water_predictions
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 These values are teaching scenarios, not observed municipalities. Predictions are expected values under the model and become more fragile outside the range of the fitting data.
@@ -138,6 +159,9 @@ These values are teaching scenarios, not observed municipalities. Predictions ar
 ### Exercise 6 - Compare observed and predicted values
 
 Calculate the multiple-model errors and identify the six largest absolute errors.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 model_diagnostics <- water |>
@@ -160,20 +184,28 @@ model_diagnostics |>
   ) |>
   slice_head(n = 6)
 ```
+:::
 
 Then calculate a root mean squared error.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 water_rmse <- sqrt(mean(model_diagnostics$error_l_person_day^2))
 
 water_rmse
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 A large error may indicate an unusual municipality, an important missing variable or uncertain measurement. It does not automatically constitute a data error.
 :::
 
 ### Exercise 7 - Visualize errors
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 ggplot(
@@ -189,6 +221,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Look for patterns, separated groups and isolated points. Increasing dispersion as predictions grow can indicate that uncertainty is not constant.
@@ -200,6 +233,9 @@ Look for patterns, separated groups and isolated points. Increasing dispersion a
 
 Import `water_audit_validity_2023.csv`. It contains all 1,104 municipalities in the source table, including those for which the validity index is unavailable.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 validity <- read_csv(
   "data/water_audit_validity_2023.csv",
@@ -208,6 +244,7 @@ validity <- read_csv(
 
 glimpse(validity)
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 A missing value does not mean that an audit is invalid. It indicates that the index is unavailable in this resource. Treating absence as failure would produce an incorrect conclusion.
@@ -216,6 +253,9 @@ A missing value does not mean that an audit is invalid. It indicates that the in
 ### Exercise 9 - Compare availability by region
 
 Calculate the proportion of municipalities for which the index is available, then produce a chart.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 availability_by_region <- validity |>
@@ -244,6 +284,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Coverage differences are descriptive. They may reflect participation, measurement availability, network size or other unobserved mechanisms.
@@ -252,6 +293,9 @@ Coverage differences are descriptive. They may reflect participation, measuremen
 ### Exercise 10 - Add municipality type
 
 Among municipalities with an available index, compare its mean by municipality type.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 validity_by_type <- validity |>
@@ -270,6 +314,7 @@ validity_by_type <- validity |>
 
 validity_by_type
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 This comparison only includes municipalities with a published index. If availability is not random, observed means may not represent every municipality of the same type.
@@ -293,6 +338,9 @@ Your task:
 2. produce three scenarios within the observed range;
 3. communicate three limits before using the predictions.
 
+::: {.callout-note collapse="true"}
+### Solution
+
 ```{r}
 program_scenarios <- tibble(
   residential_consumption_l_person_day = c(160, 210, 275),
@@ -308,6 +356,7 @@ program_scenarios |>
     )
   )
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 Limitations include complete-case selection, variables omitted from the model, extreme values and the impossibility of giving coefficients a causal interpretation.
@@ -316,6 +365,9 @@ Limitations include complete-case selection, variables omitted from the model, e
 ## Case Study 2 - Audit water-audit coverage
 
 A committee wants to know whether its picture of data validity covers Quebec municipalities evenly.
+
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 audit_summary <- validity |>
@@ -330,6 +382,7 @@ audit_summary <- validity |>
 
 audit_summary
 ```
+:::
 
 ::: {.callout-tip collapse="true"}
 The table can identify less-covered groups, but cannot assign a cause to the differences. Before comparing audit quality, distinguish the observed index from its availability and investigate participation and measurement mechanisms.

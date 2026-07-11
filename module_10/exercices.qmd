@@ -14,6 +14,7 @@ Ces exercices sont indépendants de l'aventure et du défi. Ils consolident l'an
 Le premier fichier contient un échantillon équilibré de descriptions tirées de l'[API officielle de Données Québec](https://www.donneesquebec.ca/page-api/){target="_blank"}. Le second provient du jeu [Événements - Système d'information touristique Québec](https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements){target="_blank"} du ministère du Tourisme. Les sources sont diffusées sous licence CC BY 4.0.
 
 ```{r setup}
+#| include: false
 library(tidyverse)
 library(tidytext)
 library(stringr)
@@ -27,6 +28,9 @@ library(forcats)
 
 Importez `descriptions_donnees_quebec.csv`. Chaque ligne représente une fiche réelle du portail, avec son titre, sa description, son producteur et sa catégorie.
 
+:::: {.callout-note collapse="true"}
+## Solution
+
 ```{r}
 catalogue <- read_csv(
   "data/descriptions_donnees_quebec.csv",
@@ -39,10 +43,14 @@ glimpse(catalogue)
 ::: {.callout-tip collapse="true"}
 L'échantillon contient 89 fiches provenant de huit villes: Québec, Gatineau, Sherbrooke, Trois-Rivières, Saguenay, Laval, Longueuil et Montréal. Montréal représente un producteur sur huit.
 :::
+::::
 
 ### Exercice 2 - Vérifier la structure
 
 Calculez le nombre de fiches par producteur et le nombre de catégories distinctes.
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 catalogue |>
@@ -58,8 +66,12 @@ catalogue |>
 ::: {.callout-tip collapse="true"}
 La sélection est équilibrée par producteur, mais elle ne représente pas tout le catalogue. Elle privilégie les fiches récemment mises à jour dont la description contient au moins 50 caractères.
 :::
+::::
 
 ### Exercice 3 - Tokeniser et retirer les stopwords
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 stop_fr <- stopwords("fr", source = "snowball")
@@ -79,8 +91,12 @@ tokens_catalogue |>
 ::: {.callout-tip collapse="true"}
 Une ligne correspond maintenant à un mot conservé. Les fréquences donnent un premier portrait, mais le contexte d'une description doit être relu avant toute interprétation.
 :::
+::::
 
 ### Exercice 4 - Comparer les mots par producteur
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 mots_par_producteur <- tokens_catalogue |>
@@ -110,12 +126,16 @@ ggplot(
 ::: {.callout-tip collapse="true"}
 Une différence peut venir des thèmes publiés, du vocabulaire institutionnel ou de la taille des descriptions. Elle ne mesure pas directement la qualité des données.
 :::
+::::
 
 ## Bloc B - Construire un score lexical simple
 
 ### Exercice 5 - Créer un lexique de précision
 
 Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les mots très généraux `-1`.
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 lexique_precision <- tibble(
@@ -135,8 +155,12 @@ lexique_precision
 ::: {.callout-tip collapse="true"}
 Ce score ne constitue pas une mesure validée de qualité rédactionnelle. Il sert à comprendre la mécanique d'un score fondé sur un lexique et doit toujours être accompagné d'une lecture humaine.
 :::
+::::
 
 ### Exercice 6 - Calculer un score par fiche
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 scores_fiches <- tokens_catalogue |>
@@ -173,8 +197,12 @@ scores_fiches |>
 ::: {.callout-tip collapse="true"}
 Un score nul peut signifier que le vocabulaire est neutre, mais aussi qu'aucun mot du petit lexique n'a été reconnu. La colonne `mots_reconnus` est donc indispensable.
 :::
+::::
 
 ### Exercice 7 - Résumer le score par producteur
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 precision_producteur <- scores_fiches |>
@@ -207,10 +235,14 @@ ggplot(
 ::: {.callout-tip collapse="true"}
 Le graphique compare l'échantillon, pas la qualité globale des producteurs. Les différences de sujets et de style rédactionnel peuvent expliquer une partie des écarts.
 :::
+::::
 
 ## Bloc C - Repérer les mots distinctifs
 
 ### Exercice 8 - Calculer le TF-IDF par producteur
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 tfidf_producteur <- tokens_catalogue |>
@@ -227,8 +259,12 @@ tfidf_producteur |>
 ::: {.callout-tip collapse="true"}
 Un mot distinctif est relativement plus associé à un producteur qu'aux autres. Il n'est pas nécessairement positif, négatif ou important pour les utilisateurs.
 :::
+::::
 
 ### Exercice 9 - Visualiser les mots distinctifs
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 tfidf_top <- tfidf_producteur |>
@@ -251,10 +287,14 @@ ggplot(tfidf_top, aes(x = tf_idf, y = mot)) +
 ::: {.callout-tip collapse="true"}
 Revenez aux descriptions originales pour vérifier le sens des mots avant de rédiger une conclusion.
 :::
+::::
 
 ## Bloc D - Préparer une sortie de tableau de bord
 
 ### Exercice 10 - Construire un tableau de synthèse
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 resume_dashboard <- scores_fiches |>
@@ -276,8 +316,12 @@ resume_dashboard
 ::: {.callout-tip collapse="true"}
 Le tableau sépare la préparation des indicateurs de leur affichage. Un tableau de bord pourrait ensuite présenter des cartes, des graphiques et les descriptions sources.
 :::
+::::
 
 ### Exercice 11 - Simuler un filtre
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 producteur_choisi <- "Ville de Québec"
@@ -289,6 +333,7 @@ resume_dashboard |>
 ::: {.callout-tip collapse="true"}
 Dans une application `shiny`, la valeur pourrait venir d'un menu. L'opération analytique reste un filtre sur un tableau préparé.
 :::
+::::
 
 ## Étude de cas 1 - Qualité des descriptions de données
 
@@ -299,6 +344,9 @@ Votre mandat:
 1. choisir deux indicateurs parmi le score, les mots reconnus, le nombre de ressources et la récence;
 2. repérer quelques fiches à relire;
 3. formuler une recommandation qui reconnaît les limites du lexique.
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 fiches_a_relire <- scores_fiches |>
@@ -319,10 +367,14 @@ fiches_a_relire
 ::: {.callout-tip collapse="true"}
 Le score peut prioriser une lecture, mais ne doit pas déclencher automatiquement une correction. Le lexique est petit, les sujets diffèrent et une description générale peut tout de même être exacte et utile.
 :::
+::::
 
 ## Étude de cas 2 - Événements touristiques québécois
 
 Importez `evenements_touristiques_quebec.csv`. La colonne `texte` combine des champs publics du SIT Québec pour fournir un corpus court et reproductible.
+
+:::: {.callout-note collapse="true"}
+## Solution
 
 ```{r}
 evenements <- read_csv(
@@ -365,3 +417,4 @@ resume_evenements
 ::: {.callout-tip collapse="true"}
 Deux visuels utiles seraient un graphique TF-IDF par type d'événement et un graphique de couverture par région. L'échantillon est équilibré à un maximum de huit événements par région touristique; il ne mesure donc pas le volume réel de toute l'offre touristique.
 :::
+::::
