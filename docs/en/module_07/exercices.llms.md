@@ -15,17 +15,6 @@ library(tidyverse)
 library(scales)
 ```
 
-## Readings to Review
-
-- [R for Data Science - Communication](https://r4ds.hadley.nz/communication.html)
-- [Fundamentals of Data Visualization - Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
-- [Royal Statistical Society - Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/RSS-data-vis-guide.pdf)
-- [Gouvernement du Québec - Anonymisation](https://www.quebec.ca/gouvernement/travailler-gouvernement/normes-gouvernance-pratiques-internes/protection-des-renseignements-personnels/anonymisation)
-- [CNIL - Data anonymization](https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles)
-- [Wilkinson et al. (2016) - FAIR Guiding Principles](https://www.nature.com/articles/sdata201618)
-
-After the readings, also complete the [formative mini-test](../module_07/mini_test.llms.md). It is not graded.
-
 ## Block A - Diagnose a Visualization
 
 ### Exercise 1 - Compare Two Axes

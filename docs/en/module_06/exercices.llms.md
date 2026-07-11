@@ -14,19 +14,6 @@ These exercises are independent from the adventure and challenge. They consolida
 library(tidyverse)
 ```
 
-## Readings to Review
-
-- [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world)
-- [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
-- [GitHub Docs - Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)
-- [GitHub Docs - About pull requests](https://docs.github.com/en/pull-requests)
-- [GitHub Docs - About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
-- [Quarto Docs - Inline code](https://quarto.org/docs/computations/inline-code.html)
-- [Quarto Docs - Execution options](https://quarto.org/docs/computations/execution-options.html)
-- [R for Data Science - Joins](https://r4ds.hadley.nz/joins.html)
-
-After the readings, also complete the [formative mini-test](../module_06/mini_test.llms.md). It is not graded.
-
 ## Block A - Understand Join Keys
 
 ### Exercise 1 - Import Organizations and Datasets

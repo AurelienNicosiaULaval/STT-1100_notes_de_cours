@@ -15,17 +15,6 @@ library(tidyverse)
 library(lubridate)
 ```
 
-## Readings to Review
-
-- [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html)
-- [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
-- [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html)
-- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html)
-- [Introduction to Modern Statistics - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
-- [Introduction to Modern Statistics - Applications: Explore](https://openintrostat.github.io/ims/explore-applications)
-
-After the readings, also complete the [formative mini-test](../module_05/mini_test.llms.md). It is not graded.
-
 ## Block A - Dates, Structure and Missing Values
 
 The file `data/comptages_velos_laval_2016_06.csv` contains counts recorded every 15 minutes at Laval’s Chevillon loop in June 2016. The source’s French field names are retained.

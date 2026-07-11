@@ -14,17 +14,6 @@ library(rvest)
 library(purrr)
 ```
 
-## Readings to Review
-
-- [R for Data Science - Web scraping](https://r4ds.hadley.nz/webscraping.html)
-- [R for Data Science - Functions](https://r4ds.hadley.nz/functions.html)
-- [R for Data Science - Iteration](https://r4ds.hadley.nz/iteration.html)
-- [Official rvest documentation](https://rvest.tidyverse.org/)
-- [MDN - robots.txt](https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt)
-- [Google Search Central - Introduction to robots.txt](https://developers.google.com/search/docs/crawling-indexing/robots/intro)
-
-After the readings, also complete the [formative mini-test](../module_08/mini_test.llms.md). It is not graded.
-
 ## Block A - Read a Local HTML Page
 
 ### Exercise 1 - Import an HTML Page

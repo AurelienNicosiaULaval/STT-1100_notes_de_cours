@@ -15,17 +15,6 @@ library(tidyverse)
 library(lubridate)
 ```
 
-## Lectures à revoir
-
-- [R for Data Science - Exploratory data analysis](https://r4ds.hadley.nz/EDA.html)
-- [R for Data Science - Dates and times](https://r4ds.hadley.nz/datetimes.html)
-- [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html)
-- [R for Data Science - Missing values](https://r4ds.hadley.nz/missing-values.html)
-- [Introduction to Modern Statistics - Exploring numerical data](https://openintrostat.github.io/ims/explore-numerical)
-- [Introduction to Modern Statistics - Applications: Explore](https://openintrostat.github.io/ims/explore-applications)
-
-Après les lectures, faites aussi le [mini-test formatif](../module_05/mini_test.llms.md). Il n’est pas noté.
-
 ## Bloc A - Dates, structure et valeurs manquantes
 
 Le fichier `data/comptages_velos_laval_2016_06.csv` contient les comptages effectués toutes les 15 minutes à la boucle Chevillon, à Laval, en juin 2016.

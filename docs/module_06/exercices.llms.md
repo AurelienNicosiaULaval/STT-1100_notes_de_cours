@@ -14,19 +14,6 @@ Ces exercices sont indépendants de l’aventure et du défi. Ils servent à con
 library(tidyverse)
 ```
 
-## Lectures à revoir
-
-- [GitHub Docs - Hello World](https://docs.github.com/en/get-started/quickstart/hello-world)
-- [GitHub Docs - About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
-- [GitHub Docs - Creating an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)
-- [GitHub Docs - About pull requests](https://docs.github.com/en/pull-requests)
-- [GitHub Docs - About merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)
-- [Quarto Docs - Inline code](https://quarto.org/docs/computations/inline-code.html)
-- [Quarto Docs - Execution options](https://quarto.org/docs/computations/execution-options.html)
-- [R for Data Science - Joins](https://r4ds.hadley.nz/joins.html)
-
-Après les lectures, faites aussi le [mini-test formatif](../module_06/mini_test.llms.md). Il n’est pas noté.
-
 ## Bloc A - Comprendre les clés de jointure
 
 ### Exercice 1 - Importer les organisations et les jeux
