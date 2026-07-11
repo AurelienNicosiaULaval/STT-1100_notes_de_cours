@@ -1,8 +1,8 @@
 # Consolidation Exercises
 
-These exercises are independent from the adventure and the challenge. They consolidate text analysis, TF-IDF, simple sentiment scores and dashboard preparation using fictitious datasets that differ from the STT-1100 feedback.
+These exercises are independent from the adventure and the challenge. They consolidate text analysis, lexical scores, TF-IDF and dashboard preparation using real public Quebec text.
 
-Before starting, review the module resources if needed: *Text Mining with R*, the `unnest_tokens()` documentation, the `bind_tf_idf()` documentation, the `flexdashboard` documentation, the introduction to `shiny` and the module formative mini-test.
+The first file contains a balanced sample of descriptions from the [official Données Québec API](https://www.donneesquebec.ca/page-api/). The second comes from the Ministry of Tourism dataset [Événements - Système d’information touristique Québec](https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements). Both sources are distributed under the CC BY 4.0 licence.
 
 ``` r
 library(tidyverse)
@@ -12,150 +12,141 @@ library(stopwords)
 library(forcats)
 ```
 
-## Block A - Turn comments into tokens
+## Block A - Turn descriptions into tokens
 
-### Exercise 1 - Import library comments
+### Exercise 1 - Import descriptions
 
-Import the file `fictitious_library_comments.csv`. Each row represents a fictitious comment left after using a municipal library service.
+Import `quebec_dataset_descriptions.csv`. Each row is a real portal record with its title, description, producer and category.
 
 ``` r
-library_comments <- read_csv(
-  "data/fictitious_library_comments.csv",
+catalog <- read_csv(
+  "data/quebec_dataset_descriptions.csv",
   show_col_types = FALSE
 )
 
-glimpse(library_comments)
+glimpse(catalog)
 ```
 
-    Rows: 24
-    Columns: 8
-    $ comment_id   <chr> "B001", "B002", "B003", "B004", "B005", "B006", "B007", "…
-    $ month        <dbl> 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, …
-    $ district     <chr> "Sainte-Foy", "Limoilou", "Charlesbourg", "Beauport", "Sa…
-    $ service      <chr> "Desk", "Reservation", "Workshop", "Desk", "Loan", "Works…
-    $ comment      <chr> "Accueil tres clair et rapide, le personnel m'a bien orie…
-    $ satisfaction <dbl> 5, 3, 5, 3, 5, 2, 5, 4, 5, 2, 5, 2, 5, 3, 5, 1, 5, 3, 5, …
-    $ clarity      <dbl> 5, 2, 4, 4, 5, 2, 5, 4, 5, 3, 5, 2, 5, 3, 5, 1, 5, 4, 5, …
-    $ wait_time    <dbl> 4, 3, 4, 2, 5, 3, 5, 3, 4, 1, 4, 2, 5, 3, 5, 1, 4, 2, 5, …
+    Rows: 89
+    Columns: 9
+    $ dataset_id     <chr> "pistes-cyclables-standard", "calendrier-de-collecte-de…
+    $ producer       <chr> "Ville de Gatineau", "Ville de Gatineau", "Ville de Gat…
+    $ category       <chr> "Infrastructures; Transport", "Environnement, ressource…
+    $ title          <chr> "Pistes cyclables", "Calendrier de collecte des matière…
+    $ description    <chr> "Pistes cyclables (standard du hackathon provincial à S…
+    $ resource_count <dbl> 5, 1, 2, 2, 3, 4, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3…
+    $ updated_at     <date> 2025-11-25, 2025-04-24, 2025-04-24, 2025-04-24, 2025-0…
+    $ licence        <chr> "Attribution (CC-BY 4.0)", "Attribution (CC-BY 4.0)", "…
+    $ snapshot_date  <date> 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 2026-0…
 
 > **TIP:**
 >
-> The table contains free text and three numerical variables: `satisfaction`, `clarity` and `wait_time`. These variables make it possible to compare text content with structured ratings.
+> The sample contains 89 records from eight cities: Quebec City, Gatineau, Sherbrooke, Trois-Rivières, Saguenay, Laval, Longueuil and Montreal. Montreal accounts for one producer out of eight.
 
 ### Exercise 2 - Check the structure
 
-Calculate the number of comments by month and by service.
-
 ``` r
-library_comments |>
-  count(month, service) |>
-  arrange(month, service)
+catalog |>
+  group_by(producer) |>
+  summarise(
+    records = n(),
+    categories = n_distinct(category),
+    .groups = "drop"
+  ) |>
+  arrange(desc(records), producer)
 ```
 
-    # A tibble: 22 × 3
-       month service         n
-       <dbl> <chr>       <int>
-     1     1 Desk            2
-     2     1 Reservation     1
-     3     1 Workshop        1
-     4     2 Desk            1
-     5     2 Loan            1
-     6     2 Reservation     1
-     7     2 Workshop        1
-     8     3 Desk            1
-     9     3 Loan            1
-    10     3 Reservation     1
-    # ℹ 12 more rows
+    # A tibble: 8 × 3
+      producer                                  records categories
+      <chr>                                       <int>      <int>
+    1 Ville de Laval                                 12          6
+    2 Ville de Longueuil                             12          7
+    3 Ville de Montréal                              12          7
+    4 Ville de Québec                                12          5
+    5 Ville de Saguenay                              12          6
+    6 Ville de Sherbrooke - Données géomatiques      12          5
+    7 Ville de Trois-Rivières                        12          3
+    8 Ville de Gatineau                               5          2
 
 > **TIP:**
 >
-> This check identifies the groups available before making comparisons. In a real dashboard, a very small group should be interpreted carefully.
+> The selection is balanced by producer, but does not represent the full catalog. It favours recently updated records with descriptions of at least 50 characters.
 
 ### Exercise 3 - Tokenize and remove stopwords
-
-Transform the comments into words, remove French stopwords, then keep only alphabetical tokens.
 
 ``` r
 stop_fr <- stopwords("fr", source = "snowball")
 
-library_tokens <- library_comments |>
-  unnest_tokens(word, comment) |>
+catalog_tokens <- catalog |>
+  unnest_tokens(word, description) |>
   filter(
     !word %in% stop_fr,
-    str_detect(word, "^[a-z]+$")
+    str_detect(word, "^\\p{L}+$")
   )
 
-library_tokens |>
+catalog_tokens |>
   count(word, sort = TRUE) |>
   slice_head(n = 12)
 ```
 
     # A tibble: 12 × 2
-       word            n
-       <chr>       <int>
-     1 a               4
-     2 reservation     4
-     3 clair           3
-     4 etait           3
-     5 rapide          3
-     6 tres            3
-     7 activite        2
-     8 aide            2
-     9 atelier         2
-    10 attente         2
-    11 automatique     2
-    12 avant           2
+       word             n
+       <chr>        <int>
+     1 ville           53
+     2 territoire      34
+     3 cartographie    26
+     4 données         23
+     5 ensemble        16
+     6 travaux         16
+     7 type            16
+     8 identifiant     15
+     9 longueuil       13
+    10 rivières        13
+    11 zone            13
+    12 québec          12
 
 > **TIP:**
 >
-> The result gives one row per retained word. The remaining frequent words provide a first view, but they do not replace contextual reading of the comments.
+> Each row now represents a retained word. Frequencies offer a first view, but a description should be reread in context before interpretation.
 
-### Exercise 4 - Compare words by service
-
-Calculate the most frequent words by service.
+### Exercise 4 - Compare words by producer
 
 ``` r
-words_by_service <- library_tokens |>
-  count(service, word, sort = TRUE) |>
-  group_by(service) |>
+words_by_producer <- catalog_tokens |>
+  count(producer, word, sort = TRUE) |>
+  group_by(producer) |>
   slice_max(n, n = 5, with_ties = FALSE) |>
   ungroup()
 
-words_by_service
+words_by_producer
 ```
 
-    # A tibble: 20 × 3
-       service     word            n
-       <chr>       <chr>       <int>
-     1 Desk        attente         2
-     2 Desk        longue          2
-     3 Desk        personnel       2
-     4 Desk        reponse         2
-     5 Desk        service         2
-     6 Loan        borne           2
-     7 Loan        fonctionne      2
-     8 Loan        a               1
-     9 Loan        aucune          1
-    10 Loan        automatique     1
-    11 Reservation reservation     4
-    12 Reservation rappel          2
-    13 Reservation a               1
-    14 Reservation abandonne       1
-    15 Reservation agreable        1
-    16 Workshop    activite        2
-    17 Workshop    atelier         2
-    18 Workshop    trop            2
-    19 Workshop    a               1
-    20 Workshop    aime            1
+    # A tibble: 40 × 3
+       producer          word             n
+       <chr>             <chr>        <int>
+     1 Ville de Gatineau courant         10
+     2 Ville de Gatineau zone             8
+     3 Ville de Gatineau correspond       6
+     4 Ville de Gatineau crue             6
+     5 Ville de Gatineau gatineau         6
+     6 Ville de Laval    territoire       9
+     7 Ville de Laval    cartographie     6
+     8 Ville de Laval    lavallois        6
+     9 Ville de Laval    cdu              5
+    10 Ville de Laval    code             5
+    # ℹ 30 more rows
 
 ``` r
-ggplot(words_by_service, aes(x = n, y = fct_reorder(word, n))) +
+ggplot(
+  words_by_producer,
+  aes(x = n, y = fct_reorder(word, n))
+) +
   geom_col() +
-  facet_wrap(vars(service), scales = "free_y") +
+  facet_wrap(vars(producer), scales = "free_y") +
   labs(
-    x = "Number of occurrences",
+    x = "Occurrences",
     y = NULL,
-    title = "Frequent words by service"
+    title = "Frequent words by producer"
   ) +
   theme_minimal()
 ```
@@ -164,137 +155,145 @@ ggplot(words_by_service, aes(x = n, y = fct_reorder(word, n))) +
 
 > **TIP:**
 >
-> Faceting makes service comparison quick. If a word seems important, return to the original comments to check its context.
+> A difference may come from published topics, institutional vocabulary or description length. It does not directly measure data quality.
 
-## Block B - Build a simple sentiment score
+## Block B - Build a simple lexical score
 
-### Exercise 5 - Create a custom lexicon
+### Exercise 5 - Create a precision lexicon
 
-Create a small sentiment lexicon. It does not cover all vocabulary: it is used to understand the mechanics.
+Concrete terms receive `+1` and very general terms receive `-1`.
 
 ``` r
-sentiment_lexicon <- tibble(
+precision_lexicon <- tibble(
   word = c(
-    "clair", "rapide", "pratique", "motivant", "agreable", "utile",
-    "chaleureux", "stimulante", "efficace", "difficile", "confus",
-    "depasse", "panne", "frustrante", "lent", "decevante", "floues"
+    "localisation", "inventaire", "nombre", "mesure", "date",
+    "horaire", "statistiques", "registre", "liste", "géographique",
+    "quotidien", "annuel", "donnée", "données", "information",
+    "informations", "ensemble", "divers", "autre", "différents"
   ),
-  sentiment = c(
-    rep("positive", 9),
-    rep("negative", 8)
-  ),
-  score = if_else(sentiment == "positive", 1, -1)
+  class = c(rep("concrete", 12), rep("general", 8)),
+  score = if_else(class == "concrete", 1, -1)
 )
 
-sentiment_lexicon
+precision_lexicon
 ```
 
-    # A tibble: 17 × 3
-       word       sentiment score
-       <chr>      <chr>     <dbl>
-     1 clair      positive      1
-     2 rapide     positive      1
-     3 pratique   positive      1
-     4 motivant   positive      1
-     5 agreable   positive      1
-     6 utile      positive      1
-     7 chaleureux positive      1
-     8 stimulante positive      1
-     9 efficace   positive      1
-    10 difficile  negative     -1
-    11 confus     negative     -1
-    12 depasse    negative     -1
-    13 panne      negative     -1
-    14 frustrante negative     -1
-    15 lent       negative     -1
-    16 decevante  negative     -1
-    17 floues     negative     -1
+    # A tibble: 20 × 3
+       word         class    score
+       <chr>        <chr>    <dbl>
+     1 localisation concrete     1
+     2 inventaire   concrete     1
+     3 nombre       concrete     1
+     4 mesure       concrete     1
+     5 date         concrete     1
+     6 horaire      concrete     1
+     7 statistiques concrete     1
+     8 registre     concrete     1
+     9 liste        concrete     1
+    10 géographique concrete     1
+    11 quotidien    concrete     1
+    12 annuel       concrete     1
+    13 donnée       general     -1
+    14 données      general     -1
+    15 information  general     -1
+    16 informations general     -1
+    17 ensemble     general     -1
+    18 divers       general     -1
+    19 autre        general     -1
+    20 différents   general     -1
 
 > **TIP:**
 >
-> The lexicon is deliberately small. A sentiment score based on an incomplete lexicon should be presented as an exploratory index.
+> This score is not a validated measure of writing quality. It demonstrates lexicon scoring and must always be paired with human reading.
 
-### Exercise 6 - Calculate a score by comment
-
-Join the tokens to the lexicon, then calculate a score by comment.
+### Exercise 6 - Calculate a score by record
 
 ``` r
-comment_scores <- library_tokens |>
-  inner_join(sentiment_lexicon, by = "word") |>
-  group_by(comment_id, month, district, service) |>
+record_scores <- catalog_tokens |>
+  inner_join(precision_lexicon, by = "word") |>
+  group_by(dataset_id, producer, category) |>
   summarise(
-    sentiment_score = sum(score),
+    precision_score = sum(score),
     recognized_words = n(),
     .groups = "drop"
   ) |>
   right_join(
-    library_comments,
-    by = c("comment_id", "month", "district", "service")
+    catalog,
+    by = c("dataset_id", "producer", "category")
   ) |>
   mutate(
-    sentiment_score = replace_na(sentiment_score, 0),
-    recognized_words = replace_na(recognized_words, 0)
+    precision_score = replace_na(precision_score, 0),
+    recognized_words = replace_na(recognized_words, 0),
+    days_since_update = as.integer(snapshot_date - updated_at)
   )
 
-comment_scores |>
-  select(comment_id, month, service, satisfaction, sentiment_score, recognized_words) |>
+record_scores |>
+  select(
+    dataset_id,
+    producer,
+    title,
+    precision_score,
+    recognized_words
+  ) |>
   slice_head(n = 10)
 ```
 
-    # A tibble: 10 × 6
-       comment_id month service     satisfaction sentiment_score recognized_words
-       <chr>      <dbl> <chr>              <dbl>           <dbl>            <int>
-     1 B001           1 Desk                   5               2                2
-     2 B002           1 Reservation            3               0                2
-     3 B003           1 Workshop               5               1                1
-     4 B004           1 Desk                   3               1                1
-     5 B005           2 Loan                   5               1                1
-     6 B006           2 Workshop               2              -1                1
-     7 B007           2 Reservation            5               2                2
-     8 B010           3 Loan                   2              -2                2
-     9 B011           3 Desk                   5               1                1
-    10 B014           4 Workshop               3               1                1
+    # A tibble: 10 × 5
+       dataset_id                    producer title precision_score recognized_words
+       <chr>                         <chr>    <chr>           <dbl>            <int>
+     1 04880bdf6ffa40ababfa900c2ef4… Ville d… Trav…               5                9
+     2 728d843955a744c78dd6cd4b26b8… Ville d… Stat…               1                1
+     3 arrondissements-longueuil     Ville d… Arro…               1                1
+     4 chantiers-routiers            Ville d… Chan…               1                1
+     5 infrastructure-pietonne       Ville d… Infr…              -1                1
+     6 milieux-humides-rci           Ville d… Mili…              -3                3
+     7 offres-d-emploi               Ville d… Offr…              -2                2
+     8 permis-de-construction        Ville d… Perm…              -1                1
+     9 permis-delivres-ville-de-que… Ville d… Perm…              -1                1
+    10 sag-reseau-routier            Ville d… Rése…              -1                1
 
 > **TIP:**
 >
-> Comments where `recognized_words` equals 0 contain no word from the lexicon. Their score of 0 does not mean the comment is strongly neutral.
+> A zero may mean neutral vocabulary or no match in the small lexicon. `recognized_words` is therefore essential.
 
-### Exercise 7 - Summarize sentiment by month
-
-Calculate the average sentiment score by month, then compare it with average satisfaction.
+### Exercise 7 - Summarize scores by producer
 
 ``` r
-monthly_sentiment <- comment_scores |>
-  group_by(month) |>
+precision_by_producer <- record_scores |>
+  group_by(producer) |>
   summarise(
-    mean_score = mean(sentiment_score),
-    mean_satisfaction = mean(satisfaction),
-    mean_clarity = mean(clarity),
-    comments = n(),
+    mean_score = mean(precision_score),
+    mean_recognized_words = mean(recognized_words),
+    mean_resources = mean(resource_count),
+    records = n(),
     .groups = "drop"
   )
 
-monthly_sentiment
+precision_by_producer
 ```
 
-    # A tibble: 6 × 5
-      month mean_score mean_satisfaction mean_clarity comments
-      <dbl>      <dbl>             <dbl>        <dbl>    <int>
-    1     1       1                 4            3.75        4
-    2     2       0.5               4            4           4
-    3     3      -0.25              3.5          3.75        4
-    4     4       0                 3.5          3.5         4
-    5     5       0.5               4            4.25        4
-    6     6       0                 3.75         3.5         4
+    # A tibble: 8 × 5
+      producer               mean_score mean_recognized_words mean_resources records
+      <chr>                       <dbl>                 <dbl>          <dbl>   <int>
+    1 Ville de Gatineau          0                      0               2.6        5
+    2 Ville de Laval            -0.167                  0.333           3.83      12
+    3 Ville de Longueuil         0.0833                 0.25            3         12
+    4 Ville de Montréal         -1.17                   3.33            4.75      12
+    5 Ville de Québec           -0.167                  0.167           4.67      12
+    6 Ville de Saguenay         -0.667                  1               4.08      12
+    7 Ville de Sherbrooke -…     0.25                   1.08            6         12
+    8 Ville de Trois-Rivièr…     0                      0               3         12
 
 ``` r
-ggplot(monthly_sentiment, aes(x = month, y = mean_score)) +
-  geom_hline(yintercept = 0, linetype = "dashed") +
+ggplot(
+  precision_by_producer,
+  aes(x = mean_score, y = reorder(producer, mean_score))
+) +
   geom_col(fill = "steelblue") +
   labs(
-    x = "Month",
-    y = "Average sentiment score",
-    title = "Average sentiment score by month"
+    x = "Mean lexical score",
+    y = NULL,
+    title = "Exploratory lexical score by producer"
   ) +
   theme_minimal()
 ```
@@ -303,72 +302,59 @@ ggplot(monthly_sentiment, aes(x = month, y = mean_score)) +
 
 > **TIP:**
 >
-> The chart is useful for spotting time variation. It is not enough to explain why sentiment changes.
+> The chart compares the sample, not overall producer quality. Topic and writing-style differences may explain part of the variation.
 
 ## Block C - Identify distinctive words
 
-### Exercise 8 - Calculate TF-IDF by service
-
-Use `bind_tf_idf()` to identify distinctive words for each service.
+### Exercise 8 - Calculate TF-IDF by producer
 
 ``` r
-tfidf_service <- library_tokens |>
-  count(service, word) |>
-  bind_tf_idf(word, service, n) |>
+producer_tfidf <- catalog_tokens |>
+  count(producer, word) |>
+  bind_tf_idf(word, producer, n) |>
   arrange(desc(tf_idf))
 
-tfidf_service |>
-  group_by(service) |>
+producer_tfidf |>
+  group_by(producer) |>
   slice_max(tf_idf, n = 5, with_ties = FALSE) |>
   ungroup()
 ```
 
-    # A tibble: 20 × 6
-       service     word            n     tf   idf tf_idf
-       <chr>       <chr>       <int>  <dbl> <dbl>  <dbl>
-     1 Desk        attente         2 0.0426  1.39 0.0590
-     2 Desk        longue          2 0.0426  1.39 0.0590
-     3 Desk        personnel       2 0.0426  1.39 0.0590
-     4 Desk        reponse         2 0.0426  1.39 0.0590
-     5 Desk        service         2 0.0426  1.39 0.0590
-     6 Loan        borne           2 0.0870  1.39 0.121
-     7 Loan        fonctionne      2 0.0870  1.39 0.121
-     8 Loan        aucune          1 0.0435  1.39 0.0603
-     9 Loan        contraste       1 0.0435  1.39 0.0603
-    10 Loan        difficulte      1 0.0435  1.39 0.0603
-    11 Reservation reservation     4 0.111   1.39 0.154
-    12 Reservation rappel          2 0.0556  1.39 0.0770
-    13 Reservation abandonne       1 0.0278  1.39 0.0385
-    14 Reservation agreable        1 0.0278  1.39 0.0385
-    15 Reservation annulee         1 0.0278  1.39 0.0385
-    16 Workshop    activite        2 0.0606  1.39 0.0840
-    17 Workshop    atelier         2 0.0606  1.39 0.0840
-    18 Workshop    trop            2 0.0606  1.39 0.0840
-    19 Workshop    aime            1 0.0303  1.39 0.0420
-    20 Workshop    appris          1 0.0303  1.39 0.0420
+    # A tibble: 40 × 6
+       producer          word               n     tf   idf tf_idf
+       <chr>             <chr>          <int>  <dbl> <dbl>  <dbl>
+     1 Ville de Gatineau courant           10 0.0452  2.08 0.0941
+     2 Ville de Gatineau correspond         6 0.0271  2.08 0.0565
+     3 Ville de Gatineau crue               6 0.0271  2.08 0.0565
+     4 Ville de Gatineau gatineau           6 0.0271  2.08 0.0565
+     5 Ville de Gatineau grand              6 0.0271  2.08 0.0565
+     6 Ville de Laval    lavallois          6 0.0392  2.08 0.0815
+     7 Ville de Laval    cdu                5 0.0327  2.08 0.0680
+     8 Ville de Laval    zaep               4 0.0261  2.08 0.0544
+     9 Ville de Laval    architecturale     3 0.0196  2.08 0.0408
+    10 Ville de Laval    piia               3 0.0196  2.08 0.0408
+    # ℹ 30 more rows
 
 > **TIP:**
 >
-> A distinctive word is not only frequent: it is relatively more associated with one service than with the others.
+> A distinctive word is relatively more associated with one producer. It is not necessarily positive, negative or important to users.
 
 ### Exercise 9 - Visualize distinctive words
 
-Produce a chart of the most distinctive words by service.
-
 ``` r
-tfidf_top <- tfidf_service |>
-  group_by(service) |>
+tfidf_top <- producer_tfidf |>
+  group_by(producer) |>
   slice_max(tf_idf, n = 4, with_ties = FALSE) |>
   ungroup() |>
   mutate(word = fct_reorder(word, tf_idf))
 
 ggplot(tfidf_top, aes(x = tf_idf, y = word)) +
   geom_col(fill = "darkorange") +
-  facet_wrap(vars(service), scales = "free_y") +
+  facet_wrap(vars(producer), scales = "free_y") +
   labs(
     x = "TF-IDF",
     y = NULL,
-    title = "Distinctive words by service"
+    title = "Distinctive words in descriptions"
   ) +
   theme_minimal()
 ```
@@ -377,189 +363,185 @@ ggplot(tfidf_top, aes(x = tf_idf, y = word)) +
 
 > **TIP:**
 >
-> This chart helps formulate reading hypotheses. Before acting, return to the texts and check whether the word has the expected meaning.
+> Return to the original descriptions to check meaning before writing a conclusion.
 
 ## Block D - Prepare dashboard output
 
 ### Exercise 10 - Build a summary table
 
-Prepare an aggregated table that could feed a dashboard card or chart.
-
 ``` r
-dashboard_summary <- comment_scores |>
-  group_by(month, service) |>
+dashboard_summary <- record_scores |>
+  group_by(producer) |>
   summarise(
-    comments = n(),
-    mean_sentiment_score = mean(sentiment_score),
-    mean_satisfaction = mean(satisfaction),
-    mean_clarity = mean(clarity),
-    mean_wait_time = mean(wait_time),
+    records = n(),
+    mean_precision_score = mean(precision_score),
+    mean_resources = mean(resource_count),
+    median_days_since_update = median(days_since_update),
+    categories = n_distinct(category),
     .groups = "drop"
   )
 
 dashboard_summary
 ```
 
-    # A tibble: 22 × 7
-       month service    comments mean_sentiment_score mean_satisfaction mean_clarity
-       <dbl> <chr>         <int>                <dbl>             <dbl>        <dbl>
-     1     1 Desk              2                  1.5                 4          4.5
-     2     1 Reservati…        1                  0                   3          2
-     3     1 Workshop          1                  1                   5          4
-     4     2 Desk              1                  0                   4          4
-     5     2 Loan              1                  1                   5          5
-     6     2 Reservati…        1                  2                   5          5
-     7     2 Workshop          1                 -1                   2          2
-     8     3 Desk              1                  1                   5          5
-     9     3 Loan              1                 -2                   2          3
-    10     3 Reservati…        1                  0                   2          2
-    # ℹ 12 more rows
-    # ℹ 1 more variable: mean_wait_time <dbl>
+    # A tibble: 8 × 6
+      producer    records mean_precision_score mean_resources median_days_since_up…¹
+      <chr>         <int>                <dbl>          <dbl>                  <dbl>
+    1 Ville de G…       5               0                2.6                     443
+    2 Ville de L…      12              -0.167            3.83                     92
+    3 Ville de L…      12               0.0833           3                       152
+    4 Ville de M…      12              -1.17             4.75                      0
+    5 Ville de Q…      12              -0.167            4.67                      6
+    6 Ville de S…      12              -0.667            4.08                     69
+    7 Ville de S…      12               0.25             6                        40
+    8 Ville de T…      12               0                3                         5
+    # ℹ abbreviated name: ¹​median_days_since_update
+    # ℹ 1 more variable: categories <int>
 
 > **TIP:**
 >
-> A good dashboard often separates the steps: clean data, create aggregated indicators, then visualize those indicators.
+> This table separates indicator preparation from display. A dashboard could then present cards, charts and source descriptions.
 
 ### Exercise 11 - Simulate a filter
 
-Without using `shiny`, simulate the result of a filter by choosing a service.
-
 ``` r
-selected_service <- "Reservation"
+selected_producer <- "Ville de Québec"
 
 dashboard_summary |>
-  filter(service == selected_service)
+  filter(producer == selected_producer)
 ```
 
-    # A tibble: 6 × 7
-      month service     comments mean_sentiment_score mean_satisfaction mean_clarity
-      <dbl> <chr>          <int>                <dbl>             <dbl>        <dbl>
-    1     1 Reservation        1                    0                 3            2
-    2     2 Reservation        1                    2                 5            5
-    3     3 Reservation        1                    0                 2            2
-    4     4 Reservation        1                   -1                 1            1
-    5     5 Reservation        1                    2                 5            5
-    6     6 Reservation        1                    1                 5            5
-    # ℹ 1 more variable: mean_wait_time <dbl>
+    # A tibble: 1 × 6
+      producer    records mean_precision_score mean_resources median_days_since_up…¹
+      <chr>         <int>                <dbl>          <dbl>                  <dbl>
+    1 Ville de Q…      12               -0.167           4.67                      6
+    # ℹ abbreviated name: ¹​median_days_since_update
+    # ℹ 1 more variable: categories <int>
 
 > **TIP:**
 >
-> In a `shiny` application, `selected_service` could come from a dropdown menu. The analytical idea remains the same: filter, then recalculate or display.
+> In a `shiny` app, this value could come from a menu. The analytical operation remains a filter on a prepared table.
 
-## Case Study 1 - Library comments
+## Case Study 1 - Quality of dataset descriptions
 
-The management team of a library network wants to know which services deserve priority attention.
-
-Your task:
-
-1.  choose two indicators among `mean_sentiment_score`, `mean_satisfaction`, `mean_clarity` and `mean_wait_time`;
-2.  identify a service to improve;
-3.  write a careful recommendation that names one limitation.
+A team wants to identify descriptions that deserve editorial review.
 
 ``` r
-service_priorities <- dashboard_summary |>
-  group_by(service) |>
-  summarise(
-    mean_sentiment_score = mean(mean_sentiment_score),
-    mean_satisfaction = mean(mean_satisfaction),
-    mean_clarity = mean(mean_clarity),
-    mean_wait_time = mean(mean_wait_time),
-    comments = sum(comments),
-    .groups = "drop"
+records_to_review <- record_scores |>
+  arrange(precision_score, recognized_words) |>
+  select(
+    producer,
+    title,
+    description,
+    precision_score,
+    recognized_words,
+    days_since_update
   ) |>
-  arrange(mean_satisfaction, mean_sentiment_score)
+  slice_head(n = 10)
 
-service_priorities
+records_to_review
 ```
 
-    # A tibble: 4 × 6
-      service     mean_sentiment_score mean_satisfaction mean_clarity mean_wait_time
-      <chr>                      <dbl>             <dbl>        <dbl>          <dbl>
-    1 Reservation                0.667              3.5          3.33           3.5
-    2 Loan                      -0.25               3.75         4              3.75
-    3 Desk                       0.25               3.92         4.08           3.25
-    4 Workshop                   0.333              4.17         4              3.67
-    # ℹ 1 more variable: comments <int>
+    # A tibble: 10 × 6
+       producer title description precision_score recognized_words days_since_update
+       <chr>    <chr> <chr>                 <dbl>            <int>             <int>
+     1 Ville d… Inte… "Ensemble …              -4                6                 0
+     2 Ville d… Mili… "Milieux h…              -3                3                39
+     3 Ville d… Offr… "Ensemble …              -2                2                 5
+     4 Ville d… Cale… "Cet ensem…              -2                2                 0
+     5 Ville d… Résu… "Cet ensem…              -2                2                 0
+     6 Ville d… Fréq… "Ensemble …              -2                4                 0
+     7 Ville d… RSQA… "La Ville …              -2                8                 0
+     8 Ville d… Infr… "Ensemble …              -1                1                 6
+     9 Ville d… Perm… "Informati…              -1                1               102
+    10 Ville d… Perm… "Informati…              -1                1                 6
 
 > **TIP:**
 >
-> A careful recommendation could focus on the reservation service if its scores are lower. The main limitation is that the data are fictitious and contain few comments, so the result should be confirmed with more data and qualitative reading.
+> The score may prioritize reading, but should not automatically trigger correction. The lexicon is small, topics differ and a general description may still be accurate and useful.
 
-## Case Study 2 - Cultural workshops
+## Case Study 2 - Quebec tourism events
 
-Import the file `fictitious_culture_workshops.csv`, then prepare a mini summary for a public-workshop dashboard.
-
-Your task:
-
-1.  tokenize the comments;
-2.  calculate distinctive words by activity type;
-3.  compare `participation`, `accessibility` and `recommendation`;
-4.  propose two visual elements for a dashboard.
+Import `quebec_tourism_events.csv`. `text` combines public SIT Québec fields to create a short reproducible corpus.
 
 ``` r
-workshops <- read_csv("data/fictitious_culture_workshops.csv", show_col_types = FALSE)
+events <- read_csv(
+  "data/quebec_tourism_events.csv",
+  show_col_types = FALSE
+)
 
-workshop_tokens <- workshops |>
-  unnest_tokens(word, comment) |>
+event_tokens <- events |>
+  unnest_tokens(word, text) |>
   filter(
     !word %in% stop_fr,
-    str_detect(word, "^[a-z]+$")
+    str_detect(word, "^\\p{L}+$")
   )
 
-workshop_tfidf <- workshop_tokens |>
-  count(activity_type, word) |>
-  bind_tf_idf(word, activity_type, n) |>
-  group_by(activity_type) |>
+event_tfidf <- event_tokens |>
+  count(event_type, word) |>
+  bind_tf_idf(word, event_type, n) |>
+  group_by(event_type) |>
   slice_max(tf_idf, n = 4, with_ties = FALSE) |>
   ungroup()
 
-workshop_tfidf
+event_tfidf
 ```
 
-    # A tibble: 16 × 6
-       activity_type word               n     tf   idf tf_idf
-       <chr>         <chr>          <int>  <dbl> <dbl>  <dbl>
-     1 Music         etait              4 0.133  0.693 0.0924
-     2 Music         accueillant        1 0.0333 1.39  0.0462
-     3 Music         agreable           1 0.0333 1.39  0.0462
-     4 Music         appris             1 0.0333 1.39  0.0462
-     5 Photo         exemples           2 0.0645 1.39  0.0894
-     6 Photo         accompagnement     1 0.0323 1.39  0.0447
-     7 Photo         bon                1 0.0323 1.39  0.0447
-     8 Photo         cadrer             1 0.0323 1.39  0.0447
-     9 Theatre       exercices          2 0.0606 1.39  0.0840
-    10 Theatre       peu                2 0.0606 1.39  0.0840
-    11 Theatre       accessibles        1 0.0303 1.39  0.0420
-    12 Theatre       accueil            1 0.0303 1.39  0.0420
-    13 Writing       activite           2 0.0667 1.39  0.0924
-    14 Writing       atelier            2 0.0667 1.39  0.0924
-    15 Writing       assez              1 0.0333 1.39  0.0462
-    16 Writing       bien               1 0.0333 1.39  0.0462
+    # A tibble: 40 × 6
+       event_type                        word            n     tf   idf tf_idf
+       <chr>                             <chr>       <int>  <dbl> <dbl>  <dbl>
+     1 Concert, spectacle                soirées         2 0.0435  2.30 0.100
+     2 Concert, spectacle                chanson         2 0.0435  1.61 0.0700
+     3 Concert, spectacle                contes          2 0.0435  1.61 0.0700
+     4 Concert, spectacle                légendes        2 0.0435  1.61 0.0700
+     5 Concours / tournoi                adulte          1 0.0556  2.30 0.128
+     6 Concours / tournoi                deslauriers     1 0.0556  2.30 0.128
+     7 Concours / tournoi                félix           1 0.0556  2.30 0.128
+     8 Concours / tournoi                hallée          1 0.0556  2.30 0.128
+     9 Expérience multimédia / immersive numériques      5 0.0704  1.61 0.113
+    10 Expérience multimédia / immersive immersif        3 0.0423  1.61 0.0680
+    # ℹ 30 more rows
 
 ``` r
-workshop_summary <- workshops |>
-  group_by(activity_type) |>
+event_summary <- events |>
+  group_by(tourism_region) |>
   summarise(
-    responses = n(),
-    mean_participation = mean(participation),
-    mean_accessibility = mean(accessibility),
-    mean_recommendation = mean(recommendation),
+    events = n(),
+    municipalities = n_distinct(municipality),
+    median_duration_days = median(duration_days),
+    proportion_with_website = mean(website_available),
     .groups = "drop"
   ) |>
-  arrange(mean_recommendation)
+  arrange(desc(events), tourism_region)
 
-workshop_summary
+event_summary
 ```
 
-    # A tibble: 4 × 5
-      activity_type responses mean_participation mean_accessibility
-      <chr>             <int>              <dbl>              <dbl>
-    1 Theatre               6               3.33               3.33
-    2 Music                 6               3.83               3.17
-    3 Photo                 6               3.83               4.17
-    4 Writing               6               4                  4.17
-    # ℹ 1 more variable: mean_recommendation <dbl>
+    # A tibble: 20 × 5
+       tourism_region           events municipalities median_duration_days
+       <chr>                     <int>          <int>                <dbl>
+     1 Abitibi-Témiscamingue         8              5                  3
+     2 Bas-Saint-Laurent             8              6                  4
+     3 Cantons-de-l'Est              8              6                  1.5
+     4 Centre-du-Québec              8              4                 16.5
+     5 Charlevoix                    8              5                  3
+     6 Chaudière-Appalaches          8              5                  3
+     7 Côte-Nord (Manicouagan)       8              5                  4.5
+     8 Gaspésie                      8              8                  7
+     9 Lanaudière                    8              7                  3
+    10 Laurentides                   8              8                  2
+    11 Laval                         8              1                  4
+    12 Mauricie                      8              4                 21
+    13 Montréal                      8              1                656
+    14 Montérégie                    8              7                 33
+    15 Outaouais                     8              4                  3
+    16 Québec                        8              3                 19.5
+    17 Saguenay--Lac-Saint-Jean      8              7                  4.5
+    18 Îles-de-la-Madeleine          6              2                  5.5
+    19 Côte-Nord (Duplessis)         5              3                  4
+    20 Baie-James                    4              2                  6.5
+    # ℹ 1 more variable: proportion_with_website <dbl>
 
 > **TIP:**
 >
-> Two useful visuals would be: a TF-IDF chart by activity type and a chart of numerical averages by activity type. These charts should be accompanied by a short note about the limits of small group sizes.
+> Useful visuals include a TF-IDF chart by event type and a regional coverage chart. The sample is balanced to at most eight events per tourism region, so it does not measure the true volume of the entire tourism offering.

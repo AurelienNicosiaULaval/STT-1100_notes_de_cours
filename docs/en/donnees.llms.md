@@ -316,15 +316,15 @@ Residential consumption and distributed water quantity for 496 Quebec municipali
 
 ### Module 10
 
-[Module 10 ](#module10-commentaires-bibliotheques)
+[Module 10 ](#module10-descriptions-donnees)
 
-## fictitious_library_comments.csv
+## quebec_dataset_descriptions.csv
 
-Fictitious comments about municipal library services.Local file24 observations / 8 variablesView profile [Module 10 ](#module10-ateliers-culture)
+Real descriptions of 89 datasets published by eight Quebec cities.Local file89 observations / 9 variablesView profile [Module 10 ](#module10-evenements-touristiques)
 
-## fictitious_culture_workshops.csv
+## quebec_tourism_events.csv
 
-Fictitious feedback about public cultural workshops.Local file24 observations / 8 variablesView profile [Module 10 ](packages.llms.md#tidytext)
+Balanced sample of 151 events from the Quebec tourism information system.Local file151 observations / 11 variablesView profile [Module 10 ](packages.llms.md#tidytext)
 
 ## Comments and working texts
 
@@ -357,7 +357,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_student_coop.csv
 
@@ -382,7 +382,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### manchots_donnees.xlsx
 
@@ -438,7 +438,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_bike_share.csv
 
@@ -463,7 +463,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_311_requests.csv
 
@@ -488,7 +488,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_transit_complaints.csv
 
@@ -513,7 +513,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### dataset_pratique.csv
 
@@ -671,7 +671,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_scholarship_applications.csv
 
@@ -696,7 +696,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_equipment_rules.json
 
@@ -820,7 +820,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_library_visits.csv
 
@@ -845,7 +845,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_campus_service_requests.csv
 
@@ -870,7 +870,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_team_members.csv
 
@@ -895,7 +895,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_git_contributions.csv
 
@@ -920,7 +920,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_review_issues.csv
 
@@ -945,7 +945,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_report_files.csv
 
@@ -970,7 +970,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_data_portal.csv
 
@@ -995,7 +995,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_producers.csv
 
@@ -1020,7 +1020,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_review_comments.csv
 
@@ -1045,7 +1045,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_municipal_reports.csv
 
@@ -1070,7 +1070,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_neighbourhood_population.csv
 
@@ -1095,7 +1095,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### fictitious_student_survey.csv
 
@@ -1120,7 +1120,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module9.jLuLMS/repo/en/modu |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module10.Nx64bk/repo/en/mod |
 
 ### catalogue_donnees_quebec.html
 
@@ -1327,20 +1327,20 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | metered_non_residential_connections_pct | numeric | 30 | 10 | 0.08867925 |
 | validity_available | logical | 0 | 2 | TRUE |
 
-### fictitious_library_comments.csv
+### quebec_dataset_descriptions.csv
 
-Fictitious comments about municipal library services.
+Real descriptions of 89 datasets published by eight Quebec cities.
 
-[Download fictitious_library_comments.csv](module_10/data/fictitious_library_comments.csv)
+[Download quebec_dataset_descriptions.csv](module_10/data/quebec_dataset_descriptions.csv)
 
 | Information | Value |
 |:---|:---|
 | Module | Module 10 |
-| Observations | 24 |
-| Variables | 8 |
-| Course use | Practise tokenization, stopwords, simple sentiment scores and TF-IDF. |
-| Source | Fictitious data created for the course. |
-| License | Simulated course data. |
+| Observations | 89 |
+| Variables | 9 |
+| Course use | Practise tokenization, stopwords, lexical scoring, TF-IDF and dashboard summaries. |
+| Source | Official Données Québec API, sample balanced by producer. |
+| License | CC BY 4.0. |
 
 #### Preview
 
@@ -1350,29 +1350,30 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| comment_id | character | 0 | 24 | B001 |
-| month | numeric | 0 | 6 | 1 |
-| district | character | 0 | 4 | Sainte-Foy |
-| service | character | 0 | 4 | Desk |
-| comment | character | 0 | 24 | Accueil tres clair et rapide, le personnel m’a bien orientee. |
-| satisfaction | numeric | 0 | 5 | 5 |
-| clarity | numeric | 0 | 5 | 5 |
-| wait_time | numeric | 0 | 5 | 4 |
+| dataset_id | character | 0 | 50 | pistes-cyclables-standard |
+| producer | character | 0 | 5 | Ville de Gatineau |
+| category | character | 0 | 14 | Infrastructures; Transport |
+| title | character | 0 | 50 | Pistes cyclables |
+| description | character | 0 | 49 | Pistes cyclables (standard du hackathon provincial à Sherbrooke du 10 |
+| resource_count | numeric | 0 | 9 | 5 |
+| updated_at | Date | 0 | 13 | 2025-11-25 |
+| licence | character | 0 | 1 | Attribution (CC-BY 4.0) |
+| snapshot_date | Date | 0 | 1 | 2026-07-11 |
 
-### fictitious_culture_workshops.csv
+### quebec_tourism_events.csv
 
-Fictitious feedback about public cultural workshops.
+Balanced sample of 151 events from the Quebec tourism information system.
 
-[Download fictitious_culture_workshops.csv](module_10/data/fictitious_culture_workshops.csv)
+[Download quebec_tourism_events.csv](module_10/data/quebec_tourism_events.csv)
 
 | Information | Value |
 |:---|:---|
 | Module | Module 10 |
-| Observations | 24 |
-| Variables | 8 |
+| Observations | 151 |
+| Variables | 11 |
 | Course use | Prepare textual and numerical summaries for a mini dashboard. |
-| Source | Fictitious data created for the course. |
-| License | Simulated course data. |
+| Source | Ministry of Tourism, Système d’information touristique Québec. |
+| License | CC BY 4.0. |
 
 #### Preview
 
@@ -1382,11 +1383,14 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| response_id | character | 0 | 24 | A001 |
-| edition | numeric | 0 | 6 | 1 |
-| neighbourhood | character | 0 | 4 | Montcalm |
-| activity_type | character | 0 | 4 | Writing |
-| comment | character | 0 | 24 | Atelier chaleureux, consignes claires et bonne ambiance. |
-| participation | numeric | 0 | 5 | 5 |
-| accessibility | numeric | 0 | 5 | 5 |
-| recommendation | numeric | 0 | 5 | 5 |
+| event_id | character | 0 | 50 | EVENMTOV5016CZ |
+| title | character | 0 | 50 | Carnaval de Lorrainville |
+| event_type | character | 0 | 8 | Festival |
+| theme | character | 25 | 13 | Littérature et poésie |
+| tourism_region | character | 0 | 7 | Abitibi-Témiscamingue |
+| municipality | character | 0 | 33 | Lorrainville |
+| start_date | Date | 0 | 44 | 2026-01-29 |
+| end_date | Date | 0 | 44 | 2026-01-31 |
+| website_available | logical | 0 | 2 | TRUE |
+| text | character | 0 | 50 | Carnaval de Lorrainville \| \| Concert, spectacle\|Course de véhicules mo |
+| duration_days | numeric | 0 | 16 | 3 |

@@ -116,7 +116,7 @@ La consigne complète est disponible dans la page [Défi 10](defi.llms.md). Le d
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices sont indépendants de l'aventure et du défi. Ils utilisent des commentaires fictifs de bibliothèques et d'ateliers culturels pour pratiquer l'analyse textuelle sans toucher aux rétroactions STT-1100.
+Pourquoi Les exercices sont indépendants de l'aventure et du défi. Ils utilisent des descriptions de Données Québec et des événements du SIT Québec pour pratiquer l'analyse textuelle sur des textes publics réels.
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
@@ -124,7 +124,7 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
-[Commentaires et textes de travail](../donnees.llms.md#dataset-card-textes-module-10) [commentaires_bibliotheques_fictif.csv](../donnees.llms.md#dataset-card-module10-commentaires-bibliotheques) [ateliers_culture_fictif.csv](../donnees.llms.md#dataset-card-module10-ateliers-culture)
+[Commentaires et textes de travail](../donnees.llms.md#dataset-card-textes-module-10) [Descriptions de Données Québec](data/descriptions_donnees_quebec.csv) [Événements touristiques québécois](data/evenements_touristiques_quebec.csv)
 
 ### Packages R
 

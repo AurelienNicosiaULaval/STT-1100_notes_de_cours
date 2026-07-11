@@ -43,7 +43,7 @@ After the readings, complete the [module 10 formative mini-test](../module_10/mi
 
 You are a junior business analyst hired by the Faculty of Science and Engineering at Laval University. Your mandate is to produce an interactive dashboard from fictitious comments. Real feedback may be used only when the instructor provides an anonymized file and explicitly confirms the permitted use.
 
-[Adventure 10 — Beyond data: text and dashboard](../module_10/aventure.llms.md)
+[Adventure 10 - Beyond data: text and dashboard](../module_10/aventure.llms.md)
 
 ## Challenge - Local or shared dashboard
 
@@ -57,18 +57,18 @@ You need to build an interactive dashboard from the template provided. This dash
 
 Start with the minimum core: make the template work locally, add one filter, one chart and a short conclusion. Then add sentiment, TF-IDF, numerical variables and visual extensions.
 
-Complete instructions: [Challenge 10 — Feedback dashboard](../module_10/defi.llms.md)
+Complete instructions: [Challenge 10 - Feedback dashboard](../module_10/defi.llms.md)
 
 Starter repository: `STT-1100/aventure-10`
 
 ## Consolidation Exercises
 
-The exercises are independent from the adventure and the challenge. They use two fictitious datasets created for this module:
+The exercises are independent from the adventure and the challenge. They use two real public Quebec extracts:
 
-1.  `fictitious_library_comments.csv` to practise tokenization, stopwords, sentiment and TF-IDF;
-2.  `fictitious_culture_workshops.csv` to prepare a mini dashboard summary from comments and numerical variables.
+1.  `quebec_dataset_descriptions.csv` to practise tokenization, stopwords, lexical scoring and TF-IDF;
+2.  `quebec_tourism_events.csv` to prepare a textual and numerical dashboard summary.
 
-The series ends with two case studies: a library-service prioritization and a cultural-workshop summary.
+The series ends with two case studies: dataset-description review and a tourism-event summary.
 
 Link to the exercises: [Consolidation Exercises](../module_10/exercices.llms.md)
 

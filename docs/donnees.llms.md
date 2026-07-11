@@ -316,15 +316,15 @@ Consommation résidentielle et quantité d’eau distribuée dans 496 municipali
 
 ### Module 10
 
-[Module 10 ](#module10-commentaires-bibliotheques)
+[Module 10 ](#module10-descriptions-donnees)
 
-## commentaires_bibliotheques_fictif.csv
+## descriptions_donnees_quebec.csv
 
-Commentaires fictifs sur des services de bibliothèques municipales.Fichier local24 observations / 8 variablesVoir la fiche [Module 10 ](#module10-ateliers-culture)
+Descriptions réelles de 89 jeux de données publiés par huit villes québécoises.Fichier local89 observations / 9 variablesVoir la fiche [Module 10 ](#module10-evenements-touristiques)
 
-## ateliers_culture_fictif.csv
+## evenements_touristiques_quebec.csv
 
-Rétroactions fictives sur des ateliers culturels publics.Fichier local24 observations / 8 variablesVoir la fiche [Module 10 ](packages.llms.md#tidytext)
+Échantillon équilibré de 151 événements du Système d’information touristique Québec.Fichier local151 observations / 11 variablesVoir la fiche [Module 10 ](packages.llms.md#tidytext)
 
 ## Commentaires et textes de travail
 
@@ -357,7 +357,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### coop_etudiante_fictif.csv
 
@@ -382,7 +382,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### manchots_donnees.xlsx
 
@@ -438,7 +438,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### velo_partage_fictif.csv
 
@@ -463,7 +463,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### requetes_311_fictif.csv
 
@@ -488,7 +488,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### plaintes_transport_fictif.csv
 
@@ -513,7 +513,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### dataset_pratique.csv
 
@@ -671,7 +671,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### demandes_bourses_fictif.csv
 
@@ -696,7 +696,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### regles_equipements_fictif.json
 
@@ -820,7 +820,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### frequentation_bibliotheque_fictive.csv
 
@@ -845,7 +845,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### demandes_services_campus_fictif.csv
 
@@ -870,7 +870,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### membres_equipe_fictif.csv
 
@@ -895,7 +895,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### contributions_git_fictif.csv
 
@@ -920,7 +920,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### issues_revue_fictif.csv
 
@@ -945,7 +945,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### fichiers_rapport_fictif.csv
 
@@ -970,7 +970,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### portail_donnees_fictif.csv
 
@@ -995,7 +995,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### producteurs_fictif.csv
 
@@ -1020,7 +1020,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### commentaires_revue_fictif.csv
 
@@ -1045,7 +1045,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### signalements_municipaux_fictif.csv
 
@@ -1070,7 +1070,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### population_quartiers_fictif.csv
 
@@ -1095,7 +1095,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### sondage_etudiant_fictif.csv
 
@@ -1120,7 +1120,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module9.jLuLMS/repo/modul |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module10.Nx64bk/repo/modu |
 
 ### catalogue_donnees_quebec.html
 
@@ -1327,20 +1327,20 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | branchements_non_residentiels_comptes_pct | numeric | 30 | 10 | 0.08867925 |
 | validite_disponible | logical | 0 | 2 | TRUE |
 
-### commentaires_bibliotheques_fictif.csv
+### descriptions_donnees_quebec.csv
 
-Commentaires fictifs sur des services de bibliothèques municipales.
+Descriptions réelles de 89 jeux de données publiés par huit villes québécoises.
 
-[Télécharger commentaires_bibliotheques_fictif.csv](module_10/data/commentaires_bibliotheques_fictif.csv)
+[Télécharger descriptions_donnees_quebec.csv](module_10/data/descriptions_donnees_quebec.csv)
 
 | Information | Valeur |
 |:---|:---|
 | Module | Module 10 |
-| Observations | 24 |
-| Variables | 8 |
-| Utilisation | Pratiquer la tokenisation, les stopwords, les scores de sentiment simples et le TF-IDF. |
-| Source | Données fictives créées pour le cours. |
-| Licence | Données simulées pour le cours. |
+| Observations | 89 |
+| Variables | 9 |
+| Utilisation | Pratiquer la tokenisation, les stopwords, un score lexical, le TF-IDF et les synthèses de tableau de bord. |
+| Source | API officielle de Données Québec, instantané équilibré par producteur. |
+| Licence | CC BY 4.0. |
 
 #### Aperçu
 
@@ -1350,29 +1350,30 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| commentaire_id | character | 0 | 24 | B001 |
-| mois | numeric | 0 | 6 | 1 |
-| arrondissement | character | 0 | 4 | Sainte-Foy |
-| service | character | 0 | 4 | Comptoir |
-| commentaire | character | 0 | 24 | Accueil tres clair et rapide, le personnel m’a bien orientee. |
-| satisfaction | numeric | 0 | 5 | 5 |
-| clarte | numeric | 0 | 5 | 5 |
-| delai | numeric | 0 | 5 | 4 |
+| jeu_id | character | 0 | 50 | pistes-cyclables-standard |
+| producteur | character | 0 | 5 | Ville de Gatineau |
+| categorie | character | 0 | 14 | Infrastructures; Transport |
+| titre | character | 0 | 50 | Pistes cyclables |
+| description | character | 0 | 49 | Pistes cyclables (standard du hackathon provincial à Sherbrooke du 10 |
+| nb_ressources | numeric | 0 | 9 | 5 |
+| date_mise_a_jour | Date | 0 | 13 | 2025-11-25 |
+| licence | character | 0 | 1 | Attribution (CC-BY 4.0) |
+| date_instantane | Date | 0 | 1 | 2026-07-11 |
 
-### ateliers_culture_fictif.csv
+### evenements_touristiques_quebec.csv
 
-Rétroactions fictives sur des ateliers culturels publics.
+Échantillon équilibré de 151 événements du Système d’information touristique Québec.
 
-[Télécharger ateliers_culture_fictif.csv](module_10/data/ateliers_culture_fictif.csv)
+[Télécharger evenements_touristiques_quebec.csv](module_10/data/evenements_touristiques_quebec.csv)
 
 | Information | Valeur |
 |:---|:---|
 | Module | Module 10 |
-| Observations | 24 |
-| Variables | 8 |
+| Observations | 151 |
+| Variables | 11 |
 | Utilisation | Préparer des synthèses textuelles et numériques pour un mini tableau de bord. |
-| Source | Données fictives créées pour le cours. |
-| Licence | Données simulées pour le cours. |
+| Source | Ministère du Tourisme, Système d’information touristique Québec. |
+| Licence | CC BY 4.0. |
 
 #### Aperçu
 
@@ -1382,11 +1383,14 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| reponse_id | character | 0 | 24 | A001 |
-| edition | numeric | 0 | 6 | 1 |
-| quartier | character | 0 | 4 | Montcalm |
-| type_activite | character | 0 | 4 | Ecriture |
-| commentaire | character | 0 | 24 | Atelier chaleureux, consignes claires et bonne ambiance. |
-| participation | numeric | 0 | 5 | 5 |
-| accessibilite | numeric | 0 | 5 | 5 |
-| recommandation | numeric | 0 | 5 | 5 |
+| evenement_id | character | 0 | 50 | EVENMTOV5016CZ |
+| titre | character | 0 | 50 | Carnaval de Lorrainville |
+| type_evenement | character | 0 | 8 | Festival |
+| theme | character | 25 | 13 | Littérature et poésie |
+| region_touristique | character | 0 | 7 | Abitibi-Témiscamingue |
+| municipalite | character | 0 | 33 | Lorrainville |
+| date_debut | Date | 0 | 44 | 2026-01-29 |
+| date_fin | Date | 0 | 44 | 2026-01-31 |
+| site_web_disponible | logical | 0 | 2 | TRUE |
+| texte | character | 0 | 50 | Carnaval de Lorrainville \| \| Concert, spectacle\|Course de véhicules mo |
+| duree_jours | numeric | 0 | 16 | 3 |

@@ -114,7 +114,7 @@ The complete instructions are available on the [Challenge 10](defi.llms.md) page
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises are independent from the adventure and challenge. They use fictitious library and cultural-workshop comments to practise text analysis without touching STT-1100 feedback.
+Why Exercises are independent from the adventure and challenge. They use Données Québec descriptions and SIT Québec events to practise text analysis on real public text.
 
 Redo at least one passage without looking at the solution immediately.
 
@@ -122,7 +122,7 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
-[Working comments and texts](../donnees.llms.md#dataset-card-textes-module-10) [fictitious_library_comments.csv](../donnees.llms.md#dataset-card-module10-commentaires-bibliotheques) [fictitious_culture_workshops.csv](../donnees.llms.md#dataset-card-module10-ateliers-culture)
+[Working comments and texts](../donnees.llms.md#dataset-card-textes-module-10) [Données Québec descriptions](data/quebec_dataset_descriptions.csv) [Quebec tourism events](data/quebec_tourism_events.csv)
 
 ### R packages
 

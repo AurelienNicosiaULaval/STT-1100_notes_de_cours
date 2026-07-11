@@ -9,9 +9,9 @@ execute:
   message: false
 ---
 
-These exercises are independent from the adventure and the challenge. They consolidate text analysis, TF-IDF, simple sentiment scores and dashboard preparation using fictitious datasets that differ from the STT-1100 feedback.
+These exercises are independent from the adventure and the challenge. They consolidate text analysis, lexical scores, TF-IDF and dashboard preparation using real public Quebec text.
 
-Before starting, review the module resources if needed: *Text Mining with R*, the `unnest_tokens()` documentation, the `bind_tf_idf()` documentation, the `flexdashboard` documentation, the introduction to `shiny` and the module formative mini-test.
+The first file contains a balanced sample of descriptions from the [official Données Québec API](https://www.donneesquebec.ca/page-api/){target="_blank"}. The second comes from the Ministry of Tourism dataset [Événements - Système d'information touristique Québec](https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements){target="_blank"}. Both sources are distributed under the CC BY 4.0 licence.
 
 ```{r setup}
 library(tidyverse)
@@ -21,247 +21,246 @@ library(stopwords)
 library(forcats)
 ```
 
-## Block A - Turn comments into tokens
+## Block A - Turn descriptions into tokens
 
-### Exercise 1 - Import library comments
+### Exercise 1 - Import descriptions
 
-Import the file `fictitious_library_comments.csv`. Each row represents a fictitious comment left after using a municipal library service.
+Import `quebec_dataset_descriptions.csv`. Each row is a real portal record with its title, description, producer and category.
 
 ```{r}
-library_comments <- read_csv(
-  "data/fictitious_library_comments.csv",
+catalog <- read_csv(
+  "data/quebec_dataset_descriptions.csv",
   show_col_types = FALSE
 )
 
-glimpse(library_comments)
+glimpse(catalog)
 ```
 
 ::: {.callout-tip collapse="true"}
-The table contains free text and three numerical variables: `satisfaction`, `clarity` and `wait_time`. These variables make it possible to compare text content with structured ratings.
+The sample contains 89 records from eight cities: Quebec City, Gatineau, Sherbrooke, Trois-Rivières, Saguenay, Laval, Longueuil and Montreal. Montreal accounts for one producer out of eight.
 :::
 
 ### Exercise 2 - Check the structure
 
-Calculate the number of comments by month and by service.
-
 ```{r}
-library_comments |>
-  count(month, service) |>
-  arrange(month, service)
+catalog |>
+  group_by(producer) |>
+  summarise(
+    records = n(),
+    categories = n_distinct(category),
+    .groups = "drop"
+  ) |>
+  arrange(desc(records), producer)
 ```
 
 ::: {.callout-tip collapse="true"}
-This check identifies the groups available before making comparisons. In a real dashboard, a very small group should be interpreted carefully.
+The selection is balanced by producer, but does not represent the full catalog. It favours recently updated records with descriptions of at least 50 characters.
 :::
 
 ### Exercise 3 - Tokenize and remove stopwords
 
-Transform the comments into words, remove French stopwords, then keep only alphabetical tokens.
-
 ```{r}
 stop_fr <- stopwords("fr", source = "snowball")
 
-library_tokens <- library_comments |>
-  unnest_tokens(word, comment) |>
+catalog_tokens <- catalog |>
+  unnest_tokens(word, description) |>
   filter(
     !word %in% stop_fr,
-    str_detect(word, "^[a-z]+$")
+    str_detect(word, "^\\p{L}+$")
   )
 
-library_tokens |>
+catalog_tokens |>
   count(word, sort = TRUE) |>
   slice_head(n = 12)
 ```
 
 ::: {.callout-tip collapse="true"}
-The result gives one row per retained word. The remaining frequent words provide a first view, but they do not replace contextual reading of the comments.
+Each row now represents a retained word. Frequencies offer a first view, but a description should be reread in context before interpretation.
 :::
 
-### Exercise 4 - Compare words by service
-
-Calculate the most frequent words by service.
+### Exercise 4 - Compare words by producer
 
 ```{r}
-words_by_service <- library_tokens |>
-  count(service, word, sort = TRUE) |>
-  group_by(service) |>
+words_by_producer <- catalog_tokens |>
+  count(producer, word, sort = TRUE) |>
+  group_by(producer) |>
   slice_max(n, n = 5, with_ties = FALSE) |>
   ungroup()
 
-words_by_service
+words_by_producer
 ```
 
 ```{r}
-ggplot(words_by_service, aes(x = n, y = fct_reorder(word, n))) +
+ggplot(
+  words_by_producer,
+  aes(x = n, y = fct_reorder(word, n))
+) +
   geom_col() +
-  facet_wrap(vars(service), scales = "free_y") +
+  facet_wrap(vars(producer), scales = "free_y") +
   labs(
-    x = "Number of occurrences",
+    x = "Occurrences",
     y = NULL,
-    title = "Frequent words by service"
+    title = "Frequent words by producer"
   ) +
   theme_minimal()
 ```
 
 ::: {.callout-tip collapse="true"}
-Faceting makes service comparison quick. If a word seems important, return to the original comments to check its context.
+A difference may come from published topics, institutional vocabulary or description length. It does not directly measure data quality.
 :::
 
-## Block B - Build a simple sentiment score
+## Block B - Build a simple lexical score
 
-### Exercise 5 - Create a custom lexicon
+### Exercise 5 - Create a precision lexicon
 
-Create a small sentiment lexicon. It does not cover all vocabulary: it is used to understand the mechanics.
+Concrete terms receive `+1` and very general terms receive `-1`.
 
 ```{r}
-sentiment_lexicon <- tibble(
+precision_lexicon <- tibble(
   word = c(
-    "clair", "rapide", "pratique", "motivant", "agreable", "utile",
-    "chaleureux", "stimulante", "efficace", "difficile", "confus",
-    "depasse", "panne", "frustrante", "lent", "decevante", "floues"
+    "localisation", "inventaire", "nombre", "mesure", "date",
+    "horaire", "statistiques", "registre", "liste", "géographique",
+    "quotidien", "annuel", "donnée", "données", "information",
+    "informations", "ensemble", "divers", "autre", "différents"
   ),
-  sentiment = c(
-    rep("positive", 9),
-    rep("negative", 8)
-  ),
-  score = if_else(sentiment == "positive", 1, -1)
+  class = c(rep("concrete", 12), rep("general", 8)),
+  score = if_else(class == "concrete", 1, -1)
 )
 
-sentiment_lexicon
+precision_lexicon
 ```
 
 ::: {.callout-tip collapse="true"}
-The lexicon is deliberately small. A sentiment score based on an incomplete lexicon should be presented as an exploratory index.
+This score is not a validated measure of writing quality. It demonstrates lexicon scoring and must always be paired with human reading.
 :::
 
-### Exercise 6 - Calculate a score by comment
-
-Join the tokens to the lexicon, then calculate a score by comment.
+### Exercise 6 - Calculate a score by record
 
 ```{r}
-comment_scores <- library_tokens |>
-  inner_join(sentiment_lexicon, by = "word") |>
-  group_by(comment_id, month, district, service) |>
+record_scores <- catalog_tokens |>
+  inner_join(precision_lexicon, by = "word") |>
+  group_by(dataset_id, producer, category) |>
   summarise(
-    sentiment_score = sum(score),
+    precision_score = sum(score),
     recognized_words = n(),
     .groups = "drop"
   ) |>
   right_join(
-    library_comments,
-    by = c("comment_id", "month", "district", "service")
+    catalog,
+    by = c("dataset_id", "producer", "category")
   ) |>
   mutate(
-    sentiment_score = replace_na(sentiment_score, 0),
-    recognized_words = replace_na(recognized_words, 0)
+    precision_score = replace_na(precision_score, 0),
+    recognized_words = replace_na(recognized_words, 0),
+    days_since_update = as.integer(snapshot_date - updated_at)
   )
 
-comment_scores |>
-  select(comment_id, month, service, satisfaction, sentiment_score, recognized_words) |>
+record_scores |>
+  select(
+    dataset_id,
+    producer,
+    title,
+    precision_score,
+    recognized_words
+  ) |>
   slice_head(n = 10)
 ```
 
 ::: {.callout-tip collapse="true"}
-Comments where `recognized_words` equals 0 contain no word from the lexicon. Their score of 0 does not mean the comment is strongly neutral.
+A zero may mean neutral vocabulary or no match in the small lexicon. `recognized_words` is therefore essential.
 :::
 
-### Exercise 7 - Summarize sentiment by month
-
-Calculate the average sentiment score by month, then compare it with average satisfaction.
+### Exercise 7 - Summarize scores by producer
 
 ```{r}
-monthly_sentiment <- comment_scores |>
-  group_by(month) |>
+precision_by_producer <- record_scores |>
+  group_by(producer) |>
   summarise(
-    mean_score = mean(sentiment_score),
-    mean_satisfaction = mean(satisfaction),
-    mean_clarity = mean(clarity),
-    comments = n(),
+    mean_score = mean(precision_score),
+    mean_recognized_words = mean(recognized_words),
+    mean_resources = mean(resource_count),
+    records = n(),
     .groups = "drop"
   )
 
-monthly_sentiment
+precision_by_producer
 ```
 
 ```{r}
-ggplot(monthly_sentiment, aes(x = month, y = mean_score)) +
-  geom_hline(yintercept = 0, linetype = "dashed") +
+ggplot(
+  precision_by_producer,
+  aes(x = mean_score, y = reorder(producer, mean_score))
+) +
   geom_col(fill = "steelblue") +
   labs(
-    x = "Month",
-    y = "Average sentiment score",
-    title = "Average sentiment score by month"
+    x = "Mean lexical score",
+    y = NULL,
+    title = "Exploratory lexical score by producer"
   ) +
   theme_minimal()
 ```
 
 ::: {.callout-tip collapse="true"}
-The chart is useful for spotting time variation. It is not enough to explain why sentiment changes.
+The chart compares the sample, not overall producer quality. Topic and writing-style differences may explain part of the variation.
 :::
 
 ## Block C - Identify distinctive words
 
-### Exercise 8 - Calculate TF-IDF by service
-
-Use `bind_tf_idf()` to identify distinctive words for each service.
+### Exercise 8 - Calculate TF-IDF by producer
 
 ```{r}
-tfidf_service <- library_tokens |>
-  count(service, word) |>
-  bind_tf_idf(word, service, n) |>
+producer_tfidf <- catalog_tokens |>
+  count(producer, word) |>
+  bind_tf_idf(word, producer, n) |>
   arrange(desc(tf_idf))
 
-tfidf_service |>
-  group_by(service) |>
+producer_tfidf |>
+  group_by(producer) |>
   slice_max(tf_idf, n = 5, with_ties = FALSE) |>
   ungroup()
 ```
 
 ::: {.callout-tip collapse="true"}
-A distinctive word is not only frequent: it is relatively more associated with one service than with the others.
+A distinctive word is relatively more associated with one producer. It is not necessarily positive, negative or important to users.
 :::
 
 ### Exercise 9 - Visualize distinctive words
 
-Produce a chart of the most distinctive words by service.
-
 ```{r}
-tfidf_top <- tfidf_service |>
-  group_by(service) |>
+tfidf_top <- producer_tfidf |>
+  group_by(producer) |>
   slice_max(tf_idf, n = 4, with_ties = FALSE) |>
   ungroup() |>
   mutate(word = fct_reorder(word, tf_idf))
 
 ggplot(tfidf_top, aes(x = tf_idf, y = word)) +
   geom_col(fill = "darkorange") +
-  facet_wrap(vars(service), scales = "free_y") +
+  facet_wrap(vars(producer), scales = "free_y") +
   labs(
     x = "TF-IDF",
     y = NULL,
-    title = "Distinctive words by service"
+    title = "Distinctive words in descriptions"
   ) +
   theme_minimal()
 ```
 
 ::: {.callout-tip collapse="true"}
-This chart helps formulate reading hypotheses. Before acting, return to the texts and check whether the word has the expected meaning.
+Return to the original descriptions to check meaning before writing a conclusion.
 :::
 
 ## Block D - Prepare dashboard output
 
 ### Exercise 10 - Build a summary table
 
-Prepare an aggregated table that could feed a dashboard card or chart.
-
 ```{r}
-dashboard_summary <- comment_scores |>
-  group_by(month, service) |>
+dashboard_summary <- record_scores |>
+  group_by(producer) |>
   summarise(
-    comments = n(),
-    mean_sentiment_score = mean(sentiment_score),
-    mean_satisfaction = mean(satisfaction),
-    mean_clarity = mean(clarity),
-    mean_wait_time = mean(wait_time),
+    records = n(),
+    mean_precision_score = mean(precision_score),
+    mean_resources = mean(resource_count),
+    median_days_since_update = median(days_since_update),
+    categories = n_distinct(category),
     .groups = "drop"
   )
 
@@ -269,100 +268,88 @@ dashboard_summary
 ```
 
 ::: {.callout-tip collapse="true"}
-A good dashboard often separates the steps: clean data, create aggregated indicators, then visualize those indicators.
+This table separates indicator preparation from display. A dashboard could then present cards, charts and source descriptions.
 :::
 
 ### Exercise 11 - Simulate a filter
 
-Without using `shiny`, simulate the result of a filter by choosing a service.
-
 ```{r}
-selected_service <- "Reservation"
+selected_producer <- "Ville de Québec"
 
 dashboard_summary |>
-  filter(service == selected_service)
+  filter(producer == selected_producer)
 ```
 
 ::: {.callout-tip collapse="true"}
-In a `shiny` application, `selected_service` could come from a dropdown menu. The analytical idea remains the same: filter, then recalculate or display.
+In a `shiny` app, this value could come from a menu. The analytical operation remains a filter on a prepared table.
 :::
 
-## Case Study 1 - Library comments
+## Case Study 1 - Quality of dataset descriptions
 
-The management team of a library network wants to know which services deserve priority attention.
-
-Your task:
-
-1. choose two indicators among `mean_sentiment_score`, `mean_satisfaction`, `mean_clarity` and `mean_wait_time`;
-2. identify a service to improve;
-3. write a careful recommendation that names one limitation.
+A team wants to identify descriptions that deserve editorial review.
 
 ```{r}
-service_priorities <- dashboard_summary |>
-  group_by(service) |>
-  summarise(
-    mean_sentiment_score = mean(mean_sentiment_score),
-    mean_satisfaction = mean(mean_satisfaction),
-    mean_clarity = mean(mean_clarity),
-    mean_wait_time = mean(mean_wait_time),
-    comments = sum(comments),
-    .groups = "drop"
+records_to_review <- record_scores |>
+  arrange(precision_score, recognized_words) |>
+  select(
+    producer,
+    title,
+    description,
+    precision_score,
+    recognized_words,
+    days_since_update
   ) |>
-  arrange(mean_satisfaction, mean_sentiment_score)
+  slice_head(n = 10)
 
-service_priorities
+records_to_review
 ```
 
 ::: {.callout-tip collapse="true"}
-A careful recommendation could focus on the reservation service if its scores are lower. The main limitation is that the data are fictitious and contain few comments, so the result should be confirmed with more data and qualitative reading.
+The score may prioritize reading, but should not automatically trigger correction. The lexicon is small, topics differ and a general description may still be accurate and useful.
 :::
 
-## Case Study 2 - Cultural workshops
+## Case Study 2 - Quebec tourism events
 
-Import the file `fictitious_culture_workshops.csv`, then prepare a mini summary for a public-workshop dashboard.
-
-Your task:
-
-1. tokenize the comments;
-2. calculate distinctive words by activity type;
-3. compare `participation`, `accessibility` and `recommendation`;
-4. propose two visual elements for a dashboard.
+Import `quebec_tourism_events.csv`. `text` combines public SIT Québec fields to create a short reproducible corpus.
 
 ```{r}
-workshops <- read_csv("data/fictitious_culture_workshops.csv", show_col_types = FALSE)
+events <- read_csv(
+  "data/quebec_tourism_events.csv",
+  show_col_types = FALSE
+)
 
-workshop_tokens <- workshops |>
-  unnest_tokens(word, comment) |>
+event_tokens <- events |>
+  unnest_tokens(word, text) |>
   filter(
     !word %in% stop_fr,
-    str_detect(word, "^[a-z]+$")
+    str_detect(word, "^\\p{L}+$")
   )
 
-workshop_tfidf <- workshop_tokens |>
-  count(activity_type, word) |>
-  bind_tf_idf(word, activity_type, n) |>
-  group_by(activity_type) |>
+event_tfidf <- event_tokens |>
+  count(event_type, word) |>
+  bind_tf_idf(word, event_type, n) |>
+  group_by(event_type) |>
   slice_max(tf_idf, n = 4, with_ties = FALSE) |>
   ungroup()
 
-workshop_tfidf
+event_tfidf
 ```
 
 ```{r}
-workshop_summary <- workshops |>
-  group_by(activity_type) |>
+event_summary <- events |>
+  group_by(tourism_region) |>
   summarise(
-    responses = n(),
-    mean_participation = mean(participation),
-    mean_accessibility = mean(accessibility),
-    mean_recommendation = mean(recommendation),
+    events = n(),
+    municipalities = n_distinct(municipality),
+    median_duration_days = median(duration_days),
+    proportion_with_website = mean(website_available),
     .groups = "drop"
   ) |>
-  arrange(mean_recommendation)
+  arrange(desc(events), tourism_region)
 
-workshop_summary
+event_summary
 ```
 
 ::: {.callout-tip collapse="true"}
-Two useful visuals would be: a TF-IDF chart by activity type and a chart of numerical averages by activity type. These charts should be accompanied by a short note about the limits of small group sizes.
+Useful visuals include a TF-IDF chart by event type and a regional coverage chart. The sample is balanced to at most eight events per tourism region, so it does not measure the true volume of the entire tourism offering.
 :::
