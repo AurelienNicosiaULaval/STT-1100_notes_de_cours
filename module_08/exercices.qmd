@@ -15,7 +15,7 @@ editor: visual
 
 Ces exercices sont indépendants de l'aventure et du défi. Ils servent à consolider les gestes techniques du module 8: lire une page HTML, cibler des éléments avec des sélecteurs CSS, transformer une extraction en fonction, automatiser une extraction répétée et documenter les limites d'une collecte.
 
-Les pages HTML utilisées ici sont fictives et locales. Elles ne dépendent d'aucun site web externe.
+Les pages HTML utilisées ici sont des instantanés locaux de données québécoises réelles. Les deux catalogues proviennent de l'[API officielle de Données Québec](https://www.donneesquebec.ca/page-api/){target="_blank"}; la page d'événements est tirée du jeu [Événements - Système d'information touristique Québec](https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements){target="_blank"} du ministère du Tourisme. Les instantanés conservent les valeurs publiées, mais leur structure HTML est simplifiée pour rendre l'exercice stable et reproductible. Les métadonnées et les événements sont diffusés sous licence CC BY 4.0.
 
 ```{r setup, warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -38,13 +38,13 @@ Après les lectures, faites aussi le [mini-test formatif](mini_test.qmd). Il n'e
 
 ### Exercice 1 - Importer une page HTML
 
-Lisez `catalogue_donnees_fictif.html` avec `read_html()`. Repérez les cartes de jeux de données avec le sélecteur `.dataset-card`.
+Lisez `catalogue_donnees_quebec.html` avec `read_html()`. Repérez les six cartes de jeux de données avec le sélecteur `.dataset-card`. Elles couvrent Québec, Gatineau, Sherbrooke, Trois-Rivières, Saguenay et Montréal.
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-page_catalogue <- read_html("data/catalogue_donnees_fictif.html")
+page_catalogue <- read_html("data/catalogue_donnees_quebec.html")
 
 cartes <- page_catalogue |>
   html_elements(".dataset-card")
@@ -138,19 +138,19 @@ extraire_catalogue <- function(fichier) {
   )
 }
 
-extraire_catalogue("data/catalogue_donnees_fictif.html")
+extraire_catalogue("data/catalogue_donnees_quebec.html")
 ```
 :::
 
 ### Exercice 6 - Tester une page irrégulière
 
-Utilisez la même fonction sur `catalogue_irregulier_fictif.html`. Quelles valeurs manquent?
+Utilisez la même fonction sur `catalogue_donnees_quebec_irregulier.html`. Certaines fiches officielles ne sont associées à aucune catégorie dans le portail. Quelles valeurs manquent?
 
 ::: {.callout-note collapse="true"}
 ### Solution
 
 ```{r}
-catalogue_irregulier <- extraire_catalogue("data/catalogue_irregulier_fictif.html")
+catalogue_irregulier <- extraire_catalogue("data/catalogue_donnees_quebec_irregulier.html")
 
 catalogue_irregulier
 
@@ -173,8 +173,8 @@ Utilisez `purrr::imap_dfr()` pour appliquer `extraire_catalogue()` aux deux page
 
 ```{r}
 fichiers_catalogue <- c(
-  regulier = "data/catalogue_donnees_fictif.html",
-  irregulier = "data/catalogue_irregulier_fictif.html"
+  regulier = "data/catalogue_donnees_quebec.html",
+  irregulier = "data/catalogue_donnees_quebec_irregulier.html"
 )
 
 catalogues_combines <- imap_dfr(
@@ -222,9 +222,9 @@ chemins_interdits
 `robots.txt` donne des consignes techniques aux robots. Il ne remplace pas les conditions d'utilisation, le jugement éthique, la prudence sur la charge serveur ou une autorisation écrite lorsque la collecte et la redistribution sont sensibles.
 :::
 
-## Étude de cas 1 - Catalogue municipal fictif
+## Étude de cas 1 - Catalogue municipal québécois
 
-Une municipalité fictive vous demande de produire un court résumé des jeux de données visibles dans son mini-catalogue.
+Vous devez produire un court résumé de métadonnées publiées par plusieurs municipalités québécoises dans Données Québec.
 
 ### Exercice 9 - Résumer les catégories
 
@@ -254,7 +254,7 @@ Le code lit seulement des pages HTML locales préparées pour l'exercice et extr
 
 ## Étude de cas 2 - Page d'événements publics
 
-Une association fictive publie une petite page d'événements. Vous voulez extraire les titres, les dates, les lieux et les thèmes pour produire un calendrier.
+Le ministère du Tourisme publie des événements du SIT Québec. L'instantané retient six événements annoncés à Gatineau, Montréal, Québec, Saguenay, Sherbrooke et Trois-Rivières. Vous voulez extraire les titres, les dates, les lieux et les types pour produire un calendrier.
 
 ### Exercice 11 - Extraire les événements
 
@@ -278,7 +278,7 @@ extraire_evenements <- function(fichier) {
   )
 }
 
-evenements <- extraire_evenements("data/evenements_publics_fictif.html")
+evenements <- extraire_evenements("data/evenements_sit_quebec.html")
 
 evenements
 ```
@@ -296,7 +296,7 @@ evenements |>
   count(theme, sort = TRUE)
 
 stopifnot(
-  nrow(evenements) == 4,
+  nrow(evenements) == 6,
   identical(names(evenements), c("titre", "date", "lieu", "theme")),
   all(!is.na(evenements$titre))
 )

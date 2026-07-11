@@ -40,7 +40,7 @@ At the end of this module, you should be able to:
 
 ### Prerequisites
 
-You should be able to read a table, manipulate a character string and follow a simple R function. The fictitious HTML pages let you practise without relying on an external service.
+You should be able to read a table, manipulate a character string and follow a simple R function. HTML snapshots of real Quebec data let you practise without relying on the availability of an external service.
 
 ### Minimum route
 
@@ -107,7 +107,7 @@ You will put this function in an `IDUL.R` file in the `STT-1100/aventure-8` temp
 
 Resource [Exercises page](exercices.llms.md)
 
-Why Exercises use fictitious local HTML pages to remain reproducible and independent from the challenge.
+Why Exercises use local HTML snapshots from Données Québec and SIT Québec to remain reproducible and independent from the challenge.
 
 Before opening a solution, name the CSS selector or output contract you want to test.
 
@@ -115,7 +115,7 @@ Before opening a solution, name the CSS selector or output contract you want to 
 
 ### Datasets
 
-[Web pages analyzed with rvest](../donnees.llms.md#dataset-card-web-pages-module-08) [fictitious_data_catalog.html](../donnees.llms.md#dataset-card-module08-catalogue) [fictitious_irregular_catalog.html](../donnees.llms.md#dataset-card-module08-irregular) [fictitious_public_events.html](../donnees.llms.md#dataset-card-module08-evenements)
+[Web pages analyzed with rvest](../donnees.llms.md#dataset-card-web-pages-module-08) [Données Québec catalog](data/catalogue_donnees_quebec.llms.md) [Catalog with missing categories](data/catalogue_donnees_quebec_irregulier.llms.md) [SIT Québec events](data/evenements_sit_quebec.llms.md)
 
 ### R packages
 

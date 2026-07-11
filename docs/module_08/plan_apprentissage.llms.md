@@ -55,6 +55,6 @@ Dépôt de départ : `STT-1100/aventure-8`
 
 ## Exercices de consolidation
 
-Ces exercices sont indépendants de l’aventure et du défi. Ils utilisent des pages HTML fictives locales pour pratiquer les sélecteurs CSS, les fonctions d’extraction, l’automatisation sur plusieurs pages, la gestion des champs manquants et les limites éthiques d’une collecte.
+Ces exercices sont indépendants de l’aventure et du défi. Ils utilisent des instantanés HTML locaux de métadonnées de Données Québec et d’événements du SIT Québec pour pratiquer les sélecteurs CSS, les fonctions d’extraction, l’automatisation sur plusieurs pages, la gestion des champs manquants et les limites éthiques d’une collecte.
 
 Lien vers les exercices : [Exercices de consolidation](../module_08/exercices.llms.md)

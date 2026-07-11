@@ -55,6 +55,6 @@ Starter repository: `STT-1100/aventure-8`
 
 ## Consolidation Exercises
 
-These exercises are independent from the adventure and the challenge. They use fictitious local HTML pages to practise CSS selectors, extraction functions, automation across several pages, missing-field handling and ethical limits of collection.
+These exercises are independent from the adventure and the challenge. They use local HTML snapshots of Données Québec metadata and SIT Québec events to practise CSS selectors, extraction functions, automation across several pages, missing-field handling and ethical limits of collection.
 
 Link to the exercises: [Consolidation Exercises](../module_08/exercices.llms.md)

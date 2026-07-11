@@ -6,7 +6,7 @@ STT-1100 Introduction à la science des données
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 8: lire une page HTML, cibler des éléments avec des sélecteurs CSS, transformer une extraction en fonction, automatiser une extraction répétée et documenter les limites d’une collecte.
 
-Les pages HTML utilisées ici sont fictives et locales. Elles ne dépendent d’aucun site web externe.
+Les pages HTML utilisées ici sont des instantanés locaux de données québécoises réelles. Les deux catalogues proviennent de l’[API officielle de Données Québec](https://www.donneesquebec.ca/page-api/); la page d’événements est tirée du jeu [Événements - Système d’information touristique Québec](https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements) du ministère du Tourisme. Les instantanés conservent les valeurs publiées, mais leur structure HTML est simplifiée pour rendre l’exercice stable et reproductible. Les métadonnées et les événements sont diffusés sous licence CC BY 4.0.
 
 ``` r
 library(tidyverse)
@@ -29,12 +29,12 @@ Après les lectures, faites aussi le [mini-test formatif](../module_08/mini_test
 
 ### Exercice 1 - Importer une page HTML
 
-Lisez `catalogue_donnees_fictif.html` avec `read_html()`. Repérez les cartes de jeux de données avec le sélecteur `.dataset-card`.
+Lisez `catalogue_donnees_quebec.html` avec `read_html()`. Repérez les six cartes de jeux de données avec le sélecteur `.dataset-card`. Elles couvrent Québec, Gatineau, Sherbrooke, Trois-Rivières, Saguenay et Montréal.
 
 > **NOTE:**
 >
 > ``` r
-> page_catalogue <- read_html("data/catalogue_donnees_fictif.html")
+> page_catalogue <- read_html("data/catalogue_donnees_quebec.html")
 >
 > cartes <- page_catalogue |>
 >   html_elements(".dataset-card")
@@ -42,18 +42,18 @@ Lisez `catalogue_donnees_fictif.html` avec `read_html()`. Repérez les cartes de
 > length(cartes)
 > ```
 >
->     [1] 5
+>     [1] 6
 >
 > ``` r
 > cartes[[1]]
 > ```
 >
 >     {html_node}
->     <article class="dataset-card">
->     [1] <h2 class="dataset-title">Comptages cyclistes mensuels</h2>
->     [2] <p class="dataset-producer">Ville fictive de Saint-Laurent</p>
->     [3] <p class="dataset-category">Transport</p>
->     [4] <p class="dataset-updated">2026-01-15</p>
+>     <article class="dataset-card" data-source-url="https://www.donneesquebec.ca/recherche/dataset/vque_31">
+>     [1] <h2 class="dataset-title">Arbres non-répertoriés</h2>
+>     [2] <p class="dataset-producer">Ville de Québec</p>
+>     [3] <p class="dataset-category">Environnement, ressources naturelles et énerg ...
+>     [4] <p class="dataset-updated">2026-07-10</p>
 
 ### Exercice 2 - Extraire un premier vecteur
 
@@ -69,9 +69,12 @@ Extrayez les titres des jeux de données avec le sélecteur `.dataset-title`.
 > titres
 > ```
 >
->     [1] "Comptages cyclistes mensuels"      "Inventaire des arbres publics"
->     [3] "Permis de construction anonymises" "Qualite de l'air par secteur"
->     [5] "Frequentation des bibliotheques"
+>     [1] "Arbres non-répertoriés"
+>     [2] "Pistes cyclables"
+>     [3] "Milieux humides RCI"
+>     [4] "Avis de grands travaux"
+>     [5] "Chantiers - 511"
+>     [6] "RSQA - indice de la qualité de l'air temps réel (quotidien)"
 
 ### Exercice 3 - Construire un tableau
 
@@ -92,14 +95,15 @@ Extrayez les producteurs, les catégories et les dates de mise à jour. Combinez
 > catalogue
 > ```
 >
->     # A tibble: 5 × 4
->       titre                             producteur        categorie date_mise_a_jour
->       <chr>                             <chr>             <chr>     <date>
->     1 Comptages cyclistes mensuels      Ville fictive de… Transport 2026-01-15
->     2 Inventaire des arbres publics     Service fictif d… Environn… 2026-01-22
->     3 Permis de construction anonymises Direction fictiv… Urbanisme 2026-02-02
->     4 Qualite de l'air par secteur      Observatoire fic… Environn… 2026-02-08
->     5 Frequentation des bibliotheques   Reseau fictif de… Culture   2026-02-12
+>     # A tibble: 6 × 4
+>       titre                                    producteur categorie date_mise_a_jour
+>       <chr>                                    <chr>      <chr>     <date>
+>     1 Arbres non-répertoriés                   Ville de … Environn… 2026-07-10
+>     2 Pistes cyclables                         Ville de … Infrastr… 2025-11-25
+>     3 Milieux humides RCI                      Ville de … Environn… 2026-06-02
+>     4 Avis de grands travaux                   Ville de … Infrastr… 2026-07-11
+>     5 Chantiers - 511                          Ville de … Transport 2026-07-11
+>     6 RSQA - indice de la qualité de l'air te… Ville de … Environn… 2026-07-11
 
 ## Bloc B - Transformer l’extraction en fonction
 
@@ -124,7 +128,7 @@ Créez une fonction `extraire_texte()` qui reçoit un noeud HTML et un sélecteu
 > extraire_texte(cartes[[1]], ".dataset-title")
 > ```
 >
->     [1] "Comptages cyclistes mensuels"
+>     [1] "Arbres non-répertoriés"
 >
 > ``` r
 > extraire_texte(cartes[[1]], ".champ-inexistant")
@@ -152,37 +156,38 @@ Créez une fonction `extraire_texte()` qui reçoit un noeud HTML et un sélecteu
 >   )
 > }
 >
-> extraire_catalogue("data/catalogue_donnees_fictif.html")
+> extraire_catalogue("data/catalogue_donnees_quebec.html")
 > ```
 >
->     # A tibble: 5 × 4
->       titre                             producteur        categorie date_mise_a_jour
->       <chr>                             <chr>             <chr>     <date>
->     1 Comptages cyclistes mensuels      Ville fictive de… Transport 2026-01-15
->     2 Inventaire des arbres publics     Service fictif d… Environn… 2026-01-22
->     3 Permis de construction anonymises Direction fictiv… Urbanisme 2026-02-02
->     4 Qualite de l'air par secteur      Observatoire fic… Environn… 2026-02-08
->     5 Frequentation des bibliotheques   Reseau fictif de… Culture   2026-02-12
+>     # A tibble: 6 × 4
+>       titre                                    producteur categorie date_mise_a_jour
+>       <chr>                                    <chr>      <chr>     <date>
+>     1 Arbres non-répertoriés                   Ville de … Environn… 2026-07-10
+>     2 Pistes cyclables                         Ville de … Infrastr… 2025-11-25
+>     3 Milieux humides RCI                      Ville de … Environn… 2026-06-02
+>     4 Avis de grands travaux                   Ville de … Infrastr… 2026-07-11
+>     5 Chantiers - 511                          Ville de … Transport 2026-07-11
+>     6 RSQA - indice de la qualité de l'air te… Ville de … Environn… 2026-07-11
 
 ### Exercice 6 - Tester une page irrégulière
 
-Utilisez la même fonction sur `catalogue_irregulier_fictif.html`. Quelles valeurs manquent?
+Utilisez la même fonction sur `catalogue_donnees_quebec_irregulier.html`. Certaines fiches officielles ne sont associées à aucune catégorie dans le portail. Quelles valeurs manquent?
 
 > **NOTE:**
 >
 > ``` r
-> catalogue_irregulier <- extraire_catalogue("data/catalogue_irregulier_fictif.html")
+> catalogue_irregulier <- extraire_catalogue("data/catalogue_donnees_quebec_irregulier.html")
 >
 > catalogue_irregulier
 > ```
 >
 >     # A tibble: 4 × 4
->       titre                          producteur           categorie date_mise_a_jour
->       <chr>                          <chr>                <chr>     <date>
->     1 Stations de recharge publiques Bureau fictif de la… Transport 2026-03-01
->     2 Subventions communautaires     <NA>                 Administ… 2026-03-04
->     3 Espaces publics accessibles    Service fictif de l… <NA>      2026-03-08
->     4 Travaux routiers planifies     Direction fictive d… Transport 2026-03-12
+>       titre                                    producteur categorie date_mise_a_jour
+>       <chr>                                    <chr>      <chr>     <date>
+>     1 Débits de circulation                    Ville de … <NA>      2025-11-20
+>     2 Sondage de satisfaction auprès des cito… Ville de … <NA>      2026-04-07
+>     3 Zones inondables                         Ville de … Environn… 2026-06-01
+>     4 Sentiers pédestres                       Ville de … Tourisme… 2026-07-06
 >
 > ``` r
 > catalogue_irregulier |>
@@ -195,7 +200,7 @@ Utilisez la même fonction sur `catalogue_irregulier_fictif.html`. Quelles valeu
 >     # A tibble: 1 × 2
 >       producteurs_manquants categories_manquantes
 >                       <int>                 <int>
->     1                     1                     1
+>     1                     0                     2
 >
 > La fonction ne s’arrête pas lorsqu’un champ manque. Elle retourne `NA`, ce qui permet de diagnostiquer le problème dans un tableau.
 
@@ -207,8 +212,8 @@ Utilisez `purrr::imap_dfr()` pour appliquer `extraire_catalogue()` aux deux page
 >
 > ``` r
 > fichiers_catalogue <- c(
->   regulier = "data/catalogue_donnees_fictif.html",
->   irregulier = "data/catalogue_irregulier_fictif.html"
+>   regulier = "data/catalogue_donnees_quebec.html",
+>   irregulier = "data/catalogue_donnees_quebec_irregulier.html"
 > )
 >
 > catalogues_combines <- imap_dfr(
@@ -222,18 +227,19 @@ Utilisez `purrr::imap_dfr()` pour appliquer `extraire_catalogue()` aux deux page
 > catalogues_combines
 > ```
 >
->     # A tibble: 9 × 5
->       source     titre                         producteur categorie date_mise_a_jour
->       <chr>      <chr>                         <chr>      <chr>     <date>
->     1 regulier   Comptages cyclistes mensuels  Ville fic… Transport 2026-01-15
->     2 regulier   Inventaire des arbres publics Service f… Environn… 2026-01-22
->     3 regulier   Permis de construction anony… Direction… Urbanisme 2026-02-02
->     4 regulier   Qualite de l'air par secteur  Observato… Environn… 2026-02-08
->     5 regulier   Frequentation des bibliotheq… Reseau fi… Culture   2026-02-12
->     6 irregulier Stations de recharge publiqu… Bureau fi… Transport 2026-03-01
->     7 irregulier Subventions communautaires    <NA>       Administ… 2026-03-04
->     8 irregulier Espaces publics accessibles   Service f… <NA>      2026-03-08
->     9 irregulier Travaux routiers planifies    Direction… Transport 2026-03-12
+>     # A tibble: 10 × 5
+>        source     titre                        producteur categorie date_mise_a_jour
+>        <chr>      <chr>                        <chr>      <chr>     <date>
+>      1 regulier   Arbres non-répertoriés       Ville de … Environn… 2026-07-10
+>      2 regulier   Pistes cyclables             Ville de … Infrastr… 2025-11-25
+>      3 regulier   Milieux humides RCI          Ville de … Environn… 2026-06-02
+>      4 regulier   Avis de grands travaux       Ville de … Infrastr… 2026-07-11
+>      5 regulier   Chantiers - 511              Ville de … Transport 2026-07-11
+>      6 regulier   RSQA - indice de la qualité… Ville de … Environn… 2026-07-11
+>      7 irregulier Débits de circulation        Ville de … <NA>      2025-11-20
+>      8 irregulier Sondage de satisfaction aup… Ville de … <NA>      2026-04-07
+>      9 irregulier Zones inondables             Ville de … Environn… 2026-06-01
+>     10 irregulier Sentiers pédestres           Ville de … Tourisme… 2026-07-06
 
 ## Bloc C - Sobriété et éthique de collecte
 
@@ -273,9 +279,9 @@ Identifiez les chemins à éviter et expliquez pourquoi ce fichier ne constitue 
 >
 > `robots.txt` donne des consignes techniques aux robots. Il ne remplace pas les conditions d’utilisation, le jugement éthique, la prudence sur la charge serveur ou une autorisation écrite lorsque la collecte et la redistribution sont sensibles.
 
-## Étude de cas 1 - Catalogue municipal fictif
+## Étude de cas 1 - Catalogue municipal québécois
 
-Une municipalité fictive vous demande de produire un court résumé des jeux de données visibles dans son mini-catalogue.
+Vous devez produire un court résumé de métadonnées publiées par plusieurs municipalités québécoises dans Données Québec.
 
 ### Exercice 9 - Résumer les catégories
 
@@ -291,15 +297,16 @@ Une municipalité fictive vous demande de produire un court résumé des jeux de
 > resume_categories
 > ```
 >
->     # A tibble: 6 × 2
->       categorie          n
->       <chr>          <int>
->     1 Transport          3
->     2 Environnement      2
->     3 Administration     1
->     4 Culture            1
->     5 Non indiquee       1
->     6 Urbanisme          1
+>     # A tibble: 7 × 2
+>       categorie                                                                    n
+>       <chr>                                                                    <int>
+>     1 Environnement, ressources naturelles et énergie                              3
+>     2 Non indiquee                                                                 2
+>     3 Environnement, ressources naturelles et énergie; Loi, justice et sécuri…     1
+>     4 Infrastructures                                                              1
+>     5 Infrastructures; Transport                                                   1
+>     6 Tourisme, sports et loisirs                                                  1
+>     7 Transport                                                                    1
 
 ### Exercice 10 - Produire une note de collecte
 
@@ -311,7 +318,7 @@ Une municipalité fictive vous demande de produire un court résumé des jeux de
 
 ## Étude de cas 2 - Page d’événements publics
 
-Une association fictive publie une petite page d’événements. Vous voulez extraire les titres, les dates, les lieux et les thèmes pour produire un calendrier.
+Le ministère du Tourisme publie des événements du SIT Québec. L’instantané retient six événements annoncés à Gatineau, Montréal, Québec, Saguenay, Sherbrooke et Trois-Rivières. Vous voulez extraire les titres, les dates, les lieux et les types pour produire un calendrier.
 
 ### Exercice 11 - Extraire les événements
 
@@ -334,18 +341,20 @@ Créez une fonction `extraire_evenements(fichier)` qui retourne un tibble avec l
 >   )
 > }
 >
-> evenements <- extraire_evenements("data/evenements_publics_fictif.html")
+> evenements <- extraire_evenements("data/evenements_sit_quebec.html")
 >
 > evenements
 > ```
 >
->     # A tibble: 4 × 4
->       titre                            date       lieu                     theme
->       <chr>                            <date>     <chr>                    <chr>
->     1 Atelier de donnees ouvertes      2026-02-18 Bibliotheque centrale    Numerique
->     2 Consultation sur la mobilite     2026-02-24 Maison citoyenne         Transport
->     3 Rencontre climat quartier        2026-03-03 Centre communautaire Est Environn…
->     4 Formation cartographie citoyenne 2026-03-10 Laboratoire urbain       Numerique
+>     # A tibble: 6 × 4
+>       titre                                                   date       lieu  theme
+>       <chr>                                                   <date>     <chr> <chr>
+>     1 Festival Parasol                                        2026-07-15 Gati… Fest…
+>     2 Rendez-vous familial des pompiers et pompières de Mont… 2026-07-11 Mont… Fête…
+>     3 L'Horizon de Khéops à Québec                            2026-07-15 Québ… Expé…
+>     4 Festival International des Rythmes du Monde             2026-07-16 Sagu… Fest…
+>     5 La Fête du Lac des Nations Promutuel Assurance          2026-07-14 Sher… Fest…
+>     6 Rendez-vous des coureurs des bois de Trois-Rivières     2026-07-17 Troi… Fest…
 
 ### Exercice 12 - Vérifier le résultat
 
@@ -359,15 +368,15 @@ Produisez un résumé du nombre d’événements par thème et formulez une vér
 > ```
 >
 >     # A tibble: 3 × 2
->       theme             n
->       <chr>         <int>
->     1 Numerique         2
->     2 Environnement     1
->     3 Transport         1
+>       theme                                 n
+>       <chr>                             <int>
+>     1 Festival                              4
+>     2 Expérience multimédia / immersive     1
+>     3 Fête populaire                        1
 >
 > ``` r
 > stopifnot(
->   nrow(evenements) == 4,
+>   nrow(evenements) == 6,
 >   identical(names(evenements), c("titre", "date", "lieu", "theme")),
 >   all(!is.na(evenements$titre))
 > )

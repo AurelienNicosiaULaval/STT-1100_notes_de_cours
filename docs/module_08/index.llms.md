@@ -40,7 +40,7 @@ sélecteurs fonction table finale
 
 ### Prérequis
 
-Vous devez pouvoir lire un tableau, manipuler une chaîne de caractères et suivre une fonction R simple. Les pages HTML fictives du module permettent de pratiquer sans dépendre d’un service externe.
+Vous devez pouvoir lire un tableau, manipuler une chaîne de caractères et suivre une fonction R simple. Les instantanés HTML de données réelles du Québec permettent de pratiquer sans dépendre de la disponibilité d’un service externe.
 
 ### Parcours minimal
 
@@ -107,7 +107,7 @@ Vous remettrez cette fonction dans un fichier `IDUL.R` dans le dépôt template 
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Pourquoi Les exercices utilisent des pages HTML fictives et locales pour rester reproductibles et indépendants du défi.
+Pourquoi Les exercices utilisent des instantanés HTML locaux provenant de Données Québec et du SIT Québec afin de rester reproductibles et indépendants du défi.
 
 Avant d'ouvrir une solution, nommez le sélecteur CSS ou le contrat de sortie que vous voulez tester.
 
@@ -115,7 +115,7 @@ Avant d'ouvrir une solution, nommez le sélecteur CSS ou le contrat de sortie qu
 
 ### Bases de données
 
-[Pages web analysées avec rvest](../donnees.llms.md#dataset-card-web-pages-module-08) [catalogue_donnees_fictif.html](../donnees.llms.md#dataset-card-module08-catalogue) [catalogue_irregulier_fictif.html](../donnees.llms.md#dataset-card-module08-irregular) [evenements_publics_fictif.html](../donnees.llms.md#dataset-card-module08-evenements)
+[Pages web analysées avec rvest](../donnees.llms.md#dataset-card-web-pages-module-08) [Catalogue Données Québec](data/catalogue_donnees_quebec.llms.md) [Catalogue avec catégories absentes](data/catalogue_donnees_quebec_irregulier.llms.md) [Événements du SIT Québec](data/evenements_sit_quebec.llms.md)
 
 ### Packages R
 

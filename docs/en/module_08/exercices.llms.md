@@ -6,7 +6,7 @@ STT-1100 Introduction to Data Science
 
 These exercises are independent from the adventure and the challenge. They consolidate the technical moves of module 8: reading an HTML page, targeting elements with CSS selectors, turning an extraction into a function, automating repeated extraction and documenting collection limits.
 
-The HTML pages used here are fictitious and local. They do not depend on any external website.
+The HTML pages used here are local snapshots of real Quebec data. Both catalogs come from the [official Données Québec API](https://www.donneesquebec.ca/page-api/); the events page comes from the Ministry of Tourism dataset [Événements - Système d’information touristique Québec](https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements). The snapshots preserve the published values, while simplifying the HTML structure to keep the exercise stable and reproducible. The metadata and events are distributed under the CC BY 4.0 licence.
 
 ``` r
 library(tidyverse)
@@ -29,12 +29,12 @@ After the readings, also complete the [formative mini-test](../module_08/mini_te
 
 ### Exercise 1 - Import an HTML Page
 
-Read `fictitious_data_catalog.html` with `read_html()`. Locate dataset cards with the `.dataset-card` selector.
+Read `catalogue_donnees_quebec.html` with `read_html()`. Locate the six dataset cards with the `.dataset-card` selector. They cover Quebec City, Gatineau, Sherbrooke, Trois-Rivières, Saguenay and Montreal.
 
 > **NOTE:**
 >
 > ``` r
-> catalog_page <- read_html("data/fictitious_data_catalog.html")
+> catalog_page <- read_html("data/catalogue_donnees_quebec.html")
 >
 > cards <- catalog_page |>
 >   html_elements(".dataset-card")
@@ -42,18 +42,18 @@ Read `fictitious_data_catalog.html` with `read_html()`. Locate dataset cards wit
 > length(cards)
 > ```
 >
->     [1] 5
+>     [1] 6
 >
 > ``` r
 > cards[[1]]
 > ```
 >
 >     {html_node}
->     <article class="dataset-card">
->     [1] <h2 class="dataset-title">Monthly bicycle counts</h2>
->     [2] <p class="dataset-producer">Fictitious City of Saint-Laurent</p>
->     [3] <p class="dataset-category">Transport</p>
->     [4] <p class="dataset-updated">2026-01-15</p>
+>     <article class="dataset-card" data-source-url="https://www.donneesquebec.ca/recherche/dataset/vque_31">
+>     [1] <h2 class="dataset-title">Arbres non-répertoriés</h2>
+>     [2] <p class="dataset-producer">Ville de Québec</p>
+>     [3] <p class="dataset-category">Environnement, ressources naturelles et énerg ...
+>     [4] <p class="dataset-updated">2026-07-10</p>
 
 ### Exercise 2 - Extract a First Vector
 
@@ -69,9 +69,12 @@ Extract dataset titles with the `.dataset-title` selector.
 > titles
 > ```
 >
->     [1] "Monthly bicycle counts"          "Public tree inventory"
->     [3] "Anonymized construction permits" "Air quality by sector"
->     [5] "Library attendance"
+>     [1] "Arbres non-répertoriés"
+>     [2] "Pistes cyclables"
+>     [3] "Milieux humides RCI"
+>     [4] "Avis de grands travaux"
+>     [5] "Chantiers - 511"
+>     [6] "RSQA - indice de la qualité de l'air temps réel (quotidien)"
 
 ### Exercise 3 - Build a Table
 
@@ -92,14 +95,15 @@ Extract producers, categories and update dates. Combine them into a tibble.
 > catalog
 > ```
 >
->     # A tibble: 5 × 4
->       title                           producer                   category updated_at
->       <chr>                           <chr>                      <chr>    <date>
->     1 Monthly bicycle counts          Fictitious City of Saint-… Transpo… 2026-01-15
->     2 Public tree inventory           Fictitious Parks Service   Environ… 2026-01-22
->     3 Anonymized construction permits Fictitious Urban Planning… Urban p… 2026-02-02
->     4 Air quality by sector           Fictitious Environment Ob… Environ… 2026-02-08
->     5 Library attendance              Fictitious Library Network Culture  2026-02-12
+>     # A tibble: 6 × 4
+>       title                                             producer category updated_at
+>       <chr>                                             <chr>    <chr>    <date>
+>     1 Arbres non-répertoriés                            Ville d… Environ… 2026-07-10
+>     2 Pistes cyclables                                  Ville d… Infrast… 2025-11-25
+>     3 Milieux humides RCI                               Ville d… Environ… 2026-06-02
+>     4 Avis de grands travaux                            Ville d… Infrast… 2026-07-11
+>     5 Chantiers - 511                                   Ville d… Transpo… 2026-07-11
+>     6 RSQA - indice de la qualité de l'air temps réel … Ville d… Environ… 2026-07-11
 
 ## Block B - Turn Extraction into a Function
 
@@ -124,7 +128,7 @@ Create an `extract_text()` function that receives an HTML node and a CSS selecto
 > extract_text(cards[[1]], ".dataset-title")
 > ```
 >
->     [1] "Monthly bicycle counts"
+>     [1] "Arbres non-répertoriés"
 >
 > ``` r
 > extract_text(cards[[1]], ".missing-field")
@@ -152,37 +156,38 @@ Write an `extract_catalog(file)` function that reads a local HTML page and retur
 >   )
 > }
 >
-> extract_catalog("data/fictitious_data_catalog.html")
+> extract_catalog("data/catalogue_donnees_quebec.html")
 > ```
 >
->     # A tibble: 5 × 4
->       title                           producer                   category updated_at
->       <chr>                           <chr>                      <chr>    <date>
->     1 Monthly bicycle counts          Fictitious City of Saint-… Transpo… 2026-01-15
->     2 Public tree inventory           Fictitious Parks Service   Environ… 2026-01-22
->     3 Anonymized construction permits Fictitious Urban Planning… Urban p… 2026-02-02
->     4 Air quality by sector           Fictitious Environment Ob… Environ… 2026-02-08
->     5 Library attendance              Fictitious Library Network Culture  2026-02-12
+>     # A tibble: 6 × 4
+>       title                                             producer category updated_at
+>       <chr>                                             <chr>    <chr>    <date>
+>     1 Arbres non-répertoriés                            Ville d… Environ… 2026-07-10
+>     2 Pistes cyclables                                  Ville d… Infrast… 2025-11-25
+>     3 Milieux humides RCI                               Ville d… Environ… 2026-06-02
+>     4 Avis de grands travaux                            Ville d… Infrast… 2026-07-11
+>     5 Chantiers - 511                                   Ville d… Transpo… 2026-07-11
+>     6 RSQA - indice de la qualité de l'air temps réel … Ville d… Environ… 2026-07-11
 
 ### Exercise 6 - Test an Irregular Page
 
-Use the same function on `fictitious_irregular_catalog.html`. Which values are missing?
+Use the same function on `catalogue_donnees_quebec_irregulier.html`. Some official records have no category assigned in the portal. Which values are missing?
 
 > **NOTE:**
 >
 > ``` r
-> irregular_catalog <- extract_catalog("data/fictitious_irregular_catalog.html")
+> irregular_catalog <- extract_catalog("data/catalogue_donnees_quebec_irregulier.html")
 >
 > irregular_catalog
 > ```
 >
 >     # A tibble: 4 × 4
->       title                    producer                         category  updated_at
->       <chr>                    <chr>                            <chr>     <date>
->     1 Public charging stations Fictitious Mobility Office       Transport 2026-03-01
->     2 Community grants         <NA>                             Administ… 2026-03-04
->     3 Accessible public spaces Fictitious Inclusion Service     <NA>      2026-03-08
->     4 Planned roadwork         Fictitious Infrastructure Office Transport 2026-03-12
+>       title                                             producer category updated_at
+>       <chr>                                             <chr>    <chr>    <date>
+>     1 Débits de circulation                             Ville d… <NA>     2025-11-20
+>     2 Sondage de satisfaction auprès des citoyens à l’… Ville d… <NA>     2026-04-07
+>     3 Zones inondables                                  Ville d… Environ… 2026-06-01
+>     4 Sentiers pédestres                                Ville d… Tourism… 2026-07-06
 >
 > ``` r
 > irregular_catalog |>
@@ -195,7 +200,7 @@ Use the same function on `fictitious_irregular_catalog.html`. Which values are m
 >     # A tibble: 1 × 2
 >       missing_producers missing_categories
 >                   <int>              <int>
->     1                 1                  1
+>     1                 0                  2
 >
 > The function does not stop when a field is missing. It returns `NA`, which makes the problem diagnosable in a table.
 
@@ -207,8 +212,8 @@ Use `purrr::imap_dfr()` to apply `extract_catalog()` to both catalog pages and a
 >
 > ``` r
 > catalog_files <- c(
->   regular = "data/fictitious_data_catalog.html",
->   irregular = "data/fictitious_irregular_catalog.html"
+>   regular = "data/catalogue_donnees_quebec.html",
+>   irregular = "data/catalogue_donnees_quebec_irregulier.html"
 > )
 >
 > combined_catalogs <- imap_dfr(
@@ -222,18 +227,19 @@ Use `purrr::imap_dfr()` to apply `extract_catalog()` to both catalog pages and a
 > combined_catalogs
 > ```
 >
->     # A tibble: 9 × 5
->       source    title                           producer         category updated_at
->       <chr>     <chr>                           <chr>            <chr>    <date>
->     1 regular   Monthly bicycle counts          Fictitious City… Transpo… 2026-01-15
->     2 regular   Public tree inventory           Fictitious Park… Environ… 2026-01-22
->     3 regular   Anonymized construction permits Fictitious Urba… Urban p… 2026-02-02
->     4 regular   Air quality by sector           Fictitious Envi… Environ… 2026-02-08
->     5 regular   Library attendance              Fictitious Libr… Culture  2026-02-12
->     6 irregular Public charging stations        Fictitious Mobi… Transpo… 2026-03-01
->     7 irregular Community grants                <NA>             Adminis… 2026-03-04
->     8 irregular Accessible public spaces        Fictitious Incl… <NA>     2026-03-08
->     9 irregular Planned roadwork                Fictitious Infr… Transpo… 2026-03-12
+>     # A tibble: 10 × 5
+>        source    title                                  producer category updated_at
+>        <chr>     <chr>                                  <chr>    <chr>    <date>
+>      1 regular   Arbres non-répertoriés                 Ville d… Environ… 2026-07-10
+>      2 regular   Pistes cyclables                       Ville d… Infrast… 2025-11-25
+>      3 regular   Milieux humides RCI                    Ville d… Environ… 2026-06-02
+>      4 regular   Avis de grands travaux                 Ville d… Infrast… 2026-07-11
+>      5 regular   Chantiers - 511                        Ville d… Transpo… 2026-07-11
+>      6 regular   RSQA - indice de la qualité de l'air … Ville d… Environ… 2026-07-11
+>      7 irregular Débits de circulation                  Ville d… <NA>     2025-11-20
+>      8 irregular Sondage de satisfaction auprès des ci… Ville d… <NA>     2026-04-07
+>      9 irregular Zones inondables                       Ville d… Environ… 2026-06-01
+>     10 irregular Sentiers pédestres                     Ville d… Tourism… 2026-07-06
 
 ## Block C - Collection Sobriety and Ethics
 
@@ -273,9 +279,9 @@ Identify paths to avoid and explain why this file is not full permission to coll
 >
 > `robots.txt` provides technical instructions to crawlers. It does not replace terms of use, ethical judgment, caution about server load or written permission when collection and redistribution are sensitive.
 
-## Case Study 1 - Fictitious Municipal Catalog
+## Case Study 1 - Quebec Municipal Catalog
 
-A fictitious municipality asks you to produce a short summary of the datasets visible in its mini-catalog.
+You must produce a short summary of metadata published by several Quebec municipalities in Données Québec.
 
 ### Exercise 9 - Summarize Categories
 
@@ -291,15 +297,16 @@ Starting from the two combined catalog pages, compute the number of datasets by 
 > category_summary
 > ```
 >
->     # A tibble: 6 × 2
->       category           n
->       <chr>          <int>
->     1 Transport          3
->     2 Environment        2
->     3 Administration     1
->     4 Culture            1
->     5 Not indicated      1
->     6 Urban planning     1
+>     # A tibble: 7 × 2
+>       category                                                                     n
+>       <chr>                                                                    <int>
+>     1 Environnement, ressources naturelles et énergie                              3
+>     2 Not indicated                                                                2
+>     3 Environnement, ressources naturelles et énergie; Loi, justice et sécuri…     1
+>     4 Infrastructures                                                              1
+>     5 Infrastructures; Transport                                                   1
+>     6 Tourisme, sports et loisirs                                                  1
+>     7 Transport                                                                    1
 
 ### Exercise 10 - Write a Collection Note
 
@@ -311,7 +318,7 @@ Write three sentences explaining what your code collects, how it limits risks an
 
 ## Case Study 2 - Public Events Page
 
-A fictitious association publishes a small event page. You want to extract titles, dates, locations and themes to produce a calendar.
+The Ministry of Tourism publishes SIT Québec events. The snapshot retains six announced events in Gatineau, Montreal, Quebec City, Saguenay, Sherbrooke and Trois-Rivières. You want to extract titles, dates, locations and types to produce a calendar.
 
 ### Exercise 11 - Extract Events
 
@@ -334,18 +341,20 @@ Create an `extract_events(file)` function that returns a tibble with the columns
 >   )
 > }
 >
-> events <- extract_events("data/fictitious_public_events.html")
+> events <- extract_events("data/evenements_sit_quebec.html")
 >
 > events
 > ```
 >
->     # A tibble: 4 × 4
->       title                         date       location              theme
->       <chr>                         <date>     <chr>                 <chr>
->     1 Open data workshop            2026-02-18 Central library       Digital
->     2 Mobility consultation         2026-02-24 Citizen house         Transport
->     3 Neighbourhood climate meeting 2026-03-03 East community centre Environment
->     4 Citizen mapping training      2026-03-10 Urban lab             Digital
+>     # A tibble: 6 × 4
+>       title                                                date       location theme
+>       <chr>                                                <date>     <chr>    <chr>
+>     1 Festival Parasol                                     2026-07-15 Gatineau Fest…
+>     2 Rendez-vous familial des pompiers et pompières de M… 2026-07-11 Montréal Fête…
+>     3 L'Horizon de Khéops à Québec                         2026-07-15 Québec   Expé…
+>     4 Festival International des Rythmes du Monde          2026-07-16 Saguenay Fest…
+>     5 La Fête du Lac des Nations Promutuel Assurance       2026-07-14 Sherbro… Fest…
+>     6 Rendez-vous des coureurs des bois de Trois-Rivières  2026-07-17 Trois-R… Fest…
 
 ### Exercise 12 - Check the Result
 
@@ -359,15 +368,15 @@ Produce a summary of the number of events by theme and write one simple check th
 > ```
 >
 >     # A tibble: 3 × 2
->       theme           n
->       <chr>       <int>
->     1 Digital         2
->     2 Environment     1
->     3 Transport       1
+>       theme                                 n
+>       <chr>                             <int>
+>     1 Festival                              4
+>     2 Expérience multimédia / immersive     1
+>     3 Fête populaire                        1
 >
 > ``` r
 > stopifnot(
->   nrow(events) == 4,
+>   nrow(events) == 6,
 >   identical(names(events), c("title", "date", "location", "theme")),
 >   all(!is.na(events$title))
 > )

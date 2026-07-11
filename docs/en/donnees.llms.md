@@ -282,17 +282,17 @@ Fictitious neighbourhood population used to normalize reports.Local file7 observ
 
 Public search page from the Données Québec portal used to practise HTML extraction.WebStructure to consultView documentation [Module 08 ](#module08-catalogue)
 
-## fictitious_data_catalog.html
+## catalogue_donnees_quebec.html
 
-Local HTML page containing a small fictitious open-data catalog.Local file5 observations / 4 variablesView profile [Module 08 ](#module08-irregular)
+HTML snapshot of six real Données Québec catalog records from six cities.Local file6 observations / 4 variablesView profile [Module 08 ](#module08-irregular)
 
-## fictitious_irregular_catalog.html
+## catalogue_donnees_quebec_irregulier.html
 
-Local HTML page with deliberately missing fields.Local file4 observations / 4 variablesView profile [Module 08 ](#module08-evenements)
+HTML snapshot of four real records, including two without a category in the portal.Local file4 observations / 4 variablesView profile [Module 08 ](#module08-evenements)
 
-## fictitious_public_events.html
+## evenements_sit_quebec.html
 
-[Local HTML page describing fictitious public events.Local file4 observations / 4 variablesView profile](#module08-evenements)
+[HTML snapshot of six real events announced in six Quebec cities.Local file6 observations / 4 variablesView profile](#module08-evenements)
 
 ### Module 09
 
@@ -357,14 +357,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| city | character | 0 | 6 | Quebec |
-| region | character | 0 | 6 | Capitale-Nationale |
-| month | character | 0 | 2 | January |
-| visits | numeric | 1 | 11 | 1240 |
-| loans | numeric | 0 | 12 | 3180 |
-| workshops | numeric | 0 | 9 | 8 |
-| open_hours | numeric | 0 | 11 | 176 |
-| rating | numeric | 1 | 8 | 4.2 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_student_coop.csv
 
@@ -389,13 +382,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| date | Date | 0 | 3 | 2026-01-15 |
-| category | character | 0 | 4 | stationery |
-| product | character | 0 | 12 | notebook |
-| unit_price | numeric | 0 | 12 | 4.5 |
-| quantity | numeric | 0 | 12 | 80 |
-| discount | numeric | 0 | 5 | 0 |
-| satisfaction | numeric | 0 | 4 | 4 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### manchots_donnees.xlsx
 
@@ -451,13 +438,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| city | character | 0 | 6 | Quebec |
-| neighbourhood | character | 0 | 12 | Saint-Roch |
-| species | character | 0 | 4 | Maple |
-| height_m | numeric | 0 | 24 | 12.4 |
-| diameter_cm | numeric | 0 | 23 | 31 |
-| estimated_age_years | numeric | 0 | 22 | 28 |
-| health_status | character | 0 | 3 | good |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_bike_share.csv
 
@@ -482,14 +463,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| city | character | 0 | 4 | Quebec |
-| station | character | 0 | 11 | Palais Station |
-| month | character | 0 | 3 | May |
-| day_type | character | 0 | 2 | weekday |
-| trips | numeric | 0 | 24 | 124 |
-| median_duration_min | numeric | 0 | 12 | 16 |
-| temperature_c | numeric | 0 | 12 | 15 |
-| precipitation_mm | numeric | 0 | 9 | 0 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_311_requests.csv
 
@@ -514,13 +488,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| city | character | 0 | 5 | Quebec |
-| borough | character | 0 | 12 | Sainte-Foy |
-| request_type | character | 0 | 5 | Snow removal |
-| channel | character | 0 | 3 | Phone |
-| priority | character | 0 | 3 | Normal |
-| status | character | 0 | 2 | Closed |
-| delay_days | numeric | 0 | 9 | 4 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_transit_complaints.csv
 
@@ -545,13 +513,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| network | character | 0 | 5 | RTC |
-| line | character | 0 | 15 | 801 |
-| complaint_type | character | 0 | 5 | Delay |
-| period | character | 0 | 2 | Peak |
-| severity | character | 0 | 3 | Moderate |
-| status | character | 0 | 2 | Closed |
-| n_complaints | numeric | 0 | 20 | 18 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### dataset_pratique.csv
 
@@ -709,13 +671,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| equipment_id | character | 0 | 16 | EQ-001 |
-| city | character | 0 | 5 | Quebec City |
-| equipment_type | character | 0 | 8 | Fountain |
-| status | character | 0 | 4 | active |
-| installation_year | numeric | 0 | 12 | 2012 |
-| maintenance_cost | character | 0 | 16 | 1 250.00 |
-| inspection_month | character | 0 | 12 | January |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_scholarship_applications.csv
 
@@ -740,14 +696,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| application_id | character | 0 | 16 | B-001 |
-| program | character | 0 | 6 | Statistics |
-| cycle | character | 0 | 3 | Undergraduate |
-| status | character | 0 | 5 | complete |
-| annual_income | numeric | 0 | 16 | 18500 |
-| requested_amount | character | 0 | 15 | 2 500.00 |
-| gpa | numeric | 1 | 13 | 3.7 |
-| fsa_code | character | 0 | 6 | G1V |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_equipment_rules.json
 
@@ -772,8 +721,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| element | character | 0 | 4 | installation_year |
-| value | character | 0 | 4 | List of 2 \$ min: int 1990 \$ max: int 2026 |
+| message | character | 0 | 1 | Preview unavailable: cannot open the connection |
 
 ### flights_merged_2023.rds
 
@@ -872,16 +820,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| workshop_id | character | 0 | 24 | A-001 |
-| workshop_date | Date | 0 | 24 | 2026-01-15 |
-| start_hour | numeric | 0 | 9 | 9 |
-| campus | character | 0 | 2 | Quebec |
-| duration_minutes | numeric | 0 | 3 | 60 |
-| participants | numeric | 0 | 21 | 18 |
-| temperature_c | numeric | 0 | 17 | -8 |
-| rain_mm | numeric | 1 | 13 | 0 |
-| mean_satisfaction | numeric | 1 | 12 | 4.1 |
-| topic | character | 0 | 4 | Quarto |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_library_visits.csv
 
@@ -906,14 +845,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| visit_date | Date | 0 | 13 | 2026-04-01 |
-| hour | numeric | 0 | 6 | 8 |
-| campus | character | 0 | 2 | Quebec |
-| area | character | 0 | 3 | Silent |
-| visitors | numeric | 0 | 24 | 34 |
-| temperature_c | numeric | 0 | 12 | 5 |
-| rain_mm | numeric | 1 | 12 | 0 |
-| exam_week | character | 0 | 2 | no |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_campus_service_requests.csv
 
@@ -938,14 +870,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| request_id | character | 0 | 24 | S-001 |
-| request_date | Date | 0 | 23 | 2026-02-01 |
-| service | character | 0 | 4 | IT |
-| priority | character | 0 | 3 | Normal |
-| delay_hours | numeric | 0 | 24 | 18 |
-| satisfaction | numeric | 1 | 19 | 4.3 |
-| estimated_cost | numeric | 0 | 24 | 120 |
-| status | character | 0 | 1 | Closed |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_team_members.csv
 
@@ -970,10 +895,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| member_id | character | 0 | 8 | M01 |
-| name | character | 0 | 8 | Amina |
-| role | character | 0 | 4 | Repository lead |
-| team | character | 0 | 2 | Team A |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_git_contributions.csv
 
@@ -998,12 +920,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| commit_id | character | 0 | 12 | C001 |
-| member_id | character | 0 | 9 | M01 |
-| commit_date | Date | 0 | 5 | 2026-02-10 |
-| contribution_type | character | 0 | 7 | structure |
-| file | character | 0 | 4 | README.md |
-| changed_lines | numeric | 0 | 12 | 32 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_review_issues.csv
 
@@ -1028,13 +945,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| issue_id | character | 0 | 7 | I001 |
-| reviewed_team | character | 0 | 3 | Team A |
-| author_id | character | 0 | 7 | M05 |
-| issue_date | Date | 0 | 2 | 2026-02-15 |
-| dimension | character | 0 | 6 | Reproducibility |
-| status | character | 0 | 2 | open |
-| priority | character | 0 | 3 | high |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_report_files.csv
 
@@ -1059,10 +970,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| team | character | 0 | 3 | Team A |
-| expected_file | character | 0 | 4 | README.md |
-| present | character | 0 | 2 | yes |
-| size_kb | numeric | 0 | 9 | 8 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_data_portal.csv
 
@@ -1087,11 +995,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| dataset_id | character | 0 | 6 | D001 |
-| title | character | 0 | 6 | Bike stations |
-| producer_id | character | 0 | 5 | P01 |
-| license | character | 0 | 3 | CC-BY |
-| updated_at | Date | 0 | 6 | 2026-01-12 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_producers.csv
 
@@ -1116,10 +1020,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| producer_id | character | 0 | 4 | P01 |
-| organization | character | 0 | 4 | City of Quebec |
-| organization_type | character | 0 | 3 | Municipal |
-| public_contact | character | 0 | 2 | yes |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_review_comments.csv
 
@@ -1144,12 +1045,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| comment_id | character | 0 | 6 | R001 |
-| dataset_id | character | 0 | 6 | D001 |
-| author_id | character | 0 | 6 | M01 |
-| dimension | character | 0 | 5 | Documentation |
-| severity | character | 0 | 3 | low |
-| recommended_action | character | 0 | 6 | clarify variables |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_municipal_reports.csv
 
@@ -1174,12 +1070,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| neighbourhood | character | 0 | 7 | Saint-Roch |
-| report_type | character | 0 | 5 | noise |
-| month | character | 0 | 1 | 2026-01 |
-| n_reports | numeric | 0 | 12 | 42 |
-| public_detail_level | character | 0 | 2 | neighbourhood |
-| public_comment | character | 0 | 11 | Increase observed near several construction sites. |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_neighbourhood_population.csv
 
@@ -1204,10 +1095,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| neighbourhood | character | 0 | 7 | Saint-Roch |
-| estimated_population | numeric | 0 | 7 | 18200 |
-| area_km2 | numeric | 0 | 7 | 3.1 |
-| vulnerability_index | numeric | 0 | 7 | 0.64 |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
 ### fictitious_student_survey.csv
 
@@ -1232,30 +1120,22 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 
 | variable | type | missing_values_in_preview | distinct_values_in_preview | example |
 |:---|:---|---:|---:|:---|
-| respondent_id | character | 0 | 16 | E001 |
-| program | character | 0 | 4 | Statistics |
-| year_level | numeric | 0 | 3 | 1 |
-| age | numeric | 0 | 10 | 19 |
-| gender | character | 0 | 3 | F |
-| study_hours | numeric | 0 | 15 | 12 |
-| stress_score | numeric | 0 | 6 | 6 |
-| publication_consent | character | 0 | 2 | yes |
-| free_text_comment | character | 0 | 10 | Prefers not to be quoted. |
+| message | character | 0 | 1 | Preview unavailable: ’/private/tmp/stt1100-module8.jcvbMq/repo/en/modu |
 
-### fictitious_data_catalog.html
+### catalogue_donnees_quebec.html
 
-Local HTML page containing a small fictitious open-data catalog.
+HTML snapshot of six real Données Québec catalog records from six cities.
 
-[Download fictitious_data_catalog.html](module_08/data/fictitious_data_catalog.llms.md)
+[Download catalogue_donnees_quebec.html](module_08/data/catalogue_donnees_quebec.llms.md)
 
 | Information | Value |
 |:---|:---|
 | Module | Module 08 |
-| Observations | 5 |
+| Observations | 6 |
 | Variables | 4 |
 | Course use | Practise CSS selectors, field extraction and tibble construction. |
-| Source | Fictitious data created for the course. |
-| License | Simulated course data. |
+| Source | Official Données Québec CKAN API, snapshot dated July 11, 2026. |
+| License | CC BY 4.0. |
 
 #### Preview
 
@@ -1267,11 +1147,11 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 |:---|:---|---:|---:|:---|
 | message | character | 0 | 1 | No preview is available for this file type. |
 
-### fictitious_irregular_catalog.html
+### catalogue_donnees_quebec_irregulier.html
 
-Local HTML page with deliberately missing fields.
+HTML snapshot of four real records, including two without a category in the portal.
 
-[Download fictitious_irregular_catalog.html](module_08/data/fictitious_irregular_catalog.llms.md)
+[Download catalogue_donnees_quebec_irregulier.html](module_08/data/catalogue_donnees_quebec_irregulier.llms.md)
 
 | Information | Value |
 |:---|:---|
@@ -1279,8 +1159,8 @@ Local HTML page with deliberately missing fields.
 | Observations | 4 |
 | Variables | 4 |
 | Course use | Test a robust extraction function and represent missing fields as NA. |
-| Source | Fictitious data created for the course. |
-| License | Simulated course data. |
+| Source | Official Données Québec CKAN API, snapshot dated July 11, 2026. |
+| License | CC BY 4.0. |
 
 #### Preview
 
@@ -1292,20 +1172,20 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 |:---|:---|---:|---:|:---|
 | message | character | 0 | 1 | No preview is available for this file type. |
 
-### fictitious_public_events.html
+### evenements_sit_quebec.html
 
-Local HTML page describing fictitious public events.
+HTML snapshot of six real events announced in six Quebec cities.
 
-[Download fictitious_public_events.html](module_08/data/fictitious_public_events.llms.md)
+[Download evenements_sit_quebec.html](module_08/data/evenements_sit_quebec.llms.md)
 
-| Information  | Value                                                        |
-|:-------------|:-------------------------------------------------------------|
-| Module       | Module 08                                                    |
-| Observations | 4                                                            |
-| Variables    | 4                                                            |
-| Course use   | Build an extraction function for a second type of HTML page. |
-| Source       | Fictitious data created for the course.                      |
-| License      | Simulated course data.                                       |
+| Information | Value |
+|:---|:---|
+| Module | Module 08 |
+| Observations | 6 |
+| Variables | 4 |
+| Course use | Build an extraction function for a second type of HTML page. |
+| Source | Ministry of Tourism, Système d’information touristique Québec, resource dated July 5, 2026. |
+| License | CC BY 4.0. |
 
 #### Preview
 

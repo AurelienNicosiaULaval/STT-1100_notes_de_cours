@@ -282,17 +282,17 @@ Population fictive de quartiers utilisée pour normaliser des signalements.Fichi
 
 Page de recherche publique du portail Données Québec utilisée pour pratiquer l’extraction HTML.WebStructure à consulterVoir la documentation [Module 08 ](#module08-catalogue)
 
-## catalogue_donnees_fictif.html
+## catalogue_donnees_quebec.html
 
-Page HTML locale contenant un mini-catalogue fictif de données ouvertes.Fichier local5 observations / 4 variablesVoir la fiche [Module 08 ](#module08-irregular)
+Instantané HTML de six fiches réelles du catalogue Données Québec provenant de six villes.Fichier local6 observations / 4 variablesVoir la fiche [Module 08 ](#module08-irregular)
 
-## catalogue_irregulier_fictif.html
+## catalogue_donnees_quebec_irregulier.html
 
-Page HTML locale avec des champs volontairement manquants.Fichier local4 observations / 4 variablesVoir la fiche [Module 08 ](#module08-evenements)
+Instantané HTML de quatre fiches réelles, dont deux sans catégorie dans le portail.Fichier local4 observations / 4 variablesVoir la fiche [Module 08 ](#module08-evenements)
 
-## evenements_publics_fictif.html
+## evenements_sit_quebec.html
 
-[Page HTML locale décrivant des événements publics fictifs.Fichier local4 observations / 4 variablesVoir la fiche](#module08-evenements)
+[Instantané HTML de six événements réels annoncés dans six villes du Québec.Fichier local6 observations / 4 variablesVoir la fiche](#module08-evenements)
 
 ### Module 09
 
@@ -357,14 +357,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| ville | character | 0 | 6 | Quebec |
-| region | character | 0 | 6 | Capitale-Nationale |
-| mois | character | 0 | 2 | janvier |
-| visites | numeric | 1 | 11 | 1240 |
-| prets | numeric | 0 | 12 | 3180 |
-| ateliers | numeric | 0 | 9 | 8 |
-| heures_ouverture | numeric | 0 | 11 | 176 |
-| note | numeric | 1 | 8 | 4.2 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### coop_etudiante_fictif.csv
 
@@ -389,13 +382,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| date | Date | 0 | 3 | 2026-01-15 |
-| categorie | character | 0 | 4 | papeterie |
-| produit | character | 0 | 12 | cahier |
-| prix_unitaire | numeric | 0 | 12 | 4.5 |
-| quantite | numeric | 0 | 12 | 80 |
-| rabais | numeric | 0 | 5 | 0 |
-| satisfaction | numeric | 0 | 4 | 4 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### manchots_donnees.xlsx
 
@@ -451,13 +438,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| ville | character | 0 | 6 | Quebec |
-| quartier | character | 0 | 12 | Saint-Roch |
-| essence | character | 0 | 4 | Erable |
-| hauteur_m | numeric | 0 | 24 | 12.4 |
-| diametre_cm | numeric | 0 | 23 | 31 |
-| age_estime_ans | numeric | 0 | 22 | 28 |
-| etat_sante | character | 0 | 3 | bon |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### velo_partage_fictif.csv
 
@@ -482,14 +463,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| ville | character | 0 | 4 | Quebec |
-| station | character | 0 | 11 | Gare du Palais |
-| mois | character | 0 | 3 | mai |
-| jour_type | character | 0 | 2 | semaine |
-| trajets | numeric | 0 | 24 | 124 |
-| duree_mediane_min | numeric | 0 | 12 | 16 |
-| temperature_c | numeric | 0 | 12 | 15 |
-| precipitation_mm | numeric | 0 | 9 | 0 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### requetes_311_fictif.csv
 
@@ -514,13 +488,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| ville | character | 0 | 5 | Quebec |
-| arrondissement | character | 0 | 12 | Sainte-Foy |
-| type_requete | character | 0 | 5 | Denegement |
-| canal | character | 0 | 3 | Telephone |
-| priorite | character | 0 | 3 | Normale |
-| statut | character | 0 | 2 | Fermee |
-| delai_jours | numeric | 0 | 9 | 4 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### plaintes_transport_fictif.csv
 
@@ -545,13 +513,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| reseau | character | 0 | 5 | RTC |
-| ligne | character | 0 | 15 | 801 |
-| type_plainte | character | 0 | 5 | Retard |
-| periode | character | 0 | 2 | Pointe |
-| gravite | character | 0 | 3 | Moderee |
-| statut | character | 0 | 2 | Fermee |
-| nb_plaintes | numeric | 0 | 20 | 18 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### dataset_pratique.csv
 
@@ -709,13 +671,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| equipement_id | character | 0 | 16 | EQ-001 |
-| ville | character | 0 | 5 | Quebec |
-| type_equipement | character | 0 | 8 | Fontaine |
-| statut | character | 0 | 4 | actif |
-| annee_installation | numeric | 0 | 12 | 2012 |
-| cout_entretien | character | 0 | 16 | 1 250,00 |
-| mois_inspection | character | 0 | 12 | janvier |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### demandes_bourses_fictif.csv
 
@@ -740,14 +696,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| dossier_id | character | 0 | 16 | B-001 |
-| programme | character | 0 | 7 | Statistique |
-| cycle | character | 0 | 3 | 1er cycle |
-| statut | character | 0 | 5 | complete |
-| revenu_annuel | numeric | 0 | 16 | 18500 |
-| montant_demande | character | 0 | 15 | 2 500,00 |
-| moyenne | numeric | 1 | 13 | 3.7 |
-| fsa_code | character | 0 | 6 | G1V |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### regles_equipements_fictif.json
 
@@ -772,8 +721,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| element | character | 0 | 4 | annee_installation |
-| valeur | character | 0 | 4 | List of 2 \$ min: int 1990 \$ max: int 2026 |
+| message | character | 0 | 1 | Aperçu non disponible: cannot open the connection |
 
 ### flights_merged_2023.rds
 
@@ -872,16 +820,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| atelier_id | character | 0 | 24 | A-001 |
-| date_atelier | Date | 0 | 24 | 2026-01-15 |
-| heure_debut | numeric | 0 | 9 | 9 |
-| campus | character | 0 | 2 | Quebec |
-| duree_minutes | numeric | 0 | 3 | 60 |
-| participants | numeric | 0 | 21 | 18 |
-| temperature_c | numeric | 0 | 17 | -8 |
-| pluie_mm | numeric | 1 | 13 | 0 |
-| satisfaction_moyenne | numeric | 1 | 12 | 4.1 |
-| theme | character | 0 | 4 | Quarto |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### frequentation_bibliotheque_fictive.csv
 
@@ -906,14 +845,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| date_visite | Date | 0 | 13 | 2026-04-01 |
-| heure | numeric | 0 | 6 | 8 |
-| campus | character | 0 | 2 | Quebec |
-| zone | character | 0 | 3 | Silence |
-| visiteurs | numeric | 0 | 24 | 34 |
-| temperature_c | numeric | 0 | 12 | 5 |
-| pluie_mm | numeric | 1 | 12 | 0 |
-| semaine_examens | character | 0 | 2 | non |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### demandes_services_campus_fictif.csv
 
@@ -938,14 +870,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| demande_id | character | 0 | 24 | S-001 |
-| date_demande | Date | 0 | 23 | 2026-02-01 |
-| service | character | 0 | 4 | Informatique |
-| priorite | character | 0 | 3 | Normale |
-| delai_heures | numeric | 0 | 24 | 18 |
-| satisfaction | numeric | 1 | 19 | 4.3 |
-| cout_estime | numeric | 0 | 24 | 120 |
-| statut | character | 0 | 1 | Fermee |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### membres_equipe_fictif.csv
 
@@ -970,10 +895,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| membre_id | character | 0 | 8 | M01 |
-| nom | character | 0 | 8 | Amina |
-| role | character | 0 | 5 | Responsable depot |
-| equipe | character | 0 | 2 | Equipe A |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### contributions_git_fictif.csv
 
@@ -998,12 +920,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| commit_id | character | 0 | 12 | C001 |
-| membre_id | character | 0 | 9 | M01 |
-| date_commit | Date | 0 | 5 | 2026-02-10 |
-| type_contribution | character | 0 | 7 | structure |
-| fichier | character | 0 | 4 | README.md |
-| lignes_modifiees | numeric | 0 | 12 | 32 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### issues_revue_fictif.csv
 
@@ -1028,13 +945,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| issue_id | character | 0 | 7 | I001 |
-| equipe_revisee | character | 0 | 3 | Equipe A |
-| auteur_id | character | 0 | 7 | M05 |
-| date_issue | Date | 0 | 2 | 2026-02-15 |
-| dimension | character | 0 | 6 | Reproductibilite |
-| statut | character | 0 | 2 | ouverte |
-| priorite | character | 0 | 3 | elevee |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### fichiers_rapport_fictif.csv
 
@@ -1059,10 +970,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| equipe | character | 0 | 3 | Equipe A |
-| fichier_attendu | character | 0 | 4 | README.md |
-| present | character | 0 | 2 | oui |
-| taille_ko | numeric | 0 | 9 | 8 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### portail_donnees_fictif.csv
 
@@ -1087,11 +995,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| jeu_id | character | 0 | 6 | D001 |
-| titre | character | 0 | 6 | Stations velo |
-| producteur_id | character | 0 | 5 | P01 |
-| licence | character | 0 | 3 | CC-BY |
-| mis_a_jour | Date | 0 | 6 | 2026-01-12 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### producteurs_fictif.csv
 
@@ -1116,10 +1020,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| producteur_id | character | 0 | 4 | P01 |
-| organisation | character | 0 | 4 | Ville de Quebec |
-| type_organisation | character | 0 | 3 | Municipal |
-| contact_public | character | 0 | 2 | oui |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### commentaires_revue_fictif.csv
 
@@ -1144,12 +1045,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| commentaire_id | character | 0 | 6 | R001 |
-| jeu_id | character | 0 | 6 | D001 |
-| auteur_id | character | 0 | 6 | M01 |
-| dimension | character | 0 | 5 | Documentation |
-| severite | character | 0 | 3 | basse |
-| action_recommandee | character | 0 | 6 | preciser les variables |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### signalements_municipaux_fictif.csv
 
@@ -1174,12 +1070,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| quartier | character | 0 | 7 | Saint-Roch |
-| type_signalement | character | 0 | 5 | bruit |
-| mois | character | 0 | 1 | 2026-01 |
-| nb_signalements | numeric | 0 | 12 | 42 |
-| niveau_detail_public | character | 0 | 2 | quartier |
-| commentaire_public | character | 0 | 11 | Hausse observee pres de plusieurs chantiers. |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### population_quartiers_fictif.csv
 
@@ -1204,10 +1095,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| quartier | character | 0 | 7 | Saint-Roch |
-| population_estimee | numeric | 0 | 7 | 18200 |
-| superficie_km2 | numeric | 0 | 7 | 3.1 |
-| indice_vulnerabilite | numeric | 0 | 7 | 0.64 |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
 ### sondage_etudiant_fictif.csv
 
@@ -1232,30 +1120,22 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 
 | variable | type | valeurs_manquantes_apercu | valeurs_distinctes_apercu | exemple |
 |:---|:---|---:|---:|:---|
-| repondant_id | character | 0 | 16 | E001 |
-| programme | character | 0 | 4 | Statistique |
-| niveau | numeric | 0 | 3 | 1 |
-| age | numeric | 0 | 10 | 19 |
-| genre | character | 0 | 3 | F |
-| heures_etude | numeric | 0 | 15 | 12 |
-| score_stress | numeric | 0 | 6 | 6 |
-| consentement_publication | character | 0 | 2 | oui |
-| commentaire_libre | character | 0 | 10 | Prefere ne pas etre citee. |
+| message | character | 0 | 1 | Aperçu non disponible: ’/private/tmp/stt1100-module8.jcvbMq/repo/modul |
 
-### catalogue_donnees_fictif.html
+### catalogue_donnees_quebec.html
 
-Page HTML locale contenant un mini-catalogue fictif de données ouvertes.
+Instantané HTML de six fiches réelles du catalogue Données Québec provenant de six villes.
 
-[Télécharger catalogue_donnees_fictif.html](module_08/data/catalogue_donnees_fictif.llms.md)
+[Télécharger catalogue_donnees_quebec.html](module_08/data/catalogue_donnees_quebec.llms.md)
 
 | Information | Valeur |
 |:---|:---|
 | Module | Module 08 |
-| Observations | 5 |
+| Observations | 6 |
 | Variables | 4 |
 | Utilisation | Pratiquer les sélecteurs CSS, l’extraction de champs et la construction d’un tibble. |
-| Source | Données fictives créées pour le cours. |
-| Licence | Données simulées pour le cours. |
+| Source | API CKAN officielle de Données Québec, instantané du 11 juillet 2026. |
+| Licence | CC BY 4.0. |
 
 #### Aperçu
 
@@ -1267,11 +1147,11 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 |:---|:---|---:|---:|:---|
 | message | character | 0 | 1 | Aucun aperçu disponible pour ce type de fichier. |
 
-### catalogue_irregulier_fictif.html
+### catalogue_donnees_quebec_irregulier.html
 
-Page HTML locale avec des champs volontairement manquants.
+Instantané HTML de quatre fiches réelles, dont deux sans catégorie dans le portail.
 
-[Télécharger catalogue_irregulier_fictif.html](module_08/data/catalogue_irregulier_fictif.llms.md)
+[Télécharger catalogue_donnees_quebec_irregulier.html](module_08/data/catalogue_donnees_quebec_irregulier.llms.md)
 
 | Information | Valeur |
 |:---|:---|
@@ -1279,8 +1159,8 @@ Page HTML locale avec des champs volontairement manquants.
 | Observations | 4 |
 | Variables | 4 |
 | Utilisation | Tester une fonction d’extraction robuste et représenter les champs manquants par NA. |
-| Source | Données fictives créées pour le cours. |
-| Licence | Données simulées pour le cours. |
+| Source | API CKAN officielle de Données Québec, instantané du 11 juillet 2026. |
+| Licence | CC BY 4.0. |
 
 #### Aperçu
 
@@ -1292,20 +1172,20 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 |:---|:---|---:|---:|:---|
 | message | character | 0 | 1 | Aucun aperçu disponible pour ce type de fichier. |
 
-### evenements_publics_fictif.html
+### evenements_sit_quebec.html
 
-Page HTML locale décrivant des événements publics fictifs.
+Instantané HTML de six événements réels annoncés dans six villes du Québec.
 
-[Télécharger evenements_publics_fictif.html](module_08/data/evenements_publics_fictif.llms.md)
+[Télécharger evenements_sit_quebec.html](module_08/data/evenements_sit_quebec.llms.md)
 
 | Information | Valeur |
 |:---|:---|
 | Module | Module 08 |
-| Observations | 4 |
+| Observations | 6 |
 | Variables | 4 |
 | Utilisation | Construire une fonction d’extraction pour un second type de page HTML. |
-| Source | Données fictives créées pour le cours. |
-| Licence | Données simulées pour le cours. |
+| Source | Ministère du Tourisme, Système d’information touristique Québec, ressource du 5 juillet 2026. |
+| Licence | CC BY 4.0. |
 
 #### Aperçu
 
