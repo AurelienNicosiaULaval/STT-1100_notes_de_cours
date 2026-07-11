@@ -39,9 +39,7 @@ water <- read_csv(
 
 glimpse(water)
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 The table contains 496 municipalities across all 17 administrative regions. `distributed_water_l_person_day` is the response. Filtering for available data makes modelling possible, but limits the population to which the results can be generalized.
 :::
 
@@ -69,15 +67,15 @@ ggplot(
   ) +
   theme_minimal()
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 The relationship is positive, but substantial dispersion remains. Residential consumption accounts for only part of distributed water, and the chart does not demonstrate a causal relationship.
 :::
 
 ### Exercise 3 - Fit a simple regression
 
 Fit a model that predicts distributed water from residential consumption.
+
+Interpret the slope in your own words.
 
 ::: {.callout-note collapse="true"}
 ### Solution
@@ -90,11 +88,7 @@ simple_model <- lm(
 
 summary(simple_model)
 ```
-:::
 
-Interpret the slope in your own words.
-
-::: {.callout-tip collapse="true"}
 The slope estimates the average predicted change in distributed water when residential consumption increases by one litre per person per day. It describes an association among the selected municipalities without proving that this increase alone causes the observed variation.
 :::
 
@@ -103,6 +97,8 @@ The slope estimates the average predicted change in distributed water when resid
 ### Exercise 4 - Fit a multiple regression
 
 Add the population served, expressed in thousands of people, and the average number of people per residence.
+
+Compare the interpretation of the `residential_consumption_l_person_day` coefficient with the one from the simple model.
 
 ::: {.callout-note collapse="true"}
 ### Solution
@@ -118,11 +114,7 @@ multiple_model <- lm(
 
 summary(multiple_model)
 ```
-:::
 
-Compare the interpretation of the `residential_consumption_l_person_day` coefficient with the one from the simple model.
-
-::: {.callout-tip collapse="true"}
 In the multiple model, the coefficient is interpreted while holding population served and people per residence constant. It therefore does not answer exactly the same question as the simple-model slope.
 :::
 
@@ -150,15 +142,15 @@ water_predictions <- water_scenarios |>
 
 water_predictions
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 These values are teaching scenarios, not observed municipalities. Predictions are expected values under the model and become more fragile outside the range of the fitting data.
 :::
 
 ### Exercise 6 - Compare observed and predicted values
 
 Calculate the multiple-model errors and identify the six largest absolute errors.
+
+Then calculate a root mean squared error.
 
 ::: {.callout-note collapse="true"}
 ### Solution
@@ -184,21 +176,13 @@ model_diagnostics |>
   ) |>
   slice_head(n = 6)
 ```
-:::
-
-Then calculate a root mean squared error.
-
-::: {.callout-note collapse="true"}
-### Solution
 
 ```{r}
 water_rmse <- sqrt(mean(model_diagnostics$error_l_person_day^2))
 
 water_rmse
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 A large error may indicate an unusual municipality, an important missing variable or uncertain measurement. It does not automatically constitute a data error.
 :::
 
@@ -221,9 +205,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Look for patterns, separated groups and isolated points. Increasing dispersion as predictions grow can indicate that uncertainty is not constant.
 :::
 
@@ -244,9 +226,7 @@ validity <- read_csv(
 
 glimpse(validity)
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 A missing value does not mean that an audit is invalid. It indicates that the index is unavailable in this resource. Treating absence as failure would produce an incorrect conclusion.
 :::
 
@@ -284,9 +264,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Coverage differences are descriptive. They may reflect participation, measurement availability, network size or other unobserved mechanisms.
 :::
 
@@ -314,9 +292,7 @@ validity_by_type <- validity |>
 
 validity_by_type
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 This comparison only includes municipalities with a published index. If availability is not random, observed means may not represent every municipality of the same type.
 :::
 
@@ -324,7 +300,9 @@ This comparison only includes municipalities with a published index. If availabi
 
 Write three sentences that distinguish an observed difference, a coverage limitation and an additional check.
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
+### Solution
+
 Possible example: the proportion of municipalities with an available index varies across regions in 2023. These differences do not demonstrate differences in management quality because index absence may depend on participation and measurement availability. A next step would document the nonresponse mechanism and compare municipalities of similar size and type.
 :::
 
@@ -356,9 +334,7 @@ program_scenarios |>
     )
   )
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Limitations include complete-case selection, variables omitted from the model, extreme values and the impossibility of giving coefficients a causal interpretation.
 :::
 
@@ -382,8 +358,6 @@ audit_summary <- validity |>
 
 audit_summary
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 The table can identify less-covered groups, but cannot assign a cause to the differences. Before comparing audit quality, distinguish the observed index from its availability and investigate participation and measurement mechanisms.
 :::

@@ -39,9 +39,7 @@ eau <- read_csv(
 
 glimpse(eau)
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Le tableau contient 496 municipalités réparties dans les 17 régions administratives. La variable `eau_distribuee_l_pers_j` sera la réponse. Le filtre de disponibilité rend le modèle possible, mais il limite la population à laquelle les résultats peuvent être généralisés.
 :::
 
@@ -69,15 +67,15 @@ ggplot(
   ) +
   theme_minimal()
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 La relation est positive, mais la dispersion demeure importante. La consommation résidentielle ne représente qu'une partie de l'eau distribuée et le graphique ne démontre pas une relation causale.
 :::
 
 ### Exercice 3 - Ajuster une régression simple
 
 Ajustez un modèle qui prédit la quantité d'eau distribuée à partir de la consommation résidentielle.
+
+Interprétez la pente dans vos mots.
 
 ::: {.callout-note collapse="true"}
 ### Solution
@@ -90,11 +88,7 @@ modele_simple <- lm(
 
 summary(modele_simple)
 ```
-:::
 
-Interprétez la pente dans vos mots.
-
-::: {.callout-tip collapse="true"}
 La pente estime la variation moyenne prédite de l'eau distribuée lorsque la consommation résidentielle augmente d'un litre par personne et par jour. Elle décrit une association dans les municipalités retenues, sans prouver que cette hausse cause à elle seule la variation observée.
 :::
 
@@ -103,6 +97,8 @@ La pente estime la variation moyenne prédite de l'eau distribuée lorsque la co
 ### Exercice 4 - Ajuster une régression multiple
 
 Ajoutez la population desservie, exprimée en milliers de personnes, et le nombre moyen de personnes par résidence.
+
+Comparez l'interprétation du coefficient de `consommation_residentielle_l_pers_j` avec celle du modèle simple.
 
 ::: {.callout-note collapse="true"}
 ### Solution
@@ -118,11 +114,7 @@ modele_multiple <- lm(
 
 summary(modele_multiple)
 ```
-:::
 
-Comparez l'interprétation du coefficient de `consommation_residentielle_l_pers_j` avec celle du modèle simple.
-
-::: {.callout-tip collapse="true"}
 Dans le modèle multiple, le coefficient est interprété à population desservie et nombre de personnes par résidence constants. Il ne répond donc pas exactement à la même question que la pente du modèle simple.
 :::
 
@@ -150,15 +142,15 @@ predictions_eau <- scenarios_eau |>
 
 predictions_eau
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Ces valeurs sont des scénarios pédagogiques, pas des municipalités observées. Les prédictions sont des valeurs attendues selon le modèle et deviennent plus fragiles loin de la plage des données d'ajustement.
 :::
 
 ### Exercice 6 - Comparer les valeurs observées et prédites
 
 Calculez les erreurs du modèle multiple et repérez les six plus grandes erreurs absolues.
+
+Calculez ensuite l'erreur quadratique moyenne.
 
 ::: {.callout-note collapse="true"}
 ### Solution
@@ -183,21 +175,13 @@ diagnostic_modele |>
   ) |>
   slice_head(n = 6)
 ```
-:::
-
-Calculez ensuite l'erreur quadratique moyenne.
-
-::: {.callout-note collapse="true"}
-### Solution
 
 ```{r}
 rmse_eau <- sqrt(mean(diagnostic_modele$erreur_l_pers_j^2))
 
 rmse_eau
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Une grande erreur peut signaler une municipalité atypique, une variable importante absente ou une mesure incertaine. Elle ne constitue pas automatiquement une erreur dans les données.
 :::
 
@@ -220,9 +204,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Cherchez des motifs, des groupes séparés et des points isolés. Une dispersion qui augmente avec les prédictions signale notamment que l'incertitude n'est peut-être pas constante.
 :::
 
@@ -243,9 +225,7 @@ validite <- read_csv(
 
 glimpse(validite)
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Une valeur manquante ne signifie pas que l'audit est invalide. Elle indique que l'indice n'est pas disponible dans cette ressource. Confondre absence et échec produirait une conclusion incorrecte.
 :::
 
@@ -283,9 +263,7 @@ ggplot(
   ) +
   theme_minimal()
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Les écarts de couverture sont descriptifs. Ils peuvent refléter la participation, la disponibilité des mesures, la taille des réseaux ou d'autres mécanismes non observés.
 :::
 
@@ -313,9 +291,7 @@ validite_type <- validite |>
 
 validite_type
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Cette comparaison porte uniquement sur les municipalités avec un indice publié. Si la disponibilité n'est pas aléatoire, les moyennes observées peuvent ne pas représenter toutes les municipalités du même type.
 :::
 
@@ -323,7 +299,9 @@ Cette comparaison porte uniquement sur les municipalités avec un indice publié
 
 Rédigez trois phrases qui distinguent un écart observé, une limite de couverture et une vérification supplémentaire.
 
-::: {.callout-tip collapse="true"}
+::: {.callout-note collapse="true"}
+### Solution
+
 Exemple possible: la proportion de municipalités avec un indice disponible varie entre les régions en 2023. Ces écarts ne démontrent pas une différence de qualité de gestion, car l'absence d'un indice peut dépendre de la participation et de la disponibilité des mesures. Une prochaine étape serait de documenter le mécanisme de non-réponse et de comparer les municipalités de taille et de type semblables.
 :::
 
@@ -355,9 +333,7 @@ scenarios_programme |>
     )
   )
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Les limites incluent la sélection des cas complets, les variables absentes du modèle, les valeurs extrêmes et l'impossibilité de donner une interprétation causale aux coefficients.
 :::
 
@@ -381,8 +357,6 @@ resume_audit <- validite |>
 
 resume_audit
 ```
-:::
 
-::: {.callout-tip collapse="true"}
 Le tableau permet de repérer des groupes moins couverts, mais pas d'attribuer une cause aux écarts. Avant de comparer la qualité des audits, il faut distinguer l'indice observé de sa disponibilité et examiner les mécanismes de participation et de mesure.
 :::

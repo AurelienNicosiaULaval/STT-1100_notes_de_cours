@@ -33,9 +33,7 @@ Import `quebec_dataset_descriptions.csv`. Each row is a real portal record with 
 >     $ licence        <chr> "Attribution (CC-BY 4.0)", "Attribution (CC-BY 4.0)", "…
 >     $ snapshot_date  <date> 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 2026-0…
 >
-> > **TIP:**
-> >
-> > The sample contains 89 records from eight cities: Quebec City, Gatineau, Sherbrooke, Trois-Rivières, Saguenay, Laval, Longueuil and Montreal. Montreal accounts for one producer out of eight.
+> The sample contains 89 records from eight cities: Quebec City, Gatineau, Sherbrooke, Trois-Rivières, Saguenay, Laval, Longueuil and Montreal. Montreal accounts for one producer out of eight.
 
 ### Exercise 2 - Check the structure
 
@@ -64,9 +62,7 @@ Import `quebec_dataset_descriptions.csv`. Each row is a real portal record with 
 >     7 Ville de Trois-Rivières                        12          3
 >     8 Ville de Gatineau                               5          2
 >
-> > **TIP:**
-> >
-> > The selection is balanced by producer, but does not represent the full catalog. It favours recently updated records with descriptions of at least 50 characters.
+> The selection is balanced by producer, but does not represent the full catalog. It favours recently updated records with descriptions of at least 50 characters.
 
 ### Exercise 3 - Tokenize and remove stopwords
 
@@ -103,9 +99,7 @@ Import `quebec_dataset_descriptions.csv`. Each row is a real portal record with 
 >     11 zone            13
 >     12 québec          12
 >
-> > **TIP:**
-> >
-> > Each row now represents a retained word. Frequencies offer a first view, but a description should be reread in context before interpretation.
+> Each row now represents a retained word. Frequencies offer a first view, but a description should be reread in context before interpretation.
 
 ### Exercise 4 - Compare words by producer
 
@@ -153,9 +147,7 @@ Import `quebec_dataset_descriptions.csv`. Each row is a real portal record with 
 >
 > ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
 >
-> > **TIP:**
-> >
-> > A difference may come from published topics, institutional vocabulary or description length. It does not directly measure data quality.
+> A difference may come from published topics, institutional vocabulary or description length. It does not directly measure data quality.
 
 ## Block B - Build a simple lexical score
 
@@ -204,9 +196,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >     19 autre        general     -1
 >     20 différents   general     -1
 >
-> > **TIP:**
-> >
-> > This score is not a validated measure of writing quality. It demonstrates lexicon scoring and must always be paired with human reading.
+> This score is not a validated measure of writing quality. It demonstrates lexicon scoring and must always be paired with human reading.
 
 ### Exercise 6 - Calculate a score by record
 
@@ -256,9 +246,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >      9 permis-delivres-ville-de-que… Ville d… Perm…              -1                1
 >     10 sag-reseau-routier            Ville d… Rése…              -1                1
 >
-> > **TIP:**
-> >
-> > A zero may mean neutral vocabulary or no match in the small lexicon. `recognized_words` is therefore essential.
+> A zero may mean neutral vocabulary or no match in the small lexicon. `recognized_words` is therefore essential.
 
 ### Exercise 7 - Summarize scores by producer
 
@@ -306,9 +294,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-9-1.png)
 >
-> > **TIP:**
-> >
-> > The chart compares the sample, not overall producer quality. Topic and writing-style differences may explain part of the variation.
+> The chart compares the sample, not overall producer quality. Topic and writing-style differences may explain part of the variation.
 
 ## Block C - Identify distinctive words
 
@@ -343,9 +329,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >     10 Ville de Laval    piia               3 0.0196  2.08 0.0408
 >     # ℹ 30 more rows
 >
-> > **TIP:**
-> >
-> > A distinctive word is relatively more associated with one producer. It is not necessarily positive, negative or important to users.
+> A distinctive word is relatively more associated with one producer. It is not necessarily positive, negative or important to users.
 
 ### Exercise 9 - Visualize distinctive words
 
@@ -371,9 +355,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >
 > ![](exercices_files/figure-html/unnamed-chunk-11-1.png)
 >
-> > **TIP:**
-> >
-> > Return to the original descriptions to check meaning before writing a conclusion.
+> Return to the original descriptions to check meaning before writing a conclusion.
 
 ## Block D - Prepare dashboard output
 
@@ -410,9 +392,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >     # ℹ abbreviated name: ¹​median_days_since_update
 >     # ℹ 1 more variable: categories <int>
 >
-> > **TIP:**
-> >
-> > This table separates indicator preparation from display. A dashboard could then present cards, charts and source descriptions.
+> This table separates indicator preparation from display. A dashboard could then present cards, charts and source descriptions.
 
 ### Exercise 11 - Simulate a filter
 
@@ -432,9 +412,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >     # ℹ abbreviated name: ¹​median_days_since_update
 >     # ℹ 1 more variable: categories <int>
 >
-> > **TIP:**
-> >
-> > In a `shiny` app, this value could come from a menu. The analytical operation remains a filter on a prepared table.
+> In a `shiny` app, this value could come from a menu. The analytical operation remains a filter on a prepared table.
 
 ## Case Study 1 - Quality of dataset descriptions
 
@@ -472,9 +450,7 @@ A team wants to identify descriptions that deserve editorial review.
 >      9 Ville d… Perm… "Informati…              -1                1               102
 >     10 Ville d… Perm… "Informati…              -1                1                 6
 >
-> > **TIP:**
-> >
-> > The score may prioritize reading, but should not automatically trigger correction. The lexicon is small, topics differ and a general description may still be accurate and useful.
+> The score may prioritize reading, but should not automatically trigger correction. The lexicon is small, topics differ and a general description may still be accurate and useful.
 
 ## Case Study 2 - Quebec tourism events
 
@@ -560,6 +536,4 @@ Import `quebec_tourism_events.csv`. `text` combines public SIT Québec fields to
 >     20 Baie-James                    4              2                  6.5
 >     # ℹ 1 more variable: proportion_with_website <dbl>
 >
-> > **TIP:**
-> >
-> > Useful visuals include a TF-IDF chart by event type and a regional coverage chart. The sample is balanced to at most eight events per tourism region, so it does not measure the true volume of the entire tourism offering.
+> Useful visuals include a TF-IDF chart by event type and a regional coverage chart. The sample is balanced to at most eight events per tourism region, so it does not measure the true volume of the entire tourism offering.

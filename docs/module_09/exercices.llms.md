@@ -33,8 +33,6 @@ Importez `consommation_eau_municipalites_2023.csv`. Chaque ligne représente une
 >     $ residences_desservies               <dbl> 5740, 594, 325, 266, 3565, 269, 22…
 >     $ personnes_par_residence             <dbl> 2.050635, 2.380000, 2.120000, 2.32…
 >     $ eau_distribuee_l_pers_j             <dbl> 414, 307, 580, 301, 396, 208, 1047…
-
-> **TIP:**
 >
 > Le tableau contient 496 municipalités réparties dans les 17 régions administratives. La variable `eau_distribuee_l_pers_j` sera la réponse. Le filtre de disponibilité rend le modèle possible, mais il limite la population à laquelle les résultats peuvent être généralisés.
 
@@ -63,14 +61,14 @@ Tracez la quantité d’eau distribuée selon la consommation résidentielle. Aj
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-2-1.png)
-
-> **TIP:**
 >
 > La relation est positive, mais la dispersion demeure importante. La consommation résidentielle ne représente qu’une partie de l’eau distribuée et le graphique ne démontre pas une relation causale.
 
 ### Exercice 3 - Ajuster une régression simple
 
 Ajustez un modèle qui prédit la quantité d’eau distribuée à partir de la consommation résidentielle.
+
+Interprétez la pente dans vos mots.
 
 > **NOTE:**
 >
@@ -102,10 +100,6 @@ Ajustez un modèle qui prédit la quantité d’eau distribuée à partir de la 
 >     Residual standard error: 207.5 on 494 degrees of freedom
 >     Multiple R-squared:  0.2432,    Adjusted R-squared:  0.2417
 >     F-statistic: 158.8 on 1 and 494 DF,  p-value: < 2.2e-16
-
-Interprétez la pente dans vos mots.
-
-> **TIP:**
 >
 > La pente estime la variation moyenne prédite de l’eau distribuée lorsque la consommation résidentielle augmente d’un litre par personne et par jour. Elle décrit une association dans les municipalités retenues, sans prouver que cette hausse cause à elle seule la variation observée.
 
@@ -114,6 +108,8 @@ Interprétez la pente dans vos mots.
 ### Exercice 4 - Ajuster une régression multiple
 
 Ajoutez la population desservie, exprimée en milliers de personnes, et le nombre moyen de personnes par résidence.
+
+Comparez l’interprétation du coefficient de `consommation_residentielle_l_pers_j` avec celle du modèle simple.
 
 > **NOTE:**
 >
@@ -151,10 +147,6 @@ Ajoutez la population desservie, exprimée en milliers de personnes, et le nombr
 >     Residual standard error: 207.7 on 492 degrees of freedom
 >     Multiple R-squared:  0.2446,    Adjusted R-squared:   0.24
 >     F-statistic: 53.11 on 3 and 492 DF,  p-value: < 2.2e-16
-
-Comparez l’interprétation du coefficient de `consommation_residentielle_l_pers_j` avec celle du modèle simple.
-
-> **TIP:**
 >
 > Dans le modèle multiple, le coefficient est interprété à population desservie et nombre de personnes par résidence constants. Il ne répond donc pas exactement à la même question que la pente du modèle simple.
 
@@ -190,14 +182,14 @@ Construisez deux scénarios situés dans la plage des données, puis prédisez l
 >     # ℹ abbreviated names: ¹​consommation_residentielle_l_pers_j,
 >     #   ²​population_desservie_milliers, ³​personnes_par_residence
 >     # ℹ 1 more variable: eau_distribuee_predite <dbl>
-
-> **TIP:**
 >
 > Ces valeurs sont des scénarios pédagogiques, pas des municipalités observées. Les prédictions sont des valeurs attendues selon le modèle et deviennent plus fragiles loin de la plage des données d’ajustement.
 
 ### Exercice 6 - Comparer les valeurs observées et prédites
 
 Calculez les erreurs du modèle multiple et repérez les six plus grandes erreurs absolues.
+
+Calculez ensuite l’erreur quadratique moyenne.
 
 > **NOTE:**
 >
@@ -233,10 +225,6 @@ Calculez les erreurs du modèle multiple et repérez les six plus grandes erreur
 >     6 66112             Baie-D'urfé                    Montr…                   1417
 >     # ℹ abbreviated name: ¹​eau_distribuee_l_pers_j
 >     # ℹ 2 more variables: eau_distribuee_predite <dbl>, erreur_l_pers_j <dbl>
-
-Calculez ensuite l’erreur quadratique moyenne.
-
-> **NOTE:**
 >
 > ``` r
 > rmse_eau <- sqrt(mean(diagnostic_modele$erreur_l_pers_j^2))
@@ -245,8 +233,6 @@ Calculez ensuite l’erreur quadratique moyenne.
 > ```
 >
 >     [1] 206.8512
-
-> **TIP:**
 >
 > Une grande erreur peut signaler une municipalité atypique, une variable importante absente ou une mesure incertaine. Elle ne constitue pas automatiquement une erreur dans les données.
 
@@ -270,8 +256,6 @@ Calculez ensuite l’erreur quadratique moyenne.
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
-
-> **TIP:**
 >
 > Cherchez des motifs, des groupes séparés et des points isolés. Une dispersion qui augmente avec les prédictions signale notamment que l’incertitude n’est peut-être pas constante.
 
@@ -301,8 +285,6 @@ Importez `validite_audits_eau_2023.csv`. Le fichier contient les 1 104 municipal
 >     $ indice_validite_pct                       <dbl> 59, NA, NA, 57, NA, NA, NA, …
 >     $ branchements_non_residentiels_comptes_pct <dbl> 0.08867925, NA, NA, 0.000000…
 >     $ validite_disponible                       <lgl> TRUE, FALSE, FALSE, TRUE, FA…
-
-> **TIP:**
 >
 > Une valeur manquante ne signifie pas que l’audit est invalide. Elle indique que l’indice n’est pas disponible dans cette ressource. Confondre absence et échec produirait une conclusion incorrecte.
 
@@ -362,8 +344,6 @@ Calculez la proportion de municipalités pour lesquelles l’indice est disponib
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-11-1.png)
-
-> **TIP:**
 >
 > Les écarts de couverture sont descriptifs. Ils peuvent refléter la participation, la disponibilité des mesures, la taille des réseaux ou d’autres mécanismes non observés.
 
@@ -400,8 +380,6 @@ Parmi les municipalités dont l’indice est disponible, comparez sa moyenne sel
 >     4 Municipalité                362         59.6                       0.990
 >     5 Paroisse                     66         59.9                       0.993
 >     6 Ville                       204         60.1                       0.942
-
-> **TIP:**
 >
 > Cette comparaison porte uniquement sur les municipalités avec un indice publié. Si la disponibilité n’est pas aléatoire, les moyennes observées peuvent ne pas représenter toutes les municipalités du même type.
 
@@ -409,7 +387,7 @@ Parmi les municipalités dont l’indice est disponible, comparez sa moyenne sel
 
 Rédigez trois phrases qui distinguent un écart observé, une limite de couverture et une vérification supplémentaire.
 
-> **TIP:**
+> **NOTE:**
 >
 > Exemple possible: la proportion de municipalités avec un indice disponible varie entre les régions en 2023. Ces écarts ne démontrent pas une différence de qualité de gestion, car l’absence d’un indice peut dépendre de la participation et de la disponibilité des mesures. Une prochaine étape serait de documenter le mécanisme de non-réponse et de comparer les municipalités de taille et de type semblables.
 
@@ -450,8 +428,6 @@ Votre mandat:
 >     # ℹ abbreviated names: ¹​consommation_residentielle_l_pers_j,
 >     #   ²​population_desservie_milliers, ³​personnes_par_residence
 >     # ℹ 1 more variable: eau_distribuee_predite <dbl>
-
-> **TIP:**
 >
 > Les limites incluent la sélection des cas complets, les variables absentes du modèle, les valeurs extrêmes et l’impossibilité de donner une interprétation causale aux coefficients.
 
@@ -490,7 +466,5 @@ Un comité veut savoir si son portrait de la validité des données couvre unifo
 >     10 Capitale-Nationale    Cantons unis                  1              1
 >     # ℹ 58 more rows
 >     # ℹ 1 more variable: indice_moyen_si_disponible <dbl>
-
-> **TIP:**
 >
 > Le tableau permet de repérer des groupes moins couverts, mais pas d’attribuer une cause aux écarts. Avant de comparer la qualité des audits, il faut distinguer l’indice observé de sa disponibilité et examiner les mécanismes de participation et de mesure.

@@ -33,9 +33,7 @@ Importez `descriptions_donnees_quebec.csv`. Chaque ligne représente une fiche r
 >     $ licence          <chr> "Attribution (CC-BY 4.0)", "Attribution (CC-BY 4.0)",…
 >     $ date_instantane  <date> 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 2026…
 >
-> > **TIP:**
-> >
-> > L’échantillon contient 89 fiches provenant de huit villes: Québec, Gatineau, Sherbrooke, Trois-Rivières, Saguenay, Laval, Longueuil et Montréal. Montréal représente un producteur sur huit.
+> L’échantillon contient 89 fiches provenant de huit villes: Québec, Gatineau, Sherbrooke, Trois-Rivières, Saguenay, Laval, Longueuil et Montréal. Montréal représente un producteur sur huit.
 
 ### Exercice 2 - Vérifier la structure
 
@@ -66,9 +64,7 @@ Calculez le nombre de fiches par producteur et le nombre de catégories distinct
 >     7 Ville de Trois-Rivières                       12          3
 >     8 Ville de Gatineau                              5          2
 >
-> > **TIP:**
-> >
-> > La sélection est équilibrée par producteur, mais elle ne représente pas tout le catalogue. Elle privilégie les fiches récemment mises à jour dont la description contient au moins 50 caractères.
+> La sélection est équilibrée par producteur, mais elle ne représente pas tout le catalogue. Elle privilégie les fiches récemment mises à jour dont la description contient au moins 50 caractères.
 
 ### Exercice 3 - Tokeniser et retirer les stopwords
 
@@ -105,9 +101,7 @@ Calculez le nombre de fiches par producteur et le nombre de catégories distinct
 >     11 zone            13
 >     12 québec          12
 >
-> > **TIP:**
-> >
-> > Une ligne correspond maintenant à un mot conservé. Les fréquences donnent un premier portrait, mais le contexte d’une description doit être relu avant toute interprétation.
+> Une ligne correspond maintenant à un mot conservé. Les fréquences donnent un premier portrait, mais le contexte d’une description doit être relu avant toute interprétation.
 
 ### Exercice 4 - Comparer les mots par producteur
 
@@ -155,9 +149,7 @@ Calculez le nombre de fiches par producteur et le nombre de catégories distinct
 >
 > ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
 >
-> > **TIP:**
-> >
-> > Une différence peut venir des thèmes publiés, du vocabulaire institutionnel ou de la taille des descriptions. Elle ne mesure pas directement la qualité des données.
+> Une différence peut venir des thèmes publiés, du vocabulaire institutionnel ou de la taille des descriptions. Elle ne mesure pas directement la qualité des données.
 
 ## Bloc B - Construire un score lexical simple
 
@@ -206,9 +198,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >     19 autre        general    -1
 >     20 différents   general    -1
 >
-> > **TIP:**
-> >
-> > Ce score ne constitue pas une mesure validée de qualité rédactionnelle. Il sert à comprendre la mécanique d’un score fondé sur un lexique et doit toujours être accompagné d’une lecture humaine.
+> Ce score ne constitue pas une mesure validée de qualité rédactionnelle. Il sert à comprendre la mécanique d’un score fondé sur un lexique et doit toujours être accompagné d’une lecture humaine.
 
 ### Exercice 6 - Calculer un score par fiche
 
@@ -260,9 +250,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >      9 permis-delivres-ville-de-queb… Ville de … Perm…              -1             1
 >     10 sag-reseau-routier             Ville de … Rése…              -1             1
 >
-> > **TIP:**
-> >
-> > Un score nul peut signifier que le vocabulaire est neutre, mais aussi qu’aucun mot du petit lexique n’a été reconnu. La colonne `mots_reconnus` est donc indispensable.
+> Un score nul peut signifier que le vocabulaire est neutre, mais aussi qu’aucun mot du petit lexique n’a été reconnu. La colonne `mots_reconnus` est donc indispensable.
 
 ### Exercice 7 - Résumer le score par producteur
 
@@ -310,9 +298,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >
 > ![](exercices_files/figure-html/unnamed-chunk-9-1.png)
 >
-> > **TIP:**
-> >
-> > Le graphique compare l’échantillon, pas la qualité globale des producteurs. Les différences de sujets et de style rédactionnel peuvent expliquer une partie des écarts.
+> Le graphique compare l’échantillon, pas la qualité globale des producteurs. Les différences de sujets et de style rédactionnel peuvent expliquer une partie des écarts.
 
 ## Bloc C - Repérer les mots distinctifs
 
@@ -347,9 +333,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >     10 Ville de Laval    piia               3 0.0196  2.08 0.0408
 >     # ℹ 30 more rows
 >
-> > **TIP:**
-> >
-> > Un mot distinctif est relativement plus associé à un producteur qu’aux autres. Il n’est pas nécessairement positif, négatif ou important pour les utilisateurs.
+> Un mot distinctif est relativement plus associé à un producteur qu’aux autres. Il n’est pas nécessairement positif, négatif ou important pour les utilisateurs.
 
 ### Exercice 9 - Visualiser les mots distinctifs
 
@@ -375,9 +359,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >
 > ![](exercices_files/figure-html/unnamed-chunk-11-1.png)
 >
-> > **TIP:**
-> >
-> > Revenez aux descriptions originales pour vérifier le sens des mots avant de rédiger une conclusion.
+> Revenez aux descriptions originales pour vérifier le sens des mots avant de rédiger une conclusion.
 
 ## Bloc D - Préparer une sortie de tableau de bord
 
@@ -415,9 +397,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >     8 Ville de Trois-Rivières           12                0                     3
 >     # ℹ 2 more variables: jours_medians_depuis_mise_a_jour <dbl>, categories <int>
 >
-> > **TIP:**
-> >
-> > Le tableau sépare la préparation des indicateurs de leur affichage. Un tableau de bord pourrait ensuite présenter des cartes, des graphiques et les descriptions sources.
+> Le tableau sépare la préparation des indicateurs de leur affichage. Un tableau de bord pourrait ensuite présenter des cartes, des graphiques et les descriptions sources.
 
 ### Exercice 11 - Simuler un filtre
 
@@ -436,9 +416,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >     1 Ville de Québec     12                -0.167                4.67
 >     # ℹ 2 more variables: jours_medians_depuis_mise_a_jour <dbl>, categories <int>
 >
-> > **TIP:**
-> >
-> > Dans une application `shiny`, la valeur pourrait venir d’un menu. L’opération analytique reste un filtre sur un tableau préparé.
+> Dans une application `shiny`, la valeur pourrait venir d’un menu. L’opération analytique reste un filtre sur un tableau préparé.
 
 ## Étude de cas 1 - Qualité des descriptions de données
 
@@ -483,9 +461,7 @@ Votre mandat:
 >     10 Ville de Québec               Perm… "Informati…              -1             1
 >     # ℹ 1 more variable: jours_depuis_mise_a_jour <int>
 >
-> > **TIP:**
-> >
-> > Le score peut prioriser une lecture, mais ne doit pas déclencher automatiquement une correction. Le lexique est petit, les sujets diffèrent et une description générale peut tout de même être exacte et utile.
+> Le score peut prioriser une lecture, mais ne doit pas déclencher automatiquement une correction. Le lexique est petit, les sujets diffèrent et une description générale peut tout de même être exacte et utile.
 
 ## Étude de cas 2 - Événements touristiques québécois
 
@@ -571,6 +547,4 @@ Importez `evenements_touristiques_quebec.csv`. La colonne `texte` combine des ch
 >     20 Baie-James                        4             2                 6.5
 >     # ℹ 1 more variable: proportion_avec_site <dbl>
 >
-> > **TIP:**
-> >
-> > Deux visuels utiles seraient un graphique TF-IDF par type d’événement et un graphique de couverture par région. L’échantillon est équilibré à un maximum de huit événements par région touristique; il ne mesure donc pas le volume réel de toute l’offre touristique.
+> Deux visuels utiles seraient un graphique TF-IDF par type d’événement et un graphique de couverture par région. L’échantillon est équilibré à un maximum de huit événements par région touristique; il ne mesure donc pas le volume réel de toute l’offre touristique.

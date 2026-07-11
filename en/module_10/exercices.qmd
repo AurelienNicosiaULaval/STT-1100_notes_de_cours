@@ -28,8 +28,8 @@ library(forcats)
 
 Import `quebec_dataset_descriptions.csv`. Each row is a real portal record with its title, description, producer and category.
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 catalog <- read_csv(
@@ -40,15 +40,13 @@ catalog <- read_csv(
 glimpse(catalog)
 ```
 
-::: {.callout-tip collapse="true"}
 The sample contains 89 records from eight cities: Quebec City, Gatineau, Sherbrooke, Trois-Rivières, Saguenay, Laval, Longueuil and Montreal. Montreal accounts for one producer out of eight.
 :::
-::::
 
 ### Exercise 2 - Check the structure
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 catalog |>
@@ -61,15 +59,13 @@ catalog |>
   arrange(desc(records), producer)
 ```
 
-::: {.callout-tip collapse="true"}
 The selection is balanced by producer, but does not represent the full catalog. It favours recently updated records with descriptions of at least 50 characters.
 :::
-::::
 
 ### Exercise 3 - Tokenize and remove stopwords
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 stop_fr <- stopwords("fr", source = "snowball")
@@ -86,15 +82,13 @@ catalog_tokens |>
   slice_head(n = 12)
 ```
 
-::: {.callout-tip collapse="true"}
 Each row now represents a retained word. Frequencies offer a first view, but a description should be reread in context before interpretation.
 :::
-::::
 
 ### Exercise 4 - Compare words by producer
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 words_by_producer <- catalog_tokens |>
@@ -121,10 +115,8 @@ ggplot(
   theme_minimal()
 ```
 
-::: {.callout-tip collapse="true"}
 A difference may come from published topics, institutional vocabulary or description length. It does not directly measure data quality.
 :::
-::::
 
 ## Block B - Build a simple lexical score
 
@@ -132,8 +124,8 @@ A difference may come from published topics, institutional vocabulary or descrip
 
 Concrete terms receive `+1` and very general terms receive `-1`.
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 precision_lexicon <- tibble(
@@ -150,15 +142,13 @@ precision_lexicon <- tibble(
 precision_lexicon
 ```
 
-::: {.callout-tip collapse="true"}
 This score is not a validated measure of writing quality. It demonstrates lexicon scoring and must always be paired with human reading.
 :::
-::::
 
 ### Exercise 6 - Calculate a score by record
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 record_scores <- catalog_tokens |>
@@ -190,15 +180,13 @@ record_scores |>
   slice_head(n = 10)
 ```
 
-::: {.callout-tip collapse="true"}
 A zero may mean neutral vocabulary or no match in the small lexicon. `recognized_words` is therefore essential.
 :::
-::::
 
 ### Exercise 7 - Summarize scores by producer
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 precision_by_producer <- record_scores |>
@@ -228,17 +216,15 @@ ggplot(
   theme_minimal()
 ```
 
-::: {.callout-tip collapse="true"}
 The chart compares the sample, not overall producer quality. Topic and writing-style differences may explain part of the variation.
 :::
-::::
 
 ## Block C - Identify distinctive words
 
 ### Exercise 8 - Calculate TF-IDF by producer
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 producer_tfidf <- catalog_tokens |>
@@ -252,15 +238,13 @@ producer_tfidf |>
   ungroup()
 ```
 
-::: {.callout-tip collapse="true"}
 A distinctive word is relatively more associated with one producer. It is not necessarily positive, negative or important to users.
 :::
-::::
 
 ### Exercise 9 - Visualize distinctive words
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 tfidf_top <- producer_tfidf |>
@@ -280,17 +264,15 @@ ggplot(tfidf_top, aes(x = tf_idf, y = word)) +
   theme_minimal()
 ```
 
-::: {.callout-tip collapse="true"}
 Return to the original descriptions to check meaning before writing a conclusion.
 :::
-::::
 
 ## Block D - Prepare dashboard output
 
 ### Exercise 10 - Build a summary table
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 dashboard_summary <- record_scores |>
@@ -307,15 +289,13 @@ dashboard_summary <- record_scores |>
 dashboard_summary
 ```
 
-::: {.callout-tip collapse="true"}
 This table separates indicator preparation from display. A dashboard could then present cards, charts and source descriptions.
 :::
-::::
 
 ### Exercise 11 - Simulate a filter
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 selected_producer <- "Ville de Québec"
@@ -324,17 +304,15 @@ dashboard_summary |>
   filter(producer == selected_producer)
 ```
 
-::: {.callout-tip collapse="true"}
 In a `shiny` app, this value could come from a menu. The analytical operation remains a filter on a prepared table.
 :::
-::::
 
 ## Case Study 1 - Quality of dataset descriptions
 
 A team wants to identify descriptions that deserve editorial review.
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 records_to_review <- record_scores |>
@@ -352,17 +330,15 @@ records_to_review <- record_scores |>
 records_to_review
 ```
 
-::: {.callout-tip collapse="true"}
 The score may prioritize reading, but should not automatically trigger correction. The lexicon is small, topics differ and a general description may still be accurate and useful.
 :::
-::::
 
 ## Case Study 2 - Quebec tourism events
 
 Import `quebec_tourism_events.csv`. `text` combines public SIT Québec fields to create a short reproducible corpus.
 
-:::: {.callout-note collapse="true"}
-## Solution
+::: {.callout-note collapse="true"}
+### Solution
 
 ```{r}
 events <- read_csv(
@@ -402,7 +378,5 @@ event_summary <- events |>
 event_summary
 ```
 
-::: {.callout-tip collapse="true"}
 Useful visuals include a TF-IDF chart by event type and a regional coverage chart. The sample is balanced to at most eight events per tourism region, so it does not measure the true volume of the entire tourism offering.
 :::
-::::

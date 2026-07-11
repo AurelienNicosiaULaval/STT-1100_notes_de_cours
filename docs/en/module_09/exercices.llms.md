@@ -33,8 +33,6 @@ Import `municipal_water_consumption_2023.csv`. Each row represents a Quebec muni
 >     $ residences_served                    <dbl> 5740, 594, 325, 266, 3565, 269, 2…
 >     $ persons_per_residence                <dbl> 2.050635, 2.380000, 2.120000, 2.3…
 >     $ distributed_water_l_person_day       <dbl> 414, 307, 580, 301, 396, 208, 104…
-
-> **TIP:**
 >
 > The table contains 496 municipalities across all 17 administrative regions. `distributed_water_l_person_day` is the response. Filtering for available data makes modelling possible, but limits the population to which the results can be generalized.
 
@@ -63,14 +61,14 @@ Plot distributed water quantity against residential consumption. Add a regressio
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-2-1.png)
-
-> **TIP:**
 >
 > The relationship is positive, but substantial dispersion remains. Residential consumption accounts for only part of distributed water, and the chart does not demonstrate a causal relationship.
 
 ### Exercise 3 - Fit a simple regression
 
 Fit a model that predicts distributed water from residential consumption.
+
+Interpret the slope in your own words.
 
 > **NOTE:**
 >
@@ -102,10 +100,6 @@ Fit a model that predicts distributed water from residential consumption.
 >     Residual standard error: 207.5 on 494 degrees of freedom
 >     Multiple R-squared:  0.2432,    Adjusted R-squared:  0.2417
 >     F-statistic: 158.8 on 1 and 494 DF,  p-value: < 2.2e-16
-
-Interpret the slope in your own words.
-
-> **TIP:**
 >
 > The slope estimates the average predicted change in distributed water when residential consumption increases by one litre per person per day. It describes an association among the selected municipalities without proving that this increase alone causes the observed variation.
 
@@ -114,6 +108,8 @@ Interpret the slope in your own words.
 ### Exercise 4 - Fit a multiple regression
 
 Add the population served, expressed in thousands of people, and the average number of people per residence.
+
+Compare the interpretation of the `residential_consumption_l_person_day` coefficient with the one from the simple model.
 
 > **NOTE:**
 >
@@ -150,10 +146,6 @@ Add the population served, expressed in thousands of people, and the average num
 >     Residual standard error: 207.7 on 492 degrees of freedom
 >     Multiple R-squared:  0.2446,    Adjusted R-squared:   0.24
 >     F-statistic: 53.11 on 3 and 492 DF,  p-value: < 2.2e-16
-
-Compare the interpretation of the `residential_consumption_l_person_day` coefficient with the one from the simple model.
-
-> **TIP:**
 >
 > In the multiple model, the coefficient is interpreted while holding population served and people per residence constant. It therefore does not answer exactly the same question as the simple-model slope.
 
@@ -189,14 +181,14 @@ Build two scenarios within the range of the data, then predict distributed water
 >     # ℹ abbreviated names: ¹​residential_consumption_l_person_day,
 >     #   ²​population_served_thousands
 >     # ℹ 1 more variable: predicted_distributed_water <dbl>
-
-> **TIP:**
 >
 > These values are teaching scenarios, not observed municipalities. Predictions are expected values under the model and become more fragile outside the range of the fitting data.
 
 ### Exercise 6 - Compare observed and predicted values
 
 Calculate the multiple-model errors and identify the six largest absolute errors.
+
+Then calculate a root mean squared error.
 
 > **NOTE:**
 >
@@ -234,10 +226,6 @@ Calculate the multiple-model errors and identify the six largest absolute errors
 >     # ℹ abbreviated name: ¹​distributed_water_l_person_day
 >     # ℹ 2 more variables: predicted_distributed_water <dbl>,
 >     #   error_l_person_day <dbl>
-
-Then calculate a root mean squared error.
-
-> **NOTE:**
 >
 > ``` r
 > water_rmse <- sqrt(mean(model_diagnostics$error_l_person_day^2))
@@ -246,8 +234,6 @@ Then calculate a root mean squared error.
 > ```
 >
 >     [1] 206.8512
-
-> **TIP:**
 >
 > A large error may indicate an unusual municipality, an important missing variable or uncertain measurement. It does not automatically constitute a data error.
 
@@ -271,8 +257,6 @@ Then calculate a root mean squared error.
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
-
-> **TIP:**
 >
 > Look for patterns, separated groups and isolated points. Increasing dispersion as predictions grow can indicate that uncertainty is not constant.
 
@@ -302,8 +286,6 @@ Import `water_audit_validity_2023.csv`. It contains all 1,104 municipalities in 
 >     $ validity_index_pct                      <dbl> 59, NA, NA, 57, NA, NA, NA, 65…
 >     $ metered_non_residential_connections_pct <dbl> 0.08867925, NA, NA, 0.00000000…
 >     $ validity_available                      <lgl> TRUE, FALSE, FALSE, TRUE, FALS…
-
-> **TIP:**
 >
 > A missing value does not mean that an audit is invalid. It indicates that the index is unavailable in this resource. Treating absence as failure would produce an incorrect conclusion.
 
@@ -363,8 +345,6 @@ Calculate the proportion of municipalities for which the index is available, the
 > ```
 >
 > ![](exercices_files/figure-html/unnamed-chunk-11-1.png)
-
-> **TIP:**
 >
 > Coverage differences are descriptive. They may reflect participation, measurement availability, network size or other unobserved mechanisms.
 
@@ -402,8 +382,6 @@ Among municipalities with an available index, compare its mean by municipality t
 >     5 Parish                        66                59.9                     0.993
 >     6 City                         204                60.1                     0.942
 >     # ℹ abbreviated name: ¹​median_metered_connections
-
-> **TIP:**
 >
 > This comparison only includes municipalities with a published index. If availability is not random, observed means may not represent every municipality of the same type.
 
@@ -411,7 +389,7 @@ Among municipalities with an available index, compare its mean by municipality t
 
 Write three sentences that distinguish an observed difference, a coverage limitation and an additional check.
 
-> **TIP:**
+> **NOTE:**
 >
 > Possible example: the proportion of municipalities with an available index varies across regions in 2023. These differences do not demonstrate differences in management quality because index absence may depend on participation and measurement availability. A next step would document the nonresponse mechanism and compare municipalities of similar size and type.
 
@@ -452,8 +430,6 @@ Your task:
 >     # ℹ abbreviated names: ¹​residential_consumption_l_person_day,
 >     #   ²​population_served_thousands
 >     # ℹ 1 more variable: predicted_distributed_water <dbl>
-
-> **TIP:**
 >
 > Limitations include complete-case selection, variables omitted from the model, extreme values and the impossibility of giving coefficients a causal interpretation.
 
@@ -492,7 +468,5 @@ A committee wants to know whether its picture of data validity covers Quebec mun
 >     10 Capitale-Nationale    City                          24             0.917
 >     # ℹ 58 more rows
 >     # ℹ 1 more variable: mean_index_if_available <dbl>
-
-> **TIP:**
 >
 > The table can identify less-covered groups, but cannot assign a cause to the differences. Before comparing audit quality, distinguish the observed index from its availability and investigate participation and measurement mechanisms.
