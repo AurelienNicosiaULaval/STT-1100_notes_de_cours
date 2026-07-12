@@ -139,7 +139,7 @@ The full instructions are available in the [Challenge 1](defi.llms.md) page.
 
 Resource [Exercises page](exercices.llms.md)
 
-Scope These exercises are not a step in the challenge. They practise RStudio, Quarto, first R objects and two fictitious cases.
+Scope These exercises are not a step in the challenge. They practise RStudio, Quarto, first R objects and two cases using Quebec open data.
 
 Try each exercise before opening the solution, even when it gives your brain a little workout.
 
@@ -147,7 +147,9 @@ Try each exercise before opening the solution, even when it gives your brain a l
 
 ### Datasets
 
-[UlavalSSD::MeteoQuebec](../donnees.llms.md#dataset-card-meteo-quebec) [Fictitious libraries](data/fictitious_municipal_libraries.csv) [Fictitious student coop](data/fictitious_student_coop.csv)
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-01-en.zip)
+
+[UlavalSSD::MeteoQuebec](../donnees.llms.md#dataset-card-meteo-quebec) [Quebec public libraries, 2024](data/bibliotheques_publiques_quebec_2024.csv) [Montréal Open Data Portal traffic, 2023](data/frequentation_portail_montreal_2023.csv)
 
 ### R packages
 

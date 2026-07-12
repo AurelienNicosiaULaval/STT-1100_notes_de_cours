@@ -151,6 +151,8 @@ Essayez chaque exercice avant d’ouvrir la solution, surtout quand le graphique
 
 ### Bases de données
 
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-02-fr.zip)
+
 [manchots_donnees.xlsx](../donnees.llms.md#dataset-card-manchots-donnees) [palmerpenguins::penguins](../donnees.llms.md#dataset-card-penguins) [Arbres répertoriés de Québec](data/arbres_repertories_quebec.csv) [Compteurs cyclistes de Québec](data/comptages_cyclistes_quebec_2026.csv)
 
 ### Packages R

@@ -1,5 +1,11 @@
 # Consolidation exercises
 
+> **IMPORTANT:**
+>
+> [Download the ready-to-open workspace (.zip)](../../downloads/donnees/stt1100-module-04-en.zip)
+>
+> Unpack the file, then open the `.Rproj` project. The paths used in the exercises will work without moving the data.
+
 These exercises are independent from the adventure and challenge. They consolidate the technical moves of module 4: importing files, checking types, cleaning values, manipulating factors, reading JSON and documenting cleaning decisions.
 
 > **NOTE:**

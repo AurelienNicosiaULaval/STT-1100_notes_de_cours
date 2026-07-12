@@ -1,5 +1,11 @@
 # Consolidation exercises
 
+> **IMPORTANT:**
+>
+> [Download the ready-to-open workspace (.zip)](../../downloads/donnees/stt1100-module-03-en.zip)
+>
+> Unpack the file, then open the `.Rproj` project. The paths used in the exercises will work without moving the data.
+
 These exercises stabilize the core moves of the module: recognize a categorical variable, count levels, clean character strings, extract patterns and build readable charts.
 
 They are independent from the adventure and challenge. They practise the same skills without directly preparing the food offence article.

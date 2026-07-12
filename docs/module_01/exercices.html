@@ -6142,8 +6142,8 @@ margin-bottom: .05rem;
   </ul></li>
   <li><a href="#études-de-cas" id="toc-études-de-cas" class="nav-link" data-scroll-target="#études-de-cas">Études de cas</a>
   <ul class="collapse">
-  <li><a href="#étude-de-cas-1---bibliothèques-municipales" id="toc-étude-de-cas-1---bibliothèques-municipales" class="nav-link" data-scroll-target="#étude-de-cas-1---bibliothèques-municipales">Étude de cas 1 - Bibliothèques municipales</a></li>
-  <li><a href="#étude-de-cas-2---coop-étudiante" id="toc-étude-de-cas-2---coop-étudiante" class="nav-link" data-scroll-target="#étude-de-cas-2---coop-étudiante">Étude de cas 2 - Coop étudiante</a></li>
+  <li><a href="#étude-de-cas-1---bibliothèques-publiques-du-québec" id="toc-étude-de-cas-1---bibliothèques-publiques-du-québec" class="nav-link" data-scroll-target="#étude-de-cas-1---bibliothèques-publiques-du-québec">Étude de cas 1 - Bibliothèques publiques du Québec</a></li>
+  <li><a href="#étude-de-cas-2---fréquentation-du-portail-de-données-ouvertes-de-montréal" id="toc-étude-de-cas-2---fréquentation-du-portail-de-données-ouvertes-de-montréal" class="nav-link" data-scroll-target="#étude-de-cas-2---fréquentation-du-portail-de-données-ouvertes-de-montréal">Étude de cas 2 - Fréquentation du portail de données ouvertes de Montréal</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -6170,6 +6170,20 @@ margin-bottom: .05rem;
 </header>
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Dossier de travail du module
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a class="btn btn-primary" href="../downloads/donnees/stt1100-module-01-fr.zip" download>Télécharger le dossier prêt à ouvrir (.zip)</a></p>
+<p>Décompressez le fichier, puis ouvrez le projet <code>.Rproj</code>. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.</p>
+</div>
+</div>
 <p>Ces exercices servent à consolider les premiers gestes du cours: utiliser RStudio, écrire du code dans un script, créer un rapport Quarto, charger des packages, inspecter des données et produire une petite analyse reproductible.</p>
 <p>Ils sont indépendants de l’aventure et du défi. Certaines questions utilisent <code>MeteoQuebec</code> parce que c’est le premier tableau du cours, mais elles ne constituent pas une étape à remettre dans le défi.</p>
 <p>Travaillez dans un fichier <code>.R</code>, un fichier <code>.qmd</code>, ou les deux. Les réponses sont repliées pour vous permettre d’essayer avant de comparer.</p>
@@ -6178,7 +6192,7 @@ margin-bottom: .05rem;
 <p>Dans RStudio, exécutez <code>3 + 4</code> dans la console, puis dans un script <code>.R</code>.</p>
 <p>Expliquez en une phrase pourquoi le script est préférable pour un travail qui doit être remis.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6187,7 +6201,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>La console est utile pour tester rapidement une commande. Le script garde une trace du code, ce qui permet de relancer et de vérifier le travail plus tard.</p>
 </div>
@@ -6202,7 +6216,7 @@ Astuce
 <li><code>temperature_moyenne</code> contenant la moyenne de <code>temperatures</code> en ignorant la valeur manquante.</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6211,7 +6225,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ville <span class="ot">&lt;-</span> <span class="st">&quot;Quebec&quot;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>temperatures <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">10</span>)</span>
@@ -6227,7 +6241,7 @@ Astuce
 <p>Que retourne le code suivant? Expliquez pourquoi.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6236,7 +6250,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Le résultat est <code>NA</code>, car R ne peut pas calculer la moyenne sans savoir quoi faire avec la valeur manquante. Il faut préciser <code>na.rm = TRUE</code> pour l’ignorer.</p>
 </div>
@@ -6251,7 +6265,7 @@ Astuce
 <li><code>&quot;pas de gel&quot;</code> sinon.</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6260,7 +6274,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">8</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6278,7 +6292,7 @@ Astuce
 <p>Créez une fonction <code>etendue_temperature()</code> qui reçoit deux arguments, <code>minimum</code> et <code>maximum</code>, puis retourne la différence entre les deux.</p>
 <p>Testez la fonction avec <code>minimum = -3</code> et <code>maximum = 8</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6287,7 +6301,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>etendue_temperature <span class="ot">&lt;-</span> <span class="cf">function</span>(minimum, maximum) {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  maximum <span class="sc">-</span> minimum</span>
@@ -6303,7 +6317,7 @@ Astuce
 <p>Utilisez l’aide intégrée de R pour consulter la documentation de <code>mean()</code>.</p>
 <p>Ensuite, répondez en une phrase: à quoi sert l’argument <code>na.rm</code>?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6312,7 +6326,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>L’argument <code>na.rm</code> indique si les valeurs manquantes doivent être retirées avant le calcul.</p>
@@ -6325,7 +6339,7 @@ Astuce
 <p>Réécrivez le code suivant pour respecter un style plus lisible.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="cn">NA</span>,<span class="dv">5</span>),<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6334,7 +6348,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -6351,7 +6365,7 @@ Astuce
 <li>un bloc de code qui calcule la moyenne de <code>c(1, 2, 3, 4, 5)</code>.</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6360,7 +6374,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Premier rapport&quot;</span></span>
@@ -6378,7 +6392,7 @@ Astuce
 <h3 class="anchored" data-anchor-id="exercice-9---charger-les-packages-du-module">Exercice 9 - Charger les packages du module</h3>
 <p>Dans un script ou un document Quarto, chargez les packages nécessaires pour accéder aux données <code>MeteoQuebec</code> et manipuler des tableaux avec <code>dplyr</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6387,7 +6401,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
@@ -6401,7 +6415,7 @@ Astuce
 <p>Après avoir chargé <code>UlavalSSD</code>, utilisez trois fonctions différentes pour inspecter <code>MeteoQuebec</code>.</p>
 <p>Votre objectif est de comprendre les noms de variables, les premières lignes et la présence possible de valeurs manquantes.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6410,7 +6424,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6426,7 +6440,7 @@ Astuce
 <p>Utilisez <code>summary()</code> pour identifier au moins une variable de <code>MeteoQuebec</code> qui contient des valeurs manquantes.</p>
 <p>Rédigez ensuite une phrase qui explique pourquoi cette information est importante avant de faire une analyse.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6435,7 +6449,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6456,7 +6470,7 @@ Astuce
 <li>avec des crochets.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6465,7 +6479,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6482,7 +6496,7 @@ Astuce
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>jour_choisi <span class="ot">&lt;-</span> <span class="st">&quot;24&quot;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Filtrez <code>MeteoQuebec</code> pour garder seulement les observations de ce mois et de ce jour.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6491,7 +6505,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -6511,7 +6525,7 @@ Astuce
 <h3 class="anchored" data-anchor-id="exercice-14---ajouter-une-colonne">Exercice 14 - Ajouter une colonne</h3>
 <p>Créez une colonne <code>etendue_temp</code> qui calcule la différence entre la température maximale et la température minimale.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6520,7 +6534,7 @@ Astuce
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -6536,63 +6550,19 @@ Astuce
 </section>
 <section id="études-de-cas" class="level2">
 <h2 class="anchored" data-anchor-id="études-de-cas">Études de cas</h2>
-<p>Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes techniques du module avec d’autres contextes que la météo.</p>
-<section id="étude-de-cas-1---bibliothèques-municipales" class="level3">
-<h3 class="anchored" data-anchor-id="étude-de-cas-1---bibliothèques-municipales">Étude de cas 1 - Bibliothèques municipales</h3>
-<p>Fichier: <code>data/bibliotheques_municipales_fictif.csv</code></p>
-<p>Vous aidez une petite équipe municipale à préparer un aperçu de la fréquentation des bibliothèques. Le fichier contient des observations mensuelles fictives pour quelques villes.</p>
+<p>Les deux études de cas suivantes utilisent des extraits de données ouvertes québécoises. Les fichiers ont été préparés pour conserver des colonnes simples et une taille adaptée à ce premier module. Leur provenance, leur licence et leurs limites sont documentées dans <code>module_01/data/README.md</code>.</p>
+<section id="étude-de-cas-1---bibliothèques-publiques-du-québec" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-1---bibliothèques-publiques-du-québec">Étude de cas 1 - Bibliothèques publiques du Québec</h3>
+<p>Fichier: <code>data/bibliotheques_publiques_quebec_2024.csv</code></p>
+<p>Vous aidez une équipe à préparer un aperçu des bibliothèques publiques du Québec. Chaque ligne représente une bibliothèque publique ou un centre régional en 2024. Les données proviennent de la <a href="https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec">Bibliothèque et Archives nationales du Québec</a>.</p>
 <p>Réalisez les tâches suivantes:</p>
 <ol type="1">
 <li>Importez le fichier avec <code>readr::read_csv()</code>.</li>
 <li>Affichez les noms de colonnes et les premières lignes.</li>
 <li>Identifiez les variables qui contiennent des valeurs manquantes.</li>
 <li>Calculez la moyenne de <code>visites</code> en ignorant les valeurs manquantes.</li>
-<li>Gardez seulement les lignes où <code>ateliers</code> est supérieur ou égal à 10.</li>
-<li>Rédigez deux phrases qui résument ce que vous avez observé.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Astuce
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>bibliotheques <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/bibliotheques_municipales_fictif.csv&quot;</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bibliotheques)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bibliotheques)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bibliotheques)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bibliotheques<span class="sc">$</span>visites, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>bibliotheques_ateliers <span class="ot">&lt;-</span> bibliotheques <span class="sc">|&gt;</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ateliers <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>bibliotheques_ateliers</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section>
-<section id="étude-de-cas-2---coop-étudiante" class="level3">
-<h3 class="anchored" data-anchor-id="étude-de-cas-2---coop-étudiante">Étude de cas 2 - Coop étudiante</h3>
-<p>Fichier: <code>data/coop_etudiante_fictif.csv</code></p>
-<p>Vous préparez un mini-rapport pour une coop étudiante fictive. Le fichier contient des ventes agrégées par produit.</p>
-<p>Réalisez les tâches suivantes:</p>
-<ol type="1">
-<li>Importez le fichier.</li>
-<li>Créez une colonne <code>revenu</code> avec la formule <code>prix_unitaire * quantite * (1 - rabais)</code>.</li>
-<li>Calculez le revenu total.</li>
-<li>Gardez les lignes où <code>satisfaction</code> est inférieure ou égale à 3.</li>
-<li>Identifiez une catégorie qui mériterait une attention particulière.</li>
-<li>Créez un court rapport Quarto qui présente le code et deux phrases d’interprétation.</li>
+<li>Gardez seulement les lignes où <code>activites</code> est supérieur ou égal à 500.</li>
+<li>Rédigez deux phrases descriptives qui résument ce que vous avez observé, en tenant compte des valeurs manquantes.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
@@ -6606,20 +6576,64 @@ Astuce
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>bibliotheques <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/bibliotheques_publiques_quebec_2024.csv&quot;</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bibliotheques)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bibliotheques)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bibliotheques)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bibliotheques<span class="sc">$</span>visites, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>bibliotheques_actives <span class="ot">&lt;-</span> bibliotheques <span class="sc">|&gt;</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(activites <span class="sc">&gt;=</span> <span class="dv">500</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>bibliotheques_actives</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="étude-de-cas-2---fréquentation-du-portail-de-données-ouvertes-de-montréal" class="level3">
+<h3 class="anchored" data-anchor-id="étude-de-cas-2---fréquentation-du-portail-de-données-ouvertes-de-montréal">Étude de cas 2 - Fréquentation du portail de données ouvertes de Montréal</h3>
+<p>Fichier: <code>data/frequentation_portail_montreal_2023.csv</code></p>
+<p>Vous préparez un mini-rapport sur la fréquentation du portail de données ouvertes de Montréal. Chaque ligne représente une page consultée le 21 juin 2023. Les données proviennent de la <a href="https://donnees.montreal.ca/dataset/frequentation-du-portail-de-donnees-ouvertes">Ville de Montréal</a>.</p>
+<p>Réalisez les tâches suivantes:</p>
+<ol type="1">
+<li>Importez le fichier.</li>
+<li>Créez une colonne <code>pages_par_session</code> avec la formule <code>pageviews / sessions</code>.</li>
+<li>Calculez le nombre total de sessions.</li>
+<li>Gardez les lignes où <code>sessions</code> est supérieur ou égal à 20.</li>
+<li>Identifiez une page qui pourrait être mise en valeur dans le portail.</li>
+<li>Créez un court rapport Quarto qui présente le code et deux phrases d’interprétation descriptive.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Astuce
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>coop <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/coop_etudiante_fictif.csv&quot;</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>portail <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/frequentation_portail_montreal_2023.csv&quot;</span>)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>coop_revenus <span class="ot">&lt;-</span> coop <span class="sc">|&gt;</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">revenu =</span> prix_unitaire <span class="sc">*</span> quantite <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> rabais))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>portail_mesures <span class="ot">&lt;-</span> portail <span class="sc">|&gt;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pages_par_session =</span> pageviews <span class="sc">/</span> sessions)</span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(coop_revenus<span class="sc">$</span>revenu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(portail_mesures<span class="sc">$</span>sessions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>coop_a_suivre <span class="ot">&lt;-</span> coop_revenus <span class="sc">|&gt;</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(satisfaction <span class="sc">&lt;=</span> <span class="dv">3</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>pages_a_mettre_en_valeur <span class="ot">&lt;-</span> portail_mesures <span class="sc">|&gt;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sessions <span class="sc">&gt;=</span> <span class="dv">20</span>)</span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>coop_a_suivre</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>pages_a_mettre_en_valeur</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>

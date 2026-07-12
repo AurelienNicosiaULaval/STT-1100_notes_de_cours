@@ -134,6 +134,8 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-09-fr.zip)
+
 [eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc) [Consommation d'eau municipale 2023](data/consommation_eau_municipalites_2023.csv) [Validité des audits de l'eau 2023](data/validite_audits_eau_2023.csv)
 
 ### Packages R

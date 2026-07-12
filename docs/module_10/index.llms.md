@@ -124,6 +124,8 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-10-fr.zip)
+
 [Commentaires et textes de travail](../donnees.llms.md#dataset-card-textes-module-10) [Descriptions de Données Québec](data/descriptions_donnees_quebec.csv) [Événements touristiques québécois](data/evenements_touristiques_quebec.csv)
 
 ### Packages R

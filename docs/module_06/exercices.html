@@ -6177,6 +6177,20 @@ margin-bottom: .05rem;
 </header>
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Dossier de travail du module
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a class="btn btn-primary" href="../downloads/donnees/stt1100-module-06-fr.zip" download>Télécharger le dossier prêt à ouvrir (.zip)</a></p>
+<p>Décompressez le fichier, puis ouvrez le projet <code>.Rproj</code>. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.</p>
+</div>
+</div>
 <section id="exercices-de-consolidation" class="level2">
 <h2 class="anchored" data-anchor-id="exercices-de-consolidation">Exercices de consolidation</h2>
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes techniques du module 6: joindre plusieurs tables, vérifier les clés, repérer les lignes sans correspondance, comprendre les cardinalités et formuler une revue constructive.</p>
@@ -6203,7 +6217,7 @@ margin-bottom: .05rem;
 <h3 class="anchored" data-anchor-id="exercice-1---importer-les-organisations-et-les-jeux">Exercice 1 - Importer les organisations et les jeux</h3>
 <p>Importez <code>organisations_donnees_quebec.csv</code> et <code>jeux_donnees_quebec.csv</code>, puis inspectez leurs dimensions et leurs clés.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6212,7 +6226,7 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>organisations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
@@ -6272,7 +6286,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-2---ajouter-le-nom-de-lorganisation">Exercice 2 - Ajouter le nom de l’organisation</h3>
 <p>Utilisez <code>left_join()</code> pour ajouter le nom et le nombre total de jeux du catalogue à chaque jeu de l’extrait.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6281,7 +6295,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>jeux_detail <span class="ot">&lt;-</span> jeux <span class="sc">|&gt;</span></span>
@@ -6321,7 +6335,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-3---repérer-les-jeux-sans-organisation-connue">Exercice 3 - Repérer les jeux sans organisation connue</h3>
 <p>Utilisez <code>anti_join()</code> pour vérifier si des jeux ont une clé d’organisation absente de la table des organisations.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6330,7 +6344,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>jeux <span class="sc">|&gt;</span></span>
@@ -6351,7 +6365,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-4---identifier-les-organisations-représentées">Exercice 4 - Identifier les organisations représentées</h3>
 <p>Utilisez <code>semi_join()</code> pour conserver seulement les organisations ayant au moins un jeu dans l’extrait équilibré.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6360,7 +6374,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>organisations_representees <span class="ot">&lt;-</span> organisations <span class="sc">|&gt;</span></span>
@@ -6396,7 +6410,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-5---résumer-les-jeux-par-organisation">Exercice 5 - Résumer les jeux par organisation</h3>
 <p>Calculez le nombre de jeux retenus dans l’extrait et le nombre total annoncé dans le catalogue pour chaque organisation représentée.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6405,7 +6419,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>resume_organisations <span class="ot">&lt;-</span> jeux_detail <span class="sc">|&gt;</span></span>
@@ -6444,7 +6458,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-6---visualiser-les-organisations-les-plus-présentes">Exercice 6 - Visualiser les organisations les plus présentes</h3>
 <p>Produisez un graphique des dix organisations ayant le plus de jeux dans l’ensemble du catalogue.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6453,7 +6467,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>organisations <span class="sc">|&gt;</span></span>
@@ -6487,7 +6501,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-7---joindre-les-ressources-aux-jeux">Exercice 7 - Joindre les ressources aux jeux</h3>
 <p>Importez <code>ressources_donnees_quebec.csv</code>, ajoutez le titre du jeu à chaque ressource et comptez les formats.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6496,7 +6510,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ressources <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
@@ -6543,7 +6557,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-8---vérifier-les-correspondances-entre-jeux-et-ressources">Exercice 8 - Vérifier les correspondances entre jeux et ressources</h3>
 <p>Repérez les jeux sans ressource et les ressources sans jeu connu.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6552,7 +6566,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>jeux_sans_ressource <span class="ot">&lt;-</span> jeux <span class="sc">|&gt;</span></span>
@@ -6587,7 +6601,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-9---ajouter-les-étiquettes">Exercice 9 - Ajouter les étiquettes</h3>
 <p>Importez <code>etiquettes_donnees_quebec.csv</code>, puis ajoutez le titre et l’organisation à chaque association jeu-étiquette.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6596,7 +6610,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>etiquettes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
@@ -6637,7 +6651,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-10---résumer-les-étiquettes">Exercice 10 - Résumer les étiquettes</h3>
 <p>Trouvez les quinze étiquettes associées au plus grand nombre de jeux distincts.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6646,7 +6660,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>resume_etiquettes <span class="ot">&lt;-</span> etiquettes_detail <span class="sc">|&gt;</span></span>
@@ -6687,7 +6701,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-11---observer-la-multiplication-des-lignes">Exercice 11 - Observer la multiplication des lignes</h3>
 <p>Joignez successivement les ressources et les étiquettes aux jeux, puis comparez le nombre de lignes avant et après. Expliquez pourquoi la seconde jointure est plusieurs-à-plusieurs.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6696,7 +6710,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>jeux_ressources <span class="ot">&lt;-</span> jeux <span class="sc">|&gt;</span></span>
@@ -6735,7 +6749,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <h3 class="anchored" data-anchor-id="exercice-12---rédiger-une-issue-utile">Exercice 12 - Rédiger une issue utile</h3>
 <p>Repérez une ressource dont le format est manquant, puis rédigez une issue avec trois sections: constat, suggestion et justification.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6744,7 +6758,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Constat</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6777,7 +6791,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <li>rédigez une conclusion prudente sur l’intégrité relationnelle de l’extrait.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6786,7 +6800,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>verification_cles <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -6911,7 +6925,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 <li>rédigez une issue précise pour un problème observé.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6920,7 +6934,7 @@ $ nb_etiquettes     &lt;dbl&gt; 6, 12, 6, 5, 3, 10, 5, 6, 6, 3, 4, 4, 33, 11, 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>ressources_catalogue <span class="ot">&lt;-</span> ressources <span class="sc">|&gt;</span></span>

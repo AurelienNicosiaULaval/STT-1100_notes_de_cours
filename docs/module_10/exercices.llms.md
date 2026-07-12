@@ -1,5 +1,11 @@
 # Exercices de consolidation
 
+> **IMPORTANT:**
+>
+> [Télécharger le dossier prêt à ouvrir (.zip)](../downloads/donnees/stt1100-module-10-fr.zip)
+>
+> Décompressez le fichier, puis ouvrez le projet `.Rproj`. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.
+
 Ces exercices sont indépendants de l’aventure et du défi. Ils consolident l’analyse de texte, les scores lexicaux, le TF-IDF et la préparation d’un tableau de bord à partir de textes québécois réels et publics.
 
 Le premier fichier contient un échantillon équilibré de descriptions tirées de l’[API officielle de Données Québec](https://www.donneesquebec.ca/page-api/). Le second provient du jeu [Événements - Système d’information touristique Québec](https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements) du ministère du Tourisme. Les sources sont diffusées sous licence CC BY 4.0.

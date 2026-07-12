@@ -121,6 +121,8 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-04-fr.zip)
+
 [dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [AFDR, Québec, décembre 2022](data/afdr_clientele_prestations_2022_12.csv) [Installations sportives de Sherbrooke](data/installations_sportives_sherbrooke.csv) [Métadonnées ArcGIS de Sherbrooke](data/metadonnees_installations_sherbrooke.json)
 
 ### Packages R

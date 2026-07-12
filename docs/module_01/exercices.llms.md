@@ -1,5 +1,11 @@
 # Exercices de consolidation
 
+> **IMPORTANT:**
+>
+> [Télécharger le dossier prêt à ouvrir (.zip)](../downloads/donnees/stt1100-module-01-fr.zip)
+>
+> Décompressez le fichier, puis ouvrez le projet `.Rproj`. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.
+
 Ces exercices servent à consolider les premiers gestes du cours: utiliser RStudio, écrire du code dans un script, créer un rapport Quarto, charger des packages, inspecter des données et produire une petite analyse reproductible.
 
 Ils sont indépendants de l’aventure et du défi. Certaines questions utilisent `MeteoQuebec` parce que c’est le premier tableau du cours, mais elles ne constituent pas une étape à remettre dans le défi.
@@ -242,13 +248,13 @@ Créez une colonne `etendue_temp` qui calcule la différence entre la températu
 
 ## Études de cas
 
-Les deux études de cas suivantes utilisent de petits fichiers fictifs. Ils ne représentent pas des données réelles; ils servent uniquement à pratiquer les gestes techniques du module avec d’autres contextes que la météo.
+Les deux études de cas suivantes utilisent des extraits de données ouvertes québécoises. Les fichiers ont été préparés pour conserver des colonnes simples et une taille adaptée à ce premier module. Leur provenance, leur licence et leurs limites sont documentées dans `module_01/data/README.md`.
 
-### Étude de cas 1 - Bibliothèques municipales
+### Étude de cas 1 - Bibliothèques publiques du Québec
 
-Fichier: `data/bibliotheques_municipales_fictif.csv`
+Fichier: `data/bibliotheques_publiques_quebec_2024.csv`
 
-Vous aidez une petite équipe municipale à préparer un aperçu de la fréquentation des bibliothèques. Le fichier contient des observations mensuelles fictives pour quelques villes.
+Vous aidez une équipe à préparer un aperçu des bibliothèques publiques du Québec. Chaque ligne représente une bibliothèque publique ou un centre régional en 2024. Les données proviennent de la [Bibliothèque et Archives nationales du Québec](https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec).
 
 Réalisez les tâches suivantes:
 
@@ -256,8 +262,8 @@ Réalisez les tâches suivantes:
 2.  Affichez les noms de colonnes et les premières lignes.
 3.  Identifiez les variables qui contiennent des valeurs manquantes.
 4.  Calculez la moyenne de `visites` en ignorant les valeurs manquantes.
-5.  Gardez seulement les lignes où `ateliers` est supérieur ou égal à 10.
-6.  Rédigez deux phrases qui résument ce que vous avez observé.
+5.  Gardez seulement les lignes où `activites` est supérieur ou égal à 500.
+6.  Rédigez deux phrases descriptives qui résument ce que vous avez observé, en tenant compte des valeurs manquantes.
 
 > **TIP:**
 >
@@ -265,7 +271,7 @@ Réalisez les tâches suivantes:
 > library(readr)
 > library(dplyr)
 >
-> bibliotheques <- read_csv("data/bibliotheques_municipales_fictif.csv")
+> bibliotheques <- read_csv("data/bibliotheques_publiques_quebec_2024.csv")
 >
 > names(bibliotheques)
 > head(bibliotheques)
@@ -273,26 +279,26 @@ Réalisez les tâches suivantes:
 >
 > mean(bibliotheques$visites, na.rm = TRUE)
 >
-> bibliotheques_ateliers <- bibliotheques |>
->   filter(ateliers >= 10)
+> bibliotheques_actives <- bibliotheques |>
+>   filter(activites >= 500)
 >
-> bibliotheques_ateliers
+> bibliotheques_actives
 > ```
 
-### Étude de cas 2 - Coop étudiante
+### Étude de cas 2 - Fréquentation du portail de données ouvertes de Montréal
 
-Fichier: `data/coop_etudiante_fictif.csv`
+Fichier: `data/frequentation_portail_montreal_2023.csv`
 
-Vous préparez un mini-rapport pour une coop étudiante fictive. Le fichier contient des ventes agrégées par produit.
+Vous préparez un mini-rapport sur la fréquentation du portail de données ouvertes de Montréal. Chaque ligne représente une page consultée le 21 juin 2023. Les données proviennent de la [Ville de Montréal](https://donnees.montreal.ca/dataset/frequentation-du-portail-de-donnees-ouvertes).
 
 Réalisez les tâches suivantes:
 
 1.  Importez le fichier.
-2.  Créez une colonne `revenu` avec la formule `prix_unitaire * quantite * (1 - rabais)`.
-3.  Calculez le revenu total.
-4.  Gardez les lignes où `satisfaction` est inférieure ou égale à 3.
-5.  Identifiez une catégorie qui mériterait une attention particulière.
-6.  Créez un court rapport Quarto qui présente le code et deux phrases d’interprétation.
+2.  Créez une colonne `pages_par_session` avec la formule `pageviews / sessions`.
+3.  Calculez le nombre total de sessions.
+4.  Gardez les lignes où `sessions` est supérieur ou égal à 20.
+5.  Identifiez une page qui pourrait être mise en valeur dans le portail.
+6.  Créez un court rapport Quarto qui présente le code et deux phrases d’interprétation descriptive.
 
 > **TIP:**
 >
@@ -300,15 +306,15 @@ Réalisez les tâches suivantes:
 > library(readr)
 > library(dplyr)
 >
-> coop <- read_csv("data/coop_etudiante_fictif.csv")
+> portail <- read_csv("data/frequentation_portail_montreal_2023.csv")
 >
-> coop_revenus <- coop |>
->   mutate(revenu = prix_unitaire * quantite * (1 - rabais))
+> portail_mesures <- portail |>
+>   mutate(pages_par_session = pageviews / sessions)
 >
-> sum(coop_revenus$revenu, na.rm = TRUE)
+> sum(portail_mesures$sessions, na.rm = TRUE)
 >
-> coop_a_suivre <- coop_revenus |>
->   filter(satisfaction <= 3)
+> pages_a_mettre_en_valeur <- portail_mesures |>
+>   filter(sessions >= 20)
 >
-> coop_a_suivre
+> pages_a_mettre_en_valeur
 > ```

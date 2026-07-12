@@ -131,6 +131,8 @@ Refaites au moins un passage sans regarder la solution immédiatement.
 
 ### Bases de données
 
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-05-fr.zip)
+
 [flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023) [Comptages vélos de Laval](data/comptages_velos_laval_2016_06.csv) [Qualité de l'air à Québec](data/qualite_air_quebec_vieux_limoilou_2025_07.csv) [Débits de circulation de Gatineau](data/debits_circulation_gatineau_2016_2023.csv)
 
 ### Packages R

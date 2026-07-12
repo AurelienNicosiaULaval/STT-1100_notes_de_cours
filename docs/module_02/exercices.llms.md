@@ -1,5 +1,11 @@
 # Exercices de consolidation
 
+> **IMPORTANT:**
+>
+> [Télécharger le dossier prêt à ouvrir (.zip)](../downloads/donnees/stt1100-module-02-fr.zip)
+>
+> Décompressez le fichier, puis ouvrez le projet `.Rproj`. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.
+
 Ces exercices consolident les gestes du module 2: travailler dans un dépôt GitHub, importer un fichier Excel, inspecter les données, transformer un tableau avec `dplyr`, produire des graphiques lisibles avec `ggplot2` et interpréter des statistiques descriptives.
 
 Ils sont indépendants de l’aventure et du défi. Le fichier des manchots est utilisé ici comme fichier d’entraînement, pas comme consigne supplémentaire du défi.

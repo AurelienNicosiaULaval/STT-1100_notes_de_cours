@@ -115,6 +115,8 @@ Before opening a solution, name the CSS selector or output contract you want to 
 
 ### Datasets
 
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-08-en.zip)
+
 [Web pages analyzed with rvest](../donnees.llms.md#dataset-card-web-pages-module-08) [Données Québec catalog](data/catalogue_donnees_quebec.llms.md) [Catalog with missing categories](data/catalogue_donnees_quebec_irregulier.llms.md) [SIT Québec events](data/evenements_sit_quebec.llms.md)
 
 ### R packages

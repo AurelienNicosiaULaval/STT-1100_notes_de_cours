@@ -21,7 +21,8 @@ execute:
   <h1 id="data-title">Bases de données du cours</h1>
   <p>Cette page rassemble les jeux de données utilisés dans STT-1100. Elle sert à retrouver rapidement les fichiers à télécharger, les données fournies par des packages R et les fiches courtes des fichiers locaux.</p>
   <div class="resource-actions" aria-label="Accès rapides">
-  <a class="home-action home-action--primary" href="#utiliser-catalogue">Démarrer</a>
+  <a class="home-action home-action--primary" href="#dossiers-de-travail">Télécharger un module</a>
+  <a class="home-action" href="#utiliser-catalogue">Mode d'emploi</a>
   <a class="home-action" href="#catalogue-par-module">Par module</a>
   <a class="home-action" href="#fiches-fichiers-locaux">Fiches locales</a>
   <a class="home-action" href="packages.html">Packages R</a>
@@ -141,7 +142,7 @@ format_integer_fr <- function(x) {
 
 html_text <- function(x) htmltools::htmlEscape(as.character(x))
 
-dataset_catalog <- tibble::tribble(
+legacy_catalog <- tibble::tribble(
   ~id, ~title, ~path, ~module_id, ~module, ~description, ~usage, ~source, ~license, ~kind, ~delimiter, ~rows, ~cols, ~package_anchor, ~icon,
   "meteo-quebec", "UlavalSSD::MeteoQuebec", NA, "module-01", "Module 01", "Jeu de données utilisé pour les premiers gestes d'exploration dans R.", "Découvrir un tableau, reconnaître les variables et produire les premiers résumés.", "Package UlavalSSD utilisé dans le cours.", "Voir la documentation du package.", "package", NA, NA, NA, "ulavalssd", "bi-database",
   "module01-bibliotheques", "bibliotheques_municipales_fictif.csv", "module_01/data/bibliotheques_municipales_fictif.csv", "module-01", "Module 01", "Observations fictives sur la fréquentation, les prêts et les ateliers de bibliothèques municipales.", "Pratiquer l'importation, l'inspection d'un tableau et les premiers résumés numériques.", "Données fictives créées pour les exercices du module 01.", "Données simulées pour le cours.", "local", ",", 12, 8, NA, "bi-filetype-csv",
@@ -192,6 +193,51 @@ dataset_catalog <- tibble::tribble(
   "module10-evenements-touristiques", "evenements_touristiques_quebec.csv", "module_10/data/evenements_touristiques_quebec.csv", "module-10", "Module 10", "Échantillon équilibré de 151 événements du Système d'information touristique Québec.", "Préparer des synthèses textuelles et numériques pour un mini tableau de bord.", "Ministère du Tourisme, Système d'information touristique Québec.", "CC BY 4.0.", "local", ",", 151, 11, NA, "bi-filetype-csv",
   "textes-module-10", "Commentaires et textes de travail", NA, "module-10", "Module 10", "Textes et commentaires préparés dans les activités.", "Pratiquer le traitement automatique du langage et les tableaux de bord.", "Textes préparés dans les activités.", "Matériel pédagogique du cours.", "text", NA, NA, NA, "tidytext", "bi-chat-left-text"
 )
+
+course_manifest <- readr::read_tsv(
+  "data_catalog/course_datasets.tsv",
+  show_col_types = FALSE,
+  na = c("", "NA")
+)
+
+exercise_catalog <- course_manifest |>
+  transmute(
+    id,
+    title = title_fr,
+    path = path_fr,
+    module_id = sprintf("module-%02d", module),
+    module = sprintf("Module %02d", module),
+    description = description_fr,
+    usage = description_fr,
+    source = source_url,
+    license,
+    kind = "local",
+    delimiter,
+    rows,
+    cols,
+    package_anchor = NA_character_,
+    icon = case_when(
+      format == "csv" ~ "bi-filetype-csv",
+      format == "json" ~ "bi-filetype-json",
+      format == "xlsx" ~ "bi-file-earmark-spreadsheet",
+      format == "html" ~ "bi-filetype-html",
+      TRUE ~ "bi-file-earmark"
+    )
+  )
+
+supplemental_catalog <- legacy_catalog |>
+  filter(
+    !(kind == "local" & grepl("^module_(0[1-9]|10)/data/", path)),
+    !id %in% c(
+      "manchots-donnees",
+      "policies-module-04",
+      "coverage-module-04",
+      "quotes-module-04"
+    )
+  )
+
+dataset_catalog <- bind_rows(exercise_catalog, supplemental_catalog) |>
+  arrange(module_id, factor(kind, levels = c("local", "package", "web", "text")), title)
 
 read_preview <- function(row, n = 50) {
   path <- project_file(row$path)
@@ -322,6 +368,33 @@ render_download_link <- function(row) {
   "</a></p>"
   )
 }
+```
+
+## Dossiers de travail {#dossiers-de-travail}
+
+Chaque dossier contient un projet RStudio, un fichier Quarto sans solution et tous les fichiers requis par les exercices. Téléchargez un seul ZIP, décompressez-le, puis ouvrez le fichier `.Rproj`.
+
+```{r}
+#| label: dossiers-travail
+#| results: asis
+
+cat("<div class=\"catalog-grid\">\n")
+for (module_number in sort(unique(course_manifest$module))) {
+  module_label <- sprintf("%02d", module_number)
+  module_rows <- course_manifest |> filter(module == module_number)
+  archive <- paste0("downloads/donnees/stt1100-module-", module_label, "-fr.zip")
+  cat(
+    '<article class="dataset-card">',
+    '<span class="resource-icon"><i class="bi bi-file-earmark-zip"></i></span>',
+    '<div><span class="dataset-module">Module ', module_label, '</span>',
+    '<h2>Dossier de travail</h2>',
+    '<span class="resource-text">Projet RStudio prêt à ouvrir avec ', nrow(module_rows), ' fichier(s) fourni(s).</span>',
+    '<p class="dataset-download-wrap"><a class="dataset-download" href="', archive, '" download>Télécharger le ZIP</a></p>',
+    '</div></article>\n',
+    sep = ""
+  )
+}
+cat("</div>\n")
 ```
 
 ## Catalogue par module

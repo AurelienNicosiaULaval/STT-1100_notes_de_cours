@@ -1,5 +1,11 @@
 # Consolidation Exercises
 
+> **IMPORTANT:**
+>
+> [Download the ready-to-open workspace (.zip)](../../downloads/donnees/stt1100-module-09-en.zip)
+>
+> Unpack the file, then open the `.Rproj` project. The paths used in the exercises will work without moving the data.
+
 These exercises are independent from the adventure and the challenge. They consolidate linear regression, prediction and careful analysis of coverage bias using real Quebec municipal data.
 
 Both files come from the Quebec Ministry of Municipal Affairs and Housing dataset [Stratégie québécoise d’économie d’eau potable 2019-2025](https://www.donneesquebec.ca/recherche/dataset/sqeep-2019-2025). The data were reported by participating municipalities and approved by the Ministry. They are distributed under the CC BY 4.0 licence.

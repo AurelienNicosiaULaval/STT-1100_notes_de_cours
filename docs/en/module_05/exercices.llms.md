@@ -2,6 +2,12 @@
 
 STT-1100 Introduction to Data Science
 
+> **IMPORTANT:**
+>
+> [Download the ready-to-open workspace (.zip)](../../downloads/donnees/stt1100-module-05-en.zip)
+>
+> Unpack the file, then open the `.Rproj` project. The paths used in the exercises will work without moving the data.
+
 ## Consolidation Exercises
 
 These exercises are independent from the adventure and challenge. They consolidate the technical moves from Module 5: manipulating dates, summarizing groups, visualizing associations, calculating simple correlations and writing cautious conclusions.

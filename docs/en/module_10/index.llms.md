@@ -122,6 +122,8 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-10-en.zip)
+
 [Working comments and texts](../donnees.llms.md#dataset-card-textes-module-10) [Données Québec descriptions](data/quebec_dataset_descriptions.csv) [Quebec tourism events](data/quebec_tourism_events.csv)
 
 ### R packages

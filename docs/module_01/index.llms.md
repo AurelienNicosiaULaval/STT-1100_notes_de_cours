@@ -139,7 +139,7 @@ La consigne complète est disponible dans la page [Défi 1](defi.llms.md).
 
 Ressource [Page Exercices](exercices.llms.md)
 
-Portée Ces exercices ne sont pas une étape du défi. Ils permettent de pratiquer RStudio, Quarto, les premiers objets R et deux cas fictifs.
+Portée Ces exercices ne sont pas une étape du défi. Ils permettent de pratiquer RStudio, Quarto, les premiers objets R et deux cas à partir de données ouvertes québécoises.
 
 Essayez chaque exercice avant d’ouvrir la solution, même si ça tire un peu sur les neurones.
 
@@ -147,7 +147,9 @@ Essayez chaque exercice avant d’ouvrir la solution, même si ça tire un peu s
 
 ### Bases de données
 
-[UlavalSSD::MeteoQuebec](../donnees.llms.md#dataset-card-meteo-quebec) [Bibliothèques fictives](data/bibliotheques_municipales_fictif.csv) [Coop étudiante fictive](data/coop_etudiante_fictif.csv)
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-01-fr.zip)
+
+[UlavalSSD::MeteoQuebec](../donnees.llms.md#dataset-card-meteo-quebec) [Bibliothèques publiques du Québec, 2024](data/bibliotheques_publiques_quebec_2024.csv) [Fréquentation du portail de Montréal, 2023](data/frequentation_portail_montreal_2023.csv)
 
 ### Packages R
 

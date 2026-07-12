@@ -109,6 +109,8 @@ Redo at least one block without looking at the solution immediately.
 
 ### Datasets
 
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-03-en.zip)
+
 [UlavalSSD::listecondamnation](../donnees.llms.md#dataset-card-listecondamnation) [Montréal 311 requests](data/requetes_311_montreal.csv) [Québec consumer complaints](data/plaintes_consommation_quebec.csv) [palmerpenguins::penguins_raw](../donnees.llms.md#dataset-card-penguins-raw) [titanic::titanic_train](../donnees.llms.md#dataset-card-titanic-train)
 
 ### R packages

@@ -121,6 +121,8 @@ Portée Ces exercices ne sont pas la suite du défi. Ils utilisent un extrait re
 
 ### Bases de données
 
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-06-fr.zip)
+
 [nycflights23::flights](../donnees.llms.md#dataset-card-nycflights23-flights) [nycflights23::airlines](../donnees.llms.md#dataset-card-nycflights23-airlines) [nycflights23::weather](../donnees.llms.md#dataset-card-nycflights23-weather) [Organisations de Données Québec](data/organisations_donnees_quebec.csv) [Jeux de Données Québec](data/jeux_donnees_quebec.csv) [Ressources de Données Québec](data/ressources_donnees_quebec.csv) [Étiquettes de Données Québec](data/etiquettes_donnees_quebec.csv)
 
 ### Packages R

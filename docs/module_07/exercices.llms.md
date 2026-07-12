@@ -2,6 +2,12 @@
 
 STT-1100 Introduction à la science des données
 
+> **IMPORTANT:**
+>
+> [Télécharger le dossier prêt à ouvrir (.zip)](../downloads/donnees/stt1100-module-07-fr.zip)
+>
+> Décompressez le fichier, puis ouvrez le projet `.Rproj`. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.
+
 ## Exercices de consolidation
 
 Ces exercices sont indépendants de l’aventure et du défi. Ils servent à consolider les gestes du module 7: reconnaître une visualisation trompeuse, reconstruire un graphique défendable, réduire les risques de ré-identification et écrire une note éthique courte.

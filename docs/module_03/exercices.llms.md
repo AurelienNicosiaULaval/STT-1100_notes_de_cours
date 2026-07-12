@@ -1,5 +1,11 @@
 # Exercices de consolidation
 
+> **IMPORTANT:**
+>
+> [Télécharger le dossier prêt à ouvrir (.zip)](../downloads/donnees/stt1100-module-03-fr.zip)
+>
+> Décompressez le fichier, puis ouvrez le projet `.Rproj`. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.
+
 Ces exercices servent à stabiliser les gestes du module: reconnaître une variable catégorique, compter des modalités, nettoyer des chaînes de caractères, extraire des motifs et construire des graphiques lisibles.
 
 Ils sont indépendants de l’aventure et du défi. Ils pratiquent les mêmes compétences, mais sans préparer directement l’article sur les infractions alimentaires.

@@ -2,6 +2,12 @@
 
 STT-1100 Introduction to Data Science
 
+> **IMPORTANT:**
+>
+> [Download the ready-to-open workspace (.zip)](../../downloads/donnees/stt1100-module-08-en.zip)
+>
+> Unpack the file, then open the `.Rproj` project. The paths used in the exercises will work without moving the data.
+
 ## Consolidation Exercises
 
 These exercises are independent from the adventure and the challenge. They consolidate the technical moves of module 8: reading an HTML page, targeting elements with CSS selectors, turning an extraction into a function, automating repeated extraction and documenting collection limits.

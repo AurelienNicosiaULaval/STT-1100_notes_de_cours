@@ -120,6 +120,8 @@ Avant d'ouvrir une solution, formulez le risque éthique ou visuel que vous cher
 
 ### Bases de données
 
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-07-fr.zip)
+
 [covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07) [Incidents agrégés de Sherbrooke](data/incidents_securite_sherbrooke_agreges.csv) [Population de Sherbrooke](data/population_sherbrooke_2022_2024.csv) [Sondage des utilisateurs de Données Québec](data/sondage_utilisateurs_donnees_quebec_2020_2025.csv)
 
 ### Packages R

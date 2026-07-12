@@ -121,6 +121,8 @@ Scope These exercises are not the continuation of the challenge. They use a real
 
 ### Datasets
 
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-06-en.zip)
+
 [nycflights23::flights](../donnees.llms.md#dataset-card-nycflights23-flights) [nycflights23::airlines](../donnees.llms.md#dataset-card-nycflights23-airlines) [nycflights23::weather](../donnees.llms.md#dataset-card-nycflights23-weather) [Données Québec organizations](data/organisations_donnees_quebec.csv) [Données Québec datasets](data/jeux_donnees_quebec.csv) [Données Québec resources](data/ressources_donnees_quebec.csv) [Données Québec tags](data/etiquettes_donnees_quebec.csv)
 
 ### R packages

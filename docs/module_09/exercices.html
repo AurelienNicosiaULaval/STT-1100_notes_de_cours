@@ -6171,6 +6171,20 @@ margin-bottom: .05rem;
 </header>
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Dossier de travail du module
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a class="btn btn-primary" href="../downloads/donnees/stt1100-module-09-fr.zip" download>Télécharger le dossier prêt à ouvrir (.zip)</a></p>
+<p>Décompressez le fichier, puis ouvrez le projet <code>.Rproj</code>. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.</p>
+</div>
+</div>
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils consolident la régression linéaire, la prédiction et l’analyse prudente des biais de couverture avec des données municipales québécoises réelles.</p>
 <p>Les deux fichiers proviennent du jeu <a href="https://www.donneesquebec.ca/recherche/dataset/sqeep-2019-2025" target="_blank">Stratégie québécoise d’économie d’eau potable 2019-2025</a> du ministère des Affaires municipales et de l’Habitation. Les données ont été déclarées par les municipalités participantes et approuvées par le Ministère. Elles sont diffusées sous licence CC BY 4.0.</p>
 <section id="bloc-a---explorer-une-relation-linéaire" class="level2">
@@ -6179,7 +6193,7 @@ margin-bottom: .05rem;
 <h3 class="anchored" data-anchor-id="exercice-1---importer-les-données">Exercice 1 - Importer les données</h3>
 <p>Importez <code>consommation_eau_municipalites_2023.csv</code>. Chaque ligne représente une municipalité québécoise dont les variables nécessaires sont disponibles et dont la population desservie atteint au moins 500 personnes.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6188,7 +6202,7 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>eau <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
@@ -6221,7 +6235,7 @@ $ eau_distribuee_l_pers_j             &lt;dbl&gt; 414, 307, 580, 301, 396, 208, 
 <h3 class="anchored" data-anchor-id="exercice-2---visualiser-la-relation-principale">Exercice 2 - Visualiser la relation principale</h3>
 <p>Tracez la quantité d’eau distribuée selon la consommation résidentielle. Ajoutez une droite de régression.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6230,7 +6244,7 @@ $ eau_distribuee_l_pers_j             &lt;dbl&gt; 414, 307, 580, 301, 396, 208, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
@@ -6266,7 +6280,7 @@ $ eau_distribuee_l_pers_j             &lt;dbl&gt; 414, 307, 580, 301, 396, 208, 
 <p>Ajustez un modèle qui prédit la quantité d’eau distribuée à partir de la consommation résidentielle.</p>
 <p>Interprétez la pente dans vos mots.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6275,7 +6289,7 @@ $ eau_distribuee_l_pers_j             &lt;dbl&gt; 414, 307, 580, 301, 396, 208, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>modele_simple <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
@@ -6319,7 +6333,7 @@ F-statistic: 158.8 on 1 and 494 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Ajoutez la population desservie, exprimée en milliers de personnes, et le nombre moyen de personnes par résidence.</p>
 <p>Comparez l’interprétation du coefficient de <code>consommation_residentielle_l_pers_j</code> avec celle du modèle simple.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6328,7 +6342,7 @@ F-statistic: 158.8 on 1 and 494 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>modele_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
@@ -6374,7 +6388,7 @@ F-statistic: 53.11 on 3 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h3 class="anchored" data-anchor-id="exercice-5---produire-des-prédictions">Exercice 5 - Produire des prédictions</h3>
 <p>Construisez deux scénarios situés dans la plage des données, puis prédisez la quantité d’eau distribuée.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6383,7 +6397,7 @@ F-statistic: 53.11 on 3 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>scenarios_eau <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -6422,7 +6436,7 @@ F-statistic: 53.11 on 3 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Calculez les erreurs du modèle multiple et repérez les six plus grandes erreurs absolues.</p>
 <p>Calculez ensuite l’erreur quadratique moyenne.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6431,7 +6445,7 @@ F-statistic: 53.11 on 3 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>diagnostic_modele <span class="ot">&lt;-</span> eau <span class="sc">|&gt;</span></span>
@@ -6482,7 +6496,7 @@ F-statistic: 53.11 on 3 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="exercice-7---visualiser-les-erreurs" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-7---visualiser-les-erreurs">Exercice 7 - Visualiser les erreurs</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6491,7 +6505,7 @@ F-statistic: 53.11 on 3 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
@@ -6526,7 +6540,7 @@ F-statistic: 53.11 on 3 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h3 class="anchored" data-anchor-id="exercice-8---importer-les-résultats-de-validité">Exercice 8 - Importer les résultats de validité</h3>
 <p>Importez <code>validite_audits_eau_2023.csv</code>. Le fichier contient les 1 104 municipalités du tableau source, y compris celles pour lesquelles l’indice de validité n’est pas disponible.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6535,7 +6549,7 @@ F-statistic: 53.11 on 3 and 492 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>validite <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
@@ -6565,7 +6579,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 <h3 class="anchored" data-anchor-id="exercice-9---comparer-la-disponibilité-par-région">Exercice 9 - Comparer la disponibilité par région</h3>
 <p>Calculez la proportion de municipalités pour lesquelles l’indice est disponible, puis produisez un graphique.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6574,7 +6588,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>disponibilite_region <span class="ot">&lt;-</span> validite <span class="sc">|&gt;</span></span>
@@ -6640,7 +6654,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 <h3 class="anchored" data-anchor-id="exercice-10---ajouter-le-type-de-municipalité">Exercice 10 - Ajouter le type de municipalité</h3>
 <p>Parmi les municipalités dont l’indice est disponible, comparez sa moyenne selon le type de municipalité.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6649,7 +6663,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>validite_type <span class="ot">&lt;-</span> validite <span class="sc">|&gt;</span></span>
@@ -6688,7 +6702,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 <h3 class="anchored" data-anchor-id="exercice-11---formuler-une-conclusion-prudente">Exercice 11 - Formuler une conclusion prudente</h3>
 <p>Rédigez trois phrases qui distinguent un écart observé, une limite de couverture et une vérification supplémentaire.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6697,7 +6711,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Exemple possible: la proportion de municipalités avec un indice disponible varie entre les régions en 2023. Ces écarts ne démontrent pas une différence de qualité de gestion, car l’absence d’un indice peut dépendre de la participation et de la disponibilité des mesures. Une prochaine étape serait de documenter le mécanisme de non-réponse et de comparer les municipalités de taille et de type semblables.</p>
 </div>
@@ -6715,7 +6729,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 <li>communiquer trois limites avant d’utiliser les prédictions.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6724,7 +6738,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>scenarios_programme <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -6761,7 +6775,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 <h2 class="anchored" data-anchor-id="étude-de-cas-2---auditer-la-couverture-des-audits">Étude de cas 2 - Auditer la couverture des audits</h2>
 <p>Un comité veut savoir si son portrait de la validité des données couvre uniformément les municipalités québécoises.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6770,7 +6784,7 @@ $ validite_disponible                       &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>resume_audit <span class="ot">&lt;-</span> validite <span class="sc">|&gt;</span></span>

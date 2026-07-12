@@ -6174,6 +6174,20 @@ margin-bottom: .05rem;
 </header>
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Dossier de travail du module
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a class="btn btn-primary" href="../downloads/donnees/stt1100-module-10-fr.zip" download>Télécharger le dossier prêt à ouvrir (.zip)</a></p>
+<p>Décompressez le fichier, puis ouvrez le projet <code>.Rproj</code>. Les chemins utilisés dans les exercices fonctionneront sans déplacer les données.</p>
+</div>
+</div>
 <p>Ces exercices sont indépendants de l’aventure et du défi. Ils consolident l’analyse de texte, les scores lexicaux, le TF-IDF et la préparation d’un tableau de bord à partir de textes québécois réels et publics.</p>
 <p>Le premier fichier contient un échantillon équilibré de descriptions tirées de l’<a href="https://www.donneesquebec.ca/page-api/" target="_blank">API officielle de Données Québec</a>. Le second provient du jeu <a href="https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements" target="_blank">Événements - Système d’information touristique Québec</a> du ministère du Tourisme. Les sources sont diffusées sous licence CC BY 4.0.</p>
 <section id="bloc-a---transformer-des-descriptions-en-tokens" class="level2">
@@ -6182,7 +6196,7 @@ margin-bottom: .05rem;
 <h3 class="anchored" data-anchor-id="exercice-1---importer-les-descriptions">Exercice 1 - Importer les descriptions</h3>
 <p>Importez <code>descriptions_donnees_quebec.csv</code>. Chaque ligne représente une fiche réelle du portail, avec son titre, sa description, son producteur et sa catégorie.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6191,7 +6205,7 @@ margin-bottom: .05rem;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>catalogue <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
@@ -6223,7 +6237,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <h3 class="anchored" data-anchor-id="exercice-2---vérifier-la-structure">Exercice 2 - Vérifier la structure</h3>
 <p>Calculez le nombre de fiches par producteur et le nombre de catégories distinctes.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6232,7 +6246,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>catalogue <span class="sc">|&gt;</span></span>
@@ -6265,7 +6279,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <section id="exercice-3---tokeniser-et-retirer-les-stopwords" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-3---tokeniser-et-retirer-les-stopwords">Exercice 3 - Tokeniser et retirer les stopwords</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6274,7 +6288,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stop_fr <span class="ot">&lt;-</span> <span class="fu">stopwords</span>(<span class="st">&quot;fr&quot;</span>, <span class="at">source =</span> <span class="st">&quot;snowball&quot;</span>)</span>
@@ -6315,7 +6329,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <section id="exercice-4---comparer-les-mots-par-producteur" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-4---comparer-les-mots-par-producteur">Exercice 4 - Comparer les mots par producteur</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6324,7 +6338,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mots_par_producteur <span class="ot">&lt;-</span> tokens_catalogue <span class="sc">|&gt;</span></span>
@@ -6384,7 +6398,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <h3 class="anchored" data-anchor-id="exercice-5---créer-un-lexique-de-précision">Exercice 5 - Créer un lexique de précision</h3>
 <p>Créez un petit lexique exploratoire. Les mots concrets reçoivent <code>+1</code> et les mots très généraux <code>-1</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6393,7 +6407,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lexique_precision <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -6442,7 +6456,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <section id="exercice-6---calculer-un-score-par-fiche" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-6---calculer-un-score-par-fiche">Exercice 6 - Calculer un score par fiche</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6451,7 +6465,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>scores_fiches <span class="ot">&lt;-</span> tokens_catalogue <span class="sc">|&gt;</span></span>
@@ -6507,7 +6521,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <section id="exercice-7---résumer-le-score-par-producteur" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-7---résumer-le-score-par-producteur">Exercice 7 - Résumer le score par producteur</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6516,7 +6530,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>precision_producteur <span class="ot">&lt;-</span> scores_fiches <span class="sc">|&gt;</span></span>
@@ -6575,7 +6589,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <section id="exercice-8---calculer-le-tf-idf-par-producteur" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-8---calculer-le-tf-idf-par-producteur">Exercice 8 - Calculer le TF-IDF par producteur</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6584,7 +6598,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tfidf_producteur <span class="ot">&lt;-</span> tokens_catalogue <span class="sc">|&gt;</span></span>
@@ -6621,7 +6635,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <section id="exercice-9---visualiser-les-mots-distinctifs" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-9---visualiser-les-mots-distinctifs">Exercice 9 - Visualiser les mots distinctifs</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6630,7 +6644,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tfidf_top <span class="ot">&lt;-</span> tfidf_producteur <span class="sc">|&gt;</span></span>
@@ -6667,7 +6681,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <section id="exercice-10---construire-un-tableau-de-synthèse" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-10---construire-un-tableau-de-synthèse">Exercice 10 - Construire un tableau de synthèse</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6676,7 +6690,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>resume_dashboard <span class="ot">&lt;-</span> scores_fiches <span class="sc">|&gt;</span></span>
@@ -6716,7 +6730,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <section id="exercice-11---simuler-un-filtre" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-11---simuler-un-filtre">Exercice 11 - Simuler un filtre</h3>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6725,7 +6739,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>producteur_choisi <span class="ot">&lt;-</span> <span class="st">&quot;Ville de Québec&quot;</span></span>
@@ -6756,7 +6770,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <li>formuler une recommandation qui reconnaît les limites du lexique.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6765,7 +6779,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fiches_a_relire <span class="ot">&lt;-</span> scores_fiches <span class="sc">|&gt;</span></span>
@@ -6807,7 +6821,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 <h2 class="anchored" data-anchor-id="étude-de-cas-2---événements-touristiques-québécois">Étude de cas 2 - Événements touristiques québécois</h2>
 <p>Importez <code>evenements_touristiques_quebec.csv</code>. La colonne <code>texte</code> combine des champs publics du SIT Québec pour fournir un corpus court et reproductible.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -6816,7 +6830,7 @@ $ date_instantane  &lt;date&gt; 2026-07-11, 2026-07-11, 2026-07-11, 2026-07-11, 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>evenements <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>

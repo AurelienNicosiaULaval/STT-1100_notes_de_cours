@@ -120,6 +120,8 @@ Before opening a solution, state the ethical or visual risk you are trying to re
 
 ### Datasets
 
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-07-en.zip)
+
 [covid_module7_douteux.csv](../donnees.llms.md#dataset-card-covid-module-07) [Aggregated Sherbrooke incidents](data/incidents_securite_sherbrooke_agreges.csv) [Sherbrooke population](data/population_sherbrooke_2022_2024.csv) [Données Québec user survey](data/sondage_utilisateurs_donnees_quebec_2020_2025.csv)
 
 ### R packages

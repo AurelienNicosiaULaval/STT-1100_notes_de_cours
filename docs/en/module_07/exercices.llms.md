@@ -2,6 +2,12 @@
 
 STT-1100 Introduction to Data Science
 
+> **IMPORTANT:**
+>
+> [Download the ready-to-open workspace (.zip)](../../downloads/donnees/stt1100-module-07-en.zip)
+>
+> Unpack the file, then open the `.Rproj` project. The paths used in the exercises will work without moving the data.
+
 ## Consolidation Exercises
 
 These exercises are independent from the adventure and challenge. They consolidate the Module 7 skills: recognizing misleading visualizations, rebuilding defensible charts, reducing re-identification risks and writing short ethical notes.

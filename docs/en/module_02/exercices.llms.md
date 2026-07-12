@@ -1,5 +1,11 @@
 # Consolidation Exercises
 
+> **IMPORTANT:**
+>
+> [Download the ready-to-open workspace (.zip)](../../downloads/donnees/stt1100-module-02-en.zip)
+>
+> Unpack the file, then open the `.Rproj` project. The paths used in the exercises will work without moving the data.
+
 These exercises consolidate the practical moves of module 2: working in a GitHub repository, importing an Excel file, inspecting data, transforming a table with `dplyr`, producing readable charts with `ggplot2` and interpreting descriptive statistics.
 
 They are independent from the adventure and challenge. The penguin file is used here as a training file, not as an extra challenge instruction.

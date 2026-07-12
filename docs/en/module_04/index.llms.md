@@ -121,6 +121,8 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-04-en.zip)
+
 [dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [Québec AFDR, December 2022](data/afdr_clientele_prestations_2022_12.csv) [Sherbrooke sports facilities](data/installations_sportives_sherbrooke.csv) [Sherbrooke ArcGIS metadata](data/metadonnees_installations_sherbrooke.json)
 
 ### R packages

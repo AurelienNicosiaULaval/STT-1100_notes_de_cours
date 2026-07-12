@@ -131,6 +131,8 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-05-en.zip)
+
 [flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023) [Laval bicycle counts](data/comptages_velos_laval_2016_06.csv) [Québec City air quality](data/qualite_air_quebec_vieux_limoilou_2025_07.csv) [Gatineau traffic volumes](data/debits_circulation_gatineau_2016_2023.csv)
 
 ### R packages

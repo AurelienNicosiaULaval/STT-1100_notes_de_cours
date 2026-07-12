@@ -1,5 +1,11 @@
 # Consolidation Exercises
 
+> **IMPORTANT:**
+>
+> [Download the ready-to-open workspace (.zip)](../../downloads/donnees/stt1100-module-10-en.zip)
+>
+> Unpack the file, then open the `.Rproj` project. The paths used in the exercises will work without moving the data.
+
 These exercises are independent from the adventure and the challenge. They consolidate text analysis, lexical scores, TF-IDF and dashboard preparation using real public Quebec text.
 
 The first file contains a balanced sample of descriptions from the [official Données Québec API](https://www.donneesquebec.ca/page-api/). The second comes from the Ministry of Tourism dataset [Événements - Système d’information touristique Québec](https://www.donneesquebec.ca/recherche/dataset/sit-quebec-evenements). Both sources are distributed under the CC BY 4.0 licence.

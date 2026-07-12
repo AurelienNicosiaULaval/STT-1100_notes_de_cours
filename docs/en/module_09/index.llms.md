@@ -134,6 +134,8 @@ Redo at least one passage without looking at the solution immediately.
 
 ### Datasets
 
+[Download the module workspace (.zip)](../../downloads/donnees/stt1100-module-09-en.zip)
+
 [eleves_fictifs.csv](../donnees.llms.md#dataset-card-eleves-fictifs) [ecoles_primaires_qc.csv](../donnees.llms.md#dataset-card-ecoles-primaires-qc) [Municipal water consumption 2023](data/municipal_water_consumption_2023.csv) [Water audit validity 2023](data/water_audit_validity_2023.csv)
 
 ### R packages

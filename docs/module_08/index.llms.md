@@ -115,6 +115,8 @@ Avant d'ouvrir une solution, nommez le sélecteur CSS ou le contrat de sortie qu
 
 ### Bases de données
 
+[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-08-fr.zip)
+
 [Pages web analysées avec rvest](../donnees.llms.md#dataset-card-web-pages-module-08) [Catalogue Données Québec](data/catalogue_donnees_quebec.llms.md) [Catalogue avec catégories absentes](data/catalogue_donnees_quebec_irregulier.llms.md) [Événements du SIT Québec](data/evenements_sit_quebec.llms.md)
 
 ### Packages R
