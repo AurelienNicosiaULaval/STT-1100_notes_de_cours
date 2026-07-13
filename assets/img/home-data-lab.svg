@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" role="img" aria-labelledby="title desc">
+  <title id="title">Nuage de points avec tendance et densités marginales</title>
+  <desc id="desc">Une composition statistique montre des observations, une tendance ajustée et deux distributions marginales.</desc>
+  <defs>
+    <linearGradient id="trend-band" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity=".12"/>
+      <stop offset=".55" stop-color="#14b8a6" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#ffc103" stop-opacity=".18"/>
+    </linearGradient>
+    <linearGradient id="density-fill" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="plot-clip">
+      <rect x="88" y="108" width="500" height="330"/>
+    </clipPath>
+    <filter id="point-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <style>
+    .grid-line { stroke: #94a3b8; stroke-opacity: .42; stroke-width: 1; stroke-dasharray: 4 6; }
+    .axis-line { stroke: #0f2742; stroke-opacity: .9; stroke-width: 1.5; }
+    .zero-line { stroke: #475569; stroke-opacity: .62; stroke-width: 1.2; stroke-dasharray: 5 5; }
+    .axis-label { fill: #0f2742; font: 18px Helvetica, Arial, sans-serif; }
+    .math-label { fill: #0f2742; font: italic 20px Georgia, serif; }
+    .data-point { fill: #14b8a6; opacity: 0; transform-box: fill-box; transform-origin: center; animation: point-in .55s cubic-bezier(.2,.8,.2,1) var(--point-delay) forwards; }
+    .data-point--gold { fill: #ffc103; filter: url(#point-glow); }
+    .rug-mark { stroke: #14b8a6; stroke-width: 2; stroke-linecap: round; opacity: .8; }
+    .trend-band { fill: url(#trend-band); opacity: 0; animation: band-in .8s ease .35s forwards; }
+    .trend-line { fill: none; stroke: #0f2742; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 590; stroke-dashoffset: 590; animation: draw-line 1.35s cubic-bezier(.4,0,.2,1) .35s forwards; }
+    .density-area { fill: url(#density-fill); }
+    .density-line { fill: none; stroke: #14b8a6; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .residual { stroke: #0f2742; stroke-opacity: .64; stroke-width: 1.4; stroke-dasharray: 3 4; }
+    @keyframes point-in { from { opacity: 0; transform: scale(.15); } to { opacity: .9; transform: scale(1); } }
+    @keyframes draw-line { to { stroke-dashoffset: 0; } }
+    @keyframes band-in { to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      .data-point, .trend-band, .trend-line { animation: none; opacity: .9; stroke-dashoffset: 0; }
+    }
+  </style>
+
+  <g aria-hidden="true">
+    <line class="grid-line" x1="88" x2="588" y1="108" y2="108"/>
+    <line class="grid-line" x1="88" x2="588" y1="163" y2="163"/>
+    <line class="grid-line" x1="88" x2="588" y1="218" y2="218"/>
+    <line class="grid-line" x1="88" x2="588" y1="273" y2="273"/>
+    <line class="grid-line" x1="88" x2="588" y1="328" y2="328"/>
+    <line class="grid-line" x1="88" x2="588" y1="383" y2="383"/>
+    <line class="grid-line" x1="171.3" x2="171.3" y1="108" y2="438"/>
+    <line class="grid-line" x1="254.7" x2="254.7" y1="108" y2="438"/>
+    <line class="grid-line" x1="338" x2="338" y1="108" y2="438"/>
+    <line class="grid-line" x1="421.3" x2="421.3" y1="108" y2="438"/>
+    <line class="grid-line" x1="504.7" x2="504.7" y1="108" y2="438"/>
+    <line class="zero-line" x1="88" x2="588" y1="273" y2="273"/>
+    <line class="zero-line" x1="338" x2="338" y1="108" y2="438"/>
+    <line class="axis-line" x1="88" x2="88" y1="108" y2="438"/>
+    <line class="axis-line" x1="88" x2="588" y1="438" y2="438"/>
+
+    <g clip-path="url(#plot-clip)">
+      <path class="trend-band" d="M72 431 L605 121 L605 160 L72 469 Z"/>
+      <line class="residual" x1="273.9" x2="273.9" y1="239.1" y2="309"/>
+      <line class="residual" x1="400.5" x2="400.5" y1="312.7" y2="238"/>
+      <line class="residual" x1="484.1" x2="484.1" y1="202.1" y2="190"/>
+      <circle class="data-point" cx="113.4" cy="424.2" r="3.8" style="--point-delay: .13s"/>
+      <circle class="data-point data-point--gold" cx="117.4" cy="391.6" r="3.8" style="--point-delay: .14s"/>
+      <circle class="data-point data-point--gold" cx="131.9" cy="320.2" r="3.8" style="--point-delay: .16s"/>
+      <circle class="data-point" cx="133.5" cy="378.1" r="3.8" style="--point-delay: .17s"/>
+      <circle class="data-point" cx="151.1" cy="358.6" r="3.8" style="--point-delay: .18s"/>
+      <circle class="data-point" cx="154.7" cy="372.8" r="3.8" style="--point-delay: .19s"/>
+      <circle class="data-point" cx="155.3" cy="376.8" r="3.8" style="--point-delay: .20s"/>
+      <circle class="data-point" cx="161.8" cy="363.1" r="3.8" style="--point-delay: .22s"/>
+      <circle class="data-point" cx="165.1" cy="356.1" r="3.8" style="--point-delay: .23s"/>
+      <circle class="data-point data-point--gold" cx="176.1" cy="353.7" r="3.8" style="--point-delay: .24s"/>
+      <circle class="data-point" cx="176.3" cy="324.7" r="3.8" style="--point-delay: .25s"/>
+      <circle class="data-point" cx="182.2" cy="300.2" r="3.8" style="--point-delay: .26s"/>
+      <circle class="data-point" cx="182.3" cy="338.4" r="3.8" style="--point-delay: .28s"/>
+      <circle class="data-point data-point--gold" cx="189" cy="350.1" r="3.8" style="--point-delay: .29s"/>
+      <circle class="data-point" cx="192.8" cy="398.9" r="3.8" style="--point-delay: .30s"/>
+      <circle class="data-point" cx="206.6" cy="318.9" r="3.8" style="--point-delay: .31s"/>
+      <circle class="data-point" cx="217.3" cy="344.9" r="3.8" style="--point-delay: .32s"/>
+      <circle class="data-point" cx="231.1" cy="314.6" r="3.8" style="--point-delay: .34s"/>
+      <circle class="data-point" cx="235.9" cy="345.5" r="3.8" style="--point-delay: .35s"/>
+      <circle class="data-point" cx="255.3" cy="280" r="3.8" style="--point-delay: .36s"/>
+      <circle class="data-point" cx="263.4" cy="286.5" r="3.8" style="--point-delay: .37s"/>
+      <circle class="data-point" cx="265.6" cy="336.3" r="3.8" style="--point-delay: .38s"/>
+      <circle class="data-point" cx="273.9" cy="239.1" r="3.8" style="--point-delay: .40s"/>
+      <circle class="data-point" cx="274.2" cy="295.3" r="3.8" style="--point-delay: .41s"/>
+      <circle class="data-point" cx="280.6" cy="274.3" r="3.8" style="--point-delay: .42s"/>
+      <circle class="data-point" cx="281.9" cy="288.3" r="3.8" style="--point-delay: .43s"/>
+      <circle class="data-point" cx="288.5" cy="273.1" r="3.8" style="--point-delay: .44s"/>
+      <circle class="data-point" cx="289.8" cy="270.6" r="3.8" style="--point-delay: .46s"/>
+      <circle class="data-point" cx="292.9" cy="290.3" r="3.8" style="--point-delay: .47s"/>
+      <circle class="data-point" cx="293.2" cy="302.7" r="3.8" style="--point-delay: .48s"/>
+      <circle class="data-point" cx="293.6" cy="284.9" r="3.8" style="--point-delay: .49s"/>
+      <circle class="data-point" cx="301" cy="261.2" r="3.8" style="--point-delay: .50s"/>
+      <circle class="data-point" cx="314.6" cy="299.6" r="3.8" style="--point-delay: .52s"/>
+      <circle class="data-point" cx="319.5" cy="272" r="3.8" style="--point-delay: .53s"/>
+      <circle class="data-point" cx="329.8" cy="286.6" r="3.8" style="--point-delay: .54s"/>
+      <circle class="data-point" cx="332.4" cy="298" r="3.8" style="--point-delay: .55s"/>
+      <circle class="data-point" cx="337.8" cy="266.1" r="3.8" style="--point-delay: .56s"/>
+      <circle class="data-point" cx="344.8" cy="264.8" r="3.8" style="--point-delay: .58s"/>
+      <circle class="data-point" cx="347.5" cy="307.2" r="3.8" style="--point-delay: .59s"/>
+      <circle class="data-point" cx="350.3" cy="238.4" r="3.8" style="--point-delay: .60s"/>
+      <circle class="data-point" cx="356.2" cy="249.8" r="3.8" style="--point-delay: .61s"/>
+      <circle class="data-point" cx="357.3" cy="305.4" r="3.8" style="--point-delay: .62s"/>
+      <circle class="data-point" cx="358.3" cy="233.7" r="3.8" style="--point-delay: .64s"/>
+      <circle class="data-point" cx="371.1" cy="297" r="3.8" style="--point-delay: .65s"/>
+      <circle class="data-point data-point--gold" cx="374.1" cy="235.4" r="3.8" style="--point-delay: .66s"/>
+      <circle class="data-point" cx="375.8" cy="299.5" r="3.8" style="--point-delay: .67s"/>
+      <circle class="data-point" cx="381.8" cy="254.1" r="3.8" style="--point-delay: .68s"/>
+      <circle class="data-point data-point--gold" cx="388.9" cy="229.3" r="3.8" style="--point-delay: .70s"/>
+      <circle class="data-point" cx="391.8" cy="190" r="3.8" style="--point-delay: .71s"/>
+      <circle class="data-point" cx="399.8" cy="225.5" r="3.8" style="--point-delay: .72s"/>
+      <circle class="data-point" cx="400.5" cy="312.7" r="3.8" style="--point-delay: .73s"/>
+      <circle class="data-point" cx="410.4" cy="246.4" r="3.8" style="--point-delay: .74s"/>
+      <circle class="data-point" cx="410.4" cy="234" r="3.8" style="--point-delay: .76s"/>
+      <circle class="data-point" cx="412.7" cy="266" r="3.8" style="--point-delay: .77s"/>
+      <circle class="data-point" cx="418" cy="222.3" r="3.8" style="--point-delay: .78s"/>
+      <circle class="data-point" cx="422.3" cy="207.7" r="3.8" style="--point-delay: .79s"/>
+      <circle class="data-point" cx="435" cy="209.1" r="3.8" style="--point-delay: .80s"/>
+      <circle class="data-point data-point--gold" cx="440" cy="181.5" r="3.8" style="--point-delay: .82s"/>
+      <circle class="data-point data-point--gold" cx="442.1" cy="263" r="3.8" style="--point-delay: .83s"/>
+      <circle class="data-point" cx="446.7" cy="231.9" r="3.8" style="--point-delay: .84s"/>
+      <circle class="data-point" cx="447.1" cy="244" r="3.8" style="--point-delay: .85s"/>
+      <circle class="data-point" cx="453.5" cy="207.5" r="3.8" style="--point-delay: .86s"/>
+      <circle class="data-point" cx="469.7" cy="179.4" r="3.8" style="--point-delay: .88s"/>
+      <circle class="data-point data-point--gold" cx="484.1" cy="202.1" r="3.8" style="--point-delay: .89s"/>
+      <circle class="data-point" cx="492" cy="156.7" r="3.8" style="--point-delay: .90s"/>
+      <circle class="data-point" cx="496.6" cy="184.2" r="3.8" style="--point-delay: .91s"/>
+      <circle class="data-point data-point--gold" cx="501.6" cy="181.9" r="3.8" style="--point-delay: .92s"/>
+      <circle class="data-point" cx="507.5" cy="224" r="3.8" style="--point-delay: .94s"/>
+      <circle class="data-point" cx="522.5" cy="169.9" r="3.8" style="--point-delay: .95s"/>
+      <circle class="data-point" cx="532.3" cy="171.1" r="3.8" style="--point-delay: .96s"/>
+      <circle class="data-point" cx="539.1" cy="175.9" r="3.8" style="--point-delay: .97s"/>
+      <circle class="data-point" cx="540" cy="176.4" r="3.8" style="--point-delay: .98s"/>
+      <circle class="data-point" cx="547.9" cy="140.4" r="3.8" style="--point-delay: 1s"/>
+      <circle class="data-point" cx="552.8" cy="201.8" r="3.8" style="--point-delay: 1.01s"/>
+      <circle class="data-point" cx="556.3" cy="202.6" r="3.8" style="--point-delay: 1.02s"/>
+      <circle class="data-point" cx="557.8" cy="156" r="3.8" style="--point-delay: 1.03s"/>
+      <circle class="data-point" cx="562.4" cy="121.8" r="3.8" style="--point-delay: 1.04s"/>
+      <circle class="data-point data-point--gold" cx="567.3" cy="138.5" r="3.8" style="--point-delay: 1.06s"/>
+      <line class="trend-line" x1="76" y1="431" x2="604" y2="131"/>
+    </g>
+
+    <g opacity=".85">
+      <line class="rug-mark" x1="113.4" x2="113.4" y1="455" y2="462"/>
+      <line class="rug-mark" x1="151.1" x2="151.1" y1="455" y2="462"/>
+      <line class="rug-mark" x1="176.3" x2="176.3" y1="455" y2="462"/>
+      <line class="rug-mark" x1="192.8" x2="192.8" y1="455" y2="462"/>
+      <line class="rug-mark" x1="235.9" x2="235.9" y1="455" y2="462"/>
+      <line class="rug-mark" x1="273.9" x2="273.9" y1="455" y2="462"/>
+      <line class="rug-mark" x1="288.5" x2="288.5" y1="455" y2="462"/>
+      <line class="rug-mark" x1="314.6" x2="314.6" y1="455" y2="462"/>
+      <line class="rug-mark" x1="347.5" x2="347.5" y1="455" y2="462"/>
+      <line class="rug-mark" x1="374.1" x2="374.1" y1="455" y2="462"/>
+      <line class="rug-mark" x1="400.5" x2="400.5" y1="455" y2="462"/>
+      <line class="rug-mark" x1="435" x2="435" y1="455" y2="462"/>
+      <line class="rug-mark" x1="469.7" x2="469.7" y1="455" y2="462"/>
+      <line class="rug-mark" x1="501.6" x2="501.6" y1="455" y2="462"/>
+      <line class="rug-mark" x1="539.1" x2="539.1" y1="455" y2="462"/>
+      <line class="rug-mark" x1="562.4" x2="562.4" y1="455" y2="462"/>
+    </g>
+
+    <path class="density-area" d="M88 532.7 L88 528.7 L99.4 527.8 L110.7 526.6 L122.1 525.2 L133.5 523.6 L144.8 521.6 L156.2 519.4 L167.5 516.8 L178.9 513.9 L190.3 510.8 L201.6 507.4 L213 503.8 L224.4 500 L235.7 496.2 L247.1 492.4 L258.5 488.7 L269.8 485.2 L281.2 482 L292.5 479.3 L303.9 477 L315.3 475.4 L326.6 474.3 L338 474 L349.4 474.3 L360.7 475.4 L372.1 477 L383.5 479.3 L394.8 482 L406.2 485.2 L417.5 488.7 L428.9 492.4 L440.3 496.2 L451.6 500 L463 503.8 L474.4 507.4 L485.7 510.8 L497.1 513.9 L508.5 516.8 L519.8 519.4 L531.2 521.6 L542.5 523.6 L553.9 525.2 L565.3 526.6 L576.6 527.8 L588 528.7 L588 532.7 Z"/>
+    <polyline class="density-line" points="88,528.7 99.4,527.8 110.7,526.6 122.1,525.2 133.5,523.6 144.8,521.6 156.2,519.4 167.5,516.8 178.9,513.9 190.3,510.8 201.6,507.4 213,503.8 224.4,500 235.7,496.2 247.1,492.4 258.5,488.7 269.8,485.2 281.2,482 292.5,479.3 303.9,477 315.3,475.4 326.6,474.3 338,474 349.4,474.3 360.7,475.4 372.1,477 383.5,479.3 394.8,482 406.2,485.2 417.5,488.7 428.9,492.4 440.3,496.2 451.6,500 463,503.8 474.4,507.4 485.7,510.8 497.1,513.9 508.5,516.8 519.8,519.4 531.2,521.6 542.5,523.6 553.9,525.2 565.3,526.6 576.6,527.8 588,528.7"/>
+    <path class="density-area" d="M622 108 C651 127 653 153 639 176 C626 197 635 218 661 241 C686 263 688 289 664 310 C638 333 628 352 641 376 C653 398 646 420 622 438 Z"/>
+    <path class="density-line" d="M622 108 C651 127 653 153 639 176 C626 197 635 218 661 241 C686 263 688 289 664 310 C638 333 628 352 641 376 C653 398 646 420 622 438"/>
+    <line class="axis-line" x1="622" x2="622" y1="108" y2="438"/>
+    <text class="math-label" x="70" y="100">y</text>
+    <text class="math-label" x="594" y="459">x</text>
+    <text class="math-label" x="498" y="154">ŷ</text>
+    <text class="math-label" x="407" y="329">rᵢ</text>
+    <text class="axis-label" x="81" y="463">−3</text>
+    <text class="axis-label" x="329" y="463">0</text>
+    <text class="axis-label" x="579" y="463">3</text>
+  </g>
+</svg>
