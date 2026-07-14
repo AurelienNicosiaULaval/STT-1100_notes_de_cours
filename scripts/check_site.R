@@ -217,6 +217,7 @@ for (module_index in seq_len(10L)) {
 
     doc <- read_html(path)
     marker <- xml2::xml_find_all(doc, ".//*[@data-stt-mini-test-diagnostic]")
+    page_h1 <- xml2::xml_find_all(doc, ".//h1")
     questions <- xml2::xml_find_all(
       doc,
       ".//section[starts-with(@id, 'question-')]"
@@ -243,6 +244,13 @@ for (module_index in seq_len(10L)) {
           )
         )
       }
+    }
+
+    if (length(page_h1) != 1L) {
+      diagnostic_issues <- c(
+        diagnostic_issues,
+        sprintf("%s has %d h1 elements; expected 1", rel_path, length(page_h1))
+      )
     }
 
     if (length(questions) != expected_questions) {

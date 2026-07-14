@@ -18,8 +18,6 @@ diagnostic_intro <- function(module_number, lang) {
 
   if (identical(lang, "fr")) {
     return(c(
-      sprintf("# Autodiagnostic du module %d", module_display),
-      "",
       sprintf("Cet autodiagnostic non noté vérifie les notions du module %d. Il produit une correction détaillée, un résultat global, un bilan par compétence et un plan de révision ciblé.", module_display),
       "",
       "::: {.callout-note}",
@@ -41,8 +39,6 @@ diagnostic_intro <- function(module_number, lang) {
   }
 
   c(
-    sprintf("# Module %d diagnostic", module_display),
-    "",
     sprintf("This ungraded diagnostic checks the concepts from module %d. It provides detailed correction, an overall result, a competency profile and a targeted review plan.", module_display),
     "",
     "::: {.callout-note}",
@@ -80,6 +76,27 @@ update_mini_test <- function(path, module_number, lang, expected_count) {
   }
 
   if (any(grepl("data-stt-mini-test-diagnostic", lines, fixed = TRUE))) {
+    redundant_heading <- if (identical(lang, "fr")) {
+      sprintf("# Autodiagnostic du module %d", as.integer(module_number))
+    } else {
+      sprintf("# Module %d diagnostic", as.integer(module_number))
+    }
+    heading_line <- which(lines == redundant_heading)
+
+    if (length(heading_line) > 1L) {
+      stop("Multiple redundant headings found in ", path, call. = FALSE)
+    }
+
+    if (length(heading_line) == 1L) {
+      lines <- lines[-heading_line]
+      if (heading_line <= length(lines) && !nzchar(lines[heading_line])) {
+        lines <- lines[-heading_line]
+      }
+      writeLines(lines, path, useBytes = TRUE)
+      message("Removed redundant heading: ", path)
+      return(invisible(TRUE))
+    }
+
     message("Already configured: ", path)
     return(invisible(FALSE))
   }
