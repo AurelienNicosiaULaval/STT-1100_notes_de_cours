@@ -1,17 +1,33 @@
 ---
-title: "Mini-test formatif - Lectures du module 2"
+title: "Autodiagnostic - Module 2"
 subtitle: "STT-1100 Introduction à la science des données"
 format:
   html:
     toc: true
     embed-resources: true
+    css: ../css/mini-test-diagnostic.css
 ---
 
-## Mini-test formatif
+# Autodiagnostic du module 2
 
-Ce mini-test sert à vérifier les lectures du module 2. Il n'est pas noté. Répondez d'abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu avant l'aventure et le défi.
+Cet autodiagnostic non noté vérifie les notions du module 2. Il produit une correction détaillée, un résultat global, un bilan par compétence et un plan de révision ciblé.
 
-### Question 1
+::: {.callout-note}
+## Modalités
+
+- Première tentative: sans documentation, sans exécuter le code et sans aide extérieure, afin d'obtenir un portrait honnête.
+- Après le bilan: consultez les ressources proposées, refaites les exercices ciblés, puis reprenez le diagnostic.
+- Usage: ce diagnostic n'est pas noté et ne sert ni à attribuer une note ni à décider de l'admission au cours.
+- Confidentialité: aucune réponse n'est transmise à l'enseignant. La progression et l'historique sont conservés uniquement dans ce navigateur.
+:::
+
+Les seuils sont des repères pédagogiques propres à STT-1100. Ils n'ont pas fait l'objet d'une validation psychométrique. Une réponse exacte peut aussi résulter du hasard; les exercices pratiques demeurent donc essentiels.
+
+```{=html}
+<div data-stt-mini-test-diagnostic data-module="02" data-lang="fr"></div>
+```
+
+## Question 1
 
 Vrai ou faux: un commit enregistre une étape localement, tandis qu'un push envoie cette étape vers GitHub.
 
@@ -19,7 +35,7 @@ Vrai ou faux: un commit enregistre une étape localement, tandis qu'un push envo
 Vrai. Un commit garde une trace dans le dépôt local. Le push synchronise ensuite les commits locaux avec le dépôt GitHub.
 :::
 
-### Question 2
+## Question 2
 
 Quelle fonction sert à importer un fichier Excel dans R?
 
@@ -32,7 +48,7 @@ d. `geom_histogram()`
 Réponse: b. `read_excel()` provient du package `readxl` et permet d'importer des fichiers Excel comme `.xls` ou `.xlsx`.
 :::
 
-### Question 3
+## Question 3
 
 Vrai ou faux: un rapport Quarto reproductible devrait importer les données dans un bloc de code, même si on a d'abord testé l'importation avec l'interface de RStudio.
 
@@ -40,7 +56,7 @@ Vrai ou faux: un rapport Quarto reproductible devrait importer les données dans
 Vrai. Le rapport doit pouvoir être rendu après un redémarrage de R, sans dépendre d'objets déjà présents dans l'environnement.
 :::
 
-### Question 4
+## Question 4
 
 À quoi sert principalement `glimpse()`?
 
@@ -53,7 +69,7 @@ d. Envoyer un commit vers GitHub
 Réponse: b. `glimpse()` donne une vue rapide de la structure d'un tableau: noms de variables, types et premières valeurs.
 :::
 
-### Question 5
+## Question 5
 
 Quelle fonction de `dplyr` sert à garder seulement certaines colonnes?
 
@@ -66,7 +82,7 @@ d. `group_by()`
 Réponse: a. `select()` choisit des colonnes. Pour garder des lignes selon une condition, on utilise plutôt `filter()`.
 :::
 
-### Question 6
+## Question 6
 
 Quelle fonction de `dplyr` sert à créer une nouvelle variable?
 
@@ -79,7 +95,7 @@ d. `facet_wrap()`
 Réponse: b. `mutate()` ajoute ou modifie des colonnes dans un tableau.
 :::
 
-### Question 7
+## Question 7
 
 Vous voulez calculer la moyenne et l'écart-type de la masse corporelle par espèce. Quelle combinaison est la plus appropriée?
 
@@ -92,7 +108,7 @@ d. `mutate(species)` puis `commit()`
 Réponse: a. `group_by(species)` définit les groupes, puis `summarise()` calcule les statistiques pour chaque groupe.
 :::
 
-### Question 8
+## Question 8
 
 Vrai ou faux: la moyenne est toujours plus robuste que la médiane aux valeurs extrêmes.
 
@@ -100,7 +116,7 @@ Vrai ou faux: la moyenne est toujours plus robuste que la médiane aux valeurs e
 Faux. La médiane est généralement moins influencée par des valeurs extrêmes que la moyenne.
 :::
 
-### Question 9
+## Question 9
 
 Quel graphique convient le mieux pour observer la distribution d'une seule variable numérique?
 
@@ -113,7 +129,7 @@ d. Un tableau GitHub
 Réponse: a. Un histogramme montre comment les valeurs d'une variable numérique se répartissent.
 :::
 
-### Question 10
+## Question 10
 
 Quel graphique convient bien pour comparer une variable numérique entre plusieurs groupes?
 
@@ -126,7 +142,7 @@ d. Une liste de packages
 Réponse: a. Une boîte à moustaches permet de comparer la médiane, la dispersion et les valeurs potentiellement extrêmes entre groupes.
 :::
 
-### Question 11
+## Question 11
 
 Quel graphique convient bien pour étudier la relation entre deux variables numériques?
 
@@ -139,10 +155,14 @@ d. Une commande `push`
 Réponse: a. Un nuage de points permet d'examiner la relation entre deux variables numériques.
 :::
 
-### Question 12
+## Question 12
 
 Vrai ou faux: modifier directement le fichier Excel brut est une bonne pratique si le rapport final contient seulement les graphiques corrigés.
 
 ::: {.callout-tip collapse="true"}
 Faux. Il vaut mieux garder le fichier brut intact et documenter les corrections dans le code R pour que l'analyse reste reproductible.
 :::
+
+```{=html}
+<script src="../assets/js/mini-test-diagnostic.js"></script>
+```

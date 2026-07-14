@@ -1,17 +1,33 @@
 ---
-title: "Formative mini-test - Module 4 readings"
+title: "Diagnostic - Module 4"
 subtitle: "STT-1100 Introduction to Data Science"
 format:
   html:
     toc: true
     embed-resources: true
+    css: ../../css/mini-test-diagnostic.css
 ---
 
-## Formative mini-test
+# Module 4 diagnostic
 
-This mini-test checks the module 4 readings. It is not graded. Answer first without opening the explanations, then use them to identify what should be reviewed.
+This ungraded diagnostic checks the concepts from module 4. It provides detailed correction, an overall result, a competency profile and a targeted review plan.
 
-### Question 1
+::: {.callout-note}
+## How to use it
+
+- First attempt: without documentation, without running the code and without outside help, to obtain an honest profile.
+- After the summary: consult the suggested resources, redo the targeted exercises and then retake the diagnostic.
+- Purpose: this diagnostic is ungraded and is not used to assign a mark or decide admission to the course.
+- Privacy: no answer is sent to the instructor. Progress and attempt history are stored only in this browser.
+:::
+
+The thresholds are STT-1100 pedagogical guideposts. They have not undergone psychometric validation. A correct answer may also result from chance, so practical exercises remain essential.
+
+```{=html}
+<div data-stt-mini-test-diagnostic data-module="04" data-lang="en"></div>
+```
+
+## Question 1
 
 True or false: if a file is separated by semicolons, `read_csv()` is always the best choice.
 
@@ -19,7 +35,7 @@ True or false: if a file is separated by semicolons, `read_csv()` is always the 
 False. `read_csv()` expects comma-separated files. For semicolon-separated files, use `read_delim(delim = ";")` or `read_csv2()` depending on the context.
 :::
 
-### Question 2
+## Question 2
 
 Which function turns column names into names that are easier to use in R?
 
@@ -32,7 +48,7 @@ d. `forcats::fct_lump()`
 Answer: a. `clean_names()` converts names to a more regular form, often `snake_case`.
 :::
 
-### Question 3
+## Question 3
 
 True or false: an identifier such as `"0012"` should often remain text, even if it contains only digits.
 
@@ -40,7 +56,7 @@ True or false: an identifier such as `"0012"` should often remain text, even if 
 True. An identifier is a label, not a quantity. Keeping it as text avoids losing leading zeros.
 :::
 
-### Question 4
+## Question 4
 
 Which function is useful when a special value, for example `-999`, represents a missing value?
 
@@ -53,7 +69,7 @@ d. `geom_point()`
 Answer: a. `na_if(x, -999)` replaces values equal to `-999` with `NA`.
 :::
 
-### Question 5
+## Question 5
 
 Which function transforms columns `q1`, `q2`, `q3`, `q4` into two columns named `quarter` and `value`?
 
@@ -66,7 +82,7 @@ d. `read_json()`
 Answer: a. `pivot_longer()` turns several columns into a longer format.
 :::
 
-### Question 6
+## Question 6
 
 True or false: a data correction should be documented only if it modifies more than 100 rows.
 
@@ -74,7 +90,7 @@ True or false: a data correction should be documented only if it modifies more t
 False. Any correction that matters for interpretation should be documented, even if it affects only one row.
 :::
 
-### Question 7
+## Question 7
 
 Which `forcats` function is useful for grouping several similar levels under one name?
 
@@ -87,7 +103,7 @@ d. `parse_number()`
 Answer: a. `fct_collapse()` merges several factor levels.
 :::
 
-### Question 8
+## Question 8
 
 True or false: a JSON file can contain nested structures that do not immediately look like a rectangular table.
 
@@ -95,7 +111,7 @@ True or false: a JSON file can contain nested structures that do not immediately
 True. A JSON file can contain lists within lists. It sometimes needs to be transformed to become a table.
 :::
 
-### Question 9
+## Question 9
 
 Which function reads a specific sheet from an Excel file?
 
@@ -108,7 +124,7 @@ d. `stringr::str_squish()`
 Answer: a. The `sheet` argument chooses which sheet to import.
 :::
 
-### Question 10
+## Question 10
 
 True or false: an anomaly can be flagged without being corrected if no defensible correction is possible.
 
@@ -116,7 +132,7 @@ True or false: an anomaly can be flagged without being corrected if no defensibl
 True. In rigorous cleaning, it is sometimes better to flag an anomaly than to guess a correction.
 :::
 
-### Question 11
+## Question 11
 
 Which field is not part of the minimal cleaning-log entry proposed in the module?
 
@@ -129,7 +145,7 @@ d. `chart_colour`
 Answer: d. The log should at least document the identifier, affected variables, problem, action and justification.
 :::
 
-### Question 12
+## Question 12
 
 Why is it useful to save the clean file with `write_csv()` at the end of a cleaning process?
 
@@ -141,3 +157,7 @@ d. To replace the Quarto report
 ::: {.callout-tip collapse="true"}
 Answer: a. The clean file becomes a reproducible output of the script or report.
 :::
+
+```{=html}
+<script src="../../assets/js/mini-test-diagnostic.js"></script>
+```
