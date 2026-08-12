@@ -6,25 +6,25 @@ The project turns the skills practised in the modules into a complete analysis: 
 
 [Full statement](enonce_projet.llms.md) [Assessments](../evaluations.llms.md) [Data sources](../donnees.llms.md) [Before each milestone](#project-check-title)
 
-15
+6%
 
 Proposal
 
-45
+34%
+
+Final project
+
+Dec. 14
 
 Presentation
 
-15
+8:30 a.m.
 
-Final summary
-
-25
-
-Repository and team
+Session begins
 
 ## Work path
 
-Dates and administrative requirements are confirmed on Brio. The site explains the project logic and the expected products.
+The proposal is worth 6% and the final project is worth 34% of the course grade. Presentations take place on December 14, 2026, from 8:30 to 11:20 a.m., during the last class meeting and the exam period. Brio confirms the room and submission details.
 
 1
 

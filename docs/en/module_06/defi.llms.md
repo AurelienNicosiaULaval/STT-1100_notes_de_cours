@@ -8,6 +8,10 @@ Your team produced a collaborative report in adventure 6. The challenge is now t
 
 The goal is not to find mistakes for the sake of it. The goal is to check whether another person can understand, execute and reuse the work.
 
+> **NOTE:**
+>
+> This challenge is formative. It does not count toward the final course grade. The requested traces structure the peer review and help prepare the session project.
+
 ## Organization
 
 The instructor will assign a team to review.
@@ -78,7 +82,7 @@ The GitHub traces for the challenge must make it possible to verify, across the 
 
 When an external blocker was reported, the report of that blocker and the review of accessible elements replace only the part that could not be checked.
 
-## Evaluation Grid
+## Formative feedback criteria
 
 | Criterion | Excellent | Satisfactory | Needs improvement |
 |----|----|----|----|
@@ -87,7 +91,7 @@ When an external blocker was reported, the report of that blocker and the review
 | Analysis and visualizations | The review discusses joins, charts and interpretations carefully | The review mostly comments on presentation | The review does not really address analytical content |
 | Follow-up | The reviewed team responds clearly and corrects what needs to be corrected, or an external blocker is documented | The team responds, but without much detail | Issues remain unanswered without a reported blocker |
 
-## Checklist Before Submission
+## Checklist Before Completing the Review
 
 - Each member opened at least one issue.
 - Each issue contains one successful aspect and one specific suggestion.

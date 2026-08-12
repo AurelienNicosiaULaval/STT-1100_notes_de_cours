@@ -76,7 +76,7 @@ The first Quarto report sets the baseline expectations: structure, readable code
 
 ### Challenges 2 to 10
 
-Challenges are short deliverables linked to modules. They extend the adventure with more autonomy and prepare the project.
+Challenges 2 to 5 and 7 to 10 are graded deliverables. Challenge 6 is a formative peer review that prepares the project.
 
 04
 

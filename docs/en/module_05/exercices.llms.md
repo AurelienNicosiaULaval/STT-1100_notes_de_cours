@@ -167,7 +167,7 @@ Produce a column chart of the mean bicycle count by time of day.
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
+> ![Column chart of the mean bicycle count by time of day.](exercices_files/figure-html/unnamed-chunk-5-1.png)
 
 ### Exercise 6 - Compare Weekdays
 
@@ -240,7 +240,7 @@ Graph incoming and outgoing bicycles. Colour the points by time of day and add a
 >
 >     `geom_smooth()` using formula = 'y ~ x'
 >
-> ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
+> ![Line chart of the mean bicycle count by hour of day.](exercices_files/figure-html/unnamed-chunk-8-1.png)
 
 ### Exercise 9 - Compare Weekdays and Weekends
 
@@ -448,7 +448,7 @@ Complete the following tasks:
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-12-1.png)
+> ![Hourly time series of fine-particle concentrations at the Québec - Vieux-Limoilou station in July 2025.](exercices_files/figure-html/unnamed-chunk-12-1.png)
 >
 > A cautious conclusion may describe hourly variation and observed associations. It must remain limited to one station and one month, without assigning the concentrations to a specific cause.
 
@@ -561,6 +561,6 @@ Complete the following tasks:
 >     Warning: Removed 7 rows containing missing values or values outside the scale range
 >     (`geom_point()`).
 >
-> ![](exercices_files/figure-html/unnamed-chunk-13-1.png)
+> ![Scatterplot of total traffic volume and heavy-vehicle percentage, coloured by sector.](exercices_files/figure-html/unnamed-chunk-13-1.png)
 >
 > A cautious conclusion may compare the groups represented in the file. It should note that observed locations and years differ, and that the estimated heavy-vehicle count is calculated directly from total volume and percentage.

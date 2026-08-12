@@ -283,6 +283,7 @@ Calculate the number of requests by campus and service.
 ### Solution
 
 ```{r}
+#| fig-alt: "Horizontal bar chart of request counts, ordered from the most frequent service to the least frequent."
 campus_services |>
   count(campus, service, sort = TRUE)
 ```
@@ -296,6 +297,7 @@ Calculate the proportion of requests in each status for each campus.
 ### Solution
 
 ```{r}
+#| fig-alt: "One-hundred-percent stacked bar chart comparing status composition across campuses."
 campus_services |>
   count(campus, status) |>
   group_by(campus) |>
@@ -338,6 +340,7 @@ Produce a bar chart showing the number of requests by service. Order services fr
 ### Solution
 
 ```{r}
+#| fig-alt: "Horizontal boxplots comparing the distribution of reported costs across services."
 campus_services |>
   count(service, sort = TRUE) |>
   ggplot(aes(x = fct_reorder(service, n), y = n)) +
@@ -415,6 +418,7 @@ Take one previous chart and improve it for a non-specialist reader:
 ### Example solution
 
 ```{r}
+#| fig-alt: "Horizontal bar chart showing the share of requests assigned to each service."
 service_chart <- campus_services |>
   count(service, sort = TRUE) |>
   mutate(share = n / sum(n)) |>
@@ -454,6 +458,7 @@ Complete the following tasks:
 ### Solution
 
 ```{r}
+#| fig-alt: "Horizontal bar chart of the twelve most frequent categories in the Montréal 311 request extract."
 requests_311 <- read_csv(
   "data/requetes_311_montreal.csv",
   show_col_types = FALSE
@@ -502,6 +507,7 @@ Complete the following tasks:
 ### Solution
 
 ```{r}
+#| fig-alt: "One-hundred-percent stacked bar chart comparing consumer complaint categories by head-office city."
 transit_complaints <- read_csv(
   "data/plaintes_consommation_quebec.csv",
   show_col_types = FALSE

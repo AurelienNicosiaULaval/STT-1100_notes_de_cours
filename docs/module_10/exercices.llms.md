@@ -153,7 +153,7 @@ Calculez le nombre de fiches par producteur et le nombre de catégories distinct
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
+> ![Petits diagrammes à bandes des mots les plus fréquents, un panneau par producteur de données.](exercices_files/figure-html/unnamed-chunk-5-1.png)
 >
 > Une différence peut venir des thèmes publiés, du vocabulaire institutionnel ou de la taille des descriptions. Elle ne mesure pas directement la qualité des données.
 
@@ -302,7 +302,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-9-1.png)
+> ![Diagramme à bandes horizontal des scores lexicaux exploratoires moyens selon le producteur de données.](exercices_files/figure-html/unnamed-chunk-9-1.png)
 >
 > Le graphique compare l’échantillon, pas la qualité globale des producteurs. Les différences de sujets et de style rédactionnel peuvent expliquer une partie des écarts.
 
@@ -363,7 +363,7 @@ Créez un petit lexique exploratoire. Les mots concrets reçoivent `+1` et les m
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-11-1.png)
+> ![Petits diagrammes à bandes orange des mots ayant les valeurs TF-IDF les plus élevées, un panneau par producteur.](exercices_files/figure-html/unnamed-chunk-11-1.png)
 >
 > Revenez aux descriptions originales pour vérifier le sens des mots avant de rédiger une conclusion.
 

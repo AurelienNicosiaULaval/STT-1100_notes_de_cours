@@ -36,9 +36,9 @@ Aucun thème n'est imposé. Le sujet doit toutefois s'appuyer sur des données r
 
 Dépôt GitHub contenant l'affiche et les traces demandées.
 
-### Date cible
+### Date limite
 
-22 novembre à 0 h, sous réserve de la consigne officielle dans Brio.
+22 novembre à 23 h 55. La remise officielle se fait selon les modalités indiquées dans Brio.
 
 ### Concours
 

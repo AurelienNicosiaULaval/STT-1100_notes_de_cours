@@ -66,7 +66,7 @@ Plot distributed water quantity against residential consumption. Add a regressio
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-2-1.png)
+> ![Scatterplot of distributed water versus residential consumption, with a linear regression line.](exercices_files/figure-html/unnamed-chunk-2-1.png)
 >
 > The relationship is positive, but substantial dispersion remains. Residential consumption accounts for only part of distributed water, and the chart does not demonstrate a causal relationship.
 
@@ -262,7 +262,7 @@ Then calculate a root mean squared error.
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
+> ![Scatterplot of model errors versus predicted values, with a horizontal line at zero.](exercices_files/figure-html/unnamed-chunk-8-1.png)
 >
 > Look for patterns, separated groups and isolated points. Increasing dispersion as predictions grow can indicate that uncertainty is not constant.
 

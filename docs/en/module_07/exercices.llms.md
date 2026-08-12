@@ -77,7 +77,7 @@ How does visual perception change?
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-2-1.png)
+> ![Misleading horizontal bar chart of incidents by type, with a truncated axis that exaggerates differences.](exercices_files/figure-html/unnamed-chunk-2-1.png)
 >
 > ``` r
 > ggplot(
@@ -97,7 +97,7 @@ How does visual perception change?
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-3-1.png)
+> ![Defensible horizontal bar chart of incidents by type, with an axis starting at zero.](exercices_files/figure-html/unnamed-chunk-3-1.png)
 >
 > The truncated axis magnifies differences and even makes some small categories invisible. Bar length encodes quantity, so the axis should normally start at zero.
 
@@ -126,7 +126,7 @@ Produce a chart showing totals by type, counts and a note defining the scope of 
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-4-1.png)
+> ![Horizontal bar chart of public-safety incidents by type, with counts printed on the bars.](exercices_files/figure-html/unnamed-chunk-4-1.png)
 >
 > This chart publishes no address, coordinate or exact date. It describes incidents recorded in the source, not every situation that may have occurred.
 
@@ -304,7 +304,7 @@ Calculate annual totals by type, retain only cells with at least 20 incidents an
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-9-1.png)
+> ![Grouped bar chart of recorded incident rates by year and type, for categories containing at least twenty incidents.](exercices_files/figure-html/unnamed-chunk-9-1.png)
 >
 > The graph should not be used to label a neighbourhood or population. It presents city-wide recorded categories.
 
@@ -450,7 +450,7 @@ For question 6 in 2025, suppress response categories with fewer than five select
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-12-1.png)
+> ![Horizontal bar chart of responses to question 6 in 2025 after hiding categories with fewer than five selections.](exercices_files/figure-html/unnamed-chunk-12-1.png)
 >
 > Participants chose to take part in an online consultation. Results should not be presented as representative of the entire Québec population.
 

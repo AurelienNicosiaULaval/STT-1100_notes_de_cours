@@ -141,6 +141,7 @@ Produce a column chart of the mean bicycle count by time of day.
 ### Solution
 
 ```{r}
+#| fig-alt: "Column chart of the mean bicycle count by time of day."
 time_summary |>
   ggplot(aes(x = time_of_day, y = mean_bikes)) +
   geom_col(fill = "#2c7fb8") +
@@ -181,6 +182,7 @@ Calculate correlations among `velos_total`, `velos_entrants` and `velos_sortants
 ### Solution
 
 ```{r}
+#| fig-alt: "Scatterplot of incoming and outgoing bicycles, coloured by time of day, with a linear trend line."
 bikes_dates |>
   select(velos_total, velos_entrants, velos_sortants) |>
   cor(use = "complete.obs") |>
@@ -198,6 +200,7 @@ Graph incoming and outgoing bicycles. Colour the points by time of day and add a
 ### Solution
 
 ```{r}
+#| fig-alt: "Line chart of the mean bicycle count by hour of day."
 bikes_dates |>
   ggplot(aes(x = velos_entrants, y = velos_sortants)) +
   geom_point(aes(color = time_of_day), alpha = 0.45) +
@@ -315,6 +318,7 @@ Complete the following tasks:
 ### Solution
 
 ```{r}
+#| fig-alt: "Hourly time series of fine-particle concentrations at the Québec - Vieux-Limoilou station in July 2025."
 quebec_air <- read_csv(
   "data/qualite_air_quebec_vieux_limoilou_2025_07.csv",
   show_col_types = FALSE
@@ -382,6 +386,7 @@ Complete the following tasks:
 ### Solution
 
 ```{r}
+#| fig-alt: "Scatterplot of total traffic volume and heavy-vehicle percentage, coloured by sector."
 traffic <- read_csv(
   "data/debits_circulation_gatineau_2016_2023.csv",
   show_col_types = FALSE

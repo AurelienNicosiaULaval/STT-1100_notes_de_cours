@@ -77,7 +77,7 @@ Que change la perception visuelle?
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-2-1.png)
+> ![Version trompeuse d'un diagramme à bandes horizontal des incidents par type, dont l'axe tronqué amplifie les écarts.](exercices_files/figure-html/unnamed-chunk-2-1.png)
 >
 > ``` r
 > ggplot(
@@ -97,7 +97,7 @@ Que change la perception visuelle?
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-3-1.png)
+> ![Version défendable du diagramme à bandes horizontal des incidents par type, avec un axe commençant à zéro.](exercices_files/figure-html/unnamed-chunk-3-1.png)
 >
 > L’axe tronqué amplifie les écarts et rend même certaines petites catégories invisibles. Pour des barres, la longueur encode la quantité; l’axe doit donc normalement partir de zéro.
 
@@ -126,7 +126,7 @@ Produisez un graphique qui affiche les totaux par type, les effectifs et une not
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-4-1.png)
+> ![Diagramme à bandes horizontal des incidents de sécurité publique par type, avec les effectifs inscrits sur les barres.](exercices_files/figure-html/unnamed-chunk-4-1.png)
 >
 > Ce graphique ne publie aucune adresse, coordonnée ou date exacte. Il décrit les incidents enregistrés dans la source et non l’ensemble des situations qui ont pu survenir.
 
@@ -304,7 +304,7 @@ Calculez les totaux annuels par type, conservez seulement les cellules comptant 
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-9-1.png)
+> ![Diagramme à bandes groupées des taux d'incidents enregistrés par année et par type, pour les catégories comptant au moins vingt incidents.](exercices_files/figure-html/unnamed-chunk-9-1.png)
 >
 > Le graphique ne doit pas servir à étiqueter un quartier ou une population. Il présente des catégories enregistrées à l’échelle de la ville.
 
@@ -450,7 +450,7 @@ Pour la question 6 en 2025, masquez les modalités comptant moins de cinq choix 
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-12-1.png)
+> ![Diagramme à bandes horizontal des réponses à la question 6 en 2025, après masquage des modalités comptant moins de cinq choix.](exercices_files/figure-html/unnamed-chunk-12-1.png)
 >
 > Les personnes ont choisi de participer à une consultation en ligne. Les résultats ne doivent pas être présentés comme représentatifs de toute la population québécoise.
 

@@ -112,6 +112,7 @@ mots_par_producteur
 ```
 
 ```{r}
+#| fig-alt: "Petits diagrammes à bandes des mots les plus fréquents, un panneau par producteur de données."
 ggplot(
   mots_par_producteur,
   aes(x = n, y = fct_reorder(mot, n))
@@ -216,6 +217,7 @@ precision_producteur
 ```
 
 ```{r}
+#| fig-alt: "Diagramme à bandes horizontal des scores lexicaux exploratoires moyens selon le producteur de données."
 ggplot(
   precision_producteur,
   aes(x = score_moyen, y = reorder(producteur, score_moyen))
@@ -260,6 +262,7 @@ Un mot distinctif est relativement plus associé à un producteur qu'aux autres.
 ### Solution
 
 ```{r}
+#| fig-alt: "Petits diagrammes à bandes orange des mots ayant les valeurs TF-IDF les plus élevées, un panneau par producteur."
 tfidf_top <- tfidf_producteur |>
   group_by(producteur) |>
   slice_max(tf_idf, n = 4, with_ties = FALSE) |>

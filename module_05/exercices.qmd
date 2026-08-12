@@ -141,6 +141,7 @@ Produisez un diagramme en colonnes du nombre moyen de vélos selon le moment de 
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme en colonnes du nombre moyen de vélos selon le moment de la journée."
 resume_moment |>
   ggplot(aes(x = moment_journee, y = velos_moyens)) +
   geom_col(fill = "#2c7fb8") +
@@ -181,6 +182,7 @@ Calculez les corrélations entre `velos_total`, `velos_entrants` et `velos_sorta
 ### Solution
 
 ```{r}
+#| fig-alt: "Nuage de points des vélos entrants et sortants, coloré selon le moment de la journée, avec une droite de tendance linéaire."
 velos_dates |>
   select(velos_total, velos_entrants, velos_sortants) |>
   cor(use = "complete.obs") |>
@@ -198,6 +200,7 @@ Créez un graphique des vélos entrants et sortants. Colorez les points selon le
 ### Solution
 
 ```{r}
+#| fig-alt: "Courbe du nombre moyen de vélos selon l'heure de la journée."
 velos_dates |>
   ggplot(aes(x = velos_entrants, y = velos_sortants)) +
   geom_point(aes(color = moment_journee), alpha = 0.45) +
@@ -315,6 +318,7 @@ Réalisez les tâches suivantes:
 ### Solution
 
 ```{r}
+#| fig-alt: "Série chronologique horaire des concentrations de particules fines à la station Québec - Vieux-Limoilou en juillet 2025."
 air_quebec <- read_csv(
   "data/qualite_air_quebec_vieux_limoilou_2025_07.csv",
   show_col_types = FALSE
@@ -382,6 +386,7 @@ Réalisez les tâches suivantes:
 ### Solution
 
 ```{r}
+#| fig-alt: "Nuage de points du débit total et du pourcentage de véhicules lourds, coloré selon le secteur."
 debits <- read_csv(
   "data/debits_circulation_gatineau_2016_2023.csv",
   show_col_types = FALSE

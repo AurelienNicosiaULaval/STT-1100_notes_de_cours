@@ -110,6 +110,7 @@ words_by_producer
 ```
 
 ```{r}
+#| fig-alt: "Small bar charts of the most frequent words, with one panel for each data producer."
 ggplot(
   words_by_producer,
   aes(x = n, y = fct_reorder(word, n))
@@ -212,6 +213,7 @@ precision_by_producer
 ```
 
 ```{r}
+#| fig-alt: "Horizontal bar chart of mean exploratory lexical scores by data producer."
 ggplot(
   precision_by_producer,
   aes(x = mean_score, y = reorder(producer, mean_score))
@@ -256,6 +258,7 @@ A distinctive word is relatively more associated with one producer. It is not ne
 ### Solution
 
 ```{r}
+#| fig-alt: "Small orange bar charts of the words with the highest TF-IDF values, with one panel for each producer."
 tfidf_top <- producer_tfidf |>
   group_by(producer) |>
   slice_max(tf_idf, n = 4, with_ties = FALSE) |>

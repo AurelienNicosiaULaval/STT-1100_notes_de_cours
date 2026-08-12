@@ -76,7 +76,7 @@ Le premier rapport Quarto installe les attentes de base: structure, code lisible
 
 ### Défis 2 à 10
 
-Les défis sont des livrables courts reliés aux modules. Ils prolongent l'aventure avec plus d'autonomie et préparent le projet.
+Les défis 2 à 5 et 7 à 10 sont des livrables évalués. Le défi 6 est une revue croisée formative qui prépare le projet.
 
 04
 

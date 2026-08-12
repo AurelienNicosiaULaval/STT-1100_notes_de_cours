@@ -151,7 +151,7 @@ Import `quebec_dataset_descriptions.csv`. Each row is a real portal record with 
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
+> ![Small bar charts of the most frequent words, with one panel for each data producer.](exercices_files/figure-html/unnamed-chunk-5-1.png)
 >
 > A difference may come from published topics, institutional vocabulary or description length. It does not directly measure data quality.
 
@@ -298,7 +298,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-9-1.png)
+> ![Horizontal bar chart of mean exploratory lexical scores by data producer.](exercices_files/figure-html/unnamed-chunk-9-1.png)
 >
 > The chart compares the sample, not overall producer quality. Topic and writing-style differences may explain part of the variation.
 
@@ -359,7 +359,7 @@ Concrete terms receive `+1` and very general terms receive `-1`.
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-11-1.png)
+> ![Small orange bar charts of the words with the highest TF-IDF values, with one panel for each producer.](exercices_files/figure-html/unnamed-chunk-11-1.png)
 >
 > Return to the original descriptions to check meaning before writing a conclusion.
 

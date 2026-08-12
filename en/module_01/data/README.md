@@ -1,6 +1,6 @@
 # Provenance of Module 1 real data
 
-The two files in this folder are reproducible extracts of open data. They are created by `scripts/build_module01_real_data.R`.
+The two files in this folder are reproducible extracts of open data. They are created by `scripts/build_module01_real_data.R`, which must be run from the repository root.
 
 ## `bibliotheques_publiques_quebec_2024.csv`
 

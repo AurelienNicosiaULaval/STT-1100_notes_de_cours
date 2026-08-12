@@ -226,7 +226,7 @@ Produce a graph of the ten organizations with the most datasets in the complete 
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-6-1.png)
+> ![Horizontal bar chart of the ten organizations with the most datasets in the Données Québec catalogue.](exercices_files/figure-html/unnamed-chunk-6-1.png)
 
 ### Exercise 7 - Join Resources to Datasets
 

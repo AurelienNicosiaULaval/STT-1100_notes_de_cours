@@ -444,7 +444,7 @@ Produce a bar chart showing the number of requests by service. Order services fr
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-18-1.png)
+> ![Horizontal boxplots comparing the distribution of reported costs across services.](exercices_files/figure-html/unnamed-chunk-18-1.png)
 
 ### Exercise 14 - Compare proportions with `position = "fill"`
 
@@ -525,7 +525,7 @@ Take one previous chart and improve it for a non-specialist reader:
 > service_chart
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-21-1.png)
+> ![Horizontal bar chart showing the share of requests assigned to each service.](exercices_files/figure-html/unnamed-chunk-21-1.png)
 >
 > Possible comment: the chart shows which services appear most often in this fictitious sample. However, the file is for method practice and does not measure a real volume of requests.
 
@@ -600,7 +600,7 @@ Complete the following tasks:
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-22-1.png)
+> ![Horizontal bar chart of the twelve most frequent categories in the Montréal 311 request extract.](exercices_files/figure-html/unnamed-chunk-22-1.png)
 >
 > Possible comment: the extract describes published requests, not the real workload or quality of municipal interventions.
 
@@ -677,6 +677,6 @@ Complete the following tasks:
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-23-1.png)
+> ![One-hundred-percent stacked bar chart comparing consumer complaint categories by head-office city.](exercices_files/figure-html/unnamed-chunk-23-1.png)
 >
 > Possible recommendation: describe the most frequent categories while explicitly noting that a complaint does not establish an offence.

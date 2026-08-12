@@ -285,6 +285,7 @@ Calculez le nombre de demandes par campus et par service.
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes horizontal du nombre de demandes, classées du service le plus fréquent au moins fréquent."
 services_campus |>
   count(campus, service, sort = TRUE)
 ```
@@ -298,6 +299,7 @@ Calculez la proportion de demandes dans chaque statut pour chaque campus.
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes empilées à 100 % comparant la composition des statuts entre les campus."
 services_campus |>
   count(campus, statut) |>
   group_by(campus) |>
@@ -340,6 +342,7 @@ Produisez un diagramme à bandes du nombre de demandes par service. Ordonnez les
 ### Solution
 
 ```{r}
+#| fig-alt: "Boîtes à moustaches horizontales comparant la distribution des coûts déclarés selon le service."
 services_campus |>
   count(service, sort = TRUE) |>
   ggplot(aes(x = fct_reorder(service, n), y = n)) +
@@ -417,6 +420,7 @@ Reprenez un graphique précédent et améliorez-le pour un lecteur non spéciali
 ### Exemple de solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes horizontal montrant la part des demandes attribuée à chaque service."
 graphique_services <- services_campus |>
   count(service, sort = TRUE) |>
   mutate(part = n / sum(n)) |>
@@ -456,6 +460,7 @@ Réalisez les tâches suivantes:
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes horizontal des douze catégories les plus fréquentes dans l'extrait des requêtes 311 de Montréal."
 requetes_311 <- read_csv(
   "data/requetes_311_montreal.csv",
   show_col_types = FALSE
@@ -506,6 +511,7 @@ Réalisez les tâches suivantes:
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes empilées à 100 % comparant les catégories de plaintes de consommation selon la ville du siège social."
 plaintes_transport <- read_csv(
   "data/plaintes_consommation_quebec.csv",
   show_col_types = FALSE

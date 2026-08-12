@@ -17,4 +17,4 @@
 | 13 | 23 novembre | Module 8 : automatisation et exploration du web. |
 | 14 | 30 novembre | Module 9 : prédiction et biais. |
 | 15 | 7 décembre | Module 10 : texte, tableau de bord et synthèse. |
-| Examens | Semaine du 14 décembre | Présentations orales du projet. |
+| Examens | 14 décembre, 8 h 30 à 11 h 20 | Présentations orales du projet pendant la dernière séance du cours. Local à confirmer dans Brio. |
