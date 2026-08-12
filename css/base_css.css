@@ -1013,7 +1013,7 @@ body.page-resource #title-block-header {
 
 .resource-panel div {
   display: grid;
-  grid-template-columns: 2.4rem minmax(0, 1fr);
+  grid-template-columns: max-content minmax(0, 1fr);
   gap: .55rem;
   align-items: center;
 }
@@ -1024,10 +1024,12 @@ body.page-resource #title-block-header {
   justify-content: center;
   min-width: 2.25rem;
   height: 2.25rem;
-  border-radius: 50%;
+  padding-inline: .55rem;
+  border-radius: 999px;
   background: var(--ulaval-red);
   color: #ffffff;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .resource-panel p {

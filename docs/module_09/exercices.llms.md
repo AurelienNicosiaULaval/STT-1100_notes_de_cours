@@ -66,7 +66,7 @@ Tracez la quantité d’eau distribuée selon la consommation résidentielle. Aj
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-2-1.png)
+> ![Nuage de points de l'eau distribuée selon la consommation résidentielle, accompagné d'une droite de régression linéaire.](exercices_files/figure-html/unnamed-chunk-2-1.png)
 >
 > La relation est positive, mais la dispersion demeure importante. La consommation résidentielle ne représente qu’une partie de l’eau distribuée et le graphique ne démontre pas une relation causale.
 
@@ -261,7 +261,7 @@ Calculez ensuite l’erreur quadratique moyenne.
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
+> ![Nuage de points des erreurs du modèle selon les valeurs prédites, avec une ligne horizontale à zéro.](exercices_files/figure-html/unnamed-chunk-8-1.png)
 >
 > Cherchez des motifs, des groupes séparés et des points isolés. Une dispersion qui augmente avec les prédictions signale notamment que l’incertitude n’est peut-être pas constante.
 

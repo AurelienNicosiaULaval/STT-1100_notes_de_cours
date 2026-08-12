@@ -52,7 +52,7 @@ Guided in-class work. It sets the context, characters, data and technical skills
 
 ### Challenge
 
-Evaluated continuation of the adventure. You produce a more autonomous trace from the same pedagogical universe.
+A more autonomous continuation of the adventure. Challenges 2 to 5 and 7 to 10 are graded; challenges 1 and 6 are formative.
 
 3
 
@@ -138,11 +138,11 @@ Expected trace: short HTML report, useful charts and nuanced conclusion.
 
 [View challenge 5](module_05/defi.llms.md)
 
-### Challenge 6
+### Challenge 6, formative
 
 Peer review of a collaborative report and check of its reproducibility.
 
-Expected trace: useful GitHub issues, rendering check and pushed corrections if needed.
+Expected trace: useful GitHub issues, rendering check and pushed corrections if needed. This challenge does not count toward the final grade.
 
 [View challenge 6](module_06/defi.llms.md)
 

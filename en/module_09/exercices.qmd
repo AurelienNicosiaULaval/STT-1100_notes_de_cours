@@ -60,6 +60,7 @@ Plot distributed water quantity against residential consumption. Add a regressio
 ### Solution
 
 ```{r}
+#| fig-alt: "Scatterplot of distributed water versus residential consumption, with a linear regression line."
 ggplot(
   water,
   aes(
@@ -201,6 +202,7 @@ A large error may indicate an unusual municipality, an important missing variabl
 ### Solution
 
 ```{r}
+#| fig-alt: "Scatterplot of model errors versus predicted values, with a horizontal line at zero."
 ggplot(
   model_diagnostics,
   aes(x = predicted_distributed_water, y = error_l_person_day)
@@ -247,6 +249,7 @@ Calculate the proportion of municipalities for which the index is available, the
 ### Solution
 
 ```{r}
+#| fig-alt: "Horizontal bar chart of the proportion of municipalities with an available validity index, by region."
 availability_by_region <- validity |>
   group_by(region) |>
   summarise(

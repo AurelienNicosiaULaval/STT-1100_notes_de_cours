@@ -67,6 +67,7 @@ incidents_type
 ```
 
 ```{r}
+#| fig-alt: "Misleading horizontal bar chart of incidents by type, with a truncated axis that exaggerates differences."
 ggplot(
   incidents_type,
   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
@@ -81,6 +82,7 @@ ggplot(
 ```
 
 ```{r}
+#| fig-alt: "Defensible horizontal bar chart of incidents by type, with an axis starting at zero."
 ggplot(
   incidents_type,
   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
@@ -109,6 +111,7 @@ Produce a chart showing totals by type, counts and a note defining the scope of 
 ### Solution
 
 ```{r}
+#| fig-alt: "Horizontal bar chart of public-safety incidents by type, with counts printed on the bars."
 ggplot(
   incidents_type,
   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
@@ -243,6 +246,7 @@ Calculate annual totals by type, retain only cells with at least 20 incidents an
 ### Solution
 
 ```{r}
+#| fig-alt: "Grouped bar chart of recorded incident rates by year and type, for categories containing at least twenty incidents."
 rates_type_year <- incidents |>
   group_by(annee, type_incident) |>
   summarise(
@@ -352,6 +356,7 @@ For question 6 in 2025, suppress response categories with fewer than five select
 ### Solution
 
 ```{r}
+#| fig-alt: "Horizontal bar chart of responses to question 6 in 2025 after hiding categories with fewer than five selections."
 survey_2025_q6 <- survey |>
   filter(
     annee == 2025,

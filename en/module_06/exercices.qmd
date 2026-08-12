@@ -154,6 +154,7 @@ Produce a graph of the ten organizations with the most datasets in the complete 
 ### Solution
 
 ```{r}
+#| fig-alt: "Horizontal bar chart of the ten organizations with the most datasets in the Données Québec catalogue."
 organizations |>
   slice_max(nb_jeux_catalogue, n = 10, with_ties = FALSE) |>
   ggplot(

@@ -167,7 +167,7 @@ Produisez un diagramme en colonnes du nombre moyen de vélos selon le moment de 
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-5-1.png)
+> ![Diagramme en colonnes du nombre moyen de vélos selon le moment de la journée.](exercices_files/figure-html/unnamed-chunk-5-1.png)
 
 ### Exercice 6 - Comparer les jours de la semaine
 
@@ -240,7 +240,7 @@ Créez un graphique des vélos entrants et sortants. Colorez les points selon le
 >
 >     `geom_smooth()` using formula = 'y ~ x'
 >
-> ![](exercices_files/figure-html/unnamed-chunk-8-1.png)
+> ![Courbe du nombre moyen de vélos selon l'heure de la journée.](exercices_files/figure-html/unnamed-chunk-8-1.png)
 
 ### Exercice 9 - Comparer la semaine et la fin de semaine
 
@@ -448,7 +448,7 @@ Réalisez les tâches suivantes:
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-12-1.png)
+> ![Série chronologique horaire des concentrations de particules fines à la station Québec - Vieux-Limoilou en juillet 2025.](exercices_files/figure-html/unnamed-chunk-12-1.png)
 >
 > Une conclusion prudente peut décrire les variations horaires et les associations observées. Elle doit toutefois rester limitée à une station et à un mois, sans attribuer les concentrations à une cause précise.
 
@@ -561,6 +561,6 @@ Réalisez les tâches suivantes:
 >     Warning: Removed 7 rows containing missing values or values outside the scale range
 >     (`geom_point()`).
 >
-> ![](exercices_files/figure-html/unnamed-chunk-13-1.png)
+> ![Nuage de points du débit total et du pourcentage de véhicules lourds, coloré selon le secteur.](exercices_files/figure-html/unnamed-chunk-13-1.png)
 >
 > Une conclusion prudente peut comparer les groupes présents dans le fichier. Elle doit rappeler que les lieux et années observés diffèrent, et que le nombre estimé de véhicules lourds est calculé directement à partir du débit total et du pourcentage.

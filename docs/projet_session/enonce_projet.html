@@ -5224,115 +5224,285 @@ margin-top: .4rem;
 margin: .8rem 0 1rem;
 }
 .home-page {
-display: grid;
-gap: 1.5rem;
+--home-bg: #ffffff;
+--home-bg-deep: #ffffff;
+--home-text: #071a34;
+--home-muted: #334155;
+--home-line: rgba(7, 26, 52, .18);
+display: block;
+gap: 0;
+width: 100vw;
+margin-inline: calc(50% - 50vw);
+color: var(--home-text);
+background: var(--home-bg);
+}
+body.page-home {
+background: #ffffff;
 }
 body.page-home #title-block-header {
 display: none !important;
 }
+body.page-home #quarto-document-content {
+margin-top: 0 !important;
+margin-bottom: 0 !important;
+padding-top: 0 !important;
+}
+body.page-home #quarto-content {
+grid-template-rows: [content-top] auto [content-bottom] 0 [page-bottom] !important;
+}
 .home-hero {
+position: relative;
+display: block;
+grid-template-columns: none;
+gap: 0;
+align-items: normal;
+min-height: calc(100svh - 62px);
+margin: 0;
+overflow: hidden;
+background: #ffffff;
+}
+.home-hero__inner {
 display: grid;
-grid-template-columns: minmax(0, .92fr) minmax(320px, 1.08fr);
-gap: 1.4rem;
-align-items: stretch;
-margin: 1rem 0 1.6rem;
+grid-template-columns: minmax(0, .92fr) minmax(500px, 1.08fr);
+grid-template-rows: minmax(0, 1fr) auto;
+column-gap: clamp(3rem, 5vw, 6rem);
+align-items: center;
+width: min(92vw, 1560px);
+min-height: calc(100svh - 62px);
+margin-inline: auto;
+padding: clamp(2.8rem, 6vh, 5.5rem) 0 1.5rem;
 }
 .home-hero-copy {
-display: grid;
-align-content: center;
-border-left: 6px solid var(--ulaval-red);
-border-radius: var(--radius);
-background: linear-gradient(90deg, #fff7f7 0%, #ffffff 70%);
-padding: 1.45rem 1.55rem;
+display: block;
+align-self: center;
+align-content: normal;
+border: 0;
+border-radius: 0;
+background: none;
+padding: 1rem 0 1.5rem;
 }
-.home-hero-copy h1 {
-margin: .15rem 0 1rem;
-color: var(--ink);
-font-size: clamp(2.1rem, 4vw, 3.7rem);
-line-height: 1.05;
+.home-title {
+display: grid;
+gap: .7rem;
+max-width: 11ch;
+margin: 0;
+color: var(--home-text);
+font-size: clamp(3.2rem, 4.3vw, 5.3rem);
+font-weight: 760;
+letter-spacing: -.045em;
+line-height: 1.02;
+}
+.home-course-code {
+color: var(--home-text);
+font-size: clamp(1.55rem, 2.15vw, 2.45rem);
+font-weight: 520;
+letter-spacing: .015em;
+line-height: 1;
+}
+.home-lead {
+max-width: 38rem;
+margin: 1.8rem 0 0;
+color: var(--home-muted);
+font-size: clamp(1.04rem, 1.35vw, 1.34rem);
+line-height: 1.6;
 }
 .home-actions {
 display: flex;
 flex-wrap: wrap;
-gap: .45rem;
+gap: .9rem;
+margin-top: 2.15rem;
+}
+body.page-home .home-action {
+display: inline-flex;
+gap: 1.8rem;
+justify-content: space-between;
+min-width: min(18.25rem, 100%);
+min-height: 4.15rem;
+border: 1px solid rgba(7, 26, 52, .78);
+border-radius: 0;
+background: transparent;
+color: var(--home-text);
+padding: .95rem 1.3rem;
+font-size: 1rem;
+font-weight: 700;
+transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+body.page-home .home-action svg,
+.home-rail-link svg {
+flex: 0 0 auto;
+width: 1.45rem;
+height: 1.45rem;
+fill: none;
+stroke: currentColor;
+stroke-width: 1.8;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+body.page-home .home-action--primary {
+border-color: var(--ulaval-red);
+background: var(--ulaval-red);
+color: #ffffff !important;
+}
+body.page-home .home-action--secondary {
+border-color: rgba(7, 26, 52, .78);
+color: var(--home-text) !important;
+}
+body.page-home .home-action:hover,
+body.page-home .home-action:focus-visible {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red) !important;
+text-decoration: none;
+transform: translateY(-2px);
+}
+body.page-home .home-action--primary:hover,
+body.page-home .home-action--primary:focus-visible {
+border-color: var(--home-text);
+background: var(--home-text);
+color: #ffffff !important;
+filter: none;
 }
 .home-visual {
 position: relative;
 display: grid;
-grid-template-columns: 150px minmax(0, 1fr);
-gap: 1rem;
-align-items: center;
-min-height: 21rem;
-border: 1px solid var(--line);
-border-radius: var(--radius);
-background:
-radial-gradient(circle at 82% 22%, rgba(255, 193, 3, .18), transparent 32%),
-linear-gradient(135deg, #f8fbfc 0%, #ffffff 56%, #eef6f7 100%);
-padding: 1.2rem;
-overflow: hidden;
+grid-template-columns: 1fr;
+gap: 0;
+place-items: center;
+align-self: center;
+min-height: 0;
+min-width: 0;
+border: 0;
+border-radius: 0;
+background: none;
+padding: 0 0 0 1rem;
+overflow: visible;
 }
-.home-logo {
-width: min(150px, 32vw);
-height: auto;
-justify-self: center;
-filter: drop-shadow(0 10px 18px rgba(32, 33, 36, .12));
-}
-.home-pipeline {
-display: grid;
-grid-template-columns: minmax(0, 1fr) 1.8rem minmax(0, 1fr) 1.8rem minmax(0, 1fr) 1.8rem minmax(0, 1fr);
-gap: .35rem;
-align-items: center;
-align-self: start;
-}
-.pipeline-step {
-display: inline-flex;
-justify-content: center;
-align-items: center;
-min-height: 2.25rem;
-border: 1px solid rgba(49, 95, 140, .22);
-border-radius: 7px;
-background: #ffffff;
-color: var(--ink);
-font-weight: 700;
-font-size: .88rem;
-line-height: 1.1;
-text-align: center;
-padding: .35rem .45rem;
-}
-.pipeline-line {
-height: 2px;
-background: var(--blue);
-opacity: .65;
-}
-.home-chart {
-position: absolute;
-right: 1.25rem;
-bottom: 1.2rem;
-width: min(54%, 25rem);
-height: 11rem;
-border-left: 2px solid #cbd6dc;
-border-bottom: 2px solid #cbd6dc;
-}
-.home-chart::before {
+.home-visual::before {
 content: "";
 position: absolute;
-left: 8%;
-right: 4%;
-top: 62%;
-height: 2px;
-background: linear-gradient(90deg, var(--ulaval-red), var(--teal));
-transform: rotate(-18deg);
-transform-origin: left center;
-}
-.home-chart span {
-position: absolute;
-left: var(--x);
-top: var(--y);
-width: .72rem;
-height: .72rem;
-border-radius: 50%;
+top: 3%;
+bottom: 4%;
+left: calc(clamp(3rem, 5vw, 6rem) / -2);
+width: 2px;
 background: var(--ulaval-red);
-box-shadow: 0 0 0 4px rgba(227, 5, 19, .12);
+}
+.home-visual::after {
+content: "";
+position: absolute;
+top: 49%;
+left: calc(clamp(3rem, 5vw, 6rem) / -2 - 6px);
+width: 14px;
+height: 14px;
+border: 2px solid var(--ulaval-red);
+border-radius: 50%;
+background: var(--home-bg);
+}
+.home-visual img {
+display: block;
+width: min(100%, 760px);
+height: auto;
+}
+.home-rail {
+grid-column: 1 / -1;
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+width: 100%;
+border-top: 1px solid var(--home-line);
+}
+.home-rail-link {
+position: relative;
+display: flex;
+gap: 1rem;
+align-items: center;
+justify-content: space-between;
+min-width: 0;
+border-right: 1px solid var(--home-line);
+color: var(--home-text);
+padding: 1.15rem clamp(1rem, 2vw, 2rem) .95rem;
+font-size: 1rem;
+text-decoration: none;
+transition: color .2s ease, background-color .2s ease;
+}
+.home-rail-link:last-child {
+border-right: 0;
+padding-right: 5rem;
+}
+.home-rail-link:last-child::after {
+right: 5rem;
+}
+.home-rail-link::after {
+content: "";
+position: absolute;
+right: clamp(1rem, 2vw, 2rem);
+bottom: .55rem;
+left: clamp(1rem, 2vw, 2rem);
+height: 2px;
+background: var(--ulaval-red);
+transform: scaleX(.86);
+transform-origin: left;
+transition: transform .2s ease, background-color .2s ease;
+}
+.home-rail-link:hover,
+.home-rail-link:focus-visible {
+background: rgba(227, 5, 19, .035);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.home-rail-link:hover::after,
+.home-rail-link:focus-visible::after {
+background: var(--ulaval-red);
+transform: scaleX(1);
+}
+@media (max-width: 1100px) {
+.home-hero__inner {
+grid-template-columns: minmax(0, .86fr) minmax(430px, 1.14fr);
+column-gap: 3rem;
+width: min(94vw, 1000px);
+}
+.home-title {
+font-size: clamp(2.7rem, 5vw, 4rem);
+}
+.home-visual::before {
+left: -1.5rem;
+}
+.home-visual::after {
+left: calc(-1.5rem - 6px);
+}
+}
+@media (max-width: 860px) {
+.home-hero,
+.home-hero__inner {
+min-height: auto;
+}
+.home-hero__inner {
+grid-template-columns: 1fr;
+grid-template-rows: auto auto auto;
+gap: 2.4rem;
+width: min(90vw, 46rem);
+padding: 3.5rem 0 1rem;
+}
+.home-hero-copy {
+padding: 0;
+}
+.home-title {
+max-width: 12ch;
+font-size: clamp(3rem, 8vw, 4.7rem);
+}
+.home-visual {
+padding: 0;
+}
+.home-visual::before,
+.home-visual::after {
+display: none;
+}
+.home-rail {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.home-rail-link:nth-child(2) {
+border-right: 0;
+}
+.home-rail-link:nth-child(-n + 2) {
+border-bottom: 1px solid var(--home-line);
+}
 }
 .module-overview-grid {
 display: grid;
@@ -5874,18 +6044,57 @@ right: 50%;
 bottom: -.62rem;
 transform: translateX(50%) rotate(135deg);
 }
-.home-visual {
-min-height: 24rem;
+.home-hero__inner {
+gap: 1.7rem;
+width: min(90vw, 34rem);
+padding: 2.35rem 0 .8rem;
 }
-.home-pipeline {
+.home-title {
+gap: .55rem;
+max-width: 11ch;
+font-size: clamp(2.65rem, 12.5vw, 3.65rem);
+line-height: 1.03;
+}
+.home-course-code {
+font-size: 1.45rem;
+}
+.home-lead {
+margin-top: 1.35rem;
+font-size: 1.02rem;
+line-height: 1.55;
+}
+.home-actions {
+display: grid;
+gap: .75rem;
+margin-top: 1.55rem;
+}
+body.page-home .home-action {
+width: 100%;
+min-width: 0;
+min-height: 3.7rem;
+}
+.home-visual {
+min-height: 0;
+}
+.home-visual img {
+justify-self: start;
+width: calc(100% - 2.4rem);
+}
+.home-rail {
 grid-template-columns: 1fr;
 }
-.pipeline-line {
-display: none;
+.home-rail-link,
+.home-rail-link:nth-child(2) {
+border-right: 0;
+border-bottom: 1px solid var(--home-line);
+padding: 1.05rem 4.5rem 1.05rem .9rem;
 }
-.home-chart {
-width: calc(100% - 2rem);
-right: 1rem;
+.home-rail-link:last-child {
+border-bottom: 0;
+}
+.home-rail-link::after {
+right: 4.5rem;
+left: .9rem;
 }
 .featured-covers {
 grid-template-columns: repeat(3, 1fr);
@@ -6092,6 +6301,7 @@ margin-bottom: .05rem;
   <li><a href="#mission" id="toc-mission" class="nav-link active" data-scroll-target="#mission">Mission</a></li>
   <li><a href="#objectifs" id="toc-objectifs" class="nav-link" data-scroll-target="#objectifs">Objectifs</a></li>
   <li><a href="#usage-permis-de-lia" id="toc-usage-permis-de-lia" class="nav-link" data-scroll-target="#usage-permis-de-lia">Usage permis de l’IA</a></li>
+  <li><a href="#pondération-et-échéancier" id="toc-pondération-et-échéancier" class="nav-link" data-scroll-target="#pondération-et-échéancier">Pondération et échéancier</a></li>
   <li><a href="#jeu-de-données" id="toc-jeu-de-données" class="nav-link" data-scroll-target="#jeu-de-données">Jeu de données</a></li>
   <li><a href="#dépôt-github" id="toc-dépôt-github" class="nav-link" data-scroll-target="#dépôt-github">Dépôt GitHub</a></li>
   <li><a href="#déroulement" id="toc-déroulement" class="nav-link" data-scroll-target="#déroulement">Déroulement</a>
@@ -6112,7 +6322,7 @@ margin-bottom: .05rem;
   </ul></li>
   <li><a href="#reproductibilité-et-organisation" id="toc-reproductibilité-et-organisation" class="nav-link" data-scroll-target="#reproductibilité-et-organisation">Reproductibilité et organisation</a></li>
   <li><a href="#travail-déquipe" id="toc-travail-déquipe" class="nav-link" data-scroll-target="#travail-déquipe">Travail d’équipe</a></li>
-  <li><a href="#évaluation-finale" id="toc-évaluation-finale" class="nav-link" data-scroll-target="#évaluation-finale">Évaluation finale</a></li>
+  <li><a href="#barème-interne-du-projet" id="toc-barème-interne-du-projet" class="nav-link" data-scroll-target="#barème-interne-du-projet">Barème interne du projet</a></li>
   <li><a href="#avant-la-remise-finale" id="toc-avant-la-remise-finale" class="nav-link" data-scroll-target="#avant-la-remise-finale">Avant la remise finale</a></li>
   <li><a href="#conseils" id="toc-conseils" class="nav-link" data-scroll-target="#conseils">Conseils</a></li>
   </ul>
@@ -6162,6 +6372,11 @@ margin-bottom: .05rem;
 <section id="usage-permis-de-lia" class="level1">
 <h1>Usage permis de l’IA</h1>
 <p>Dans les défis et le projet, l’IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l’examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l’IA influence une partie importante d’un livrable évalué, gardez une trace courte: outil utilisé, but de l’aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.</p>
+</section>
+<section id="pondération-et-échéancier" class="level1">
+<h1>Pondération et échéancier</h1>
+<p>La proposition vaut 6 % de la note du cours. Le projet final vaut 34 %. La présentation orale aura lieu le lundi 14 décembre 2026, de 8 h 30 à 11 h 20, pendant la dernière séance du cours et la période réservée aux examens. Le local sera confirmé dans Brio.</p>
+<p>Le barème détaillé ci-dessous est un barème interne de 100 points. Les 15 points de la proposition sont convertis en 6 % de la note du cours. Les 85 autres points, qui couvrent la présentation, le résumé final, la reproductibilité et le travail d’équipe, sont convertis en 34 %.</p>
 </section>
 <section id="jeu-de-données" class="level1">
 <h1>Jeu de données</h1>
@@ -6440,8 +6655,8 @@ margin-bottom: .05rem;
 </tbody>
 </table>
 </section>
-<section id="évaluation-finale" class="level1">
-<h1>Évaluation finale</h1>
+<section id="barème-interne-du-projet" class="level1">
+<h1>Barème interne du projet</h1>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -6473,6 +6688,37 @@ margin-bottom: .05rem;
 <tr class="even">
 <td>Total</td>
 <td style="text-align: right;">100</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Évaluation dans Brio</th>
+<th style="text-align: right;">Points internes correspondants</th>
+<th style="text-align: right;">Pondération du cours</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Proposition</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">6 %</td>
+</tr>
+<tr class="even">
+<td>Projet final</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">34 %</td>
+</tr>
+<tr class="odd">
+<td>Total du projet</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">40 %</td>
 </tr>
 </tbody>
 </table>

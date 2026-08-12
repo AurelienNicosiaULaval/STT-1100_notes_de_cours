@@ -67,6 +67,7 @@ incidents_type
 ```
 
 ```{r}
+#| fig-alt: "Version trompeuse d'un diagramme à bandes horizontal des incidents par type, dont l'axe tronqué amplifie les écarts."
 ggplot(
   incidents_type,
   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
@@ -81,6 +82,7 @@ ggplot(
 ```
 
 ```{r}
+#| fig-alt: "Version défendable du diagramme à bandes horizontal des incidents par type, avec un axe commençant à zéro."
 ggplot(
   incidents_type,
   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
@@ -109,6 +111,7 @@ Produisez un graphique qui affiche les totaux par type, les effectifs et une not
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes horizontal des incidents de sécurité publique par type, avec les effectifs inscrits sur les barres."
 ggplot(
   incidents_type,
   aes(x = reorder(type_incident, total_incidents), y = total_incidents)
@@ -243,6 +246,7 @@ Calculez les totaux annuels par type, conservez seulement les cellules comptant 
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes groupées des taux d'incidents enregistrés par année et par type, pour les catégories comptant au moins vingt incidents."
 taux_type_annee <- incidents |>
   group_by(annee, type_incident) |>
   summarise(
@@ -352,6 +356,7 @@ Pour la question 6 en 2025, masquez les modalités comptant moins de cinq choix 
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes horizontal des réponses à la question 6 en 2025, après masquage des modalités comptant moins de cinq choix."
 sondage_2025_q6 <- sondage |>
   filter(
     annee == 2025,

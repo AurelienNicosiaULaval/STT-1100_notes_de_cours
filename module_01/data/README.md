@@ -1,6 +1,6 @@
 # Provenance des données réelles du module 1
 
-Les deux fichiers de ce dossier sont des extraits reproductibles de données ouvertes. Ils sont créés par `scripts/build_module01_real_data.R`.
+Les deux fichiers de ce dossier sont des extraits reproductibles de données ouvertes. Ils sont créés par `scripts/build_module01_real_data.R`; le script doit être exécuté depuis la racine du dépôt.
 
 ## `bibliotheques_publiques_quebec_2024.csv`
 

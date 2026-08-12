@@ -60,6 +60,7 @@ Tracez la quantité d'eau distribuée selon la consommation résidentielle. Ajou
 ### Solution
 
 ```{r}
+#| fig-alt: "Nuage de points de l'eau distribuée selon la consommation résidentielle, accompagné d'une droite de régression linéaire."
 ggplot(
   eau,
   aes(
@@ -200,6 +201,7 @@ Une grande erreur peut signaler une municipalité atypique, une variable importa
 ### Solution
 
 ```{r}
+#| fig-alt: "Nuage de points des erreurs du modèle selon les valeurs prédites, avec une ligne horizontale à zéro."
 ggplot(
   diagnostic_modele,
   aes(x = eau_distribuee_predite, y = erreur_l_pers_j)
@@ -246,6 +248,7 @@ Calculez la proportion de municipalités pour lesquelles l'indice est disponible
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes horizontal de la proportion de municipalités ayant un indice de validité disponible, par région."
 disponibilite_region <- validite |>
   group_by(region) |>
   summarise(

@@ -52,7 +52,7 @@ Travail guidé en classe. Elle installe le contexte, les personnages, les donné
 
 ### Défi
 
-Suite évaluée de l'aventure. Vous produisez une trace plus autonome à partir du même univers pédagogique.
+Suite plus autonome de l'aventure. Les défis 2 à 5 et 7 à 10 sont évalués; les défis 1 et 6 sont formatifs.
 
 3
 
@@ -138,11 +138,11 @@ Trace attendue: rapport HTML court, graphiques utiles et conclusion nuancée.
 
 [Consulter le défi 5](module_05/defi.llms.md)
 
-### Défi 6
+### Défi 6, formatif
 
 Revue croisée d'un rapport collaboratif et vérification de sa reproductibilité.
 
-Trace attendue: issues GitHub utiles, vérification du rendu et corrections poussées si nécessaire.
+Trace attendue: issues GitHub utiles, vérification du rendu et corrections poussées si nécessaire. Ce défi ne compte pas dans la note finale.
 
 [Consulter le défi 6](module_06/defi.llms.md)
 

@@ -36,9 +36,9 @@ Summative assessment.
 
 GitHub repository containing the poster and requested traces.
 
-### Target date
+### Deadline
 
-November 22 at 00:00, subject to the official Brio instructions.
+November 22 at 11:55 p.m. The official submission follows the instructions posted in Brio.
 
 ### Competition
 

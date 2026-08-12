@@ -154,6 +154,7 @@ Produisez un graphique des dix organisations ayant le plus de jeux dans l'ensemb
 ### Solution
 
 ```{r}
+#| fig-alt: "Diagramme à bandes horizontal des dix organisations ayant le plus de jeux dans le catalogue Données Québec."
 organisations |>
   slice_max(nb_jeux_catalogue, n = 10, with_ties = FALSE) |>
   ggplot(

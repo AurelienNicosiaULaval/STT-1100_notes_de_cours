@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/**
+/** 
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document.
+ * Finds all non-overlapping matches for a search string in the document. 
  * The search string may be split between multiple consecutive leaf nodes.
- *
+ * 
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- *
+ * 
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match
+ * and would contribute the match 
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- *
+ * 
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/**
+/** 
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- *
+ * 
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset.
+// inside/outside that tabset. 
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -5666,135 +5666,135 @@ margin-bottom: .05rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
-  </li>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-start" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Start</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-start">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-start">    
         <li>
     <a class="dropdown-item" href="../demarrage.html">
  <span class="dropdown-text">Overview</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../calendrier.html">
  <span class="dropdown-text">Calendar</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Modules</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">    
         <li>
     <a class="dropdown-item" href="../modules.html">
  <span class="dropdown-text">Overview</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_01/index.html">
  <span class="dropdown-text">Module 01 - Data science dive</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_02/index.html">
  <span class="dropdown-text">Module 02 - GitHub and data visualization</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_03/index.html">
  <span class="dropdown-text">Module 03 - Categories in all their forms</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_04/index.html">
  <span class="dropdown-text">Module 04 - Factors and data cleaning</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_05/index.html">
  <span class="dropdown-text">Module 05 - Explore and understand relationships between variables</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_06/index.html">
  <span class="dropdown-text">Module 06 - Collaboration and reproducibility in GitHub</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_07/index.html">
  <span class="dropdown-text">Module 07 - Visualization, ethics and data security</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_08/index.html">
  <span class="dropdown-text">Module 08 - Automation and web exploration</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_09/index.html">
  <span class="dropdown-text">Module 09 - Prediction and bias</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_10/index.html">
  <span class="dropdown-text">Module 10 - Beyond data: text and dashboard</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assessments" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Assessments</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-assessments">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assessments">    
         <li>
     <a class="dropdown-item" href="../evaluations.html">
  <span class="dropdown-text">Overview</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../examen.html">
  <span class="dropdown-text">Exam</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../defis.html">
  <span class="dropdown-text">Challenges</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../affiche_litteratie_donnees.html">
  <span class="dropdown-text">Data literacy poster</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../projet_session/index.html">
  <span class="dropdown-text">Session project</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Resources</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
         <li>
     <a class="dropdown-item" href="../ressources.html">
  <span class="dropdown-text">Overview</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../livres.html">
  <span class="dropdown-text">Books and readings</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../packages.html">
  <span class="dropdown-text">R packages</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../donnees.html">
  <span class="dropdown-text">Datasets</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../supports_classe.html">
  <span class="dropdown-text">Class supports</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../ia.html">
  <span class="dropdown-text">AI and help</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../boite_outils.html">
  <span class="dropdown-text">Toolkit</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -5808,7 +5808,7 @@ margin-bottom: .05rem;
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-
+    
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -5828,18 +5828,18 @@ margin-bottom: .05rem;
   <a class="home-action" href="#project-check-title">Before each milestone</a>
   </div>
   </div>
-  <div class="resource-panel" aria-label="Project components">
-  <div><span>15</span><p>Proposal</p></div>
-  <div><span>45</span><p>Presentation</p></div>
-  <div><span>15</span><p>Final summary</p></div>
-  <div><span>25</span><p>Repository and team</p></div>
+  <div class="resource-panel" aria-label="Project weights and schedule">
+  <div><span>6%</span><p>Proposal</p></div>
+  <div><span>34%</span><p>Final project</p></div>
+  <div><span>Dec. 14</span><p>Presentation</p></div>
+  <div><span>8:30 a.m.</span><p>Session begins</p></div>
   </div>
   </section>
 
   <section class="resource-section" aria-labelledby="project-path-title">
   <div class="resource-section__header">
   <h2 id="project-path-title" class="anchored">Work path</h2>
-  <p>Dates and administrative requirements are confirmed on Brio. The site explains the project logic and the expected products.</p>
+  <p>The proposal is worth 6% and the final project is worth 34% of the course grade. Presentations take place on December 14, 2026, from 8:30 to 11:20 a.m., during the last class meeting and the exam period. Brio confirms the room and submission details.</p>
   </div>
   <div class="course-flow">
   <article class="flow-card"><span class="flow-number">1</span><h3 class="anchored">Proposal</h3><p>Stabilize the question, data source and analysis plan in <code>proposition/proposition.qmd</code>.</p></article>
@@ -6257,7 +6257,7 @@ display: none !important;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {
+        if (clz.startsWith('code-annotation-')) {                     
           return true;
         }
       }
@@ -6277,11 +6277,11 @@ display: none !important;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button,
-          { trigger: "manual",
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();
+        tooltip.show();    
       }
       setTimeout(function() {
         if (tooltip) {
@@ -6358,7 +6358,7 @@ display: none !important;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config);
+      window.tippy(el, config); 
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -6433,7 +6433,7 @@ display: none !important;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined;
+        let hash = undefined; 
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -6461,7 +6461,7 @@ display: none !important;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              }
+              } 
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -6485,7 +6485,7 @@ display: none !important;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            }
+            } 
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -6525,7 +6525,7 @@ display: none !important;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it
+              // cook up a div (if necessary) and position it 
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");

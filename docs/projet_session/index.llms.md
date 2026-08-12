@@ -6,25 +6,25 @@ Le projet transforme les gestes appris dans les modules en une analyse complète
 
 [Énoncé complet](enonce_projet.llms.md) [Évaluations](../evaluations.llms.md) [Sources de données](../donnees.llms.md) [Avant chaque jalon](#project-check-title)
 
-15
+6 %
 
 Proposition
 
-45
+34 %
+
+Projet final
+
+14 déc.
 
 Présentation
 
-15
+8 h 30
 
-Résumé final
-
-25
-
-Dépôt et équipe
+Début de la séance
 
 ## Parcours de travail
 
-Les dates et les modalités administratives sont confirmées sur Brio. Le site sert à comprendre la logique du projet et les produits attendus.
+La proposition vaut 6 % et le projet final vaut 34 % de la note du cours. La présentation aura lieu le 14 décembre 2026, de 8 h 30 à 11 h 20, pendant la dernière séance du cours et la période réservée aux examens. Le local et les modalités de remise sont confirmés sur Brio.
 
 1
 

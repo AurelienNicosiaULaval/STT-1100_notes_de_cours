@@ -24,6 +24,12 @@ Le projet n’est pas un exercice où toutes les étapes sont données d’avanc
 
 Dans les défis et le projet, l’IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l’examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l’IA influence une partie importante d’un livrable évalué, gardez une trace courte: outil utilisé, but de l’aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
 
+# Pondération et échéancier
+
+La proposition vaut 6 % de la note du cours. Le projet final vaut 34 %. La présentation orale aura lieu le lundi 14 décembre 2026, de 8 h 30 à 11 h 20, pendant la dernière séance du cours et la période réservée aux examens. Le local sera confirmé dans Brio.
+
+Le barème détaillé ci-dessous est un barème interne de 100 points. Les 15 points de la proposition sont convertis en 6 % de la note du cours. Les 85 autres points, qui couvrent la présentation, le résumé final, la reproductibilité et le travail d’équipe, sont convertis en 34 %.
+
 # Jeu de données
 
 Choisissez un jeu de données gérable pour une première analyse complète.
@@ -205,7 +211,7 @@ Chaque équipe remettra aussi une évaluation par les pairs selon les modalités
 | Évaluation par les pairs et responsabilité d’équipe            |      5 |
 | Total                                                          |     10 |
 
-# Évaluation finale
+# Barème interne du projet
 
 | Composante                                   | Points |
 |----------------------------------------------|-------:|
@@ -215,6 +221,12 @@ Chaque équipe remettra aussi une évaluation par les pairs selon les modalités
 | Reproductibilité et organisation du dépôt    |     15 |
 | Travail d’équipe et évaluation par les pairs |     10 |
 | Total                                        |    100 |
+
+| Évaluation dans Brio | Points internes correspondants | Pondération du cours |
+|----------------------|-------------------------------:|---------------------:|
+| Proposition          |                             15 |                  6 % |
+| Projet final         |                             85 |                 34 % |
+| Total du projet      |                            100 |                 40 % |
 
 # Avant la remise finale
 

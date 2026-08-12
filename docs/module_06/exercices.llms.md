@@ -226,7 +226,7 @@ Produisez un graphique des dix organisations ayant le plus de jeux dans l’ense
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-6-1.png)
+> ![Diagramme à bandes horizontal des dix organisations ayant le plus de jeux dans le catalogue Données Québec.](exercices_files/figure-html/unnamed-chunk-6-1.png)
 
 ### Exercice 7 - Joindre les ressources aux jeux
 

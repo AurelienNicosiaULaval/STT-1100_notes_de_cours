@@ -446,7 +446,7 @@ Produisez un diagramme à bandes du nombre de demandes par service. Ordonnez les
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-18-1.png)
+> ![Boîtes à moustaches horizontales comparant la distribution des coûts déclarés selon le service.](exercices_files/figure-html/unnamed-chunk-18-1.png)
 
 ### Exercice 14 - Comparer des proportions avec `position = "fill"`
 
@@ -527,7 +527,7 @@ Reprenez un graphique précédent et améliorez-le pour un lecteur non spéciali
 > graphique_services
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-21-1.png)
+> ![Diagramme à bandes horizontal montrant la part des demandes attribuée à chaque service.](exercices_files/figure-html/unnamed-chunk-21-1.png)
 >
 > Commentaire possible: le graphique montre les services qui reviennent le plus souvent dans cet échantillon fictif. Il faut toutefois rappeler que le fichier sert à pratiquer les méthodes et ne mesure pas un vrai volume de demandes.
 
@@ -604,7 +604,7 @@ Réalisez les tâches suivantes:
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-22-1.png)
+> ![Diagramme à bandes horizontal des douze catégories les plus fréquentes dans l'extrait des requêtes 311 de Montréal.](exercices_files/figure-html/unnamed-chunk-22-1.png)
 >
 > Commentaire possible: l’extrait décrit les demandes publiées, sans permettre de conclure au volume réel de travail ou à la qualité des interventions.
 
@@ -681,6 +681,6 @@ Réalisez les tâches suivantes:
 >   theme_minimal()
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-23-1.png)
+> ![Diagramme à bandes empilées à 100 % comparant les catégories de plaintes de consommation selon la ville du siège social.](exercices_files/figure-html/unnamed-chunk-23-1.png)
 >
 > Recommandation possible: il faut cibler les catégories de plaintes qui combinent un volume élevé et une gravité élevée. Dans un rapport, on citerait le total par réseau et la part de plaintes de gravité élevée avant de proposer une action.
