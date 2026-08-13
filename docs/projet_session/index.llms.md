@@ -24,7 +24,7 @@ Début de la séance
 
 ## Parcours de travail
 
-La proposition vaut 6 % et le projet final vaut 34 % de la note du cours. La présentation aura lieu le 14 décembre 2026, de 8 h 30 à 11 h 20, pendant la dernière séance du cours et la période réservée aux examens. Le local et les modalités de remise sont confirmés sur Brio.
+La proposition vaut 6 % et le projet final vaut 34 % de la note du cours. La présentation aura lieu le 14 décembre 2026, de 8 h 30 à 11 h 20, au local PLT-2325, pendant la dernière séance du cours et la période réservée aux examens. Les modalités de remise sont confirmées sur Brio.
 
 1
 
