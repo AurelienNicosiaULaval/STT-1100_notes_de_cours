@@ -24,7 +24,7 @@ Session begins
 
 ## Work path
 
-The proposal is worth 6% and the final project is worth 34% of the course grade. Presentations take place on December 14, 2026, from 8:30 to 11:20 a.m., during the last class meeting and the exam period. Brio confirms the room and submission details.
+The proposal is worth 6% and the final project is worth 34% of the course grade. Presentations take place on December 14, 2026, from 8:30 to 11:20 a.m. in room PLT-2325, during the last class meeting and the exam period. Brio confirms the submission details.
 
 1
 

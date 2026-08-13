@@ -17,4 +17,4 @@
 | 13 | November 23 | Module 8: automation and web exploration. |
 | 14 | November 30 | Module 9: prediction and bias. |
 | 15 | December 7 | Module 10: text, dashboard and synthesis. |
-| Exams | December 14, 8:30 to 11:20 a.m. | Project oral presentations during the last class meeting. Room to be confirmed in Brio. |
+| Exams | December 14, 8:30 to 11:20 a.m. | Project oral presentations in room PLT-2325 during the last class meeting. |
