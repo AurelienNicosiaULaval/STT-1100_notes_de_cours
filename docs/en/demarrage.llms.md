@@ -4,7 +4,7 @@ STT-1100
 
 The course is built as a data science pathway. Each module starts with targeted readings, immerses you in a guided adventure, then leads you to produce a personal trace: report, graph, cleaned dataset, function, video or dashboard.
 
-[See modules](modules.llms.md) [First session](#first-session) [See challenges](defis.llms.md) [Toolkit](boite_outils.llms.md)
+[See modules](modules.llms.md) [Install the tools](installation.llms.md) [First session](#first-session) [See challenges](defis.llms.md) [Toolkit](boite_outils.llms.md)
 
 1
 
@@ -32,9 +32,9 @@ Keep a trace
 
 ## Before the first session
 
-The first step is simple: have the right access, the right tools and a clear idea of where to find instructions.
+Every student must bring a Windows, macOS or Linux laptop to every session with the course tools already installed and tested. The first step is therefore to have the right access, the right tools and a clear idea of where to find instructions.
 
-1.  Install or check R, RStudio, Quarto and Git.
+1.  Follow the [technical installation procedure](installation.llms.md) to install and verify R, RStudio, Quarto, Git, GitHub and SSH.
 2.  Sign in to Brio for official instructions, dates and submission rules.
 3.  Sign in to GitHub, then use the repository or template requested when the module specifies it.
 4.  Open the current module page and locate the learning plan, adventure, exercises and challenge.
@@ -252,7 +252,7 @@ Intervene on part of the cycle with targeted and adaptable expertise.
 
 ## Tools to Install
 
-These tools form the minimal course environment.
+These tools form the minimal course environment. The [technical installation page](installation.llms.md) provides the exact order, Windows, macOS and Linux commands, GitHub and SSH configuration, a complete Quarto test and a troubleshooting table.
 
 ### R
 

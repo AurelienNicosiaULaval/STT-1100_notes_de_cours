@@ -4,7 +4,7 @@ STT-1100
 
 Le cours est construit comme un parcours de science des données. Chaque module commence par des lectures ciblées, vous plonge dans une aventure guidée, puis vous amène à produire une trace personnelle: rapport, graphique, jeu de données nettoyé, fonction, vidéo ou tableau de bord.
 
-[Voir les modules](modules.llms.md) [Première séance](#premiere-seance) [Voir les défis](defis.llms.md) [Boîte à outils](boite_outils.llms.md)
+[Voir les modules](modules.llms.md) [Installer les outils](installation.llms.md) [Première séance](#premiere-seance) [Voir les défis](defis.llms.md) [Boîte à outils](boite_outils.llms.md)
 
 1
 
@@ -32,9 +32,9 @@ Garder une trace
 
 ## Avant la première séance
 
-La première étape est simple: avoir les bons accès, les bons outils et une idée claire de l'endroit où chercher les consignes.
+Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux avec les outils du cours déjà installés et testés. La première étape est donc d'avoir les bons accès, les bons outils et une idée claire de l'endroit où chercher les consignes.
 
-1.  Installer ou vérifier R, RStudio, Quarto et Git.
+1.  Suivre la [procédure d'installation technique](installation.llms.md) pour installer et vérifier R, RStudio, Quarto, Git, GitHub et SSH.
 2.  Se connecter à Brio pour les consignes officielles, les dates et les modalités de remise.
 3.  Se connecter à GitHub, puis utiliser le dépôt ou le gabarit demandé lorsque le module le précise.
 4.  Ouvrir la page du module en cours et repérer le plan d'apprentissage, l'aventure, les exercices et le défi.
@@ -252,7 +252,7 @@ Intervenir sur une partie du cycle avec une expertise ciblée et adaptable.
 
 ## Outils à installer
 
-Ces outils forment l'environnement minimal du cours.
+Ces outils forment l'environnement minimal du cours. La [page d'installation technique](installation.llms.md) donne l'ordre exact, les commandes Windows, macOS et Linux, la configuration GitHub et SSH, un test Quarto complet et un tableau de dépannage.
 
 ### R
 

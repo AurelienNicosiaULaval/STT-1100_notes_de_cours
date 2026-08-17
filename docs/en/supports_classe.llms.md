@@ -32,9 +32,9 @@ If you are unsure where to go, follow this path. It places each document at the 
 
 ### Configure
 
-Start with the RStudio and GitHub memo to clone with SSH and open the right project.
+Follow the complete procedure to install R, RStudio, Quarto and Git, then configure GitHub and SSH.
 
-[Open the guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
+[Open technical installation](installation.llms.md)
 
 2
 
@@ -68,7 +68,7 @@ Class supports are meant to accompany autonomous work. The useful question is no
 
 ### I am starting the course
 
-Open the RStudio and GitHub memo, then the toolkit to understand the basic workflow.
+Follow the [technical installation page](installation.llms.md) first, then open the RStudio and GitHub memo and the toolkit to understand the basic workflow.
 
 ### I am working on an exercise
 
@@ -93,6 +93,12 @@ Read [the AI page](ia.llms.md), then open [GPT STT-1100](https://chatgpt.com/g/g
 ## Useful Documents
 
 The cards below open the supports already present in the course repository. HTML documents are best on screen; PDFs are useful for review or for keeping a compact reference next to RStudio.
+
+### Complete Technical Installation
+
+Windows, macOS and Linux procedure for installing R, RStudio, Quarto and Git, configuring GitHub and SSH, installing the starting packages and validating a first render.
+
+[Prepare my computer](installation.llms.md)
 
 ### STT-1100 Toolkit
 
