@@ -1,0 +1,408 @@
+---
+pagetitle: "STT-1100 - Introduction à la science des données"
+lang: fr
+format:
+  revealjs:
+    theme: simple
+    css: presentation_cours.css
+    slide-number: c/t
+    show-slide-number: all
+    transition: fade
+    background-transition: fade
+    width: 1600
+    height: 900
+    margin: 0.055
+    center: false
+    controls: true
+    progress: true
+    history: true
+    hash: true
+    navigation-mode: linear
+    footer: "STT-1100 · Automne 2026"
+embed-resources: true
+editor: source
+---
+
+## {#bienvenue .title-slide .hero-slide background-color="#fbfaf7"}
+
+<div class="hero-grid">
+<div class="hero-copy">
+<p class="kicker">STT-1100 · Automne 2026</p>
+<h1>Introduction à la<br>science des données</h1>
+<p class="hero-line">Des données brutes aux décisions responsables.</p>
+<p class="presenter">Aurélien Nicosia · Université Laval</p>
+</div>
+<div class="hero-visual">
+<img src="../../assets/img/home-data-lab.svg" alt="Nuage de points avec tendance ajustée et densités marginales">
+</div>
+</div>
+
+::: {.notes}
+Ouvrir avec la promesse du cours. Ne pas commencer par l'administration. Demander aux étudiantes et étudiants ce qu'ils pensent pouvoir produire à partir d'un tableau brut.
+
+Sources internes: index.qmd; _quarto.yml.
+:::
+
+## Un tableau ne devient pas une décision tout seul {.statement-slide}
+
+<div class="question-stage">
+<p class="question">Que faut-il faire entre...</p>
+<div class="before-after">
+<div class="raw-table" aria-label="Exemple stylisé de données brutes">
+<span>date</span><span>valeur</span><span>région</span>
+<span>2026-09-01</span><span>NA</span><span>Québec</span>
+<span>01/09/26</span><span>42</span><span>Quebec</span>
+<span>2026-09-01</span><span>4200</span><span>québec</span>
+</div>
+<div class="stage-arrow" aria-hidden="true">→</div>
+<div class="decision-copy">
+<span>une analyse fiable</span>
+<span>une histoire claire</span>
+<span>une décision défendable</span>
+</div>
+</div>
+<p class="answer fragment">C'est exactement le travail que nous allons apprendre à faire.</p>
+</div>
+
+::: {.notes}
+Faire émerger les gestes: comprendre, nettoyer, visualiser, modéliser, communiquer, vérifier.
+:::
+
+## Vous allez pratiquer le métier, pas seulement le vocabulaire
+
+<div class="pipeline">
+<div class="pipeline-step"><span class="pipeline-number">01</span><span class="pipeline-label">Comprendre</span><span class="pipeline-text">la question et les données</span></div>
+<div class="pipeline-step"><span class="pipeline-number">02</span><span class="pipeline-label">Préparer</span><span class="pipeline-text">un jeu de données fiable</span></div>
+<div class="pipeline-step"><span class="pipeline-number">03</span><span class="pipeline-label">Explorer</span><span class="pipeline-text">les motifs et les relations</span></div>
+<div class="pipeline-step"><span class="pipeline-number">04</span><span class="pipeline-label">Communiquer</span><span class="pipeline-text">avec clarté et prudence</span></div>
+</div>
+
+<div class="takeaway-strip">
+À la fin du cours, vous saurez produire une analyse reproductible que vous pouvez expliquer, vérifier et défendre.
+</div>
+
+::: {.notes}
+Source interne: page d'accueil et objectifs des dix modules.
+:::
+
+## Chaque module vous confie une mission
+
+<div class="role-feature">
+<div class="role-quote">
+<p>Une personne a besoin de votre analyse.</p>
+<p>Les données ne sont pas parfaites.</p>
+<p>Votre conclusion aura des conséquences.</p>
+</div>
+<div class="role-list">
+<div>scientifique de données</div>
+<div>journaliste de données</div>
+<div>ingénieur·e de données</div>
+<div>statisticien·ne</div>
+<div>consultant·e</div>
+<div>analyste d'affaires</div>
+</div>
+</div>
+
+<p class="slide-bottom-note">Le rôle change. L'exigence reste la même: rendre votre démarche compréhensible.</p>
+
+::: {.notes}
+Les rôles viennent des aventures des modules 1 à 10. Insister sur l'immersion comme moyen pédagogique, pas comme simple décoration.
+:::
+
+## Une semaine suit un rythme que vous reconnaîtrez vite
+
+<div class="weekly-journey">
+<div class="journey-node"><span>1</span><h3>Plan</h3><p>Se repérer</p></div>
+<div class="journey-line"></div>
+<div class="journey-node"><span>2</span><h3>Lectures</h3><p>Préparer les idées</p></div>
+<div class="journey-line"></div>
+<div class="journey-node"><span>3</span><h3>Mini-test</h3><p>S'autoévaluer</p></div>
+<div class="journey-line"></div>
+<div class="journey-node accent"><span>4</span><h3>Aventure</h3><p>Pratiquer en classe</p></div>
+<div class="journey-line"></div>
+<div class="journey-node accent"><span>5</span><h3>Défi</h3><p>Produire en autonomie</p></div>
+<div class="journey-line"></div>
+<div class="journey-node"><span>6</span><h3>Exercices</h3><p>Consolider autrement</p></div>
+</div>
+
+<p class="center-note">Vous savez toujours où commencer, quoi produire et comment vérifier votre progression.</p>
+
+::: {.notes}
+Source interne: demarrage.qmd et modules.qmd. Préciser que le mini-test est formatif et que les exercices utilisent d'autres contextes.
+:::
+
+## Trois activités, trois fonctions
+
+<div class="three-lanes">
+<div class="lane adventure-lane">
+<p class="lane-label">Aventure</p>
+<h3>Apprendre dans une situation</h3>
+<p>Un rôle, des données, une personne à aider et un parcours guidé.</p>
+</div>
+<div class="lane challenge-lane">
+<p class="lane-label">Défi</p>
+<h3>Montrer votre autonomie</h3>
+<p>Une production ciblée qui prolonge l'aventure et demande des choix personnels.</p>
+</div>
+<div class="lane practice-lane">
+<p class="lane-label">Exercices</p>
+<h3>Stabiliser les réflexes</h3>
+<p>D'autres contextes et d'autres données pour pratiquer sans répéter le défi.</p>
+</div>
+</div>
+
+::: {.notes}
+Source interne: demarrage.qmd, section « Trois pièces, trois fonctions ».
+:::
+
+## Dix modules, un seul parcours
+
+<div class="four-phases">
+<div class="phase"><span>Modules 1 à 3</span><h3>Entrer dans la pratique</h3><p>R, Quarto, GitHub, visualisation et catégories</p></div>
+<div class="phase"><span>Modules 4 à 6</span><h3>Fiabiliser le travail</h3><p>Nettoyage, relations, jointures et collaboration</p></div>
+<div class="phase"><span>Modules 7 et 8</span><h3>Agir avec responsabilité</h3><p>Éthique, confidentialité et automatisation prudente</p></div>
+<div class="phase"><span>Modules 9 et 10</span><h3>Partager avec jugement</h3><p>Prédiction, biais, texte et tableau de bord</p></div>
+</div>
+
+<p class="progression-line">La technique progresse. Votre autonomie et votre responsabilité aussi.</p>
+
+::: {.notes}
+Source interne: modules.qmd et demarrage.qmd.
+:::
+
+## 1 à 3 · Démarrer, organiser, raconter {.phase-slide .phase-one}
+
+<div class="module-trio">
+<div class="module-focus"><span class="module-number">01</span><h3>Premier rapport</h3><p>RStudio, R, Quarto et données météo</p><small>Produit: mini-rapport HTML reproductible</small></div>
+<div class="module-focus"><span class="module-number">02</span><h3>Projet versionné</h3><p>GitHub, Excel et visualisations lisibles</p><small>Produit: dépôt et journal de bord</small></div>
+<div class="module-focus"><span class="module-number">03</span><h3>Article de données</h3><p>Chaînes, catégories et infractions alimentaires</p><small>Produit: article Quarto illustré</small></div>
+</div>
+
+<p class="phase-message">Vous passez d'un tableau à une analyse que quelqu'un d'autre peut relire.</p>
+
+::: {.notes}
+Sources internes: module_01/index.qmd, module_02/index.qmd, module_03/index.qmd.
+:::
+
+## 4 à 6 · Nettoyer, explorer, collaborer {.phase-slide .phase-two}
+
+<div class="module-trio">
+<div class="module-focus"><span class="module-number">04</span><h3>Données fiables</h3><p>CSV, Excel, JSON, erreurs et recodage</p><small>Produit: données propres et journal de nettoyage</small></div>
+<div class="module-focus"><span class="module-number">05</span><h3>Relations prudentes</h3><p>Dates, corrélations et retards de vols</p><small>Produit: rapport exploratoire argumenté</small></div>
+<div class="module-focus"><span class="module-number">06</span><h3>Travail d'équipe</h3><p>Jointures, GitHub et revue croisée</p><small>Produit: rapport collaboratif reproductible</small></div>
+</div>
+
+<p class="phase-message">Vous apprenez à laisser une trace claire de vos décisions et de votre collaboration.</p>
+
+::: {.notes}
+Sources internes: module_04/index.qmd, module_05/index.qmd, module_06/index.qmd.
+:::
+
+## 7 et 8 · Protéger et automatiser {.phase-slide .phase-three}
+
+<div class="module-duo">
+<div class="module-focus large"><span class="module-number">07</span><h3>Science des données responsable</h3><p>Visualisation honnête, anonymisation, éthique et confidentialité</p><small>Produit: note éthique, données protégées et figures corrigées</small></div>
+<div class="module-focus large"><span class="module-number">08</span><h3>Automatisation prudente</h3><p>Fonctions, boucles, extraction web et limites de la collecte</p><small>Produit: fonction <code>scrape_page()</code> robuste et testable</small></div>
+</div>
+
+<p class="phase-message">Pouvoir faire quelque chose avec des données ne signifie pas toujours qu'il faut le faire.</p>
+
+::: {.notes}
+Sources internes: module_07/index.qmd, module_08/index.qmd.
+:::
+
+## 9 et 10 · Prédire et partager {.phase-slide .phase-four}
+
+<div class="module-duo">
+<div class="module-focus large"><span class="module-number">09</span><h3>Prédiction et biais</h3><p>Régression, erreurs, limites et recommandation prudente</p><small>Produit: capsule vidéo de 180 secondes</small></div>
+<div class="module-focus large"><span class="module-number">10</span><h3>Texte et interaction</h3><p>Analyse textuelle, visualisation et tableau de bord</p><small>Produit: tableau de bord interactif local</small></div>
+</div>
+
+<p class="phase-message">Le résultat compte. La manière de l'expliquer et d'en reconnaître les limites compte autant.</p>
+
+::: {.notes}
+Sources internes: module_09/index.qmd, module_10/index.qmd.
+:::
+
+## À la fin, votre dossier ne contiendra pas que du code
+
+<div class="outputs-cloud">
+<span class="output output-xl">rapports Quarto</span>
+<span class="output output-md">données nettoyées</span>
+<span class="output output-lg">visualisations</span>
+<span class="output output-sm">journal de décisions</span>
+<span class="output output-lg">dépôts GitHub</span>
+<span class="output output-md">article de données</span>
+<span class="output output-sm">fonction testable</span>
+<span class="output output-md">capsule vidéo</span>
+<span class="output output-xl">tableau de bord</span>
+</div>
+
+<p class="portfolio-message">Vous construisez des preuves visibles de ce que vous savez faire.</p>
+
+::: {.notes}
+Source interne: produits finis annoncés dans les pages des dix modules.
+:::
+
+## Des données proches de vraies décisions
+
+<div class="data-map">
+<div class="data-map-copy">
+<p class="big-idea">Le cours privilégie des données réelles, souvent québécoises, quand elles servent clairement l'apprentissage.</p>
+<p>Météo, services municipaux, alimentation, équipements publics, éducation, eau potable et données ouvertes.</p>
+</div>
+<div class="data-map-examples">
+<div>MeteoQuebec</div>
+<div>Montréal</div>
+<div>Sherbrooke</div>
+<div>Données Québec</div>
+<div>Écoles du Québec</div>
+<div>Municipalités</div>
+</div>
+</div>
+
+<div class="integrity-callout">Quand une donnée est fictive, elle est annoncée comme telle et utilisée pour apprendre sans exposer de personnes réelles.</div>
+
+::: {.notes}
+Sources internes: donnees.qmd; fichiers et descriptions des modules 1, 3, 4, 7, 8, 9 et 10.
+:::
+
+## Vos outils forment un seul atelier
+
+<div class="tool-workbench">
+<div class="tool-main"><span class="tool-letter">R</span><h3>Analyser</h3><p>Importer, transformer, visualiser et modéliser.</p></div>
+<div class="tool-main"><span class="tool-letter">RStudio</span><h3>Organiser</h3><p>Écrire le code et travailler dans le bon projet.</p></div>
+<div class="tool-main"><span class="tool-letter">Quarto</span><h3>Rendre</h3><p>Réunir code, résultats et explications dans un document.</p></div>
+<div class="tool-main"><span class="tool-letter">GitHub</span><h3>Tracer</h3><p>Versionner, collaborer et partager une production.</p></div>
+</div>
+
+<p class="center-note">Le bon outil est celui qui rend votre démarche plus claire et plus reproductible.</p>
+
+::: {.notes}
+Source interne: demarrage.qmd et boite_outils.qmd.
+:::
+
+## L'évaluation suit votre progression
+
+<div class="assessment-staircase">
+<div class="assessment-step formative"><span>Pratiquer</span><h3>Mini-tests, aventures et exercices</h3><p>Repérer les incompréhensions avant une remise.</p></div>
+<div class="assessment-step challenges"><span>Produire</span><h3>Défis</h3><p>Livrables courts avec une autonomie croissante.</p></div>
+<div class="assessment-step exam"><span>Intégrer seul</span><h3>Examen</h3><p>Situation appliquée couvrant les modules 1 à 4.</p></div>
+<div class="assessment-step poster"><span>Communiquer</span><h3>Affiche</h3><p>Histoire visuelle en équipe à partir de données réelles.</p></div>
+<div class="assessment-step project"><span>Mener un projet</span><h3>Projet de session</h3><p>Question, données, analyse, dépôt, présentation et résumé final.</p></div>
+</div>
+
+<p class="official-note">Brio confirme les pondérations, les dates, les remises et les modalités administratives.</p>
+
+::: {.notes}
+Sources internes: evaluations.qmd, examen.qmd, affiche_litteratie_donnees.qmd, projet_session/index.qmd.
+:::
+
+## Les grands rendez-vous de l'automne 2026
+
+<div class="term-timeline">
+<div class="term-event start"><span class="event-date">31 août</span><h3>Première séance</h3><p>Module 1 et premier rapport Quarto</p></div>
+<div class="term-event"><span class="event-date">19 octobre</span><h3>Examen en classe</h3><p>Intégration des modules 1 à 4</p></div>
+<div class="term-event"><span class="event-date">22 novembre</span><h3>Affiche</h3><p>Communication visuelle à partir de données réelles</p></div>
+<div class="term-event end"><span class="event-date">14 décembre</span><h3>Présentations du projet</h3><p>Dernière séance, de 8 h 30 à 11 h 20</p></div>
+</div>
+
+<p class="official-note">Consultez Brio avant chaque remise. En cas de différence, la consigne officielle de la session prévaut.</p>
+
+::: {.notes}
+Sources internes: calendrier.qmd; affiche_litteratie_donnees.qmd; projet_session/index.qmd. La présentation du projet est annoncée au local PLT-2325 sur le site.
+:::
+
+## L'IA peut aider. Elle ne peut pas assumer vos choix.
+
+<div class="ai-balance">
+<div class="ai-permitted">
+<p class="kicker">Utiliser</p>
+<h3>Comprendre, déboguer, planifier, reformuler, vérifier</h3>
+</div>
+<div class="ai-responsibility">
+<p class="kicker">Toujours</p>
+<ol>
+<li>Comprendre la suggestion</li>
+<li>Tester avec vos données</li>
+<li>Vérifier la consigne</li>
+<li>Déclarer l'aide importante</li>
+</ol>
+</div>
+</div>
+
+<div class="ai-red-line">À l'examen, seuls les outils explicitement autorisés sur Brio sont permis.</div>
+
+::: {.notes}
+Source interne: ia.qmd. Insister sur la responsabilité de la personne qui remet le travail.
+:::
+
+## Quatre espaces, quatre usages
+
+<div class="ecosystem">
+<div class="ecosystem-row"><span class="ecosystem-name">Brio</span><span class="ecosystem-verb">Confirmer</span><span>Dates, remises, pondérations et annonces officielles</span></div>
+<div class="ecosystem-row"><span class="ecosystem-name">Site du cours</span><span class="ecosystem-verb">Apprendre</span><span>Plans, lectures, mini-tests, aventures, défis, données et ressources</span></div>
+<div class="ecosystem-row"><span class="ecosystem-name">GitHub</span><span class="ecosystem-verb">Produire</span><span>Gabarits, versions, collaboration et traces de travail</span></div>
+<div class="ecosystem-row"><span class="ecosystem-name">GPT STT-1100</span><span class="ecosystem-verb">Se débloquer</span><span>Explications, diagnostic et vérifications, sans faire le travail à votre place</span></div>
+</div>
+
+::: {.notes}
+Sources internes: demarrage.qmd, ia.qmd et ressources.qmd.
+:::
+
+## La routine qui évite la plupart des mauvaises surprises
+
+<div class="success-routine">
+<div><span>01</span><p>Ouvrir le bon projet</p></div>
+<div><span>02</span><p>Lire la consigne avant de coder</p></div>
+<div><span>03</span><p>Exécuter par petites étapes</p></div>
+<div><span>04</span><p>Rendre le document Quarto</p></div>
+<div><span>05</span><p>Vérifier données, figures et conclusion</p></div>
+<div><span>06</span><p>Conserver une trace claire</p></div>
+</div>
+
+<blockquote class="success-quote">Un travail simple, vérifié et bien expliqué vaut mieux qu'un travail spectaculaire que vous ne pouvez pas défendre.</blockquote>
+
+::: {.notes}
+Sources internes: demarrage.qmd et boite_outils.qmd.
+:::
+
+## Votre première mission commence maintenant {.action-slide}
+
+<div class="first-mission">
+<div class="mission-number">01</div>
+<div class="mission-copy">
+<h3>Ouvrir le site du cours</h3>
+<p>Repérez Démarrage, Calendrier, Modules et Boîte à outils.</p>
+</div>
+<div class="mission-number">02</div>
+<div class="mission-copy">
+<h3>Vérifier votre atelier</h3>
+<p>R, RStudio, Quarto, Git et GitHub doivent être prêts.</p>
+</div>
+<div class="mission-number">03</div>
+<div class="mission-copy">
+<h3>Produire une première trace</h3>
+<p>Ouvrez le module 1 et rendez votre premier document Quarto.</p>
+</div>
+</div>
+
+<p class="course-url"><a href="https://aureliennicosiaulaval.github.io/STT-1100_notes_de_cours/">aureliennicosiaulaval.github.io/STT-1100_notes_de_cours</a></p>
+
+::: {.notes}
+Source interne: demarrage.qmd. Faire réaliser ces actions en classe si le temps le permet.
+:::
+
+## {#bienvenue-au-laboratoire .closing-slide background-color="#202124"}
+
+<div class="closing-content">
+<p class="kicker light">STT-1100</p>
+<h2>Bienvenue dans le laboratoire.</h2>
+<p>Cette session, vous allez apprendre à faire parler les données sans leur faire dire n'importe quoi.</p>
+<div class="closing-rule"></div>
+<p class="closing-small">Soyez curieux. Soyez rigoureux. Gardez une trace.</p>
+</div>
+
+::: {.notes}
+Fermer en revenant à la promesse d'ouverture: une analyse fiable, claire et responsable.
+:::
