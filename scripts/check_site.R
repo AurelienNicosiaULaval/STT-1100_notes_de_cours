@@ -23,12 +23,12 @@ read_html <- function(path) {
 html_files <- list.files(docs_root, pattern = "\\.html$", recursive = TRUE, full.names = TRUE)
 
 expected_pages <- c(
-  "index.html", "demarrage.html", "ressources.html", "livres.html",
+  "index.html", "demarrage.html", "installation.html", "ressources.html", "livres.html",
   "supports_classe.html", "ia.html", "boite_outils.html",
   "evaluations.html", "examen.html", "defis.html", "projet_session/index.html",
   "projet_session/enonce_projet.html", "donnees.html", "packages.html",
   "modules.html", "calendrier.html", "references.html",
-  "en/index.html", "en/demarrage.html", "en/ressources.html", "en/livres.html",
+  "en/index.html", "en/demarrage.html", "en/installation.html", "en/ressources.html", "en/livres.html",
   "en/supports_classe.html", "en/ia.html", "en/boite_outils.html",
   "en/evaluations.html", "en/examen.html", "en/defis.html", "en/projet_session/index.html",
   "en/projet_session/enonce_projet.html", "en/donnees.html", "en/packages.html",
@@ -115,11 +115,11 @@ for (path in html_files) {
 }
 
 custom_hero_pages <- c(
-  "index.html", "demarrage.html", "ressources.html", "livres.html",
+  "index.html", "demarrage.html", "installation.html", "ressources.html", "livres.html",
   "supports_classe.html", "ia.html", "boite_outils.html",
   "evaluations.html", "examen.html", "defis.html", "projet_session/index.html",
   "donnees.html", "packages.html", "calendrier.html", "references.html",
-  "en/index.html", "en/demarrage.html", "en/ressources.html", "en/livres.html",
+  "en/index.html", "en/demarrage.html", "en/installation.html", "en/ressources.html", "en/livres.html",
   "en/supports_classe.html", "en/ia.html", "en/boite_outils.html",
   "en/evaluations.html", "en/examen.html", "en/defis.html", "en/projet_session/index.html",
   "en/donnees.html", "en/packages.html", "en/calendrier.html", "en/references.html"

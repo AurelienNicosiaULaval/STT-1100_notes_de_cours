@@ -32,9 +32,9 @@ Si vous hésitez, suivez ce parcours. Il place chaque document au moment où il 
 
 ### Configurer
 
-Commencer par l'aide-mémoire RStudio et GitHub pour cloner avec SSH et ouvrir le bon projet.
+Suivre la procédure complète pour installer R, RStudio, Quarto et Git, puis configurer GitHub et SSH.
 
-[Ouvrir le guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
+[Ouvrir l'installation technique](installation.llms.md)
 
 2
 
@@ -68,7 +68,7 @@ Les supports de classe sont là pour accompagner le travail autonome. La bonne q
 
 ### Je démarre le cours
 
-Ouvrir l'aide-mémoire RStudio et GitHub, puis la boîte à outils pour comprendre le workflow de base.
+Suivre d'abord la [page d'installation technique](installation.llms.md), puis ouvrir l'aide-mémoire RStudio et GitHub et la boîte à outils pour comprendre le workflow de base.
 
 ### Je travaille sur un exercice
 
@@ -93,6 +93,12 @@ Lire [la page IA](ia.llms.md), puis ouvrir [GPT STT-1100](https://chatgpt.com/g/
 ## Documents utiles
 
 Les cartes ci-dessous ouvrent les supports déjà présents dans le dépôt du cours. Les documents HTML se consultent bien à l'écran; les PDF sont pratiques pour réviser ou garder un résumé à côté de RStudio.
+
+### Installation technique complète
+
+Procédure Windows, macOS et Linux pour installer R, RStudio, Quarto et Git, configurer GitHub et SSH, installer les packages de départ et valider un premier rendu.
+
+[Préparer mon ordinateur](installation.llms.md)
 
 ### Présentation du cours · Automne 2026
 

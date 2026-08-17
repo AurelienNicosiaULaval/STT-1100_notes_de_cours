@@ -50,7 +50,7 @@ données chargées résumés clairs rendu reproductible
 
 ### Avant de commencer
 
-Vérifiez que R, RStudio et Quarto sont installés. Ouvrez RStudio, créez un fichier `.qmd` vide et rendez-le une première fois: ce test technique vient avant l’analyse.
+Suivez la [procédure d’installation technique](../installation.llms.md) pour vérifier R, RStudio, Quarto, Git, GitHub et les packages de départ. Ouvrez ensuite RStudio, créez un fichier `.qmd` vide et rendez-le une première fois: ce test technique vient avant l’analyse.
 
 ### Parcours minimal
 

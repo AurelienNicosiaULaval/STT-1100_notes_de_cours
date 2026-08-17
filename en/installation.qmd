@@ -1,0 +1,333 @@
+---
+title: ""
+pagetitle: "Technical Installation - STT-1100"
+body-classes: page-resource
+format:
+  html:
+    toc: true
+    toc-title: "On this page"
+    title-block-style: none
+    embed-resources: true
+execute:
+  enabled: false
+---
+
+```{=html}
+<div class="resource-page installation-page">
+  <section class="resource-hero" aria-labelledby="installation-title">
+    <div>
+      <p class="eyebrow">Before the first session</p>
+      <h1 id="installation-title">Prepare your computer for STT-1100</h1>
+      <p>Follow this procedure in order to install R, RStudio Desktop, Quarto and Git, create your GitHub account, configure SSH and verify a first reproducible report.</p>
+      <div class="resource-actions" aria-label="Quick links">
+        <a class="home-action home-action--primary" href="#installation-order">Start installation</a>
+        <a class="home-action" href="#final-test">Run the final test</a>
+        <a class="home-action" href="#troubleshooting">Troubleshoot</a>
+        <a class="home-action" href="packages.html">View R packages</a>
+      </div>
+    </div>
+    <div class="resource-panel" aria-label="Expected result">
+      <div><span>01</span><p>Install applications</p></div>
+      <div><span>02</span><p>Configure Git and GitHub</p></div>
+      <div><span>03</span><p>Install R packages</p></div>
+      <div><span>04</span><p>Render a Quarto file</p></div>
+    </div>
+  </section>
+</div>
+```
+
+::: {.callout-important}
+## Computer required during the course
+
+Every student must bring a Windows, macOS or Linux laptop to every session with the tools on this page installed and working. A browser or tablet alone does not replace the local applications used in the course.
+
+A stable Internet connection is required. 8 GB of memory is strongly recommended; 16 GB provides more comfort. If an organization manages the computer, confirm before class that you are allowed to install software.
+:::
+
+## What must work {#expected-result}
+
+Before the first session, you must be able to confirm all seven items:
+
+- R starts inside RStudio and runs `1 + 1`.
+- RStudio Desktop opens a project and a `.qmd` file.
+- Quarto responds to `quarto check`.
+- Git responds to `git --version`.
+- your GitHub account exists and its email address is verified;
+- `ssh -T git@github.com` recognizes your account;
+- a Quarto document containing R code produces an HTML file without an error.
+
+::: {.callout-note}
+## Where to enter commands
+
+R commands go in RStudio's Console tab. The `git`, `quarto`, `ssh` and `ls` commands go in a terminal. On Windows, use Git Bash after installing Git. On macOS or Linux, use Terminal. RStudio's Terminal pane also works when available.
+:::
+
+## Installation order {#installation-order}
+
+Follow this order. RStudio uses R, Quarto runs R code and Git also provides Git Bash on Windows.
+
+### 1. Install R
+
+Download R from the [Comprehensive R Archive Network](https://cran.r-project.org/), then choose your system:
+
+- [R for Windows](https://cran.r-project.org/bin/windows/base/)
+- [R for macOS](https://cran.r-project.org/bin/macosx/)
+- [R for Linux](https://cran.r-project.org/bin/linux/)
+
+Accept the default installation options. On macOS, choose the file that matches the computer's processor when several installers are offered.
+
+You will verify R inside RStudio after the next step.
+
+### 2. Install RStudio Desktop
+
+Download the free version of [RStudio Desktop from Posit](https://posit.co/download/rstudio-desktop/). Close and reopen RStudio after installation.
+
+In the Console tab, run:
+
+```r
+R.version.string
+1 + 1
+```
+
+The first result must display an R version and the second must display `2`.
+
+### 3. Install Quarto
+
+Download the installer for your system from the [official Quarto download page](https://quarto.org/docs/download/). Close RStudio completely, reopen it, then run in the terminal:
+
+```bash
+quarto --version
+quarto check
+```
+
+The first command must display a version number. The second must detect Quarto and an R installation without a blocking error.
+
+### 4. Install Git {.tabset}
+
+#### Windows
+
+Download [Git for Windows](https://git-scm.com/download/win), run the installer and keep the default choices. Open Git Bash, then run:
+
+```bash
+git --version
+```
+
+#### macOS
+
+Open Terminal and run:
+
+```bash
+git --version
+```
+
+If macOS offers to install the command-line tools, accept and let installation finish. You can also use the [Git installer for macOS](https://git-scm.com/download/mac). Run `git --version` again after installation.
+
+#### Linux
+
+Use your distribution's package manager. For Debian or Ubuntu:
+
+```bash
+sudo apt update
+sudo apt install git
+git --version
+```
+
+For Fedora:
+
+```bash
+sudo dnf install git
+git --version
+```
+
+The official documentation lists [other Linux options](https://git-scm.com/download/linux).
+
+## Configure Git and GitHub {#configure-git-github}
+
+### 5. Create and verify the GitHub account
+
+Create a free personal account with the [official GitHub procedure](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). Use an email address you check and complete the verification sent by GitHub.
+
+Write down your exact GitHub username. You will use it in several course activities.
+
+### 6. Record your Git identity
+
+In the terminal, replace both values with your name and the address linked to your GitHub account:
+
+```bash
+git config --global user.name "First Last"
+git config --global user.email "address-linked-to-github@example.com"
+git config --global init.defaultBranch main
+git config --global --list
+```
+
+Check that `user.name`, `user.email` and `init.defaultbranch=main` contain the correct values. This information will be associated with your commits.
+
+### 7. Configure SSH access to GitHub
+
+SSH lets Git communicate with GitHub without asking for your password for every operation. The complete official procedure is in [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+First check whether a key already exists:
+
+```bash
+ls -al ~/.ssh
+```
+
+If a file such as `id_ed25519.pub` already exists and is linked to your GitHub account, do not create a second key. Otherwise, create one after replacing the email address:
+
+```bash
+ssh-keygen -t ed25519 -C "address-linked-to-github@example.com"
+```
+
+Press Enter to accept the proposed location. A passphrase is recommended. Then load the key for the active session:
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+Copy only the public key:
+
+:::: {.columns}
+::: {.column width="33%"}
+#### Windows, Git Bash
+
+```bash
+clip < ~/.ssh/id_ed25519.pub
+```
+:::
+
+::: {.column width="33%"}
+#### macOS
+
+```bash
+pbcopy < ~/.ssh/id_ed25519.pub
+```
+:::
+
+::: {.column width="34%"}
+#### Linux
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Copy the complete displayed line.
+:::
+::::
+
+In GitHub, open `Settings > SSH and GPG keys > New SSH key`, give the computer a recognizable title, paste the public key and save it. Then test:
+
+```bash
+ssh -T git@github.com
+```
+
+On the first connection, confirm the host fingerprint if GitHub asks. The expected result contains `successfully authenticated` and your username. The message stating that GitHub does not provide shell access is normal.
+
+::: {.callout-warning}
+## Never share the private key
+
+The `~/.ssh/id_ed25519` file is private. Do not copy it to GitHub, Brio, email or a help request. Only the file ending in `.pub` may be shared.
+:::
+
+## Install the starting R packages {#r-packages}
+
+Run this complete block in the RStudio Console. It installs only the missing packages required at the start of the course, followed by the `UlavalSSD` data package used in Module 1.
+
+```r
+# Core packages for the first activities
+required_packages <- c("tidyverse", "knitr", "rmarkdown", "remotes")
+
+installed_packages <- rownames(installed.packages())
+missing_packages <- setdiff(required_packages, installed_packages)
+
+if (length(missing_packages) > 0) {
+  install.packages(missing_packages)
+}
+
+# Course data package
+if (!requireNamespace("UlavalSSD", quietly = TRUE)) {
+  remotes::install_github("AurelienNicosiaULaval/UlavalSSD")
+}
+```
+
+Then verify:
+
+```r
+library(tidyverse)
+library(UlavalSSD)
+
+dim(UlavalSSD::MeteoQuebec)
+```
+
+The result must display two numbers, the number of rows and the number of columns. Other packages will be installed when the modules use them; the [R Packages](packages.html) page lists them.
+
+## Final test with a Quarto document {#final-test}
+
+In RStudio, choose `File > New File > Quarto Document`. Create an HTML document, replace its contents with the text below and save it as `installation-test.qmd`:
+
+````{=html}
+<pre><code>---
+title: "STT-1100 installation test"
+format:
+  html:
+    embed-resources: true
+---
+
+This document confirms that R, RStudio, Quarto and the packages work together.
+
+&#96;&#96;&#96;{r}
+library(tidyverse)
+
+results &lt;- tibble(
+  value = 1:3,
+  square = value^2
+)
+
+results
+&#96;&#96;&#96;</code></pre>
+````
+
+Click `Render`. The installation is ready when:
+
+1. no red error interrupts rendering;
+2. an `installation-test.html` file is created and opens;
+3. the `square` column contains 1, 4 and 9;
+4. all four commands below give the expected results in the terminal.
+
+```bash
+git --version
+quarto --version
+quarto check
+ssh -T git@github.com
+```
+
+## Troubleshooting {#troubleshooting}
+
+| Symptom | Check | Most likely correction |
+|---|---|---|
+| RStudio opens, but R does not start | Run `R.version.string` in the Console | Install R before RStudio, then restart RStudio. |
+| `quarto: command not found` | Run `quarto --version` in a new terminal | Install Quarto, then close and reopen the terminal and RStudio. |
+| `git: command not found` | Run `git --version` | Install Git and open a new terminal. On Windows, use Git Bash. |
+| `Permission denied (publickey)` | Run `ssh -T git@github.com` | Confirm that the `.pub` public key was added to the correct GitHub account and the private key is loaded. |
+| `there is no package called ...` | Run `installed.packages()` in R | Install the package in the Console, then add the correct `library()` to the `.qmd` file. |
+| The document works line by line, but not with `Render` | Restart R, then render again | Add every required `library()` and every object-creation step to the document. |
+
+If the problem continues, keep:
+
+- the operating system and its version;
+- the output of `R.version.string`;
+- the output of `quarto check`;
+- the output of `git --version`;
+- the complete error message;
+- a screenshot showing the step where the problem appears.
+
+Never send a password, access token or private SSH key.
+
+## Official sources
+
+- [R and CRAN downloads](https://cran.r-project.org/)
+- [RStudio Desktop, Posit](https://posit.co/download/rstudio-desktop/)
+- [Install and get started with Quarto](https://quarto.org/docs/get-started/)
+- [Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [First-time Git setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+- [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
