@@ -94,6 +94,12 @@ Lire [la page IA](ia.llms.md), puis ouvrir [GPT STT-1100](https://chatgpt.com/g/
 
 Les cartes ci-dessous ouvrent les supports déjà présents dans le dépôt du cours. Les documents HTML se consultent bien à l'écran; les PDF sont pratiques pour réviser ou garder un résumé à côté de RStudio.
 
+### Présentation du cours · Automne 2026
+
+Une visite guidée du parcours STT-1100: les dix modules, les aventures, les défis, le projet, les outils et la manière de réussir le cours.
+
+[Découvrir le cours](autre_materiel/presentation-cours/presentation_cours_A26.llms.md)
+
 ### Boîte à outils STT-1100
 
 Point d'entrée pratique pour les routines R, Quarto, GitHub, dépannage et aide.
