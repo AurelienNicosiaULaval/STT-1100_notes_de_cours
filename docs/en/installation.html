@@ -5868,6 +5868,7 @@ margin-bottom: .05rem;
   </ul></li>
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">Install the starting R packages</a></li>
   <li><a href="#final-test" id="toc-final-test" class="nav-link" data-scroll-target="#final-test">Final test with a Quarto document</a></li>
+  <li><a href="#check-before-module-2" id="toc-check-before-module-2" class="nav-link" data-scroll-target="#check-before-module-2">Check before module 2</a></li>
   <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
   <li><a href="#official-sources" id="toc-official-sources" class="nav-link" data-scroll-target="#official-sources">Official sources</a></li>
   </ul>
@@ -5882,9 +5883,9 @@ margin-bottom: .05rem;
 <div class="resource-page installation-page">
   <section class="resource-hero" aria-labelledby="installation-title">
     <div>
-      <p class="eyebrow">Before the first session</p>
+      <p class="eyebrow">Course technical preparation</p>
       <h1 id="installation-title">Prepare your computer for STT-1100</h1>
-      <p>Follow this procedure in order to install R, RStudio Desktop, Quarto and Git, create your GitHub account, configure SSH and verify a first reproducible report.</p>
+      <p>Preparation is divided into two stages. Before the first session, install R, RStudio Desktop, Quarto and the starting R packages, then verify a first report. Git, GitHub and SSH setup is scheduled as part of module 2 preparation.</p>
       <div class="resource-actions" aria-label="Quick links">
         <a class="home-action home-action--primary" href="#installation-order">Start installation</a>
         <a class="home-action" href="#final-test">Run the final test</a>
@@ -5893,10 +5894,10 @@ margin-bottom: .05rem;
       </div>
     </div>
     <div class="resource-panel" aria-label="Expected result">
-      <div><span>01</span><p>Install applications</p></div>
-      <div><span>02</span><p>Configure Git and GitHub</p></div>
-      <div><span>03</span><p>Install R packages</p></div>
-      <div><span>04</span><p>Render a Quarto file</p></div>
+      <div><span>01</span><p>Install R, RStudio and Quarto</p></div>
+      <div><span>02</span><p>Install R packages</p></div>
+      <div><span>03</span><p>Render a Quarto file</p></div>
+      <div><span>04</span><p>Prepare Git and GitHub in module 2</p></div>
     </div>
   </section>
 </div>
@@ -5910,21 +5911,24 @@ margin-bottom: .05rem;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Every student must bring a Windows, macOS or Linux laptop to every session with the tools on this page installed and working. A browser or tablet alone does not replace the local applications used in the course.</p>
+<p>Every student must bring a Windows, macOS or Linux laptop to every session with the tools required for the current module installed and working. Only R, RStudio Desktop, Quarto and the starting R packages are required for the first session. A browser or tablet alone does not replace the local applications used in the course.</p>
 <p>A stable Internet connection is required. 8 GB of memory is strongly recommended; 16 GB provides more comfort. If an organization manages the computer, confirm before class that you are allowed to install software.</p>
 </div>
 </div>
 <section id="expected-result" class="level2">
 <h2 class="anchored" data-anchor-id="expected-result">What must work</h2>
-<p>Before the first session, you must be able to confirm all seven items:</p>
+<p>Before the first session, you must be able to confirm these four items:</p>
 <ul>
 <li>R starts inside RStudio and runs <code>1 + 1</code>.</li>
 <li>RStudio Desktop opens a project and a <code>.qmd</code> file.</li>
 <li>Quarto responds to <code>quarto check</code>.</li>
-<li>Git responds to <code>git --version</code>.</li>
-<li>your GitHub account exists and its email address is verified;</li>
-<li><code>ssh -T git@github.com</code> recognizes your account;</li>
 <li>a Quarto document containing R code produces an HTML file without an error.</li>
+</ul>
+<p>Before module 2, you will complete these three checks:</p>
+<ul>
+<li>Git responds to <code>git --version</code>;</li>
+<li>your GitHub account exists and its email address is verified;</li>
+<li><code>ssh -T git@github.com</code> recognizes your account.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -5942,7 +5946,7 @@ margin-bottom: .05rem;
 </section>
 <section id="installation-order" class="level2">
 <h2 class="anchored" data-anchor-id="installation-order">Installation order</h2>
-<p>Follow this order. RStudio uses R, Quarto runs R code and Git also provides Git Bash on Windows.</p>
+<p>To prepare for module 1, install R, RStudio and Quarto, then go directly to the starting R packages and the Quarto test. Complete the Git, GitHub and SSH steps while preparing for module 2.</p>
 <section id="install-r" class="level3">
 <h3 class="anchored" data-anchor-id="install-r">1. Install R</h3>
 <p>Download R from the <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a>, then choose your system:</p>
@@ -6110,12 +6114,16 @@ results
 <li>no red error interrupts rendering;</li>
 <li>an <code>installation-test.html</code> file is created and opens;</li>
 <li>the <code>square</code> column contains 1, 4 and 9;</li>
-<li>all four commands below give the expected results in the terminal.</li>
+<li>both commands below give the expected results in the terminal.</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="check-before-module-2" class="level2">
+<h2 class="anchored" data-anchor-id="check-before-module-2">Check before module 2</h2>
+<p>When module 2 preparation is assigned, complete the Git, GitHub and SSH steps on this page, then verify:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="troubleshooting" class="level2">
 <h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>

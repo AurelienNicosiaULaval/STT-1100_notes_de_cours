@@ -6355,6 +6355,7 @@ margin-bottom: .05rem;
   </ul></li>
   <li><a href="#packages-r" id="toc-packages-r" class="nav-link" data-scroll-target="#packages-r">Installer les packages R de départ</a></li>
   <li><a href="#test-final" id="toc-test-final" class="nav-link" data-scroll-target="#test-final">Test final avec un document Quarto</a></li>
+  <li><a href="#vérification-avant-le-module-2" id="toc-vérification-avant-le-module-2" class="nav-link" data-scroll-target="#vérification-avant-le-module-2">Vérification avant le module 2</a></li>
   <li><a href="#depannage" id="toc-depannage" class="nav-link" data-scroll-target="#depannage">Dépannage</a></li>
   <li><a href="#sources-officielles" id="toc-sources-officielles" class="nav-link" data-scroll-target="#sources-officielles">Sources officielles</a></li>
   </ul>
@@ -6369,9 +6370,9 @@ margin-bottom: .05rem;
 <div class="resource-page installation-page">
   <section class="resource-hero" aria-labelledby="installation-title">
     <div>
-      <p class="eyebrow">Avant la première séance</p>
+      <p class="eyebrow">Préparation technique du cours</p>
       <h1 id="installation-title">Préparer votre ordinateur pour STT-1100</h1>
-      <p>Suivez cette procédure dans l&#39;ordre pour installer R, RStudio Desktop, Quarto et Git, créer votre compte GitHub, configurer SSH et vérifier un premier rapport reproductible.</p>
+      <p>La préparation se fait en deux étapes. Avant la première séance, installez R, RStudio Desktop, Quarto et les packages R de départ, puis vérifiez un premier rapport. La configuration de Git, GitHub et SSH est prévue dans la préparation du module 2.</p>
       <div class="resource-actions" aria-label="Accès rapides">
         <a class="home-action home-action--primary" href="#ordre-installation">Commencer l&#39;installation</a>
         <a class="home-action" href="#test-final">Faire le test final</a>
@@ -6380,10 +6381,10 @@ margin-bottom: .05rem;
       </div>
     </div>
     <div class="resource-panel" aria-label="Résultat attendu">
-      <div><span>01</span><p>Installer les applications</p></div>
-      <div><span>02</span><p>Configurer Git et GitHub</p></div>
-      <div><span>03</span><p>Installer les packages R</p></div>
-      <div><span>04</span><p>Rendre un fichier Quarto</p></div>
+      <div><span>01</span><p>Installer R, RStudio et Quarto</p></div>
+      <div><span>02</span><p>Installer les packages R</p></div>
+      <div><span>03</span><p>Rendre un fichier Quarto</p></div>
+      <div><span>04</span><p>Préparer Git et GitHub au module 2</p></div>
     </div>
   </section>
 </div>
@@ -6397,21 +6398,24 @@ margin-bottom: .05rem;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux sur lequel les outils de cette page sont installés et fonctionnels. Un navigateur ou une tablette seuls ne remplacent pas les applications locales utilisées dans le cours.</p>
+<p>Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux sur lequel les outils nécessaires au module courant sont installés et fonctionnels. Pour la première séance, seuls R, RStudio Desktop, Quarto et les packages R de départ sont requis. Un navigateur ou une tablette seuls ne remplacent pas les applications locales utilisées dans le cours.</p>
 <p>Une connexion Internet stable est nécessaire. Une mémoire vive de 8 Go est fortement recommandée; 16 Go offrent davantage de confort. Si l’ordinateur est administré par une organisation, vérifiez avant le cours que vous avez le droit d’installer des logiciels.</p>
 </div>
 </div>
 <section id="resultat-attendu" class="level2">
 <h2 class="anchored" data-anchor-id="resultat-attendu">Ce qui doit fonctionner</h2>
-<p>Avant la première séance, vous devez pouvoir confirmer les sept points suivants:</p>
+<p>Avant la première séance, vous devez pouvoir confirmer les quatre points suivants:</p>
 <ul>
 <li>R démarre dans RStudio et exécute <code>1 + 1</code>.</li>
 <li>RStudio Desktop ouvre un projet et un fichier <code>.qmd</code>.</li>
 <li>Quarto répond à <code>quarto check</code>.</li>
-<li>Git répond à <code>git --version</code>.</li>
-<li>votre compte GitHub existe et son adresse courriel est vérifiée;</li>
-<li>la commande <code>ssh -T git@github.com</code> reconnaît votre compte;</li>
 <li>un document Quarto contenant du code R produit un fichier HTML sans erreur.</li>
+</ul>
+<p>Avant le module 2, vous compléterez les trois vérifications suivantes:</p>
+<ul>
+<li>Git répond à <code>git --version</code>;</li>
+<li>votre compte GitHub existe et son adresse courriel est vérifiée;</li>
+<li>la commande <code>ssh -T git@github.com</code> reconnaît votre compte.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -6429,7 +6433,7 @@ margin-bottom: .05rem;
 </section>
 <section id="ordre-installation" class="level2">
 <h2 class="anchored" data-anchor-id="ordre-installation">Ordre d’installation</h2>
-<p>Respectez cet ordre. RStudio utilise R, Quarto exécute le code R et Git fournit aussi Git Bash sous Windows.</p>
+<p>Pour préparer le module 1, installez R, RStudio et Quarto, puis passez directement aux packages R de départ et au test Quarto. Les étapes Git, GitHub et SSH seront complétées pendant la préparation du module 2.</p>
 <section id="installer-r" class="level3">
 <h3 class="anchored" data-anchor-id="installer-r">1. Installer R</h3>
 <p>Téléchargez R depuis le <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a>, puis choisissez votre système:</p>
@@ -6597,12 +6601,16 @@ resultats
 <li>aucune erreur rouge n’interrompt le rendu;</li>
 <li>un fichier <code>test-installation.html</code> est créé et s’ouvre;</li>
 <li>le tableau contient les valeurs 1, 4 et 9 dans la colonne <code>carre</code>;</li>
-<li>les quatre commandes suivantes donnent les résultats attendus dans le terminal.</li>
+<li>les deux commandes suivantes donnent les résultats attendus dans le terminal.</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="vérification-avant-le-module-2" class="level2">
+<h2 class="anchored" data-anchor-id="vérification-avant-le-module-2">Vérification avant le module 2</h2>
+<p>Lorsque la préparation du module 2 sera demandée, terminez les étapes Git, GitHub et SSH de cette page, puis vérifiez:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="depannage" class="level2">
 <h2 class="anchored" data-anchor-id="depannage">Dépannage</h2>

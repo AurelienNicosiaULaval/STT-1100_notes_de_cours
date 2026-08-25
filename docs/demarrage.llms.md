@@ -32,13 +32,12 @@ Garder une trace
 
 ## Avant la première séance
 
-Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux avec les outils du cours déjà installés et testés. La première étape est donc d'avoir les bons accès, les bons outils et une idée claire de l'endroit où chercher les consignes.
+Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux. Pour la première séance, R, RStudio Desktop, Quarto et les packages R de départ doivent être installés et testés.
 
-1.  Suivre la [procédure d'installation technique](installation.llms.md) pour installer et vérifier R, RStudio, Quarto, Git, GitHub et SSH.
+1.  Suivre la [procédure d'installation technique](installation.llms.md) pour installer et vérifier R, RStudio Desktop, Quarto et les packages R de départ.
 2.  Se connecter à Brio pour les consignes officielles, les dates et les modalités de remise.
-3.  Se connecter à GitHub, puis utiliser le dépôt ou le gabarit demandé lorsque le module le précise.
-4.  Ouvrir la page du module en cours et repérer le plan d'apprentissage, l'aventure, les exercices et le défi.
-5.  Tester un premier rendu Quarto dès qu'un fichier `.qmd` est fourni ou créé.
+3.  Ouvrir la page du module en cours et repérer le plan d'apprentissage, l'aventure, les exercices et le défi.
+4.  Faire les lectures du module 1, répondre au mini-test formatif et réussir un premier rendu Quarto.
 
 ### Brio
 
@@ -48,9 +47,9 @@ Brio reste la référence pour les dates, les consignes officielles, les remises
 
 Le site sert à travailler: modules, lectures, mini-tests, aventures, exercices, défis, données et ressources.
 
-### GitHub
+### Module 1
 
-GitHub sert à récupérer certains gabarits, suivre les versions et remettre une trace lorsque c'est demandé.
+Le plan d'apprentissage précise les lectures, le mini-test et le premier travail à réaliser avec RStudio et Quarto.
 
 ## Le trajet d'un module
 
@@ -252,7 +251,7 @@ Intervenir sur une partie du cycle avec une expertise ciblée et adaptable.
 
 ## Outils à installer
 
-Ces outils forment l'environnement minimal du cours. La [page d'installation technique](installation.llms.md) donne l'ordre exact, les commandes Windows, macOS et Linux, la configuration GitHub et SSH, un test Quarto complet et un tableau de dépannage.
+La [page d'installation technique](installation.llms.md) sépare clairement les outils requis pour le module 1 de la configuration de Git, GitHub et SSH prévue pour le module 2.
 
 ### R
 

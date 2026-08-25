@@ -50,7 +50,7 @@ At the end of this module, you should be able to
 
 ### Before you start
 
-Follow the [technical installation procedure](../installation.llms.md) to verify R, RStudio, Quarto, Git, GitHub and the starting packages. Then open RStudio, create an empty `.qmd` file and render it once: this technical check comes before the analysis.
+Follow the [technical installation procedure](../installation.llms.md) to verify R, RStudio, Quarto and the starting packages. Then open RStudio, create an empty `.qmd` file and render it once: this technical check comes before the analysis.
 
 ### Minimum route
 

@@ -1,44 +1,47 @@
-Avant la première séance
+Préparation technique du cours
 
 # Préparer votre ordinateur pour STT-1100
 
-Suivez cette procédure dans l'ordre pour installer R, RStudio Desktop, Quarto et Git, créer votre compte GitHub, configurer SSH et vérifier un premier rapport reproductible.
+La préparation se fait en deux étapes. Avant la première séance, installez R, RStudio Desktop, Quarto et les packages R de départ, puis vérifiez un premier rapport. La configuration de Git, GitHub et SSH est prévue dans la préparation du module 2.
 
 [Commencer l'installation](#ordre-installation) [Faire le test final](#test-final) [Dépanner](#depannage) [Voir les packages R](packages.llms.md)
 
 01
 
-Installer les applications
+Installer R, RStudio et Quarto
 
 02
 
-Configurer Git et GitHub
+Installer les packages R
 
 03
 
-Installer les packages R
+Rendre un fichier Quarto
 
 04
 
-Rendre un fichier Quarto
+Préparer Git et GitHub au module 2
 
 > **IMPORTANT:**
 >
-> Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux sur lequel les outils de cette page sont installés et fonctionnels. Un navigateur ou une tablette seuls ne remplacent pas les applications locales utilisées dans le cours.
+> Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux sur lequel les outils nécessaires au module courant sont installés et fonctionnels. Pour la première séance, seuls R, RStudio Desktop, Quarto et les packages R de départ sont requis. Un navigateur ou une tablette seuls ne remplacent pas les applications locales utilisées dans le cours.
 >
 > Une connexion Internet stable est nécessaire. Une mémoire vive de 8 Go est fortement recommandée; 16 Go offrent davantage de confort. Si l’ordinateur est administré par une organisation, vérifiez avant le cours que vous avez le droit d’installer des logiciels.
 
 ## Ce qui doit fonctionner
 
-Avant la première séance, vous devez pouvoir confirmer les sept points suivants:
+Avant la première séance, vous devez pouvoir confirmer les quatre points suivants:
 
 - R démarre dans RStudio et exécute `1 + 1`.
 - RStudio Desktop ouvre un projet et un fichier `.qmd`.
 - Quarto répond à `quarto check`.
-- Git répond à `git --version`.
-- votre compte GitHub existe et son adresse courriel est vérifiée;
-- la commande `ssh -T git@github.com` reconnaît votre compte;
 - un document Quarto contenant du code R produit un fichier HTML sans erreur.
+
+Avant le module 2, vous compléterez les trois vérifications suivantes:
+
+- Git répond à `git --version`;
+- votre compte GitHub existe et son adresse courriel est vérifiée;
+- la commande `ssh -T git@github.com` reconnaît votre compte.
 
 > **NOTE:**
 >
@@ -46,7 +49,7 @@ Avant la première séance, vous devez pouvoir confirmer les sept points suivant
 
 ## Ordre d’installation
 
-Respectez cet ordre. RStudio utilise R, Quarto exécute le code R et Git fournit aussi Git Bash sous Windows.
+Pour préparer le module 1, installez R, RStudio et Quarto, puis passez directement aux packages R de départ et au test Quarto. Les étapes Git, GitHub et SSH seront complétées pendant la préparation du module 2.
 
 ### 1. Installer R
 
@@ -262,12 +265,19 @@ Cliquez sur `Render`. L’installation est prête lorsque:
 1.  aucune erreur rouge n’interrompt le rendu;
 2.  un fichier `test-installation.html` est créé et s’ouvre;
 3.  le tableau contient les valeurs 1, 4 et 9 dans la colonne `carre`;
-4.  les quatre commandes suivantes donnent les résultats attendus dans le terminal.
+4.  les deux commandes suivantes donnent les résultats attendus dans le terminal.
+
+``` bash
+quarto --version
+quarto check
+```
+
+## Vérification avant le module 2
+
+Lorsque la préparation du module 2 sera demandée, terminez les étapes Git, GitHub et SSH de cette page, puis vérifiez:
 
 ``` bash
 git --version
-quarto --version
-quarto check
 ssh -T git@github.com
 ```
 

@@ -32,13 +32,12 @@ Keep a trace
 
 ## Before the first session
 
-Every student must bring a Windows, macOS or Linux laptop to every session with the course tools already installed and tested. The first step is therefore to have the right access, the right tools and a clear idea of where to find instructions.
+Every student must bring a Windows, macOS or Linux laptop to every session. For the first session, R, RStudio Desktop, Quarto and the starting R packages must be installed and tested.
 
-1.  Follow the [technical installation procedure](installation.llms.md) to install and verify R, RStudio, Quarto, Git, GitHub and SSH.
+1.  Follow the [technical installation procedure](installation.llms.md) to install and verify R, RStudio Desktop, Quarto and the starting R packages.
 2.  Sign in to Brio for official instructions, dates and submission rules.
-3.  Sign in to GitHub, then use the repository or template requested when the module specifies it.
-4.  Open the current module page and locate the learning plan, adventure, exercises and challenge.
-5.  Test a first Quarto render as soon as a `.qmd` file is provided or created.
+3.  Open the current module page and locate the learning plan, adventure, exercises and challenge.
+4.  Complete the module 1 readings, answer the formative mini-test and successfully render a first Quarto document.
 
 ### Brio
 
@@ -48,9 +47,9 @@ Brio remains the reference for dates, official instructions, submissions and cou
 
 The site is for working: modules, readings, mini-tests, adventures, exercises, challenges, data and resources.
 
-### GitHub
+### Module 1
 
-GitHub is used to retrieve some templates, track versions and submit a trace when requested.
+The learning plan identifies the readings, mini-test and first task to complete with RStudio and Quarto.
 
 ## The path of a module
 
@@ -252,7 +251,7 @@ Intervene on part of the cycle with targeted and adaptable expertise.
 
 ## Tools to Install
 
-These tools form the minimal course environment. The [technical installation page](installation.llms.md) provides the exact order, Windows, macOS and Linux commands, GitHub and SSH configuration, a complete Quarto test and a troubleshooting table.
+The [technical installation page](installation.llms.md) clearly separates the tools required for module 1 from the Git, GitHub and SSH setup scheduled for module 2.
 
 ### R
 
