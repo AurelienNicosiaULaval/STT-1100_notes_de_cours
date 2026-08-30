@@ -664,28 +664,47 @@ font-weight: 650;
 }
 .before-after {
 display: grid;
-grid-template-columns: 1.15fr 100px 1fr;
-gap: 28px;
+grid-template-columns: minmax(650px, 1.18fr) 80px minmax(0, 0.82fr);
+gap: 24px;
 align-items: center;
 }
 .raw-table {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
+width: 100%;
+margin: 0;
 border-top: 6px solid var(--ink);
 border-bottom: 2px solid var(--line);
+border-collapse: collapse;
+table-layout: fixed;
 background: var(--white);
 box-shadow: 0 18px 40px rgba(32, 33, 36, 0.08);
 }
-.raw-table span {
-padding: 19px 20px;
+.raw-table th,
+.raw-table td {
+padding: 18px 20px;
 border-right: 1px solid var(--line);
 border-bottom: 1px solid var(--line);
 font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 font-size: 21px;
+line-height: 1.2;
+text-align: left;
+white-space: nowrap;
 }
-.raw-table span:nth-child(-n+3) {
+.raw-table th {
 background: #f1f0ec;
 font-weight: 700;
+}
+.raw-table th:first-child,
+.raw-table td:first-child {
+width: 42%;
+font-variant-numeric: tabular-nums;
+}
+.raw-table th:nth-child(2),
+.raw-table td:nth-child(2) {
+width: 22%;
+}
+.raw-table th:last-child,
+.raw-table td:last-child {
+border-right: 0;
 }
 .stage-arrow {
 color: var(--ul-red);
@@ -2164,9 +2183,56 @@ display:block!important;
 Que faut-il faire entre…
 </p>
 <div class="before-after">
-<div class="raw-table" aria-label="Exemple stylisé de données brutes">
-<p><span>date</span><span>valeur</span><span>région</span> <span>2026-09-01</span><span>NA</span><span>Québec</span> <span>01/09/26</span><span>42</span><span>Quebec</span> <span>2026-09-01</span><span>4200</span><span>québec</span></p>
-</div>
+<table class="raw-table" aria-label="Exemple stylisé de données brutes">
+<thead>
+<tr>
+<th>
+date
+</th>
+<th>
+valeur
+</th>
+<th>
+région
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+2026-09-01
+</td>
+<td>
+NA
+</td>
+<td>
+Québec
+</td>
+</tr>
+<tr>
+<td>
+01/09/26
+</td>
+<td>
+42
+</td>
+<td>
+Quebec
+</td>
+</tr>
+<tr>
+<td>
+2026-09-01
+</td>
+<td>
+4200
+</td>
+<td>
+québec
+</td>
+</tr>
+</tbody>
+</table>
 <div class="stage-arrow" aria-hidden="true">
 →
 </div>
