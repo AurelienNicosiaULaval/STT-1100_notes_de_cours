@@ -851,84 +851,366 @@
   font-size: 19px;
 }
 
-.term-timeline {
-  position: relative;
+.exam-spotlight {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 38px;
-  margin-top: 90px;
+  grid-template-columns: 390px 1fr;
+  gap: 44px;
+  align-items: stretch;
+  margin-top: 18px;
 }
 
-.term-timeline::before {
-  content: "";
-  position: absolute;
-  top: 39px;
-  left: 13%;
-  right: 13%;
-  height: 3px;
-  background: var(--line);
+.exam-identity {
+  padding: 36px 38px 32px;
+  border-top: 10px solid var(--ul-red);
+  background: var(--ink);
+  color: var(--white);
 }
 
-.term-event {
-  position: relative;
-  padding-top: 96px;
+.exam-date {
+  display: block;
+  color: var(--ul-yellow);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.term-event::before {
-  content: "";
-  position: absolute;
-  top: 27px;
-  left: 0;
-  width: 28px;
-  height: 28px;
-  border: 7px solid var(--paper);
-  border-radius: 50%;
-  background: var(--ul-red);
-  box-shadow: 0 0 0 2px var(--ul-red);
+.exam-mode {
+  margin: 18px 0 58px !important;
+  color: #d7d7d7;
+  font-size: 18px !important;
+  font-weight: 700;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
 }
 
-.term-event:nth-child(2)::before {
-  background: var(--blue);
-  box-shadow: 0 0 0 2px var(--blue);
+.exam-identity h3 {
+  margin: 0 0 20px;
+  color: var(--white);
+  font-size: 38px;
 }
 
-.term-event:nth-child(3)::before {
-  background: var(--teal);
-  box-shadow: 0 0 0 2px var(--teal);
+.exam-identity > p:last-child {
+  margin: 0;
+  color: #efefef;
+  font-size: 23px;
+  line-height: 1.35;
 }
 
-.term-event:nth-child(4)::before {
-  background: var(--ul-yellow);
-  box-shadow: 0 0 0 2px #a77c00;
+.exam-path {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
 }
 
-.event-date {
+.exam-path > div {
+  display: grid;
+  grid-template-columns: 56px 185px 1fr;
+  gap: 20px;
+  align-items: center;
+  min-height: 105px;
+  border-bottom: 1px solid var(--line);
+}
+
+.exam-path > div:last-child {
+  border-bottom: 0;
+}
+
+.exam-path span {
   color: var(--ul-red);
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 700;
 }
 
-.term-event:nth-child(2) .event-date {
-  color: var(--blue);
+.exam-path h3 {
+  margin: 0;
+  font-size: 28px;
 }
 
-.term-event:nth-child(3) .event-date {
+.exam-path p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.28;
+}
+
+.exam-verbs {
+  display: flex;
+  gap: 0;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.exam-verbs span {
+  flex: 1;
+  padding: 12px 18px;
+  border-right: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 19px;
+  font-weight: 650;
+  text-align: center;
+}
+
+.exam-verbs span:last-child {
+  border-right: 0;
+}
+
+.team-evaluations {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 56px;
+  margin-top: 18px;
+}
+
+.team-evaluation {
+  min-height: 500px;
+  padding: 30px 38px 34px;
+  border-top: 9px solid var(--teal);
+  border-bottom: 2px solid var(--line);
+  background: var(--white);
+}
+
+.project-evaluation {
+  border-top-color: var(--ul-yellow);
+}
+
+.evaluation-number {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.evaluation-number span {
   color: var(--teal);
+  font-size: 49px;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.term-event:nth-child(4) .event-date {
+.project-evaluation .evaluation-number span {
   color: #8b6700;
 }
 
-.term-event h3 {
-  margin: 20px 0 16px;
-  font-size: 30px;
+.evaluation-number small {
+  color: var(--muted);
+  font-size: 19px;
+  font-weight: 650;
+  text-align: right;
 }
 
-.term-event p {
+.evaluation-kicker {
+  margin: 28px 0 10px !important;
+  color: var(--muted);
+  font-size: 17px !important;
+  font-weight: 700;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.team-evaluation h3 {
+  margin: 0;
+  font-size: 35px;
+  line-height: 1.15;
+}
+
+.team-evaluation ul {
+  margin: 28px 0 0;
+  padding-left: 27px;
+}
+
+.team-evaluation li {
+  margin: 0 0 15px;
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.semester-map {
+  display: grid;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.semester-row {
+  display: grid;
+  grid-template-columns: 235px 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.semester-label {
+  padding: 18px 20px;
+  border-left: 8px solid var(--blue);
+  background: var(--soft-blue);
+}
+
+.semester-row:nth-of-type(3) .semester-label {
+  border-left-color: var(--teal);
+  background: var(--soft-teal);
+}
+
+.semester-label > span {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.semester-label h3 {
+  margin: 11px 0 7px;
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.semester-label p {
   margin: 0;
   color: var(--muted);
+  font-size: 18px;
+}
+
+.semester-label small {
+  display: block;
+  margin-top: 11px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.calendar-track {
+  display: grid;
+  gap: 7px;
+}
+
+.calendar-track-foundations {
+  grid-template-columns: repeat(4, 1fr) 1.18fr 1.18fr;
+}
+
+.calendar-track-integration {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.calendar-item {
+  display: flex;
+  min-width: 0;
+  min-height: 128px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 13px 14px;
+  border-top: 7px solid var(--blue);
+  background: var(--white);
+}
+
+.calendar-track-integration .module-item {
+  border-top-color: var(--teal);
+}
+
+.calendar-item span {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.calendar-item strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--ink);
+  font-size: 27px;
+  line-height: 1;
+}
+
+.calendar-item small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.preparation-item {
+  border-top-color: var(--line);
+  background: #f2f1ed;
+}
+
+.exam-item {
+  border-top-color: var(--ink);
+  background: var(--ul-red);
+}
+
+.exam-item span,
+.exam-item strong,
+.exam-item small {
+  color: var(--white);
+}
+
+.poster-item {
+  border-top-color: #a77c00;
+  background: var(--soft-yellow);
+}
+
+.project-item {
+  border-top-color: var(--ul-red);
+  background: var(--ink);
+}
+
+.project-item span,
+.project-item strong,
+.project-item small {
+  color: var(--white);
+}
+
+.reading-week {
+  display: grid;
+  grid-template-columns: 120px 260px 1fr;
+  gap: 22px;
+  align-items: center;
+  min-height: 52px;
+  margin-left: 259px;
+  padding: 8px 18px;
+  border-left: 7px solid var(--ul-yellow);
+  background: #f2f1ed;
+}
+
+.reading-week span {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.reading-week strong {
   font-size: 21px;
+}
+
+.reading-week small {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.challenge-ribbon {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 18px;
+  align-items: center;
+  min-height: 55px;
+  margin-left: 259px;
+  padding: 9px 18px;
+  border-left: 7px solid var(--ul-red);
+  background: var(--soft-red);
+}
+
+.challenge-ribbon span {
+  color: var(--ul-red);
+  font-size: 19px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.challenge-ribbon p {
+  margin: 0;
+  color: #70070d;
+  font-size: 17px;
+  line-height: 1.25;
 }
 
 .ai-reflexes {
@@ -1200,57 +1482,6 @@
 .ecosystem-row > span:last-child {
   color: var(--muted);
   font-size: 23px;
-}
-
-.success-routine {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px 28px;
-  margin-top: 48px;
-}
-
-.success-routine > div {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  min-height: 130px;
-  align-items: center;
-  padding: 18px 22px;
-  background: var(--white);
-  border-bottom: 4px solid var(--line);
-}
-
-.success-routine > div:nth-child(3n+1) {
-  border-color: var(--ul-red);
-}
-
-.success-routine > div:nth-child(3n+2) {
-  border-color: var(--teal);
-}
-
-.success-routine > div:nth-child(3n) {
-  border-color: var(--ul-yellow);
-}
-
-.success-routine span {
-  color: var(--muted);
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.success-routine p {
-  margin: 0;
-  font-size: 23px;
-}
-
-.success-quote {
-  margin: 42px 0 0;
-  padding: 0 0 0 28px;
-  border-left: 8px solid var(--ul-red);
-  color: var(--ink);
-  font-size: 29px;
-  font-style: normal;
-  line-height: 1.32;
-  box-shadow: none;
 }
 
 .action-slide {

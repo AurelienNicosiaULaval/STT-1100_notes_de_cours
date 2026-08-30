@@ -1203,72 +1203,312 @@ margin: 0;
 color: var(--muted);
 font-size: 19px;
 }
-.term-timeline {
-position: relative;
+.exam-spotlight {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 38px;
-margin-top: 90px;
+grid-template-columns: 390px 1fr;
+gap: 44px;
+align-items: stretch;
+margin-top: 18px;
 }
-.term-timeline::before {
-content: "";
-position: absolute;
-top: 39px;
-left: 13%;
-right: 13%;
-height: 3px;
-background: var(--line);
+.exam-identity {
+padding: 36px 38px 32px;
+border-top: 10px solid var(--ul-red);
+background: var(--ink);
+color: var(--white);
 }
-.term-event {
-position: relative;
-padding-top: 96px;
+.exam-date {
+display: block;
+color: var(--ul-yellow);
+font-size: 48px;
+font-weight: 700;
+line-height: 1;
 }
-.term-event::before {
-content: "";
-position: absolute;
-top: 27px;
-left: 0;
-width: 28px;
-height: 28px;
-border: 7px solid var(--paper);
-border-radius: 50%;
-background: var(--ul-red);
-box-shadow: 0 0 0 2px var(--ul-red);
+.exam-mode {
+margin: 18px 0 58px !important;
+color: #d7d7d7;
+font-size: 18px !important;
+font-weight: 700;
+letter-spacing: 0.08em !important;
+text-transform: uppercase !important;
 }
-.term-event:nth-child(2)::before {
-background: var(--blue);
-box-shadow: 0 0 0 2px var(--blue);
+.exam-identity h3 {
+margin: 0 0 20px;
+color: var(--white);
+font-size: 38px;
 }
-.term-event:nth-child(3)::before {
-background: var(--teal);
-box-shadow: 0 0 0 2px var(--teal);
+.exam-identity > p:last-child {
+margin: 0;
+color: #efefef;
+font-size: 23px;
+line-height: 1.35;
 }
-.term-event:nth-child(4)::before {
-background: var(--ul-yellow);
-box-shadow: 0 0 0 2px #a77c00;
+.exam-path {
+border-top: 2px solid var(--ink);
+border-bottom: 2px solid var(--ink);
 }
-.event-date {
+.exam-path > div {
+display: grid;
+grid-template-columns: 56px 185px 1fr;
+gap: 20px;
+align-items: center;
+min-height: 105px;
+border-bottom: 1px solid var(--line);
+}
+.exam-path > div:last-child {
+border-bottom: 0;
+}
+.exam-path span {
 color: var(--ul-red);
-font-size: 25px;
+font-size: 18px;
 font-weight: 700;
 }
-.term-event:nth-child(2) .event-date {
-color: var(--blue);
+.exam-path h3 {
+margin: 0;
+font-size: 28px;
 }
-.term-event:nth-child(3) .event-date {
-color: var(--teal);
-}
-.term-event:nth-child(4) .event-date {
-color: #8b6700;
-}
-.term-event h3 {
-margin: 20px 0 16px;
-font-size: 30px;
-}
-.term-event p {
+.exam-path p {
 margin: 0;
 color: var(--muted);
+font-size: 20px;
+line-height: 1.28;
+}
+.exam-verbs {
+display: flex;
+gap: 0;
+margin-top: 24px;
+border-top: 1px solid var(--line);
+border-bottom: 1px solid var(--line);
+}
+.exam-verbs span {
+flex: 1;
+padding: 12px 18px;
+border-right: 1px solid var(--line);
+color: var(--muted);
+font-size: 19px;
+font-weight: 650;
+text-align: center;
+}
+.exam-verbs span:last-child {
+border-right: 0;
+}
+.team-evaluations {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 56px;
+margin-top: 18px;
+}
+.team-evaluation {
+min-height: 500px;
+padding: 30px 38px 34px;
+border-top: 9px solid var(--teal);
+border-bottom: 2px solid var(--line);
+background: var(--white);
+}
+.project-evaluation {
+border-top-color: var(--ul-yellow);
+}
+.evaluation-number {
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+gap: 24px;
+padding-bottom: 22px;
+border-bottom: 1px solid var(--line);
+}
+.evaluation-number span {
+color: var(--teal);
+font-size: 49px;
+font-weight: 700;
+line-height: 1;
+}
+.project-evaluation .evaluation-number span {
+color: #8b6700;
+}
+.evaluation-number small {
+color: var(--muted);
+font-size: 19px;
+font-weight: 650;
+text-align: right;
+}
+.evaluation-kicker {
+margin: 28px 0 10px !important;
+color: var(--muted);
+font-size: 17px !important;
+font-weight: 700;
+letter-spacing: 0.08em !important;
+text-transform: uppercase !important;
+}
+.team-evaluation h3 {
+margin: 0;
+font-size: 35px;
+line-height: 1.15;
+}
+.team-evaluation ul {
+margin: 28px 0 0;
+padding-left: 27px;
+}
+.team-evaluation li {
+margin: 0 0 15px;
 font-size: 21px;
+line-height: 1.3;
+}
+.semester-map {
+display: grid;
+gap: 14px;
+margin-top: 4px;
+}
+.semester-row {
+display: grid;
+grid-template-columns: 235px 1fr;
+gap: 24px;
+align-items: stretch;
+}
+.semester-label {
+padding: 18px 20px;
+border-left: 8px solid var(--blue);
+background: var(--soft-blue);
+}
+.semester-row:nth-of-type(3) .semester-label {
+border-left-color: var(--teal);
+background: var(--soft-teal);
+}
+.semester-label > span {
+color: var(--muted);
+font-size: 16px;
+font-weight: 700;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+.semester-label h3 {
+margin: 11px 0 7px;
+font-size: 26px;
+line-height: 1.15;
+}
+.semester-label p {
+margin: 0;
+color: var(--muted);
+font-size: 18px;
+}
+.semester-label small {
+display: block;
+margin-top: 11px;
+color: var(--muted);
+font-size: 15px;
+}
+.calendar-track {
+display: grid;
+gap: 7px;
+}
+.calendar-track-foundations {
+grid-template-columns: repeat(4, 1fr) 1.18fr 1.18fr;
+}
+.calendar-track-integration {
+grid-template-columns: repeat(8, 1fr);
+}
+.calendar-item {
+display: flex;
+min-width: 0;
+min-height: 128px;
+flex-direction: column;
+justify-content: center;
+padding: 15px 13px 14px;
+border-top: 7px solid var(--blue);
+background: var(--white);
+}
+.calendar-track-integration .module-item {
+border-top-color: var(--teal);
+}
+.calendar-item span {
+color: var(--muted);
+font-size: 15px;
+font-weight: 650;
+white-space: nowrap;
+}
+.calendar-item strong {
+display: block;
+margin-top: 12px;
+color: var(--ink);
+font-size: 27px;
+line-height: 1;
+}
+.calendar-item small {
+display: block;
+margin-top: 8px;
+color: var(--muted);
+font-size: 16px;
+line-height: 1.15;
+}
+.preparation-item {
+border-top-color: var(--line);
+background: #f2f1ed;
+}
+.exam-item {
+border-top-color: var(--ink);
+background: var(--ul-red);
+}
+.exam-item span,
+.exam-item strong,
+.exam-item small {
+color: var(--white);
+}
+.poster-item {
+border-top-color: #a77c00;
+background: var(--soft-yellow);
+}
+.project-item {
+border-top-color: var(--ul-red);
+background: var(--ink);
+}
+.project-item span,
+.project-item strong,
+.project-item small {
+color: var(--white);
+}
+.reading-week {
+display: grid;
+grid-template-columns: 120px 260px 1fr;
+gap: 22px;
+align-items: center;
+min-height: 52px;
+margin-left: 259px;
+padding: 8px 18px;
+border-left: 7px solid var(--ul-yellow);
+background: #f2f1ed;
+}
+.reading-week span {
+color: var(--muted);
+font-size: 16px;
+font-weight: 650;
+}
+.reading-week strong {
+font-size: 21px;
+}
+.reading-week small {
+color: var(--muted);
+font-size: 17px;
+}
+.challenge-ribbon {
+display: grid;
+grid-template-columns: 95px 1fr;
+gap: 18px;
+align-items: center;
+min-height: 55px;
+margin-left: 259px;
+padding: 9px 18px;
+border-left: 7px solid var(--ul-red);
+background: var(--soft-red);
+}
+.challenge-ribbon span {
+color: var(--ul-red);
+font-size: 19px;
+font-weight: 700;
+text-transform: uppercase;
+}
+.challenge-ribbon p {
+margin: 0;
+color: #70070d;
+font-size: 17px;
+line-height: 1.25;
 }
 .ai-reflexes {
 display: grid;
@@ -1499,49 +1739,6 @@ text-transform: uppercase;
 .ecosystem-row > span:last-child {
 color: var(--muted);
 font-size: 23px;
-}
-.success-routine {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 18px 28px;
-margin-top: 48px;
-}
-.success-routine > div {
-display: grid;
-grid-template-columns: 64px 1fr;
-min-height: 130px;
-align-items: center;
-padding: 18px 22px;
-background: var(--white);
-border-bottom: 4px solid var(--line);
-}
-.success-routine > div:nth-child(3n+1) {
-border-color: var(--ul-red);
-}
-.success-routine > div:nth-child(3n+2) {
-border-color: var(--teal);
-}
-.success-routine > div:nth-child(3n) {
-border-color: var(--ul-yellow);
-}
-.success-routine span {
-color: var(--muted);
-font-size: 20px;
-font-weight: 700;
-}
-.success-routine p {
-margin: 0;
-font-size: 23px;
-}
-.success-quote {
-margin: 42px 0 0;
-padding: 0 0 0 28px;
-border-left: 8px solid var(--ul-red);
-color: var(--ink);
-font-size: 29px;
-font-style: normal;
-line-height: 1.32;
-box-shadow: none;
 }
 .action-slide {
 background: linear-gradient(135deg, #fbfaf7 0%, #ffffff 58%, #eef7f8 100%);
@@ -2919,51 +3116,236 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
-<section id="les-grands-rendez-vous-de-lautomne-2026" class="slide level2">
-<h2>Les grands rendez-vous de l’automne 2026</h2>
-<div class="term-timeline">
-<div class="term-event start">
-<span class="event-date">31 août</span>
+<section id="lexamen-vérifie-votre-autonomie-dans-une-mission-appliquée" class="slide level2">
+<h2>L’examen vérifie votre autonomie dans une mission appliquée</h2>
+<div class="exam-spotlight">
+<div class="exam-identity">
+<span class="exam-date">19 octobre</span>
+<p class="exam-mode">
+Individuel · en classe
+</p>
 <h3>
-Première séance
+Modules 1 à 4
 </h3>
 <p>
-Module 1 et premier rapport Quarto
+Un contexte concret, un jeu de données et un rapport Quarto à compléter.
 </p>
 </div>
-<div class="term-event">
-<span class="event-date">19 octobre</span>
+<div class="exam-path">
+<div>
+<span>01</span>
 <h3>
-Examen en classe
+Comprendre
 </h3>
 <p>
-Intégration des modules 1 à 4
+Repérer la mission, les variables et les résultats attendus.
 </p>
 </div>
-<div class="term-event">
-<span class="event-date">22 novembre</span>
+<div>
+<span>02</span>
 <h3>
-Affiche
+Transformer
 </h3>
 <p>
-Communication visuelle à partir de données réelles
+Importer, vérifier, filtrer, recoder, grouper et résumer.
 </p>
 </div>
-<div class="term-event end">
-<span class="event-date">14 décembre</span>
+<div>
+<span>03</span>
 <h3>
-Présentations du projet
+Visualiser
 </h3>
 <p>
-Dernière séance, de 8 h 30 à 11 h 20
+Choisir un graphique adapté et le rendre lisible.
 </p>
+</div>
+<div>
+<span>04</span>
+<h3>
+Expliquer
+</h3>
+<p>
+Interpréter brièvement les résultats dans leur contexte.
+</p>
+</div>
+</div>
+</div>
+<div class="exam-verbs">
+<span>R</span><span>RStudio</span><span>Quarto</span><span>dplyr</span><span>ggplot2</span>
+</div>
+<p class="official-note">
+Brio confirme le matériel autorisé, l’horaire précis et les modalités de remise.
+</p>
+<aside class="notes">
+<p>Source interne: examen.qmd. Présenter l’examen comme une aventure individuelle et appliquée, pas comme une récitation de fonctions.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="deux-productions-déquipe-deux-façons-de-communiquer" class="slide level2">
+<h2>Deux productions d’équipe, deux façons de communiquer</h2>
+<div class="team-evaluations">
+<div class="team-evaluation poster-evaluation">
+<div class="evaluation-number">
+<span>10 %</span><small>22 novembre · 23 h 55</small>
+</div>
+<p class="evaluation-kicker">
+Communiquer à un large public
+</p>
+<h3>
+Affiche de littératie des données
+</h3>
+<ul>
+<li>
+Données réelles et sources citées
+</li>
+<li>
+Question claire, graphiques pertinents et message principal
+</li>
+<li>
+Affiche scientifique A1, portrait ou paysage
+</li>
+<li>
+Dépôt GitHub contenant l’affiche et les traces demandées
+</li>
+</ul>
+</div>
+<div class="team-evaluation project-evaluation">
+<div class="evaluation-number">
+<span>40 %</span><small>6 % proposition + 34 % projet final</small>
+</div>
+<p class="evaluation-kicker">
+Mener une démarche complète
+</p>
+<h3>
+Projet de session
+</h3>
+<ul>
+<li>
+Question, données et analyse reproductible
+</li>
+<li>
+Dépôt GitHub structuré et contributions visibles
+</li>
+<li>
+Présentation de 15 minutes et résumé final dans le README
+</li>
+<li>
+Présentation le 14 décembre, de 8 h 30 à 11 h 20
+</li>
+</ul>
 </div>
 </div>
 <p class="official-note">
-Consultez Brio avant chaque remise. En cas de différence, la consigne officielle de la session prévaut.
+Les deux productions sont réalisées en équipe; Brio confirme les modalités administratives.
 </p>
 <aside class="notes">
-<p>Sources internes: calendrier.qmd; affiche_litteratie_donnees.qmd; projet_session/index.qmd. La présentation du projet est annoncée au local PLT-2325 sur le site.</p>
+<p>Sources internes: affiche_litteratie_donnees.qmd; projet_session/index.qmd; projet_session/enonce_projet.qmd. L’affiche vise un large public; le projet montre une démarche complète et reproductible.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="modules-et-évaluations-avancent-ensemble" class="slide level2">
+<h2>Modules et évaluations avancent ensemble</h2>
+<div class="semester-map" aria-label="Calendrier visuel de la session">
+<div class="semester-row">
+<div class="semester-label">
+<span>Phase 1</span>
+<h3>
+Construire les bases
+</h3>
+<p>
+31 août au 19 octobre
+</p>
+<small>7 septembre: congé</small>
+</div>
+<div class="calendar-track calendar-track-foundations">
+<div class="calendar-item module-item">
+<span>31 août</span><strong>M1</strong><small>Démarrer</small>
+</div>
+<div class="calendar-item module-item">
+<span>14 sept.</span><strong>M2</strong><small>Organiser</small>
+</div>
+<div class="calendar-item module-item">
+<span>21 sept.</span><strong>M3</strong><small>Raconter</small>
+</div>
+<div class="calendar-item module-item">
+<span>28 sept.</span><strong>M4</strong><small>Nettoyer</small>
+</div>
+<div class="calendar-item preparation-item">
+<span>5 et 12 oct.</span><strong>Préparer</strong><small>Congés et étude</small>
+</div>
+<div class="calendar-item exam-item">
+<span>19 octobre</span><strong>Examen</strong><small>Modules 1 à 4</small>
+</div>
+</div>
+</div>
+<div class="reading-week">
+<span>26 octobre</span><strong>Semaine de lecture</strong><small>Faire le point avant la deuxième moitié</small>
+</div>
+<div class="semester-row">
+<div class="semester-label">
+<span>Phase 2</span>
+<h3>
+Élargir et intégrer
+</h3>
+<p>
+2 novembre au 14 décembre
+</p>
+<small>Projet développé en parallèle</small>
+</div>
+<div class="calendar-track calendar-track-integration">
+<div class="calendar-item module-item">
+<span>2 nov.</span><strong>M5</strong><small>Explorer</small>
+</div>
+<div class="calendar-item module-item">
+<span>9 nov.</span><strong>M6</strong><small>Collaborer</small>
+</div>
+<div class="calendar-item module-item">
+<span>16 nov.</span><strong>M7</strong><small>Protéger</small>
+</div>
+<div class="calendar-item poster-item">
+<span>22 nov.</span><strong>Affiche</strong><small>10 %</small>
+</div>
+<div class="calendar-item module-item">
+<span>23 nov.</span><strong>M8</strong><small>Automatiser</small>
+</div>
+<div class="calendar-item module-item">
+<span>30 nov.</span><strong>M9</strong><small>Prédire</small>
+</div>
+<div class="calendar-item module-item">
+<span>7 déc.</span><strong>M10</strong><small>Partager</small>
+</div>
+<div class="calendar-item project-item">
+<span>14 déc.</span><strong>Projet</strong><small>Présentations</small>
+</div>
+</div>
+</div>
+<div class="challenge-ribbon">
+<span>Défis</span>
+<p>
+Un livrable court prolonge chaque module. Les défis 1 et 6 sont formatifs; les dates de remise sont confirmées dans Brio.
+</p>
+</div>
+</div>
+<aside class="notes">
+<p>Sources internes: calendrier.qmd; defis.qmd; affiche_litteratie_donnees.qmd; projet_session/index.qmd. Lire la carte de gauche à droite et montrer que les évaluations s’insèrent dans la progression des modules.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -3181,63 +3563,6 @@ display:block!important;
 </div>
 <aside class="notes">
 <p>Sources internes: demarrage.qmd, ia.qmd et ressources.qmd.</p>
-<style type="text/css">
-span.MJX_Assistive_MathML {
-position:absolute!important;
-clip: rect(1px, 1px, 1px, 1px);
-padding: 1px 0 0 0!important;
-border: 0!important;
-height: 1px!important;
-width: 1px!important;
-overflow: hidden!important;
-display:block!important;
-}</style></aside>
-</section>
-<section id="la-routine-qui-évite-la-plupart-des-mauvaises-surprises" class="slide level2">
-<h2>La routine qui évite la plupart des mauvaises surprises</h2>
-<div class="success-routine">
-<div>
-<span>01</span>
-<p>
-Ouvrir le bon projet
-</p>
-</div>
-<div>
-<span>02</span>
-<p>
-Lire la consigne avant de coder
-</p>
-</div>
-<div>
-<span>03</span>
-<p>
-Exécuter par petites étapes
-</p>
-</div>
-<div>
-<span>04</span>
-<p>
-Rendre le document Quarto
-</p>
-</div>
-<div>
-<span>05</span>
-<p>
-Vérifier données, figures et conclusion
-</p>
-</div>
-<div>
-<span>06</span>
-<p>
-Conserver une trace claire
-</p>
-</div>
-</div>
-<blockquote class="success-quote">
-Un travail simple, vérifié et bien expliqué vaut mieux qu’un travail spectaculaire que vous ne pouvez pas défendre.
-</blockquote>
-<aside class="notes">
-<p>Sources internes: demarrage.qmd et boite_outils.qmd.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
