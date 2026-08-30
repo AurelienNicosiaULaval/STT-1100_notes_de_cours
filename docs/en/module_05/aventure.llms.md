@@ -380,9 +380,9 @@ The scatter plot shows you the overall trend, and the red line corresponds to a 
 >
 > You can repeat the same graph with `p_cancellation`. Do not forget to inspect `n_flights` before comparing groups.
 
-Portfolio trace
+Completed work
 
-Keep the traces that show your reasoning about relationships between variables.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - one time variable created with `lubridate`;
 - one relationship plot between two variables;

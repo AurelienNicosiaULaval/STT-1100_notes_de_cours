@@ -164,9 +164,9 @@ Cette conclusion doit expliquer :
 - une décision de visualisation ou d’anonymisation qu’il ou elle juge importante;
 - une règle personnelle à retenir pour de futurs projets de science des données.
 
-Trace portfolio
+Travail réalisé
 
-Conservez les preuves que votre audit améliore le rapport et protège les personnes.
+À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - une liste structurée des problèmes repérés dans le rapport douteux;
 - le fichier anonymisé produit;

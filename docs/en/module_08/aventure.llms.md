@@ -310,9 +310,9 @@ The challenge associated with this adventure is described on the page [Challenge
 
 You must submit an `IDUL.R` file containing your `scrape_page()` function. The starter repository is the GitHub template `STT-1100/aventure-8`.
 
-Portfolio trace
+Completed work
 
-Keep a trace proving that your function is robust and responsible.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - the output contract for `scrape_page()`;
 - one successful test on a local HTML page;

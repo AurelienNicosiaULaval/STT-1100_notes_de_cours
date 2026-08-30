@@ -512,9 +512,9 @@ Voici quelques autres choses à garder à l’œil :
 
 *Tout au long de votre nettoyage, documentez vos décisions dans la liste `journal_nettoyage`. Le but n’est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.*
 
-Trace portfolio
+Travail réalisé
 
-Documentez ce qui rend votre nettoyage défendable et reproductible.
+À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - le fichier `journal_nettoyage.Rdata`;
 - le fichier `donnees_propres.csv`;

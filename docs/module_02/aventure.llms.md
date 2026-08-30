@@ -694,9 +694,9 @@ Attention, n’oubliez pas vos bonnes pratiques de visualisation : titres inform
 
 ------------------------------------------------------------------------
 
-Trace portfolio
+Travail réalisé
 
-Gardez une preuve compacte de votre progression dans cette mission scientifique.
+À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - le journal de bord Quarto de la première partie;
 - deux graphiques commentés sur les manchots;

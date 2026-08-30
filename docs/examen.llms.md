@@ -44,7 +44,7 @@ Les résultats doivent être expliqués brièvement, avec prudence et dans le vo
 
 ## Usage permis de l'IA
 
-Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, gardez une trace courte: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
+Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, ajoutez une déclaration courte dans le livrable: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
 
 ## Ce que l'examen n'est pas
 

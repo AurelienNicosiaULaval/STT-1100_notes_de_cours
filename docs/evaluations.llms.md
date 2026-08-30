@@ -2,7 +2,7 @@
 
 # Comprendre le parcours
 
-Les évaluations de STT-1100 suivent la même logique que les modules: pratiquer un geste, produire une trace claire, recevoir une rétroaction, puis réinvestir ce qui a été appris dans une production plus autonome. Cette page explique le rôle de chaque pièce; Brio demeure la référence officielle pour les dates, les remises et les pondérations.
+Les évaluations de STT-1100 suivent la même logique que les modules: pratiquer un geste, produire un travail clair, recevoir une rétroaction, puis réinvestir ce qui a été appris dans une production plus autonome. Cette page explique le rôle de chaque pièce; Brio demeure la référence officielle pour les dates, les remises et les pondérations.
 
 [Défis](defis.llms.md) [Examen](examen.llms.md) [Affiche](affiche_litteratie_donnees.llms.md) [Projet de session](projet_session/index.llms.md) [Référence officielle](#official-title)
 
@@ -104,7 +104,7 @@ Les formats changent, mais les critères de fond restent stables.
 
 Produire un livrable ciblé: rapport, nettoyage, fonction, capsule, visualisation ou tableau de bord.
 
-Trace attendue: un produit court, lisible, rendu ou vérifiable, lié au module.
+Produit attendu: un livrable court, lisible, rendu ou vérifiable, lié au module.
 
 [Voir les défisRôle, formats et liens vers les consignes.](defis.llms.md)
 
@@ -112,7 +112,7 @@ Trace attendue: un produit court, lisible, rendu ou vérifiable, lié au module.
 
 Communiquer une histoire issue de données réelles sous forme d'affiche A1, avec une question claire, des sources citées, des graphiques pertinents et un dépôt structuré à partir du template Quarto.
 
-Trace attendue: un dépôt GitHub contenant l'affiche et les éléments nécessaires pour comprendre le travail d'équipe.
+Produit attendu: un dépôt GitHub contenant l'affiche et les éléments nécessaires pour comprendre le travail d'équipe.
 
 [Préparer l'afficheMission, exigences, IA et grille d'évaluation.](affiche_litteratie_donnees.llms.md)
 
@@ -120,7 +120,7 @@ Trace attendue: un dépôt GitHub contenant l'affiche et les éléments nécessa
 
 Travailler seul dans une situation appliquée et démontrer une autonomie raisonnable avec R, Quarto et les données.
 
-Trace attendue: un rapport Quarto complété, rendu, interprété et cohérent avec la mission.
+Produit attendu: un rapport Quarto complété, rendu, interprété et cohérent avec la mission.
 
 [Comprendre l'examenFormat, modules visés et préparation.](examen.llms.md)
 
@@ -128,7 +128,7 @@ Trace attendue: un rapport Quarto complété, rendu, interprété et cohérent a
 
 Construire une analyse complète en équipe, avec un dépôt GitHub lisible, une présentation et un résumé final.
 
-Trace attendue: un dépôt structuré, une proposition, une présentation, un résumé final et une contribution d'équipe visible.
+Produit attendu: un dépôt structuré, une proposition, une présentation, un résumé final et une contribution d'équipe visible.
 
 [Préparer le projetParcours, barème et template GitHub.](projet_session/index.llms.md)
 
@@ -136,7 +136,7 @@ Trace attendue: un dépôt structuré, une proposition, une présentation, un r�
 
 Ces critères reviennent dans les défis, l'examen et le projet. Ils permettent de comprendre ce qui est valorisé au-delà du format précis de chaque remise.
 
-### Trace vérifiable
+### Travail vérifiable
 
 Le fichier, le rendu ou le dépôt permet de voir ce qui a été fait et de refaire les étapes essentielles.
 

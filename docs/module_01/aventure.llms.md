@@ -565,9 +565,9 @@ head(
 
 > **NOTE:**
 >
-> Trace portfolio
+> Travail réalisé
 >
-> À la fin de l’aventure, conservez une courte trace de ce que vous savez refaire sans aide.
+> À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 >
 > - un mini rapport Quarto qui se rend en HTML;
 > - deux commandes R que vous comprenez et pouvez expliquer;

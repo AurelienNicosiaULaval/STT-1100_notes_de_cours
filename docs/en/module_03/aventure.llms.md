@@ -560,9 +560,9 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 
 ------------------------------------------------------------------------
 
-Portfolio trace
+Completed work
 
-Keep the elements that show how a table became an article.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - your cleaning choices for categories and amounts;
 - two figures ready for the article;

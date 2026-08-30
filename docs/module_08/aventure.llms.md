@@ -310,9 +310,9 @@ Le défi associé à cette aventure est décrit dans la page [Défi 8 - Fonction
 
 Vous devrez remettre un fichier `IDUL.R` contenant votre fonction `scrape_page()`. Le dépôt de départ est le template GitHub `STT-1100/aventure-8`.
 
-Trace portfolio
+Travail réalisé
 
-Gardez une trace qui prouve que votre fonction est robuste et responsable.
+À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - le contrat de sortie de `scrape_page()`;
 - un test réussi sur une page HTML locale;

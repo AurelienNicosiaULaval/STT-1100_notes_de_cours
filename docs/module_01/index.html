@@ -4347,7 +4347,7 @@ overflow-wrap: normal;
 word-break: normal;
 }
 .adventure-brief,
-.portfolio-trace {
+.completed-work {
 border: 1px solid var(--line);
 border-radius: var(--radius);
 background: #ffffff;
@@ -4359,12 +4359,12 @@ margin: 1.2rem 0 1.5rem;
 border-left: 5px solid var(--teal);
 background: linear-gradient(90deg, #f4fbfc 0%, #ffffff 70%);
 }
-.portfolio-trace {
+.completed-work {
 border-left: 5px solid var(--blue);
 background: #f8fbff;
 }
 .adventure-brief-title,
-.portfolio-trace-title {
+.completed-work-title {
 margin: 0 0 .75rem;
 color: var(--ink);
 font-size: 1.05rem;
@@ -4394,7 +4394,7 @@ color: var(--ink);
 line-height: 1.35;
 overflow-wrap: anywhere;
 }
-.portfolio-trace ul {
+.completed-work ul {
 margin-bottom: 0;
 }
 .module-product-showcase {
@@ -4537,6 +4537,15 @@ overflow: hidden;
 .path-card[open] {
 border-color: #b8cbd9;
 box-shadow: 0 10px 24px rgba(49, 95, 140, .08);
+}
+.ai-feedback-card {
+border-left: 5px solid var(--teal);
+}
+.ai-feedback-card .path-number {
+background: var(--teal);
+}
+.ai-feedback-card .summary-resource-link {
+background: #eaf7f7;
 }
 .path-card summary {
 display: grid;
@@ -6309,7 +6318,6 @@ margin-bottom: .05rem;
   <li><a href="#préparer-le-module" id="toc-préparer-le-module" class="nav-link" data-scroll-target="#préparer-le-module">Préparer le module</a></li>
   <li><a href="#plan-dapprentissage" id="toc-plan-dapprentissage" class="nav-link" data-scroll-target="#plan-dapprentissage">Plan d’apprentissage</a></li>
   <li><a href="#données-et-outils" id="toc-données-et-outils" class="nav-link" data-scroll-target="#données-et-outils">Données et outils</a></li>
-  <li><a href="#révision-et-prolongement" id="toc-révision-et-prolongement" class="nav-link" data-scroll-target="#révision-et-prolongement">Révision et prolongement</a></li>
   </ul>
 </nav>
     </div>
@@ -6417,7 +6425,7 @@ Découvrir le rôle d’une analyse reproductible et les premiers gestes dans RS
 </section>
 <section id="plan-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="plan-dapprentissage">Plan d’apprentissage</h2>
-<p>Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et servent à consolider les gestes techniques.</p>
+<p>Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et servent à consolider les gestes techniques. La rétroaction IA revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.</p>
 <div class="path-grid interactive-path module-path learning-plan-path">
 <details class="path-card learning-plan-card" id="lectures-a-faire">
   <summary><span class="path-number">1</span>
@@ -6502,6 +6510,22 @@ Découvrir le rôle d’une analyse reproductible et les premiers gestes dans RS
   <div class="ae-box"><p class="ae-title">Essayez chaque exercice avant d’ouvrir la solution, même si ça tire un peu sur les neurones.</p></div>
   </div>
   </details>
+<details class="path-card learning-plan-card ai-feedback-card" id="retroaction-ia">
+  <summary><span class="path-number">5</span>
+  <span class="path-title">Rétroaction IA</span>
+  <span class="path-preview">Faire relire un extrait du travail, puis décider quoi améliorer soi-même.</span>
+  <span class="path-resource"><a class="summary-resource-link" href="../ia.html">Mode /retroaction</a></span>
+  <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
+  <div class="step-detail">
+  <p><span class="step-label">Point de départ</span> Choisissez un seul élément réellement produit dans l&#39;aventure, le défi ou les exercices: un extrait de code, un graphique, une interprétation ou un choix méthodologique.</p>
+  <p><span class="step-label">Préparer</span> Donnez la consigne, le contexte, ce que vous avez essayé et l&#39;élément précis à relire.</p>
+  <p><span class="step-label">Demander</span> Ouvrez <a href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100" target="_blank" rel="noopener">GPT STT-1100</a> en mode <code>/retroaction</code>. Demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger.</p>
+  <p><span class="step-label">Décider</span> Comparez la réponse aux données et à la consigne. Modifiez vous-même seulement ce que vous comprenez et pouvez expliquer.</p>
+  <div class="ae-box"><p class="ae-title">Demande prête à copier</p><p><code>/retroaction Je termine ce module. Voici la consigne visée, ce que j&#39;ai essayé et l&#39;extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m&#39;aidera à corriger moi-même. Ne réécris pas tout le travail.</code></p></div>
+  <p><span class="step-label">Résultat attendu</span> Une amélioration comprise et appliquée dans votre travail, ou une raison claire de ne pas suivre la suggestion. Il n&#39;y a ni portfolio ni remise supplémentaire à produire.</p>
+  <p><span class="step-label">Confidentialité</span> Ne transmettez aucune donnée personnelle, confidentielle ou protégée.</p>
+  </div>
+  </details>
 </div>
 </section>
 <section id="données-et-outils" class="level2">
@@ -6525,22 +6549,6 @@ Découvrir le rôle d’une analyse reproductible et les premiers gestes dans RS
   <a class="module-resource-chip package-chip" href="../packages.html#remotes"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>remotes</span></a>
   <a class="module-resource-chip package-chip" href="../packages.html#ulavalssd"><span class="chip-icon" aria-hidden="true"><i class="bi bi-box-seam"></i></span><span>ulavalssd</span></a>
   </div>
-  </div>
-</div>
-</section>
-<section id="révision-et-prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="révision-et-prolongement">Révision et prolongement</h2>
-<div class="closing-panel">
-  <span class="resource-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
-  <div>
-  <h3 class="anchored">Finir le module avec l’IA du cours</h3>
-  <p>Ouvrez <a href="../ia.html">la page IA</a> ou <a href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100" target="_blank" rel="noopener">GPT STT-1100</a>, puis demandez une rétroaction ciblée:</p>
-  <p><em>Voici mon travail pour ce module. Questionne mon raisonnement, repère une ligne de code fragile, vérifie si mon interprétation répond à la consigne, puis propose une seule amélioration réaliste que je peux faire moi-même.</em></p>
-  <ul>
-  <li>Expliquez le produit fini en trois phrases.</li>
-  <li>Collez un extrait de code ou de sortie et demandez un diagnostic.</li>
-  <li>Demandez une variante plus ambitieuse, puis choisissez ce qui reste raisonnable.</li>
-  </ul>
   </div>
 </div>
 

@@ -52,7 +52,7 @@ Start your message with the command that matches your need. The GPT then adapts 
 
 ### Feedback
 
-`/retroaction` Receive formative feedback without an official grade.
+`/retroaction` At the end of a module, have one element from the adventure, challenge or exercises reviewed, then decide for yourself what to improve.
 
 ### R debugging
 
@@ -72,7 +72,7 @@ Start your message with the command that matches your need. The GPT then adapts 
 
 ## Allowed AI Use
 
-In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, keep a short trace: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
+In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, add a short disclosure to the deliverable: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
 
 1
 
@@ -84,7 +84,7 @@ Encouraged for understanding a concept, testing a command, fixing an error or fi
 
 ### Challenges
 
-Apply the common rule and keep a trace when help influences the deliverable.
+Apply the common rule and add a disclosure when help influences the deliverable.
 
 3
 
@@ -122,7 +122,7 @@ The GPT files are a snapshot. For a current requirement, always check Brio and t
 
 ## Disclosing Help Received
 
-When AI influences an important part of an evaluated deliverable, keep a short and clear trace. The goal is not to write a long report, but to make your process transparent.
+When AI influences an important part of an evaluated deliverable, add a short and clear disclosure to the deliverable. This disclosure is not a portfolio; it only makes the use transparent.
 
 ### Tool Used
 
@@ -176,7 +176,7 @@ The best prompts request targeted help while keeping responsibility for the deci
 
 ### Revise
 
-`/retroaction` Here is my interpretation. Flag sentences that go beyond the data, variables I should check and places where I should add nuance.
+`/retroaction` Here are the instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite everything.
 
 ### Improve
 

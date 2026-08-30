@@ -201,9 +201,9 @@ Add a section explaining how your project illustrates the following steps:
 4.  communication;
 5.  sharing, reuse and versioning.
 
-Portfolio trace
+Completed work
 
-The collaboration trail matters as much as the final chart.
+At the end of the adventure, check that the team’s work includes the following elements. This is not a separate portfolio.
 
 - one branch or pull request connected to your role;
 - the joined table used in the report;

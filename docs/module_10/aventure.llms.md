@@ -321,9 +321,9 @@ Vous pouvez également intégrer une barre de progression ou un indicateur visue
 - Le livrable minimal est un tableau de bord reproductible qui fonctionne localement.
 - Le déploiement public (par exemple via shinyapps.io ou Posit Cloud) est requis seulement si cette consigne est donnée en classe.
 
-Trace portfolio
+Travail réalisé
 
-Conservez seulement des traces anonymisées et utiles pour expliquer le tableau de bord.
+À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - une table de tokens nettoyés ou un extrait agrégé;
 - une note sur les limites du lexique de sentiment;

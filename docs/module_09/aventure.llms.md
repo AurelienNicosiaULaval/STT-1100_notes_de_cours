@@ -240,9 +240,9 @@ Le défi associé à cette aventure est décrit dans la page [Défi 9 - Capsule 
 
 Vous devrez produire une capsule vidéo de 180 secondes maximum. Vous pouvez présenter soit votre modèle prédictif de la Mission 1, soit votre analyse de biais de la Mission 2. Le dépôt de départ est le template GitHub `STT-1100/aventure-9`.
 
-Trace portfolio
+Travail réalisé
 
-Votre trace doit montrer le résultat, mais aussi la prudence d’interprétation.
+À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - un résultat de modèle ou de biais descriptif;
 - une visualisation qui soutient votre explication;

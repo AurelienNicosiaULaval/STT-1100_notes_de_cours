@@ -240,9 +240,9 @@ The challenge associated with this adventure is described on the page [Challenge
 
 You must produce a video capsule of 180 seconds maximum. You may present either your predictive model from Mission 1 or your bias analysis from Mission 2. The starter repository is the GitHub template `STT-1100/aventure-9`.
 
-Portfolio trace
+Completed work
 
-Your trace should show the result, but also careful interpretation.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - one model result or descriptive bias result;
 - one visualization that supports your explanation;

@@ -64,7 +64,7 @@ Do not put personal data in GitHub. If access, cloning or pushing fails, keep th
 
 ## Learning Plan
 
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills.
+The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and AI feedback. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills. AI feedback revisits work you have already completed; it does not require an additional submission.
 
 1 Readings Prepare GitHub, Excel import, dplyr and ggplot2. [Mini-test](mini_test.llms.md) Open cardCollapse
 
@@ -147,6 +147,24 @@ Scope These exercises are not a step in the challenge. They practise GitHub, Exc
 
 Try each exercise before opening the solution, especially when the chart almost works.
 
+5 AI feedback Have one excerpt of your work reviewed, then decide what to improve yourself. [/retroaction mode](../ia.llms.md) Open cardCollapse
+
+Starting point Choose one actual element produced in the adventure, challenge or exercises: a code excerpt, chart, interpretation or methodological choice.
+
+Prepare Provide the instruction, context, what you tried and the exact element you want reviewed.
+
+Ask Open [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) in `/retroaction` mode. Ask for one strength, one weakness to verify and one question that will help you revise.
+
+Decide Compare the response with your data and the instructions. Revise only what you understand and can explain.
+
+Copy-ready request
+
+`/retroaction I am finishing this module. Here are the target instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite the entire work.`
+
+Expected result One improvement you understand and apply to your work, or a clear reason not to follow the suggestion. There is no portfolio or additional submission to produce.
+
+Privacy Do not share personal, confidential or protected data.
+
 ## Data and Tools
 
 ### Datasets
@@ -158,15 +176,3 @@ Try each exercise before opening the solution, especially when the chart almost 
 ### R packages
 
 [tidyverse](../packages.llms.md#tidyverse) [palmerpenguins](../packages.llms.md#palmerpenguins) [UlavalSSD](../packages.llms.md#ulavalssd) [readxl](../packages.llms.md#readxl) [ggplot2](../packages.llms.md#ggplot2) [patchwork](../packages.llms.md#patchwork)
-
-## Review and Extension
-
-### Finish the module with the course AI assistant
-
-Open [the AI page](../ia.llms.md) or [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100), then ask for targeted feedback:
-
-*Here is my work for this module. Question my reasoning, identify one fragile line of code, check whether my interpretation answers the instructions, then suggest one realistic improvement I can make myself.*
-
-- Explain the finished product in three sentences.
-- Paste a code or output excerpt and ask for a diagnosis.
-- Ask for a more ambitious variant, then choose what remains reasonable.

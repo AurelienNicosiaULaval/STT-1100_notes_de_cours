@@ -58,7 +58,7 @@ Documentez ce que vous avez pu vérifier, n’inventez pas de problème et signa
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les quatre blocs du plan: lectures, aventure, défi, exercices. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à consolider les jointures, la reproductibilité et la revue constructive sur d’autres données.
+Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à consolider les jointures, la reproductibilité et la revue constructive sur d’autres données. La rétroaction IA revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
 
 1 Lectures à faire Préparer collaboration GitHub, pull requests, issues et jointures. [Mini-test](mini_test.llms.md) Ouvrir la carteRéduire
 
@@ -117,6 +117,24 @@ Ressource [Page Exercices](exercices.llms.md)
 
 Portée Ces exercices ne sont pas la suite du défi. Ils utilisent un extrait relationnel réel de Données Québec: organisations, jeux, ressources et étiquettes.
 
+5 Rétroaction IA Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Mode /retroaction](../ia.llms.md) Ouvrir la carteRéduire
+
+Point de départ Choisissez un seul élément réellement produit dans l'aventure, le défi ou les exercices: un extrait de code, un graphique, une interprétation ou un choix méthodologique.
+
+Préparer Donnez la consigne, le contexte, ce que vous avez essayé et l'élément précis à relire.
+
+Demander Ouvrez [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) en mode `/retroaction`. Demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger.
+
+Décider Comparez la réponse aux données et à la consigne. Modifiez vous-même seulement ce que vous comprenez et pouvez expliquer.
+
+Demande prête à copier
+
+`/retroaction Je termine ce module. Voici la consigne visée, ce que j'ai essayé et l'extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m'aidera à corriger moi-même. Ne réécris pas tout le travail.`
+
+Résultat attendu Une amélioration comprise et appliquée dans votre travail, ou une raison claire de ne pas suivre la suggestion. Il n'y a ni portfolio ni remise supplémentaire à produire.
+
+Confidentialité Ne transmettez aucune donnée personnelle, confidentielle ou protégée.
+
 ## Données et outils
 
 ### Bases de données
@@ -128,11 +146,3 @@ Portée Ces exercices ne sont pas la suite du défi. Ils utilisent un extrait re
 ### Packages R
 
 [tidyverse](../packages.llms.md#tidyverse) [nycflights23](../packages.llms.md#nycflights23) [dplyr](../packages.llms.md#dplyr) [readr](../packages.llms.md#readr) [ggplot2](../packages.llms.md#ggplot2)
-
-## Révision et prolongement
-
-### Finir le module avec l’IA du cours
-
-Relisez une issue que vous avez écrite, puis ouvrez [la page IA](../ia.llms.md) ou [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) et demandez une rétroaction ciblée:
-
-*Voici une issue de revue que j'ai écrite. Est-elle assez précise pour qu'une équipe agisse? Repère une formulation vague, une information manquante et une amélioration que je peux faire moi-même.*

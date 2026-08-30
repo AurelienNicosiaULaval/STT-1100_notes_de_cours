@@ -650,9 +650,9 @@ Be careful, don’t forget your good visualization practices.
 
 ------------------------------------------------------------------------
 
-Portfolio trace
+Completed work
 
-Keep compact evidence of your progress through this scientific mission.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - the Quarto logbook from the first part;
 - two commented charts about the penguins;

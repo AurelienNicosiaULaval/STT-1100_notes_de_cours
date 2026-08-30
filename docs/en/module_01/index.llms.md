@@ -68,7 +68,7 @@ Isolate the error, keep the complete message and check the minimal render first.
 
 ## Learning Plan
 
-The cards follow the four blocks of the learning plan: readings, adventure, challenge, exercises. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills.
+The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and AI feedback. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills. AI feedback revisits work you have already completed; it does not require an additional submission.
 
 1 Readings Set up the R, RStudio, Quarto, dplyr and reproducibility landmarks. [Mini-test](mini_test.llms.md) Open cardCollapse
 
@@ -143,6 +143,24 @@ Scope These exercises are not a step in the challenge. They practise RStudio, Qu
 
 Try each exercise before opening the solution, even when it gives your brain a little workout.
 
+5 AI feedback Have one excerpt of your work reviewed, then decide what to improve yourself. [/retroaction mode](../ia.llms.md) Open cardCollapse
+
+Starting point Choose one actual element produced in the adventure, challenge or exercises: a code excerpt, chart, interpretation or methodological choice.
+
+Prepare Provide the instruction, context, what you tried and the exact element you want reviewed.
+
+Ask Open [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) in `/retroaction` mode. Ask for one strength, one weakness to verify and one question that will help you revise.
+
+Decide Compare the response with your data and the instructions. Revise only what you understand and can explain.
+
+Copy-ready request
+
+`/retroaction I am finishing this module. Here are the target instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite the entire work.`
+
+Expected result One improvement you understand and apply to your work, or a clear reason not to follow the suggestion. There is no portfolio or additional submission to produce.
+
+Privacy Do not share personal, confidential or protected data.
+
 ## Data and Tools
 
 ### Datasets
@@ -154,15 +172,3 @@ Try each exercise before opening the solution, even when it gives your brain a l
 ### R packages
 
 [tidyverse](../packages.llms.md#tidyverse) [dplyr](../packages.llms.md#dplyr) [knitr](../packages.llms.md#knitr) [remotes](../packages.llms.md#remotes) [ulavalssd](../packages.llms.md#ulavalssd)
-
-## Review and Extension
-
-### Finish the module with the course AI assistant
-
-Open [the AI page](../ia.llms.md) or [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100), then ask for targeted feedback:
-
-*Here is my work for this module. Question my reasoning, identify one fragile line of code, check whether my interpretation answers the instructions, then suggest one realistic improvement I can make myself.*
-
-- Explain the finished product in three sentences.
-- Paste a code or output excerpt and ask for a diagnosis.
-- Ask for a more ambitious variant, then choose what remains reasonable.

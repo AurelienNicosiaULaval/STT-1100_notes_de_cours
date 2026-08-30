@@ -512,9 +512,9 @@ Here are a few other things to keep an eye out for:
 
 *Throughout your cleaning, document your decisions in the `journal_nettoyage` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
 
-Portfolio trace
+Completed work
 
-Document what makes your cleaning defensible and reproducible.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - the `journal_nettoyage.Rdata` file;
 - the `donnees_propres.csv` file;

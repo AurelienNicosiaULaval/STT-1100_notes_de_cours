@@ -44,7 +44,7 @@ Results must be explained briefly, carefully and in the language of the context.
 
 ## Allowed AI Use
 
-In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, keep a short trace: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
+In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, add a short disclosure to the deliverable: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
 
 ## What the exam is not
 

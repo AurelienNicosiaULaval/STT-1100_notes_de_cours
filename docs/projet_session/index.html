@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4347,7 +4347,7 @@ overflow-wrap: normal;
 word-break: normal;
 }
 .adventure-brief,
-.portfolio-trace {
+.completed-work {
 border: 1px solid var(--line);
 border-radius: var(--radius);
 background: #ffffff;
@@ -4359,12 +4359,12 @@ margin: 1.2rem 0 1.5rem;
 border-left: 5px solid var(--teal);
 background: linear-gradient(90deg, #f4fbfc 0%, #ffffff 70%);
 }
-.portfolio-trace {
+.completed-work {
 border-left: 5px solid var(--blue);
 background: #f8fbff;
 }
 .adventure-brief-title,
-.portfolio-trace-title {
+.completed-work-title {
 margin: 0 0 .75rem;
 color: var(--ink);
 font-size: 1.05rem;
@@ -4394,7 +4394,7 @@ color: var(--ink);
 line-height: 1.35;
 overflow-wrap: anywhere;
 }
-.portfolio-trace ul {
+.completed-work ul {
 margin-bottom: 0;
 }
 .module-product-showcase {
@@ -4537,6 +4537,15 @@ overflow: hidden;
 .path-card[open] {
 border-color: #b8cbd9;
 box-shadow: 0 10px 24px rgba(49, 95, 140, .08);
+}
+.ai-feedback-card {
+border-left: 5px solid var(--teal);
+}
+.ai-feedback-card .path-number {
+background: var(--teal);
+}
+.ai-feedback-card .summary-resource-link {
+background: #eaf7f7;
 }
 .path-card summary {
 display: grid;
@@ -6153,135 +6162,139 @@ margin-bottom: .05rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-démarrage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Démarrage</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-démarrage">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-démarrage">
         <li>
     <a class="dropdown-item" href="../demarrage.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
-  </li>  
+  </li>
+        <li>
+    <a class="dropdown-item" href="../installation.html">
+ <span class="dropdown-text">Installation technique</span></a>
+  </li>
         <li>
     <a class="dropdown-item" href="../calendrier.html">
  <span class="dropdown-text">Calendrier</span></a>
-  </li>  
+  </li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Modules</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
         <li>
     <a class="dropdown-item" href="../modules.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_01/index.html">
  <span class="dropdown-text">Module 01 - Plongée en science des données</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_02/index.html">
  <span class="dropdown-text">Module 02 - GitHub et visualisation de données</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_03/index.html">
  <span class="dropdown-text">Module 03 - Les catégories sous toutes leurs formes</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_04/index.html">
  <span class="dropdown-text">Module 04 - Facteurs et nettoyage de données</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_05/index.html">
  <span class="dropdown-text">Module 05 - Explorer et comprendre les relations entre les variables</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_06/index.html">
  <span class="dropdown-text">Module 06 - Collaboration et reproductibilité dans GitHub</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_07/index.html">
  <span class="dropdown-text">Module 07 - Visualisation, éthique et sécurisation des données</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_08/index.html">
  <span class="dropdown-text">Module 08 - Automatisation et exploration du web</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_09/index.html">
  <span class="dropdown-text">Module 09 - Prédiction et biais</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../module_10/index.html">
  <span class="dropdown-text">Module 10 - Au-delà des données : texte et tableau de bord</span></a>
-  </li>  
+  </li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-valuations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Évaluations</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-valuations">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-valuations">
         <li>
     <a class="dropdown-item" href="../evaluations.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../examen.html">
  <span class="dropdown-text">Examen</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../defis.html">
  <span class="dropdown-text">Défis</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../affiche_litteratie_donnees.html">
  <span class="dropdown-text">Affiche de littératie des données</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../projet_session/index.html">
  <span class="dropdown-text">Projet de session</span></a>
-  </li>  
+  </li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ressources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Ressources</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-ressources">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-ressources">
         <li>
     <a class="dropdown-item" href="../ressources.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../livres.html">
  <span class="dropdown-text">Livres et lectures</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../packages.html">
  <span class="dropdown-text">Packages R</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../donnees.html">
  <span class="dropdown-text">Bases de données</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../supports_classe.html">
  <span class="dropdown-text">Supports de classe</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../ia.html">
  <span class="dropdown-text">IA et aide</span></a>
-  </li>  
+  </li>
         <li>
     <a class="dropdown-item" href="../boite_outils.html">
  <span class="dropdown-text">Boîte à outils</span></a>
-  </li>  
+  </li>
     </ul>
   </li>
 </ul>
@@ -6295,7 +6308,7 @@ margin-bottom: .05rem;
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -6339,7 +6352,7 @@ margin-bottom: .05rem;
   <section class="resource-section" aria-labelledby="project-ai-title">
   <div class="resource-section__header">
   <h2 id="project-ai-title" class="anchored">Usage permis de l&#39;IA</h2>
-  <p>Dans les défis et le projet, l&#39;IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l&#39;examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l&#39;IA influence une partie importante d&#39;un livrable évalué, gardez une trace courte: outil utilisé, but de l&#39;aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.</p>
+  <p>Dans les défis et le projet, l&#39;IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l&#39;examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l&#39;IA influence une partie importante d&#39;un livrable évalué, ajoutez une déclaration courte dans le livrable: outil utilisé, but de l&#39;aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.</p>
   </div>
   </section>
 
@@ -6553,6 +6566,7 @@ display: none !important;
   'index.html',
   'modules.html',
   'demarrage.html',
+  'installation.html',
   'calendrier.html',
   'evaluations.html',
   'examen.html',
@@ -6744,7 +6758,7 @@ display: none !important;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -6764,11 +6778,11 @@ display: none !important;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copié");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -6845,7 +6859,7 @@ display: none !important;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -6920,7 +6934,7 @@ display: none !important;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -6948,7 +6962,7 @@ display: none !important;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -6972,7 +6986,7 @@ display: none !important;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -7012,7 +7026,7 @@ display: none !important;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");

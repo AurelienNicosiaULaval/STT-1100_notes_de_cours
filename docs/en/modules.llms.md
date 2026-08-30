@@ -2,7 +2,7 @@ Course Pathway
 
 # Modules
 
-Each module is one step in the STT-1100 pathway. Its page starts with prerequisites, a minimum route, extensions and a help plan, then gathers readings, mini-test, adventure, challenge, exercises, data and tools.
+Each module is one step in the STT-1100 pathway. Its page starts with prerequisites, a minimum route, extensions and a help plan, then gathers readings, mini-test, adventure, challenge, exercises, AI feedback, data and tools.
 
 [See modules](#module-list) [Module cycle](#module-cycle) [Calendar](calendrier.llms.md) [Resources](ressources.llms.md)
 
@@ -10,9 +10,9 @@ Each module is one step in the STT-1100 pathway. Its page starts with prerequisi
 
 Progressive modules
 
-4
+5
 
-Work blocks
+Work steps
 
 R
 
@@ -24,7 +24,7 @@ Data science situations
 
 ## How to work through a module
 
-Modules follow a stable structure. That repetition is intentional: it helps you know where to find instructions, where to practise and where to produce a trace.
+Modules follow a stable structure. That repetition is intentional: it helps you know where to find instructions, where to practise and how to finish your work with targeted feedback.
 
 1
 
@@ -49,6 +49,16 @@ Extend the adventure in the same universe with more autonomy and an assessed del
 ### Exercises
 
 Consolidate technical skills in other contexts. Exercises are separate from the challenge narrative.
+
+5
+
+### AI feedback
+
+Have one excerpt of completed work reviewed, verify the suggestions, then decide for yourself what to improve.
+
+No additional portfolio
+
+This final step uses work already completed in the adventure, challenge or exercises. It creates no new submission and no collection of traces to build.
 
 ## Pathway progression
 
@@ -97,6 +107,10 @@ Open the challenge, check the expected format and confirm administrative require
 ### I want more practice
 
 Open the exercises. They consolidate skills in other contexts and with other datasets.
+
+### I want to improve my work
+
+At the end of the module, open the “AI feedback” card, choose a precise excerpt and use `/retroaction` mode to obtain a critique you will verify.
 
 ### I am technically stuck
 

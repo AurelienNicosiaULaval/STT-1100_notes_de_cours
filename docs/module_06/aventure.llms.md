@@ -201,9 +201,9 @@ Ajoutez une section expliquant comment votre projet illustre les étapes suivant
 4.  communication;
 5.  partage, réutilisation et versionnage.
 
-Trace portfolio
+Travail réalisé
 
-La trace de collaboration compte autant que le graphique final.
+À la fin de l’aventure, vérifiez que le travail de l’équipe comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - une branche ou une pull request liée à votre rôle;
 - la table jointe utilisée dans le rapport;

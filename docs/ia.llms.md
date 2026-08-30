@@ -52,7 +52,7 @@ Commencez votre message par la commande qui correspond à votre besoin. Le GPT a
 
 ### Rétroaction
 
-`/retroaction` Recevoir une rétroaction formative sans note officielle.
+`/retroaction` À la fin d'un module, faire relire un seul élément de l'aventure, du défi ou des exercices, puis décider soi-même quoi améliorer.
 
 ### Débogage R
 
@@ -72,7 +72,7 @@ Commencez votre message par la commande qui correspond à votre besoin. Le GPT a
 
 ## Usage permis de l'IA
 
-Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, gardez une trace courte: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
+Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, ajoutez une déclaration courte dans le livrable: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
 
 1
 
@@ -84,7 +84,7 @@ Usage encouragé pour comprendre une notion, tester une commande, corriger une e
 
 ### Défis
 
-Appliquer la règle commune et garder une trace lorsque l'aide influence le livrable.
+Appliquer la règle commune et ajouter une déclaration lorsque l'aide influence le livrable.
 
 3
 
@@ -122,7 +122,7 @@ Les fichiers du GPT constituent un instantané. Pour une modalité courante, vé
 
 ## Déclarer l'aide reçue
 
-Quand l'IA influence une partie importante d'un livrable évalué, gardez une trace courte et claire. Le but n'est pas d'écrire un roman, mais de rendre votre démarche transparente.
+Quand l'IA influence une partie importante d'un livrable évalué, ajoutez une déclaration courte et claire dans le livrable. Cette déclaration n'est pas un portfolio: elle sert seulement à rendre l'usage transparent.
 
 ### Outil utilisé
 
@@ -176,7 +176,7 @@ Les meilleurs prompts demandent une aide ciblée et gardent la responsabilité d
 
 ### Réviser
 
-`/retroaction` Voici mon interprétation. Signale les phrases qui dépassent les données, les variables à vérifier et les endroits où je dois nuancer.
+`/retroaction` Voici la consigne, ce que j'ai essayé et l'extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m'aidera à corriger moi-même. Ne réécris pas tout.
 
 ### Améliorer
 

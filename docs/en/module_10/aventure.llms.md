@@ -321,9 +321,9 @@ You can also integrate a progress bar or visual indicator of overall sentiment p
 - The minimal deliverable is a reproducible dashboard that works locally.
 - Public deployment (for example via shinyapps.io or Posit Cloud) is required only if that instruction is given in class.
 
-Portfolio trace
+Completed work
 
-Keep only anonymized traces that help explain the dashboard.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - a cleaned token table or aggregated excerpt;
 - a note about the limits of the sentiment lexicon;

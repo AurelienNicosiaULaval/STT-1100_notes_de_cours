@@ -560,9 +560,9 @@ geocode_pc <- function(df, pc_col = "code_postal") {
 
 ------------------------------------------------------------------------
 
-Trace portfolio
+Travail réalisé
 
-Conservez les éléments qui montrent la transformation d’un tableau en article.
+À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - vos choix de nettoyage des catégories et montants;
 - deux figures prêtes pour l’article;

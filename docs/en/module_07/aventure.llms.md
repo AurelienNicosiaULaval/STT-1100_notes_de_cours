@@ -164,9 +164,9 @@ This conclusion must explain:
 - one visualization or anonymization decision they consider important;
 - one personal rule to remember for future data science projects.
 
-Portfolio trace
+Completed work
 
-Keep evidence that your audit improves the report and protects people.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - a structured list of issues found in the problematic report;
 - the anonymized file you produced;

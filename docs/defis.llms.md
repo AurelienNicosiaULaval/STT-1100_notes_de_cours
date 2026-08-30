@@ -24,7 +24,7 @@ Préparer le projet
 
 ## Pourquoi des défis?
 
-Chaque défi cible une compétence concrète. Le but est de passer de la compréhension à une trace visible de ce que vous savez faire, dans un contexte assez proche de l'aventure pour être soutenant, mais assez différent pour demander de l'autonomie.
+Chaque défi cible une compétence concrète. Le but est de passer de la compréhension à une production visible de ce que vous savez faire, dans un contexte assez proche de l'aventure pour être soutenant, mais assez différent pour demander de l'autonomie.
 
 ### Autonomie
 
@@ -90,7 +90,7 @@ Lorsque le défi utilise GitHub, pousser les commits et relire le dépôt en lig
 
 ### Usage permis de l'IA
 
-Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, gardez une trace courte: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
+Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, ajoutez une déclaration courte dans le livrable: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
 
 [Consulter la page IA](ia.llms.md)
 
@@ -102,7 +102,7 @@ Utilisez ces liens pour retrouver les consignes complètes et les livrables atte
 
 Mini-rapport Quarto reproductible à partir des données météo, avec rétroaction formative.
 
-Trace attendue: fichier source `.qmd` et rendu HTML.
+Produit attendu: fichier source `.qmd` et rendu HTML.
 
 [Consulter le défi 1](module_01/defi.llms.md)
 
@@ -110,7 +110,7 @@ Trace attendue: fichier source `.qmd` et rendu HTML.
 
 Dépôt GitHub contenant le journal de bord et un rapport d'analyse sur les manchots.
 
-Trace attendue: dépôt lisible, commits utiles, `rapport_analyse.qmd` et HTML.
+Produit attendu: dépôt lisible, commits utiles, `rapport_analyse.qmd` et HTML.
 
 [Consulter le défi 2](module_02/defi.llms.md)
 
@@ -118,7 +118,7 @@ Trace attendue: dépôt lisible, commits utiles, `rapport_analyse.qmd` et HTML.
 
 Article Quarto reproductible sur les infractions alimentaires.
 
-Trace attendue: article, graphiques, interprétation et historique GitHub.
+Produit attendu: article, graphiques, interprétation et historique GitHub.
 
 [Consulter le défi 3](module_03/defi.llms.md)
 
@@ -126,7 +126,7 @@ Trace attendue: article, graphiques, interprétation et historique GitHub.
 
 Nettoyage d'une base d'assurance et documentation des décisions.
 
-Trace attendue: fichier propre, journal reproductible et décisions défendables.
+Produit attendu: fichier propre, journal reproductible et décisions défendables.
 
 [Consulter le défi 4](module_04/defi.llms.md)
 
@@ -134,7 +134,7 @@ Trace attendue: fichier propre, journal reproductible et décisions défendables
 
 Rapport exploratoire prudent sur les retards de vols, la météo et l'âge des avions.
 
-Trace attendue: rapport HTML court, graphiques utiles et conclusion nuancée.
+Produit attendu: rapport HTML court, graphiques utiles et conclusion nuancée.
 
 [Consulter le défi 5](module_05/defi.llms.md)
 
@@ -142,7 +142,7 @@ Trace attendue: rapport HTML court, graphiques utiles et conclusion nuancée.
 
 Revue croisée d'un rapport collaboratif et vérification de sa reproductibilité.
 
-Trace attendue: issues GitHub utiles, vérification du rendu et corrections poussées si nécessaire. Ce défi ne compte pas dans la note finale.
+Produit attendu: issues GitHub utiles, vérification du rendu et corrections poussées si nécessaire. Ce défi ne compte pas dans la note finale.
 
 [Consulter le défi 6](module_06/defi.llms.md)
 
@@ -150,7 +150,7 @@ Trace attendue: issues GitHub utiles, vérification du rendu et corrections pous
 
 Note éthique, visualisations responsables et fichier anonymisé.
 
-Trace attendue: rapport éthique rendu, données anonymisées et choix justifiés.
+Produit attendu: rapport éthique rendu, données anonymisées et choix justifiés.
 
 [Consulter le défi 7](module_07/defi.llms.md)
 
@@ -158,7 +158,7 @@ Trace attendue: rapport éthique rendu, données anonymisées et choix justifié
 
 Fonction `scrape_page()` testable dans un fichier `IDUL.R`.
 
-Trace attendue: contrat de fonction respecté, tests locaux et prudence de collecte.
+Produit attendu: contrat de fonction respecté, tests locaux et prudence de collecte.
 
 [Consulter le défi 8](module_08/defi.llms.md)
 
@@ -166,7 +166,7 @@ Trace attendue: contrat de fonction respecté, tests locaux et prudence de colle
 
 Capsule vidéo courte sur un modèle prédictif ou une analyse de biais.
 
-Trace attendue: argument clair, support visuel et vidéo accessible.
+Produit attendu: argument clair, support visuel et vidéo accessible.
 
 [Consulter le défi 9](module_09/defi.llms.md)
 
@@ -174,7 +174,7 @@ Trace attendue: argument clair, support visuel et vidéo accessible.
 
 Tableau de bord interactif à partir du fichier fictif fourni. Un fichier réel ne peut être utilisé que s'il est anonymisé et explicitement autorisé.
 
-Trace attendue: tableau de bord local reproductible, données protégées et README utile.
+Produit attendu: tableau de bord local reproductible, données protégées et README utile.
 
 [Consulter le défi 10](module_10/defi.llms.md)
 
@@ -224,7 +224,7 @@ Répondre à la consigne avant d'ajouter des analyses secondaires.
 
 Expliquer brièvement pourquoi une transformation, un graphique ou un filtre est utilisé.
 
-### Vérifier la trace
+### Vérifier les fichiers
 
 Un rendu absent, un fichier mal nommé ou un dépôt non poussé peut empêcher la correction.
 
@@ -240,7 +240,7 @@ Un défi n'est pas seulement une remise ponctuelle. Les commentaires reçus serv
 
 Noter une erreur récurrente de code, de rendu, de graphique ou d'interprétation pour ne pas la répéter au défi suivant.
 
-### Conserver une trace
+### Conserver les exemples utiles
 
 Garder les exemples de code, de visualisation et de communication qui pourront être réutilisés dans le projet.
 

@@ -815,7 +815,7 @@ border-color: var(--ul-yellow);
 .center-note,
 .progression-line,
 .phase-message,
-.portfolio-message,
+.work-message,
 .official-note {
 margin: 34px 0 0;
 color: var(--muted);
@@ -824,15 +824,15 @@ line-height: 1.35 !important;
 }
 .center-note,
 .progression-line,
-.portfolio-message,
+.work-message,
 .official-note {
 text-align: center;
 }
 .weekly-journey {
 display: grid;
-grid-template-columns: 1fr 38px 1fr 38px 1fr 38px 1fr 38px 1fr 38px 1fr;
+grid-template-columns: repeat(6, minmax(0, 1fr) 22px) minmax(0, 1.18fr);
 align-items: center;
-margin-top: 84px;
+margin-top: 70px;
 }
 .journey-node {
 text-align: center;
@@ -852,14 +852,19 @@ border-color: var(--ul-red);
 background: var(--ul-red);
 color: var(--white);
 }
+.journey-node.feedback > span {
+border-color: var(--teal);
+background: var(--teal);
+color: var(--white);
+}
 .journey-node h3 {
-margin: 24px 0 6px;
-font-size: 26px;
+margin: 22px 0 6px;
+font-size: 24px;
 }
 .journey-node p {
 margin: 0;
 color: var(--muted);
-font-size: 19px;
+font-size: 18px;
 }
 .journey-line {
 height: 2px;
@@ -1555,6 +1560,87 @@ border-left: 9px solid var(--ul-red);
 background: var(--soft-red);
 color: #70070d;
 font-size: 24px;
+text-align: center;
+}
+.ai-feedback-process {
+display: grid;
+grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr) 48px minmax(0, 1fr);
+align-items: stretch;
+margin-top: 42px;
+}
+.ai-feedback-step {
+min-height: 250px;
+padding: 28px 28px 24px;
+border-top: 8px solid var(--teal);
+border-bottom: 2px solid var(--line);
+background: var(--white);
+}
+.ai-feedback-step:nth-child(3) {
+border-top-color: var(--blue);
+}
+.ai-feedback-step:nth-child(5) {
+border-top-color: var(--ul-red);
+}
+.ai-feedback-step > span {
+display: inline-grid;
+width: 44px;
+height: 44px;
+place-items: center;
+border: 2px solid currentColor;
+border-radius: 50%;
+color: var(--teal);
+font-size: 19px;
+font-weight: 700;
+}
+.ai-feedback-step:nth-child(3) > span {
+color: var(--blue);
+}
+.ai-feedback-step:nth-child(5) > span {
+color: var(--ul-red);
+}
+.ai-feedback-step h3 {
+margin: 22px 0 12px;
+font-size: 30px;
+}
+.ai-feedback-step p {
+margin: 0;
+color: var(--muted);
+font-size: 20px;
+line-height: 1.32;
+}
+.ai-feedback-arrow {
+display: grid;
+place-items: center;
+color: var(--ul-red);
+font-size: 40px;
+font-weight: 500;
+}
+.ai-feedback-prompt {
+display: grid;
+grid-template-columns: 230px 1fr;
+gap: 22px;
+align-items: start;
+margin-top: 28px;
+padding: 20px 24px;
+border-left: 8px solid var(--ul-yellow);
+background: var(--soft-yellow);
+}
+.ai-feedback-prompt > span {
+color: #745800;
+font-size: 18px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+}
+.ai-feedback-prompt p {
+margin: 0;
+font-size: 18px;
+line-height: 1.34;
+}
+.ai-feedback-rule {
+margin: 22px 0 0;
+color: var(--ink);
+font-size: 22px !important;
 text-align: center;
 }
 .gpt-feature {
@@ -2612,12 +2698,24 @@ Exercices
 Consolider autrement
 </p>
 </div>
+<div class="journey-line">
+
+</div>
+<div class="journey-node feedback">
+<span>7</span>
+<h3>
+Rétroaction IA
+</h3>
+<p>
+Relire et décider
+</p>
+</div>
 </div>
 <p class="center-note">
-Vous savez toujours où commencer, quoi produire et comment vérifier votre progression.
+La dernière étape revient sur le travail déjà réalisé. Elle ne crée ni portfolio ni remise supplémentaire.
 </p>
 <aside class="notes">
-<p>Source interne: demarrage.qmd et modules.qmd. Préciser que le mini-test est formatif et que les exercices utilisent d’autres contextes.</p>
+<p>Source interne: demarrage.qmd et modules.qmd. Préciser que le mini-test est formatif, que les exercices utilisent d’autres contextes et que la rétroaction IA vient toujours après les exercices.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -2824,7 +2922,7 @@ Jointures, GitHub et revue croisée
 </div>
 </div>
 <p class="phase-message">
-Vous apprenez à laisser une trace claire de vos décisions et de votre collaboration.
+Vous apprenez à documenter clairement vos décisions et votre collaboration.
 </p>
 <aside class="notes">
 <p>Sources internes: module_04/index.qmd, module_05/index.qmd, module_06/index.qmd.</p>
@@ -2927,8 +3025,8 @@ display:block!important;
 <div class="outputs-cloud">
 <p><span class="output output-xl">rapports Quarto</span> <span class="output output-md">données nettoyées</span> <span class="output output-lg">visualisations</span> <span class="output output-sm">journal de décisions</span> <span class="output output-lg">dépôts GitHub</span> <span class="output output-md">article de données</span> <span class="output output-sm">fonction testable</span> <span class="output output-md">capsule vidéo</span> <span class="output output-xl">tableau de bord</span></p>
 </div>
-<p class="portfolio-message">
-Vous construisez des preuves visibles de ce que vous savez faire.
+<p class="work-message">
+Tout vient du travail réellement fait dans les aventures, les défis et les exercices.
 </p>
 <aside class="notes">
 <p>Source interne: produits finis annoncés dans les pages des dix modules.</p>
@@ -3026,10 +3124,10 @@ Réunir code, résultats et explications dans un document.
 <div class="tool-main">
 <span class="tool-letter">GitHub</span>
 <h3>
-Tracer
+Versionner
 </h3>
 <p>
-Versionner, collaborer et partager une production.
+Conserver l’historique, collaborer et partager une production.
 </p>
 </div>
 </div>
@@ -3214,7 +3312,7 @@ Question claire, graphiques pertinents et message principal
 Affiche scientifique A1, portrait ou paysage
 </li>
 <li>
-Dépôt GitHub contenant l’affiche et les traces demandées
+Dépôt GitHub contenant l’affiche et les fichiers demandés
 </li>
 </ul>
 </div>
@@ -3394,7 +3492,7 @@ Exécutez le code et comparez la réponse aux données et à la consigne.
 Déclarer
 </h3>
 <p>
-Gardez une trace lorsque l’aide influence une partie importante du livrable.
+Décrivez l’usage lorsque l’aide influence une partie importante du livrable.
 </p>
 </div>
 </div>
@@ -3482,6 +3580,66 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
+<section id="la-rétroaction-ia-termine-chaque-module" class="slide level2">
+<h2>La rétroaction IA termine chaque module</h2>
+<div class="ai-feedback-process">
+<div class="ai-feedback-step">
+<span>1</span>
+<h3>
+Choisir
+</h3>
+<p>
+Un extrait réel de l’aventure, du défi ou des exercices: code, graphique, interprétation ou choix.
+</p>
+</div>
+<div class="ai-feedback-arrow" aria-hidden="true">
+→
+</div>
+<div class="ai-feedback-step">
+<span>2</span>
+<h3>
+Demander
+</h3>
+<p>
+Avec <code>/retroaction</code>: un point solide, une fragilité à vérifier et une question pour vous aider à corriger.
+</p>
+</div>
+<div class="ai-feedback-arrow" aria-hidden="true">
+→
+</div>
+<div class="ai-feedback-step">
+<span>3</span>
+<h3>
+Décider
+</h3>
+<p>
+Comparer aux données et à la consigne, puis modifier seulement ce que vous comprenez et pouvez expliquer.
+</p>
+</div>
+</div>
+<div class="ai-feedback-prompt">
+<span>Demande prête à copier</span>
+<p>
+<code>/retroaction Voici la consigne, ce que j’ai essayé et l’extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m’aidera à corriger moi-même. Ne réécris pas tout.</code>
+</p>
+</div>
+<p class="ai-feedback-rule">
+Résultat attendu: une amélioration comprise dans votre travail, pas un nouveau portfolio.
+</p>
+<aside class="notes">
+<p>Source interne: modules.qmd et pages d’entrée des modules 1 à 10. Faire choisir un seul élément réel, montrer la demande, puis demander comment vérifier la réponse avant de modifier le travail. Rappeler de ne transmettre aucune donnée personnelle, confidentielle ou protégée.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
 <section id="trois-niveaux-dutilisation-selon-lactivité" class="slide level2">
 <h2>Trois niveaux d’utilisation, selon l’activité</h2>
 <div class="ai-levels">
@@ -3555,7 +3713,7 @@ display:block!important;
 <span class="ecosystem-name">Site du cours</span><span class="ecosystem-verb">Apprendre</span><span>Plans, lectures, mini-tests, aventures, défis, données et ressources</span>
 </div>
 <div class="ecosystem-row">
-<span class="ecosystem-name">GitHub</span><span class="ecosystem-verb">Produire</span><span>Gabarits, versions, collaboration et traces de travail</span>
+<span class="ecosystem-name">GitHub</span><span class="ecosystem-verb">Produire</span><span>Gabarits, versions, collaboration et historique du travail</span>
 </div>
 <div class="ecosystem-row">
 <span class="ecosystem-name">GPT STT-1100</span><span class="ecosystem-verb">Se débloquer</span><span>Explications, diagnostic et vérifications, sans faire le travail à votre place</span>
@@ -3605,7 +3763,7 @@ R, RStudio, Quarto et les packages R de départ doivent être prêts.
 </div>
 <div class="mission-copy">
 <h3>
-Produire une première trace
+Produire un premier document
 </h3>
 <p>
 Ouvrez le module 1 et rendez votre premier document Quarto.
@@ -3645,7 +3803,7 @@ Cette session, vous allez apprendre à faire parler les données sans leur faire
 
 </div>
 <p class="closing-small">
-Soyez curieux. Soyez rigoureux. Gardez une trace.
+Soyez curieux. Soyez rigoureux. Expliquez vos choix.
 </p>
 </div>
 <aside class="notes">

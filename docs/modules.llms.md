@@ -2,7 +2,7 @@ Parcours du cours
 
 # Modules
 
-Chaque module est une étape du parcours STT-1100. Sa page commence par les prérequis, le parcours minimal, les prolongements et le plan d'aide, puis rassemble lectures, mini-test, aventure, défi, exercices, données et outils.
+Chaque module est une étape du parcours STT-1100. Sa page commence par les prérequis, le parcours minimal, les prolongements et le plan d'aide, puis rassemble lectures, mini-test, aventure, défi, exercices, rétroaction IA, données et outils.
 
 [Voir les modules](#liste-modules) [Cycle d'un module](#cycle-module) [Calendrier](calendrier.llms.md) [Ressources](ressources.llms.md)
 
@@ -10,9 +10,9 @@ Chaque module est une étape du parcours STT-1100. Sa page commence par les pré
 
 Modules progressifs
 
-4
+5
 
-Blocs de travail
+Étapes de travail
 
 R
 
@@ -24,7 +24,7 @@ Situations de science des données
 
 ## Comment travailler un module
 
-Les modules suivent une structure stable. Cette répétition est volontaire: elle permet de savoir où trouver les consignes, où pratiquer et où produire une trace.
+Les modules suivent une structure stable. Cette répétition est volontaire: elle permet de savoir où trouver les consignes, où pratiquer et comment terminer le travail avec une rétroaction ciblée.
 
 1
 
@@ -49,6 +49,16 @@ Prolonger l'aventure dans le même univers avec plus d'autonomie et un livrable 
 ### Exercices
 
 Consolider les gestes techniques dans d'autres contextes. Les exercices sont séparés du fil narratif du défi.
+
+5
+
+### Rétroaction IA
+
+Faire relire un extrait du travail déjà produit, vérifier les suggestions, puis décider soi-même quoi améliorer.
+
+Aucun portfolio supplémentaire
+
+Cette dernière étape s'appuie sur l'aventure, le défi ou les exercices déjà réalisés. Elle ne crée ni nouvelle remise ni collection de traces à construire.
 
 ## Progression du parcours
 
@@ -97,6 +107,10 @@ Ouvrir le défi, vérifier le format attendu et confirmer les modalités adminis
 ### Je veux pratiquer plus
 
 Ouvrir les exercices. Ils servent à consolider dans d'autres contextes et avec d'autres données.
+
+### Je veux améliorer mon travail
+
+À la fin du module, ouvrir la carte « Rétroaction IA », choisir un extrait précis et utiliser le mode `/retroaction` pour obtenir une critique à vérifier.
 
 ### Je bloque techniquement
 

@@ -549,9 +549,9 @@ head(MeteoQuebec[MeteoQuebec$year == 2000 & MeteoQuebec$total_precip == 0,])
     10971         NA        NA           6.1
     10972         NA        NA           7.5
 
-Portfolio trace
+Completed work
 
-At the end of the adventure, keep a short trace of what you can redo without help.
+At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
 
 - a mini Quarto report that renders to HTML;
 - two R commands you understand and can explain;

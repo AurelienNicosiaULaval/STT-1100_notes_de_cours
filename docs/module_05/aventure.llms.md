@@ -380,9 +380,9 @@ Le nuage de points te montre la tendance globale, et la ligne rouge correspond �
 >
 > Tu peux refaire le même graphique avec `p_annulation`. N’oublie pas de regarder `n_vols` avant de comparer les tranches.
 
-Trace portfolio
+Travail réalisé
 
-Gardez les traces qui montrent votre raisonnement sur les relations entre variables.
+À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
 
 - une variable temporelle créée avec `lubridate`;
 - un graphique de relation entre deux variables;

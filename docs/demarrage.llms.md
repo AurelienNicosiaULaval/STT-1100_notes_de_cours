@@ -2,7 +2,7 @@ STT-1100
 
 # Comment avancer dans le cours
 
-Le cours est construit comme un parcours de science des données. Chaque module commence par des lectures ciblées, vous plonge dans une aventure guidée, puis vous amène à produire une trace personnelle: rapport, graphique, jeu de données nettoyé, fonction, vidéo ou tableau de bord.
+Le cours est construit comme un parcours de science des données. Chaque module commence par des lectures ciblées, vous plonge dans une aventure guidée, puis vous fait produire du travail concret: rapport, graphique, jeu de données nettoyé, fonction, vidéo ou tableau de bord. Après les exercices, une rétroaction IA vous aide à améliorer un élément de ce travail.
 
 [Voir les modules](modules.llms.md) [Installer les outils](installation.llms.md) [Première séance](#premiere-seance) [Voir les défis](defis.llms.md) [Boîte à outils](boite_outils.llms.md)
 
@@ -28,7 +28,7 @@ Consolider autrement
 
 6
 
-Garder une trace
+Obtenir une rétroaction IA
 
 ## Avant la première séance
 
@@ -36,7 +36,7 @@ Chaque personne doit apporter à chaque séance un ordinateur portable Windows, 
 
 1.  Suivre la [procédure d'installation technique](installation.llms.md) pour installer et vérifier R, RStudio Desktop, Quarto et les packages R de départ.
 2.  Se connecter à Brio pour les consignes officielles, les dates et les modalités de remise.
-3.  Ouvrir la page du module en cours et repérer le plan d'apprentissage, l'aventure, les exercices et le défi.
+3.  Ouvrir la page du module en cours et repérer le plan d'apprentissage, l'aventure, le défi, les exercices et la rétroaction IA.
 4.  Faire les lectures du module 1, répondre au mini-test formatif et réussir un premier rendu Quarto.
 
 ### Brio
@@ -45,7 +45,7 @@ Brio reste la référence pour les dates, les consignes officielles, les remises
 
 ### Site du cours
 
-Le site sert à travailler: modules, lectures, mini-tests, aventures, exercices, défis, données et ressources.
+Le site sert à travailler: modules, lectures, mini-tests, aventures, défis, exercices, rétroaction IA, données et ressources.
 
 ### Module 1
 
@@ -53,7 +53,7 @@ Le plan d'apprentissage précise les lectures, le mini-test et le premier travai
 
 ## Le trajet d'un module
 
-Un module n'est pas seulement une liste de pages. C'est un petit cycle complet: comprendre, pratiquer, produire, consolider, puis garder une trace de ce qui a été appris.
+Un module n'est pas seulement une liste de pages. C'est un petit cycle complet: comprendre, pratiquer, produire, consolider, puis demander une rétroaction ciblée sur le travail déjà réalisé.
 
 01
 
@@ -97,11 +97,11 @@ Pratique indépendante
 
 06
 
-### Trace portfolio
+### Rétroaction IA
 
-La trace finale indique ce qu'il faut conserver: fichiers, décisions, erreurs corrigées et apprentissages réutilisables.
+Choisissez un extrait de l'aventure, du défi ou des exercices. En mode `/retroaction`, demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger vous-même.
 
-Mémoire de travail
+Amélioration vérifiée
 
 ## Avant d'ouvrir une aventure
 
@@ -155,7 +155,7 @@ Revenez à la boîte à outils pour retrouver les routines R, Quarto, GitHub et 
 
 ### Je prépare une remise
 
-Relisez la consigne du défi, rendez le document et vérifiez la trace avant de remettre sur Brio.
+Relisez la consigne du défi, rendez le document et vérifiez les fichiers demandés avant de remettre sur Brio.
 
 [Voir les défis](defis.llms.md)
 

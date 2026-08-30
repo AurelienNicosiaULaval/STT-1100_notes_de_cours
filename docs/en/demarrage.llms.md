@@ -2,7 +2,7 @@ STT-1100
 
 # How to move through the course
 
-The course is built as a data science pathway. Each module starts with targeted readings, immerses you in a guided adventure, then leads you to produce a personal trace: report, graph, cleaned dataset, function, video or dashboard.
+The course is built as a data science pathway. Each module starts with targeted readings, immerses you in a guided adventure, then has you produce concrete work: a report, graph, cleaned dataset, function, video or dashboard. After the exercises, AI feedback helps you improve one element of that work.
 
 [See modules](modules.llms.md) [Install the tools](installation.llms.md) [First session](#first-session) [See challenges](defis.llms.md) [Toolkit](boite_outils.llms.md)
 
@@ -28,7 +28,7 @@ Consolidate elsewhere
 
 6
 
-Keep a trace
+Obtain AI feedback
 
 ## Before the first session
 
@@ -36,7 +36,7 @@ Every student must bring a Windows, macOS or Linux laptop to every session. For 
 
 1.  Follow the [technical installation procedure](installation.llms.md) to install and verify R, RStudio Desktop, Quarto and the starting R packages.
 2.  Sign in to Brio for official instructions, dates and submission rules.
-3.  Open the current module page and locate the learning plan, adventure, exercises and challenge.
+3.  Open the current module page and locate the learning plan, adventure, challenge, exercises and AI feedback.
 4.  Complete the module 1 readings, answer the formative mini-test and successfully render a first Quarto document.
 
 ### Brio
@@ -45,7 +45,7 @@ Brio remains the reference for dates, official instructions, submissions and cou
 
 ### Course Site
 
-The site is for working: modules, readings, mini-tests, adventures, exercises, challenges, data and resources.
+The site is for working: modules, readings, mini-tests, adventures, challenges, exercises, AI feedback, data and resources.
 
 ### Module 1
 
@@ -53,7 +53,7 @@ The learning plan identifies the readings, mini-test and first task to complete 
 
 ## The path of a module
 
-A module is not just a list of pages. It is a complete cycle: understand, practise, produce, consolidate, then keep a trace of what you learned.
+A module is not just a list of pages. It is a complete cycle: understand, practise, produce, consolidate, then request targeted feedback on work you have already completed.
 
 01
 
@@ -97,11 +97,11 @@ Independent practice
 
 06
 
-### Portfolio trace
+### AI feedback
 
-The final trace tells you what to keep: files, decisions, corrected errors and reusable learning.
+Choose one excerpt from the adventure, challenge or exercises. In `/retroaction` mode, ask for one strength, one weakness to verify and one question that will help you revise it yourself.
 
-Working memory
+Verified improvement
 
 ## Before opening an adventure
 
@@ -155,7 +155,7 @@ Return to the toolkit to find R, Quarto, GitHub and debugging routines.
 
 ### I am preparing a submission
 
-Reread the challenge instructions, render the document and check the trace before submitting on Brio.
+Reread the challenge instructions, render the document and check the requested files before submitting on Brio.
 
 [See challenges](defis.llms.md)
 

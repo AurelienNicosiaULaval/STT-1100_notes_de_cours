@@ -2,7 +2,7 @@ Assessments
 
 # Understand the path
 
-STT-1100 assessments follow the same logic as the modules: practise a skill, produce a clear trace, receive feedback, then reuse what you learned in a more autonomous product. This page explains the role of each piece; Brio remains the official reference for dates, submissions and weights.
+STT-1100 assessments follow the same logic as the modules: practise a skill, produce clear work, receive feedback, then reuse what you learned in a more autonomous product. This page explains the role of each piece; Brio remains the official reference for dates, submissions and weights.
 
 [Challenges](defis.llms.md) [Exam](examen.llms.md) [Poster](affiche_litteratie_donnees.llms.md) [Session project](projet_session/index.llms.md) [Official reference](#official-title)
 
@@ -104,7 +104,7 @@ The formats vary, but the core criteria stay stable.
 
 Produce a focused deliverable: report, cleaning workflow, function, short video, visualization or dashboard.
 
-Expected trace: a short, readable, rendered or verifiable product linked to the module.
+Expected product: a short, readable, rendered or verifiable deliverable linked to the module.
 
 [See challengesRole, formats and links to instructions.](defis.llms.md)
 
@@ -112,7 +112,7 @@ Expected trace: a short, readable, rendered or verifiable product linked to the 
 
 Communicate a story from real data as an A1 poster, with a clear question, cited sources, relevant graphics and a repository structured from the Quarto template.
 
-Expected trace: a GitHub repository containing the poster and the elements needed to understand the team work.
+Expected product: a GitHub repository containing the poster and the elements needed to understand the team work.
 
 [Prepare the posterMission, requirements, AI use and grading rubric.](affiche_litteratie_donnees.llms.md)
 
@@ -120,7 +120,7 @@ Expected trace: a GitHub repository containing the poster and the elements neede
 
 Work independently in an applied situation and show reasonable autonomy with R, Quarto and data.
 
-Expected trace: a completed Quarto report that renders, is interpreted and matches the mission.
+Expected product: a completed Quarto report that renders, is interpreted and matches the mission.
 
 [Understand the examFormat, modules and preparation.](examen.llms.md)
 
@@ -128,7 +128,7 @@ Expected trace: a completed Quarto report that renders, is interpreted and match
 
 Build a complete team analysis, with a readable GitHub repository, a presentation and a final summary.
 
-Expected trace: a structured repository, proposal, presentation, final summary and visible team contribution.
+Expected product: a structured repository, proposal, presentation, final summary and visible team contribution.
 
 [Prepare the projectPath, grading and GitHub template.](projet_session/index.llms.md)
 
@@ -136,7 +136,7 @@ Expected trace: a structured repository, proposal, presentation, final summary a
 
 These criteria come back in challenges, the exam and the project. They explain what is valued beyond the exact format of each submission.
 
-### Verifiable trace
+### Verifiable work
 
 The file, render or repository makes it possible to see what was done and rerun the essential steps.
 
