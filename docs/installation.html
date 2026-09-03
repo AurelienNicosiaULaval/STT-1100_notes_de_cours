@@ -4382,7 +4382,7 @@ overflow-wrap: normal;
 word-break: normal;
 }
 .adventure-brief,
-.portfolio-trace {
+.completed-work {
 border: 1px solid var(--line);
 border-radius: var(--radius);
 background: #ffffff;
@@ -4394,12 +4394,12 @@ margin: 1.2rem 0 1.5rem;
 border-left: 5px solid var(--teal);
 background: linear-gradient(90deg, #f4fbfc 0%, #ffffff 70%);
 }
-.portfolio-trace {
+.completed-work {
 border-left: 5px solid var(--blue);
 background: #f8fbff;
 }
 .adventure-brief-title,
-.portfolio-trace-title {
+.completed-work-title {
 margin: 0 0 .75rem;
 color: var(--ink);
 font-size: 1.05rem;
@@ -4429,7 +4429,7 @@ color: var(--ink);
 line-height: 1.35;
 overflow-wrap: anywhere;
 }
-.portfolio-trace ul {
+.completed-work ul {
 margin-bottom: 0;
 }
 .module-product-showcase {
@@ -4572,6 +4572,15 @@ overflow: hidden;
 .path-card[open] {
 border-color: #b8cbd9;
 box-shadow: 0 10px 24px rgba(49, 95, 140, .08);
+}
+.ai-feedback-card {
+border-left: 5px solid var(--teal);
+}
+.ai-feedback-card .path-number {
+background: var(--teal);
+}
+.ai-feedback-card .summary-resource-link {
+background: #eaf7f7;
 }
 .path-card summary {
 display: grid;
@@ -6205,6 +6214,10 @@ margin-bottom: .05rem;
  <span class="dropdown-text">Installation technique</span></a>
   </li>
         <li>
+    <a class="dropdown-item" href="./autre_materiel/connexion-ssh-github-rstudio.html">
+ <span class="dropdown-text">Connexion GitHub et RStudio</span></a>
+  </li>
+        <li>
     <a class="dropdown-item" href="./calendrier.html">
  <span class="dropdown-text">Calendrier</span></a>
   </li>
@@ -6344,14 +6357,14 @@ margin-bottom: .05rem;
   <ul class="collapse">
   <li><a href="#installer-r" id="toc-installer-r" class="nav-link" data-scroll-target="#installer-r">1. Installer R</a></li>
   <li><a href="#installer-rstudio-desktop" id="toc-installer-rstudio-desktop" class="nav-link" data-scroll-target="#installer-rstudio-desktop">2. Installer RStudio Desktop</a></li>
-  <li><a href="#installer-quarto" id="toc-installer-quarto" class="nav-link" data-scroll-target="#installer-quarto">3. Installer Quarto</a></li>
-  <li><a href="#installer-git" id="toc-installer-git" class="nav-link" data-scroll-target="#installer-git">4. Installer Git</a></li>
+  <li><a href="#vérifier-quarto-avec-le-bouton-render" id="toc-vérifier-quarto-avec-le-bouton-render" class="nav-link" data-scroll-target="#vérifier-quarto-avec-le-bouton-render">3. Vérifier Quarto avec le bouton Render</a></li>
+  <li><a href="#installer-et-vérifier-git" id="toc-installer-et-vérifier-git" class="nav-link" data-scroll-target="#installer-et-vérifier-git">4. Installer et vérifier Git</a></li>
   </ul></li>
-  <li><a href="#configurer-git-github" id="toc-configurer-git-github" class="nav-link" data-scroll-target="#configurer-git-github">Configurer Git et GitHub</a>
+  <li><a href="#préparer-github-pour-le-module-2" id="toc-préparer-github-pour-le-module-2" class="nav-link" data-scroll-target="#préparer-github-pour-le-module-2">Préparer GitHub pour le module 2</a>
   <ul class="collapse">
   <li><a href="#créer-et-vérifier-le-compte-github" id="toc-créer-et-vérifier-le-compte-github" class="nav-link" data-scroll-target="#créer-et-vérifier-le-compte-github">5. Créer et vérifier le compte GitHub</a></li>
-  <li><a href="#enregistrer-votre-identité-git" id="toc-enregistrer-votre-identité-git" class="nav-link" data-scroll-target="#enregistrer-votre-identité-git">6. Enregistrer votre identité Git</a></li>
-  <li><a href="#configurer-laccès-ssh-à-github" id="toc-configurer-laccès-ssh-à-github" class="nav-link" data-scroll-target="#configurer-laccès-ssh-à-github">7. Configurer l’accès SSH à GitHub</a></li>
+  <li><a href="#enregistrer-votre-nom-pour-les-commits" id="toc-enregistrer-votre-nom-pour-les-commits" class="nav-link" data-scroll-target="#enregistrer-votre-nom-pour-les-commits">6. Enregistrer votre nom pour les commits</a></li>
+  <li><a href="#connecter-github-à-rstudio-avec-ssh" id="toc-connecter-github-à-rstudio-avec-ssh" class="nav-link" data-scroll-target="#connecter-github-à-rstudio-avec-ssh">7. Connecter GitHub à RStudio avec SSH</a></li>
   </ul></li>
   <li><a href="#packages-r" id="toc-packages-r" class="nav-link" data-scroll-target="#packages-r">Installer les packages R de départ</a></li>
   <li><a href="#test-final" id="toc-test-final" class="nav-link" data-scroll-target="#test-final">Test final avec un document Quarto</a></li>
@@ -6372,19 +6385,19 @@ margin-bottom: .05rem;
     <div>
       <p class="eyebrow">Préparation technique du cours</p>
       <h1 id="installation-title">Préparer votre ordinateur pour STT-1100</h1>
-      <p>La préparation se fait en deux étapes. Avant la première séance, installez R, RStudio Desktop, Quarto et les packages R de départ, puis vérifiez un premier rapport. La configuration de Git, GitHub et SSH est prévue dans la préparation du module 2.</p>
+      <p>Installez les applications avec leurs boutons habituels, puis vérifiez le résultat directement dans RStudio. La connexion à GitHub possède sa propre page guidée.</p>
       <div class="resource-actions" aria-label="Accès rapides">
         <a class="home-action home-action--primary" href="#ordre-installation">Commencer l&#39;installation</a>
         <a class="home-action" href="#test-final">Faire le test final</a>
+        <a class="home-action" href="autre_materiel/connexion-ssh-github-rstudio.html">Connecter GitHub</a>
         <a class="home-action" href="#depannage">Dépanner</a>
-        <a class="home-action" href="packages.html">Voir les packages R</a>
       </div>
     </div>
     <div class="resource-panel" aria-label="Résultat attendu">
-      <div><span>01</span><p>Installer R, RStudio et Quarto</p></div>
+      <div><span>01</span><p>Installer R et RStudio</p></div>
       <div><span>02</span><p>Installer les packages R</p></div>
       <div><span>03</span><p>Rendre un fichier Quarto</p></div>
-      <div><span>04</span><p>Préparer Git et GitHub au module 2</p></div>
+      <div><span>04</span><p>Connecter GitHub au module 2</p></div>
     </div>
   </section>
 </div>
@@ -6398,278 +6411,212 @@ margin-bottom: .05rem;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux sur lequel les outils nécessaires au module courant sont installés et fonctionnels. Pour la première séance, seuls R, RStudio Desktop, Quarto et les packages R de départ sont requis. Un navigateur ou une tablette seuls ne remplacent pas les applications locales utilisées dans le cours.</p>
-<p>Une connexion Internet stable est nécessaire. Une mémoire vive de 8 Go est fortement recommandée; 16 Go offrent davantage de confort. Si l’ordinateur est administré par une organisation, vérifiez avant le cours que vous avez le droit d’installer des logiciels.</p>
+<p>Chaque personne doit apporter à chaque séance un ordinateur portable Windows, macOS ou Linux sur lequel les outils nécessaires au module courant sont installés et fonctionnels. Pour la première séance, seuls R, RStudio Desktop, Quarto et les packages R de départ sont requis.</p>
+<p>Une connexion Internet stable est nécessaire. Si l’ordinateur est administré par une organisation, vérifiez avant le cours que vous avez le droit d’installer des logiciels.</p>
 </div>
 </div>
 <section id="resultat-attendu" class="level2">
 <h2 class="anchored" data-anchor-id="resultat-attendu">Ce qui doit fonctionner</h2>
-<p>Avant la première séance, vous devez pouvoir confirmer les quatre points suivants:</p>
+<p>Avant la première séance :</p>
 <ul>
-<li>R démarre dans RStudio et exécute <code>1 + 1</code>.</li>
-<li>RStudio Desktop ouvre un projet et un fichier <code>.qmd</code>.</li>
-<li>Quarto répond à <code>quarto check</code>.</li>
-<li>un document Quarto contenant du code R produit un fichier HTML sans erreur.</li>
+<li>RStudio démarre et la Console calcule <code>1 + 1</code>;</li>
+<li>RStudio ouvre un fichier <code>.qmd</code>;</li>
+<li>le bouton <code>Render</code> produit un fichier HTML sans erreur.</li>
 </ul>
-<p>Avant le module 2, vous compléterez les trois vérifications suivantes:</p>
+<p>Avant le module 2 :</p>
 <ul>
-<li>Git répond à <code>git --version</code>;</li>
+<li>un chemin apparaît dans <code>Tools &gt; Global Options &gt; Git/SVN</code>, à côté de <code>Git executable</code>;</li>
 <li>votre compte GitHub existe et son adresse courriel est vérifiée;</li>
-<li>la commande <code>ssh -T git@github.com</code> reconnaît votre compte.</li>
+<li>la <a href="./autre_materiel/connexion-ssh-github-rstudio.html">page de connexion SSH</a> confirme votre propre identifiant GitHub.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Où entrer les commandes
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Les commandes R vont dans l’onglet Console de RStudio. Les commandes <code>git</code>, <code>quarto</code>, <code>ssh</code> et <code>ls</code> vont dans un terminal. Sous Windows, utilisez Git Bash après l’installation de Git. Sous macOS ou Linux, utilisez Terminal. Le panneau Terminal de RStudio convient aussi lorsqu’il est disponible.</p>
-</div>
-</div>
 </section>
 <section id="ordre-installation" class="level2">
 <h2 class="anchored" data-anchor-id="ordre-installation">Ordre d’installation</h2>
-<p>Pour préparer le module 1, installez R, RStudio et Quarto, puis passez directement aux packages R de départ et au test Quarto. Les étapes Git, GitHub et SSH seront complétées pendant la préparation du module 2.</p>
 <section id="installer-r" class="level3">
 <h3 class="anchored" data-anchor-id="installer-r">1. Installer R</h3>
-<p>Téléchargez R depuis le <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a>, puis choisissez votre système:</p>
+<p>Téléchargez R depuis le <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a>, puis choisissez votre système :</p>
 <ul>
 <li><a href="https://cran.r-project.org/bin/windows/base/">R pour Windows</a></li>
 <li><a href="https://cran.r-project.org/bin/macosx/">R pour macOS</a></li>
 <li><a href="https://cran.r-project.org/bin/linux/">R pour Linux</a></li>
 </ul>
-<p>Acceptez les options d’installation proposées par défaut. Sous macOS, choisissez le fichier correspondant au processeur de l’ordinateur lorsque plusieurs installateurs sont offerts.</p>
-<p>La vérification de R se fera dans RStudio après l’étape suivante.</p>
+<p>Ouvrez le fichier téléchargé et acceptez les options proposées par défaut.</p>
 </section>
 <section id="installer-rstudio-desktop" class="level3">
 <h3 class="anchored" data-anchor-id="installer-rstudio-desktop">2. Installer RStudio Desktop</h3>
-<p>Téléchargez la version gratuite de <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop depuis Posit</a>. Fermez puis rouvrez RStudio après l’installation.</p>
-<p>Dans l’onglet Console, exécutez:</p>
+<ol type="1">
+<li>Ouvrez la <a href="https://posit.co/download/rstudio-desktop/">page de téléchargement de RStudio Desktop</a>.</li>
+<li>Téléchargez la version gratuite correspondant à votre ordinateur.</li>
+<li>Ouvrez le fichier téléchargé et terminez l’installation.</li>
+<li>Ouvrez RStudio.</li>
+</ol>
+<p>Dans l’onglet Console, exécutez :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.version.string</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Le premier résultat doit afficher une version de R et le second doit afficher <code>2</code>.</p>
 </section>
-<section id="installer-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="installer-quarto">3. Installer Quarto</h3>
-<p>Téléchargez l’installateur adapté à votre système depuis la <a href="https://quarto.org/docs/download/">page officielle de Quarto</a>. Fermez complètement RStudio, rouvrez-le, puis exécutez dans le terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>La première commande doit afficher un numéro de version. La seconde doit détecter Quarto et une installation de R sans erreur bloquante.</p>
+<section id="vérifier-quarto-avec-le-bouton-render" class="level3">
+<h3 class="anchored" data-anchor-id="vérifier-quarto-avec-le-bouton-render">3. Vérifier Quarto avec le bouton Render</h3>
+<p>Les versions récentes de RStudio Desktop incluent Quarto. Pour vérifier qu’il fonctionne :</p>
+<ol type="1">
+<li>Dans RStudio, cliquez sur <code>File &gt; New File &gt; Quarto Document</code>.</li>
+<li>Choisissez le format <code>HTML</code>.</li>
+<li>Cliquez sur <code>Create</code>.</li>
+<li>Enregistrez le fichier.</li>
+<li>Cliquez sur le bouton <code>Render</code> situé au-dessus du document.</li>
+</ol>
+<p>Si une page HTML s’ouvre sans erreur, Quarto fonctionne. Si RStudio ne propose pas <code>Quarto Document</code>, installez Quarto depuis sa <a href="https://quarto.org/docs/download/">page officielle</a>, puis fermez et rouvrez RStudio.</p>
 </section>
-<section id="installer-git" class="level3 tabset">
-<h3 class="tabset anchored" data-anchor-id="installer-git">4. Installer Git</h3>
+<section id="installer-et-vérifier-git" class="level3 tabset">
+<h3 class="tabset anchored" data-anchor-id="installer-et-vérifier-git">4. Installer et vérifier Git</h3>
 <section id="windows" class="level4">
 <h4 class="anchored" data-anchor-id="windows">Windows</h4>
-<p>Téléchargez <a href="https://git-scm.com/download/win">Git for Windows</a>, lancez l’installateur et conservez les choix proposés par défaut. Ouvrez ensuite Git Bash et exécutez:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Téléchargez <a href="https://git-scm.com/download/win">Git for Windows</a>, ouvrez l’installateur et conservez les choix proposés par défaut.</p>
 </section>
 <section id="macos" class="level4">
 <h4 class="anchored" data-anchor-id="macos">macOS</h4>
-<p>Ouvrez Terminal et exécutez:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Si macOS propose d’installer les outils de ligne de commande, acceptez et laissez l’installation se terminer. Vous pouvez aussi utiliser l’<a href="https://git-scm.com/download/mac">installateur Git pour macOS</a>. Exécutez de nouveau <code>git --version</code> après l’installation.</p>
+<p>Téléchargez Git depuis la <a href="https://git-scm.com/download/mac">page officielle pour macOS</a> et suivez l’option d’installation proposée pour votre version du système.</p>
 </section>
 <section id="linux" class="level4">
 <h4 class="anchored" data-anchor-id="linux">Linux</h4>
-<p>Utilisez le gestionnaire de paquets de votre distribution. Pour Debian ou Ubuntu:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Pour Fedora:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf install git</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>La documentation officielle présente les <a href="https://git-scm.com/download/linux">autres options Linux</a>.</p>
+<p>Suivez la <a href="https://git-scm.com/download/linux">procédure officielle correspondant à votre distribution</a>. Demandez de l’aide si l’installation exige des droits d’administration.</p>
+</section>
+<section id="vérification-dans-rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="vérification-dans-rstudio">Vérification dans RStudio</h4>
+<ol type="1">
+<li>Fermez complètement RStudio après l’installation de Git.</li>
+<li>Ouvrez RStudio de nouveau.</li>
+<li>Cliquez sur <code>Tools &gt; Global Options &gt; Git/SVN</code>.</li>
+<li>Vérifiez qu’un chemin apparaît dans <code>Git executable</code>.</li>
+</ol>
+<p>Si le chemin est présent, RStudio reconnaît Git.</p>
 </section>
 </section>
 </section>
-<section id="configurer-git-github" class="level2">
-<h2 class="anchored" data-anchor-id="configurer-git-github">Configurer Git et GitHub</h2>
+<section id="préparer-github-pour-le-module-2" class="level2">
+<h2 class="anchored" data-anchor-id="préparer-github-pour-le-module-2">Préparer GitHub pour le module 2</h2>
 <section id="créer-et-vérifier-le-compte-github" class="level3">
 <h3 class="anchored" data-anchor-id="créer-et-vérifier-le-compte-github">5. Créer et vérifier le compte GitHub</h3>
-<p>Créez un compte personnel gratuit à partir de la <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github">procédure officielle GitHub</a>. Utilisez une adresse courriel que vous consultez et terminez la vérification envoyée par GitHub.</p>
-<p>Notez exactement votre nom d’utilisateur GitHub. Il sera utilisé dans plusieurs activités du cours.</p>
+<p>Créez un compte personnel gratuit à partir de la <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github">procédure officielle GitHub</a>. Terminez la vérification de votre adresse courriel et notez exactement votre nom d’utilisateur GitHub.</p>
 </section>
-<section id="enregistrer-votre-identité-git" class="level3">
-<h3 class="anchored" data-anchor-id="enregistrer-votre-identité-git">6. Enregistrer votre identité Git</h3>
-<p>Dans le terminal, remplacez les deux valeurs par votre nom et par l’adresse associée à votre compte GitHub:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;Prénom Nom&quot;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;adresse-associee-a-github@example.com&quot;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Vérifiez que les lignes <code>user.name</code>, <code>user.email</code> et <code>init.defaultbranch=main</code> contiennent les bonnes valeurs. Ces renseignements seront associés à vos commits.</p>
+<section id="enregistrer-votre-nom-pour-les-commits" class="level3">
+<h3 class="anchored" data-anchor-id="enregistrer-votre-nom-pour-les-commits">6. Enregistrer votre nom pour les commits</h3>
+<p>Cette étape se fait une seule fois dans la Console de RStudio. Remplacez les deux exemples par votre nom et par une adresse associée à votre compte GitHub :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;usethis&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;usethis&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">&quot;Prénom Nom&quot;</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">&quot;adresse-associee-a-github@example.com&quot;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ces renseignements seront associés à vos commits. Vous pouvez utiliser l’adresse privée fournie par GitHub si vous ne voulez pas afficher votre adresse personnelle dans vos commits.</p>
 </section>
-<section id="configurer-laccès-ssh-à-github" class="level3">
-<h3 class="anchored" data-anchor-id="configurer-laccès-ssh-à-github">7. Configurer l’accès SSH à GitHub</h3>
-<p>SSH permet à Git de communiquer avec GitHub sans demander votre mot de passe à chaque opération. La procédure officielle complète se trouve dans <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">Connecting to GitHub with SSH</a>.</p>
-<p>Dans le terminal, vérifiez d’abord si une clé existe déjà:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-al</span> ~/.ssh</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Si un fichier comme <code>id_ed25519.pub</code> existe déjà et est rattaché à votre compte GitHub, ne créez pas une seconde clé. Sinon, générez-en une en remplaçant l’adresse:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">&quot;adresse-associee-a-github@example.com&quot;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Appuyez sur Entrée pour accepter l’emplacement proposé. Une phrase secrète est recommandée. Chargez ensuite la clé pour la session active:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">&quot;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_ed25519</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Copiez uniquement la clé publique:</p>
-<div class="columns">
-<div class="column" style="width:33%;">
-<section id="windows-git-bash" class="level4">
-<h4 class="anchored" data-anchor-id="windows-git-bash">Windows, Git Bash</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">clip</span> <span class="op">&lt;</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</div><div class="column" style="width:33%;">
-<section id="macos-1" class="level4">
-<h4 class="anchored" data-anchor-id="macos-1">macOS</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</div><div class="column" style="width:34%;">
-<section id="linux-1" class="level4">
-<h4 class="anchored" data-anchor-id="linux-1">Linux</h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Copiez toute la ligne affichée.</p>
-</section>
-</div>
-</div>
-<p>Dans GitHub, ouvrez <code>Settings &gt; SSH and GPG keys &gt; New SSH key</code>, donnez un titre reconnaissable à l’ordinateur, collez la clé publique et enregistrez-la. Testez ensuite:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Lors de la première connexion, confirmez l’empreinte de l’hôte si GitHub vous le demande. Le résultat attendu contient <code>successfully authenticated</code> et votre nom d’utilisateur. Le message précisant que GitHub ne fournit pas d’accès shell est normal.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Avertissement</span>Ne partagez jamais la clé privée
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Le fichier <code>~/.ssh/id_ed25519</code> est privé. Ne le copiez pas dans GitHub, Brio, un courriel ou une demande d’aide. Seul le fichier qui se termine par <code>.pub</code> peut être partagé.</p>
-</div>
-</div>
+<section id="connecter-github-à-rstudio-avec-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="connecter-github-à-rstudio-avec-ssh">7. Connecter GitHub à RStudio avec SSH</h3>
+<p>Ouvrez la page dédiée et suivez ses boutons dans l’ordre :</p>
+<p><a href="./autre_materiel/connexion-ssh-github-rstudio.html" class="btn btn-primary">Connecter GitHub à RStudio avec SSH</a></p>
+<p>Cette page explique comment créer la clé depuis <code>Tools &gt; Global Options &gt; Git/SVN</code>, l’ajouter à GitHub, vérifier la connexion et cloner le dépôt du cours.</p>
 </section>
 </section>
 <section id="packages-r" class="level2">
 <h2 class="anchored" data-anchor-id="packages-r">Installer les packages R de départ</h2>
-<p>Dans la Console de RStudio, exécutez ce bloc complet. Il installe seulement les packages manquants nécessaires au démarrage du cours, puis le package de données <code>UlavalSSD</code> utilisé au module 1.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages de base pour les premiers travaux</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>packages_requis <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;remotes&quot;</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>packages_installes <span class="ot">&lt;-</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>packages_manquants <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(packages_requis, packages_installes)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(packages_manquants) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(packages_manquants)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Package de données du cours</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;UlavalSSD&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;AurelienNicosiaULaval/UlavalSSD&quot;</span>)</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Vérifiez ensuite:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(UlavalSSD<span class="sc">::</span>MeteoQuebec)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Le résultat doit afficher deux nombres, soit le nombre de lignes et le nombre de colonnes. Les autres packages seront installés au moment où les modules les utilisent; la page <a href="packages.html">Packages R</a> les répertorie.</p>
+<p>Dans la Console de RStudio, exécutez le bloc suivant. Il installe uniquement les packages manquants :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>packages_requis <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;remotes&quot;</span>, <span class="st">&quot;usethis&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>packages_installes <span class="ot">&lt;-</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>packages_manquants <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(packages_requis, packages_installes)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(packages_manquants) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(packages_manquants)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;UlavalSSD&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;AurelienNicosiaULaval/UlavalSSD&quot;</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Vérifiez ensuite :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(UlavalSSD<span class="sc">::</span>MeteoQuebec)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Le résultat doit afficher deux nombres, soit le nombre de lignes et le nombre de colonnes.</p>
 </section>
 <section id="test-final" class="level2">
 <h2 class="anchored" data-anchor-id="test-final">Test final avec un document Quarto</h2>
-<p>Dans RStudio, choisissez <code>File &gt; New File &gt; Quarto Document</code>. Créez un document HTML, remplacez son contenu par le texte suivant et enregistrez-le sous <code>test-installation.qmd</code>:</p>
-<pre><code>---
-title: &quot;Test d&#39;installation STT-1100&quot;
-format:
-  html:
-    embed-resources: true
----
-
-Ce document confirme que R, RStudio, Quarto et les packages fonctionnent ensemble.
-
-```{r}
-library(tidyverse)
-
-resultats &lt;- tibble(
-  valeur = 1:3,
-  carre = valeur^2
-)
-
-resultats
-```</code></pre>
-<p>Cliquez sur <code>Render</code>. L’installation est prête lorsque:</p>
 <ol type="1">
-<li>aucune erreur rouge n’interrompt le rendu;</li>
-<li>un fichier <code>test-installation.html</code> est créé et s’ouvre;</li>
-<li>le tableau contient les valeurs 1, 4 et 9 dans la colonne <code>carre</code>;</li>
-<li>les deux commandes suivantes donnent les résultats attendus dans le terminal.</li>
+<li>Dans RStudio, choisissez <code>File &gt; New File &gt; Quarto Document</code>.</li>
+<li>Créez un document HTML.</li>
+<li>Enregistrez-le sous <code>test-installation.qmd</code>.</li>
+<li>Dans un bloc de code R, écrivez le code suivant :</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>resultats <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">valeur =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">carre =</span> valeur<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>resultats</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="5" type="1">
+<li>Cliquez sur <code>Render</code>.</li>
+</ol>
+<p>L’installation est prête lorsque le fichier HTML s’ouvre sans erreur et que la colonne <code>carre</code> contient 1, 4 et 9.</p>
 </section>
 <section id="vérification-avant-le-module-2" class="level2">
 <h2 class="anchored" data-anchor-id="vérification-avant-le-module-2">Vérification avant le module 2</h2>
-<p>Lorsque la préparation du module 2 sera demandée, terminez les étapes Git, GitHub et SSH de cette page, puis vérifiez:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Ouvrez la <a href="./autre_materiel/connexion-ssh-github-rstudio.html">page de connexion SSH</a>.</li>
+<li>Suivez les étapes jusqu’au message qui affiche votre identifiant GitHub.</li>
+<li>Acceptez l’invitation au dépôt ou à l’organisation du cours.</li>
+<li>Clonez votre dépôt avec les boutons <code>File &gt; New Project &gt; Version Control &gt; Git</code>.</li>
+</ol>
 </section>
 <section id="depannage" class="level2">
 <h2 class="anchored" data-anchor-id="depannage">Dépannage</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Symptôme</th>
-<th>Vérification</th>
+<th>Vérification par les menus</th>
 <th>Correction la plus probable</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>RStudio ouvre, mais R ne démarre pas</td>
-<td>Exécuter <code>R.version.string</code> dans la Console</td>
-<td>Installer R avant RStudio, puis redémarrer RStudio.</td>
+<td>Regardez si la Console affiche une version de R au démarrage</td>
+<td>Installez R avant RStudio, puis redémarrez RStudio.</td>
 </tr>
 <tr class="even">
-<td><code>quarto: command not found</code></td>
-<td>Exécuter <code>quarto --version</code> dans un nouveau terminal</td>
-<td>Installer Quarto, puis fermer et rouvrir le terminal et RStudio.</td>
+<td>Le bouton <code>Render</code> est absent</td>
+<td>Vérifiez que le fichier ouvert se termine par <code>.qmd</code></td>
+<td>Installez Quarto, puis fermez et rouvrez RStudio.</td>
 </tr>
 <tr class="odd">
-<td><code>git: command not found</code></td>
-<td>Exécuter <code>git --version</code></td>
-<td>Installer Git et ouvrir un nouveau terminal. Sous Windows, utiliser Git Bash.</td>
+<td>La case <code>Git executable</code> est vide</td>
+<td>Ouvrez <code>Tools &gt; Global Options &gt; Git/SVN</code></td>
+<td>Installez Git, puis fermez et rouvrez RStudio.</td>
 </tr>
 <tr class="even">
-<td><code>Permission denied (publickey)</code></td>
-<td>Exécuter <code>ssh -T git@github.com</code></td>
-<td>Vérifier que la clé publique <code>.pub</code> a été ajoutée au bon compte GitHub et que la clé privée est chargée.</td>
+<td>La connexion GitHub est refusée</td>
+<td>Ouvrez la <a href="./autre_materiel/connexion-ssh-github-rstudio.html#depannage-ssh">page SSH</a></td>
+<td>Vérifiez la clé publique et le compte GitHub utilisé.</td>
 </tr>
 <tr class="odd">
-<td><code>there is no package called ...</code></td>
-<td>Exécuter <code>installed.packages()</code> dans R</td>
-<td>Installer le package dans la Console, puis ajouter le bon <code>library()</code> dans le fichier <code>.qmd</code>.</td>
+<td>Un package est introuvable</td>
+<td>Ouvrez l’onglet <code>Packages</code> et cherchez son nom</td>
+<td>Installez le package dans la Console, puis ajoutez le bon <code>library()</code> dans le fichier <code>.qmd</code>.</td>
 </tr>
 <tr class="even">
 <td>Le document fonctionne par lignes, mais pas avec <code>Render</code></td>
-<td>Redémarrer R, puis rendre de nouveau</td>
-<td>Ajouter au document tous les <code>library()</code> et toutes les étapes nécessaires à la création des objets.</td>
+<td>Cliquez sur <code>Session &gt; Restart R</code>, puis sur <code>Render</code></td>
+<td>Ajoutez au document tous les <code>library()</code> et toutes les étapes nécessaires.</td>
 </tr>
 </tbody>
 </table>
-<p>Si le problème persiste, conservez:</p>
-<ul>
-<li>le système utilisé et sa version;</li>
-<li>la sortie de <code>R.version.string</code>;</li>
-<li>la sortie de <code>quarto check</code>;</li>
-<li>la sortie de <code>git --version</code>;</li>
-<li>le message d’erreur complet;</li>
-<li>une capture montrant l’étape où le problème apparaît.</li>
-</ul>
-<p>Ne transmettez jamais un mot de passe, un jeton d’accès ou une clé SSH privée.</p>
+<p>Si le problème persiste, conservez le message d’erreur complet et une capture montrant l’étape où le problème apparaît. Ne transmettez jamais un mot de passe, un jeton d’accès ou une clé SSH privée.</p>
 </section>
 <section id="sources-officielles" class="level2">
 <h2 class="anchored" data-anchor-id="sources-officielles">Sources officielles</h2>
@@ -6678,7 +6625,7 @@ resultats
 <li><a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop, Posit</a></li>
 <li><a href="https://quarto.org/docs/get-started/">Installation et démarrage avec Quarto</a></li>
 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Installation de Git</a></li>
-<li><a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Première configuration de Git</a></li>
+<li><a href="https://usethis.r-lib.org/reference/use_git_config.html">Configuration de Git avec usethis</a></li>
 <li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">Connexion à GitHub avec SSH</a></li>
 </ul>
 

@@ -8,10 +8,10 @@ Tu dois avoir installé :
 
 - R
 - RStudio
-- Git (vérifie avec `git --version` dans le terminal)
+- Git (vérifie qu’un chemin apparaît dans `Tools > Global Options > Git/SVN`)
 - Un compte GitHub
 
-Option recommandée pour le cours : lier RStudio à ton compte GitHub avec une clé SSH.
+Avant de cloner ton premier dépôt, suis la page [Connecter GitHub à RStudio avec SSH](../autre_materiel/connexion-ssh-github-rstudio.llms.md). Elle utilise surtout les menus et les boutons de RStudio et de GitHub.
 
 Ne jamais utiliser ton mot de passe GitHub directement pour cloner, pousser ou tirer un dépôt.
 
@@ -22,12 +22,11 @@ Ne jamais utiliser ton mot de passe GitHub directement pour cloner, pousser ou t
 1.  Va sur la page du dépôt GitHub que tu veux cloner.
 2.  Clique sur le bouton vert `<> Code`.
 3.  Choisis l’onglet SSH quand c’est possible, puis copie le lien affiché.
-4.  Utilise HTTPS seulement si SSH n’est pas disponible sur ton poste.
+4.  Si l’onglet SSH n’est pas disponible, vérifie que tu as accepté l’invitation au dépôt.
 
 Exemples :
 
 - SSH : `git@github.com:NomUtilisateur/nom-du-projet.git`
-- HTTPS : `https://github.com/NomUtilisateur/nom-du-projet.git`
 
 ------------------------------------------------------------------------
 
@@ -45,46 +44,23 @@ C’est fait ! Tu peux commencer à travailler dans ton nouveau projet RStudio.
 
 ------------------------------------------------------------------------
 
-## Astuce : Erreur d’authentification GitHub
+## Erreur d’authentification GitHub
 
 Si tu obtiens cette erreur :
 
     fatal: Authentication failed
     remote: Support for password authentication was removed...
 
-C’est probablement que tu as utilisé HTTPS sans jeton personnel ou sans gestionnaire d’identifiants.
+C’est probablement que tu as copié le lien HTTPS au lieu du lien SSH. Retourne sur la page du dépôt, clique sur `<> Code`, choisis `SSH`, puis copie ce lien.
 
-### Deux solutions :
-
-- Configurer SSH, ce qui est l’approche recommandée pour le cours.
-- Si tu dois absolument utiliser HTTPS, générer un jeton d’accès personnel sur GitHub et l’utiliser à la place du mot de passe.
-
-------------------------------------------------------------------------
-
-## Bonus : Configurer SSH avec GitHub (recommandé)
-
-``` bash
-# 1. Génère une clé SSH (si ce n'est pas déjà fait)
-ssh-keygen -t ed25519 -C "ton-email@example.com"
-
-# 2. Ajoute ta clé SSH à l'agent
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-
-# 3. Copie ta clé publique
-cat ~/.ssh/id_ed25519.pub
-```
-
-Puis colle cette clé dans `GitHub > Settings > SSH and GPG keys > New SSH key`.
-
-Détails : <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>
+Si la connexion SSH n’est pas encore configurée ou si le message contient `Permission denied (publickey)`, suis la [procédure SSH illustrée par les menus et les boutons](../autre_materiel/connexion-ssh-github-rstudio.llms.md).
 
 ------------------------------------------------------------------------
 
 ## Ressources utiles
 
-- [Guide GitHub RStudio (RStudio Support)](https://support.posit.co/hc/en-us/articles/200532077)
-- [Créer un token GitHub (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- [Connexion SSH entre GitHub et RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md)
+- [Contrôle de version dans RStudio (Posit)](https://docs.posit.co/ide/user/ide/guide/tools/version-control.html)
 - [Configurer SSH GitHub (Officiel)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
 ------------------------------------------------------------------------

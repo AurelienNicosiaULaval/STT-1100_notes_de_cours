@@ -1,12 +1,19 @@
-# Formative Mini-Test - Module 10 Readings
+# Diagnostic - Module 10
 
 STT-1100 Introduction to Data Science
 
-## Formative Mini-Test
+This ungraded diagnostic checks the concepts from module 10. It provides detailed correction, an overall result, a competency profile and a targeted review plan.
 
-This mini-test checks the module 10 readings. It is not graded. Answer first without opening the responses, then use the explanations to identify what should be reread.
+> **NOTE:**
+>
+> - First attempt: without documentation, without running the code and without outside help, to obtain an honest profile.
+> - After the summary: consult the suggested resources, redo the targeted exercises and then retake the diagnostic.
+> - Purpose: this diagnostic is ungraded and is not used to assign a mark or decide admission to the course.
+> - Privacy: no answer is sent to the instructor. Progress and attempt history are stored only in this browser.
 
-### Question 1
+The thresholds are STT-1100 pedagogical guideposts. They have not undergone psychometric validation. A correct answer may also result from chance, so practical exercises remain essential.
+
+## Question 1
 
 In `tidytext`, what does it mean to transform text into a tidy format?
 
@@ -19,7 +26,7 @@ In `tidytext`, what does it mean to transform text into a tidy format?
 >
 > Answer: a. Tidy text usually places one text unit, such as one word, on each row.
 
-### Question 2
+## Question 2
 
 Which function splits a text column into tokens with `tidytext`?
 
@@ -32,7 +39,7 @@ Which function splits a text column into tokens with `tidytext`?
 >
 > Answer: a. `unnest_tokens()` transforms a text column into tokens, often words.
 
-### Question 3
+## Question 3
 
 True or false: stopwords are very frequent words that can hide more informative words.
 
@@ -40,7 +47,7 @@ True or false: stopwords are very frequent words that can hide more informative 
 >
 > True. Words such as “de”, “le” or “et” can be removed when they do not help explain the content.
 
-### Question 4
+## Question 4
 
 Why build a custom French sentiment lexicon in this module?
 
@@ -53,7 +60,7 @@ Why build a custom French sentiment lexicon in this module?
 >
 > Answer: a. The custom lexicon is pedagogical. It helps students understand the principle, but it remains imperfect and must be interpreted carefully.
 
-### Question 5
+## Question 5
 
 True or false: a sentiment score calculated with a small custom lexicon should be presented as an exact measure of student feeling.
 
@@ -61,7 +68,7 @@ True or false: a sentiment score calculated with a small custom lexicon should b
 >
 > False. The score depends on the lexicon, cleaning and context. It is an exploratory indicator, not a definitive truth.
 
-### Question 6
+## Question 6
 
 What does TF-IDF measure in text analysis?
 
@@ -74,7 +81,7 @@ What does TF-IDF measure in text analysis?
 >
 > Answer: a. TF-IDF highlights distinctive words in a document or group, such as a week.
 
-### Question 7
+## Question 7
 
 Which `tidytext` function adds the `tf`, `idf` and `tf_idf` columns to a count table?
 
@@ -87,7 +94,7 @@ Which `tidytext` function adds the `tf`, `idf` and `tf_idf` columns to a count t
 >
 > Answer: a. `bind_tf_idf()` calculates and adds TF, IDF and TF-IDF values.
 
-### Question 8
+## Question 8
 
 True or false: a word with high TF-IDF is necessarily the most frequent word in the whole corpus.
 
@@ -95,7 +102,7 @@ True or false: a word with high TF-IDF is necessarily the most frequent word in 
 >
 > False. A word can have high TF-IDF because it is distinctive to one group, even if it is not the most frequent word in the full corpus.
 
-### Question 9
+## Question 9
 
 In a dashboard, why add at least one interactive filter?
 
@@ -108,7 +115,7 @@ In a dashboard, why add at least one interactive filter?
 >
 > Answer: a. A useful filter lets users explore the data by period, group or theme without multiplying fixed charts.
 
-### Question 10
+## Question 10
 
 True or false: before sharing a dashboard based on comments, you must check that no person is identifiable.
 
@@ -116,7 +123,7 @@ True or false: before sharing a dashboard based on comments, you must check that
 >
 > True. Free-text comments can contain identifying information. Confidentiality must be checked before any sharing.
 
-### Question 11
+## Question 11
 
 Which statement best describes a good dashboard conclusion?
 
@@ -129,7 +136,7 @@ Which statement best describes a good dashboard conclusion?
 >
 > Answer: a. A useful conclusion stays concise, interprets without overpromising and states what could be improved.
 
-### Question 12
+## Question 12
 
 True or false: `flexdashboard` can present several related visualizations in a dashboard page, and `shiny` can add interactivity.
 

@@ -4347,7 +4347,7 @@ overflow-wrap: normal;
 word-break: normal;
 }
 .adventure-brief,
-.portfolio-trace {
+.completed-work {
 border: 1px solid var(--line);
 border-radius: var(--radius);
 background: #ffffff;
@@ -4359,12 +4359,12 @@ margin: 1.2rem 0 1.5rem;
 border-left: 5px solid var(--teal);
 background: linear-gradient(90deg, #f4fbfc 0%, #ffffff 70%);
 }
-.portfolio-trace {
+.completed-work {
 border-left: 5px solid var(--blue);
 background: #f8fbff;
 }
 .adventure-brief-title,
-.portfolio-trace-title {
+.completed-work-title {
 margin: 0 0 .75rem;
 color: var(--ink);
 font-size: 1.05rem;
@@ -4394,7 +4394,7 @@ color: var(--ink);
 line-height: 1.35;
 overflow-wrap: anywhere;
 }
-.portfolio-trace ul {
+.completed-work ul {
 margin-bottom: 0;
 }
 .module-product-showcase {
@@ -4537,6 +4537,15 @@ overflow: hidden;
 .path-card[open] {
 border-color: #b8cbd9;
 box-shadow: 0 10px 24px rgba(49, 95, 140, .08);
+}
+.ai-feedback-card {
+border-left: 5px solid var(--teal);
+}
+.ai-feedback-card .path-number {
+background: var(--teal);
+}
+.ai-feedback-card .summary-resource-link {
+background: #eaf7f7;
 }
 .path-card summary {
 display: grid;
@@ -6170,6 +6179,10 @@ margin-bottom: .05rem;
  <span class="dropdown-text">Installation technique</span></a>
   </li>
         <li>
+    <a class="dropdown-item" href="./autre_materiel/connexion-ssh-github-rstudio.html">
+ <span class="dropdown-text">Connexion GitHub et RStudio</span></a>
+  </li>
+        <li>
     <a class="dropdown-item" href="./calendrier.html">
  <span class="dropdown-text">Calendrier</span></a>
   </li>
@@ -6334,7 +6347,7 @@ margin-bottom: .05rem;
       <p>Si vous hésitez, suivez ce parcours. Il place chaque document au moment où il est le plus utile dans le travail autonome.</p>
     </div>
     <div class="course-flow">
-      <article class="flow-card"><span class="flow-number">1</span><h3 class="anchored">Configurer</h3><p>Suivre la procédure complète pour installer R, RStudio, Quarto et Git, puis configurer GitHub et SSH.</p><a href="installation.html">Ouvrir l&#39;installation technique</a></article>
+      <article class="flow-card"><span class="flow-number">1</span><h3 class="anchored">Configurer</h3><p>Installer R, RStudio, Quarto et Git avec la procédure guidée, puis connecter GitHub avec les menus et boutons.</p><a href="installation.html">Ouvrir l&#39;installation technique</a></article>
       <article class="flow-card"><span class="flow-number">2</span><h3 class="anchored">Travailler</h3><p>Utiliser la collection d&#39;aide-mémoires Posit pendant les exercices pour retrouver les commandes R, Quarto et tidyverse fréquentes.</p><a href="autre_materiel/Cheat sheet/stt1100_cheatsheet_mod.pdf">Ouvrir le PDF</a></article>
       <article class="flow-card"><span class="flow-number">3</span><h3 class="anchored">Débloquer</h3><p>Quand une erreur bloque le travail, isoler le problème avec le guide de recherche avant de demander de l&#39;aide.</p><a href="autre_materiel/chercher-aide.html">Ouvrir le guide</a></article>
       <article class="flow-card"><span class="flow-number">4</span><h3 class="anchored">Finaliser</h3><p>Passer par la boîte à outils pour vérifier le rendu, les fichiers et les traces GitHub avant une remise.</p><a href="boite_outils.html#avant-remise">Voir la checklist</a></article>
@@ -6350,7 +6363,7 @@ margin-bottom: .05rem;
     <div class="reading-map">
       <article>
         <h3 class="anchored">Je démarre le cours</h3>
-        <p>Suivre d&#39;abord la <a href="installation.html">page d&#39;installation technique</a>, puis ouvrir l&#39;aide-mémoire RStudio et GitHub et la boîte à outils pour comprendre le workflow de base.</p>
+        <p>Suivre d&#39;abord la <a href="installation.html">page d&#39;installation technique</a>, puis la <a href="autre_materiel/connexion-ssh-github-rstudio.html">connexion SSH entre GitHub et RStudio</a>.</p>
       </article>
       <article>
         <h3 class="anchored">Je travaille sur un exercice</h3>
@@ -6381,11 +6394,12 @@ margin-bottom: .05rem;
       <p>Les cartes ci-dessous ouvrent les supports déjà présents dans le dépôt du cours. Les documents HTML se consultent bien à l&#39;écran; les PDF sont pratiques pour réviser ou garder un résumé à côté de RStudio.</p>
     </div>
     <div class="resource-compact-list book-list">
-      <article class="resource-compact"><h3 class="anchored">Installation technique complète</h3><p>Procédure Windows, macOS et Linux pour installer R, RStudio, Quarto et Git, configurer GitHub et SSH, installer les packages de départ et valider un premier rendu.</p><a href="installation.html">Préparer mon ordinateur</a></article>
+      <article class="resource-compact"><h3 class="anchored">Installation technique</h3><p>Procédure fondée sur les boutons pour installer R, RStudio, Quarto et Git, installer les packages de départ et valider un premier rendu.</p><a href="installation.html">Préparer mon ordinateur</a></article>
+      <article class="resource-compact"><h3 class="anchored">Connexion SSH entre GitHub et RStudio</h3><p>Une page distincte, à suivre clic par clic, pour créer la clé dans RStudio, l&#39;ajouter à GitHub et vérifier la connexion.</p><a href="autre_materiel/connexion-ssh-github-rstudio.html">Connecter mon compte</a></article>
       <article class="resource-compact"><h3 class="anchored">Présentation du cours · Automne 2026</h3><p>Une visite guidée du parcours STT-1100: les dix modules, les aventures, les défis, le projet, les outils et la manière de réussir le cours.</p><a href="autre_materiel/presentation-cours/presentation_cours_A26.html">Découvrir le cours</a></article>
       <article class="resource-compact"><h3 class="anchored">Boîte à outils STT-1100</h3><p>Point d&#39;entrée pratique pour les routines R, Quarto, GitHub, dépannage et aide.</p><a href="boite_outils.html">Ouvrir la boîte à outils</a></article>
       <article class="resource-compact"><h3 class="anchored">Feuille aide-mémoire STT-1100</h3><p>Concaténation des aide-mémoires Posit pertinents pour le cours: RStudio, Quarto, tidyverse, R Markdown et Shiny.</p><a href="autre_materiel/Cheat sheet/stt1100_cheatsheet_mod.pdf">Ouvrir le PDF</a></article>
-      <article class="resource-compact"><h3 class="anchored">Aide-mémoire RStudio et GitHub</h3><p>Guide à suivre en priorité pour cloner un projet, utiliser SSH et comprendre les erreurs d&#39;authentification.</p><a href="autre_materiel/aide-memoire-rstudio-github.html">Ouvrir le guide</a></article>
+      <article class="resource-compact"><h3 class="anchored">Aide-mémoire RStudio et GitHub</h3><p>Guide court pour cloner un dépôt déjà accessible et utiliser les boutons Git de RStudio.</p><a href="autre_materiel/aide-memoire-rstudio-github.html">Ouvrir le guide</a></article>
       <article class="resource-compact"><h3 class="anchored">Présentation GitHub</h3><p>Support PDF pour revoir les idées de dépôt, commit, push et pull. Pour la procédure actuelle, utilisez l&#39;aide-mémoire.</p><a href="autre_materiel/Github/Présentation Github.pdf">Ouvrir le PDF</a></article>
       <article class="resource-compact"><h3 class="anchored">Où et comment chercher</h3><p>Méthode pour lire une erreur, chercher dans la documentation et poser une bonne question.</p><a href="autre_materiel/chercher-aide.html">Ouvrir le guide</a></article>
       <article class="resource-compact"><h3 class="anchored">Panorama des métiers</h3><p>Présentation du cycle d&#39;un projet de science des données et des rôles qui y contribuent.</p><a href="autre_materiel/roles-science-donnees/">Ouvrir la présentation</a></article>
@@ -6554,6 +6568,7 @@ display: none !important;
   'index.html',
   'modules.html',
   'demarrage.html',
+  'installation.html',
   'calendrier.html',
   'evaluations.html',
   'examen.html',

@@ -4382,7 +4382,7 @@ overflow-wrap: normal;
 word-break: normal;
 }
 .adventure-brief,
-.portfolio-trace {
+.completed-work {
 border: 1px solid var(--line);
 border-radius: var(--radius);
 background: #ffffff;
@@ -4394,12 +4394,12 @@ margin: 1.2rem 0 1.5rem;
 border-left: 5px solid var(--teal);
 background: linear-gradient(90deg, #f4fbfc 0%, #ffffff 70%);
 }
-.portfolio-trace {
+.completed-work {
 border-left: 5px solid var(--blue);
 background: #f8fbff;
 }
 .adventure-brief-title,
-.portfolio-trace-title {
+.completed-work-title {
 margin: 0 0 .75rem;
 color: var(--ink);
 font-size: 1.05rem;
@@ -4429,7 +4429,7 @@ color: var(--ink);
 line-height: 1.35;
 overflow-wrap: anywhere;
 }
-.portfolio-trace ul {
+.completed-work ul {
 margin-bottom: 0;
 }
 .module-product-showcase {
@@ -4572,6 +4572,15 @@ overflow: hidden;
 .path-card[open] {
 border-color: #b8cbd9;
 box-shadow: 0 10px 24px rgba(49, 95, 140, .08);
+}
+.ai-feedback-card {
+border-left: 5px solid var(--teal);
+}
+.ai-feedback-card .path-number {
+background: var(--teal);
+}
+.ai-feedback-card .summary-resource-link {
+background: #eaf7f7;
 }
 .path-card summary {
 display: grid;
@@ -4913,7 +4922,7 @@ padding: .85rem;
 }
 .resource-panel div {
 display: grid;
-grid-template-columns: 2.4rem minmax(0, 1fr);
+grid-template-columns: max-content minmax(0, 1fr);
 gap: .55rem;
 align-items: center;
 }
@@ -4923,10 +4932,12 @@ align-items: center;
 justify-content: center;
 min-width: 2.25rem;
 height: 2.25rem;
-border-radius: 50%;
+padding-inline: .55rem;
+border-radius: 999px;
 background: var(--ulaval-red);
 color: #ffffff;
 font-weight: 700;
+white-space: nowrap;
 }
 .resource-panel p {
 margin: 0;
@@ -5259,115 +5270,285 @@ margin-top: .4rem;
 margin: .8rem 0 1rem;
 }
 .home-page {
-display: grid;
-gap: 1.5rem;
+--home-bg: #ffffff;
+--home-bg-deep: #ffffff;
+--home-text: #071a34;
+--home-muted: #334155;
+--home-line: rgba(7, 26, 52, .18);
+display: block;
+gap: 0;
+width: 100vw;
+margin-inline: calc(50% - 50vw);
+color: var(--home-text);
+background: var(--home-bg);
+}
+body.page-home {
+background: #ffffff;
 }
 body.page-home #title-block-header {
 display: none !important;
 }
+body.page-home #quarto-document-content {
+margin-top: 0 !important;
+margin-bottom: 0 !important;
+padding-top: 0 !important;
+}
+body.page-home #quarto-content {
+grid-template-rows: [content-top] auto [content-bottom] 0 [page-bottom] !important;
+}
 .home-hero {
+position: relative;
+display: block;
+grid-template-columns: none;
+gap: 0;
+align-items: normal;
+min-height: calc(100svh - 62px);
+margin: 0;
+overflow: hidden;
+background: #ffffff;
+}
+.home-hero__inner {
 display: grid;
-grid-template-columns: minmax(0, .92fr) minmax(320px, 1.08fr);
-gap: 1.4rem;
-align-items: stretch;
-margin: 1rem 0 1.6rem;
+grid-template-columns: minmax(0, .92fr) minmax(500px, 1.08fr);
+grid-template-rows: minmax(0, 1fr) auto;
+column-gap: clamp(3rem, 5vw, 6rem);
+align-items: center;
+width: min(92vw, 1560px);
+min-height: calc(100svh - 62px);
+margin-inline: auto;
+padding: clamp(2.8rem, 6vh, 5.5rem) 0 1.5rem;
 }
 .home-hero-copy {
-display: grid;
-align-content: center;
-border-left: 6px solid var(--ulaval-red);
-border-radius: var(--radius);
-background: linear-gradient(90deg, #fff7f7 0%, #ffffff 70%);
-padding: 1.45rem 1.55rem;
+display: block;
+align-self: center;
+align-content: normal;
+border: 0;
+border-radius: 0;
+background: none;
+padding: 1rem 0 1.5rem;
 }
-.home-hero-copy h1 {
-margin: .15rem 0 1rem;
-color: var(--ink);
-font-size: clamp(2.1rem, 4vw, 3.7rem);
-line-height: 1.05;
+.home-title {
+display: grid;
+gap: .7rem;
+max-width: 11ch;
+margin: 0;
+color: var(--home-text);
+font-size: clamp(3.2rem, 4.3vw, 5.3rem);
+font-weight: 760;
+letter-spacing: -.045em;
+line-height: 1.02;
+}
+.home-course-code {
+color: var(--home-text);
+font-size: clamp(1.55rem, 2.15vw, 2.45rem);
+font-weight: 520;
+letter-spacing: .015em;
+line-height: 1;
+}
+.home-lead {
+max-width: 38rem;
+margin: 1.8rem 0 0;
+color: var(--home-muted);
+font-size: clamp(1.04rem, 1.35vw, 1.34rem);
+line-height: 1.6;
 }
 .home-actions {
 display: flex;
 flex-wrap: wrap;
-gap: .45rem;
+gap: .9rem;
+margin-top: 2.15rem;
+}
+body.page-home .home-action {
+display: inline-flex;
+gap: 1.8rem;
+justify-content: space-between;
+min-width: min(18.25rem, 100%);
+min-height: 4.15rem;
+border: 1px solid rgba(7, 26, 52, .78);
+border-radius: 0;
+background: transparent;
+color: var(--home-text);
+padding: .95rem 1.3rem;
+font-size: 1rem;
+font-weight: 700;
+transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+body.page-home .home-action svg,
+.home-rail-link svg {
+flex: 0 0 auto;
+width: 1.45rem;
+height: 1.45rem;
+fill: none;
+stroke: currentColor;
+stroke-width: 1.8;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+body.page-home .home-action--primary {
+border-color: var(--ulaval-red);
+background: var(--ulaval-red);
+color: #ffffff !important;
+}
+body.page-home .home-action--secondary {
+border-color: rgba(7, 26, 52, .78);
+color: var(--home-text) !important;
+}
+body.page-home .home-action:hover,
+body.page-home .home-action:focus-visible {
+border-color: var(--ulaval-red);
+color: var(--ulaval-red) !important;
+text-decoration: none;
+transform: translateY(-2px);
+}
+body.page-home .home-action--primary:hover,
+body.page-home .home-action--primary:focus-visible {
+border-color: var(--home-text);
+background: var(--home-text);
+color: #ffffff !important;
+filter: none;
 }
 .home-visual {
 position: relative;
 display: grid;
-grid-template-columns: 150px minmax(0, 1fr);
-gap: 1rem;
-align-items: center;
-min-height: 21rem;
-border: 1px solid var(--line);
-border-radius: var(--radius);
-background:
-radial-gradient(circle at 82% 22%, rgba(255, 193, 3, .18), transparent 32%),
-linear-gradient(135deg, #f8fbfc 0%, #ffffff 56%, #eef6f7 100%);
-padding: 1.2rem;
-overflow: hidden;
+grid-template-columns: 1fr;
+gap: 0;
+place-items: center;
+align-self: center;
+min-height: 0;
+min-width: 0;
+border: 0;
+border-radius: 0;
+background: none;
+padding: 0 0 0 1rem;
+overflow: visible;
 }
-.home-logo {
-width: min(150px, 32vw);
-height: auto;
-justify-self: center;
-filter: drop-shadow(0 10px 18px rgba(32, 33, 36, .12));
-}
-.home-pipeline {
-display: grid;
-grid-template-columns: minmax(0, 1fr) 1.8rem minmax(0, 1fr) 1.8rem minmax(0, 1fr) 1.8rem minmax(0, 1fr);
-gap: .35rem;
-align-items: center;
-align-self: start;
-}
-.pipeline-step {
-display: inline-flex;
-justify-content: center;
-align-items: center;
-min-height: 2.25rem;
-border: 1px solid rgba(49, 95, 140, .22);
-border-radius: 7px;
-background: #ffffff;
-color: var(--ink);
-font-weight: 700;
-font-size: .88rem;
-line-height: 1.1;
-text-align: center;
-padding: .35rem .45rem;
-}
-.pipeline-line {
-height: 2px;
-background: var(--blue);
-opacity: .65;
-}
-.home-chart {
-position: absolute;
-right: 1.25rem;
-bottom: 1.2rem;
-width: min(54%, 25rem);
-height: 11rem;
-border-left: 2px solid #cbd6dc;
-border-bottom: 2px solid #cbd6dc;
-}
-.home-chart::before {
+.home-visual::before {
 content: "";
 position: absolute;
-left: 8%;
-right: 4%;
-top: 62%;
-height: 2px;
-background: linear-gradient(90deg, var(--ulaval-red), var(--teal));
-transform: rotate(-18deg);
-transform-origin: left center;
-}
-.home-chart span {
-position: absolute;
-left: var(--x);
-top: var(--y);
-width: .72rem;
-height: .72rem;
-border-radius: 50%;
+top: 3%;
+bottom: 4%;
+left: calc(clamp(3rem, 5vw, 6rem) / -2);
+width: 2px;
 background: var(--ulaval-red);
-box-shadow: 0 0 0 4px rgba(227, 5, 19, .12);
+}
+.home-visual::after {
+content: "";
+position: absolute;
+top: 49%;
+left: calc(clamp(3rem, 5vw, 6rem) / -2 - 6px);
+width: 14px;
+height: 14px;
+border: 2px solid var(--ulaval-red);
+border-radius: 50%;
+background: var(--home-bg);
+}
+.home-visual img {
+display: block;
+width: min(100%, 760px);
+height: auto;
+}
+.home-rail {
+grid-column: 1 / -1;
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+width: 100%;
+border-top: 1px solid var(--home-line);
+}
+.home-rail-link {
+position: relative;
+display: flex;
+gap: 1rem;
+align-items: center;
+justify-content: space-between;
+min-width: 0;
+border-right: 1px solid var(--home-line);
+color: var(--home-text);
+padding: 1.15rem clamp(1rem, 2vw, 2rem) .95rem;
+font-size: 1rem;
+text-decoration: none;
+transition: color .2s ease, background-color .2s ease;
+}
+.home-rail-link:last-child {
+border-right: 0;
+padding-right: 5rem;
+}
+.home-rail-link:last-child::after {
+right: 5rem;
+}
+.home-rail-link::after {
+content: "";
+position: absolute;
+right: clamp(1rem, 2vw, 2rem);
+bottom: .55rem;
+left: clamp(1rem, 2vw, 2rem);
+height: 2px;
+background: var(--ulaval-red);
+transform: scaleX(.86);
+transform-origin: left;
+transition: transform .2s ease, background-color .2s ease;
+}
+.home-rail-link:hover,
+.home-rail-link:focus-visible {
+background: rgba(227, 5, 19, .035);
+color: var(--ulaval-red);
+text-decoration: none;
+}
+.home-rail-link:hover::after,
+.home-rail-link:focus-visible::after {
+background: var(--ulaval-red);
+transform: scaleX(1);
+}
+@media (max-width: 1100px) {
+.home-hero__inner {
+grid-template-columns: minmax(0, .86fr) minmax(430px, 1.14fr);
+column-gap: 3rem;
+width: min(94vw, 1000px);
+}
+.home-title {
+font-size: clamp(2.7rem, 5vw, 4rem);
+}
+.home-visual::before {
+left: -1.5rem;
+}
+.home-visual::after {
+left: calc(-1.5rem - 6px);
+}
+}
+@media (max-width: 860px) {
+.home-hero,
+.home-hero__inner {
+min-height: auto;
+}
+.home-hero__inner {
+grid-template-columns: 1fr;
+grid-template-rows: auto auto auto;
+gap: 2.4rem;
+width: min(90vw, 46rem);
+padding: 3.5rem 0 1rem;
+}
+.home-hero-copy {
+padding: 0;
+}
+.home-title {
+max-width: 12ch;
+font-size: clamp(3rem, 8vw, 4.7rem);
+}
+.home-visual {
+padding: 0;
+}
+.home-visual::before,
+.home-visual::after {
+display: none;
+}
+.home-rail {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.home-rail-link:nth-child(2) {
+border-right: 0;
+}
+.home-rail-link:nth-child(-n + 2) {
+border-bottom: 1px solid var(--home-line);
+}
 }
 .module-overview-grid {
 display: grid;
@@ -5909,18 +6090,57 @@ right: 50%;
 bottom: -.62rem;
 transform: translateX(50%) rotate(135deg);
 }
-.home-visual {
-min-height: 24rem;
+.home-hero__inner {
+gap: 1.7rem;
+width: min(90vw, 34rem);
+padding: 2.35rem 0 .8rem;
 }
-.home-pipeline {
+.home-title {
+gap: .55rem;
+max-width: 11ch;
+font-size: clamp(2.65rem, 12.5vw, 3.65rem);
+line-height: 1.03;
+}
+.home-course-code {
+font-size: 1.45rem;
+}
+.home-lead {
+margin-top: 1.35rem;
+font-size: 1.02rem;
+line-height: 1.55;
+}
+.home-actions {
+display: grid;
+gap: .75rem;
+margin-top: 1.55rem;
+}
+body.page-home .home-action {
+width: 100%;
+min-width: 0;
+min-height: 3.7rem;
+}
+.home-visual {
+min-height: 0;
+}
+.home-visual img {
+justify-self: start;
+width: calc(100% - 2.4rem);
+}
+.home-rail {
 grid-template-columns: 1fr;
 }
-.pipeline-line {
-display: none;
+.home-rail-link,
+.home-rail-link:nth-child(2) {
+border-right: 0;
+border-bottom: 1px solid var(--home-line);
+padding: 1.05rem 4.5rem 1.05rem .9rem;
 }
-.home-chart {
-width: calc(100% - 2rem);
-right: 1rem;
+.home-rail-link:last-child {
+border-bottom: 0;
+}
+.home-rail-link::after {
+right: 4.5rem;
+left: .9rem;
 }
 .featured-covers {
 grid-template-columns: repeat(3, 1fr);
@@ -5988,6 +6208,14 @@ margin-bottom: .05rem;
         <li>
     <a class="dropdown-item" href="../demarrage.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../installation.html">
+ <span class="dropdown-text">Installation technique</span></a>
+  </li>
+        <li>
+    <a class="dropdown-item" href="../autre_materiel/connexion-ssh-github-rstudio.html">
+ <span class="dropdown-text">Connexion GitHub et RStudio</span></a>
   </li>
         <li>
     <a class="dropdown-item" href="../calendrier.html">
@@ -6127,8 +6355,7 @@ margin-bottom: .05rem;
   <li><a href="#préparation" id="toc-préparation" class="nav-link active" data-scroll-target="#préparation">Préparation</a></li>
   <li><a href="#trouver-le-lien-du-projet-github" id="toc-trouver-le-lien-du-projet-github" class="nav-link" data-scroll-target="#trouver-le-lien-du-projet-github">Trouver le lien du projet GitHub</a></li>
   <li><a href="#cloner-dans-rstudio" id="toc-cloner-dans-rstudio" class="nav-link" data-scroll-target="#cloner-dans-rstudio">Cloner dans RStudio</a></li>
-  <li><a href="#astuce-erreur-dauthentification-github" id="toc-astuce-erreur-dauthentification-github" class="nav-link" data-scroll-target="#astuce-erreur-dauthentification-github">Astuce : Erreur d’authentification GitHub</a></li>
-  <li><a href="#bonus-configurer-ssh-avec-github-recommandé" id="toc-bonus-configurer-ssh-avec-github-recommandé" class="nav-link" data-scroll-target="#bonus-configurer-ssh-avec-github-recommandé">Bonus : Configurer SSH avec GitHub (recommandé)</a></li>
+  <li><a href="#erreur-dauthentification-github" id="toc-erreur-dauthentification-github" class="nav-link" data-scroll-target="#erreur-dauthentification-github">Erreur d’authentification GitHub</a></li>
   <li><a href="#ressources-utiles" id="toc-ressources-utiles" class="nav-link" data-scroll-target="#ressources-utiles">Ressources utiles</a></li>
   </ul>
 </nav>
@@ -6161,10 +6388,10 @@ margin-bottom: .05rem;
 <ul>
 <li>R</li>
 <li>RStudio</li>
-<li>Git (vérifie avec <code>git --version</code> dans le terminal)</li>
+<li>Git (vérifie qu’un chemin apparaît dans <code>Tools &gt; Global Options &gt; Git/SVN</code>)</li>
 <li>Un compte GitHub</li>
 </ul>
-<p>Option recommandée pour le cours : lier RStudio à ton compte GitHub avec une clé SSH.</p>
+<p>Avant de cloner ton premier dépôt, suis la page <a href="../autre_materiel/connexion-ssh-github-rstudio.html">Connecter GitHub à RStudio avec SSH</a>. Elle utilise surtout les menus et les boutons de RStudio et de GitHub.</p>
 <p>Ne jamais utiliser ton mot de passe GitHub directement pour cloner, pousser ou tirer un dépôt.</p>
 <hr>
 </section>
@@ -6174,12 +6401,11 @@ margin-bottom: .05rem;
 <li>Va sur la page du dépôt GitHub que tu veux cloner.</li>
 <li>Clique sur le bouton vert <code>&lt;&gt; Code</code>.</li>
 <li>Choisis l’onglet SSH quand c’est possible, puis copie le lien affiché.</li>
-<li>Utilise HTTPS seulement si SSH n’est pas disponible sur ton poste.</li>
+<li>Si l’onglet SSH n’est pas disponible, vérifie que tu as accepté l’invitation au dépôt.</li>
 </ol>
 <p>Exemples :</p>
 <ul>
 <li>SSH : <code>git@github.com:NomUtilisateur/nom-du-projet.git</code></li>
-<li>HTTPS : <code>https://github.com/NomUtilisateur/nom-du-projet.git</code></li>
 </ul>
 <hr>
 </section>
@@ -6197,41 +6423,20 @@ margin-bottom: .05rem;
 <p>C’est fait ! Tu peux commencer à travailler dans ton nouveau projet RStudio.</p>
 <hr>
 </section>
-<section id="astuce-erreur-dauthentification-github" class="level2">
-<h2 class="anchored" data-anchor-id="astuce-erreur-dauthentification-github">Astuce : Erreur d’authentification GitHub</h2>
+<section id="erreur-dauthentification-github" class="level2">
+<h2 class="anchored" data-anchor-id="erreur-dauthentification-github">Erreur d’authentification GitHub</h2>
 <p>Si tu obtiens cette erreur :</p>
 <pre><code>fatal: Authentication failed
 remote: Support for password authentication was removed...</code></pre>
-<p>C’est probablement que tu as utilisé HTTPS sans jeton personnel ou sans gestionnaire d’identifiants.</p>
-<section id="deux-solutions" class="level3">
-<h3 class="anchored" data-anchor-id="deux-solutions">Deux solutions :</h3>
-<ul>
-<li>Configurer SSH, ce qui est l’approche recommandée pour le cours.</li>
-<li>Si tu dois absolument utiliser HTTPS, générer un jeton d’accès personnel sur GitHub et l’utiliser à la place du mot de passe.</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="bonus-configurer-ssh-avec-github-recommandé" class="level2">
-<h2 class="anchored" data-anchor-id="bonus-configurer-ssh-avec-github-recommandé">Bonus : Configurer SSH avec GitHub (recommandé)</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Génère une clé SSH (si ce n&#39;est pas déjà fait)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">&quot;ton-email@example.com&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Ajoute ta clé SSH à l&#39;agent</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">&quot;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_ed25519</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Copie ta clé publique</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Puis colle cette clé dans <code>GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key</code>.</p>
-<p>Détails : <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh</a></p>
+<p>C’est probablement que tu as copié le lien HTTPS au lieu du lien SSH. Retourne sur la page du dépôt, clique sur <code>&lt;&gt; Code</code>, choisis <code>SSH</code>, puis copie ce lien.</p>
+<p>Si la connexion SSH n’est pas encore configurée ou si le message contient <code>Permission denied (publickey)</code>, suis la <a href="../autre_materiel/connexion-ssh-github-rstudio.html">procédure SSH illustrée par les menus et les boutons</a>.</p>
 <hr>
 </section>
 <section id="ressources-utiles" class="level2">
 <h2 class="anchored" data-anchor-id="ressources-utiles">Ressources utiles</h2>
 <ul>
-<li><a href="https://support.posit.co/hc/en-us/articles/200532077">Guide GitHub RStudio (RStudio Support)</a></li>
-<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Créer un token GitHub (PAT)</a></li>
+<li><a href="../autre_materiel/connexion-ssh-github-rstudio.html">Connexion SSH entre GitHub et RStudio</a></li>
+<li><a href="https://docs.posit.co/ide/user/ide/guide/tools/version-control.html">Contrôle de version dans RStudio (Posit)</a></li>
 <li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">Configurer SSH GitHub (Officiel)</a></li>
 </ul>
 <hr>
@@ -6387,6 +6592,7 @@ display: none !important;
   'index.html',
   'modules.html',
   'demarrage.html',
+  'installation.html',
   'calendrier.html',
   'evaluations.html',
   'examen.html',
@@ -7018,110 +7224,86 @@ display: none !important;
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Aide-mémoire - Cloner un projet GitHub dans RStudio&quot;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 2</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cosmo</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight-style: github</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: full</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Préparation</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>Tu dois avoir installé :</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>R</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>RStudio</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Git (vérifie avec <span class="in">`git --version`</span> dans le terminal)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Un compte GitHub</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>Option recommandée pour le cours : lier RStudio à ton compte GitHub avec une clé SSH.</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>Ne jamais utiliser ton mot de passe GitHub directement pour cloner, pousser ou tirer un dépôt.</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Trouver le lien du projet GitHub</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Va sur la page du dépôt GitHub que tu veux cloner.</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Clique sur le bouton vert <span class="in">`&lt;&gt; Code`</span>.</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Choisis l’onglet SSH quand c’est possible, puis copie le lien affiché.</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Utilise HTTPS seulement si SSH n’est pas disponible sur ton poste.</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>Exemples :</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>SSH : <span class="in">`git@github.com:NomUtilisateur/nom-du-projet.git`</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>HTTPS : <span class="in">`https://github.com/NomUtilisateur/nom-du-projet.git`</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cloner dans RStudio</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Ouvre RStudio.</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Va dans <span class="in">`File &gt; New Project`</span>.</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Choisis <span class="in">`Version Control`</span>.</span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Sélectionne <span class="in">`Git`</span>.</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Colle le lien copié dans le champ <span class="in">`Repository URL`</span>.</span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Choisis un dossier local pour enregistrer le projet</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Clique sur <span class="in">`Create Project`</span>.</span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a> C’est fait ! Tu peux commencer à travailler dans ton nouveau projet RStudio.</span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Astuce : Erreur d&#39;authentification GitHub</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>Si tu obtiens cette erreur :</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="in">fatal: Authentication failed</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="in">remote: Support for password authentication was removed...</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>C’est probablement que tu as utilisé HTTPS sans jeton personnel ou sans gestionnaire d’identifiants.</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deux solutions :</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Configurer SSH, ce qui est l’approche recommandée pour le cours.</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Si tu dois absolument utiliser HTTPS, générer un jeton d’accès personnel sur GitHub et l’utiliser à la place du mot de passe.</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bonus : Configurer SSH avec GitHub (recommandé)</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Génère une clé SSH (si ce n&#39;est pas déjà fait)</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">&quot;ton-email@example.com&quot;</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Ajoute ta clé SSH à l&#39;agent</span></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">&quot;</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">&quot;</span></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_ed25519</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Copie ta clé publique</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>Puis colle cette clé dans <span class="in">`GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key`</span>.</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a> Détails : <span class="ot">&lt;https://docs.github.com/en/authentication/connecting-to-github-with-ssh&gt;</span></span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ressources utiles</span></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Guide GitHub RStudio (RStudio Support)</span><span class="co">](https://support.posit.co/hc/en-us/articles/200532077)</span></span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Créer un token GitHub (PAT)</span><span class="co">](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)</span></span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Configurer SSH GitHub (Officiel)</span><span class="co">](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)</span></span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>Bonne programmation !</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Aide-mémoire - Cloner un projet GitHub dans RStudio&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 2</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cosmo</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight-style: github</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: full</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Préparation</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>Tu dois avoir installé :</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>R</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>RStudio</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Git (vérifie qu&#39;un chemin apparaît dans <span class="in">`Tools &gt; Global Options &gt; Git/SVN`</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Un compte GitHub</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Avant de cloner ton premier dépôt, suis la page <span class="co">[</span><span class="ot">Connecter GitHub à RStudio avec SSH</span><span class="co">](connexion-ssh-github-rstudio.qmd)</span>. Elle utilise surtout les menus et les boutons de RStudio et de GitHub.</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>Ne jamais utiliser ton mot de passe GitHub directement pour cloner, pousser ou tirer un dépôt.</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Trouver le lien du projet GitHub</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Va sur la page du dépôt GitHub que tu veux cloner.</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Clique sur le bouton vert <span class="in">`&lt;&gt; Code`</span>.</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Choisis l’onglet SSH quand c’est possible, puis copie le lien affiché.</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Si l&#39;onglet SSH n&#39;est pas disponible, vérifie que tu as accepté l&#39;invitation au dépôt.</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>Exemples :</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>SSH : <span class="in">`git@github.com:NomUtilisateur/nom-du-projet.git`</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cloner dans RStudio</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Ouvre RStudio.</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Va dans <span class="in">`File &gt; New Project`</span>.</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Choisis <span class="in">`Version Control`</span>.</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Sélectionne <span class="in">`Git`</span>.</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Colle le lien copié dans le champ <span class="in">`Repository URL`</span>.</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Choisis un dossier local pour enregistrer le projet</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Clique sur <span class="in">`Create Project`</span>.</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a> C’est fait ! Tu peux commencer à travailler dans ton nouveau projet RStudio.</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Erreur d&#39;authentification GitHub</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>Si tu obtiens cette erreur :</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="in">fatal: Authentication failed</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="in">remote: Support for password authentication was removed...</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>C’est probablement que tu as copié le lien HTTPS au lieu du lien SSH. Retourne sur la page du dépôt, clique sur <span class="in">`&lt;&gt; Code`</span>, choisis <span class="in">`SSH`</span>, puis copie ce lien.</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>Si la connexion SSH n&#39;est pas encore configurée ou si le message contient <span class="in">`Permission denied (publickey)`</span>, suis la <span class="co">[</span><span class="ot">procédure SSH illustrée par les menus et les boutons</span><span class="co">](connexion-ssh-github-rstudio.qmd)</span>.</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ressources utiles</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Connexion SSH entre GitHub et RStudio</span><span class="co">](connexion-ssh-github-rstudio.qmd)</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Contrôle de version dans RStudio (Posit)</span><span class="co">](https://docs.posit.co/ide/user/ide/guide/tools/version-control.html)</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Configurer SSH GitHub (Officiel)</span><span class="co">](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>Bonne programmation !</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

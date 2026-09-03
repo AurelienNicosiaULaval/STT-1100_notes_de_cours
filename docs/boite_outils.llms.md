@@ -34,9 +34,15 @@ Ouvrir la page du module, vérifier les lectures, repérer les fichiers de donn�
 
 [Voir les modules](modules.llms.md)
 
+### Je dois connecter GitHub
+
+Créer la clé SSH dans RStudio, la copier dans GitHub, puis vérifier que le bon compte est reconnu.
+
+[Ouvrir la connexion guidée](autre_materiel/connexion-ssh-github-rstudio.llms.md)
+
 ### Je dois cloner un dépôt
 
-Utiliser l'aide-mémoire RStudio et GitHub, choisir le lien SSH, puis ouvrir le projet dans RStudio avant de modifier les fichiers.
+Après la connexion SSH, utiliser l'aide-mémoire, copier le lien SSH du dépôt, puis ouvrir le projet dans RStudio.
 
 [Ouvrir le guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
 
@@ -82,9 +88,9 @@ Une feuille synthèse pour retrouver les commandes R, les gestes Quarto et les r
 
 ### RStudio et GitHub
 
-Les étapes pour cloner un dépôt avec SSH, travailler dans un projet RStudio et comprendre les erreurs d'authentification GitHub.
+Deux guides distincts permettent d'abord de connecter le compte, puis de cloner et utiliser un dépôt.
 
-[Aide-mémoire RStudio et GitHubGuide pas à pas à suivre en priorité pour cloner un projet.](autre_materiel/aide-memoire-rstudio-github.llms.md) [Présentation GitHubSupport PDF pour revoir dépôt, commit, push et pull.](autre_materiel/Github/Présentation%20Github.pdf)
+[Connexion SSHCréer la clé avec les boutons de RStudio, l'ajouter à GitHub et vérifier le compte.](autre_materiel/connexion-ssh-github-rstudio.llms.md) [Aide-mémoire RStudio et GitHubGuide pas à pas à suivre en priorité pour cloner un projet.](autre_materiel/aide-memoire-rstudio-github.llms.md) [Présentation GitHubSupport PDF pour revoir dépôt, commit, push et pull.](autre_materiel/Github/Présentation%20Github.pdf)
 
 ### Chercher et obtenir de l'aide
 
@@ -132,7 +138,7 @@ Commencer par `ggplot()`, définir les variables avec `aes()`, choisir un `geom_
 
 Dans STT-1100, un travail reproductible suit toujours la même logique: ouvrir le bon projet, charger les packages, importer les données, écrire le code dans un document Quarto, rendre le document, puis sauvegarder les étapes importantes avec GitHub lorsque le module le demande.
 
-[Revoir le démarrage](demarrage.llms.md) [Cloner avec RStudio](autre_materiel/aide-memoire-rstudio-github.llms.md)
+[Revoir le démarrage](demarrage.llms.md) [Connecter GitHub](autre_materiel/connexion-ssh-github-rstudio.llms.md) [Cloner avec RStudio](autre_materiel/aide-memoire-rstudio-github.llms.md)
 
 ### Projet
 

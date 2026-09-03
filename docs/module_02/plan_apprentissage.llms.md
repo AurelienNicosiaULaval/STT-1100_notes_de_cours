@@ -28,6 +28,8 @@ Les facettes, comparaisons supplémentaires et raffinements visuels viennent apr
 
 ### Travail préparatoire - Projet, importation et premiers graphiques
 
+- [Connexion SSH entre GitHub et RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md) Configurer le compte avec les menus et les boutons, puis vérifier la connexion.
+
 - [Aide-mémoire RStudio et GitHub](../autre_materiel/aide-memoire-rstudio-github.llms.md) Cloner un dépôt, ouvrir un projet RStudio, comprendre commits et push, et reconnaître les problèmes d’authentification les plus fréquents.
 
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html) Premiers repères pour construire des graphiques avec `ggplot2`.

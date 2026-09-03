@@ -1,12 +1,19 @@
-# Mini-test formatif - Lectures du module 10
+# Autodiagnostic - Module 10
 
 STT-1100 Introduction à la science des données
 
-## Mini-test formatif
+Cet autodiagnostic non noté vérifie les notions du module 10. Il produit une correction détaillée, un résultat global, un bilan par compétence et un plan de révision ciblé.
 
-Ce mini-test sert à vérifier les lectures du module 10. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.
+> **NOTE:**
+>
+> - Première tentative: sans documentation, sans exécuter le code et sans aide extérieure, afin d’obtenir un portrait honnête.
+> - Après le bilan: consultez les ressources proposées, refaites les exercices ciblés, puis reprenez le diagnostic.
+> - Usage: ce diagnostic n’est pas noté et ne sert ni à attribuer une note ni à décider de l’admission au cours.
+> - Confidentialité: aucune réponse n’est transmise à l’enseignant. La progression et l’historique sont conservés uniquement dans ce navigateur.
 
-### Question 1
+Les seuils sont des repères pédagogiques propres à STT-1100. Ils n’ont pas fait l’objet d’une validation psychométrique. Une réponse exacte peut aussi résulter du hasard; les exercices pratiques demeurent donc essentiels.
+
+## Question 1
 
 Dans le cadre de `tidytext`, que signifie transformer un texte en format tidy?
 
@@ -19,7 +26,7 @@ Dans le cadre de `tidytext`, que signifie transformer un texte en format tidy?
 >
 > Réponse: a. Le format tidy text place généralement une unité textuelle, par exemple un mot, sur chaque ligne.
 
-### Question 2
+## Question 2
 
 Quelle fonction sert à découper une colonne de texte en tokens avec `tidytext`?
 
@@ -32,7 +39,7 @@ Quelle fonction sert à découper une colonne de texte en tokens avec `tidytext`
 >
 > Réponse: a. `unnest_tokens()` transforme une colonne de texte en tokens, souvent des mots.
 
-### Question 3
+## Question 3
 
 Vrai ou faux: les stopwords sont des mots très fréquents qui peuvent masquer les mots plus informatifs.
 
@@ -40,7 +47,7 @@ Vrai ou faux: les stopwords sont des mots très fréquents qui peuvent masquer l
 >
 > Vrai. Des mots comme “de”, “le” ou “et” peuvent être retirés quand ils n’aident pas à comprendre le contenu.
 
-### Question 4
+## Question 4
 
 Pourquoi construire un lexique de sentiment maison en français dans ce module?
 
@@ -53,7 +60,7 @@ Pourquoi construire un lexique de sentiment maison en français dans ce module?
 >
 > Réponse: a. Le lexique maison est pédagogique. Il aide à comprendre le principe, mais il reste imparfait et doit être interprété avec prudence.
 
-### Question 5
+## Question 5
 
 Vrai ou faux: un score de sentiment calculé avec un petit lexique maison doit être présenté comme une mesure exacte du ressenti étudiant.
 
@@ -61,7 +68,7 @@ Vrai ou faux: un score de sentiment calculé avec un petit lexique maison doit �
 >
 > Faux. Le score dépend du lexique, du nettoyage et du contexte. Il sert d’indicateur exploratoire, pas de vérité définitive.
 
-### Question 6
+## Question 6
 
 Que mesure TF-IDF dans une analyse de texte?
 
@@ -74,7 +81,7 @@ Que mesure TF-IDF dans une analyse de texte?
 >
 > Réponse: a. TF-IDF fait ressortir les mots distinctifs d’un document ou d’un groupe, par exemple une semaine.
 
-### Question 7
+## Question 7
 
 Quelle fonction de `tidytext` ajoute les colonnes `tf`, `idf` et `tf_idf` à un tableau de comptes?
 
@@ -87,7 +94,7 @@ Quelle fonction de `tidytext` ajoute les colonnes `tf`, `idf` et `tf_idf` à un 
 >
 > Réponse: a. `bind_tf_idf()` calcule et ajoute les valeurs TF, IDF et TF-IDF.
 
-### Question 8
+## Question 8
 
 Vrai ou faux: un mot avec un TF-IDF élevé est nécessairement le mot le plus fréquent dans tout le corpus.
 
@@ -95,7 +102,7 @@ Vrai ou faux: un mot avec un TF-IDF élevé est nécessairement le mot le plus f
 >
 > Faux. Un mot peut avoir un TF-IDF élevé parce qu’il est distinctif d’un groupe, même s’il n’est pas le mot le plus fréquent du corpus complet.
 
-### Question 9
+## Question 9
 
 Dans un tableau de bord, pourquoi ajouter au moins un filtre interactif?
 
@@ -108,7 +115,7 @@ Dans un tableau de bord, pourquoi ajouter au moins un filtre interactif?
 >
 > Réponse: a. Un filtre utile permet d’explorer les données par période, groupe ou thème sans multiplier les graphiques fixes.
 
-### Question 10
+## Question 10
 
 Vrai ou faux: avant de partager un tableau de bord basé sur des commentaires, il faut vérifier qu’aucune personne n’est identifiable.
 
@@ -116,7 +123,7 @@ Vrai ou faux: avant de partager un tableau de bord basé sur des commentaires, i
 >
 > Vrai. Les commentaires libres peuvent contenir des renseignements identifiants. La confidentialité doit être vérifiée avant tout partage.
 
-### Question 11
+## Question 11
 
 Quelle affirmation décrit bien une bonne conclusion de tableau de bord?
 
@@ -129,7 +136,7 @@ Quelle affirmation décrit bien une bonne conclusion de tableau de bord?
 >
 > Réponse: a. Une conclusion utile reste concise, interprète sans surpromettre et indique ce qui pourrait être amélioré.
 
-### Question 12
+## Question 12
 
 Vrai ou faux: `flexdashboard` peut présenter plusieurs visualisations reliées dans une page de tableau de bord, et `shiny` peut ajouter de l’interactivité.
 

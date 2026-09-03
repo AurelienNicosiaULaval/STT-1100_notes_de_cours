@@ -74,6 +74,9 @@ Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exerc
 
 #### Travail préparatoire
 
+- [Connexion SSH entre GitHub et RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md)
+  *Configurer le compte avec les menus et les boutons, puis vérifier la connexion.*
+
 - [Aide-mémoire RStudio et GitHub](../autre_materiel/aide-memoire-rstudio-github.llms.md)
   *Cloner un dépôt, faire des commits et pousser vers GitHub.*
 

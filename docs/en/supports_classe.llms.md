@@ -32,7 +32,7 @@ If you are unsure where to go, follow this path. It places each document at the 
 
 ### Configure
 
-Follow the complete procedure to install R, RStudio, Quarto and Git, then configure GitHub and SSH.
+Install R, RStudio, Quarto and Git with the guided procedure, then connect GitHub with menus and buttons.
 
 [Open technical installation](installation.llms.md)
 
@@ -68,7 +68,7 @@ Class supports are meant to accompany autonomous work. The useful question is no
 
 ### I am starting the course
 
-Follow the [technical installation page](installation.llms.md) first, then open the RStudio and GitHub memo and the toolkit to understand the basic workflow.
+Follow the [technical installation page](installation.llms.md) first, then the [SSH connection between GitHub and RStudio](autre_materiel/connexion-ssh-github-rstudio.llms.md).
 
 ### I am working on an exercise
 
@@ -94,11 +94,17 @@ Read [the AI page](ia.llms.md), then open [GPT STT-1100](https://chatgpt.com/g/g
 
 The cards below open the supports already present in the course repository. HTML documents are best on screen; PDFs are useful for review or for keeping a compact reference next to RStudio.
 
-### Complete Technical Installation
+### Technical Installation
 
-Windows, macOS and Linux procedure for installing R, RStudio, Quarto and Git, configuring GitHub and SSH, installing the starting packages and validating a first render.
+Button-based procedure for installing R, RStudio, Quarto and Git, installing the starting packages and validating a first render.
 
 [Prepare my computer](installation.llms.md)
+
+### SSH Connection between GitHub and RStudio
+
+A separate click-by-click page for creating the key in RStudio, adding it to GitHub and checking the connection.
+
+[Connect my account](autre_materiel/connexion-ssh-github-rstudio.llms.md)
 
 ### STT-1100 Toolkit
 
@@ -114,7 +120,7 @@ Concatenation of the Posit cheat sheets relevant to the course: RStudio, Quarto,
 
 ### RStudio and GitHub Memo
 
-Main guide for cloning a project, using SSH and understanding authentication errors.
+Short guide for cloning an accessible repository and using RStudio's Git buttons.
 
 [Open the guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
 

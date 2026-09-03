@@ -18,19 +18,19 @@ execute:
     <div>
       <p class="eyebrow">Course technical preparation</p>
       <h1 id="installation-title">Prepare your computer for STT-1100</h1>
-      <p>Preparation is divided into two stages. Before the first session, install R, RStudio Desktop, Quarto and the starting R packages, then verify a first report. Git, GitHub and SSH setup is scheduled as part of module 2 preparation.</p>
+      <p>Install the applications with their usual buttons, then check the result directly in RStudio. Connecting to GitHub has its own guided page.</p>
       <div class="resource-actions" aria-label="Quick links">
         <a class="home-action home-action--primary" href="#installation-order">Start installation</a>
         <a class="home-action" href="#final-test">Run the final test</a>
+        <a class="home-action" href="autre_materiel/connexion-ssh-github-rstudio.html">Connect GitHub</a>
         <a class="home-action" href="#troubleshooting">Troubleshoot</a>
-        <a class="home-action" href="packages.html">View R packages</a>
       </div>
     </div>
     <div class="resource-panel" aria-label="Expected result">
-      <div><span>01</span><p>Install R, RStudio and Quarto</p></div>
+      <div><span>01</span><p>Install R and RStudio</p></div>
       <div><span>02</span><p>Install R packages</p></div>
       <div><span>03</span><p>Render a Quarto file</p></div>
-      <div><span>04</span><p>Prepare Git and GitHub in module 2</p></div>
+      <div><span>04</span><p>Connect GitHub in Module 2</p></div>
     </div>
   </section>
 </div>
@@ -39,35 +39,26 @@ execute:
 ::: {.callout-important}
 ## Computer required during the course
 
-Every student must bring a Windows, macOS or Linux laptop to every session with the tools required for the current module installed and working. Only R, RStudio Desktop, Quarto and the starting R packages are required for the first session. A browser or tablet alone does not replace the local applications used in the course.
+Every student must bring a Windows, macOS or Linux laptop to every session with the tools required for the current module installed and working. Only R, RStudio Desktop, Quarto and the starting R packages are required for the first session.
 
-A stable Internet connection is required. 8 GB of memory is strongly recommended; 16 GB provides more comfort. If an organization manages the computer, confirm before class that you are allowed to install software.
+A stable Internet connection is required. If an organization manages the computer, confirm before class that you are allowed to install software.
 :::
 
 ## What must work {#expected-result}
 
-Before the first session, you must be able to confirm these four items:
+Before the first session:
 
-- R starts inside RStudio and runs `1 + 1`.
-- RStudio Desktop opens a project and a `.qmd` file.
-- Quarto responds to `quarto check`.
-- a Quarto document containing R code produces an HTML file without an error.
+- RStudio starts and the Console calculates `1 + 1`;
+- RStudio opens a `.qmd` file;
+- the `Render` button produces an HTML file without an error.
 
-Before module 2, you will complete these three checks:
+Before Module 2:
 
-- Git responds to `git --version`;
+- a path appears beside `Git executable` under `Tools > Global Options > Git/SVN`;
 - your GitHub account exists and its email address is verified;
-- `ssh -T git@github.com` recognizes your account.
-
-::: {.callout-note}
-## Where to enter commands
-
-R commands go in RStudio's Console tab. The `git`, `quarto`, `ssh` and `ls` commands go in a terminal. On Windows, use Git Bash after installing Git. On macOS or Linux, use Terminal. RStudio's Terminal pane also works when available.
-:::
+- the [SSH connection page](autre_materiel/connexion-ssh-github-rstudio.qmd) confirms your own GitHub username.
 
 ## Installation order {#installation-order}
-
-To prepare for module 1, install R, RStudio and Quarto, then go directly to the starting R packages and the Quarto test. Complete the Git, GitHub and SSH steps while preparing for module 2.
 
 ### 1. Install R
 
@@ -77,13 +68,14 @@ Download R from the [Comprehensive R Archive Network](https://cran.r-project.org
 - [R for macOS](https://cran.r-project.org/bin/macosx/)
 - [R for Linux](https://cran.r-project.org/bin/linux/)
 
-Accept the default installation options. On macOS, choose the file that matches the computer's processor when several installers are offered.
-
-You will verify R inside RStudio after the next step.
+Open the downloaded file and accept the default options.
 
 ### 2. Install RStudio Desktop
 
-Download the free version of [RStudio Desktop from Posit](https://posit.co/download/rstudio-desktop/). Close and reopen RStudio after installation.
+1. Open the [RStudio Desktop download page](https://posit.co/download/rstudio-desktop/).
+2. Download the free version for your computer.
+3. Open the downloaded file and complete the installation.
+4. Open RStudio.
 
 In the Console tab, run:
 
@@ -94,151 +86,80 @@ R.version.string
 
 The first result must display an R version and the second must display `2`.
 
-### 3. Install Quarto
+### 3. Check Quarto with the Render button
 
-Download the installer for your system from the [official Quarto download page](https://quarto.org/docs/download/). Close RStudio completely, reopen it, then run in the terminal:
+Recent versions of RStudio Desktop include Quarto. To check that it works:
 
-```bash
-quarto --version
-quarto check
-```
+1. In RStudio, click `File > New File > Quarto Document`.
+2. Choose the `HTML` format.
+3. Click `Create`.
+4. Save the file.
+5. Click the `Render` button above the document.
 
-The first command must display a version number. The second must detect Quarto and an R installation without a blocking error.
+If an HTML page opens without an error, Quarto works. If RStudio does not offer `Quarto Document`, install Quarto from its [official page](https://quarto.org/docs/download/), then close and reopen RStudio.
 
-### 4. Install Git {.tabset}
+### 4. Install and check Git {.tabset}
 
 #### Windows
 
-Download [Git for Windows](https://git-scm.com/download/win), run the installer and keep the default choices. Open Git Bash, then run:
-
-```bash
-git --version
-```
+Download [Git for Windows](https://git-scm.com/download/win), open the installer, and keep the default choices.
 
 #### macOS
 
-Open Terminal and run:
-
-```bash
-git --version
-```
-
-If macOS offers to install the command-line tools, accept and let installation finish. You can also use the [Git installer for macOS](https://git-scm.com/download/mac). Run `git --version` again after installation.
+Download Git from the [official macOS page](https://git-scm.com/download/mac) and follow the installation option offered for your system version.
 
 #### Linux
 
-Use your distribution's package manager. For Debian or Ubuntu:
+Follow the [official procedure for your distribution](https://git-scm.com/download/linux). Ask for help if installation requires administrator rights.
 
-```bash
-sudo apt update
-sudo apt install git
-git --version
-```
+#### Check inside RStudio
 
-For Fedora:
+1. Close RStudio completely after installing Git.
+2. Reopen RStudio.
+3. Click `Tools > Global Options > Git/SVN`.
+4. Confirm that a path appears under `Git executable`.
 
-```bash
-sudo dnf install git
-git --version
-```
+If the path is present, RStudio recognizes Git.
 
-The official documentation lists [other Linux options](https://git-scm.com/download/linux).
-
-## Configure Git and GitHub {#configure-git-github}
+## Prepare GitHub for Module 2
 
 ### 5. Create and verify the GitHub account
 
-Create a free personal account with the [official GitHub procedure](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). Use an email address you check and complete the verification sent by GitHub.
+Create a free personal account using the [official GitHub procedure](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). Complete the email verification and write down your exact GitHub username.
 
-Write down your exact GitHub username. You will use it in several course activities.
+### 6. Record your name for commits
 
-### 6. Record your Git identity
+Complete this step once in the RStudio Console. Replace the examples with your name and an email address associated with your GitHub account:
 
-In the terminal, replace both values with your name and the address linked to your GitHub account:
+```r
+if (!requireNamespace("usethis", quietly = TRUE)) {
+  install.packages("usethis")
+}
 
-```bash
-git config --global user.name "First Last"
-git config --global user.email "address-linked-to-github@example.com"
-git config --global init.defaultBranch main
-git config --global --list
+usethis::use_git_config(
+  user.name = "First Last",
+  user.email = "address-linked-to-github@example.com"
+)
 ```
 
-Check that `user.name`, `user.email` and `init.defaultbranch=main` contain the correct values. This information will be associated with your commits.
+This information will be associated with your commits. You may use the private email address provided by GitHub if you do not want your personal address displayed in your commits.
 
-### 7. Configure SSH access to GitHub
+### 7. Connect GitHub to RStudio with SSH
 
-SSH lets Git communicate with GitHub without asking for your password for every operation. The complete official procedure is in [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+Open the dedicated page and follow its buttons in order:
 
-First check whether a key already exists:
+[Connect GitHub to RStudio with SSH](autre_materiel/connexion-ssh-github-rstudio.qmd){.btn .btn-primary}
 
-```bash
-ls -al ~/.ssh
-```
-
-If a file such as `id_ed25519.pub` already exists and is linked to your GitHub account, do not create a second key. Otherwise, create one after replacing the email address:
-
-```bash
-ssh-keygen -t ed25519 -C "address-linked-to-github@example.com"
-```
-
-Press Enter to accept the proposed location. A passphrase is recommended. Then load the key for the active session:
-
-```bash
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-```
-
-Copy only the public key:
-
-:::: {.columns}
-::: {.column width="33%"}
-#### Windows, Git Bash
-
-```bash
-clip < ~/.ssh/id_ed25519.pub
-```
-:::
-
-::: {.column width="33%"}
-#### macOS
-
-```bash
-pbcopy < ~/.ssh/id_ed25519.pub
-```
-:::
-
-::: {.column width="34%"}
-#### Linux
-
-```bash
-cat ~/.ssh/id_ed25519.pub
-```
-
-Copy the complete displayed line.
-:::
-::::
-
-In GitHub, open `Settings > SSH and GPG keys > New SSH key`, give the computer a recognizable title, paste the public key and save it. Then test:
-
-```bash
-ssh -T git@github.com
-```
-
-On the first connection, confirm the host fingerprint if GitHub asks. The expected result contains `successfully authenticated` and your username. The message stating that GitHub does not provide shell access is normal.
-
-::: {.callout-warning}
-## Never share the private key
-
-The `~/.ssh/id_ed25519` file is private. Do not copy it to GitHub, Brio, email or a help request. Only the file ending in `.pub` may be shared.
-:::
+This page explains how to create the key from `Tools > Global Options > Git/SVN`, add it to GitHub, check the connection, and clone the course repository.
 
 ## Install the starting R packages {#r-packages}
 
-Run this complete block in the RStudio Console. It installs only the missing packages required at the start of the course, followed by the `UlavalSSD` data package used in Module 1.
+Run the following block in the RStudio Console. It installs only missing packages:
 
 ```r
-# Core packages for the first activities
-required_packages <- c("tidyverse", "knitr", "rmarkdown", "remotes")
+required_packages <- c(
+  "tidyverse", "knitr", "rmarkdown", "remotes", "usethis"
+)
 
 installed_packages <- rownames(installed.packages())
 missing_packages <- setdiff(required_packages, installed_packages)
@@ -247,13 +168,12 @@ if (length(missing_packages) > 0) {
   install.packages(missing_packages)
 }
 
-# Course data package
 if (!requireNamespace("UlavalSSD", quietly = TRUE)) {
   remotes::install_github("AurelienNicosiaULaval/UlavalSSD")
 }
 ```
 
-Then verify:
+Then check:
 
 ```r
 library(tidyverse)
@@ -262,76 +182,49 @@ library(UlavalSSD)
 dim(UlavalSSD::MeteoQuebec)
 ```
 
-The result must display two numbers, the number of rows and the number of columns. Other packages will be installed when the modules use them; the [R Packages](packages.html) page lists them.
+The result must display two numbers, the number of rows and the number of columns.
 
 ## Final test with a Quarto document {#final-test}
 
-In RStudio, choose `File > New File > Quarto Document`. Create an HTML document, replace its contents with the text below and save it as `installation-test.qmd`:
+1. In RStudio, choose `File > New File > Quarto Document`.
+2. Create an HTML document.
+3. Save it as `installation-test.qmd`.
+4. In an R code block, enter the following code:
 
-````{=html}
-<pre><code>---
-title: "STT-1100 installation test"
-format:
-  html:
-    embed-resources: true
----
-
-This document confirms that R, RStudio, Quarto and the packages work together.
-
-&#96;&#96;&#96;{r}
+```r
 library(tidyverse)
 
-results &lt;- tibble(
+results <- tibble(
   value = 1:3,
   square = value^2
 )
 
 results
-&#96;&#96;&#96;</code></pre>
-````
-
-Click `Render`. The installation is ready when:
-
-1. no red error interrupts rendering;
-2. an `installation-test.html` file is created and opens;
-3. the `square` column contains 1, 4 and 9;
-4. both commands below give the expected results in the terminal.
-
-```bash
-quarto --version
-quarto check
 ```
 
-## Check before module 2
+5. Click `Render`.
 
-When module 2 preparation is assigned, complete the Git, GitHub and SSH steps on this page, then verify:
+The installation is ready when the HTML file opens without an error and the `square` column contains 1, 4 and 9.
 
-```bash
-git --version
-ssh -T git@github.com
-```
+## Check before Module 2
+
+1. Open the [SSH connection page](autre_materiel/connexion-ssh-github-rstudio.qmd).
+2. Follow the steps until the message displays your GitHub username.
+3. Accept the invitation to the course repository or organization.
+4. Clone your repository with `File > New Project > Version Control > Git`.
 
 ## Troubleshooting {#troubleshooting}
 
-| Symptom | Check | Most likely correction |
+| Symptom | Check using menus | Most likely correction |
 |---|---|---|
-| RStudio opens, but R does not start | Run `R.version.string` in the Console | Install R before RStudio, then restart RStudio. |
-| `quarto: command not found` | Run `quarto --version` in a new terminal | Install Quarto, then close and reopen the terminal and RStudio. |
-| `git: command not found` | Run `git --version` | Install Git and open a new terminal. On Windows, use Git Bash. |
-| `Permission denied (publickey)` | Run `ssh -T git@github.com` | Confirm that the `.pub` public key was added to the correct GitHub account and the private key is loaded. |
-| `there is no package called ...` | Run `installed.packages()` in R | Install the package in the Console, then add the correct `library()` to the `.qmd` file. |
-| The document works line by line, but not with `Render` | Restart R, then render again | Add every required `library()` and every object-creation step to the document. |
+| RStudio opens, but R does not start | Check whether the Console displays an R version at startup | Install R before RStudio, then restart RStudio. |
+| The `Render` button is missing | Confirm that the open file ends in `.qmd` | Install Quarto, then close and reopen RStudio. |
+| The `Git executable` field is empty | Open `Tools > Global Options > Git/SVN` | Install Git, then close and reopen RStudio. |
+| The GitHub connection is denied | Open the [SSH page](autre_materiel/connexion-ssh-github-rstudio.qmd#ssh-troubleshooting) | Check the public key and the GitHub account being used. |
+| A package is missing | Open the `Packages` tab and search for its name | Install the package in the Console, then add the correct `library()` to the `.qmd` file. |
+| The document works line by line, but not with `Render` | Click `Session > Restart R`, then `Render` | Add every required `library()` and object-creation step to the document. |
 
-If the problem continues, keep:
-
-- the operating system and its version;
-- the output of `R.version.string`;
-- the output of `quarto check`;
-- the output of `git --version`;
-- the complete error message;
-- a screenshot showing the step where the problem appears.
-
-Never send a password, access token or private SSH key.
+If the problem continues, keep the complete error message and a screenshot of the step where the problem appears. Never send a password, access token, or private SSH key.
 
 ## Official sources
 
@@ -339,5 +232,5 @@ Never send a password, access token or private SSH key.
 - [RStudio Desktop, Posit](https://posit.co/download/rstudio-desktop/)
 - [Install and get started with Quarto](https://quarto.org/docs/get-started/)
 - [Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [First-time Git setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+- [Configuring Git with usethis](https://usethis.r-lib.org/reference/use_git_config.html)
 - [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)

@@ -34,9 +34,15 @@ Open the module page, check the readings, locate the data files and keep the che
 
 [View modules](modules.llms.md)
 
+### I need to connect GitHub
+
+Create the SSH key in RStudio, copy it into GitHub, then confirm that the correct account is recognized.
+
+[Open guided connection](autre_materiel/connexion-ssh-github-rstudio.llms.md)
+
 ### I need to clone a repository
 
-Use the RStudio and GitHub memo, choose the SSH link, then open the project in RStudio before editing files.
+After connecting with SSH, use the memo, copy the repository's SSH link, then open the project in RStudio.
 
 [Open the guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
 
@@ -82,9 +88,9 @@ A compact reference for R commands, Quarto moves and core course habits.
 
 ### RStudio and GitHub
 
-Steps for cloning a repository with SSH, working in an RStudio project and understanding GitHub authentication errors.
+Two separate guides first connect the account, then show how to clone and use a repository.
 
-[RStudio and GitHub memoStep-by-step guide to follow first when cloning a project.](autre_materiel/aide-memoire-rstudio-github.llms.md) [GitHub presentationFrench PDF support for reviewing repositories, commits, push and pull.](../autre_materiel/Github/Présentation%20Github.pdf)
+[SSH connectionCreate the key with RStudio buttons, add it to GitHub and check the account.](autre_materiel/connexion-ssh-github-rstudio.llms.md) [RStudio and GitHub memoStep-by-step guide to follow first when cloning a project.](autre_materiel/aide-memoire-rstudio-github.llms.md) [GitHub presentationFrench PDF support for reviewing repositories, commits, push and pull.](../autre_materiel/Github/Présentation%20Github.pdf)
 
 ### Search and get help
 
@@ -132,7 +138,7 @@ Start with `ggplot()`, define variables with `aes()`, choose a `geom_*`, then po
 
 In STT-1100, reproducible work follows the same logic: open the right project, load packages, import data, write code in a Quarto document, render the document, then save important steps with GitHub when the module asks for it.
 
-[Review the start page](demarrage.llms.md) [Clone with RStudio](autre_materiel/aide-memoire-rstudio-github.llms.md)
+[Review the start page](demarrage.llms.md) [Connect GitHub](autre_materiel/connexion-ssh-github-rstudio.llms.md) [Clone with RStudio](autre_materiel/aide-memoire-rstudio-github.llms.md)
 
 ### Project
 

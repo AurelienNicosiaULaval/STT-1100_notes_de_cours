@@ -32,7 +32,7 @@ Si vous hésitez, suivez ce parcours. Il place chaque document au moment où il 
 
 ### Configurer
 
-Suivre la procédure complète pour installer R, RStudio, Quarto et Git, puis configurer GitHub et SSH.
+Installer R, RStudio, Quarto et Git avec la procédure guidée, puis connecter GitHub avec les menus et boutons.
 
 [Ouvrir l'installation technique](installation.llms.md)
 
@@ -68,7 +68,7 @@ Les supports de classe sont là pour accompagner le travail autonome. La bonne q
 
 ### Je démarre le cours
 
-Suivre d'abord la [page d'installation technique](installation.llms.md), puis ouvrir l'aide-mémoire RStudio et GitHub et la boîte à outils pour comprendre le workflow de base.
+Suivre d'abord la [page d'installation technique](installation.llms.md), puis la [connexion SSH entre GitHub et RStudio](autre_materiel/connexion-ssh-github-rstudio.llms.md).
 
 ### Je travaille sur un exercice
 
@@ -94,11 +94,17 @@ Lire [la page IA](ia.llms.md), puis ouvrir [GPT STT-1100](https://chatgpt.com/g/
 
 Les cartes ci-dessous ouvrent les supports déjà présents dans le dépôt du cours. Les documents HTML se consultent bien à l'écran; les PDF sont pratiques pour réviser ou garder un résumé à côté de RStudio.
 
-### Installation technique complète
+### Installation technique
 
-Procédure Windows, macOS et Linux pour installer R, RStudio, Quarto et Git, configurer GitHub et SSH, installer les packages de départ et valider un premier rendu.
+Procédure fondée sur les boutons pour installer R, RStudio, Quarto et Git, installer les packages de départ et valider un premier rendu.
 
 [Préparer mon ordinateur](installation.llms.md)
+
+### Connexion SSH entre GitHub et RStudio
+
+Une page distincte, à suivre clic par clic, pour créer la clé dans RStudio, l'ajouter à GitHub et vérifier la connexion.
+
+[Connecter mon compte](autre_materiel/connexion-ssh-github-rstudio.llms.md)
 
 ### Présentation du cours · Automne 2026
 
@@ -120,7 +126,7 @@ Concaténation des aide-mémoires Posit pertinents pour le cours: RStudio, Quart
 
 ### Aide-mémoire RStudio et GitHub
 
-Guide à suivre en priorité pour cloner un projet, utiliser SSH et comprendre les erreurs d'authentification.
+Guide court pour cloner un dépôt déjà accessible et utiliser les boutons Git de RStudio.
 
 [Ouvrir le guide](autre_materiel/aide-memoire-rstudio-github.llms.md)
 

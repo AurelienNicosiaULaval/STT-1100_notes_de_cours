@@ -54,11 +54,12 @@ A reasonable approach is to create a small helper function that receives the tex
 
 ## Local Tests
 
-The template repository contains a local test. After completing your function, run:
+The template repository contains a local test. After completing your function:
 
-``` bash
-Rscript tests/test_scrape_page.R
-```
+1.  In RStudio’s `Files` pane, open the `tests` folder.
+2.  Click `test_scrape_page.R` to open the file.
+3.  Click the `Source` button above the file.
+4.  Read the result in the Console.
 
 The test checks that:
 

@@ -1,12 +1,19 @@
-# Formative Mini-Test - Module 6 Readings
+# Diagnostic - Module 6
 
 STT-1100 Introduction to Data Science
 
-## Formative Mini-Test
+This ungraded diagnostic checks the concepts from module 6. It provides detailed correction, an overall result, a competency profile and a targeted review plan.
 
-This mini-test checks the module 6 readings. It is not graded. Answer first without opening the responses, then use the explanations to identify what you should review.
+> **NOTE:**
+>
+> - First attempt: without documentation, without running the code and without outside help, to obtain an honest profile.
+> - After the summary: consult the suggested resources, redo the targeted exercises and then retake the diagnostic.
+> - Purpose: this diagnostic is ungraded and is not used to assign a mark or decide admission to the course.
+> - Privacy: no answer is sent to the instructor. Progress and attempt history are stored only in this browser.
 
-### Question 1
+The thresholds are STT-1100 pedagogical guideposts. They have not undergone psychometric validation. A correct answer may also result from chance, so practical exercises remain essential.
+
+## Question 1
 
 True or false: a useful GitHub issue should describe an observable problem or a precise suggestion.
 
@@ -14,7 +21,7 @@ True or false: a useful GitHub issue should describe an observable problem or a 
 >
 > True. A useful issue states what is observed, where to find it and why an action would help.
 
-### Question 2
+## Question 2
 
 Which join keeps all rows from the left table?
 
@@ -27,7 +34,7 @@ Which join keeps all rows from the left table?
 >
 > Answer: a. `left_join()` keeps all rows from the left table and adds matching columns from the right table.
 
-### Question 3
+## Question 3
 
 True or false: `inner_join()` keeps rows with no match in either table.
 
@@ -35,7 +42,7 @@ True or false: `inner_join()` keeps rows with no match in either table.
 >
 > False. `inner_join()` only keeps rows that have a match in both tables.
 
-### Question 4
+## Question 4
 
 Which function is useful for finding rows in `x` that have no match in `y`?
 
@@ -48,7 +55,7 @@ Which function is useful for finding rows in `x` that have no match in `y`?
 >
 > Answer: a. `anti_join(x, y)` is often used to diagnose missing or miscoded keys.
 
-### Question 5
+## Question 5
 
 True or false: a pull request is only used to upload a final HTML file.
 
@@ -56,7 +63,7 @@ True or false: a pull request is only used to upload a final HTML file.
 >
 > False. A pull request is used to propose, discuss, review and merge changes.
 
-### Question 6
+## Question 6
 
 In a Quarto report, what is inline code used for?
 
@@ -69,7 +76,7 @@ In a Quarto report, what is inline code used for?
 >
 > Answer: a. Inline code lets you insert a number or result calculated by R directly into text.
 
-### Question 7
+## Question 7
 
 True or false: if an HTML report exists, it is automatically reproducible.
 
@@ -77,7 +84,7 @@ True or false: if an HTML report exists, it is automatically reproducible.
 >
 > False. You must also check the source file, packages, data, paths and ability to render the document.
 
-### Question 8
+## Question 8
 
 Which information is most useful in a review issue?
 
@@ -90,7 +97,7 @@ Which information is most useful in a review issue?
 >
 > Answer: a. A precise reference helps the team understand and fix the issue.
 
-### Question 9
+## Question 9
 
 True or false: a merge conflict necessarily means that the work is lost.
 
@@ -98,7 +105,7 @@ True or false: a merge conflict necessarily means that the work is lost.
 >
 > False. A conflict means Git cannot automatically choose between two changes. The team must resolve the conflict and document the decision.
 
-### Question 10
+## Question 10
 
 Which join is useful for keeping only rows in `x` that have a match in `y`, without adding columns from `y`?
 
@@ -111,7 +118,7 @@ Which join is useful for keeping only rows in `x` that have a match in `y`, with
 >
 > Answer: a. `semi_join()` filters `x` according to whether a match exists in `y`.
 
-### Question 11
+## Question 11
 
 True or false: in a join, you must understand the keys before interpreting the results.
 
@@ -119,7 +126,7 @@ True or false: in a join, you must understand the keys before interpreting the r
 >
 > True. A wrong key can duplicate rows, lose observations or join incorrect information.
 
-### Question 12
+## Question 12
 
 Which wording is the most constructive?
 

@@ -1,12 +1,19 @@
-# Formative Mini-Test - Module 5 Readings
+# Diagnostic - Module 5
 
 STT-1100 Introduction to Data Science
 
-## Formative Mini-Test
+This ungraded diagnostic checks the concepts from module 5. It provides detailed correction, an overall result, a competency profile and a targeted review plan.
 
-This mini-test checks the module 5 readings. It is not graded. Answer first without opening the responses, then use the explanations to identify what you should review.
+> **NOTE:**
+>
+> - First attempt: without documentation, without running the code and without outside help, to obtain an honest profile.
+> - After the summary: consult the suggested resources, redo the targeted exercises and then retake the diagnostic.
+> - Purpose: this diagnostic is ungraded and is not used to assign a mark or decide admission to the course.
+> - Privacy: no answer is sent to the instructor. Progress and attempt history are stored only in this browser.
 
-### Question 1
+The thresholds are STT-1100 pedagogical guideposts. They have not undergone psychometric validation. A correct answer may also result from chance, so practical exercises remain essential.
+
+## Question 1
 
 True or false: exploratory data analysis is only used to make nice-looking graphs.
 
@@ -14,7 +21,7 @@ True or false: exploratory data analysis is only used to make nice-looking graph
 >
 > False. EDA is used to understand the structure of data, identify patterns, detect unusual values and formulate more precise questions.
 
-### Question 2
+## Question 2
 
 Which `lubridate` function creates a date from a year, month and day?
 
@@ -27,7 +34,7 @@ Which `lubridate` function creates a date from a year, month and day?
 >
 > Answer: a. `make_date(year, month, day)` creates a date variable from three numerical components.
 
-### Question 3
+## Question 3
 
 True or false: a high correlation proves that one variable causes the other.
 
@@ -35,7 +42,7 @@ True or false: a high correlation proves that one variable causes the other.
 >
 > False. Correlation measures a linear association. It does not prove cause and effect.
 
-### Question 4
+## Question 4
 
 Which visualization is generally useful for studying the relationship between two numerical variables?
 
@@ -48,7 +55,7 @@ Which visualization is generally useful for studying the relationship between tw
 >
 > Answer: a. A scatterplot helps reveal the overall shape of a relationship between two numerical variables.
 
-### Question 5
+## Question 5
 
 True or false: before comparing group means, it is useful to show the number of observations in each group.
 
@@ -56,7 +63,7 @@ True or false: before comparing group means, it is useful to show the number of 
 >
 > True. A mean calculated from very few observations can be unstable. The number of observations helps interpret the comparison.
 
-### Question 6
+## Question 6
 
 Which `cor()` option calculates a correlation using only complete rows?
 
@@ -69,7 +76,7 @@ Which `cor()` option calculates a correlation using only complete rows?
 >
 > Answer: a. `cor(use = "complete.obs")` uses complete observations for the selected variables.
 
-### Question 7
+## Question 7
 
 True or false: a missing value can change the interpretation of a numerical summary.
 
@@ -77,7 +84,7 @@ True or false: a missing value can change the interpretation of a numerical summ
 >
 > True. Missing values can change the number of observations used and may reveal a data collection or definition issue.
 
-### Question 8
+## Question 8
 
 Which function extracts the day of the week from a date?
 
@@ -90,7 +97,7 @@ Which function extracts the day of the week from a date?
 >
 > Answer: a. `wday()` extracts the day of the week. With `label = TRUE`, the output is more readable.
 
-### Question 9
+## Question 9
 
 True or false: a trend line added to a scatterplot summarizes every possible structure in a relationship.
 
@@ -98,7 +105,7 @@ True or false: a trend line added to a scatterplot summarizes every possible str
 >
 > False. A trend line summarizes an average linear trend. It can hide groups, curves or extreme values.
 
-### Question 10
+## Question 10
 
 Which statement is the most cautious?
 
@@ -111,7 +118,7 @@ Which statement is the most cautious?
 >
 > Answer: b. This wording describes what is observed in the file without claiming a cause.
 
-### Question 11
+## Question 11
 
 True or false: a graph should have understandable axes and a title.
 
@@ -119,7 +126,7 @@ True or false: a graph should have understandable axes and a title.
 >
 > True. A graph without a clear title or axes is difficult to interpret and review.
 
-### Question 12
+## Question 12
 
 Why is it useful to separate exercises from the challenge?
 

@@ -28,6 +28,8 @@ Facets, additional comparisons and visual refinements come after this minimum co
 
 ### Preparatory work - Project, Import and First Charts
 
+- [SSH connection between GitHub and RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md) Configure the account with menus and buttons, then check the connection.
+
 - [RStudio and GitHub quick reference](../autre_materiel/aide-memoire-rstudio-github.llms.md) Clone a repository, open an RStudio project, understand commits and pushes, and recognize common authentication issues.
 
 - [R for Data Science - Data visualization](https://r4ds.hadley.nz/data-visualize.html) First landmarks for building charts with `ggplot2`.

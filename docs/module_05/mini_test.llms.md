@@ -1,12 +1,19 @@
-# Mini-test formatif - Lectures du module 5
+# Autodiagnostic - Module 5
 
 STT-1100 Introduction à la science des données
 
-## Mini-test formatif
+Cet autodiagnostic non noté vérifie les notions du module 5. Il produit une correction détaillée, un résultat global, un bilan par compétence et un plan de révision ciblé.
 
-Ce mini-test sert à vérifier les lectures du module 5. Il n’est pas noté. Répondez d’abord sans ouvrir les réponses, puis utilisez les explications pour repérer ce qui doit être relu.
+> **NOTE:**
+>
+> - Première tentative: sans documentation, sans exécuter le code et sans aide extérieure, afin d’obtenir un portrait honnête.
+> - Après le bilan: consultez les ressources proposées, refaites les exercices ciblés, puis reprenez le diagnostic.
+> - Usage: ce diagnostic n’est pas noté et ne sert ni à attribuer une note ni à décider de l’admission au cours.
+> - Confidentialité: aucune réponse n’est transmise à l’enseignant. La progression et l’historique sont conservés uniquement dans ce navigateur.
 
-### Question 1
+Les seuils sont des repères pédagogiques propres à STT-1100. Ils n’ont pas fait l’objet d’une validation psychométrique. Une réponse exacte peut aussi résulter du hasard; les exercices pratiques demeurent donc essentiels.
+
+## Question 1
 
 Vrai ou faux: une analyse exploratoire des données sert seulement à produire des graphiques jolis.
 
@@ -14,7 +21,7 @@ Vrai ou faux: une analyse exploratoire des données sert seulement à produire d
 >
 > Faux. L’EDA sert à comprendre la structure des données, repérer des patrons, détecter des valeurs inhabituelles et formuler des questions plus précises.
 
-### Question 2
+## Question 2
 
 Quelle fonction de `lubridate` permet de créer une date à partir d’une année, d’un mois et d’un jour?
 
@@ -27,7 +34,7 @@ Quelle fonction de `lubridate` permet de créer une date à partir d’une anné
 >
 > Réponse: a. `make_date(year, month, day)` crée une variable de date à partir de trois composantes numériques.
 
-### Question 3
+## Question 3
 
 Vrai ou faux: une corrélation élevée prouve qu’une variable cause l’autre.
 
@@ -35,7 +42,7 @@ Vrai ou faux: une corrélation élevée prouve qu’une variable cause l’autre
 >
 > Faux. Une corrélation mesure une association linéaire. Elle ne prouve pas une relation de cause à effet.
 
-### Question 4
+## Question 4
 
 Quelle visualisation est généralement utile pour étudier la relation entre deux variables numériques?
 
@@ -48,7 +55,7 @@ Quelle visualisation est généralement utile pour étudier la relation entre de
 >
 > Réponse: a. Un nuage de points permet d’observer la forme générale d’une relation entre deux variables numériques.
 
-### Question 5
+## Question 5
 
 Vrai ou faux: avant de comparer des moyennes par groupe, il est utile d’afficher le nombre d’observations par groupe.
 
@@ -56,7 +63,7 @@ Vrai ou faux: avant de comparer des moyennes par groupe, il est utile d’affich
 >
 > Vrai. Une moyenne calculée sur très peu d’observations peut être instable. Le nombre d’observations aide à interpréter la comparaison.
 
-### Question 6
+## Question 6
 
 Quelle option de `cor()` permet de calculer une corrélation en utilisant seulement les lignes complètes?
 
@@ -69,7 +76,7 @@ Quelle option de `cor()` permet de calculer une corrélation en utilisant seulem
 >
 > Réponse: a. `cor(use = "complete.obs")` utilise les observations complètes pour les variables sélectionnées.
 
-### Question 7
+## Question 7
 
 Vrai ou faux: une valeur manquante peut changer l’interprétation d’un résumé numérique.
 
@@ -77,7 +84,7 @@ Vrai ou faux: une valeur manquante peut changer l’interprétation d’un résu
 >
 > Vrai. Les valeurs manquantes peuvent modifier le nombre d’observations utilisées et parfois masquer un problème de collecte ou de définition.
 
-### Question 8
+## Question 8
 
 Quelle fonction permet d’extraire le jour de la semaine à partir d’une date?
 
@@ -90,7 +97,7 @@ Quelle fonction permet d’extraire le jour de la semaine à partir d’une date
 >
 > Réponse: a. `wday()` extrait le jour de la semaine. Avec `label = TRUE`, la sortie est plus lisible.
 
-### Question 9
+## Question 9
 
 Vrai ou faux: une droite de tendance ajoutée à un nuage de points résume toute la structure possible d’une relation.
 
@@ -98,7 +105,7 @@ Vrai ou faux: une droite de tendance ajoutée à un nuage de points résume tout
 >
 > Faux. Une droite de tendance résume une tendance linéaire moyenne. Elle peut cacher des groupes, des courbes ou des valeurs extrêmes.
 
-### Question 10
+## Question 10
 
 Quelle affirmation est la plus prudente?
 
@@ -111,7 +118,7 @@ Quelle affirmation est la plus prudente?
 >
 > Réponse: b. Cette formulation décrit ce qui est observé dans le fichier sans conclure à une cause.
 
-### Question 11
+## Question 11
 
 Vrai ou faux: un graphique doit avoir des axes et un titre compréhensibles.
 
@@ -119,7 +126,7 @@ Vrai ou faux: un graphique doit avoir des axes et un titre compréhensibles.
 >
 > Vrai. Un graphique sans titre ou axes clairs est difficile à interpréter et à réviser.
 
-### Question 12
+## Question 12
 
 Pourquoi est-il utile de séparer les exercices du défi?
 
