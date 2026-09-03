@@ -94,7 +94,7 @@ The exam checks autonomy on essential skills from modules 1 to 4: import, transf
 
 ### Session project
 
-The project brings together question, data, analysis, presentation, final summary, reproducibility and teamwork.
+The project brings together question, data, analysis, presentation, the final Quarto website and report, reproducibility and teamwork.
 
 ## What matters in each component
 
@@ -126,9 +126,9 @@ Expected product: a completed Quarto report that renders, is interpreted and mat
 
 ### Session project
 
-Build a complete team analysis, with a readable GitHub repository, a presentation and a final summary.
+Build a complete team analysis with a readable GitHub repository, a Quarto website, a reproducible report and a presentation.
 
-Expected product: a structured repository, proposal, presentation, final summary and visible team contribution.
+Expected product: a structured repository, proposal, final Quarto website and report, RevealJS presentation and visible team contribution.
 
 [Prepare the projectPath, grading and GitHub template.](projet_session/index.llms.md)
 

@@ -94,7 +94,7 @@ L'examen vérifie l'autonomie sur les gestes essentiels des modules 1 à 4: impo
 
 ### Projet de session
 
-Le projet rassemble la question, les données, l'analyse, la présentation, le résumé final, la reproductibilité et le travail d'équipe.
+Le projet rassemble la question, les données, l'analyse, la présentation, le mini-site et le rapport final Quarto, la reproductibilité et le travail d'équipe.
 
 ## Ce qui compte dans chaque composante
 
@@ -126,9 +126,9 @@ Produit attendu: un rapport Quarto complété, rendu, interprété et cohérent 
 
 ### Projet de session
 
-Construire une analyse complète en équipe, avec un dépôt GitHub lisible, une présentation et un résumé final.
+Construire une analyse complète en équipe, avec un dépôt GitHub lisible, un mini-site Quarto, un rapport reproductible et une présentation.
 
-Produit attendu: un dépôt structuré, une proposition, une présentation, un résumé final et une contribution d'équipe visible.
+Produit attendu: un dépôt structuré, une proposition, un mini-site et un rapport final Quarto, une présentation RevealJS et une contribution d'équipe visible.
 
 [Préparer le projetParcours, barème et template GitHub.](projet_session/index.llms.md)
 

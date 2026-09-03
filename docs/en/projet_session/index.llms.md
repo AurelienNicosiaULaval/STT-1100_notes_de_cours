@@ -30,7 +30,7 @@ The proposal is worth 6% and the final project is worth 34% of the course grade.
 
 ### Proposal
 
-Stabilize the question, data source and analysis plan in `proposition/proposition.qmd`.
+Stabilize the question, data source and analysis plan in `proposition.qmd`.
 
 2
 
@@ -42,13 +42,13 @@ Prepare data, structure scripts and keep a clear trace of decisions in GitHub.
 
 ### Presentation
 
-Present results in 15 minutes with `presentation/presentation.qmd`.
+Present results in 15 minutes with `presentation.qmd`.
 
 4
 
-### Final summary
+### Final website
 
-Turn the repository `README.md` into a clear project synthesis.
+Build a clear landing page and a reproducible report in the same Quarto website.
 
 ## Allowed AI Use
 
@@ -72,9 +72,9 @@ Question, data and analysis plan stabilized.
 
 Main results, central visualization and limitations.
 
-### Final summary
+### Final website
 
-Standalone README, useful links and reproducibility traces.
+Landing page, report, documentation, useful links and reproducibility traces.
 
 ## What the project assesses
 
@@ -118,9 +118,9 @@ Biases, missing values, filters and important transformations must be explained.
 
 ## GitHub template
 
-The project template provides the starting structure: data, scripts, Quarto proposal, Quarto presentation and final summary in the README.
+The private repository assigned to your team is created from the A26 template. It provides a complete Quarto website: landing page, proposal, data documentation, report, team page, RevealJS presentation and reproducible scripts.
 
-[Read the statement](enonce_projet.llms.md) [Open the template](https://github.com/STT-1100/projet) [Toolbox](../boite_outils.llms.md)
+[Read the statement](enonce_projet.llms.md) [Connect the repository to RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md) [Toolbox](../boite_outils.llms.md)
 
 ### Start simple
 

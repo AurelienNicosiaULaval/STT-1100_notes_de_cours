@@ -6334,9 +6334,9 @@ margin-bottom: .05rem;
   <ul class="collapse">
   <li><a href="#barème-de-la-présentation" id="toc-barème-de-la-présentation" class="nav-link" data-scroll-target="#barème-de-la-présentation">Barème de la présentation</a></li>
   </ul></li>
-  <li><a href="#résumé-final" id="toc-résumé-final" class="nav-link" data-scroll-target="#résumé-final">4. Résumé final</a>
+  <li><a href="#mini-site-et-rapport-final" id="toc-mini-site-et-rapport-final" class="nav-link" data-scroll-target="#mini-site-et-rapport-final">4. Mini-site et rapport final</a>
   <ul class="collapse">
-  <li><a href="#barème-du-résumé-final" id="toc-barème-du-résumé-final" class="nav-link" data-scroll-target="#barème-du-résumé-final">Barème du résumé final</a></li>
+  <li><a href="#barème-du-mini-site-et-du-rapport-final" id="toc-barème-du-mini-site-et-du-rapport-final" class="nav-link" data-scroll-target="#barème-du-mini-site-et-du-rapport-final">Barème du mini-site et du rapport final</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#reproductibilité-et-organisation" id="toc-reproductibilité-et-organisation" class="nav-link" data-scroll-target="#reproductibilité-et-organisation">Reproductibilité et organisation</a></li>
@@ -6384,7 +6384,7 @@ margin-bottom: .05rem;
 <li>préparer les données avec un code lisible et reproductible;</li>
 <li>produire des visualisations et des résultats qui répondent à la question;</li>
 <li>interpréter les résultats avec prudence;</li>
-<li>communiquer le projet dans une présentation courte et un résumé final;</li>
+<li>communiquer le projet dans une présentation courte et un mini-site Quarto cohérent;</li>
 <li>collaborer dans un dépôt GitHub de façon transparente.</li>
 </ul>
 </section>
@@ -6395,7 +6395,7 @@ margin-bottom: .05rem;
 <section id="pondération-et-échéancier" class="level1">
 <h1>Pondération et échéancier</h1>
 <p>La proposition vaut 6 % de la note du cours. Le projet final vaut 34 %. La présentation orale aura lieu le lundi 14 décembre 2026, de 8 h 30 à 11 h 20, au local PLT-2325, pendant la dernière séance du cours et la période réservée aux examens.</p>
-<p>Le barème détaillé ci-dessous est un barème interne de 100 points. Les 15 points de la proposition sont convertis en 6 % de la note du cours. Les 85 autres points, qui couvrent la présentation, le résumé final, la reproductibilité et le travail d’équipe, sont convertis en 34 %.</p>
+<p>Le barème détaillé ci-dessous est un barème interne de 100 points. Les 15 points de la proposition sont convertis en 6 % de la note du cours. Les 85 autres points, qui couvrent la présentation, le mini-site et le rapport final, la reproductibilité et le travail d’équipe, sont convertis en 34 %.</p>
 </section>
 <section id="jeu-de-données" class="level1">
 <h1>Jeu de données</h1>
@@ -6429,27 +6429,35 @@ margin-bottom: .05rem;
 </section>
 <section id="dépôt-github" class="level1">
 <h1>Dépôt GitHub</h1>
-<p>Le projet commence dans le dépôt template <code>STT-1100/projet</code>. Le dépôt de votre équipe doit rester propre pendant toute la session.</p>
+<p>Le projet commence dans le dépôt privé remis à votre équipe. Ce dépôt est créé à partir du template A26 et doit rester propre pendant toute la session.</p>
 <p>Structure attendue :</p>
 <pre class="text"><code>.
 |-- README.md
-|-- CONSIGNES.md
+|-- _quarto.yml
+|-- projet-stt1100.Rproj
+|-- index.qmd
+|-- guide.qmd
+|-- proposition.qmd
+|-- donnees.qmd
+|-- rapport.qmd
+|-- equipe.qmd
+|-- presentation.qmd
+|-- styles.css
+|-- slides.scss
+|-- favicon.svg
 |-- data/
 |   |-- README.md
 |   |-- raw/
-|   `-- processed/
+|   |-- processed/
+|   `-- exemple/
 |-- scripts/
-|   |-- 00_setup.R
-|   |-- 01_import_clean.R
-|   `-- 02_analysis.R
-|-- proposition/
-|   `-- proposition.qmd
-|-- presentation/
-|   |-- presentation.qmd
-|   `-- style.css
+|   |-- 00_preparer.R
+|   |-- 01_importer_preparer.R
+|   `-- 02_analyser.R
 |-- figures/
-`-- outputs/</code></pre>
-<p>Le fichier <code>README.md</code> sert de résumé final du projet. Le fichier <code>CONSIGNES.md</code> sert de guide interne pour utiliser le template et vérifier les remises.</p>
+|-- outputs/
+`-- _site/</code></pre>
+<p>Le mini-site Quarto constitue le produit final principal. <code>index.qmd</code> en est la page d’accueil et la synthèse, <code>rapport.qmd</code> contient le rapport complet, <code>donnees.qmd</code> documente les données et <code>equipe.qmd</code> décrit les responsabilités et l’utilisation de l’IA. Le fichier <code>README.md</code> sert uniquement de porte d’entrée sur GitHub, tandis que <code>guide.qmd</code> explique le parcours dans RStudio.</p>
 <p>Votre dépôt doit aussi respecter quelques règles pratiques :</p>
 <ul>
 <li>une personne externe doit comprendre le projet sans explication orale;</li>
@@ -6463,7 +6471,7 @@ margin-bottom: .05rem;
 <h1>Déroulement</h1>
 <section id="proposition" class="level2">
 <h2 class="anchored" data-anchor-id="proposition">1. Proposition</h2>
-<p>La proposition sert à stabiliser votre question, vos données et votre plan de travail. Elle est remise avec le fichier <code>proposition/proposition.qmd</code>, selon l’échéancier officiel indiqué sur Brio.</p>
+<p>La proposition sert à stabiliser votre question, vos données et votre plan de travail. Elle est remise avec le fichier <code>proposition.qmd</code> et sa page HTML rendue, selon l’échéancier officiel indiqué sur Brio.</p>
 <p>La proposition doit contenir :</p>
 <ol type="1">
 <li>une introduction qui présente le contexte, l’objectif et la question principale;</li>
@@ -6509,7 +6517,7 @@ margin-bottom: .05rem;
 <li>scripts organisés dans <code>scripts/</code>;</li>
 <li>données brutes conservées dans <code>data/raw/</code> lorsque la licence permet le partage;</li>
 <li>données nettoyées ou intermédiaires dans <code>data/processed/</code>;</li>
-<li>dictionnaire des données dans <code>data/README.md</code>;</li>
+<li>documentation des données dans <code>donnees.qmd</code>, complétée au besoin par <code>data/README.md</code>;</li>
 <li>figures exportées dans <code>figures/</code> lorsque pertinent;</li>
 <li>résultats intermédiaires dans <code>outputs/</code> lorsque pertinent.</li>
 </ul>
@@ -6518,7 +6526,7 @@ margin-bottom: .05rem;
 <section id="présentation" class="level2">
 <h2 class="anchored" data-anchor-id="présentation">3. Présentation</h2>
 <p>La présentation est un exposé de 15 minutes maximum. Chaque membre doit parler.</p>
-<p>Utilisez le fichier <code>presentation/presentation.qmd</code> fourni dans le template. Il produit des diapositives HTML avec Quarto et permet de présenter le projet dans un style proche des présentations <code>xaringan</code>, tout en restant dans un flux de travail <code>.qmd</code>.</p>
+<p>Utilisez le fichier <code>presentation.qmd</code> fourni dans le template. Il produit directement des diapositives HTML RevealJS avec Quarto.</p>
 <p>La présentation doit couvrir :</p>
 <ul>
 <li>la question et son intérêt;</li>
@@ -6567,23 +6575,24 @@ margin-bottom: .05rem;
 </table>
 </section>
 </section>
-<section id="résumé-final" class="level2">
-<h2 class="anchored" data-anchor-id="résumé-final">4. Résumé final</h2>
-<p>Le résumé final est le fichier <code>README.md</code> à la racine du dépôt. Il doit permettre à une personne externe de comprendre rapidement ce que votre équipe a fait.</p>
-<p>Le résumé final doit contenir :</p>
+<section id="mini-site-et-rapport-final" class="level2">
+<h2 class="anchored" data-anchor-id="mini-site-et-rapport-final">4. Mini-site et rapport final</h2>
+<p>Le produit final est le mini-site Quarto rendu dans <code>_site/</code>. Sa page d’accueil <code>index.qmd</code> doit permettre à une personne externe de comprendre rapidement ce que votre équipe a fait. Le fichier <code>rapport.qmd</code> présente l’analyse complète et reproductible.</p>
+<p>Le mini-site et le rapport doivent contenir :</p>
 <ul>
 <li>le titre du projet et les noms des membres;</li>
 <li>la question principale;</li>
-<li>une courte description des données;</li>
+<li>une description de la provenance, de la structure et des limites des données;</li>
 <li>les principales étapes de l’analyse;</li>
 <li>les résultats les plus importants;</li>
 <li>une figure ou un tableau central, si pertinent;</li>
 <li>les limites;</li>
 <li>les références et la citation des données;</li>
-<li>un lien vers la présentation HTML rendue.</li>
+<li>une navigation fonctionnelle vers la présentation HTML rendue;</li>
+<li>une déclaration d’utilisation de l’IA dans <code>equipe.qmd</code>.</li>
 </ul>
-<section id="barème-du-résumé-final" class="level3">
-<h3 class="anchored" data-anchor-id="barème-du-résumé-final">Barème du résumé final</h3>
+<section id="barème-du-mini-site-et-du-rapport-final" class="level3">
+<h3 class="anchored" data-anchor-id="barème-du-mini-site-et-du-rapport-final">Barème du mini-site et du rapport final</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -6601,7 +6610,7 @@ margin-bottom: .05rem;
 <td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
-<td>Limites, références et lien vers la présentation</td>
+<td>Limites, références et navigation du mini-site</td>
 <td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
@@ -6693,7 +6702,7 @@ margin-bottom: .05rem;
 <td style="text-align: right;">45</td>
 </tr>
 <tr class="odd">
-<td>Résumé final dans <code>README.md</code></td>
+<td>Mini-site et rapport final Quarto</td>
 <td style="text-align: right;">15</td>
 </tr>
 <tr class="even">
@@ -6746,14 +6755,16 @@ margin-bottom: .05rem;
 <h1>Avant la remise finale</h1>
 <p>Avant la remise finale, votre équipe devrait pouvoir répondre oui aux questions suivantes :</p>
 <ul>
-<li>Le <code>README.md</code> raconte le projet du début à la fin.</li>
-<li>La présentation HTML est rendue et le lien fonctionne.</li>
+<li>Le mini-site est rendu dans <code>_site/</code> et sa page d’accueil raconte le projet de façon concise.</li>
+<li><code>rapport.qmd</code> contient l’analyse complète et se rend sans erreur.</li>
+<li>La présentation HTML est rendue et son lien fonctionne dans le mini-site.</li>
 <li>Les scripts importants sont dans <code>scripts/</code> et portent des noms clairs.</li>
-<li>Les données sont documentées dans <code>data/README.md</code>.</li>
+<li>Les données sont documentées dans <code>donnees.qmd</code>.</li>
 <li>Les fichiers inutiles ont été retirés.</li>
 <li>Les résultats principaux sont reliés explicitement à la question.</li>
 <li>Les limites et les sources sont visibles.</li>
 <li>Les contributions de l’équipe sont visibles dans l’historique GitHub.</li>
+<li>L’utilisation importante de l’IA est déclarée dans <code>equipe.qmd</code>.</li>
 </ul>
 </section>
 <section id="conseils" class="level1">
@@ -6763,7 +6774,7 @@ margin-bottom: .05rem;
 <li>Testez l’importation des données avant de vous engager trop loin.</li>
 <li>Commitez souvent avec des messages explicites.</li>
 <li>Gardez les fichiers générés, les données brutes et les résultats intermédiaires bien séparés.</li>
-<li>Relisez votre dépôt comme si vous le découvriez pour la première fois.</li>
+<li>Relisez le mini-site comme si vous le découvriez pour la première fois.</li>
 <li>Les modalités officielles de remise, les dates et les ajustements administratifs sont toujours celles indiquées sur Brio.</li>
 </ul>
 

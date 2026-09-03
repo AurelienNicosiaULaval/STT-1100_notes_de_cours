@@ -30,7 +30,7 @@ La proposition vaut 6 % et le projet final vaut 34 % de la note du cours. La pr�
 
 ### Proposition
 
-Stabiliser la question, la source des données et le plan d'analyse dans `proposition/proposition.qmd`.
+Stabiliser la question, la source des données et le plan d'analyse dans `proposition.qmd`.
 
 2
 
@@ -42,13 +42,13 @@ Préparer les données, structurer les scripts et garder une trace claire des ch
 
 ### Présentation
 
-Présenter les résultats en 15 minutes avec `presentation/presentation.qmd`.
+Présenter les résultats en 15 minutes avec `presentation.qmd`.
 
 4
 
-### Résumé final
+### Mini-site final
 
-Transformer le `README.md` du dépôt en synthèse claire du projet.
+Construire une page d'accueil claire et un rapport reproductible dans le même site Quarto.
 
 ## Usage permis de l'IA
 
@@ -72,9 +72,9 @@ Question, données et plan d'analyse stabilisés.
 
 Résultats centraux, visualisation principale et limites.
 
-### Résumé final
+### Mini-site final
 
-README autonome, liens utiles et traces de reproductibilité.
+Page d'accueil, rapport, documentation, liens utiles et traces de reproductibilité.
 
 ## Ce que le projet évalue
 
@@ -118,9 +118,9 @@ Les biais, valeurs manquantes, filtres et transformations importantes doivent ê
 
 ## Template GitHub
 
-Le dépôt template du projet fournit la structure de départ: données, scripts, proposition Quarto, présentation Quarto et résumé final dans le README.
+Le dépôt privé remis à votre équipe est créé à partir du template A26. Il fournit un mini-site Quarto complet: page d'accueil, proposition, documentation des données, rapport, page d'équipe, présentation RevealJS et scripts reproductibles.
 
-[Lire l'énoncé](enonce_projet.llms.md) [Ouvrir le template](https://github.com/STT-1100/projet) [Boîte à outils](../boite_outils.llms.md)
+[Lire l'énoncé](enonce_projet.llms.md) [Connecter le dépôt à RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md) [Boîte à outils](../boite_outils.llms.md)
 
 ### Commencer simple
 

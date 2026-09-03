@@ -17,7 +17,7 @@ Le projet n’est pas un exercice où toutes les étapes sont données d’avanc
 - préparer les données avec un code lisible et reproductible;
 - produire des visualisations et des résultats qui répondent à la question;
 - interpréter les résultats avec prudence;
-- communiquer le projet dans une présentation courte et un résumé final;
+- communiquer le projet dans une présentation courte et un mini-site Quarto cohérent;
 - collaborer dans un dépôt GitHub de façon transparente.
 
 # Usage permis de l’IA
@@ -28,7 +28,7 @@ Dans les défis et le projet, l’IA est permise comme aide au raisonnement, au 
 
 La proposition vaut 6 % de la note du cours. Le projet final vaut 34 %. La présentation orale aura lieu le lundi 14 décembre 2026, de 8 h 30 à 11 h 20, au local PLT-2325, pendant la dernière séance du cours et la période réservée aux examens.
 
-Le barème détaillé ci-dessous est un barème interne de 100 points. Les 15 points de la proposition sont convertis en 6 % de la note du cours. Les 85 autres points, qui couvrent la présentation, le résumé final, la reproductibilité et le travail d’équipe, sont convertis en 34 %.
+Le barème détaillé ci-dessous est un barème interne de 100 points. Les 15 points de la proposition sont convertis en 6 % de la note du cours. Les 85 autres points, qui couvrent la présentation, le mini-site et le rapport final, la reproductibilité et le travail d’équipe, sont convertis en 34 %.
 
 # Jeu de données
 
@@ -63,32 +63,40 @@ Avant de confirmer votre choix, vérifiez que :
 
 # Dépôt GitHub
 
-Le projet commence dans le dépôt template `STT-1100/projet`. Le dépôt de votre équipe doit rester propre pendant toute la session.
+Le projet commence dans le dépôt privé remis à votre équipe. Ce dépôt est créé à partir du template A26 et doit rester propre pendant toute la session.
 
 Structure attendue :
 
 ``` text
 .
 |-- README.md
-|-- CONSIGNES.md
+|-- _quarto.yml
+|-- projet-stt1100.Rproj
+|-- index.qmd
+|-- guide.qmd
+|-- proposition.qmd
+|-- donnees.qmd
+|-- rapport.qmd
+|-- equipe.qmd
+|-- presentation.qmd
+|-- styles.css
+|-- slides.scss
+|-- favicon.svg
 |-- data/
 |   |-- README.md
 |   |-- raw/
-|   `-- processed/
+|   |-- processed/
+|   `-- exemple/
 |-- scripts/
-|   |-- 00_setup.R
-|   |-- 01_import_clean.R
-|   `-- 02_analysis.R
-|-- proposition/
-|   `-- proposition.qmd
-|-- presentation/
-|   |-- presentation.qmd
-|   `-- style.css
+|   |-- 00_preparer.R
+|   |-- 01_importer_preparer.R
+|   `-- 02_analyser.R
 |-- figures/
-`-- outputs/
+|-- outputs/
+`-- _site/
 ```
 
-Le fichier `README.md` sert de résumé final du projet. Le fichier `CONSIGNES.md` sert de guide interne pour utiliser le template et vérifier les remises.
+Le mini-site Quarto constitue le produit final principal. `index.qmd` en est la page d’accueil et la synthèse, `rapport.qmd` contient le rapport complet, `donnees.qmd` documente les données et `equipe.qmd` décrit les responsabilités et l’utilisation de l’IA. Le fichier `README.md` sert uniquement de porte d’entrée sur GitHub, tandis que `guide.qmd` explique le parcours dans RStudio.
 
 Votre dépôt doit aussi respecter quelques règles pratiques :
 
@@ -102,7 +110,7 @@ Votre dépôt doit aussi respecter quelques règles pratiques :
 
 ## 1. Proposition
 
-La proposition sert à stabiliser votre question, vos données et votre plan de travail. Elle est remise avec le fichier `proposition/proposition.qmd`, selon l’échéancier officiel indiqué sur Brio.
+La proposition sert à stabiliser votre question, vos données et votre plan de travail. Elle est remise avec le fichier `proposition.qmd` et sa page HTML rendue, selon l’échéancier officiel indiqué sur Brio.
 
 La proposition doit contenir :
 
@@ -130,7 +138,7 @@ Le développement doit laisser des traces lisibles :
 - scripts organisés dans `scripts/`;
 - données brutes conservées dans `data/raw/` lorsque la licence permet le partage;
 - données nettoyées ou intermédiaires dans `data/processed/`;
-- dictionnaire des données dans `data/README.md`;
+- documentation des données dans `donnees.qmd`, complétée au besoin par `data/README.md`;
 - figures exportées dans `figures/` lorsque pertinent;
 - résultats intermédiaires dans `outputs/` lorsque pertinent.
 
@@ -140,7 +148,7 @@ Si les données ne peuvent pas être partagées publiquement, expliquez claireme
 
 La présentation est un exposé de 15 minutes maximum. Chaque membre doit parler.
 
-Utilisez le fichier `presentation/presentation.qmd` fourni dans le template. Il produit des diapositives HTML avec Quarto et permet de présenter le projet dans un style proche des présentations `xaringan`, tout en restant dans un flux de travail `.qmd`.
+Utilisez le fichier `presentation.qmd` fourni dans le template. Il produit directement des diapositives HTML RevealJS avec Quarto.
 
 La présentation doit couvrir :
 
@@ -163,29 +171,30 @@ La présentation doit couvrir :
 | Interprétation, limites et esprit critique          |     10 |
 | Total                                               |     45 |
 
-## 4. Résumé final
+## 4. Mini-site et rapport final
 
-Le résumé final est le fichier `README.md` à la racine du dépôt. Il doit permettre à une personne externe de comprendre rapidement ce que votre équipe a fait.
+Le produit final est le mini-site Quarto rendu dans `_site/`. Sa page d’accueil `index.qmd` doit permettre à une personne externe de comprendre rapidement ce que votre équipe a fait. Le fichier `rapport.qmd` présente l’analyse complète et reproductible.
 
-Le résumé final doit contenir :
+Le mini-site et le rapport doivent contenir :
 
 - le titre du projet et les noms des membres;
 - la question principale;
-- une courte description des données;
+- une description de la provenance, de la structure et des limites des données;
 - les principales étapes de l’analyse;
 - les résultats les plus importants;
 - une figure ou un tableau central, si pertinent;
 - les limites;
 - les références et la citation des données;
-- un lien vers la présentation HTML rendue.
+- une navigation fonctionnelle vers la présentation HTML rendue;
+- une déclaration d’utilisation de l’IA dans `equipe.qmd`.
 
-### Barème du résumé final
+### Barème du mini-site et du rapport final
 
 | Critère                                                      | Points |
 |--------------------------------------------------------------|-------:|
 | Synthèse claire de la question, des données et de la méthode |      6 |
 | Résultats bien expliqués et reliés à la question             |      5 |
-| Limites, références et lien vers la présentation             |      4 |
+| Limites, références et navigation du mini-site               |      4 |
 | Total                                                        |     15 |
 
 # Reproductibilité et organisation
@@ -217,7 +226,7 @@ Chaque équipe remettra aussi une évaluation par les pairs selon les modalités
 |----------------------------------------------|-------:|
 | Proposition                                  |     15 |
 | Présentation                                 |     45 |
-| Résumé final dans `README.md`                |     15 |
+| Mini-site et rapport final Quarto            |     15 |
 | Reproductibilité et organisation du dépôt    |     15 |
 | Travail d’équipe et évaluation par les pairs |     10 |
 | Total                                        |    100 |
@@ -232,14 +241,16 @@ Chaque équipe remettra aussi une évaluation par les pairs selon les modalités
 
 Avant la remise finale, votre équipe devrait pouvoir répondre oui aux questions suivantes :
 
-- Le `README.md` raconte le projet du début à la fin.
-- La présentation HTML est rendue et le lien fonctionne.
+- Le mini-site est rendu dans `_site/` et sa page d’accueil raconte le projet de façon concise.
+- `rapport.qmd` contient l’analyse complète et se rend sans erreur.
+- La présentation HTML est rendue et son lien fonctionne dans le mini-site.
 - Les scripts importants sont dans `scripts/` et portent des noms clairs.
-- Les données sont documentées dans `data/README.md`.
+- Les données sont documentées dans `donnees.qmd`.
 - Les fichiers inutiles ont été retirés.
 - Les résultats principaux sont reliés explicitement à la question.
 - Les limites et les sources sont visibles.
 - Les contributions de l’équipe sont visibles dans l’historique GitHub.
+- L’utilisation importante de l’IA est déclarée dans `equipe.qmd`.
 
 # Conseils
 
@@ -247,5 +258,5 @@ Avant la remise finale, votre équipe devrait pouvoir répondre oui aux question
 - Testez l’importation des données avant de vous engager trop loin.
 - Commitez souvent avec des messages explicites.
 - Gardez les fichiers générés, les données brutes et les résultats intermédiaires bien séparés.
-- Relisez votre dépôt comme si vous le découvriez pour la première fois.
+- Relisez le mini-site comme si vous le découvriez pour la première fois.
 - Les modalités officielles de remise, les dates et les ajustements administratifs sont toujours celles indiquées sur Brio.

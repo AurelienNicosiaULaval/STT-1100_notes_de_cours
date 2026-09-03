@@ -17,7 +17,7 @@ At the end of the project, your repository should show that your team can:
 - prepare data with readable and reproducible code;
 - produce visualizations and results that answer the question;
 - interpret results carefully;
-- communicate the project in a short presentation and a final summary;
+- communicate the project in a short presentation and a coherent Quarto website;
 - collaborate transparently in a GitHub repository.
 
 # Allowed AI Use
@@ -28,7 +28,7 @@ In challenges and the project, AI is allowed as support for reasoning, debugging
 
 The proposal is worth 6% of the course grade. The final project is worth 34%. Oral presentations take place on Monday, December 14, 2026, from 8:30 to 11:20 a.m. in room PLT-2325, during the last class meeting and the exam period.
 
-The detailed rubric below is an internal 100-point rubric. The 15 proposal points are converted to 6% of the course grade. The other 85 points, covering the presentation, final summary, reproducibility and teamwork, are converted to 34%.
+The detailed rubric below is an internal 100-point rubric. The 15 proposal points are converted to 6% of the course grade. The other 85 points, covering the presentation, final website and report, reproducibility and teamwork, are converted to 34%.
 
 # Dataset
 
@@ -63,32 +63,40 @@ Before confirming your choice, check that:
 
 # GitHub repository
 
-The project starts from the `STT-1100/projet` template repository. Your team repository should remain clean throughout the session.
+The project starts in the private repository assigned to your team. This repository is created from the A26 template and should remain clean throughout the session.
 
 Expected structure:
 
 ``` text
 .
 |-- README.md
-|-- CONSIGNES.md
+|-- _quarto.yml
+|-- projet-stt1100.Rproj
+|-- index.qmd
+|-- guide.qmd
+|-- proposition.qmd
+|-- donnees.qmd
+|-- rapport.qmd
+|-- equipe.qmd
+|-- presentation.qmd
+|-- styles.css
+|-- slides.scss
+|-- favicon.svg
 |-- data/
 |   |-- README.md
 |   |-- raw/
-|   `-- processed/
+|   |-- processed/
+|   `-- exemple/
 |-- scripts/
-|   |-- 00_setup.R
-|   |-- 01_import_clean.R
-|   `-- 02_analysis.R
-|-- proposition/
-|   `-- proposition.qmd
-|-- presentation/
-|   |-- presentation.qmd
-|   `-- style.css
+|   |-- 00_preparer.R
+|   |-- 01_importer_preparer.R
+|   `-- 02_analyser.R
 |-- figures/
-`-- outputs/
+|-- outputs/
+`-- _site/
 ```
 
-The `README.md` file is the final project summary. The `CONSIGNES.md` file is an internal guide for using the template and checking deliverables.
+The Quarto website is the main final product. `index.qmd` is its landing page and synthesis, `rapport.qmd` contains the complete report, `donnees.qmd` documents the data and `equipe.qmd` describes responsibilities and AI use. `README.md` is only the GitHub entry point, while `guide.qmd` explains the RStudio workflow.
 
 Your repository should also follow a few practical rules:
 
@@ -102,7 +110,7 @@ Your repository should also follow a few practical rules:
 
 ## 1. Proposal
 
-The proposal stabilizes your question, data and work plan. Submit `proposition/proposition.qmd` according to the official schedule posted on Brio.
+The proposal stabilizes your question, data and work plan. Submit `proposition.qmd` and its rendered HTML page according to the official schedule posted on Brio.
 
 The proposal must contain:
 
@@ -130,7 +138,7 @@ Development should leave readable traces:
 - organized scripts in `scripts/`;
 - raw data kept in `data/raw/` when sharing is permitted by the license;
 - cleaned or intermediate data in `data/processed/`;
-- data dictionary in `data/README.md`;
+- data documentation in `donnees.qmd`, supplemented by `data/README.md` when useful;
 - exported figures in `figures/` when relevant;
 - intermediate results in `outputs/` when relevant.
 
@@ -140,7 +148,7 @@ If the data cannot be shared publicly, clearly explain how to obtain them or how
 
 The presentation lasts 15 minutes maximum. Every member must speak.
 
-Use the `presentation/presentation.qmd` file provided in the template. It produces HTML slides with Quarto and supports a presentation style close to `xaringan`, while keeping a `.qmd` workflow.
+Use the `presentation.qmd` file provided in the template. It directly produces RevealJS HTML slides with Quarto.
 
 The presentation must cover:
 
@@ -163,30 +171,31 @@ The presentation must cover:
 | Interpretation, limitations and critical thinking  |     10 |
 | Total                                              |     45 |
 
-## 4. Final summary
+## 4. Final website and report
 
-The final summary is the root `README.md` file. It should allow an external reader to quickly understand what your team did.
+The final product is the Quarto website rendered in `_site/`. Its `index.qmd` landing page should allow an external reader to quickly understand what your team did. The `rapport.qmd` file presents the complete reproducible analysis.
 
-The final summary must contain:
+The website and report must contain:
 
 - the project title and team member names;
 - the main question;
-- a short description of the data;
+- a description of the data provenance, structure and limitations;
 - the main analysis steps;
 - the most important results;
 - one central figure or table, if relevant;
 - limitations;
 - references and dataset citation;
-- a link to the rendered HTML presentation.
+- working navigation to the rendered HTML presentation;
+- an AI-use disclosure in `equipe.qmd`.
 
-### Final summary grading
+### Final website and report grading
 
-| Criterion                                            | Points |
-|------------------------------------------------------|-------:|
-| Clear synthesis of question, data and method         |      6 |
-| Results well explained and tied to the question      |      5 |
-| Limitations, references and link to the presentation |      4 |
-| Total                                                |     15 |
+| Criterion                                       | Points |
+|-------------------------------------------------|-------:|
+| Clear synthesis of question, data and method    |      6 |
+| Results well explained and tied to the question |      5 |
+| Limitations, references and website navigation  |      4 |
+| Total                                           |     15 |
 
 # Reproducibility and organization
 
@@ -217,7 +226,7 @@ Each team will also complete a peer evaluation according to the format specified
 |---------------------------------------------|-------:|
 | Proposal                                    |     15 |
 | Presentation                                |     45 |
-| Final summary in `README.md`                |     15 |
+| Final Quarto website and report             |     15 |
 | Repository reproducibility and organization |     15 |
 | Teamwork and peer evaluation                |     10 |
 | Total                                       |    100 |
@@ -232,14 +241,16 @@ Each team will also complete a peer evaluation according to the format specified
 
 Before the final submission, your team should be able to answer yes to the following questions:
 
-- The `README.md` tells the project story from beginning to end.
-- The HTML presentation is rendered and the link works.
+- The website is rendered in `_site/` and its landing page tells the project story concisely.
+- `rapport.qmd` contains the complete analysis and renders without error.
+- The HTML presentation is rendered and its link works in the website.
 - Important scripts are in `scripts/` and have clear names.
-- Data are documented in `data/README.md`.
+- Data are documented in `donnees.qmd`.
 - Unnecessary files have been removed.
 - The main results are explicitly connected to the question.
 - Limitations and sources are visible.
 - Team contributions are visible in the GitHub history.
+- Important AI use is disclosed in `equipe.qmd`.
 
 # Advice
 
@@ -247,5 +258,5 @@ Before the final submission, your team should be able to answer yes to the follo
 - Test data import before committing too far.
 - Commit often with explicit messages.
 - Keep generated files, raw data and intermediate results clearly separated.
-- Reread your repository as if you were discovering it for the first time.
+- Reread the website as if you were discovering it for the first time.
 - Official submission procedures, dates and administrative adjustments are always those posted on Brio.

@@ -5838,9 +5838,9 @@ margin-bottom: .05rem;
   <ul class="collapse">
   <li><a href="#presentation-grading" id="toc-presentation-grading" class="nav-link" data-scroll-target="#presentation-grading">Presentation grading</a></li>
   </ul></li>
-  <li><a href="#final-summary" id="toc-final-summary" class="nav-link" data-scroll-target="#final-summary">4. Final summary</a>
+  <li><a href="#final-website-and-report" id="toc-final-website-and-report" class="nav-link" data-scroll-target="#final-website-and-report">4. Final website and report</a>
   <ul class="collapse">
-  <li><a href="#final-summary-grading" id="toc-final-summary-grading" class="nav-link" data-scroll-target="#final-summary-grading">Final summary grading</a></li>
+  <li><a href="#final-website-and-report-grading" id="toc-final-website-and-report-grading" class="nav-link" data-scroll-target="#final-website-and-report-grading">Final website and report grading</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#reproducibility-and-organization" id="toc-reproducibility-and-organization" class="nav-link" data-scroll-target="#reproducibility-and-organization">Reproducibility and organization</a></li>
@@ -5888,7 +5888,7 @@ margin-bottom: .05rem;
 <li>prepare data with readable and reproducible code;</li>
 <li>produce visualizations and results that answer the question;</li>
 <li>interpret results carefully;</li>
-<li>communicate the project in a short presentation and a final summary;</li>
+<li>communicate the project in a short presentation and a coherent Quarto website;</li>
 <li>collaborate transparently in a GitHub repository.</li>
 </ul>
 </section>
@@ -5899,7 +5899,7 @@ margin-bottom: .05rem;
 <section id="weights-and-schedule" class="level1">
 <h1>Weights and schedule</h1>
 <p>The proposal is worth 6% of the course grade. The final project is worth 34%. Oral presentations take place on Monday, December 14, 2026, from 8:30 to 11:20 a.m. in room PLT-2325, during the last class meeting and the exam period.</p>
-<p>The detailed rubric below is an internal 100-point rubric. The 15 proposal points are converted to 6% of the course grade. The other 85 points, covering the presentation, final summary, reproducibility and teamwork, are converted to 34%.</p>
+<p>The detailed rubric below is an internal 100-point rubric. The 15 proposal points are converted to 6% of the course grade. The other 85 points, covering the presentation, final website and report, reproducibility and teamwork, are converted to 34%.</p>
 </section>
 <section id="dataset" class="level1">
 <h1>Dataset</h1>
@@ -5933,27 +5933,35 @@ margin-bottom: .05rem;
 </section>
 <section id="github-repository" class="level1">
 <h1>GitHub repository</h1>
-<p>The project starts from the <code>STT-1100/projet</code> template repository. Your team repository should remain clean throughout the session.</p>
+<p>The project starts in the private repository assigned to your team. This repository is created from the A26 template and should remain clean throughout the session.</p>
 <p>Expected structure:</p>
 <pre class="text"><code>.
 |-- README.md
-|-- CONSIGNES.md
+|-- _quarto.yml
+|-- projet-stt1100.Rproj
+|-- index.qmd
+|-- guide.qmd
+|-- proposition.qmd
+|-- donnees.qmd
+|-- rapport.qmd
+|-- equipe.qmd
+|-- presentation.qmd
+|-- styles.css
+|-- slides.scss
+|-- favicon.svg
 |-- data/
 |   |-- README.md
 |   |-- raw/
-|   `-- processed/
+|   |-- processed/
+|   `-- exemple/
 |-- scripts/
-|   |-- 00_setup.R
-|   |-- 01_import_clean.R
-|   `-- 02_analysis.R
-|-- proposition/
-|   `-- proposition.qmd
-|-- presentation/
-|   |-- presentation.qmd
-|   `-- style.css
+|   |-- 00_preparer.R
+|   |-- 01_importer_preparer.R
+|   `-- 02_analyser.R
 |-- figures/
-`-- outputs/</code></pre>
-<p>The <code>README.md</code> file is the final project summary. The <code>CONSIGNES.md</code> file is an internal guide for using the template and checking deliverables.</p>
+|-- outputs/
+`-- _site/</code></pre>
+<p>The Quarto website is the main final product. <code>index.qmd</code> is its landing page and synthesis, <code>rapport.qmd</code> contains the complete report, <code>donnees.qmd</code> documents the data and <code>equipe.qmd</code> describes responsibilities and AI use. <code>README.md</code> is only the GitHub entry point, while <code>guide.qmd</code> explains the RStudio workflow.</p>
 <p>Your repository should also follow a few practical rules:</p>
 <ul>
 <li>an external reader should understand the project without oral explanation;</li>
@@ -5967,7 +5975,7 @@ margin-bottom: .05rem;
 <h1>Workflow</h1>
 <section id="proposal" class="level2">
 <h2 class="anchored" data-anchor-id="proposal">1. Proposal</h2>
-<p>The proposal stabilizes your question, data and work plan. Submit <code>proposition/proposition.qmd</code> according to the official schedule posted on Brio.</p>
+<p>The proposal stabilizes your question, data and work plan. Submit <code>proposition.qmd</code> and its rendered HTML page according to the official schedule posted on Brio.</p>
 <p>The proposal must contain:</p>
 <ol type="1">
 <li>an introduction presenting the context, objective and main question;</li>
@@ -6013,7 +6021,7 @@ margin-bottom: .05rem;
 <li>organized scripts in <code>scripts/</code>;</li>
 <li>raw data kept in <code>data/raw/</code> when sharing is permitted by the license;</li>
 <li>cleaned or intermediate data in <code>data/processed/</code>;</li>
-<li>data dictionary in <code>data/README.md</code>;</li>
+<li>data documentation in <code>donnees.qmd</code>, supplemented by <code>data/README.md</code> when useful;</li>
 <li>exported figures in <code>figures/</code> when relevant;</li>
 <li>intermediate results in <code>outputs/</code> when relevant.</li>
 </ul>
@@ -6022,7 +6030,7 @@ margin-bottom: .05rem;
 <section id="presentation" class="level2">
 <h2 class="anchored" data-anchor-id="presentation">3. Presentation</h2>
 <p>The presentation lasts 15 minutes maximum. Every member must speak.</p>
-<p>Use the <code>presentation/presentation.qmd</code> file provided in the template. It produces HTML slides with Quarto and supports a presentation style close to <code>xaringan</code>, while keeping a <code>.qmd</code> workflow.</p>
+<p>Use the <code>presentation.qmd</code> file provided in the template. It directly produces RevealJS HTML slides with Quarto.</p>
 <p>The presentation must cover:</p>
 <ul>
 <li>the question and why it matters;</li>
@@ -6071,23 +6079,24 @@ margin-bottom: .05rem;
 </table>
 </section>
 </section>
-<section id="final-summary" class="level2">
-<h2 class="anchored" data-anchor-id="final-summary">4. Final summary</h2>
-<p>The final summary is the root <code>README.md</code> file. It should allow an external reader to quickly understand what your team did.</p>
-<p>The final summary must contain:</p>
+<section id="final-website-and-report" class="level2">
+<h2 class="anchored" data-anchor-id="final-website-and-report">4. Final website and report</h2>
+<p>The final product is the Quarto website rendered in <code>_site/</code>. Its <code>index.qmd</code> landing page should allow an external reader to quickly understand what your team did. The <code>rapport.qmd</code> file presents the complete reproducible analysis.</p>
+<p>The website and report must contain:</p>
 <ul>
 <li>the project title and team member names;</li>
 <li>the main question;</li>
-<li>a short description of the data;</li>
+<li>a description of the data provenance, structure and limitations;</li>
 <li>the main analysis steps;</li>
 <li>the most important results;</li>
 <li>one central figure or table, if relevant;</li>
 <li>limitations;</li>
 <li>references and dataset citation;</li>
-<li>a link to the rendered HTML presentation.</li>
+<li>working navigation to the rendered HTML presentation;</li>
+<li>an AI-use disclosure in <code>equipe.qmd</code>.</li>
 </ul>
-<section id="final-summary-grading" class="level3">
-<h3 class="anchored" data-anchor-id="final-summary-grading">Final summary grading</h3>
+<section id="final-website-and-report-grading" class="level3">
+<h3 class="anchored" data-anchor-id="final-website-and-report-grading">Final website and report grading</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -6105,7 +6114,7 @@ margin-bottom: .05rem;
 <td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
-<td>Limitations, references and link to the presentation</td>
+<td>Limitations, references and website navigation</td>
 <td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
@@ -6197,7 +6206,7 @@ margin-bottom: .05rem;
 <td style="text-align: right;">45</td>
 </tr>
 <tr class="odd">
-<td>Final summary in <code>README.md</code></td>
+<td>Final Quarto website and report</td>
 <td style="text-align: right;">15</td>
 </tr>
 <tr class="even">
@@ -6245,14 +6254,16 @@ margin-bottom: .05rem;
 <h1>Before the final submission</h1>
 <p>Before the final submission, your team should be able to answer yes to the following questions:</p>
 <ul>
-<li>The <code>README.md</code> tells the project story from beginning to end.</li>
-<li>The HTML presentation is rendered and the link works.</li>
+<li>The website is rendered in <code>_site/</code> and its landing page tells the project story concisely.</li>
+<li><code>rapport.qmd</code> contains the complete analysis and renders without error.</li>
+<li>The HTML presentation is rendered and its link works in the website.</li>
 <li>Important scripts are in <code>scripts/</code> and have clear names.</li>
-<li>Data are documented in <code>data/README.md</code>.</li>
+<li>Data are documented in <code>donnees.qmd</code>.</li>
 <li>Unnecessary files have been removed.</li>
 <li>The main results are explicitly connected to the question.</li>
 <li>Limitations and sources are visible.</li>
 <li>Team contributions are visible in the GitHub history.</li>
+<li>Important AI use is disclosed in <code>equipe.qmd</code>.</li>
 </ul>
 </section>
 <section id="advice" class="level1">
@@ -6262,7 +6273,7 @@ margin-bottom: .05rem;
 <li>Test data import before committing too far.</li>
 <li>Commit often with explicit messages.</li>
 <li>Keep generated files, raw data and intermediate results clearly separated.</li>
-<li>Reread your repository as if you were discovering it for the first time.</li>
+<li>Reread the website as if you were discovering it for the first time.</li>
 <li>Official submission procedures, dates and administrative adjustments are always those posted on Brio.</li>
 </ul>
 
