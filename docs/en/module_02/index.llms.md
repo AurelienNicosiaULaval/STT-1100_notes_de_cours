@@ -10,18 +10,6 @@ DataPenguins, Excel and fictitious cases
 
 ChallengeLogbook and GitHub report
 
-> **IMPORTANT:**
->
-> Adventure 2 has two parts. For the independent work, complete Part 1 only.
->
-> 1.  Accept the invitation to your private `aventure-2-YOUR-USERNAME` repository.
-> 2.  If needed, follow [Connecting GitHub to RStudio with SSH](../autre_materiel/connexion-ssh-github-rstudio.llms.md).
-> 3.  Clone the repository in RStudio and open `journal de bord.qmd`.
-> 4.  Follow the [Adventure 2 page](../module_02/aventure.llms.md) from the beginning to the “End of Part 1” box.
-> 5.  Render the logbook to HTML, then commit and push your work.
->
-> Do not start “The return of Dr Adélie Fortier” or create `rapport_analyse.qmd`. Those belong to Part 2.
-
 ## Finished Product
 
 Final product

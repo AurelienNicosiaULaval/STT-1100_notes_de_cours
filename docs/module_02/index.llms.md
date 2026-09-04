@@ -10,18 +10,6 @@ DonnéesManchots, Excel et données ouvertes de Québec
 
 DéfiJournal de bord et rapport GitHub
 
-> **IMPORTANT:**
->
-> L’aventure 2 comporte deux parties. Pour le travail autonome, faites seulement la partie 1.
->
-> 1.  Acceptez l’invitation à votre dépôt privé `aventure-2-VOTRE-IDENTIFIANT`.
-> 2.  Au besoin, suivez la page [Connexion SSH entre GitHub et RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md).
-> 3.  Clonez le dépôt dans RStudio, puis ouvrez `journal de bord.qmd`.
-> 4.  Suivez la [page de l’aventure 2](../module_02/aventure.llms.md), du début jusqu’à l’encadré « Point d’arrêt de la partie 1 ».
-> 5.  Rendez le journal en HTML, puis faites un commit et un push.
->
-> Ne commencez pas la section « Le retour de la Dre Adélie Fortier » ni le rapport `rapport_analyse.qmd`. Ils appartiennent à la partie 2.
-
 ## Produit fini du module
 
 Produit final

@@ -18,18 +18,11 @@ At the end of this module, you should be able to
 
 In Fall 2026, Module 2 is prepared during the week of September 7, then worked through in class on September 14. The preparatory work sets up the GitHub workflow, Excel import and first `dplyr` verbs; the class meeting puts these skills into practice and consolidates exploratory analysis, descriptive statistics and numerical-variable visualization.
 
-> **IMPORTANT:**
->
-> Complete Part 1 of Adventure 2 only. Accept the repository invitation, configure SSH if needed, clone the repository in RStudio and follow the adventure page to the “End of Part 1” box. Render `journal de bord.qmd`, then commit and push your work.
->
-> The `rapport_analyse.qmd` report and “The return of Dr Adélie Fortier” belong to Part 2. Do not start them yet.
-
 ### Recommended order
 
-1.  Before starting: accept the invitation, configure SSH if needed and clone the repository in RStudio.
-2.  Part 1: complete the logbook to the stopping point shown in the adventure, then render it to HTML.
-3.  End of Part 1: make a clear commit and push it to GitHub.
-4.  Part 2, later: prepare the analysis report requested in the challenge.
+1.  **Before class**: clone the repository, open the project, render one Quarto file and import a first Excel sheet.
+2.  **In class**: check anomalies, produce a summary and build one readable chart.
+3.  **After class**: select only the analyses that answer the question, render the report, then make a clear commit.
 
 Facets, additional comparisons and visual refinements come after this minimum core.
 
