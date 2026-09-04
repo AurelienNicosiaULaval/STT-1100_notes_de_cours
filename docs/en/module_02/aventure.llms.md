@@ -78,7 +78,7 @@ The researcher has prepared a repository on GitHub where she wants you to save a
 
 Before you start analyzing the data, you need to grab the GitHub repository containing the necessary files.
 
-1.  Clone the `aventure-2-IDENTIFIANT_GITHUB` repository. To do this, create a new RStudio project and paste the SSH link to your GitHub repository, following the course quick reference.
+1.  Clone the `aventure-2-IDENTIFIANT_GITHUB` repository. To do this, create a new RStudio project and paste the SSH link to your GitHub repository by following the [RStudio and GitHub quick reference](../autre_materiel/aide-memoire-rstudio-github.llms.md).
 
 Tip: If you want to come back to this project later, you can open the project directly by double-clicking the `.Rproj` file in your file explorer.
 

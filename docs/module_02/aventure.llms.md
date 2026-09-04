@@ -84,7 +84,7 @@ La chercheuse a préparé un dépôt sur GitHub où elle souhaite que vous enreg
 
 Avant de commencer l’analyse des données, vous devez récupérer le dépôt GitHub contenant les fichiers nécessaires.
 
-1.  Clonez votre dépôt `aventure-2-IDENTIFIANT_GITHUB`. Pour cela, créez un nouveau projet RStudio et collez le lien de votre dépôt GitHub selon la méthode indiquée dans la feuille aide-mémoire.
+1.  Clonez votre dépôt `aventure-2-IDENTIFIANT_GITHUB`. Pour cela, créez un nouveau projet RStudio et collez le lien de votre dépôt GitHub en suivant la [feuille aide-mémoire RStudio et GitHub](../autre_materiel/aide-memoire-rstudio-github.llms.md).
 
 Astuce : Si vous souhaitez revenir plus tard sur ce projet, vous pouvez ouvrir directement le projet en double-cliquant sur le fichier `.Rproj` dans votre explorateur de fichiers.
 
