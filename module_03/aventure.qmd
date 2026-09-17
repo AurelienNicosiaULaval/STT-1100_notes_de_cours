@@ -1,5 +1,5 @@
 ---
-title: "Aventure 3 - Infractions dans les restaurants de Montréal"
+title: "Aventure 3 - Infractions alimentaires dans le Grand Montréal"
 subtitle: "STT-1100 Introduction à la science des données"
 author:
   - institute: "Université Laval"
@@ -22,9 +22,9 @@ library(UlavalSSD)
 
 ## Mise en situation : devenez journaliste de données
 
-Vous êtes engagés comme **journaliste de données** par *Le Courrier Gourmand*, un média local fictif qui publie des enquêtes interactives sur l’alimentation à Montréal. Votre rédactrice en chef souhaite un article éclairant le public sur **les infractions alimentaires commises dans les établissements alimentaires montréalais**. Elle vous donne quelques pistes de réflexion :
+Vous êtes engagés comme **journaliste de données** par *Le Courrier Gourmand*, un média local fictif qui publie des enquêtes interactives sur l’alimentation dans le Grand Montréal. Votre rédactrice en chef souhaite un article éclairant le public sur **les infractions alimentaires commises dans les établissements du Grand Montréal**. Elle vous donne quelques pistes de réflexion :
 
--   Quelle est la proportion des constats qui concernent des établissements situés à Montréal ?
+-   Quelle est la proportion des constats qui concernent des établissements situés dans le Grand Montréal ?
 
 -   Quelles sont les infractions les plus courantes ?
 
@@ -53,11 +53,11 @@ Voici **Alexandre**, conseiller municipal chargé de l’hygiène alimentaire à
 </div>
 <div class="adventure-brief-item">
 <span class="adventure-brief-label">Organisation et contexte</span>
-<span class="adventure-brief-value">Média local fictif et Ville de Montréal</span>
+<span class="adventure-brief-value">Média local fictif couvrant le Grand Montréal</span>
 </div>
 <div class="adventure-brief-item">
 <span class="adventure-brief-label">Mission</span>
-<span class="adventure-brief-value">Produire un article clair sur les infractions alimentaires montréalaises</span>
+<span class="adventure-brief-value">Produire un article clair sur les infractions alimentaires du Grand Montréal</span>
 </div>
 <div class="adventure-brief-item">
 <span class="adventure-brief-label">Données</span>
@@ -82,7 +82,7 @@ Voici **Alexandre**, conseiller municipal chargé de l’hygiène alimentaire à
 Tout au long de l'analyse, vous devrez garder en tête ces questions et y répondre de manière argumentée dans votre rapport Quarto.
 :::
 
-Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infractions, leurs amendes et le type d’établissements concernés. Votre mission : **analyser les constats d'infraction afin de produire un article clair sur les établissements alimentaires à Montréal**.
+Dans ce module, vous explorerez un **jeu de données** qui décrit diverses infractions, leurs amendes et le type d’établissements concernés. Votre mission : **analyser les constats d'infraction afin de produire un article clair sur les établissements alimentaires du Grand Montréal**.
 
 ------------------------------------------------------------------------
 
@@ -191,7 +191,8 @@ Quelle est la proportion d'adresses contenant le mot **MONTREAL** ?
 La colonne `Amende` est une chaîne de caractères. Elle contient des montants comme `"5 000 $"`, avec des espaces et le symbole `$`. Pour l'utiliser dans des calculs, il faut créer une variable numérique.
 
 ```{r}
-# parse_number() extrait la valeur numérique et ignore le symbole $
+# parse_number() extrait la valeur numérique et ignore le symbole $.
+# Cette nouvelle colonne ne modifie pas les valeurs brutes de Amende.
 condamnations_demo <- condamnations_demo %>%
   mutate(
     amende_num = parse_number(
@@ -247,7 +248,7 @@ Combien de constats d'infraction ont un code postal qui commence par `H2X` ?
 :::
 
 ::: {.callout-important title="Message d’Alexandre"}
-*« Nous avons souvent parlé des constats associés au secteur `H2X`. Est-ce qu'ils représentent une grande part des constats montréalais ? »*
+*« Nous avons souvent parlé des constats associés au secteur `H2X`. Est-ce qu'ils représentent une grande part des constats du Grand Montréal ? »*
 
 Un bel ajout à ton article!
 :::
@@ -277,6 +278,8 @@ condamnations_demo <- condamnations_demo %>%
 
 `str_squish()` réduit tous les espaces répétés à un seul et supprime ceux en début/fin de chaîne.
 
+Dans cette aventure, le premier caractère H du code postal sert à définir le Grand Montréal. Postes Canada classe H dans la région du Grand Montréal, qui comprend notamment Laval et d'autres municipalités en plus de la Ville de Montréal. Les comparaisons ci-dessous portent donc sur le Grand Montréal postal, pas sur les seules limites de la Ville de Montréal. Consultez les [directives d'adressage de Postes Canada](https://www.canadapost-postescanada.ca/scp/fr/soutien/sujet/directives-adressage/codes-postaux.page) pour la définition des régions de tri.
+
 Nous allons maintenant créer une version nettoyée du jeu de données qui servira pour la suite de l'aventure.
 
 ```{r}
@@ -286,8 +289,9 @@ condamnations <- listecondamnation %>%
     code_postal = str_extract(adresse, "[A-Z][0-9][A-Z]\\s*[0-9][A-Z][0-9]"),
     code_postal = str_to_upper(code_postal),
     code_postal = str_replace(code_postal, "^([A-Z][0-9][A-Z])\\s*([0-9][A-Z][0-9])$", "\\1 \\2"),
-    est_montreal = str_sub(code_postal, 1, 1) == "H",
+    est_grand_montreal = str_sub(code_postal, 1, 1) == "H",
     est_temp = coalesce(str_detect(SOC_NOM_ARTCL_INFRC, "TEMPERATURE"), FALSE),
+    # Colonne numérique dérivée; la variable Amende reste inchangée.
     amende_num = parse_number(
       Amende,
       locale = locale(grouping_mark = " ", decimal_mark = ",")
@@ -299,14 +303,14 @@ condamnations <- listecondamnation %>%
     )
   )
 
-condamnations_mtl <- condamnations %>%
-  filter(est_montreal)
+condamnations_grand_montreal <- condamnations %>%
+  filter(est_grand_montreal)
 ```
 
 ::: callout-tip
 ##### Exercice
 
-1.  **Filtrer Montréal** : Vérifiez que `condamnations_mtl` ne contient que des constats dont le code postal commence par `H`.
+1.  **Filtrer le Grand Montréal** : Vérifiez que `condamnations_grand_montreal` ne contient que des constats dont le code postal commence par `H`.
 
 >  **Indication** : Vous pouvez utiliser `str_sub()` pour extraire la première lettre d'une chaîne de caractères.
 
@@ -314,7 +318,7 @@ condamnations_mtl <- condamnations %>%
 
 -   Détectez le mot-clé (“TEMPERATURE”) dans `SOC_NOM_ARTCL_INFRC`. Créez une variable booléenne `est_temp`. Cela va nous permettre de voir quelles infractions sont reliées à la température.
 
--   Quelle est la proportion d'infractions reliées à la température dans le sous-ensemble de Montréal ?
+-   Quelle est la proportion d'infractions reliées à la température dans le sous-ensemble du Grand Montréal ?
 
 3.  **Nettoyage de la colonne `Amende`** :
 
@@ -322,11 +326,11 @@ condamnations_mtl <- condamnations %>%
 
 -   Vérifiez combien de valeurs manquantes contient `amende_num`.
 
--   Quel est le montant moyen d'amende pour les infractions reliées à la température dans le sous-ensemble de Montréal ?
+-   Quel est le montant moyen d'amende pour les infractions reliées à la température dans le sous-ensemble du Grand Montréal ?
 :::
 
 ::: {.callout-important title="Question d’Alexandre"}
-*« La colonne `SOC_NOM_ARTCL_INFRC` donne la classification de l'infraction. Combien de types d'infractions différentes avons-nous en lien avec la température dans le sous-ensemble de Montréal ? »*
+*« La colonne `SOC_NOM_ARTCL_INFRC` donne la classification de l'infraction. Combien de types d'infractions différentes avons-nous en lien avec la température dans le sous-ensemble du Grand Montréal ? »*
 
 -   1
 
@@ -344,10 +348,10 @@ condamnations_mtl <- condamnations %>%
 ::: {.callout-caution collapse="true" title="Réponse d'Alexandre"}
 **Réponse possible** : Utilisez `distinct()` pour compter les types d’infractions.
 
-Dans le sous-ensemble de Montréal, on en compte 4 :
+Dans le sous-ensemble du Grand Montréal, on en compte 4 :
 
 ```{r echo=FALSE}
-condamnations_mtl %>%
+condamnations_grand_montreal %>%
   filter(est_temp) %>%
   distinct(SOC_NOM_ARTCL_INFRC)
 ```
@@ -389,11 +393,11 @@ condamnations %>%
 
 2.  **Amende moyenne** : Regroupez par `type_etablissement` et calculez la moyenne de l’amende avec `mean(amende_num, na.rm = TRUE)`.
 
-3.  **Montréal et reste du Québec** : Comparez la distribution entre les constats montréalais (`est_montreal == TRUE`) et les autres constats. Quelle catégorie d’établissements semble la plus concernée ?
+3.  **Grand Montréal et reste du Québec** : Comparez la distribution entre les constats du Grand Montréal (`est_grand_montreal == TRUE`) et les autres constats. Quelle catégorie d’établissements semble la plus concernée ?
 :::
 
 ::: {.callout-important title="Remarque d’Alexandre"}
-On a toujours pensé que Montréal n'était pas le pire endroit pour les infractions alimentaires, peu importe le type de restaurant. Est-ce que vos résultats appuient cette idée ?
+On a toujours pensé que le Grand Montréal n'était pas le pire endroit pour les infractions alimentaires, peu importe le type de restaurant. Est-ce que vos résultats appuient cette idée ?
 :::
 
 Un tableau de contingence (ou tableau croisé) est un tableau qui présente simultanément la répartition de deux (ou plusieurs) variables catégoriques, permettant ainsi de repérer des liens ou des tendances entre elles. Par exemple, pour croiser le type d’établissement et la nature de l’infraction dans votre jeu de données :
@@ -430,7 +434,7 @@ On va terminer cette section avec un exercice qui vous permettra de vous familia
 ::: callout-tip
 ##### Exercice
 
-1.  **Tableau de contingence** : Construisez un tableau croisé entre `type_etablissement` et la nature de l’infraction (`SOC_NOM_ARTCL_INFRC`), dans votre sous-ensemble de Montréal.
+1.  **Tableau de contingence** : Construisez un tableau croisé entre `type_etablissement` et la nature de l’infraction (`SOC_NOM_ARTCL_INFRC`), dans votre sous-ensemble du Grand Montréal.
 
 2.  **Résumé descriptif** : Dressez un petit tableau récapitulatif (type d’établissement, nombre total, amende moyenne).
 
@@ -456,16 +460,16 @@ Pour représenter visuellement des variables catégoriques, on utilise souvent :
 ### Démonstration
 
 ```{r}
-#| fig-alt: "Diagramme à barres montrant le nombre d'infractions à Montréal par type d'établissement."
+#| fig-alt: "Diagramme à barres montrant le nombre d'infractions dans le Grand Montréal par type d'établissement."
 library(ggplot2)
 
-# Exemple : nombre d’infractions à Montréal par type d’établissement
-condamnations_mtl %>%
+# Exemple : nombre d’infractions dans le Grand Montréal par type d’établissement
+condamnations_grand_montreal %>%
   ggplot(aes(x = type_etablissement)) +
   geom_bar(fill = "steelblue") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) + # permet de rotationner les noms des labels sur l'axe des x
   labs(
-    title = "Infractions par type d’établissement à Montréal",
+    title = "Infractions par type d’établissement dans le Grand Montréal",
     x = "Type d’établissement",
     y = "Nombre d'infractions"
   )
@@ -487,18 +491,18 @@ Interrogeons‑nous sur **la nature même des infractions**. Connaître les cat�
 *« Ce graphique doit parler au lecteur en un clin d’œil. Assure‑toi d’indiquer que 5 catégories couvrent déjà X % des infractions ; c’est un message fort pour l’introduction de ton article. »*
 :::
 
-Le **montant des amendes** est un indicateur concret qui attire souvent l’attention du public et des médias. Comparer ces montants entre Montréal et le reste du Québec, et entre types d’établissements, permettra d’appuyer votre conclusion.
+Le **montant des amendes** est un indicateur concret qui attire souvent l’attention du public et des médias. Comparer ces montants entre le Grand Montréal et le reste du Québec, et entre types d’établissements, permettra d’appuyer votre conclusion.
 
 ::: callout-tip
 ##### Exercice
 
 1.  **Boîtes à moustaches** : Représentez la répartition du montant de l'amende au sein de chaque `type_etablissement`.
-2.  **Comparaison** : Comparez Montréal versus hors Montréal avec des boîtes à moustaches côte à côte, par type d’établissement. Que remarquez-vous ?
+2.  **Comparaison** : Comparez le Grand Montréal au reste du Québec avec des boîtes à moustaches côte à côte, par type d’établissement. Que remarquez-vous ?
 3.  **Traitement de données manquantes** : Que faites-vous si `Amende` est manquante dans un sous-ensemble ? Explorez quelques pistes.
 :::
 
 ::: {.callout-important title="Remarque d’Alexandre"}
-*« Pense à citer un ou deux chiffres marquants dans ton texte : par exemple, la médiane des amendes montréalaises versus hors Montréal. Ça rendra tes conclusions plus percutantes. »*
+*« Pense à citer un ou deux chiffres marquants dans ton texte : par exemple, la médiane des amendes dans le Grand Montréal par rapport au reste du Québec. Ça rendra tes conclusions plus percutantes. »*
 :::
 
 ------------------------------------------------------------------------
@@ -595,7 +599,7 @@ Cette troisième aventure vous a permis de **passer du rôle d’analyste à cel
 
 Vous disposez maintenant :
 
--   d’un **ensemble de résultats chiffrés** (top 5 infractions, montants moyens, proportion Montréal vs hors Montréal, etc.) ;
+-   d’un **ensemble de résultats chiffrés** (top 5 infractions, montants moyens, proportion Grand Montréal vs reste du Québec, etc.) ;
 -   de **graphiques percutants** (diagrammes en barres, boîtes à moustaches ou visualisation optionnelle) pour étayer vos arguments ;
 -   d’**observations qualitatives** fournies par Alexandre, qui orientent le récit vers les enjeux d’hygiène et de transparence citoyenne.
 

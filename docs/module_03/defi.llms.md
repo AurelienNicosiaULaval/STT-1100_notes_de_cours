@@ -70,7 +70,7 @@ Créez un tableau propre qui contient au minimum :
 
 - une variable de code postal standardisée ;
 
-- une variable logique qui identifie les constats situés à Montréal ;
+- une variable logique, par exemple `est_grand_montreal`, qui identifie les constats du Grand Montréal selon le critère postal H présenté dans l’aventure ;
 
 - une variable logique qui identifie les infractions liées à la température ;
 
@@ -82,9 +82,9 @@ Ne modifiez pas le jeu de données original. Faites le nettoyage dans votre code
 
 Votre article doit inclure au moins deux chiffres narratifs. Par exemple :
 
-- la proportion de constats situés à Montréal ;
+- la proportion de constats associés au Grand Montréal selon le critère postal H ;
 
-- la proportion d’infractions liées à la température à Montréal ;
+- la proportion d’infractions liées à la température dans le Grand Montréal ;
 
 - la médiane ou la moyenne des amendes ;
 
@@ -100,7 +100,7 @@ Votre article doit contenir au moins deux visualisations :
 
 1.  un graphique de catégories, par exemple un diagramme à barres sur les types d’infractions ou les types d’établissements ;
 
-2.  un deuxième visuel pertinent, par exemple une boîte à moustaches sur les amendes ou un graphique comparant Montréal et le reste du Québec.
+2.  un deuxième visuel pertinent, par exemple une boîte à moustaches sur les amendes ou un graphique comparant le Grand Montréal et le reste du Québec.
 
 La carte des amendes est optionnelle. Si vous choisissez de la faire, indiquez clairement que le géocodage dépend d’un service web externe et peut ne pas être parfaitement reproductible.
 
@@ -118,7 +118,7 @@ Chaque graphique doit avoir :
 
 Votre article doit répondre à une question journalistique claire. Par exemple :
 
-> Que révèlent les constats d’infractions alimentaires sur les établissements montréalais ?
+> Que révèlent les constats d’infractions alimentaires sur les établissements du Grand Montréal ?
 
 Dans la conclusion, ajoutez une courte citation synthétique d’Alexandre. Cette citation doit résumer une implication de vos résultats. Elle peut être fictive, mais elle doit être cohérente avec vos analyses.
 
@@ -138,7 +138,7 @@ Avant de remettre votre défi, vérifiez que :
 
 - les catégories de type d’établissement sont vérifiées ;
 
-- les analyses distinguent clairement Montréal du reste du Québec ;
+- les analyses distinguent clairement le Grand Montréal, défini par le critère postal H, du reste du Québec ;
 
 - au moins deux chiffres narratifs sont cités et interprétés ;
 

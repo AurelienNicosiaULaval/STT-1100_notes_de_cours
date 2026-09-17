@@ -137,7 +137,7 @@ Quelle phrase correspond le mieux à un bon chiffre narratif dans un article de 
 
 1.  “La variable est intéressante.”
 2.  “Le graphique est beau.”
-3.  “Environ la moitié des constats du fichier sont associés à des codes postaux montréalais, selon le critère utilisé.”
+3.  “Environ la moitié des constats du fichier sont associés à des codes postaux du Grand Montréal, selon le critère postal H utilisé.”
 4.  “Le code fonctionne.”
 
 > **TIP:**
