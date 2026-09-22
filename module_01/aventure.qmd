@@ -392,13 +392,21 @@ Nous avons vu plus haut que vous pouvez améliorer votre expérience de R en uti
 
 Premièrement, vous allez installer la librairie `UlavalSSD` et la charger dans votre environnement de travail.
 
-```{r eval=FALSE}
-# Installer le package remotes si nécessaire
-install.packages("remotes")
+Exécutez ce bloc d'installation une fois dans la Console de RStudio. L'archive publique GitHub ne nécessite aucun jeton d'authentification GitHub. Le package n'est pas encore sur le CRAN.
 
-# Installer UlavalSSD depuis GitHub
-remotes::install_github("AurelienNicosiaULaval/UlavalSSD")
+```{r eval=FALSE}
+# Installer remotes si nécessaire
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes", repos = "https://cloud.r-project.org")
+}
+
+remotes::install_url(
+  "https://github.com/AurelienNicosiaULaval/UlavalSSD/archive/refs/heads/main.tar.gz",
+  upgrade = "never"
+)
 ```
+
+Si une ancienne commande `install_github()` échoue avec `HTTP error 401. Bad credentials`, reprenez le bloc d'installation ci-dessus. Il conserve vos identifiants GitHub enregistrés.
 
 ```{r}
 library(UlavalSSD)
