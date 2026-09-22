@@ -8,6 +8,10 @@ Dans ce défi, vous devenez journaliste de données pour *Le Courrier Gourmand*.
 
 Votre article doit être compréhensible par une personne qui ne connaît pas R. Le code sert à soutenir l’article, mais le texte doit raconter clairement ce que vous avez trouvé.
 
+> **IMPORTANT:**
+>
+> Le HTML final doit ressembler à un article : du texte, des graphiques lisibles et des résultats interprétés. Le code, les sorties brutes de la console et les messages de packages doivent être cachés ou retirés. Consultez le [modèle Quarto sur la présentation de l’article](../module_03/modele_article_quarto.llms.md) avant votre dernière relecture.
+
 ## Données à utiliser
 
 Utilisez le jeu de données suivant :

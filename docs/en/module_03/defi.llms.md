@@ -8,6 +8,10 @@ In this challenge, you become a data journalist for *Le Courrier Gourmand*. Your
 
 Your article must be understandable to someone who does not know R. The code supports the article, but the text must clearly tell the reader what you found.
 
+> **IMPORTANT:**
+>
+> The final HTML should look like an article: prose, readable charts and interpreted findings. Code, raw console output and package messages should be hidden or removed. Consult the [Quarto model for article presentation](../module_03/modele_article_quarto.llms.md) before your final review.
+
 ## Data to use
 
 Use the following dataset:

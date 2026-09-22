@@ -90,6 +90,8 @@ Keep outputs that could become narrative figures in the article.
 
 Your mission is to clean `listecondamnation`, extract key facts and write a reproducible Quarto article.
 
+[Quarto model: make the article readable](modele_article_quarto.llms.md)
+
 [Open the module 3 challenge](defi.llms.md)
 
 - Deliverables: completed `template_article.qmd` and rendered HTML.

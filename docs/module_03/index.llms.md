@@ -90,6 +90,8 @@ Gardez les sorties qui pourraient devenir des chiffres narratifs dans l’articl
 
 Votre mission consiste à nettoyer `listecondamnation`, à extraire des faits marquants et à rédiger un article Quarto reproductible.
 
+[Modèle Quarto : rendre l'article lisible](modele_article_quarto.llms.md)
+
 [Consulter le défi du module 3](defi.llms.md)
 
 - Livrables: `template_article.qmd` complété et HTML rendu.

@@ -1,0 +1,230 @@
+# Modèle Quarto : rendre un article lisible
+
+Défi 3 • cacher le code, choisir les sorties et raconter les résultats
+
+## Le résultat attendu
+
+Votre fichier `.qmd` contient du code, mais votre fichier HTML doit se lire comme un article. Une personne qui ne connaît pas R doit voir d’abord :
+
+- un titre et un chapeau qui donnent envie de lire;
+- des paragraphes qui expliquent les choix et les résultats;
+- des graphiques titrés, lisibles et interprétés dans le texte;
+- des chiffres intégrés naturellement aux phrases.
+
+Le lecteur ne devrait pas avoir à lire la console R pour comprendre votre conclusion. Le code reste dans le fichier source pour rendre l’analyse reproductible, mais il est généralement masqué dans l’article remis.
+
+> **IMPORTANT:**
+>
+> Rendez votre fichier `.qmd`, ouvrez réellement le fichier HTML produit, puis relisez-le comme un lecteur. Si vous voyez des blocs de code, `##`, `[1]`, des messages de packages ou une sortie brute de `head()`, l’article a encore besoin d’une révision de présentation.
+
+## 1. Préparer le document
+
+Un en-tête simple permet de produire un article HTML autonome. L’option `embed-resources: true` inclut les ressources nécessaires dans le fichier HTML.
+
+``` markdown
+---
+title: "Titre de votre article"
+author: "Prénom Nom"
+lang: fr
+format:
+  html:
+    theme: journal
+    toc: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+---
+```
+
+Les options `warning` et `message` évitent que des messages de routine prennent la place du texte. Elles ne corrigent pas une erreur d’analyse. Une erreur qui empêche le rendu doit être comprise et corrigée.
+
+## 2. Les options qui contrôlent l’affichage
+
+Quarto permet de choisir séparément si le code et le résultat sont affichés. Les options placées après `#|` s’appliquent au chunk qui suit.
+
+| Option | Ce que le lecteur voit | Utilisation dans l’article |
+|----|----|----|
+| `echo: false` | le résultat, mais pas le code | choix habituel pour un graphique ou un tableau utile |
+| `include: false` | ni le code ni le résultat | chargement des packages et calculs préparatoires |
+| `output: false` | le code, mais pas le résultat | diagnostic ou démonstration; rarement pertinent dans l’article final |
+| `warning: false` | pas les avertissements affichés | masquer un avertissement déjà compris; ne pas cacher une analyse fragile |
+| `message: false` | pas les messages de packages | garder la page propre après un `library()` |
+| `eval: false` | le code sans l’exécuter | montrer une syntaxe dans un tutoriel; ne pas l’utiliser pour un résultat remis |
+
+### Cacher complètement un chunk préparatoire
+
+Ce chunk est exécuté. Il crée les objets nécessaires, mais rien n’apparaît dans l’article.
+
+```` markdown
+```{r setup, include=FALSE}
+library(tidyverse)
+library(UlavalSSD)
+
+condamnations <- listecondamnation
+```
+````
+
+Avec la syntaxe Quarto équivalente, on peut aussi écrire les options dans le corps du chunk :
+
+```` markdown
+```{r}
+#| include: false
+
+resultats <- condamnations |>
+  count(SOC_NOM_ARTCL_INFRC, sort = TRUE)
+```
+````
+
+### Afficher un graphique sans afficher son code
+
+Le code est exécuté et le graphique est conservé. Seul le graphique apparaît dans le HTML.
+
+```` markdown
+```{r fig-infractions}
+#| echo: false
+#| label: fig-infractions
+#| fig-cap: "Les catégories d'infractions les plus fréquentes."
+#| fig-alt: "Diagramme à bandes montrant le nombre de constats pour les principales catégories d'infractions."
+
+resultats |>
+  slice_head(n = 6) |>
+  ggplot(aes(x = reorder(SOC_NOM_ARTCL_INFRC, n), y = n)) +
+  geom_col(fill = "#176b87") +
+  coord_flip() +
+  labs(x = NULL, y = "Nombre de constats")
+```
+````
+
+Le titre du graphique, ses axes et son texte d’interprétation font partie de l’article. Un graphique déposé seul, sans phrase qui explique ce qu’il montre, ne constitue pas un résultat clair.
+
+### Afficher le code mais cacher une sortie provisoire
+
+Cette option peut être utile pendant une démonstration ou un dépannage. Elle ne transforme pas un bloc de code en paragraphe d’article.
+
+```` markdown
+```{r diagnostic}
+#| output: false
+
+summary(condamnations)
+```
+````
+
+Pour une remise, préférez généralement un chunk `include: false` pour les calculs préparatoires, puis une phrase ou un graphique pour communiquer le résultat.
+
+### Montrer du code à la demande
+
+Dans un tutoriel, on peut rendre le code pliable :
+
+``` yaml
+format:
+  html:
+    code-fold: true
+    code-summary: "Afficher le code"
+```
+
+Cette solution est utile pour enseigner ou documenter. Pour le défi 3, le choix le plus lisible est de cacher le code des résultats de l’article, sauf si vous avez une raison pédagogique précise de le laisser accessible.
+
+## 3. Remplacer une sortie brute par une phrase
+
+Une expression laissée seule dans un chunk peut produire une sortie de type console :
+
+```` markdown
+```{r mauvais-exemple}
+nrow(condamnations)
+```
+````
+
+Le lecteur risque alors de voir le code et une sortie isolée. Calculez plutôt le nombre dans un chunk caché et placez le résultat dans une phrase avec du code en ligne.
+
+```` markdown
+```{r chiffres-article, include=FALSE}
+n_constats <- nrow(condamnations)
+n_categories <- n_distinct(condamnations$SOC_NOM_ARTCL_INFRC)
+```
+
+Le jeu analysé contient r n_constats constats répartis dans r n_categories catégories d'infractions. Ce nombre décrit l'étendue du fichier; il ne suffit pas à lui seul pour conclure à une différence entre les catégories.
+````
+
+Le code en ligne, écrit sous la forme `r expression` dans une paire de délimiteurs Quarto, permet au nombre affiché de rester synchronisé avec l’analyse. Évitez de taper manuellement un résultat calculé dans le texte : si les données ou le filtre changent, le texte manuel peut devenir faux.
+
+Exemple réellement calculé dans cette page : le jeu contient **1712 constats** et **33 catégories non manquantes**. Le lecteur voit la phrase et les nombres, pas le code qui les produit.
+
+### Formater un pourcentage ou un montant
+
+Le calcul reste caché; seule la valeur bien présentée s’insère dans la phrase.
+
+```` markdown
+```{r chiffres-formates, include=FALSE}
+proportion <- nrow(filter(condamnations, est_grand_montreal)) / nrow(condamnations)
+amende_mediane <- median(condamnations$amende_num, na.rm = TRUE)
+```
+
+Le Grand Montréal représente r scales::percent(proportion, accuracy = 0.1) des constats. L'amende médiane est de r scales::dollar(amende_mediane, prefix = "", suffix = " $", big.mark = " ", decimal.mark = ",").
+````
+
+Adaptez les noms d’objets et les filtres à votre propre analyse. Le modèle montre la forme de la phrase, pas une conclusion à copier sans vérifier les données.
+
+## 4. Produire une figure qui ressemble à celle d’un article
+
+Un graphique destiné à un article doit répondre à une question précise. Utilisez un titre informatif, des axes compréhensibles, les unités lorsque nécessaire et une légende qui n’oblige pas le lecteur à deviner.
+
+![Diagramme à bandes horizontal montrant les six catégories d'infractions les plus fréquentes.](modele_article_quarto_files/figure-html/fig-article-1.png)
+
+Figure 1: Un graphique doit être accompagné d’une phrase qui en donne le message principal.
+
+La phrase qui suit le graphique doit interpréter le résultat. Par exemple : « Les catégories situées en haut du graphique concentrent une grande partie des constats; cette concentration décrit la fréquence observée, mais ne mesure pas le risque par établissement. » Remplacez cette phrase par votre propre interprétation calculée.
+
+Pour les figures, les options importantes sont souvent :
+
+- `echo: false` pour cacher le code;
+- `fig-cap` pour une légende visible dans l’article;
+- `fig-alt` pour une description accessible;
+- `fig-width` et `fig-height` pour éviter une figure trop petite;
+- `label: fig-...` si vous voulez citer la figure dans le texte avec `@fig-...`.
+
+## 5. Ce qu’il faut retirer avant la remise
+
+Les éléments suivants sont utiles pendant l’exploration, mais ils ne devraient pas rester visibles sans explication dans l’article final :
+
+```` markdown
+```{r exploration}
+head(condamnations)
+glimpse(condamnations)
+table(condamnations$Type_etablissement)
+```
+````
+
+Remplacez-les par une description en prose, un tableau construit pour le lecteur ou un graphique qui répond à votre question. Une sortie de `summary()` n’est pas une discussion. Une ligne de code n’est pas une méthode expliquée. Une figure sans titre n’est pas encore un résultat publiable.
+
+> **TIP:**
+>
+> Demandez à une personne qui ne connaît pas votre code de lire uniquement le HTML. Peut-elle identifier la question, comprendre les deux résultats principaux et voir ce que chaque graphique apporte sans ouvrir RStudio ? Si la réponse est non, réécrivez le texte ou la figure avant de remettre.
+
+## 6. Checklist de rendu
+
+Avant de pousser votre défi sur GitHub :
+
+J’ai rendu le `.qmd` après avoir redémarré R.
+
+J’ai ouvert le `.html` produit et vérifié son apparence.
+
+Le code des chunks d’analyse n’apparaît pas dans l’article, ou il est plié pour une raison claire.
+
+Je ne vois pas de `##`, `[1]`, `head()`, `glimpse()` ou message de package laissé par accident.
+
+Chaque résultat important est expliqué dans une phrase.
+
+Chaque graphique a un titre ou une légende informative, des axes lisibles et un texte alternatif.
+
+Les nombres du texte sont calculés par le document ou vérifiés contre les données.
+
+Le document se rend à partir d’une session R propre, sans objet créé manuellement dans la console.
+
+`template_article.qmd` et `template_article.html` sont bien présents dans le dépôt.
+
+## Références utiles
+
+- [Options d’exécution de Quarto](https://quarto.org/docs/computations/execution-options.html) : `echo`, `include`, `output`, `warning`, `message`, `eval` et les options de figures.
+- [Code en ligne dans Quarto](https://quarto.org/docs/computations/inline-code.html) : insérer un résultat calculé directement dans une phrase.
+- [Figures dans Quarto](https://quarto.org/docs/authoring/figures.html) : légendes, texte alternatif et renvois aux figures.
