@@ -4,6 +4,7 @@ pagetitle: "Packages R - STT-1100"
 format:
   html:
     toc: false
+    anchor-sections: false
     title-block-style: none
     embed-resources: true
 execute:
@@ -215,7 +216,7 @@ package_catalog <- tibble::tribble(
   "tidytext", "tidytext", "Traitement du texte sous forme de données tidy.", "https://CRAN.R-project.org/package=tidytext",
   "tidyverse", "tidyverse", "Écosystème central pour importer, transformer et visualiser des données.", "https://CRAN.R-project.org/package=tidyverse",
   "titanic", "titanic", "Jeu de données Titanic utilisé pour pratiquer les variables catégorielles.", "https://CRAN.R-project.org/package=titanic",
-  "ulavalssd", "UlavalSSD", "Package de données et exemples utilisé dans les premiers modules du cours.", NA,
+  "ulavalssd", "UlavalSSD", "Package de données et exemples utilisé dans les premiers modules du cours.", "https://github.com/AurelienNicosiaULaval/UlavalSSD",
   "unvotes", "unvotes", "Votes des Nations Unies pour pratiquer les jointures et les regroupements.", "https://CRAN.R-project.org/package=unvotes",
   "viridis", "viridis", "Palettes de couleurs adaptées aux graphiques statistiques.", "https://CRAN.R-project.org/package=viridis",
   "weathercan", "weathercan", "Ancien package de données météorologiques canadiennes; à vérifier avant de l'utiliser dans un nouveau travail.", "https://CRAN.R-project.org/package=weathercan",
@@ -253,7 +254,7 @@ render_package_card <- function(row) {
   tag <- ifelse(is.na(row$url), "section", "a")
   href <- ifelse(is.na(row$url), "", paste0(' href="', row$url, '" target="_blank" rel="noopener"'))
   source_label <- dplyr::case_when(
-    row$id == "ulavalssd" ~ "Package du cours, installation GitHub",
+    row$id == "ulavalssd" ~ "Package du cours, installation par archive publique",
     row$id == "weathercan" ~ "Page CRAN archivée",
     is.na(row$url) ~ "Documentation locale ou à préciser",
     TRUE ~ "Documentation externe"
@@ -274,11 +275,11 @@ render_package_card <- function(row) {
   paste0(
   '<', tag, ' id="', row$id, '" class="package-card"', href, '>',
   logo,
-  '<span>',
+  '<div>',
   '<h2>', html_text(row$name), '</h2>',
   '<span class="package-role">', html_text(row$role), ' </span>',
   '<span class="package-source">', source_label, '</span>',
-  '</span>',
+  '</div>',
   '</', tag, '>'
   )
 }
@@ -307,7 +308,7 @@ La bibliothèque complète sert à retrouver la documentation. Les cartes avec u
 #| label: bibliotheque-packages
 #| results: asis
 
-cat("<div class=\"package-grid package-library-grid\">\n")
+cat("\n```{=html}\n<div class=\"package-grid package-library-grid\">\n")
 purrr::walk(seq_len(nrow(package_catalog)), ~ cat(render_package_card(package_catalog[.x, ]), "\n"))
-cat("</div>\n")
+cat("</div>\n```\n")
 ```

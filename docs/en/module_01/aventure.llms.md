@@ -273,9 +273,9 @@ editor: visual
 
 To insert a *chunk* (block of code) into a quarto document, you can click on the following symbol:
 
-![](resources/bouton_chunck.png)
+![RStudio button used to insert an R code block](resources/bouton_chunck.png)
 
-Button to add a code block in Rstudio
+Button to add a code block in RStudio
 
 ``` r
 # This is a block of code
@@ -286,7 +286,7 @@ Button to add a code block in Rstudio
 
 You can easily execute a block of code either by executing (`Ctrl + Enter`) line by line or by clicking on the small green arrow in the upper left corner of the code block. You will notice that your results appear below the code box.
 
-Once your report is final, you can generate the report by clicking on the Render button: ![Button to add generate report](resources/bouton_render.png)
+Once your report is final, you can generate the report by clicking on the Render button: ![RStudio Render button used to generate the report](resources/bouton_render.png)
 
 > **NOTE:**
 >
@@ -310,13 +310,21 @@ We saw above that you can improve your R experience by using libraries. As part 
 
 First, you will install the `UlavalSSD` library and load it into your working environment.
 
-``` r
-# Install the remotes package if necessary
-install.packages("remotes")
+Run this installation block once in the RStudio Console. The public GitHub archive requires no GitHub authentication token. The package is not yet on CRAN.
 
-# Install UlavalSSD from GitHub
-remotes::install_github("AurelienNicosiaULaval/UlavalSSD")
+``` r
+# Install remotes if needed
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes", repos = "https://cloud.r-project.org")
+}
+
+remotes::install_url(
+  "https://github.com/AurelienNicosiaULaval/UlavalSSD/archive/refs/heads/main.tar.gz",
+  upgrade = "never"
+)
 ```
+
+If a previous `install_github()` command failed with `HTTP error 401. Bad credentials`, rerun the installation block above. It leaves your saved GitHub credentials unchanged.
 
 ``` r
 library(UlavalSSD)

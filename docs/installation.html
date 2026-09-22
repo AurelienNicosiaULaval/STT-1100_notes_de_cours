@@ -6530,18 +6530,22 @@ margin-bottom: .05rem;
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>packages_manquants <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(packages_requis, packages_installes)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(packages_manquants) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(packages_manquants)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(packages_manquants, <span class="at">repos =</span> <span class="st">&quot;https://cloud.r-project.org&quot;</span>)</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;UlavalSSD&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;AurelienNicosiaULaval/UlavalSSD&quot;</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  remotes<span class="sc">::</span><span class="fu">install_url</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://github.com/AurelienNicosiaULaval/UlavalSSD/archive/refs/heads/main.tar.gz&quot;</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">upgrade =</span> <span class="st">&quot;never&quot;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>UlavalSSD</code> n’est pas encore sur le CRAN. L’archive publique évite les erreurs d’authentification de l’API GitHub, dont <code>HTTP error 401. Bad credentials</code>, sans modifier vos identifiants enregistrés. Pour mettre à jour une installation existante, réexécutez seulement l’appel <code>remotes::install_url(...)</code> ci-dessus.</p>
 <p>Vérifiez ensuite :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(UlavalSSD<span class="sc">::</span>MeteoQuebec)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Le résultat doit afficher deux nombres, soit le nombre de lignes et le nombre de colonnes.</p>
+<p>Le résultat attendu est <code>20111 11</code> : 20 111 lignes et 11 colonnes.</p>
 </section>
 <section id="test-final" class="level2">
 <h2 class="anchored" data-anchor-id="test-final">Test final avec un document Quarto</h2>

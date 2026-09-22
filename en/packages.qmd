@@ -4,6 +4,7 @@ pagetitle: "R Packages - STT-1100"
 format:
   html:
     toc: false
+    anchor-sections: false
     title-block-style: none
     embed-resources: true
 execute:
@@ -215,7 +216,7 @@ package_catalog <- tibble::tribble(
   "tidytext", "tidytext", "Text mining in tidy data format.", "https://CRAN.R-project.org/package=tidytext",
   "tidyverse", "tidyverse", "Core ecosystem for importing, transforming and visualizing data.", "https://CRAN.R-project.org/package=tidyverse",
   "titanic", "titanic", "Titanic data used to practice categorical variables.", "https://CRAN.R-project.org/package=titanic",
-  "ulavalssd", "UlavalSSD", "Data and examples package used in the first course modules.", NA,
+  "ulavalssd", "UlavalSSD", "Data and examples package used in the first course modules.", "https://github.com/AurelienNicosiaULaval/UlavalSSD",
   "unvotes", "unvotes", "United Nations votes used to practice joins and grouped summaries.", "https://CRAN.R-project.org/package=unvotes",
   "viridis", "viridis", "Color palettes adapted to statistical graphics.", "https://CRAN.R-project.org/package=viridis",
   "weathercan", "weathercan", "Former Canadian weather data package; check its status before using it in new work.", "https://CRAN.R-project.org/package=weathercan",
@@ -253,7 +254,7 @@ render_package_card <- function(row) {
   tag <- ifelse(is.na(row$url), "section", "a")
   href <- ifelse(is.na(row$url), "", paste0(' href="', row$url, '" target="_blank" rel="noopener"'))
   source_label <- dplyr::case_when(
-    row$id == "ulavalssd" ~ "Course package, GitHub installation",
+    row$id == "ulavalssd" ~ "Course package, public archive installation",
     row$id == "weathercan" ~ "Archived CRAN page",
     is.na(row$url) ~ "Local documentation or to be specified",
     TRUE ~ "External documentation"
@@ -274,11 +275,11 @@ render_package_card <- function(row) {
   paste0(
   '<', tag, ' id="', row$id, '" class="package-card"', href, '>',
   logo,
-  '<span>',
+  '<div>',
   '<h2>', html_text(row$name), '</h2>',
   '<span class="package-role">', html_text(row$role), ' </span>',
   '<span class="package-source">', source_label, '</span>',
-  '</span>',
+  '</div>',
   '</', tag, '>'
   )
 }
@@ -307,7 +308,7 @@ The full library is here to help you find documentation. Cards with a logo are t
 #| label: package-library
 #| results: asis
 
-cat("<div class=\"package-grid package-library-grid\">\n")
+cat("\n```{=html}\n<div class=\"package-grid package-library-grid\">\n")
 purrr::walk(seq_len(nrow(package_catalog)), ~ cat(render_package_card(package_catalog[.x, ]), "\n"))
-cat("</div>\n")
+cat("</div>\n```\n")
 ```

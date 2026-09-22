@@ -165,13 +165,18 @@ installed_packages <- rownames(installed.packages())
 missing_packages <- setdiff(required_packages, installed_packages)
 
 if (length(missing_packages) > 0) {
-  install.packages(missing_packages)
+  install.packages(missing_packages, repos = "https://cloud.r-project.org")
 }
 
 if (!requireNamespace("UlavalSSD", quietly = TRUE)) {
-  remotes::install_github("AurelienNicosiaULaval/UlavalSSD")
+  remotes::install_url(
+    "https://github.com/AurelienNicosiaULaval/UlavalSSD/archive/refs/heads/main.tar.gz",
+    upgrade = "never"
+  )
 }
 ```
+
+`UlavalSSD` is not yet on CRAN. The public archive avoids GitHub API authentication errors, including `HTTP error 401. Bad credentials`, without changing your saved credentials. To update an existing installation, rerun only the `remotes::install_url(...)` call above.
 
 Then check:
 
@@ -182,7 +187,7 @@ library(UlavalSSD)
 dim(UlavalSSD::MeteoQuebec)
 ```
 
-The result must display two numbers, the number of rows and the number of columns.
+The expected result is `20111 11`: 20,111 rows and 11 columns.
 
 ## Final test with a Quarto document {#final-test}
 
