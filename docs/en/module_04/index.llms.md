@@ -141,8 +141,6 @@ Privacy Do not share personal, confidential or protected data.
 
 [Download the exercise workspace (.zip)](../../downloads/donnees/stt1100-module-04-en.zip)
 
-[Download the adventure starter folder (.zip)](../../downloads/donnees/stt1100-aventure-04.zip) · Data version 2026-09-25. This folder can be used before your personal GitHub repository is available.
-
 [dataset_pratique.csv](../donnees.llms.md#dataset-card-dataset-pratique) [policies.csv](../donnees.llms.md#dataset-card-policies-module-04) [coverage.json](../donnees.llms.md#dataset-card-coverage-module-04) [quotes_2024.xlsx](../donnees.llms.md#dataset-card-quotes-module-04) [Québec AFDR, December 2022](data/afdr_clientele_prestations_2022_12.csv) [Sherbrooke sports facilities](data/installations_sportives_sherbrooke.csv) [Sherbrooke ArcGIS metadata](data/metadonnees_installations_sherbrooke.json)
 
 ### R packages

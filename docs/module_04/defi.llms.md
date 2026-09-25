@@ -37,8 +37,6 @@ Le fichier comporte 101 778 lignes. L’encodage UTF-8 préserve les accents; le
 
 Version des données : 2026-09-25, avec 101 778 lignes et 23 colonnes avant nettoyage. Des anomalies ont été introduites volontairement pour cet exercice. Si vous aviez téléchargé une ancienne version, remplacez seulement le fichier d’entrée encore intact avant de commencer; n’écrasez pas un travail déjà réalisé.
 
-Si votre dépôt personnel n’est pas encore disponible, [téléchargez le dossier de démarrage de l’aventure](../downloads/donnees/stt1100-aventure-04.zip), extrayez le ZIP, ouvrez `aventure-4.Rproj`, puis `defi_04.qmd`. Il contient les mêmes données et le même squelette que GitHub. Conservez votre travail localement; vous pourrez le pousser quand l’équipe enseignante vous aura donné accès. Ce ZIP est distinct du dossier des exercices.
-
 ## Livrables
 
 Votre dépôt GitHub doit contenir les trois fichiers suivants :

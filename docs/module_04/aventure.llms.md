@@ -188,8 +188,6 @@ Le fichier contient 101 778 lignes et 23 colonnes. Son encodage est compatible a
 
 Version des données : 2026-09-25, avec 101 778 lignes et 23 colonnes avant nettoyage. Des anomalies ont été introduites volontairement pour cet exercice. Si vous aviez téléchargé une ancienne version, remplacez seulement le fichier d’entrée encore intact avant de commencer; n’écrasez pas un travail déjà réalisé.
 
-Si votre dépôt personnel n’est pas encore disponible, [téléchargez le dossier de démarrage de l’aventure](../downloads/donnees/stt1100-aventure-04.zip), extrayez le ZIP, ouvrez `aventure-4.Rproj`, puis `defi_04.qmd`. Il contient les mêmes données et le même squelette que GitHub. Conservez votre travail localement; vous pourrez le pousser quand l’équipe enseignante vous aura donné accès. Ce ZIP est distinct du dossier des exercices.
-
 > Si vous utilisez [`read_csv()`](https://readr.tidyverse.org/reference/read_delim.html) ici, tout le fichier sera lu comme une seule colonne. C’est un bon réflexe de vérifier `ncol(base)` juste après l’importation.
 
 > **Alex** : « Cette base est un vrai casse-tête ! J’ai besoin que tu la rendes exploitable rapidement. Tu devrais commencer par repérer ce qui cloche dans les noms, les formats ou les valeurs. »

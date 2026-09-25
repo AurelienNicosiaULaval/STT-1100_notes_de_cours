@@ -37,8 +37,6 @@ The file has 101,778 rows. UTF-8 preserves accents; numeric values use a decimal
 
 Dataset version: 2026-09-25, with 101,778 rows and 23 columns before cleaning. Deliberate anomalies support the exercise. If you downloaded an earlier version, replace only your untouched input file before starting; do not overwrite work already completed.
 
-If your personal repository is not available yet, [download the adventure starter folder](../../downloads/donnees/stt1100-aventure-04.zip), extract the ZIP, open `aventure-4.Rproj` and then `defi_04.qmd`. The starter uses the French submission filenames and the same data as GitHub. Save your work locally; you can push it once the teaching team provides access. This ZIP is separate from the exercises folder.
-
 ## Deliverables
 
 Your GitHub repository must contain the following three files:
