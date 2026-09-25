@@ -4,7 +4,7 @@ Assessment
 
 The exam follows the spirit of the adventures: a concrete situation, a dataset, a Quarto document to complete and decisions to justify. It assesses autonomy with the essential skills from modules 1 to 4.
 
-[Preparation](#exam-prep-title) [During the exam](#exam-day-title) [Past exams](#old-exams-title) [Assessments](evaluations.llms.md)
+[Preparation](#exam-prep-title) [Exam conditions](#exam-conditions-title) [During the exam](#exam-day-title) [Past exams](#old-exams-title) [Assessments](evaluations.llms.md)
 
 01
 
@@ -24,7 +24,7 @@ Import and cleaning
 
 ## General format
 
-The exam is applied. The goal is not to recite functions, but to choose the right tools to produce a reliable short report. The individual exam is worth 25% and takes place on October 19, 2026, from 8:30 to 11:20 a.m. in PLT-2325. Authorized material, Internet access and submission instructions remain to be specified on Brio.
+The exam is applied. The goal is not to recite functions, but to choose the right tools to produce a reliable short report. The individual exam is worth 25% and takes place on October 19, 2026, from 8:30 to 11:20 a.m. in PLT-2325. You will work on an exam account without Internet or AI. Files will be collected automatically; no manual submission is required.
 
 ### Narrative context
 
@@ -42,9 +42,29 @@ Answers, code, graphs and interpretations are integrated into a reproducible doc
 
 Results must be explained briefly, carefully and in the language of the context.
 
-## AI during the exam
+## Exam accounts and authorized material
 
-AI is not allowed during the exam, as stated on Brio. During preparation, practise completing the essential tasks independently and explaining your choices. Notes and other resources used for revision are not automatically authorized during the exam; check the final Brio instructions.
+You will work on an exam account. Personal reference material is permitted on paper only; digital material is limited to what the instructor makes available on these accounts.
+
+### Exam account
+
+Complete and save your work on the exam account used during the session.
+
+### Paper documents
+
+Bring your paper references. Do not rely on your personal digital files.
+
+### Provided material
+
+The instructor will make material available directly on the exam accounts.
+
+### Automatic collection
+
+No manual submission to Brio or GitHub. Save your work regularly; files will be collected automatically.
+
+## Internet and AI during the exam
+
+Internet access and AI use are not allowed during the exam. Practise completing the essential tasks independently and explaining your choices, using paper references.
 
 ## What the exam is not
 
@@ -128,12 +148,12 @@ During the weeks of October 5 and 12, revise modules 1 to 4 and continue explori
 
 1.  First, consolidate R objects, conditions, missing values, Quarto, numerical summaries, dplyr and ggplot2 using modules 1 and 2.
 2.  Then revisit strings, categories, factor order, import types, duplicate rows, missing values and long/wide reshaping using modules 3 and 4.
-3.  Complete an adventure or a set of exercises from a blank Quarto document without AI. Restart R and render the complete document.
+3.  Download the practice files first, then complete an adventure or exercises from a blank Quarto document without Internet or AI, using paper references. Restart R and render the complete document.
 4.  Explain every graph and cleaning decision in your own words. Revisit any step you cannot reproduce independently.
 
 [Module 1R and Quarto](module_01/index.llms.md) [Module 2Data summaries and graphics](module_02/index.llms.md) [Module 3Strings and categories](module_03/index.llms.md) [Module 4Import and cleaning](module_04/index.llms.md)
 
-The best preparation is to redo challenges, reread the adventures and build a personal cheat sheet with your most useful examples.
+The best preparation is to redo challenges, reread the adventures and build a personal paper reference sheet with your most useful examples.
 
 1.  Redo the relevant module challenges without looking immediately at the solution.
 2.  Reread learning plans to find the key functions.
@@ -141,13 +161,13 @@ The best preparation is to redo challenges, reread the adventures and build a pe
 4.  Practise rendering a complete Quarto document.
 5.  Check your graphs: titles, axes, legends, units and interpretation.
 
-### Personal resources
+### Paper references
 
-Useful notes, challenges, adventures, solutions and code excerpts help you search quickly.
+Organize your printed notes and examples to find functions and their uses quickly.
 
-### Without relying on the web
+### Digital resources
 
-Preparation should make you able to work with local resources and your understanding.
+During the exam, use only the material made available by the instructor on the exam account.
 
 ### Goal
 
@@ -177,7 +197,7 @@ One precise sentence that answers the question is better than a vague paragraph.
 
 ## Final check
 
-Before submitting, run a short and systematic check. It prevents most avoidable point losses.
+Before leaving, save your latest changes on the exam account and check the final rendered document. Files are collected automatically; you do not need to upload anything to Brio or GitHub.
 
 1.  The Quarto document renders without error.
 2.  The data used are imported by the document code.

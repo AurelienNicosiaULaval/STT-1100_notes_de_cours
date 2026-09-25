@@ -46,7 +46,7 @@ Préparer les données, structurer les scripts et garder une trace claire des ch
 
 ### Présentation
 
-Présenter les résultats en 15 minutes avec `presentation.qmd`.
+Présenter les résultats en 7 minutes maximum avec `presentation.qmd`, puis prévoir 1 minute de transition. Chaque membre doit parler.
 
 4
 

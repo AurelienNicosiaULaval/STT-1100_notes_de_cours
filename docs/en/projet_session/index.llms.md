@@ -46,7 +46,7 @@ Prepare data, structure scripts and keep a clear trace of decisions in GitHub.
 
 ### Presentation
 
-Present results in 15 minutes with `presentation.qmd`.
+Present results in at most 7 minutes with `presentation.qmd`, followed by a 1-minute transition. Every member must speak.
 
 4
 

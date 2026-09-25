@@ -4,7 +4,7 @@
 
 L'examen reprend l'esprit des aventures: une situation concrète, un jeu de données, un document Quarto à compléter et des décisions à justifier. Il évalue l'autonomie sur les gestes essentiels des modules 1 à 4.
 
-[Préparation](#exam-prep-title) [Pendant l'examen](#exam-day-title) [Anciens examens](#old-exams-title) [Évaluations](evaluations.llms.md)
+[Préparation](#exam-prep-title) [Modalités](#exam-conditions-title) [Pendant l'examen](#exam-day-title) [Anciens examens](#old-exams-title) [Évaluations](evaluations.llms.md)
 
 01
 
@@ -24,7 +24,7 @@ Importation et nettoyage
 
 ## Format général
 
-L'examen est appliqué. Le but n'est pas de réciter des fonctions, mais de choisir les bons outils pour produire un petit rapport fiable. L’examen individuel vaut 25 % et se déroule le 19 octobre 2026, de 8 h 30 à 11 h 20, au local PLT-2325. Le matériel autorisé, l’accès à Internet et les consignes de remise restent à préciser dans Brio.
+L'examen est appliqué. Le but n'est pas de réciter des fonctions, mais de choisir les bons outils pour produire un petit rapport fiable. L’examen individuel vaut 25 % et se déroule le 19 octobre 2026, de 8 h 30 à 11 h 20, au local PLT-2325. Il se déroule sur un compte examen, sans Internet ni IA. Les fichiers seront récupérés automatiquement; aucun dépôt manuel n’est demandé.
 
 ### Contexte narratif
 
@@ -42,9 +42,29 @@ Les réponses, le code, les graphiques et les interprétations sont intégrés d
 
 Les résultats doivent être expliqués brièvement, avec prudence et dans le vocabulaire du contexte.
 
-## IA pendant l’examen
+## Comptes examens et matériel autorisé
 
-L’IA est interdite pendant l’examen, conformément à la fiche Brio. Pour vous préparer, entraînez-vous à réaliser les tâches essentielles de façon autonome et à expliquer vos choix. Les notes et ressources utilisées pour réviser ne sont pas automatiquement autorisées pendant l’examen : consultez les consignes finales dans Brio.
+Vous travaillerez sur un compte examen. Les documents personnels autorisés sont sur papier uniquement; le matériel numérique disponible est celui que l’enseignant met à disposition sur ces comptes.
+
+### Compte examen
+
+Réalisez et enregistrez votre travail dans le compte examen utilisé pendant la séance.
+
+### Documents papier
+
+Apportez vos références papier. Ne comptez pas sur vos fichiers numériques personnels.
+
+### Matériel fourni
+
+L’enseignant mettra du matériel à disposition directement sur les comptes examens.
+
+### Récupération automatique
+
+Aucun dépôt manuel dans Brio ou sur GitHub. Enregistrez régulièrement votre travail; les fichiers seront récupérés automatiquement.
+
+## Internet et IA pendant l’examen
+
+L’accès à Internet et l’utilisation de l’IA sont interdits pendant l’examen. Entraînez-vous à réaliser les tâches essentielles de façon autonome et à expliquer vos choix, avec vos références papier.
 
 ## Ce que l'examen n'est pas
 
@@ -128,12 +148,12 @@ Pendant les semaines du 5 et du 12 octobre, révisez les modules 1 à 4 et pours
 
 1.  D’abord, consolidez les objets R, les conditions, les valeurs manquantes, Quarto, les résumés numériques, dplyr et ggplot2 avec les modules 1 et 2.
 2.  Reprenez ensuite les chaînes, les catégories, l’ordre des facteurs, les types à l’importation, les doublons, les valeurs manquantes et les formats long et large avec les modules 3 et 4.
-3.  Refaites une aventure ou un ensemble d’exercices dans un document Quarto vide, sans IA. Redémarrez R et rendez le document complet.
+3.  Téléchargez d’abord les fichiers d’entraînement, puis refaites une aventure ou des exercices dans un document Quarto vide, sans Internet ni IA et avec vos références papier. Redémarrez R et rendez le document complet.
 4.  Expliquez chaque graphique et chaque décision de nettoyage avec vos mots. Reprenez les étapes que vous ne pouvez pas reproduire de façon autonome.
 
 [Module 1R et Quarto](module_01/index.llms.md) [Module 2Résumés et graphiques](module_02/index.llms.md) [Module 3Chaînes et catégories](module_03/index.llms.md) [Module 4Importation et nettoyage](module_04/index.llms.md)
 
-La meilleure préparation consiste à refaire les défis, à relire les aventures et à construire un aide-mémoire personnel avec vos exemples les plus utiles.
+La meilleure préparation consiste à refaire les défis, à relire les aventures et à construire un aide-mémoire personnel sur papier avec vos exemples les plus utiles.
 
 1.  Refaire les défis des modules visés sans regarder immédiatement la solution.
 2.  Relire les plans d'apprentissage pour retrouver les fonctions clés.
@@ -141,13 +161,13 @@ La meilleure préparation consiste à refaire les défis, à relire les aventure
 4.  Pratiquer le rendu d'un document Quarto complet.
 5.  Vérifier vos graphiques: titres, axes, légendes, unités et interprétation.
 
-### Ressources personnelles
+### Références papier
 
-Les notes, défis, aventures, corrigés et extraits de code utiles servent à chercher rapidement.
+Organisez vos notes et exemples imprimés pour retrouver rapidement les fonctions et leurs usages.
 
-### Sans dépendre du web
+### Ressources numériques
 
-La préparation doit vous rendre capable de travailler avec vos ressources locales et votre compréhension.
+Pendant l’examen, utilisez uniquement le matériel mis à disposition par l’enseignant sur le compte examen.
 
 ### Objectif
 
@@ -177,7 +197,7 @@ Une phrase précise qui répond à la question vaut mieux qu'un paragraphe vague
 
 ## Dernière vérification
 
-Avant de remettre, faites une vérification courte et systématique. Elle évite la majorité des pertes de points évitables.
+Avant de quitter, enregistrez vos dernières modifications sur le compte examen et vérifiez le rendu final. La récupération des fichiers est automatique; vous n’avez aucun fichier à déposer dans Brio ou sur GitHub.
 
 1.  Le document Quarto se rend sans erreur.
 2.  Les données utilisées sont importées par le code du document.
