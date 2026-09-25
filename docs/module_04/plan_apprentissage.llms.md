@@ -68,7 +68,7 @@ Le but n’est pas de corriger tout ce qui est discutable. Le but est de montrer
 
 [Exercices du module 4](../module_04/exercices.llms.md)
 
-Les exercices sont indépendants de l’aventure et du défi. Ils utilisent d’autres petits jeux de données fictifs pour consolider les compétences techniques:
+Les exercices sont indépendants de l’aventure et du défi. Ils utilisent d’autres jeux de données, fictifs ou publics, pour consolider les compétences techniques:
 
 1.  importer des fichiers CSV, Excel et JSON;
 2.  nettoyer des types, des noms et des valeurs manquantes;
@@ -76,4 +76,4 @@ Les exercices sont indépendants de l’aventure et du défi. Ils utilisent d’
 4.  manipuler des listes et des fichiers JSON;
 5.  documenter des décisions de nettoyage dans une liste.
 
-La série se termine par deux études de cas autonomes: des demandes de bourses fictives et des équipements municipaux fictifs.
+La série se termine par deux études de cas autonomes: l’aide financière de dernier recours au Québec et les installations sportives et récréatives de Sherbrooke, à partir de données publiques agrégées ou municipales.

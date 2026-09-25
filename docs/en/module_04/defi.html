@@ -5909,11 +5909,14 @@ margin-bottom: .05rem;
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dataset_pratique.csv&quot;</span>,</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;Windows-1252&quot;</span>, <span class="at">decimal_mark =</span> <span class="st">&quot;.&quot;</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">ID_Variable =</span> <span class="fu">col_character</span>(), <span class="at">.default =</span> <span class="fu">col_guess</span>()),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After import, check that you have 23 columns. If you get only one column, the import is incorrect.</p>
+<p>The file has 101,768 rows. Windows-1252 preserves accents; numeric values use a decimal dot. Keep <code>dataset_pratique.csv</code> unchanged. Work in <code>defi_04.qmd</code> in your personal <code>aventure-4-&lt;your-GitHub-login&gt;</code> repository in <a href="https://github.com/STT-1100-A26">STT-1100-A26</a>, starting from the <a href="https://github.com/STT-1100-A26/aventure-4">template repository</a>. Brio gives the official submission dates and arrangements.</p>
 </section>
 <section id="deliverables" class="level2">
 <h2 class="anchored" data-anchor-id="deliverables">Deliverables</h2>
@@ -5927,7 +5930,7 @@ margin-bottom: .05rem;
 </section>
 <section id="minimal-log-structure" class="level2">
 <h2 class="anchored" data-anchor-id="minimal-log-structure">Minimal Log Structure</h2>
-<p>Your <code>journal_nettoyage</code> object must be a named list. Each entry must contain at least the fields <code>id</code>, <code>variables</code>, <code>probleme</code>, <code>action</code> and <code>justification</code>.</p>
+<p>Your <code>journal_nettoyage</code> object must be a named list. Each category contains a list of entries. Each entry must contain at least the fields <code>id</code>, <code>variables</code>, <code>probleme</code>, <code>action</code> and <code>justification</code>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">VM =</span> <span class="fu">list</span>(),</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">DF =</span> <span class="fu">list</span>(),</span>
@@ -5942,10 +5945,10 @@ margin-bottom: .05rem;
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">TR =</span> <span class="fu">list</span>(),</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">EC =</span> <span class="fu">list</span>()</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Example entry:</p>
+<p>Add an entry only after performing its corresponding correction. Use the <code>id_variable</code> values, kept as text, to identify affected rows:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>journal_nettoyage<span class="sc">$</span>RC <span class="ot">&lt;-</span> <span class="fu">append</span>(journal_nettoyage<span class="sc">$</span>RC, <span class="fu">list</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="dv">40064548</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;40064548&quot;</span>,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="st">&quot;vehicle_type&quot;</span>,</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">probleme =</span> <span class="st">&quot;Aberrant level in a vehicle-type variable&quot;</span>,</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="st">&quot;Replace &#39;ANIMAL&#39; with NA&quot;</span>,</span>
@@ -5966,6 +5969,7 @@ margin-bottom: .05rem;
 <li>a saved <code>journal_nettoyage</code>.</li>
 </ol>
 <p>Corrections must be cautious. If an anomaly is real but no obvious correction is defensible, record it in your log or in your text and explain why you do not correct it.</p>
+<p>A check can conclude that no change is needed. The five log entries may therefore include justified flags without correction. The three corrections must be distinct decisions actually applied; initializing the log does not count.</p>
 </section>
 <section id="suggested-checks" class="level2">
 <h2 class="anchored" data-anchor-id="suggested-checks">Suggested Checks</h2>
@@ -5982,7 +5986,7 @@ margin-bottom: .05rem;
 </section>
 <section id="saving-results" class="level2">
 <h2 class="anchored" data-anchor-id="saving-results">Saving Results</h2>
-<p>At the end of your document, save both submission objects.</p>
+<p>At the end of your document, save both submission objects. <code>donnees_propres</code> must refer to your corrected data. If you applied corrections to <code>base</code> as in the adventure, first create <code>donnees_propres &lt;- base</code>; if you worked directly on <code>donnees_propres</code>, keep that object.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(donnees_propres, <span class="st">&quot;donnees_propres.csv&quot;</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(journal_nettoyage, <span class="at">file =</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>

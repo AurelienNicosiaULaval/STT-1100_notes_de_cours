@@ -5863,7 +5863,7 @@ margin-bottom: .05rem;
   </ul>
 </li>
   <li>
-<a href="#cleaning-recipe-deep-dive" id="toc-cleaning-recipe-deep-dive" class="nav-link" data-scroll-target="#cleaning-recipe-deep-dive">Cleaning recipe — Deep dive</a>
+<a href="#cleaning-recipe-deep-dive" id="toc-cleaning-recipe-deep-dive" class="nav-link" data-scroll-target="#cleaning-recipe-deep-dive">Cleaning recipe - Deep dive</a>
   <ul class="collapse">
 <li><a href="#step-1-descriptive-statistics-on-numerical-variables" id="toc-step-1-descriptive-statistics-on-numerical-variables" class="nav-link" data-scroll-target="#step-1-descriptive-statistics-on-numerical-variables">Step 1 – Descriptive statistics on numerical variables</a></li>
   <li><a href="#step-2-inconsistent-combinations-of-two-factors" id="toc-step-2-inconsistent-combinations-of-two-factors" class="nav-link" data-scroll-target="#step-2-inconsistent-combinations-of-two-factors">Step 2 – Inconsistent combinations of two factors</a></li>
@@ -6012,7 +6012,8 @@ Character card
 <td>Inter-variable inconsistencies</td>
 <td>Inconsistent data between two columns</td>
 <td>
-<code>province = &quot;Quebec&quot;</code> but <code>postal_code</code> starts with “H”</td>
+<code>age = 20</code> but <code>years_licensed = 30</code>
+</td>
 </tr>
 <tr class="even">
 <td>RU</td>
@@ -6034,28 +6035,13 @@ Character card
 </tr>
 </tbody>
 </table>
+<p>The table gives generic examples: not all of these variables or errors occur in the supplied file.</p>
 <p>This typology makes it possible to rigorously structure the detection and documentation of errors in the R cleaning log (list <code>journal_nettoyage</code>).</p>
 <p>In your script, you will construct the <code>journal_nettoyage</code> list structured by category:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_nettoyage</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>  VM <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>      id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">27</span><span class="op">)</span>,</span>
-<span>      variables <span class="op">=</span> <span class="st">&quot;age&quot;</span>,</span>
-<span>      probleme <span class="op">=</span> <span class="st">&quot;Missing values&quot;</span>,</span>
-<span>      action <span class="op">=</span> <span class="st">&quot;Replaced by median&quot;</span>,</span>
-<span>      justification <span class="op">=</span> <span class="st">&quot;To maintain consistency&quot;</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  DF <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>      id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">45</span>, <span class="fl">46</span><span class="op">)</span>,</span>
-<span>      variables <span class="op">=</span> <span class="st">&quot;client_id&quot;</span>,</span>
-<span>      probleme <span class="op">=</span> <span class="st">&quot;Complete duplicates&quot;</span>,</span>
-<span>      action <span class="op">=</span> <span class="st">&quot;Delete&quot;</span>,</span>
-<span>      justification <span class="op">=</span> <span class="st">&quot;Useless for analysis&quot;</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
+<span>  VM <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  DF <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  IF <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  VA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  FT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -6070,42 +6056,10 @@ Character card
 <span><span class="va">journal_nettoyage</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$VM
-$VM[[1]]
-$VM[[1]]$id
-[1] 12 27
-
-$VM[[1]]$variables
-[1] &quot;age&quot;
-
-$VM[[1]]$probleme
-[1] &quot;Missing values&quot;
-
-$VM[[1]]$action
-[1] &quot;Replaced by median&quot;
-
-$VM[[1]]$justification
-[1] &quot;To maintain consistency&quot;
-
-
+list()
 
 $DF
-$DF[[1]]
-$DF[[1]]$id
-[1] 45 46
-
-$DF[[1]]$variables
-[1] &quot;client_id&quot;
-
-$DF[[1]]$probleme
-[1] &quot;Complete duplicates&quot;
-
-$DF[[1]]$action
-[1] &quot;Delete&quot;
-
-$DF[[1]]$justification
-[1] &quot;Useless for analysis&quot;
-
-
+list()
 
 $IF
 list()
@@ -6140,7 +6094,7 @@ list()</code></pre>
 </div>
 <p>Each category (<code>VM</code>, <code>DF</code>, etc.) contains a <strong>list of fixes</strong>, where each fix is a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> with:</p>
 <ul>
-<li><p><code>id</code>: affected line(s) or position(s)</p></li>
+<li><p><code>id</code>: affected <code>id_variable</code> value(s), kept as text; avoid row positions, which change after sorting or filtering</p></li>
 <li><p><code>variables</code>: the variables concerned</p></li>
 <li><p><code>probleme</code>: nature of the problem</p></li>
 <li><p><code>action</code>: action performed</p></li>
@@ -6164,6 +6118,7 @@ list()</code></pre>
 </li>
 </ul>
 <p>Good luck, and may your data be clean!</p>
+<p>Work in your personal <code>aventure-4-&lt;your-GitHub-login&gt;</code> repository in <a href="https://github.com/STT-1100-A26">STT-1100-A26</a>. The <a href="https://github.com/STT-1100-A26/aventure-4">template repository</a> is the starting point. If your personal repository is not visible yet, contact the teaching team. Open <code>aventure-4.Rproj</code>, then complete <code>defi_04.qmd</code> as you work through the adventure. The challenge continues this same work.</p>
 </section><section id="data-import" class="level2"><h2 class="anchored" data-anchor-id="data-import">Data import</h2>
 <p>Before cleaning a dataset, you need to know how to import it correctly. For this mission, Alex has sent you the <code>dataset_pratique.csv</code> file. This file is separated by semicolons. He recommends that you:</p>
 <ul>
@@ -6182,6 +6137,8 @@ list()</code></pre>
 <span><span class="va">base</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span></span>
 <span>  <span class="st">&quot;dataset_pratique.csv&quot;</span>,</span>
 <span>  delim <span class="op">=</span> <span class="st">&quot;;&quot;</span>,</span>
+<span>  locale <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/locale.html">locale</a></span><span class="op">(</span>encoding <span class="op">=</span> <span class="st">&quot;Windows-1252&quot;</span>, decimal_mark <span class="op">=</span> <span class="st">&quot;.&quot;</span><span class="op">)</span>,</span>
+<span>  col_types <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span>ID_Variable <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_character</a></span><span class="op">(</span><span class="op">)</span>, .default <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/parse_guess.html">col_guess</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  trim_ws <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  show_col_types <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
@@ -6193,6 +6150,7 @@ list()</code></pre>
 <span><span class="co"># Data overview</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The file contains 101,768 rows and 23 columns. Its encoding is compatible with Windows-1252: specifying it at import preserves accented text such as “Montréal”. The decimal mark is a dot. The type of <code>ID_Variable</code> is set during import to preserve identifiers. Keep the raw file unchanged.</p>
 <blockquote class="blockquote">
 <p>If you use <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> here, the whole file will be read as one column. A good reflex is to check <code>ncol(base)</code> immediately after import.</p>
 </blockquote>
@@ -6253,7 +6211,8 @@ as.factor(base$column)</code></pre>
 <p>And to identify them:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can then remove them:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op">&lt;-</span> <span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ids_doublons</span> <span class="op">&lt;-</span> <span class="va">base</span><span class="op">$</span><span class="va">id_variable</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">base</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">base</span> <span class="op">&lt;-</span> <span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you want to spot duplicates on one or more key columns (e.g. <code>id_variable</code>), use:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">id_variable</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -6262,15 +6221,17 @@ as.factor(base$column)</code></pre>
 <p><strong>Alex</strong>: “Two customers with the same number is fishy. Look what’s happening. Blindly deleting is not always the right solution. Note carefully what you do in the <code>journal_nettoyage</code>!”</p>
 </blockquote>
 <p>And of course, if you intervene, don’t forget to indicate it in the <code>DF</code> section of your <code>journal_nettoyage</code>. If you find no duplicates, you can simply state in your text that the check was performed and that no deletion was needed.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">DF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">DF</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>    id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">101</span>, <span class="fl">102</span><span class="op">)</span>,</span>
-<span>    variables <span class="op">=</span> <span class="st">&quot;All columns&quot;</span>,</span>
-<span>    probleme <span class="op">=</span> <span class="st">&quot;Complete duplicates&quot;</span>,</span>
-<span>    action <span class="op">=</span> <span class="st">&quot;Lines deleted&quot;</span>,</span>
-<span>    justification <span class="op">=</span> <span class="st">&quot;Illustrative example: adapt only if duplicates are detected&quot;</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">ids_doublons</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">DF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">DF</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>      id <span class="op">=</span> <span class="va">ids_doublons</span>,</span>
+<span>      variables <span class="op">=</span> <span class="st">&quot;All columns&quot;</span>,</span>
+<span>      probleme <span class="op">=</span> <span class="st">&quot;Confirmed complete duplicates&quot;</span>,</span>
+<span>      action <span class="op">=</span> <span class="st">&quot;Remove additional occurrences&quot;</span>,</span>
+<span>      justification <span class="op">=</span> <span class="st">&quot;Keep one occurrence of each identical row&quot;</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section><section id="cleaning-factors-with-forcats" class="level2"><h2 class="anchored" data-anchor-id="cleaning-factors-with-forcats">Cleaning factors with <code>forcats</code>
 </h2>
 <p>We continue the exploration with a type of variable that is often neglected… but which can derail an entire analysis: <strong>factors</strong>.</p>
@@ -6318,7 +6279,16 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <p><strong>Alex</strong>: “Be careful of these strange values. If a value makes no sense in context (e.g. <code>&quot;ANIMAL&quot;</code> in a column about vehicle types), don’t guess. Set it to <code>NA</code>. We prefer missing data to bad information.”</p>
 </blockquote>
 </section><section id="example-to-adapt" class="level3"><h3 class="anchored" data-anchor-id="example-to-adapt">Example to adapt</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Harmonize lowercase/uppercase</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lignes_animal</span> <span class="op">&lt;-</span> <span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">vehicle_type</span><span class="op">)</span> <span class="op">==</span> <span class="st">&quot;ANIMAL&quot;</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id_variable</span>, <span class="va">vehicle_type</span>, <span class="va">vehicle_make</span>, <span class="va">vehicle_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ids_casse</span> <span class="op">&lt;-</span> <span class="va">base</span><span class="op">$</span><span class="va">id_variable</span><span class="op">[</span></span>
+<span>  <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">vehicle_type</span><span class="op">)</span> <span class="op">&amp;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">vehicle_type</span><span class="op">)</span> <span class="op">!=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/case.html">str_to_title</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">vehicle_type</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Harmonize lowercase/uppercase</span></span>
 <span><span class="va">base</span> <span class="op">&lt;-</span> <span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>    vehicle_type <span class="op">=</span> <span class="va">vehicle_type</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -6326,30 +6296,36 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/na_if.html">na_if</a></span><span class="op">(</span><span class="st">&quot;Animal&quot;</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   <span class="co"># aberrant level in this context</span></span>
 <span>      <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can identify the affected row before correcting it:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">vehicle_type</span> <span class="op">==</span> <span class="st">&quot;ANIMAL&quot;</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id_variable</span>, <span class="va">vehicle_type</span>, <span class="va">vehicle_make</span>, <span class="va">vehicle_model</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The affected rows were saved before correction. You can inspect them:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lignes_animal</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Don’t forget to document these modifications in your <code>journal_nettoyage</code> list! For example, for the <code>vehicle_type</code> variable above, you could add:</p>
-<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">RC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">RC</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>    id <span class="op">=</span> <span class="fl">40064548</span>,</span>
+<span>    id <span class="op">=</span> <span class="va">lignes_animal</span><span class="op">$</span><span class="va">id_variable</span>,</span>
 <span>    variables <span class="op">=</span> <span class="st">&quot;vehicle_type&quot;</span>,</span>
 <span>    probleme <span class="op">=</span> <span class="st">&quot;Aberrant level in a vehicle-type variable&quot;</span>,</span>
-<span>    action <span class="op">=</span> <span class="st">&quot;Replace &#39;ANIMAL&#39; with NA after case harmonization&quot;</span>,</span>
+<span>    action <span class="op">=</span> <span class="st">&quot;Replace &#39;ANIMAL&#39; with NA&quot;</span>,</span>
 <span>    justification <span class="op">=</span> <span class="st">&quot;The value does not describe a usable vehicle type&quot;</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>Also document the case standardization, which affects every changed row, not just <code>ANIMAL</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">IF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">journal_nettoyage</span><span class="op">$</span><span class="va">IF</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    id <span class="op">=</span> <span class="va">ids_casse</span>,</span>
+<span>    variables <span class="op">=</span> <span class="st">&quot;vehicle_type&quot;</span>,</span>
+<span>    probleme <span class="op">=</span> <span class="st">&quot;Label presentation to standardize&quot;</span>,</span>
+<span>    action <span class="op">=</span> <span class="st">&quot;Standardize case with str_to_title()&quot;</span>,</span>
+<span>    justification <span class="op">=</span> <span class="st">&quot;Presentation convention that preserves the meaning of valid categories&quot;</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><em>These are just examples. It’s up to you to explore the dataset and choose what is consistent.</em></p>
-</section></section><section id="cleaning-recipe-deep-dive" class="level2"><h2 class="anchored" data-anchor-id="cleaning-recipe-deep-dive">Cleaning recipe — Deep dive</h2>
+</section></section><section id="cleaning-recipe-deep-dive" class="level2"><h2 class="anchored" data-anchor-id="cleaning-recipe-deep-dive">Cleaning recipe - Deep dive</h2>
 <p>Well done! You’ve already fixed the variable types and cleaned up the most visible factors. Now, we push the cleaning further, by crossing <strong>statistics</strong>, <strong>logical relationships</strong> and <strong>aberrant behaviors</strong>. Here is your <strong>advanced cleaning recipe</strong>.</p>
 <section id="step-1-descriptive-statistics-on-numerical-variables" class="level3"><h3 class="anchored" data-anchor-id="step-1-descriptive-statistics-on-numerical-variables">Step 1 – Descriptive statistics on numerical variables</h3>
 <p>Just as we checked the factor levels, we must check if certain <strong>numerical values are aberrant</strong>.</p>
 <p>Take each numeric variable and summarize it with <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> or a boxplot to identify extremes.</p>
 <p><strong>Example: <code>commute_distance</code></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">commute_distance</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">commute_distance</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">base</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">commute_distance</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">50</span>, fill <span class="op">=</span> <span class="st">&quot;blue&quot;</span>, alpha <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">&quot;Distribution of commuting distance&quot;</span>,</span>
@@ -6357,20 +6333,20 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <p>Ask yourself: is a commuting distance of 150 km plausible or simply rare? Are some values missing or negative?</p>
 <p>If you intervene, don’t forget to <strong>justify in <code>journal_nettoyage</code></strong>, using the code <code>VA</code> (outliers) or <code>VM</code> (missing values).</p>
 </section><section id="step-2-inconsistent-combinations-of-two-factors" class="level3"><h3 class="anchored" data-anchor-id="step-2-inconsistent-combinations-of-two-factors">Step 2 – Inconsistent combinations of two factors</h3>
-<p><strong>Logical relationships</strong> can exist between two categorical variables. For example, quarter (<code>quarter</code>) and season (<code>season</code>) should be consistent.</p>
+<p><strong>Logical relationships</strong> can exist between two categorical variables. Compare quarter (<code>quarter</code>) and season (<code>season</code>), but do not expect a one-to-one match: a quarter can overlap two seasons. Check the date and convention before calling a combination an error.</p>
 <p><strong>Example: <code>quarter</code> and <code>season</code></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">quarter</span>, <span class="va">base</span><span class="op">$</span><span class="va">season</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">base</span><span class="op">$</span><span class="va">quarter</span>, <span class="va">base</span><span class="op">$</span><span class="va">season</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
 <p><strong>Alex</strong>: “If you see <code>quarter = &quot;Q2&quot;</code> with <code>season = &quot;Winter&quot;</code>, you should pause… This kind of inconsistency is worth noting, even if you don’t know what to correct.”</p>
 </blockquote>
 <p>You can also visualize with a crossbar chart:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">base</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">quarter</span>, fill <span class="op">=</span> <span class="va">season</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">base</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">quarter</span>, fill <span class="op">=</span> <span class="va">season</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">&quot;fill&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you correct, use the code <code>CI</code> (inter-variable inconsistencies).</p>
 </section><section id="step-3-grouped-statistics-factor-numeric" class="level3"><h3 class="anchored" data-anchor-id="step-3-grouped-statistics-factor-numeric">Step 3 – Grouped Statistics: Factor + Numeric</h3>
 <p>Another check: are some <strong>numeric values inconsistent for certain groups</strong>?</p>
 <p><strong>Example: <code>age</code> according to <code>generation</code></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">generation</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>            max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
@@ -6386,7 +6362,7 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 </section><section id="step-4-logical-links-between-two-numeric-variables" class="level3"><h3 class="anchored" data-anchor-id="step-4-logical-links-between-two-numeric-variables">Step 4 – Logical links between two numeric variables</h3>
 <p>Here, we verify that the numerical relationships <strong>make sense</strong>.</p>
 <p><strong>Example: <code>age</code> vs <code>years_licensed</code></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">base</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, y <span class="op">=</span> <span class="va">years_licensed</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">base</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, y <span class="op">=</span> <span class="va">years_licensed</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Are there points above a line where <code>years_licensed = age</code>?</li>
@@ -6405,14 +6381,13 @@ When looking at the levels of a factor, we often notice <strong>disguised duplic
 <strong>Implausible vehicle years</strong>: a value such as <code>14</code> in <code>vehicle_year</code> does not have the same meaning as <code>2014</code>.</li>
 <li>
 <strong>Redundant variables</strong>: two columns that say the same thing.</li>
-<li>
-<strong>Useless columns</strong>: internal identifiers, empty columns or with only one category (<code>EC</code> or <code>RU</code>)</li>
+<li>Potentially unnecessary columns: empty or constant columns (<code>RU</code>). Keep identifiers needed for traceability.</li>
 <li>
 <strong>Text format issues</strong>: accents, special characters (<code><a href="https://stringr.tidyverse.org/reference/str_detect.html">stringr::str_detect</a></code>)</li>
 <li>
 <strong>Hastily merged columns</strong>: strings like <code>&quot;Smith, John&quot;</code> in one cell instead of two (<code>TR</code>)</li>
 <li>
-<strong>Mixed date format</strong>: we have left this aside since the beginning of this course, but know that it is coming, we will have a special module on dates.</li>
+<strong>Mixed date format</strong>: this check is optional here; do not force a conversion before identifying the format.</li>
 </ul>
 <p><em>Throughout your cleaning, document your decisions in the <code>journal_nettoyage</code> list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.</em></p>
 <!-- completed-work:start -->
@@ -6455,8 +6430,10 @@ You have now acquired a solid methodology for cleaning data in a rigorous and pr
 </li>
 <li>The cleaned dataset in <code>.csv</code> format</li>
 </ol>
-<p>To save your list in a <code>.Rdata</code> file, simply use this code at the end of your script:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">journal_nettoyage</span>, file <span class="op">=</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The adventure examples apply corrections to <code>base</code>. At the end, name the result <code>donnees_propres</code> and save both deliverables. If you worked directly on <code>donnees_propres</code>, do not overwrite it with an older version of <code>base</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">donnees_propres</span> <span class="op">&lt;-</span> <span class="va">base</span></span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">donnees_propres</span>, <span class="st">&quot;donnees_propres.csv&quot;</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">journal_nettoyage</span>, file <span class="op">=</span> <span class="st">&quot;journal_nettoyage.Rdata&quot;</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
 <p><strong>Alex</strong>: “You have just done what few people do well: clean data carefully while keeping track of your decisions. That is what distinguishes rigorous work from improvised work. Well done!”</p>
 </blockquote>

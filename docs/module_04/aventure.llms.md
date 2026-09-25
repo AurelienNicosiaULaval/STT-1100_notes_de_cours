@@ -55,10 +55,12 @@ Voici un tableau de référence pour les types d’erreurs que vous pouvez renco
 | RC | Recodage ou regroupement | Catégories similaires à fusionner | “sans emploi”, “inactif”, “au chômage” |
 | TY | Types mal définis | Mauvais type de variable pour les données | `revenu_annuel` enregistré comme texte |
 | LG | Erreurs logiques | Relations temporelles ou conditionnelles incorrectes | Client né en 2022 mais contrat signé en 2020 |
-| CI | Incohérences inter-variables | Données incohérentes entre deux colonnes | `province = "Québec"` mais `code_postal` commence par “H” |
+| CI | Incohérences inter-variables | Données incohérentes entre deux colonnes | `age = 20` mais `years_licensed = 30` |
 | RU | Données redondantes ou inutiles | Colonnes dupliquées ou peu pertinentes | Deux colonnes contenant la même information |
 | TR | Troncations ou mauvaise fusion | Chaînes de texte tronquées ou mal fusionnées | Noms de famille coupés comme “Du” |
 | EC | Problèmes d’encodage | Caractères spéciaux mal encodés | “Ã©” au lieu de “é” |
+
+Les exemples du tableau sont génériques : toutes ces variables et toutes ces erreurs ne sont pas présentes dans le fichier fourni.
 
 Cette typologie permet de structurer rigoureusement la détection et la documentation des erreurs dans le journal de nettoyage R (liste `journal_nettoyage`).
 
@@ -66,24 +68,8 @@ Dans votre script, vous allez construire la liste `journal_nettoyage` structuré
 
 ``` downlit
 journal_nettoyage <- list(
-  VM = list(
-    list(
-      id = c(12, 27),
-      variables = "age",
-      probleme = "Valeurs manquantes",
-      action = "Remplacé par la médiane",
-      justification = "Pour garder la cohérence"
-    )
-  ),
-  DF = list(
-    list(
-      id = c(45, 46),
-      variables = "id_client",
-      probleme = "Doublons complets",
-      action = "Suppression",
-      justification = "Inutiles pour l’analyse"
-    )
-  ),
+  VM = list(),
+  DF = list(),
   IF = list(),
   VA = list(),
   FT = list(),
@@ -99,42 +85,10 @@ journal_nettoyage
 ```
 
     $VM
-    $VM[[1]]
-    $VM[[1]]$id
-    [1] 12 27
-
-    $VM[[1]]$variables
-    [1] "age"
-
-    $VM[[1]]$probleme
-    [1] "Valeurs manquantes"
-
-    $VM[[1]]$action
-    [1] "Remplacé par la médiane"
-
-    $VM[[1]]$justification
-    [1] "Pour garder la cohérence"
-
-
+    list()
 
     $DF
-    $DF[[1]]
-    $DF[[1]]$id
-    [1] 45 46
-
-    $DF[[1]]$variables
-    [1] "id_client"
-
-    $DF[[1]]$probleme
-    [1] "Doublons complets"
-
-    $DF[[1]]$action
-    [1] "Suppression"
-
-    $DF[[1]]$justification
-    [1] "Inutiles pour l’analyse"
-
-
+    list()
 
     $IF
     list()
@@ -168,7 +122,7 @@ journal_nettoyage
 
 Chaque catégorie (`VM`, `DF`, etc.) contient une **liste de corrections**, où chaque correction est un [`list()`](https://rdrr.io/r/base/list.html) avec :
 
-- `id` : ligne(s) ou position(s) affectée(s)
+- `id` : valeur(s) de `id_variable` concernée(s), conservées comme texte; évitez les positions de lignes, qui changent après un tri ou un filtre
 
 - `variables` : les variables concernées
 
@@ -193,6 +147,8 @@ Comme pour les aventures précédentes :
 
 Bonne chance, et que vos données soient propres !
 
+Travaillez dans votre dépôt personnel `aventure-4-<votre-identifiant-GitHub>` de l’organisation [STT-1100-A26](https://github.com/STT-1100-A26). Le [dépôt modèle](https://github.com/STT-1100-A26/aventure-4) sert de point de départ. Si votre dépôt personnel n’est pas encore visible, signalez-le à l’équipe enseignante. Ouvrez le projet `aventure-4.Rproj`, puis complétez `defi_04.qmd` au fil de l’aventure. Le défi reprend ce même travail.
+
 ## Importation des données
 
 Avant de nettoyer une base de données, il faut savoir l’importer correctement. Pour cette mission, Alex vous a transmis le fichier `dataset_pratique.csv`. Ce fichier est séparé par des points-virgules. Il vous recommande de :
@@ -213,6 +169,8 @@ library(forcats)
 base <- read_delim(
   "dataset_pratique.csv",
   delim = ";",
+  locale = locale(encoding = "Windows-1252", decimal_mark = "."),
+  col_types = cols(ID_Variable = col_character(), .default = col_guess()),
   trim_ws = TRUE,
   show_col_types = FALSE
 )
@@ -225,6 +183,8 @@ base <- base %>%
 head(base)
 glimpse(base)
 ```
+
+Le fichier contient 101 768 lignes et 23 colonnes. Son encodage est compatible avec Windows-1252 : le préciser à l’importation préserve notamment l’accent de « Montréal ». Le séparateur décimal est le point. Le type de `ID_Variable` est fixé dès l’importation pour préserver les identifiants. Conservez le fichier brut intact.
 
 > Si vous utilisez [`read_csv()`](https://readr.tidyverse.org/reference/read_delim.html) ici, tout le fichier sera lu comme une seule colonne. C’est un bon réflexe de vérifier `ncol(base)` juste après l’importation.
 
@@ -306,6 +266,7 @@ base[duplicated(base), ]
 Vous pouvez ensuite les retirer :
 
 ``` downlit
+ids_doublons <- base$id_variable[duplicated(base)]
 base <- base %>% distinct()
 ```
 
@@ -322,15 +283,17 @@ base %>%
 Et bien sûr, si vous intervenez, n’oubliez pas de l’indiquer dans la section `DF` de votre `journal_nettoyage`. Si vous ne trouvez aucun doublon, vous pouvez simplement noter dans votre texte que la vérification a été faite et qu’aucune suppression n’était nécessaire.
 
 ``` downlit
-journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
-  list(
-    id = c(101, 102),
-    variables = "Toutes les colonnes",
-    probleme = "Doublons complets",
-    action = "Lignes supprimées",
-    justification = "Exemple illustratif: à adapter seulement si des doublons sont détectés"
-  )
-))
+if (length(ids_doublons) > 0) {
+  journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
+    list(
+      id = ids_doublons,
+      variables = "Toutes les colonnes",
+      probleme = "Doublons complets confirmés",
+      action = "Suppression des occurrences supplémentaires",
+      justification = "Conserver une occurrence de chaque ligne identique"
+    )
+  ))
+}
 ```
 
 ## Nettoyage des facteurs avec `forcats`
@@ -379,6 +342,15 @@ Prenez le temps de :
 ### Exemple à adapter
 
 ``` downlit
+lignes_animal <- base %>%
+  filter(as.character(vehicle_type) == "ANIMAL") %>%
+  select(id_variable, vehicle_type, vehicle_make, vehicle_model)
+
+ids_casse <- base$id_variable[
+  !is.na(base$vehicle_type) &
+    as.character(base$vehicle_type) != str_to_title(as.character(base$vehicle_type))
+]
+
 # Harmoniser les minuscules/majuscules
 base <- base %>%
   mutate(
@@ -389,12 +361,10 @@ base <- base %>%
   )
 ```
 
-Vous pouvez repérer la ligne concernée avant la correction :
+Les lignes concernées ont été conservées avant la correction. Vous pouvez les consulter :
 
 ``` downlit
-base %>%
-  filter(vehicle_type == "ANIMAL") %>%
-  select(id_variable, vehicle_type, vehicle_make, vehicle_model)
+lignes_animal
 ```
 
 Il ne faudra pas oublier de documenter ces modifications dans votre liste `journal_nettoyage` ! Par exemple, pour la variable `vehicle_type` ci-dessus, vous pourriez ajouter :
@@ -402,18 +372,32 @@ Il ne faudra pas oublier de documenter ces modifications dans votre liste `journ
 ``` downlit
 journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
   list(
-    id = 40064548,
+    id = lignes_animal$id_variable,
     variables = "vehicle_type",
     probleme = "Niveau aberrant dans une variable de type de véhicule",
-    action = "Remplacement de 'ANIMAL' par NA après harmonisation de la casse",
+    action = "Remplacement de 'ANIMAL' par NA",
     justification = "La valeur ne décrit pas un type de véhicule exploitable"
+  )
+))
+```
+
+Documentez aussi l’harmonisation de la casse, qui concerne toutes les lignes modifiées et pas seulement la valeur `ANIMAL` :
+
+``` downlit
+journal_nettoyage$IF <- append(journal_nettoyage$IF, list(
+  list(
+    id = ids_casse,
+    variables = "vehicle_type",
+    probleme = "Présentation des libellés à harmoniser",
+    action = "Harmonisation de la casse avec str_to_title()",
+    justification = "Convention de présentation sans changer le sens des catégories valides"
   )
 ))
 ```
 
 *Ce ne sont que des exemples. À vous d’explorer la base de données et de choisir ce qui est cohérent.*
 
-## Recette de nettoyage — Approfondissement
+## Recette de nettoyage - Approfondissement
 
 Bravo ! Vous avez déjà corrigé les types de variables et nettoyé les facteurs les plus visibles. Maintenant, on pousse le nettoyage plus loin, en croisant **statistiques**, **relations logiques** et **comportements aberrants**. Voici votre **recette de nettoyage avancé**.
 
@@ -439,7 +423,7 @@ Si vous intervenez, n’oubliez pas de **justifier dans `journal_nettoyage`**, e
 
 ### Étape 2 – Combinaisons incohérentes de deux facteurs
 
-Il peut exister des **relations logiques** entre deux variables catégoriques. Par exemple, le trimestre (`quarter`) et la saison (`season`) devraient être cohérents.
+Il peut exister des **relations logiques** entre deux variables catégoriques. Le trimestre (`quarter`) et la saison (`season`) peuvent être comparés, mais ils ne se correspondent pas un à un : un trimestre peut chevaucher deux saisons. Vérifiez la date et la convention utilisée avant de conclure à une erreur.
 
 **Exemple : `quarter` et `season`**
 
@@ -505,10 +489,10 @@ Voici quelques autres choses à garder à l’œil :
 - **Codes postaux incomplets ou trop longs** : la colonne `fsa_code` devrait contenir trois caractères.
 - **Années de véhicule improbables** : une valeur comme `14` dans `vehicle_year` n’a pas le même sens que `2014`.
 - **Variables redondantes** : deux colonnes qui disent la même chose.
-- **Colonnes inutiles** : identifiants internes, colonnes vides ou avec une seule modalité (`EC` ou `RU`)
+- Colonnes potentiellement inutiles : colonnes vides ou avec une seule modalité (`RU`). Conservez les identifiants nécessaires à la traçabilité.
 - **Problèmes de format de texte** : accents, caractères spéciaux ([`stringr::str_detect`](https://stringr.tidyverse.org/reference/str_detect.html))
 - **Colonnes fusionnées à la hâte** : chaînes comme `"Smith, John"` dans une seule cellule au lieu de deux (`TR`)
-- **Format de dates mélangés** : on a laissé cela de côté depuis le début de ce cours, mais sachez que cela s’en vient, nous aurons un module spécial sur les dates.
+- **Format de dates mélangés** : cette vérification est facultative ici; n’imposez pas une conversion sans avoir identifié le format.
 
 *Tout au long de votre nettoyage, documentez vos décisions dans la liste `journal_nettoyage`. Le but n’est pas de tout corriger, mais de montrer que vous avez su repérer les problèmes, réfléchir, et intervenir quand nécessaire.*
 
@@ -536,9 +520,11 @@ Vous avez maintenant acquis une solide méthodologie pour nettoyer des données 
 2.  La liste `journal_nettoyage` enregistrée dans un objet `.Rdata`
 3.  La base de données nettoyée au format `.csv`
 
-Pour sauvegarder votre liste dans un fichier `.Rdata`, utilisez simplement ce code à la fin de votre script :
+Dans les exemples de l’aventure, les corrections sont appliquées à `base`. À la fin, donnez le nom `donnees_propres` au résultat et sauvegardez les deux livrables. Si vous avez travaillé directement sur `donnees_propres`, ne le remplacez pas par une ancienne version de `base`.
 
 ``` downlit
+donnees_propres <- base
+write_csv(donnees_propres, "donnees_propres.csv")
 save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 ```
 

@@ -453,7 +453,7 @@ The file `data/metadonnees_installations_sherbrooke.json` comes from the City of
 
 ### Case study 1 - Last-resort financial assistance in Québec
 
-The file `data/afdr_clientele_prestations_2022_12.csv` contains 43 aggregated rows published by Québec’s Ministère de l’Emploi et de la Solidarité sociale for December 2022. Each row describes a client characteristic or a region. It contains no individual records.
+The file `data/afdr_clientele_prestations_2022_12.csv` contains 43 aggregated rows published by Québec’s Ministère de l’Emploi et de la Solidarité sociale for December 2022. Each row describes a client characteristic or a region. It contains no individual records. Categories provide different breakdowns of the same population: do not add them together. The source category “Région” contains two “10 - Nord-du-Québec” rows and administrative offices. Keep and flag these labels without arbitrarily merging them.
 
 Complete the following tasks:
 
@@ -463,7 +463,7 @@ Complete the following tasks:
 4.  convert `caracteristique` to a factor;
 5.  check that all numbers are non-negative;
 6.  check that `nb_prestataires` equals the sum of adults and children;
-7.  produce a table of regions ranked by total benefits paid;
+7.  produce a table of rows in the “Région” category ranked by total benefits paid, and identify repeated labels;
 8.  document at least two decisions in a cleaning log.
 
 > **NOTE:**
@@ -548,6 +548,17 @@ Complete the following tasks:
 >     # ℹ abbreviated name: ¹​prestation_totale_versee
 >
 > ``` r
+> afdr_regions |>
+>   count(valeur) |>
+>   filter(n > 1)
+> ```
+>
+>     # A tibble: 1 × 2
+>       valeur                  n
+>       <chr>               <int>
+>     1 10 - Nord-du-Québec     2
+>
+> ``` r
 > afdr_log <- list(TY = list(), RC = list(), VA = list())
 >
 > afdr_log$TY <- append(afdr_log$TY, list(
@@ -624,7 +635,7 @@ Complete the following tasks:
 4.  check that the official JSON fields are present in the CSV;
 5.  use the JSON extent to identify out-of-range coordinates;
 6.  create a summary table by facility type;
-7.  flag missing names without inventing them;
+7.  flag missing names without inventing them; compute the illuminated share among recorded values only and keep `NA` when none are available;
 8.  document at least two decisions.
 
 > **NOTE:**
@@ -681,7 +692,8 @@ Complete the following tasks:
 >   summarise(
 >     n_facilities = n(),
 >     n_missing_names = sum(missing_name),
->     illuminated_share = mean(eclairage == "Oui", na.rm = TRUE),
+>     n_lighting_recorded = sum(!is.na(eclairage)),
+>     illuminated_share = if (all(is.na(eclairage))) NA_real_ else mean(eclairage == "Oui", na.rm = TRUE),
 >     .groups = "drop"
 >   ) |>
 >   arrange(desc(n_facilities))
@@ -689,25 +701,25 @@ Complete the following tasks:
 > type_summary
 > ```
 >
->     # A tibble: 24 × 4
->        type                           n_facilities n_missing_names illuminated_share
->        <chr>                                 <int>           <int>             <dbl>
->      1 Jeu modulaire                           238             238           NaN
->      2 Soccer                                  106               0             0.439
->      3 Surface, anneau ou étang glacé           70              70           NaN
->      4 Basketball                               54              54             0.696
->      5 Tennis                                   52              52             1
->      6 Patinoire à bandes mobiles               48              48           NaN
->      7 Baseball                                 36              36             0.556
->      8 Pétanque                                 32              32           NaN
->      9 Jeu de galets                            30              30           NaN
->     10 Volleyball                               26              26             0.333
+>     # A tibble: 24 × 5
+>        type       n_facilities n_missing_names n_lighting_recorded illuminated_share
+>        <chr>             <int>           <int>               <int>             <dbl>
+>      1 Jeu modul…          238             238                   0            NA
+>      2 Soccer              106               0                  82             0.439
+>      3 Surface, …           70              70                   0            NA
+>      4 Basketball           54              54                  46             0.696
+>      5 Tennis               52              52                  50             1
+>      6 Patinoire…           48              48                   0            NA
+>      7 Baseball             36              36                  36             0.556
+>      8 Pétanque             32              32                   0            NA
+>      9 Jeu de ga…           30              30                   0            NA
+>     10 Volleyball           26              26                  18             0.333
 >     # ℹ 14 more rows
 >
 > ``` r
 > facilities_log <- list(VM = list(), FT = list(), RC = list())
 >
-> facilities_log$FT <- append(facilities_log$FT, list(
+> facilities_log$VM <- append(facilities_log$VM, list(
 >   list(
 >     id = facilities$objectid[facilities$missing_name],
 >     variables = "nom",
@@ -731,11 +743,8 @@ Complete the following tasks:
 > ```
 >
 >     $VM
->     list()
->
->     $FT
->     $FT[[1]]
->     $FT[[1]]$id
+>     $VM[[1]]
+>     $VM[[1]]$id
 >       [1]   1   2   5   7   8  13  14  15  16  17  18  19  20  23  24  26  27  28
 >      [19]  29  30  31  33  34  35  39  42  43  44  45  46  47  48  49  50  51  52
 >      [37]  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70
@@ -777,19 +786,22 @@ Complete the following tasks:
 >     [685] 803 804 805 806 807 808 809 810 811 812 813 814 815 816 817 818 819 820
 >     [703] 821 822 823 824 825 826 827 828 829 830 831 832 833 834 835 836 837 838
 >
->     $FT[[1]]$variables
+>     $VM[[1]]$variables
 >     [1] "nom"
 >
->     $FT[[1]]$probleme
+>     $VM[[1]]$probleme
 >     [1] "Name missing from the source"
 >
->     $FT[[1]]$action
+>     $VM[[1]]$action
 >     [1] "Flag without automatic correction"
 >
->     $FT[[1]]$justification
+>     $VM[[1]]$justification
 >     [1] "A name cannot be inferred from the other fields"
 >
 >
+>
+>     $FT
+>     list()
 >
 >     $RC
 >     $RC[[1]]

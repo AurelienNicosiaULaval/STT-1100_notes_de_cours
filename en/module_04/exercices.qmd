@@ -360,7 +360,7 @@ metadata$extent$spatialReference$latestWkid
 
 ### Case study 1 - Last-resort financial assistance in Québec
 
-The file `data/afdr_clientele_prestations_2022_12.csv` contains 43 aggregated rows published by Québec's Ministère de l'Emploi et de la Solidarité sociale for December 2022. Each row describes a client characteristic or a region. It contains no individual records.
+The file `data/afdr_clientele_prestations_2022_12.csv` contains 43 aggregated rows published by Québec's Ministère de l'Emploi et de la Solidarité sociale for December 2022. Each row describes a client characteristic or a region. It contains no individual records. Categories provide different breakdowns of the same population: do not add them together. The source category “Région” contains two “10 - Nord-du-Québec” rows and administrative offices. Keep and flag these labels without arbitrarily merging them.
 
 Complete the following tasks:
 
@@ -370,7 +370,7 @@ Complete the following tasks:
 4. convert `caracteristique` to a factor;
 5. check that all numbers are non-negative;
 6. check that `nb_prestataires` equals the sum of adults and children;
-7. produce a table of regions ranked by total benefits paid;
+7. produce a table of rows in the “Région” category ranked by total benefits paid, and identify repeated labels;
 8. document at least two decisions in a cleaning log.
 
 ::: {.callout-note collapse="true"}
@@ -411,6 +411,10 @@ afdr_regions <- afdr |>
 
 afdr_regions
 
+afdr_regions |>
+  count(valeur) |>
+  filter(n > 1)
+
 afdr_log <- list(TY = list(), RC = list(), VA = list())
 
 afdr_log$TY <- append(afdr_log$TY, list(
@@ -449,7 +453,7 @@ Complete the following tasks:
 4. check that the official JSON fields are present in the CSV;
 5. use the JSON extent to identify out-of-range coordinates;
 6. create a summary table by facility type;
-7. flag missing names without inventing them;
+7. flag missing names without inventing them; compute the illuminated share among recorded values only and keep `NA` when none are available;
 8. document at least two decisions.
 
 ::: {.callout-note collapse="true"}
@@ -496,7 +500,8 @@ type_summary <- facilities |>
   summarise(
     n_facilities = n(),
     n_missing_names = sum(missing_name),
-    illuminated_share = mean(eclairage == "Oui", na.rm = TRUE),
+    n_lighting_recorded = sum(!is.na(eclairage)),
+    illuminated_share = if (all(is.na(eclairage))) NA_real_ else mean(eclairage == "Oui", na.rm = TRUE),
     .groups = "drop"
   ) |>
   arrange(desc(n_facilities))
@@ -505,7 +510,7 @@ type_summary
 
 facilities_log <- list(VM = list(), FT = list(), RC = list())
 
-facilities_log$FT <- append(facilities_log$FT, list(
+facilities_log$VM <- append(facilities_log$VM, list(
   list(
     id = facilities$objectid[facilities$missing_name],
     variables = "nom",

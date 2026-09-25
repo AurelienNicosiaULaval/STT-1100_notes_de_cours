@@ -55,10 +55,12 @@ Here is a reference table for the types of errors you may encounter:
 | RC | Recoding or grouping | Categories similar to merge | “unemployed”, “inactive”, “unemployed” |
 | TY | Ill-defined types | Wrong variable type for data | `annual_income` saved as text |
 | LG | Logical errors | Incorrect temporal or conditional relationships | Customer born in 2022 but contract signed in 2020 |
-| CI | Inter-variable inconsistencies | Inconsistent data between two columns | `province = "Quebec"` but `postal_code` starts with “H” |
+| CI | Inter-variable inconsistencies | Inconsistent data between two columns | `age = 20` but `years_licensed = 30` |
 | RU | Redundant or unnecessary data | Duplicate or irrelevant columns | Two columns containing the same information |
 | TR | Truncations or bad merge | Truncated or incorrectly merged text strings | Surnames hyphenated like “Du” |
 | EC | Encoding issues | Incorrectly encoded special characters | “Ã©” instead of “é” |
+
+The table gives generic examples: not all of these variables or errors occur in the supplied file.
 
 This typology makes it possible to rigorously structure the detection and documentation of errors in the R cleaning log (list `journal_nettoyage`).
 
@@ -66,24 +68,8 @@ In your script, you will construct the `journal_nettoyage` list structured by ca
 
 ``` downlit
 journal_nettoyage <- list(
-  VM = list(
-    list(
-      id = c(12, 27),
-      variables = "age",
-      probleme = "Missing values",
-      action = "Replaced by median",
-      justification = "To maintain consistency"
-    )
-  ),
-  DF = list(
-    list(
-      id = c(45, 46),
-      variables = "client_id",
-      probleme = "Complete duplicates",
-      action = "Delete",
-      justification = "Useless for analysis"
-    )
-  ),
+  VM = list(),
+  DF = list(),
   IF = list(),
   VA = list(),
   FT = list(),
@@ -99,42 +85,10 @@ journal_nettoyage
 ```
 
     $VM
-    $VM[[1]]
-    $VM[[1]]$id
-    [1] 12 27
-
-    $VM[[1]]$variables
-    [1] "age"
-
-    $VM[[1]]$probleme
-    [1] "Missing values"
-
-    $VM[[1]]$action
-    [1] "Replaced by median"
-
-    $VM[[1]]$justification
-    [1] "To maintain consistency"
-
-
+    list()
 
     $DF
-    $DF[[1]]
-    $DF[[1]]$id
-    [1] 45 46
-
-    $DF[[1]]$variables
-    [1] "client_id"
-
-    $DF[[1]]$probleme
-    [1] "Complete duplicates"
-
-    $DF[[1]]$action
-    [1] "Delete"
-
-    $DF[[1]]$justification
-    [1] "Useless for analysis"
-
-
+    list()
 
     $IF
     list()
@@ -168,7 +122,7 @@ journal_nettoyage
 
 Each category (`VM`, `DF`, etc.) contains a **list of fixes**, where each fix is a [`list()`](https://rdrr.io/r/base/list.html) with:
 
-- `id`: affected line(s) or position(s)
+- `id`: affected `id_variable` value(s), kept as text; avoid row positions, which change after sorting or filtering
 
 - `variables`: the variables concerned
 
@@ -193,6 +147,8 @@ As for previous adventures:
 
 Good luck, and may your data be clean!
 
+Work in your personal `aventure-4-<your-GitHub-login>` repository in [STT-1100-A26](https://github.com/STT-1100-A26). The [template repository](https://github.com/STT-1100-A26/aventure-4) is the starting point. If your personal repository is not visible yet, contact the teaching team. Open `aventure-4.Rproj`, then complete `defi_04.qmd` as you work through the adventure. The challenge continues this same work.
+
 ## Data import
 
 Before cleaning a dataset, you need to know how to import it correctly. For this mission, Alex has sent you the `dataset_pratique.csv` file. This file is separated by semicolons. He recommends that you:
@@ -213,6 +169,8 @@ library(forcats)
 base <- read_delim(
   "dataset_pratique.csv",
   delim = ";",
+  locale = locale(encoding = "Windows-1252", decimal_mark = "."),
+  col_types = cols(ID_Variable = col_character(), .default = col_guess()),
   trim_ws = TRUE,
   show_col_types = FALSE
 )
@@ -225,6 +183,8 @@ base <- base %>%
 head(base)
 glimpse(base)
 ```
+
+The file contains 101,768 rows and 23 columns. Its encoding is compatible with Windows-1252: specifying it at import preserves accented text such as “Montréal”. The decimal mark is a dot. The type of `ID_Variable` is set during import to preserve identifiers. Keep the raw file unchanged.
 
 > If you use [`read_csv()`](https://readr.tidyverse.org/reference/read_delim.html) here, the whole file will be read as one column. A good reflex is to check `ncol(base)` immediately after import.
 
@@ -306,6 +266,7 @@ base[duplicated(base), ]
 You can then remove them:
 
 ``` downlit
+ids_doublons <- base$id_variable[duplicated(base)]
 base <- base %>% distinct()
 ```
 
@@ -322,15 +283,17 @@ base %>%
 And of course, if you intervene, don’t forget to indicate it in the `DF` section of your `journal_nettoyage`. If you find no duplicates, you can simply state in your text that the check was performed and that no deletion was needed.
 
 ``` downlit
-journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
-  list(
-    id = c(101, 102),
-    variables = "All columns",
-    probleme = "Complete duplicates",
-    action = "Lines deleted",
-    justification = "Illustrative example: adapt only if duplicates are detected"
-  )
-))
+if (length(ids_doublons) > 0) {
+  journal_nettoyage$DF <- append(journal_nettoyage$DF, list(
+    list(
+      id = ids_doublons,
+      variables = "All columns",
+      probleme = "Confirmed complete duplicates",
+      action = "Remove additional occurrences",
+      justification = "Keep one occurrence of each identical row"
+    )
+  ))
+}
 ```
 
 ## Cleaning factors with `forcats`
@@ -379,6 +342,15 @@ Take the time to:
 ### Example to adapt
 
 ``` downlit
+lignes_animal <- base %>%
+  filter(as.character(vehicle_type) == "ANIMAL") %>%
+  select(id_variable, vehicle_type, vehicle_make, vehicle_model)
+
+ids_casse <- base$id_variable[
+  !is.na(base$vehicle_type) &
+    as.character(base$vehicle_type) != str_to_title(as.character(base$vehicle_type))
+]
+
 # Harmonize lowercase/uppercase
 base <- base %>%
   mutate(
@@ -389,12 +361,10 @@ base <- base %>%
   )
 ```
 
-You can identify the affected row before correcting it:
+The affected rows were saved before correction. You can inspect them:
 
 ``` downlit
-base %>%
-  filter(vehicle_type == "ANIMAL") %>%
-  select(id_variable, vehicle_type, vehicle_make, vehicle_model)
+lignes_animal
 ```
 
 Don’t forget to document these modifications in your `journal_nettoyage` list! For example, for the `vehicle_type` variable above, you could add:
@@ -402,18 +372,32 @@ Don’t forget to document these modifications in your `journal_nettoyage` list!
 ``` downlit
 journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
   list(
-    id = 40064548,
+    id = lignes_animal$id_variable,
     variables = "vehicle_type",
     probleme = "Aberrant level in a vehicle-type variable",
-    action = "Replace 'ANIMAL' with NA after case harmonization",
+    action = "Replace 'ANIMAL' with NA",
     justification = "The value does not describe a usable vehicle type"
+  )
+))
+```
+
+Also document the case standardization, which affects every changed row, not just `ANIMAL`:
+
+``` downlit
+journal_nettoyage$IF <- append(journal_nettoyage$IF, list(
+  list(
+    id = ids_casse,
+    variables = "vehicle_type",
+    probleme = "Label presentation to standardize",
+    action = "Standardize case with str_to_title()",
+    justification = "Presentation convention that preserves the meaning of valid categories"
   )
 ))
 ```
 
 *These are just examples. It’s up to you to explore the dataset and choose what is consistent.*
 
-## Cleaning recipe — Deep dive
+## Cleaning recipe - Deep dive
 
 Well done! You’ve already fixed the variable types and cleaned up the most visible factors. Now, we push the cleaning further, by crossing **statistics**, **logical relationships** and **aberrant behaviors**. Here is your **advanced cleaning recipe**.
 
@@ -439,7 +423,7 @@ If you intervene, don’t forget to **justify in `journal_nettoyage`**, using th
 
 ### Step 2 – Inconsistent combinations of two factors
 
-**Logical relationships** can exist between two categorical variables. For example, quarter (`quarter`) and season (`season`) should be consistent.
+**Logical relationships** can exist between two categorical variables. Compare quarter (`quarter`) and season (`season`), but do not expect a one-to-one match: a quarter can overlap two seasons. Check the date and convention before calling a combination an error.
 
 **Example: `quarter` and `season`**
 
@@ -505,10 +489,10 @@ Here are a few other things to keep an eye out for:
 - **Incomplete or overly long postal codes**: `fsa_code` should contain three characters.
 - **Implausible vehicle years**: a value such as `14` in `vehicle_year` does not have the same meaning as `2014`.
 - **Redundant variables**: two columns that say the same thing.
-- **Useless columns**: internal identifiers, empty columns or with only one category (`EC` or `RU`)
+- Potentially unnecessary columns: empty or constant columns (`RU`). Keep identifiers needed for traceability.
 - **Text format issues**: accents, special characters ([`stringr::str_detect`](https://stringr.tidyverse.org/reference/str_detect.html))
 - **Hastily merged columns**: strings like `"Smith, John"` in one cell instead of two (`TR`)
-- **Mixed date format**: we have left this aside since the beginning of this course, but know that it is coming, we will have a special module on dates.
+- **Mixed date format**: this check is optional here; do not force a conversion before identifying the format.
 
 *Throughout your cleaning, document your decisions in the `journal_nettoyage` list. The goal is not to correct everything, but to show that you have been able to spot problems, reflect, and intervene when necessary.*
 
@@ -536,9 +520,11 @@ You have now acquired a solid methodology for cleaning data in a rigorous and pr
 2.  The `journal_nettoyage` list saved in a `.Rdata` object
 3.  The cleaned dataset in `.csv` format
 
-To save your list in a `.Rdata` file, simply use this code at the end of your script:
+The adventure examples apply corrections to `base`. At the end, name the result `donnees_propres` and save both deliverables. If you worked directly on `donnees_propres`, do not overwrite it with an older version of `base`.
 
 ``` downlit
+donnees_propres <- base
+write_csv(donnees_propres, "donnees_propres.csv")
 save(journal_nettoyage, file = "journal_nettoyage.Rdata")
 ```
 

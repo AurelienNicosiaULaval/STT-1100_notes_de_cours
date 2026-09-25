@@ -23,6 +23,8 @@ library(forcats)
 base <- read_delim(
   "dataset_pratique.csv",
   delim = ";",
+  locale = locale(encoding = "Windows-1252", decimal_mark = "."),
+  col_types = cols(ID_Variable = col_character(), .default = col_guess()),
   trim_ws = TRUE,
   show_col_types = FALSE
 ) |>
@@ -30,6 +32,8 @@ base <- read_delim(
 ```
 
 After import, check that you have 23 columns. If you get only one column, the import is incorrect.
+
+The file has 101,768 rows. Windows-1252 preserves accents; numeric values use a decimal dot. Keep `dataset_pratique.csv` unchanged. Work in `defi_04.qmd` in your personal `aventure-4-<your-GitHub-login>` repository in [STT-1100-A26](https://github.com/STT-1100-A26), starting from the [template repository](https://github.com/STT-1100-A26/aventure-4). Brio gives the official submission dates and arrangements.
 
 ## Deliverables
 
@@ -43,7 +47,7 @@ Your `.qmd` file must render to HTML without error.
 
 ## Minimal Log Structure
 
-Your `journal_nettoyage` object must be a named list. Each entry must contain at least the fields `id`, `variables`, `probleme`, `action` and `justification`.
+Your `journal_nettoyage` object must be a named list. Each category contains a list of entries. Each entry must contain at least the fields `id`, `variables`, `probleme`, `action` and `justification`.
 
 ``` r
 journal_nettoyage <- list(
@@ -62,12 +66,12 @@ journal_nettoyage <- list(
 )
 ```
 
-Example entry:
+Add an entry only after performing its corresponding correction. Use the `id_variable` values, kept as text, to identify affected rows:
 
 ``` r
 journal_nettoyage$RC <- append(journal_nettoyage$RC, list(
   list(
-    id = 40064548,
+    id = "40064548",
     variables = "vehicle_type",
     probleme = "Aberrant level in a vehicle-type variable",
     action = "Replace 'ANIMAL' with NA",
@@ -90,6 +94,8 @@ Your work must include:
 
 Corrections must be cautious. If an anomaly is real but no obvious correction is defensible, record it in your log or in your text and explain why you do not correct it.
 
+A check can conclude that no change is needed. The five log entries may therefore include justified flags without correction. The three corrections must be distinct decisions actually applied; initializing the log does not count.
+
 ## Suggested Checks
 
 These are useful starting points. You do not have to correct all of them.
@@ -104,7 +110,7 @@ These are useful starting points. You do not have to correct all of them.
 
 ## Saving Results
 
-At the end of your document, save both submission objects.
+At the end of your document, save both submission objects. `donnees_propres` must refer to your corrected data. If you applied corrections to `base` as in the adventure, first create `donnees_propres <- base`; if you worked directly on `donnees_propres`, keep that object.
 
 ``` r
 write_csv(donnees_propres, "donnees_propres.csv")

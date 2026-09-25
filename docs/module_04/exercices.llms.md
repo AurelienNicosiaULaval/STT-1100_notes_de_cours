@@ -453,7 +453,7 @@ Le fichier `data/metadonnees_installations_sherbrooke.json` provient du service 
 
 ### Étude de cas 1 - Aide financière de dernier recours au Québec
 
-Le fichier `data/afdr_clientele_prestations_2022_12.csv` contient 43 lignes agrégées publiées par le ministère de l’Emploi et de la Solidarité sociale pour décembre 2022. Chaque ligne décrit une caractéristique de la clientèle ou une région. Il ne contient aucun dossier individuel.
+Le fichier `data/afdr_clientele_prestations_2022_12.csv` contient 43 lignes agrégées publiées par le ministère de l’Emploi et de la Solidarité sociale pour décembre 2022. Chaque ligne décrit une caractéristique de la clientèle ou une région. Il ne contient aucun dossier individuel. Les catégories décrivent plusieurs découpages de la même population : ne les additionnez pas entre elles. Dans la catégorie « Région », la source comporte deux lignes « 10 - Nord-du-Québec » ainsi que des directions administratives. Conservez ces libellés et signalez-les sans les fusionner arbitrairement.
 
 Réalisez les tâches suivantes:
 
@@ -463,7 +463,7 @@ Réalisez les tâches suivantes:
 4.  convertissez `caracteristique` en facteur;
 5.  vérifiez que les nombres sont non négatifs;
 6.  vérifiez que `nb_prestataires` est égal à la somme des adultes et des enfants;
-7.  produisez un tableau des régions classées selon la prestation totale versée;
+7.  produisez un tableau des lignes de la catégorie « Région », classées selon la prestation totale versée, et repérez les libellés répétés;
 8.  documentez au moins deux décisions dans un journal de nettoyage.
 
 > **NOTE:**
@@ -548,6 +548,17 @@ Réalisez les tâches suivantes:
 >     # ℹ abbreviated name: ¹​prestation_totale_versee
 >
 > ``` r
+> regions_afdr |>
+>   count(valeur) |>
+>   filter(n > 1)
+> ```
+>
+>     # A tibble: 1 × 2
+>       valeur                  n
+>       <chr>               <int>
+>     1 10 - Nord-du-Québec     2
+>
+> ``` r
 > journal_afdr <- list(TY = list(), RC = list(), VA = list())
 >
 > journal_afdr$TY <- append(journal_afdr$TY, list(
@@ -624,7 +635,7 @@ Réalisez les tâches suivantes:
 4.  vérifiez que les champs officiels du JSON sont présents dans le CSV;
 5.  utilisez l’étendue du JSON pour repérer les coordonnées hors limites;
 6.  créez un tableau de synthèse par type d’installation;
-7.  signalez les noms manquants sans les inventer;
+7.  signalez les noms manquants sans les inventer; la proportion éclairée doit porter seulement sur les valeurs renseignées et rester `NA` si aucune valeur n’est disponible;
 8.  documentez au moins deux décisions.
 
 > **NOTE:**
@@ -681,7 +692,8 @@ Réalisez les tâches suivantes:
 >   summarise(
 >     n_installations = n(),
 >     n_noms_manquants = sum(nom_manquant),
->     part_eclairee = mean(eclairage == "Oui", na.rm = TRUE),
+>     n_eclairage_renseigne = sum(!is.na(eclairage)),
+>     part_eclairee = if (all(is.na(eclairage))) NA_real_ else mean(eclairage == "Oui", na.rm = TRUE),
 >     .groups = "drop"
 >   ) |>
 >   arrange(desc(n_installations))
@@ -689,25 +701,25 @@ Réalisez les tâches suivantes:
 > synthese_type
 > ```
 >
->     # A tibble: 24 × 4
->        type                           n_installations n_noms_manquants part_eclairee
->        <chr>                                    <int>            <int>         <dbl>
->      1 Jeu modulaire                              238              238       NaN
->      2 Soccer                                     106                0         0.439
->      3 Surface, anneau ou étang glacé              70               70       NaN
->      4 Basketball                                  54               54         0.696
->      5 Tennis                                      52               52         1
->      6 Patinoire à bandes mobiles                  48               48       NaN
->      7 Baseball                                    36               36         0.556
->      8 Pétanque                                    32               32       NaN
->      9 Jeu de galets                               30               30       NaN
->     10 Volleyball                                  26               26         0.333
+>     # A tibble: 24 × 5
+>        type     n_installations n_noms_manquants n_eclairage_renseigne part_eclairee
+>        <chr>              <int>            <int>                 <int>         <dbl>
+>      1 Jeu mod…             238              238                     0        NA
+>      2 Soccer               106                0                    82         0.439
+>      3 Surface…              70               70                     0        NA
+>      4 Basketb…              54               54                    46         0.696
+>      5 Tennis                52               52                    50         1
+>      6 Patinoi…              48               48                     0        NA
+>      7 Baseball              36               36                    36         0.556
+>      8 Pétanque              32               32                     0        NA
+>      9 Jeu de …              30               30                     0        NA
+>     10 Volleyb…              26               26                    18         0.333
 >     # ℹ 14 more rows
 >
 > ``` r
 > journal_installations <- list(VM = list(), FT = list(), RC = list())
 >
-> journal_installations$FT <- append(journal_installations$FT, list(
+> journal_installations$VM <- append(journal_installations$VM, list(
 >   list(
 >     id = installations$objectid[installations$nom_manquant],
 >     variables = "nom",
@@ -731,11 +743,8 @@ Réalisez les tâches suivantes:
 > ```
 >
 >     $VM
->     list()
->
->     $FT
->     $FT[[1]]
->     $FT[[1]]$id
+>     $VM[[1]]
+>     $VM[[1]]$id
 >       [1]   1   2   5   7   8  13  14  15  16  17  18  19  20  23  24  26  27  28
 >      [19]  29  30  31  33  34  35  39  42  43  44  45  46  47  48  49  50  51  52
 >      [37]  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70
@@ -777,19 +786,22 @@ Réalisez les tâches suivantes:
 >     [685] 803 804 805 806 807 808 809 810 811 812 813 814 815 816 817 818 819 820
 >     [703] 821 822 823 824 825 826 827 828 829 830 831 832 833 834 835 836 837 838
 >
->     $FT[[1]]$variables
+>     $VM[[1]]$variables
 >     [1] "nom"
 >
->     $FT[[1]]$probleme
+>     $VM[[1]]$probleme
 >     [1] "Nom absent dans la source"
 >
->     $FT[[1]]$action
+>     $VM[[1]]$action
 >     [1] "Signalement sans correction automatique"
 >
->     $FT[[1]]$justification
+>     $VM[[1]]$justification
 >     [1] "Un nom ne peut pas être déduit des autres champs"
 >
 >
+>
+>     $FT
+>     list()
 >
 >     $RC
 >     $RC[[1]]

@@ -249,7 +249,7 @@ read_preview <- function(row, n = 50) {
   delim = row$delimiter,
   n_max = n,
   show_col_types = FALSE,
-  locale = readr::locale(encoding = "UTF-8")
+  locale = readr::locale(encoding = if (row$id == "dataset-pratique") "Windows-1252" else "UTF-8")
   ))
   }
 
