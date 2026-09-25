@@ -4,7 +4,7 @@
 
 Cette évaluation vous demande de raconter une histoire claire à partir de données réelles. En équipe, vous choisissez une question, vous analysez les données, puis vous communiquez l'essentiel sous la forme d'une affiche scientifique A1 destinée à un large public.
 
-[Site du concours ISLP](https://islp.ssc.ca/?lang=fr) [Template Quarto](https://github.com/STT-1100/affiche) [Évaluations](evaluations.llms.md) [IA et aide](ia.llms.md) [Grille](#rubric-title)
+[Site du concours ISLP](https://islp.ssc.ca/?lang=fr) [Template Quarto](https://github.com/STT-1100-A26/affiche) [Évaluations](evaluations.llms.md) [IA et aide](ia.llms.md) [Grille](#rubric-title)
 
 10 %
 
@@ -23,6 +23,8 @@ GitHub
 Remise du dépôt
 
 ## Mission
+
+Travaillez en équipes de 3 à 4 personnes, avec la même équipe pour le projet et l’affiche. Vous pouvez utiliser le même jeu de données réel pour les deux travaux : le projet développe l’analyse complète et l’affiche communique un message ciblé.
 
 L'objectif est de produire une affiche de vulgarisation en science des données et en statistique, inspirée de la Compétition canadienne d'affiches sur la littératie des données.
 
@@ -48,11 +50,11 @@ La participation externe est facultative.
 
 Un dépôt template GitHub est disponible pour démarrer l'affiche dans une structure reproductible. Il contient un fichier `affiche.qmd`, un dossier `data/`, un dossier `figures/`, un dossier `scripts/` et une déclaration d'utilisation de l'IA.
 
-Le template utilise Quarto et Typst pour produire un PDF au format paysage proche du A1. Les données incluses sont fictives et servent seulement à vérifier le rendu; votre affiche finale doit utiliser des données réelles et citées.
+Le template utilise Quarto et Typst pour produire un PDF exactement au format A1 (841 × 594 mm en paysage). Les données incluses sont fictives et servent seulement à vérifier le rendu; votre affiche finale doit utiliser des données réelles et citées.
 
 ### Créer le dépôt
 
-Ouvrir le template, utiliser `Use this template`, puis cloner le dépôt de votre équipe.
+Cloner le dépôt privé attribué par l’enseignant à votre équipe dans STT-1100-A26. Si le lien manque, le signaler à l’enseignant. Ouvrir `affiche-stt1100.Rproj` et exécuter `scripts/00_preparer.R` avec Source.
 
 ### Modifier
 
@@ -66,7 +68,7 @@ Exécuter `quarto render affiche.qmd` pour produire `affiche.pdf`.
 
 Pousser le dépôt GitHub selon les consignes officielles indiquées dans Brio.
 
-[Ouvrir le template d'affichePoint de départ Quarto pour le dépôt de votre équipe.](https://github.com/STT-1100/affiche)
+[Ouvrir le template d'affichePoint de départ Quarto pour le dépôt de votre équipe.](https://github.com/STT-1100-A26/affiche)
 
 ## Ce que l'affiche doit contenir
 
@@ -97,6 +99,8 @@ Le contenu, les choix visuels et la structure sont produits par votre équipe.
 L'affiche est conçue au format A1, en orientation portrait ou paysage.
 
 ## Lien avec le concours
+
+Pour le concours facultatif 2026–2027, une copie anonyme distincte est nécessaire : aucun nom, établissement ni coordonnée; une seule page, au maximum A1 et 10 Mo. Une traduction anglaise est requise pour l’étape internationale. L’enseignant coordonne la soumission avec les équipes volontaires. Ces règles externes ne remplacent pas l’échéance du cours.
 
 Cette évaluation est obligatoire dans le cadre du cours. La participation à la compétition canadienne est toutefois facultative.
 
@@ -161,6 +165,8 @@ La grille s'inspire des critères de la compétition tout en restant adaptée au
 100 points, convertis selon la pondération officielle de l'évaluation.
 
 ## À remettre
+
+Incluez `affiche.qmd`, son rendu `affiche.pdf`, les données partageables et leurs sources, les scripts utilisés et la déclaration IA. Conservez `_extensions/`, nécessaire au rendu. Vérifiez que le PDF contient une seule page A1 et que les fichiers finaux apparaissent sur GitHub.
 
 La remise attendue est un dépôt GitHub contenant l'affiche et les éléments nécessaires pour comprendre le travail. Brio demeure la référence officielle pour la date, le lieu exact de remise, les fichiers exigés et les modalités administratives de la session.
 

@@ -4,7 +4,7 @@ Summative assessment
 
 This assessment asks you to tell a clear story from real data. In teams, you choose a question, analyze the data, then communicate the key message as an A1 scientific poster for a broad audience.
 
-[ISLP competition site](https://islp.ssc.ca/?lang=en) [Quarto template](https://github.com/STT-1100/affiche) [Assessments](evaluations.llms.md) [AI and help](ia.llms.md) [Rubric](#rubric-title)
+[ISLP competition site](https://islp.ssc.ca/?lang=en) [Quarto template](https://github.com/STT-1100-A26/affiche) [Assessments](evaluations.llms.md) [AI and help](ia.llms.md) [Rubric](#rubric-title)
 
 10%
 
@@ -23,6 +23,8 @@ GitHub
 Repository submission
 
 ## Mission
+
+Work in teams of 3 to 4, with the same team for the project and poster. You may use the same real dataset for both; the project develops the full analysis and the poster communicates one focused message.
 
 The objective is to produce a data science and statistics communication poster inspired by the Canadian Statistical Literacy Poster Competition.
 
@@ -48,11 +50,11 @@ External participation is optional.
 
 A GitHub template repository is available to start the poster in a reproducible structure. It contains an `affiche.qmd` file, a `data/` folder, a `figures/` folder, a `scripts/` folder and an AI-use statement.
 
-The template uses Quarto and Typst to produce a landscape PDF close to A1 size. The included data are fictitious and are only meant to test rendering; your final poster must use real, cited data.
+The template uses Quarto and Typst to produce a PDF of exactly A1 size (841 × 594 mm in landscape). The included data are fictitious and are only meant to test rendering; your final poster must use real, cited data.
 
 ### Create the repository
 
-Open the template, use `Use this template`, then clone your team's repository.
+Clone the private repository assigned by the instructor to your team in STT-1100-A26. If you do not have its link, contact the instructor. Open `affiche-stt1100.Rproj` and run `scripts/00_preparer.R` with Source.
 
 ### Edit
 
@@ -66,7 +68,7 @@ Run `quarto render affiche.qmd` to produce `affiche.pdf`.
 
 Push the GitHub repository according to the official instructions in Brio.
 
-[Open the poster templateQuarto starting point for your team's repository.](https://github.com/STT-1100/affiche)
+[Open the poster templateQuarto starting point for your team's repository.](https://github.com/STT-1100-A26/affiche)
 
 ## What the poster must include
 
@@ -97,6 +99,8 @@ The content, visual choices and structure are produced by your team.
 The poster is designed in A1 format, in portrait or landscape orientation.
 
 ## Connection with the competition
+
+For the optional 2026–2027 competition, a separate anonymous copy is required: no names, institution or contact details; one page, at most A1 and 10 MB. An English translation is required for the international stage. The instructor coordinates submission with volunteering teams. These external rules do not replace the course deadline.
 
 This assessment is mandatory for the course. Participation in the Canadian competition is optional.
 
@@ -161,6 +165,8 @@ The rubric is inspired by the competition criteria while remaining aligned with 
 100 points, converted according to the official assessment weight.
 
 ## What to submit
+
+Include `affiche.qmd`, the rendered `affiche.pdf`, shareable data and their sources, analysis scripts and the AI-use statement. Keep `_extensions/`, which is required for rendering. Confirm that the PDF has one A1 page and that the final files appear on GitHub.
 
 The expected submission is a GitHub repository containing the poster and the elements needed to understand the work. Brio remains the official reference for the date, exact submission location, required files and administrative requirements for the session.
 

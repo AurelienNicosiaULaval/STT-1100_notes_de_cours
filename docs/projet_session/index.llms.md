@@ -4,6 +4,8 @@
 
 Le projet transforme les gestes appris dans les modules en une analyse complète: choisir une question, documenter des données, construire une démarche reproductible et communiquer un résultat utile.
 
+Travaillez en équipes de 3 à 4 personnes, avec la même équipe pour le projet et l’affiche. Vous pouvez utiliser le même jeu de données réel pour les deux travaux : le projet développe l’analyse complète et l’affiche communique un message ciblé.
+
 [Énoncé complet](enonce_projet.llms.md) [Évaluations](../evaluations.llms.md) [Sources de données](../donnees.llms.md) [Avant chaque jalon](#project-check-title)
 
 6 %
@@ -23,6 +25,8 @@ Présentation
 Début de la séance
 
 ## Parcours de travail
+
+Proposition : 15 novembre 2026 à 23 h 55. Projet final : 14 décembre à 23 h 55.
 
 La proposition vaut 6 % et le projet final vaut 34 % de la note du cours. La présentation aura lieu le 14 décembre 2026, de 8 h 30 à 11 h 20, au local PLT-2325, pendant la dernière séance du cours et la période réservée aux examens. Les modalités de remise sont confirmées sur Brio.
 
@@ -120,7 +124,7 @@ Les biais, valeurs manquantes, filtres et transformations importantes doivent ê
 
 Le dépôt privé remis à votre équipe est créé à partir du template A26. Il fournit un mini-site Quarto complet: page d'accueil, proposition, documentation des données, rapport, page d'équipe, présentation RevealJS et scripts reproductibles.
 
-[Lire l'énoncé](enonce_projet.llms.md) [Connecter le dépôt à RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md) [Boîte à outils](../boite_outils.llms.md)
+[Lire l'énoncé](enonce_projet.llms.md) [Connecter le dépôt à RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md) [Template A26](https://github.com/STT-1100-A26/projet) [Boîte à outils](../boite_outils.llms.md)
 
 ### Commencer simple
 

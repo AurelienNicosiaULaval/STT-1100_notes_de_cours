@@ -7,7 +7,7 @@
 | 3 | 14 septembre | Module 2 : GitHub, importation Excel, `dplyr` et premiers graphiques. |
 | 4 | 21 septembre | Module 3 : catégories, chaînes, comptages et visualisation. |
 | 5 | 28 septembre | Module 4 : facteurs, nettoyage et recodage. Disponibilités pour les modules 1 à 4. |
-| 6 | 5 octobre | Congé étudiant. Disponibilités ou clinique d'aide pour l'examen. |
+| 6 | 5 octobre | Congé étudiant. Préparation autonome à l’examen et exploration des données en équipe. |
 | 7 | 12 octobre | Congé. Préparation autonome à l'examen. |
 | 8 | 19 octobre | Examen en classe : modules 1 à 4. |
 | 9 | 26 octobre | Semaine de lecture. |

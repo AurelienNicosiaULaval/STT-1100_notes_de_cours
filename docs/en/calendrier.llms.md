@@ -7,7 +7,7 @@
 | 3 | September 14 | Module 2: GitHub, Excel import, `dplyr` and first charts. |
 | 4 | September 21 | Module 3: categories, strings, counts and visualization. |
 | 5 | September 28 | Module 4: factors, cleaning and recoding. Office hours for Modules 1 to 4. |
-| 6 | October 5 | Student holiday. Office hours or help clinic for the exam. |
+| 6 | October 5 | Student holiday. Independent exam preparation and dataset exploration with your team. |
 | 7 | October 12 | Holiday. Independent exam preparation. |
 | 8 | October 19 | In-class exam: Modules 1 to 4. |
 | 9 | October 26 | Reading week. |

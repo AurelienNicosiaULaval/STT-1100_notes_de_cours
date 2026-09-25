@@ -24,7 +24,7 @@ Import and cleaning
 
 ## General format
 
-The exam is applied. The goal is not to recite functions, but to choose the right tools to produce a reliable short report. Exact requirements, authorized material, schedule and submission instructions are confirmed on Brio.
+The exam is applied. The goal is not to recite functions, but to choose the right tools to produce a reliable short report. The individual exam is worth 25% and takes place on October 19, 2026, from 8:30 to 11:20 a.m. in PLT-2325. Authorized material, Internet access and submission instructions remain to be specified on Brio.
 
 ### Narrative context
 
@@ -42,9 +42,9 @@ Answers, code, graphs and interpretations are integrated into a reproducible doc
 
 Results must be explained briefly, carefully and in the language of the context.
 
-## Allowed AI Use
+## AI during the exam
 
-In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, add a short disclosure to the deliverable: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
+AI is not allowed during the exam, as stated on Brio. During preparation, practise completing the essential tasks independently and explaining your choices. Notes and other resources used for revision are not automatically authorized during the exam; check the final Brio instructions.
 
 ## What the exam is not
 
@@ -124,6 +124,15 @@ A clear solution using course tools is better than a complicated and fragile sol
 
 ## How to prepare
 
+During the weeks of October 5 and 12, revise modules 1 to 4 and continue exploring a dataset with your project/poster team. There is no class meeting on those Mondays. Our next meeting is the October 19 exam. The module 4 challenge is due October 4 at 11:55 p.m.; no additional project submission is added during the break.
+
+1.  First, consolidate R objects, conditions, missing values, Quarto, numerical summaries, dplyr and ggplot2 using modules 1 and 2.
+2.  Then revisit strings, categories, factor order, import types, duplicate rows, missing values and long/wide reshaping using modules 3 and 4.
+3.  Complete an adventure or a set of exercises from a blank Quarto document without AI. Restart R and render the complete document.
+4.  Explain every graph and cleaning decision in your own words. Revisit any step you cannot reproduce independently.
+
+[Module 1R and Quarto](module_01/index.llms.md) [Module 2Data summaries and graphics](module_02/index.llms.md) [Module 3Strings and categories](module_03/index.llms.md) [Module 4Import and cleaning](module_04/index.llms.md)
+
 The best preparation is to redo challenges, reread the adventures and build a personal cheat sheet with your most useful examples.
 
 1.  Redo the relevant module challenges without looking immediately at the solution.
@@ -193,6 +202,10 @@ Add one precise sentence when the result alone is not enough.
 These exams are provided to practise the format and level of integration expected. The official requirements for a given session always remain those posted on Brio.
 
 ### Fall 2025 - UN mission
+
+Read these corrections before using the 2025 archive. Its exam-day rules do not define the 2026 rules. The CSV imports categories as text: create factors explicitly. The meaning and units of `gdp` are not reliably documented in the supplied file, so do not interpret it as GDP per capita or make economic claims from it. The Internet category is repeated unchanged across years for each country; it must not be used to infer historical Internet trends. Use the archive for technical practice, and prioritize the course adventures and exercises for substantive interpretation.
+
+For question 5, use `aes(x = gdp)` with `scale_x_log10()` to practise a log scale, without also computing `log(gdp)`. Document missing values, restrict the plot to positive available values, and use explicit shapes for the ordered Internet categories. The archive does not by itself cover all module 4 cleaning skills.
 
 A complete example of an applied exam: narrative context, dataset and guided questions on modules 1 to 4.
 

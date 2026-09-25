@@ -24,7 +24,7 @@ Importation et nettoyage
 
 ## Format général
 
-L'examen est appliqué. Le but n'est pas de réciter des fonctions, mais de choisir les bons outils pour produire un petit rapport fiable. Les modalités exactes, le matériel autorisé, l'horaire et les consignes de remise sont confirmés sur Brio.
+L'examen est appliqué. Le but n'est pas de réciter des fonctions, mais de choisir les bons outils pour produire un petit rapport fiable. L’examen individuel vaut 25 % et se déroule le 19 octobre 2026, de 8 h 30 à 11 h 20, au local PLT-2325. Le matériel autorisé, l’accès à Internet et les consignes de remise restent à préciser dans Brio.
 
 ### Contexte narratif
 
@@ -42,9 +42,9 @@ Les réponses, le code, les graphiques et les interprétations sont intégrés d
 
 Les résultats doivent être expliqués brièvement, avec prudence et dans le vocabulaire du contexte.
 
-## Usage permis de l'IA
+## IA pendant l’examen
 
-Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, ajoutez une déclaration courte dans le livrable: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
+L’IA est interdite pendant l’examen, conformément à la fiche Brio. Pour vous préparer, entraînez-vous à réaliser les tâches essentielles de façon autonome et à expliquer vos choix. Les notes et ressources utilisées pour réviser ne sont pas automatiquement autorisées pendant l’examen : consultez les consignes finales dans Brio.
 
 ## Ce que l'examen n'est pas
 
@@ -124,6 +124,15 @@ Une solution claire avec les outils vus en cours vaut mieux qu'une solution comp
 
 ## Bien se préparer
 
+Pendant les semaines du 5 et du 12 octobre, révisez les modules 1 à 4 et poursuivez le choix des données avec votre équipe de projet et d’affiche. Il n’y a pas de séance ces deux lundis. Nous nous retrouvons à l’examen du 19 octobre. Le défi du module 4 est à remettre le 4 octobre à 23 h 55; aucune remise supplémentaire de projet n’est ajoutée pendant la pause.
+
+1.  D’abord, consolidez les objets R, les conditions, les valeurs manquantes, Quarto, les résumés numériques, dplyr et ggplot2 avec les modules 1 et 2.
+2.  Reprenez ensuite les chaînes, les catégories, l’ordre des facteurs, les types à l’importation, les doublons, les valeurs manquantes et les formats long et large avec les modules 3 et 4.
+3.  Refaites une aventure ou un ensemble d’exercices dans un document Quarto vide, sans IA. Redémarrez R et rendez le document complet.
+4.  Expliquez chaque graphique et chaque décision de nettoyage avec vos mots. Reprenez les étapes que vous ne pouvez pas reproduire de façon autonome.
+
+[Module 1R et Quarto](module_01/index.llms.md) [Module 2Résumés et graphiques](module_02/index.llms.md) [Module 3Chaînes et catégories](module_03/index.llms.md) [Module 4Importation et nettoyage](module_04/index.llms.md)
+
 La meilleure préparation consiste à refaire les défis, à relire les aventures et à construire un aide-mémoire personnel avec vos exemples les plus utiles.
 
 1.  Refaire les défis des modules visés sans regarder immédiatement la solution.
@@ -193,6 +202,10 @@ Ajouter une phrase précise lorsque le résultat seul ne suffit pas.
 Ces examens servent à pratiquer le format et le niveau d'intégration attendu. Les modalités officielles d'une session donnée restent toujours celles indiquées sur Brio.
 
 ### Automne 2025 - Mission ONU
+
+Lisez ces précisions avant d’utiliser l’archive 2025. Ses règles de passation ne définissent pas celles de 2026. Le CSV importe les catégories comme du texte : il faut créer les facteurs explicitement. Le sens et l’unité de `gdp` ne sont pas documentés de façon fiable dans le fichier fourni : ne l’interprétez pas comme un PIB par habitant et n’en tirez pas de conclusions économiques. La catégorie Internet est répétée à l’identique au fil des années pour chaque pays : elle ne permet pas d’étudier l’évolution historique d’Internet. Utilisez cette archive pour la pratique technique; privilégiez les aventures et exercices du cours pour les interprétations de fond.
+
+À la question 5, utilisez `aes(x = gdp)` avec `scale_x_log10()` pour pratiquer l’échelle logarithmique, sans calculer aussi `log(gdp)`. Documentez les valeurs manquantes, limitez ce graphique aux valeurs disponibles et positives, et choisissez explicitement les formes associées aux catégories ordonnées d’Internet. L’archive ne couvre pas à elle seule tous les gestes de nettoyage du module 4.
 
 Un exemple complet d'examen appliqué: contexte narratif, jeu de données et questions guidées sur les modules 1 à 4.
 

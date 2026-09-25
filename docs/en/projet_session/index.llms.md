@@ -4,6 +4,8 @@ Integrative assessment
 
 The project turns the skills practised in the modules into a complete analysis: choose a question, document data, build a reproducible workflow and communicate a useful result.
 
+Work in teams of 3 to 4, with the same team for the project and poster. You may use the same real dataset for both; the project develops the full analysis and the poster communicates one focused message.
+
 [Full statement](enonce_projet.llms.md) [Assessments](../evaluations.llms.md) [Data sources](../donnees.llms.md) [Before each milestone](#project-check-title)
 
 6%
@@ -23,6 +25,8 @@ Presentation
 Session begins
 
 ## Work path
+
+Proposal: November 15, 2026 at 11:55 p.m. Final project: December 14 at 11:55 p.m.
 
 The proposal is worth 6% and the final project is worth 34% of the course grade. Presentations take place on December 14, 2026, from 8:30 to 11:20 a.m. in room PLT-2325, during the last class meeting and the exam period. Brio confirms the submission details.
 
@@ -120,7 +124,7 @@ Biases, missing values, filters and important transformations must be explained.
 
 The private repository assigned to your team is created from the A26 template. It provides a complete Quarto website: landing page, proposal, data documentation, report, team page, RevealJS presentation and reproducible scripts.
 
-[Read the statement](enonce_projet.llms.md) [Connect the repository to RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md) [Toolbox](../boite_outils.llms.md)
+[Read the statement](enonce_projet.llms.md) [Connect the repository to RStudio](../autre_materiel/connexion-ssh-github-rstudio.llms.md) [Template A26](https://github.com/STT-1100-A26/projet) [Toolbox](../boite_outils.llms.md)
 
 ### Start simple
 
