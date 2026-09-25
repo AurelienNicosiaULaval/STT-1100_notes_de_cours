@@ -169,7 +169,7 @@ library(forcats)
 base <- read_delim(
   "dataset_pratique.csv",
   delim = ";",
-  locale = locale(encoding = "Windows-1252", decimal_mark = "."),
+  locale = locale(encoding = "UTF-8", decimal_mark = "."),
   col_types = cols(ID_Variable = col_character(), .default = col_guess()),
   trim_ws = TRUE,
   show_col_types = FALSE
@@ -184,7 +184,11 @@ head(base)
 glimpse(base)
 ```
 
-Le fichier contient 101 768 lignes et 23 colonnes. Son encodage est compatible avec Windows-1252 : le préciser à l’importation préserve notamment l’accent de « Montréal ». Le séparateur décimal est le point. Le type de `ID_Variable` est fixé dès l’importation pour préserver les identifiants. Conservez le fichier brut intact.
+Le fichier contient 101 778 lignes et 23 colonnes. Son encodage est compatible avec UTF-8 : le préciser à l’importation préserve notamment l’accent de « Montréal ». Le séparateur décimal est le point. Le type de `ID_Variable` est fixé dès l’importation pour préserver les identifiants. Conservez le fichier brut intact.
+
+Version des données : 2026-09-25, avec 101 778 lignes et 23 colonnes avant nettoyage. Des anomalies ont été introduites volontairement pour cet exercice. Si vous aviez téléchargé une ancienne version, remplacez seulement le fichier d’entrée encore intact avant de commencer; n’écrasez pas un travail déjà réalisé.
+
+Si votre dépôt personnel n’est pas encore disponible, [téléchargez le dossier de démarrage de l’aventure](../downloads/donnees/stt1100-aventure-04.zip), extrayez le ZIP, ouvrez `aventure-4.Rproj`, puis `defi_04.qmd`. Il contient les mêmes données et le même squelette que GitHub. Conservez votre travail localement; vous pourrez le pousser quand l’équipe enseignante vous aura donné accès. Ce ZIP est distinct du dossier des exercices.
 
 > Si vous utilisez [`read_csv()`](https://readr.tidyverse.org/reference/read_delim.html) ici, tout le fichier sera lu comme une seule colonne. C’est un bon réflexe de vérifier `ncol(base)` juste après l’importation.
 
@@ -333,7 +337,7 @@ Prenez le temps de :
 1.  **Lister les variables de type facteur** avec [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) ou `select(where(is.factor))`.
 2.  **Explorer les niveaux** avec [`fct_count()`](https://forcats.tidyverse.org/reference/fct_count.html).
 3.  **Identifier les incohérences**, comme :
-    - mêmes valeurs avec casse différente (`"CAR"` vs `"car"`) dans certains fichiers
+    - mêmes valeurs avec casse différente (`"CAR"` vs `"car"`)
     - fautes de frappe ou variantes de saisie
     - niveaux aberrants (`"ANIMAL"` dans `vehicle_type`)
 
@@ -397,6 +401,18 @@ journal_nettoyage$IF <- append(journal_nettoyage$IF, list(
 
 *Ce ne sont que des exemples. À vous d’explorer la base de données et de choisir ce qui est cohérent.*
 
+### Autres catégories et caractères inattendus
+
+Explorez aussi les modalités avant tout recodage :
+
+``` downlit
+base %>% count(multi_product, sort = TRUE)
+base %>% count(marital_status, sort = TRUE)
+base %>% count(vehicle_use, sort = TRUE)
+```
+
+La modalité `Maybe` est-elle compatible avec une variable attendue comme binaire ? Certains libellés contiennent-ils des caractères inattendus ? Distinguez une correction de texte défendable d’une valeur dont le sens reste incertain. Ne transformez pas automatiquement `Maybe` en `No` ou `Yes`.
+
 ## Recette de nettoyage - Approfondissement
 
 Bravo ! Vous avez déjà corrigé les types de variables et nettoyé les facteurs les plus visibles. Maintenant, on pousse le nettoyage plus loin, en croisant **statistiques**, **relations logiques** et **comportements aberrants**. Voici votre **recette de nettoyage avancé**.
@@ -417,7 +433,7 @@ ggplot(base, aes(x = commute_distance)) +
        x = "Distance (km)", y = "Fréquence")
 ```
 
-Posez-vous la question : une distance de 150 km pour se rendre au travail est-elle plausible ou simplement rare ? Est-ce que certaines valeurs sont manquantes ou négatives ?
+Posez-vous la question : une distance de 1 500 km pour se rendre au travail est-elle plausible dans ce contexte ? Est-ce que certaines valeurs sont manquantes ou négatives ? Ne déduisez pas automatiquement que la bonne valeur serait 150 : une correction exige une justification.
 
 Si vous intervenez, n’oubliez pas de **justifier dans `journal_nettoyage`**, en utilisant le code `VA` (valeurs aberrantes) ou `VM` (valeurs manquantes).
 
@@ -459,7 +475,7 @@ ggplot(base, aes(x = age, fill = generation)) +
   geom_histogram(position = "identity", alpha = 0.6, bins = 40)
 ```
 
-- Est-ce qu’un âge de 16 ans est cohérent avec les autres variables du dossier ?
+- Est-ce qu’un âge de 18 ans est cohérent avec la catégorie `Traditionalist` et l’année de naissance ?
 - Est-ce que les bornes d’âge de chaque génération semblent raisonnables ?
 
 S’il y a recodage ou regroupement à faire, utilisez le code `RC`.
@@ -502,7 +518,7 @@ Travail réalisé
 
 - le fichier `journal_nettoyage.Rdata`;
 - le fichier `donnees_propres.csv`;
-- deux exemples de correction et un exemple de signalement sans correction automatique;
+- au moins trois corrections distinctes et cinq entrées de journal, incluant au besoin un signalement justifié;
 - une courte explication de la façon de reproduire le nettoyage.
 
 ## Mission accomplie !

@@ -23,7 +23,7 @@ library(forcats)
 base <- read_delim(
   "dataset_pratique.csv",
   delim = ";",
-  locale = locale(encoding = "Windows-1252", decimal_mark = "."),
+  locale = locale(encoding = "UTF-8", decimal_mark = "."),
   col_types = cols(ID_Variable = col_character(), .default = col_guess()),
   trim_ws = TRUE,
   show_col_types = FALSE
@@ -33,7 +33,11 @@ base <- read_delim(
 
 Après l’importation, vérifiez que vous obtenez 23 colonnes. Si vous obtenez une seule colonne, l’importation n’est pas correcte.
 
-Le fichier comporte 101 768 lignes. L’encodage Windows-1252 préserve les accents; les nombres utilisent le point décimal. Gardez `dataset_pratique.csv` intact. Travaillez dans `defi_04.qmd` de votre dépôt personnel `aventure-4-<votre-identifiant-GitHub>` dans [STT-1100-A26](https://github.com/STT-1100-A26), à partir du [dépôt modèle](https://github.com/STT-1100-A26/aventure-4). Les dates et modalités officielles de remise sont indiquées dans Brio.
+Le fichier comporte 101 778 lignes. L’encodage UTF-8 préserve les accents; les nombres utilisent le point décimal. Gardez `dataset_pratique.csv` intact. Travaillez dans `defi_04.qmd` de votre dépôt personnel `aventure-4-<votre-identifiant-GitHub>` dans [STT-1100-A26](https://github.com/STT-1100-A26), à partir du [dépôt modèle](https://github.com/STT-1100-A26/aventure-4). Les dates et modalités officielles de remise sont indiquées dans Brio.
+
+Version des données : 2026-09-25, avec 101 778 lignes et 23 colonnes avant nettoyage. Des anomalies ont été introduites volontairement pour cet exercice. Si vous aviez téléchargé une ancienne version, remplacez seulement le fichier d’entrée encore intact avant de commencer; n’écrasez pas un travail déjà réalisé.
+
+Si votre dépôt personnel n’est pas encore disponible, [téléchargez le dossier de démarrage de l’aventure](../downloads/donnees/stt1100-aventure-04.zip), extrayez le ZIP, ouvrez `aventure-4.Rproj`, puis `defi_04.qmd`. Il contient les mêmes données et le même squelette que GitHub. Conservez votre travail localement; vous pourrez le pousser quand l’équipe enseignante vous aura donné accès. Ce ZIP est distinct du dossier des exercices.
 
 ## Livrables
 
@@ -100,7 +104,9 @@ Une vérification peut conclure qu’aucune modification n’est nécessaire. Le
 
 Voici des pistes utiles. Vous n’êtes pas obligé de toutes les corriger.
 
-- `vehicle_type` contient une valeur aberrante.
+- Des lignes sont dupliquées; distinguez une répétition exacte d’un conflit entre deux dossiers.
+- `vehicle_type` contient une valeur aberrante et des variantes de casse.
+- `multi_product` et `marital_status` contiennent des modalités à examiner.
 - `vehicle_year` contient une année impossible.
 - `fsa_code` devrait contenir trois caractères.
 - `quarter` et `season` peuvent être comparés.

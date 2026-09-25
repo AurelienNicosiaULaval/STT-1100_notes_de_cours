@@ -272,7 +272,7 @@ Feuille Excel contenant cinq soumissions de pratique.Fichier local5 observations
 
 ## dataset_pratique.csv
 
-[Fichier CSV de pratique sur des soumissions d’assurance automobile.Fichier local101 768 observations / 23 variablesVoir la fiche](#dataset-pratique)
+[Fichier CSV de pratique sur des soumissions d’assurance automobile.Fichier local101 778 observations / 23 variablesVoir la fiche](#dataset-pratique)
 
 ### Module 05
 
@@ -805,7 +805,7 @@ Fichier CSV de pratique sur des soumissions d’assurance automobile.
 | Information | Valeur |
 |:---|:---|
 | Module | Module 04 |
-| Observations | 101 768 |
+| Observations | 101 778 |
 | Variables | 23 |
 | Utilisation | Nettoyer un fichier volumineux, recoder des facteurs et inspecter les incohérences. |
 | Source | Fichier fourni avec le matériel du cours. |
@@ -835,7 +835,7 @@ Aperçu limité à 12 lignes et 12 colonnes pour garder la page légère.
 | REGIONAL_AREA | character | 0 | 11 | Western Quebec |
 | MARITAL_STATUS | character | 0 | 4 | Married |
 | GENDER | character | 0 | 2 | Male |
-| MULTI_PRODUCT | character | 0 | 2 | No |
+| MULTI_PRODUCT | character | 0 | 3 | No |
 | YEARS_LICENSED | numeric | 0 | 30 | 25 |
 | YEAR_OF_BIRTH | numeric | 0 | 36 | 1975 |
 | AGE | numeric | 0 | 36 | 41 |

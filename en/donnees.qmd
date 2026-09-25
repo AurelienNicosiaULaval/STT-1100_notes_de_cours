@@ -155,7 +155,7 @@ legacy_catalog <- tibble::tribble(
   "titanic-train", "titanic::titanic_train", NA, "module-03", "Module 03", "Passenger data from the Titanic used as an example of categorical variables.", "Practice factors, frequency tables and grouped summaries.", "titanic package.", "See the package documentation.", "package", NA, NA, NA, "titanic", "bi-database",
   "module03-requetes-311", "fictitious_311_requests.csv", "module_03/data/fictitious_311_requests.csv", "module-03", "Module 03", "Fictitious 311 requests for a few Quebec municipalities.", "Recode categories, inspect statuses and summarize processing delays.", "Fictitious data created for module 03 exercises.", "Simulated course data.", "local", ",", 24, 7, NA, "bi-filetype-csv",
   "module03-plaintes-transport", "fictitious_transit_complaints.csv", "module_03/data/fictitious_transit_complaints.csv", "module-03", "Module 03", "Fictitious complaints for public transit networks.", "Work with factors, order categories and summarize complaints by network, period and severity.", "Fictitious data created for module 03 exercises.", "Simulated course data.", "local", ",", 24, 7, NA, "bi-filetype-csv",
-  "dataset-pratique", "dataset_pratique.csv", "module_04/dataset_pratique.csv", "module-04", "Module 04", "Practice CSV file about automobile insurance quotes.", "Clean a large file, recode factors and inspect inconsistencies.", "File provided with the course material.", "Course teaching material.", "local", ";", 101768, 23, NA, "bi-filetype-csv",
+  "dataset-pratique", "dataset_pratique.csv", "module_04/dataset_pratique.csv", "module-04", "Module 04", "Practice CSV file about automobile insurance quotes.", "Clean a large file, recode factors and inspect inconsistencies.", "File provided with the course material.", "Course teaching material.", "local", ";", 101778, 23, NA, "bi-filetype-csv",
   "policies-module-04", "policies.csv", "module_04/policies.csv", "module-04", "Module 04", "Small CSV file about insurance policies.", "Practice quick diagnostics, transformations and summaries.", "File provided with the course material.", "Course teaching material.", "local", ",", 15, 9, NA, "bi-filetype-csv",
   "coverage-module-04", "coverage.json", "module_04/coverage.json", "module-04", "Module 04", "JSON file associated with policy coverages.", "Read lists and understand nested data.", "File provided with the course material.", "Course teaching material.", "local", NA, 2, 2, NA, "bi-filetype-json",
   "quotes-module-04", "quotes_2024.xlsx", "module_04/resources/quotes_2024.xlsx", "module-04", "Module 04", "Excel file containing one sheet named Q3.", "Import an Excel file and check the structure of a table.", "File provided with the course material.", "Course teaching material.", "local", NA, NA, NA, NA, "bi-file-earmark-spreadsheet",
@@ -248,7 +248,7 @@ read_preview <- function(row, n = 50) {
   delim = row$delimiter,
   n_max = n,
   show_col_types = FALSE,
-  locale = readr::locale(encoding = if (row$id == "dataset-pratique") "Windows-1252" else "UTF-8")
+  locale = readr::locale(encoding = "UTF-8")
   ))
   }
 

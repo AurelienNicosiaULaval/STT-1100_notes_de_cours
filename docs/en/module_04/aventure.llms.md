@@ -169,7 +169,7 @@ library(forcats)
 base <- read_delim(
   "dataset_pratique.csv",
   delim = ";",
-  locale = locale(encoding = "Windows-1252", decimal_mark = "."),
+  locale = locale(encoding = "UTF-8", decimal_mark = "."),
   col_types = cols(ID_Variable = col_character(), .default = col_guess()),
   trim_ws = TRUE,
   show_col_types = FALSE
@@ -184,7 +184,11 @@ head(base)
 glimpse(base)
 ```
 
-The file contains 101,768 rows and 23 columns. Its encoding is compatible with Windows-1252: specifying it at import preserves accented text such as “Montréal”. The decimal mark is a dot. The type of `ID_Variable` is set during import to preserve identifiers. Keep the raw file unchanged.
+The file contains 101,778 rows and 23 columns. Its encoding is compatible with UTF-8: specifying it at import preserves accented text such as “Montréal”. The decimal mark is a dot. The type of `ID_Variable` is set during import to preserve identifiers. Keep the raw file unchanged.
+
+Dataset version: 2026-09-25, with 101,778 rows and 23 columns before cleaning. Deliberate anomalies support the exercise. If you downloaded an earlier version, replace only your untouched input file before starting; do not overwrite work already completed.
+
+If your personal repository is not available yet, [download the adventure starter folder](../../downloads/donnees/stt1100-aventure-04.zip), extract the ZIP, open `aventure-4.Rproj` and then `defi_04.qmd`. The starter uses the French submission filenames and the same data as GitHub. Save your work locally; you can push it once the teaching team provides access. This ZIP is separate from the exercises folder.
 
 > If you use [`read_csv()`](https://readr.tidyverse.org/reference/read_delim.html) here, the whole file will be read as one column. A good reflex is to check `ncol(base)` immediately after import.
 
@@ -397,6 +401,18 @@ journal_nettoyage$IF <- append(journal_nettoyage$IF, list(
 
 *These are just examples. It’s up to you to explore the dataset and choose what is consistent.*
 
+### Other categories and unexpected characters
+
+Inspect levels before recoding:
+
+``` downlit
+base %>% count(multi_product, sort = TRUE)
+base %>% count(marital_status, sort = TRUE)
+base %>% count(vehicle_use, sort = TRUE)
+```
+
+Is `Maybe` compatible with an expected binary variable? Do some labels contain unexpected characters? Distinguish a defensible text correction from an uncertain value. Do not automatically recode `Maybe` as `No` or `Yes`.
+
 ## Cleaning recipe - Deep dive
 
 Well done! You’ve already fixed the variable types and cleaned up the most visible factors. Now, we push the cleaning further, by crossing **statistics**, **logical relationships** and **aberrant behaviors**. Here is your **advanced cleaning recipe**.
@@ -417,7 +433,7 @@ ggplot(base, aes(x = commute_distance)) +
        x = "Distance (km)", y = "Frequency")
 ```
 
-Ask yourself: is a commuting distance of 150 km plausible or simply rare? Are some values missing or negative?
+Ask yourself: is a commuting distance of 1,500 km plausible or simply rare? Are some values missing or negative?
 
 If you intervene, don’t forget to **justify in `journal_nettoyage`**, using the code `VA` (outliers) or `VM` (missing values).
 
@@ -459,7 +475,7 @@ ggplot(base, aes(x = age, fill = generation)) +
   geom_histogram(position = "identity", alpha = 0.6, bins = 40)
 ```
 
-- Is an age of 16 consistent with the other variables in the record?
+- Is an age of 18 consistent with the `Traditionalist` category and the year of birth?
 - Do the age ranges for each generation seem reasonable?
 
 If there is recoding or grouping to be done, use the code `RC`.
@@ -502,7 +518,7 @@ At the end of the adventure, check that your work includes the following element
 
 - the `journal_nettoyage.Rdata` file;
 - the `donnees_propres.csv` file;
-- two examples of corrections and one example of a flagged issue without automatic correction;
+- at least three distinct corrections and five log entries, including justified flags where appropriate;
 - a short explanation of how to reproduce the cleaning.
 
 ## Mission accomplished!

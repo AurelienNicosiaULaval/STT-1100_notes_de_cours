@@ -5909,14 +5909,16 @@ margin-bottom: .05rem;
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dataset_pratique.csv&quot;</span>,</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;Windows-1252&quot;</span>, <span class="at">decimal_mark =</span> <span class="st">&quot;.&quot;</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>, <span class="at">decimal_mark =</span> <span class="st">&quot;.&quot;</span>),</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">ID_Variable =</span> <span class="fu">col_character</span>(), <span class="at">.default =</span> <span class="fu">col_guess</span>()),</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After import, check that you have 23 columns. If you get only one column, the import is incorrect.</p>
-<p>The file has 101,768 rows. Windows-1252 preserves accents; numeric values use a decimal dot. Keep <code>dataset_pratique.csv</code> unchanged. Work in <code>defi_04.qmd</code> in your personal <code>aventure-4-&lt;your-GitHub-login&gt;</code> repository in <a href="https://github.com/STT-1100-A26">STT-1100-A26</a>, starting from the <a href="https://github.com/STT-1100-A26/aventure-4">template repository</a>. Brio gives the official submission dates and arrangements.</p>
+<p>The file has 101,778 rows. UTF-8 preserves accents; numeric values use a decimal dot. Keep <code>dataset_pratique.csv</code> unchanged. Work in <code>defi_04.qmd</code> in your personal <code>aventure-4-&lt;your-GitHub-login&gt;</code> repository in <a href="https://github.com/STT-1100-A26">STT-1100-A26</a>, starting from the <a href="https://github.com/STT-1100-A26/aventure-4">template repository</a>. Brio gives the official submission dates and arrangements.</p>
+<p>Dataset version: 2026-09-25, with 101,778 rows and 23 columns before cleaning. Deliberate anomalies support the exercise. If you downloaded an earlier version, replace only your untouched input file before starting; do not overwrite work already completed.</p>
+<p>If your personal repository is not available yet, <a href="../../downloads/donnees/stt1100-aventure-04.zip">download the adventure starter folder</a>, extract the ZIP, open <code>aventure-4.Rproj</code> and then <code>defi_04.qmd</code>. The starter uses the French submission filenames and the same data as GitHub. Save your work locally; you can push it once the teaching team provides access. This ZIP is separate from the exercises folder.</p>
 </section>
 <section id="deliverables" class="level2">
 <h2 class="anchored" data-anchor-id="deliverables">Deliverables</h2>
@@ -5975,7 +5977,9 @@ margin-bottom: .05rem;
 <h2 class="anchored" data-anchor-id="suggested-checks">Suggested Checks</h2>
 <p>These are useful starting points. You do not have to correct all of them.</p>
 <ul>
-<li><code>vehicle_type</code> contains an aberrant value.</li>
+<li>Some rows are duplicated; distinguish exact repetition from conflicting records.</li>
+<li><code>vehicle_type</code> contains an aberrant value and case variants.</li>
+<li>Inspect levels in <code>multi_product</code> and <code>marital_status</code>.</li>
 <li><code>vehicle_year</code> contains an impossible year.</li>
 <li><code>fsa_code</code> should contain three characters.</li>
 <li><code>quarter</code> and <code>season</code> can be compared.</li>

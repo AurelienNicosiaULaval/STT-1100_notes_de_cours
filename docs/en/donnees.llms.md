@@ -272,7 +272,7 @@ Inventory of 859 sports and recreational facilities.Local file859 observations /
 
 ## dataset_pratique.csv
 
-[Practice CSV file about automobile insurance quotes.Local file101,768 observations / 23 variablesView profile](#dataset-pratique)
+[Practice CSV file about automobile insurance quotes.Local file101,778 observations / 23 variablesView profile](#dataset-pratique)
 
 ### Module 05
 
@@ -805,7 +805,7 @@ Practice CSV file about automobile insurance quotes.
 | Information | Value |
 |:---|:---|
 | Module | Module 04 |
-| Observations | 101,768 |
+| Observations | 101,778 |
 | Variables | 23 |
 | Course use | Clean a large file, recode factors and inspect inconsistencies. |
 | Source | File provided with the course material. |
@@ -835,7 +835,7 @@ Preview limited to 12 rows and 12 columns to keep the page light.
 | REGIONAL_AREA | character | 0 | 11 | Western Quebec |
 | MARITAL_STATUS | character | 0 | 4 | Married |
 | GENDER | character | 0 | 2 | Male |
-| MULTI_PRODUCT | character | 0 | 2 | No |
+| MULTI_PRODUCT | character | 0 | 3 | No |
 | YEARS_LICENSED | numeric | 0 | 30 | 25 |
 | YEAR_OF_BIRTH | numeric | 0 | 36 | 1975 |
 | AGE | numeric | 0 | 36 | 41 |

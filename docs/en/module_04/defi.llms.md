@@ -23,7 +23,7 @@ library(forcats)
 base <- read_delim(
   "dataset_pratique.csv",
   delim = ";",
-  locale = locale(encoding = "Windows-1252", decimal_mark = "."),
+  locale = locale(encoding = "UTF-8", decimal_mark = "."),
   col_types = cols(ID_Variable = col_character(), .default = col_guess()),
   trim_ws = TRUE,
   show_col_types = FALSE
@@ -33,7 +33,11 @@ base <- read_delim(
 
 After import, check that you have 23 columns. If you get only one column, the import is incorrect.
 
-The file has 101,768 rows. Windows-1252 preserves accents; numeric values use a decimal dot. Keep `dataset_pratique.csv` unchanged. Work in `defi_04.qmd` in your personal `aventure-4-<your-GitHub-login>` repository in [STT-1100-A26](https://github.com/STT-1100-A26), starting from the [template repository](https://github.com/STT-1100-A26/aventure-4). Brio gives the official submission dates and arrangements.
+The file has 101,778 rows. UTF-8 preserves accents; numeric values use a decimal dot. Keep `dataset_pratique.csv` unchanged. Work in `defi_04.qmd` in your personal `aventure-4-<your-GitHub-login>` repository in [STT-1100-A26](https://github.com/STT-1100-A26), starting from the [template repository](https://github.com/STT-1100-A26/aventure-4). Brio gives the official submission dates and arrangements.
+
+Dataset version: 2026-09-25, with 101,778 rows and 23 columns before cleaning. Deliberate anomalies support the exercise. If you downloaded an earlier version, replace only your untouched input file before starting; do not overwrite work already completed.
+
+If your personal repository is not available yet, [download the adventure starter folder](../../downloads/donnees/stt1100-aventure-04.zip), extract the ZIP, open `aventure-4.Rproj` and then `defi_04.qmd`. The starter uses the French submission filenames and the same data as GitHub. Save your work locally; you can push it once the teaching team provides access. This ZIP is separate from the exercises folder.
 
 ## Deliverables
 
@@ -100,7 +104,9 @@ A check can conclude that no change is needed. The five log entries may therefor
 
 These are useful starting points. You do not have to correct all of them.
 
-- `vehicle_type` contains an aberrant value.
+- Some rows are duplicated; distinguish exact repetition from conflicting records.
+- `vehicle_type` contains an aberrant value and case variants.
+- Inspect levels in `multi_product` and `marital_status`.
 - `vehicle_year` contains an impossible year.
 - `fsa_code` should contain three characters.
 - `quarter` and `season` can be compared.

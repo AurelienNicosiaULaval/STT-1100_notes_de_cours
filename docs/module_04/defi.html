@@ -6405,14 +6405,16 @@ margin-bottom: .05rem;
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;dataset_pratique.csv&quot;</span>,</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;Windows-1252&quot;</span>, <span class="at">decimal_mark =</span> <span class="st">&quot;.&quot;</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>, <span class="at">decimal_mark =</span> <span class="st">&quot;.&quot;</span>),</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">ID_Variable =</span> <span class="fu">col_character</span>(), <span class="at">.default =</span> <span class="fu">col_guess</span>()),</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Après l’importation, vérifiez que vous obtenez 23 colonnes. Si vous obtenez une seule colonne, l’importation n’est pas correcte.</p>
-<p>Le fichier comporte 101 768 lignes. L’encodage Windows-1252 préserve les accents; les nombres utilisent le point décimal. Gardez <code>dataset_pratique.csv</code> intact. Travaillez dans <code>defi_04.qmd</code> de votre dépôt personnel <code>aventure-4-&lt;votre-identifiant-GitHub&gt;</code> dans <a href="https://github.com/STT-1100-A26">STT-1100-A26</a>, à partir du <a href="https://github.com/STT-1100-A26/aventure-4">dépôt modèle</a>. Les dates et modalités officielles de remise sont indiquées dans Brio.</p>
+<p>Le fichier comporte 101 778 lignes. L’encodage UTF-8 préserve les accents; les nombres utilisent le point décimal. Gardez <code>dataset_pratique.csv</code> intact. Travaillez dans <code>defi_04.qmd</code> de votre dépôt personnel <code>aventure-4-&lt;votre-identifiant-GitHub&gt;</code> dans <a href="https://github.com/STT-1100-A26">STT-1100-A26</a>, à partir du <a href="https://github.com/STT-1100-A26/aventure-4">dépôt modèle</a>. Les dates et modalités officielles de remise sont indiquées dans Brio.</p>
+<p>Version des données : 2026-09-25, avec 101 778 lignes et 23 colonnes avant nettoyage. Des anomalies ont été introduites volontairement pour cet exercice. Si vous aviez téléchargé une ancienne version, remplacez seulement le fichier d’entrée encore intact avant de commencer; n’écrasez pas un travail déjà réalisé.</p>
+<p>Si votre dépôt personnel n’est pas encore disponible, <a href="../downloads/donnees/stt1100-aventure-04.zip">téléchargez le dossier de démarrage de l’aventure</a>, extrayez le ZIP, ouvrez <code>aventure-4.Rproj</code>, puis <code>defi_04.qmd</code>. Il contient les mêmes données et le même squelette que GitHub. Conservez votre travail localement; vous pourrez le pousser quand l’équipe enseignante vous aura donné accès. Ce ZIP est distinct du dossier des exercices.</p>
 </section>
 <section id="livrables" class="level2">
 <h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
@@ -6471,7 +6473,9 @@ margin-bottom: .05rem;
 <h2 class="anchored" data-anchor-id="pistes-de-vérification">Pistes de vérification</h2>
 <p>Voici des pistes utiles. Vous n’êtes pas obligé de toutes les corriger.</p>
 <ul>
-<li><code>vehicle_type</code> contient une valeur aberrante.</li>
+<li>Des lignes sont dupliquées; distinguez une répétition exacte d’un conflit entre deux dossiers.</li>
+<li><code>vehicle_type</code> contient une valeur aberrante et des variantes de casse.</li>
+<li><code>multi_product</code> et <code>marital_status</code> contiennent des modalités à examiner.</li>
 <li><code>vehicle_year</code> contient une année impossible.</li>
 <li><code>fsa_code</code> devrait contenir trois caractères.</li>
 <li><code>quarter</code> et <code>season</code> peuvent être comparés.</li>
