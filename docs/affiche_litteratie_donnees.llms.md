@@ -80,7 +80,7 @@ La question est compréhensible, précise et réellement reliée aux données ut
 
 ### Données fiables
 
-Les données sont recueillies par votre équipe ou proviennent d'une source fiable. La source doit être citée.
+Citez la source; précisez la collecte, le nombre d’observations, la période et la représentativité. Expliquez les limites de qualité pertinentes.
 
 ### Graphiques pertinents
 
@@ -88,7 +88,7 @@ Les graphiques et tableaux aident à répondre à la question plutôt qu'à simp
 
 ### Interprétation
 
-L'affiche met l'accent sur ce que les résultats signifient, pas seulement sur les calculs effectués.
+Répondez à la question avec les résultats, sans dépasser ce que les données permettent. Mentionnez les limites et une amélioration ou une suite possible.
 
 ### Création originale
 
@@ -96,21 +96,29 @@ Le contenu, les choix visuels et la structure sont produits par votre équipe.
 
 ### Format A1
 
-L'affiche est conçue au format A1, en orientation portrait ou paysage.
+Une seule page, portrait ou paysage, compréhensible sans document complémentaire. Vérifiez la lisibilité du texte et des graphiques à 2 mètres à la taille d’impression.
 
 ## Lien avec le concours
 
-Pour le concours facultatif 2026–2027, une copie anonyme distincte est nécessaire : aucun nom, établissement ni coordonnée; une seule page, au maximum A1 et 10 Mo. Une traduction anglaise est requise pour l’étape internationale. L’enseignant coordonne la soumission avec les équipes volontaires. Ces règles externes ne remplacent pas l’échéance du cours.
+Le règlement 2026-2027 accepte des équipes de 1 à 5 : nos équipes de 3 à 4 conviennent. L’enseignant vérifie l’admissibilité des membres à la catégorie collégiale/premier cycle et coordonne toute soumission volontaire.
+
+Préparez une copie sans noms, établissement, logo ni coordonnées : une seule page, A1 au maximum et fichier de 10 Mo au maximum. Dans le modèle, exécutez `scripts/01_version_concours.R` avec Source pour créer `affiche-concours.pdf`. Ce script masque les champs d’identification du modèle; vérifiez aussi les textes, images, liens et propriétés du PDF.
+
+Si l’affiche est en français, joignez une version anglaise dès la soumission canadienne. Les renseignements sur les membres sont transmis séparément. L’affiche doit être originale et ne pas avoir participé à un concours national ou international antérieur : adaptez la composition du modèle à votre propre message.
+
+Avant toute soumission externe, l’équipe doit lire et accepter avec l’enseignant les conditions de diffusion et de propriété du règlement. La participation n’est pas automatique et ne remplace pas la remise du cours du 22 novembre.
 
 Cette évaluation est obligatoire dans le cadre du cours. La participation à la compétition canadienne est toutefois facultative.
 
 Les équipes qui produisent une affiche de qualité pourront, si elles le souhaitent, autoriser sa soumission à la compétition. Le concours est gratuit, des prix sont remis au niveau national et les affiches gagnantes peuvent représenter le Canada à l'international.
 
-[Consulter le site ISLPRègles officielles, exemples et critères de jugement du concours.](https://islp.ssc.ca/?lang=fr)
+[Consulter le site ISLPRègles officielles, exemples et critères de jugement du concours.](https://islp.ssc.ca/?lang=fr) [Règles internationales et IAConditions de l’édition 2026-2027, vérifiées le 25 septembre 2026.](https://iase-web.org/islp-poster-competition-2026-2027)
 
 ## Utilisation de l'intelligence artificielle
 
-Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, ajoutez une déclaration courte dans le livrable: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
+Pour l’affiche, l’IA est autorisée avec déclaration selon Brio. Vous devez comprendre, vérifier et pouvoir expliquer tout élément remis. Déclarez les outils, les tâches concernées, les requêtes utilisées et vos vérifications dans `DECLARATION_IA.md`.
+
+Le concours ISLP 2026-2027 autorise l’IA comme appui au niveau universitaire. Elle ne doit pas remplacer vos idées, votre raisonnement critique, vos analyses ni vos conclusions. Le travail doit demeurer substantiellement celui de l’équipe; un contenu assisté ne doit pas être présenté comme entièrement personnel. Pour le concours, préparez une déclaration anonyme et une brève mention de l’aide reçue sur l’affiche. La déclaration seule ne garantit pas l’admissibilité.
 
 1
 
@@ -139,6 +147,8 @@ Au compagnon IA du cours, vous pouvez demander: « Vérifie si notre question es
 ## Grille d'évaluation
 
 La grille s'inspire des critères de la compétition tout en restant adaptée aux objectifs du cours.
+
+Le jury ISLP examine six dimensions : clarté du message, données, analyse et conclusions, graphiques et tableaux, présentation, créativité et importance du sujet. Notre grille regroupe ces dimensions en cinq rubriques : l’originalité et l’importance du sujet se rattachent à la question, et l’originalité de la composition à la communication visuelle. Les points ci-dessous sont ceux du cours, pas des pondérations officielles du concours. Consultez les [critères détaillés du jury](https://iase-web.org/sites/default/files/2026-02/Judging%20criteria%202026-2027_English.pdf).
 
 ### Question et objectif
 

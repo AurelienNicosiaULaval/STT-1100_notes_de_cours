@@ -80,7 +80,7 @@ The question is understandable, precise and genuinely connected to the data used
 
 ### Reliable data
 
-The data are collected by your team or come from a reliable source. The source must be cited.
+Cite the source; explain collection, the number of observations, the period and representativeness. Discuss relevant data quality limitations.
 
 ### Relevant graphics
 
@@ -88,7 +88,7 @@ Graphs and tables help answer the question rather than simply filling space.
 
 ### Interpretation
 
-The poster emphasizes what the results mean, not only the calculations performed.
+Answer the question using the results, without overstating what the data support. Discuss limitations and a possible improvement or follow-up.
 
 ### Original creation
 
@@ -96,21 +96,29 @@ The content, visual choices and structure are produced by your team.
 
 ### A1 format
 
-The poster is designed in A1 format, in portrait or landscape orientation.
+One page, portrait or landscape, understandable without additional documents. Check that text and graphs are readable from 2 metres at the intended print size.
 
 ## Connection with the competition
 
-For the optional 2026–2027 competition, a separate anonymous copy is required: no names, institution or contact details; one page, at most A1 and 10 MB. An English translation is required for the international stage. The instructor coordinates submission with volunteering teams. These external rules do not replace the course deadline.
+The 2026-2027 rules allow teams of 1 to 5, so our teams of 3 to 4 meet this requirement. The instructor checks each member’s eligibility for the college/undergraduate category and coordinates any voluntary submission.
+
+Prepare a copy without names, institution, logo or contact details: one page, at most A1 and a file size of at most 10 MB. In the template, run `scripts/01_version_concours.R` with Source to create `affiche-concours.pdf`. This script hides the template’s identification fields; also check the text, images, links and PDF properties.
+
+If the poster is in French, attach an English version when submitting to the Canadian competition. Team member details are provided separately. The poster must be original and must not have entered a previous national or international competition: adapt the template’s composition to your own message.
+
+Before any external submission, the team must read and accept the rules on dissemination and ownership with the instructor. Participation is not automatic and does not replace the November 22 course deadline.
 
 This assessment is mandatory for the course. Participation in the Canadian competition is optional.
 
 Teams that produce a strong poster may, if they wish, authorize its submission to the competition. Participation is free, prizes are awarded nationally and winning posters may represent Canada internationally.
 
-[Visit the ISLP siteOfficial rules, examples and judging criteria for the competition.](https://islp.ssc.ca/?lang=en)
+[Visit the ISLP siteOfficial rules, examples and judging criteria for the competition.](https://islp.ssc.ca/?lang=en) [International rules and AIConditions for the 2026-2027 edition, checked on September 25, 2026.](https://iase-web.org/islp-poster-competition-2026-2027)
 
 ## Use of artificial intelligence
 
-In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, add a short disclosure to the deliverable: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
+For the poster, AI is allowed with disclosure under the Brio instructions. You must understand, check and be able to explain everything submitted. Document the tools, tasks, prompts and your checks in `DECLARATION_IA.md`.
+
+The ISLP 2026-2027 competition allows AI as support at university level. It must not replace your ideas, critical thinking, analyses or conclusions. The work must remain substantially your team’s own; assisted content must not be presented as entirely your own. For the competition, prepare an anonymous disclosure and briefly acknowledge the assistance on the poster. Disclosure alone does not guarantee eligibility.
 
 1
 
@@ -139,6 +147,8 @@ With the course AI companion, you can ask: “Check whether our question is clea
 ## Rubric
 
 The rubric is inspired by the competition criteria while remaining aligned with the course objectives.
+
+The ISLP jury considers six dimensions: clarity of the message, data, analysis and conclusions, graphs and tables, presentation, and creativity and importance. Our rubric groups these into five categories: originality and importance of the topic belong to the question category, while originality of the composition belongs to visual communication. The points below are course weights, not official competition weights. See the [detailed judging criteria](https://iase-web.org/sites/default/files/2026-02/Judging%20criteria%202026-2027_English.pdf).
 
 ### Question and objective
 
