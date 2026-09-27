@@ -46,6 +46,12 @@ Dépôt GitHub contenant l'affiche et les fichiers demandés.
 
 La participation externe est facultative.
 
+## Où chercher des données?
+
+Le catalogue Données bleues est un point de départ pour trouver des données québécoises et un sujet qui vous intéresse. Consultez la fiche du jeu choisi pour comprendre les données, retrouver leur source originale et vérifier qu’elles permettent de répondre à votre question. Citez cette source sur l’affiche.
+
+[Explorer Données bleuesCatalogue de jeux de données québécois et fiches descriptives.](https://donneesbleues.ca/catalogue.html)
+
 ## Template Quarto
 
 Un dépôt template GitHub est disponible pour démarrer l'affiche dans une structure reproductible. Il contient un fichier `affiche.qmd`, un dossier `data/`, un dossier `figures/`, un dossier `scripts/` et une déclaration d'utilisation de l'IA.

@@ -50,6 +50,7 @@ Les données vues directement dans les modules, les défis ou les exercices du c
 
 Sources possibles :
 
+- [Données bleues](https://donneesbleues.ca/catalogue.html) : un catalogue de données québécoises avec des fiches pour comprendre les jeux de données et retrouver leurs sources. Consultez la fiche du jeu choisi et citez la source originale dans votre travail.
 - [Données Québec](https://www.donneesquebec.ca/)
 - [Portail du gouvernement ouvert du Canada](https://open.canada.ca/fr/open-data)
 - [Statistique Canada](https://www.statcan.gc.ca/)

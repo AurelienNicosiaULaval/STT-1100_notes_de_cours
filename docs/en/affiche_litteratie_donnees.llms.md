@@ -46,6 +46,12 @@ November 22 at 11:55 p.m. The official submission follows the instructions poste
 
 External participation is optional.
 
+## Where to find data
+
+The Données bleues catalogue is a starting point for finding Québec data and a topic that interests you. Read the selected dataset's information sheet to understand the data, find the original source and check that the data can answer your question. Cite that source on the poster.
+
+[Explore Données bleuesCatalogue of Québec datasets and descriptive information sheets.](https://donneesbleues.ca/catalogue.html)
+
 ## Quarto template
 
 A GitHub template repository is available to start the poster in a reproducible structure. It contains an `affiche.qmd` file, a `data/` folder, a `figures/` folder, a `scripts/` folder and an AI-use statement.
