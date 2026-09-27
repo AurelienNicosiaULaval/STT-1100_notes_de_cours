@@ -48,9 +48,17 @@ La participation externe est facultative.
 
 ## Où chercher des données?
 
-Le catalogue Données bleues est un point de départ pour trouver des données québécoises et un sujet qui vous intéresse. Consultez la fiche du jeu choisi pour comprendre les données, retrouver leur source originale et vérifier qu’elles permettent de répondre à votre question. Citez cette source sur l’affiche.
+Ces ressources peuvent servir pour le projet et l’affiche. Vous pouvez aussi chercher ailleurs, à condition de pouvoir identifier et citer la source.
 
-[Explorer Données bleuesCatalogue de jeux de données québécois et fiches descriptives.](https://donneesbleues.ca/catalogue.html)
+- [Données bleues](https://donneesbleues.ca/catalogue.html) : un catalogue de données québécoises avec des fiches descriptives et des liens vers les sources. Un point de départ pour explorer un sujet local et comprendre les données.
+- [Données Québec](https://www.donneesquebec.ca/) : des données ouvertes du gouvernement et des municipalités du Québec. Recherchez un sujet, puis repérez les fichiers CSV ou Excel et la description des variables.
+- [Portail du gouvernement ouvert du Canada](https://rechercher.ouvert.canada.ca/donneesouvertes/) : des jeux de données publiés par les institutions fédérales sur de nombreux sujets. Recherchez par mot-clé et repérez un fichier que vous pouvez importer dans R.
+- [Statistique Canada](https://www.statcan.gc.ca/fr/debut) : des tableaux statistiques et des microdonnées sur la population, l’économie, la société et l’environnement. Un point de départ pour explorer des questions à l’échelle canadienne.
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday) : des données réelles sur des sujets variés, avec leur provenance et des indications d’importation dans R. Utile pour découvrir des idées d’analyse et de visualisation.
+- [Google Dataset Search](https://datasetsearch.research.google.com/) : un moteur de recherche de jeux de données hébergés sur différents sites. Consultez ensuite le site qui héberge les données pour accéder aux fichiers et à leur documentation.
+- [Harvard Dataverse](https://dataverse.harvard.edu/) : un dépôt de données de recherche dans de nombreuses disciplines. Consultez la description du jeu, la documentation des variables et les conditions d’accès avant de le choisir.
+
+Consultez la documentation du jeu choisi et citez la source originale des données dans votre travail.
 
 ## Template Quarto
 

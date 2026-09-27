@@ -48,9 +48,17 @@ External participation is optional.
 
 ## Where to find data
 
-The Données bleues catalogue is a starting point for finding Québec data and a topic that interests you. Read the selected dataset's information sheet to understand the data, find the original source and check that the data can answer your question. Cite that source on the poster.
+These resources can be used for both the project and the poster. You may also look elsewhere, provided that you can identify and cite the source.
 
-[Explore Données bleuesCatalogue of Québec datasets and descriptive information sheets.](https://donneesbleues.ca/catalogue.html)
+- [Données bleues](https://donneesbleues.ca/catalogue.html): a catalogue of Québec datasets with descriptive information sheets and links to their sources. A starting point for exploring a local topic and understanding the data.
+- [Données Québec](https://www.donneesquebec.ca/): open data from the Québec government and municipalities. Search for a topic, then look for CSV or Excel files and descriptions of the variables.
+- [Government of Canada Open Data Portal](https://search.open.canada.ca/opendata/): datasets published by federal institutions on many topics. Search by keyword and look for a file that you can import in R.
+- [Statistics Canada](https://www.statcan.gc.ca/en/start): statistical tables and microdata on population, the economy, society and the environment. A starting point for exploring questions about Canada.
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday): real data on varied topics, with their provenance and instructions for importing them in R. Useful for finding ideas for analysis and visualization.
+- [Google Dataset Search](https://datasetsearch.research.google.com/): a search engine for datasets hosted on different websites. Visit the site hosting the data to access the files and their documentation.
+- [Harvard Dataverse](https://dataverse.harvard.edu/): a research data repository covering many disciplines. Read the dataset description, variable documentation and access conditions before choosing it.
+
+Read the selected dataset's documentation and cite the original data source in your work.
 
 ## Quarto template
 

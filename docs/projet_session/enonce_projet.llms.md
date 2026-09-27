@@ -48,15 +48,21 @@ Le jeu de données doit normalement respecter les critères suivants :
 
 Les données vues directement dans les modules, les défis ou les exercices du cours ne doivent pas être réutilisées comme jeu de données principal, sauf approbation explicite. Vous pouvez toutefois réutiliser les mêmes gestes techniques.
 
-Sources possibles :
+## Où chercher des données?
 
-- [Données bleues](https://donneesbleues.ca/catalogue.html) : un catalogue de données québécoises avec des fiches pour comprendre les jeux de données et retrouver leurs sources. Consultez la fiche du jeu choisi et citez la source originale dans votre travail.
-- [Données Québec](https://www.donneesquebec.ca/)
-- [Portail du gouvernement ouvert du Canada](https://open.canada.ca/fr/open-data)
-- [Statistique Canada](https://www.statcan.gc.ca/)
-- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
-- [Google Dataset Search](https://datasetsearch.research.google.com/)
-- [Harvard Dataverse](https://dataverse.harvard.edu/)
+Ces ressources peuvent servir pour le projet et l’affiche. Vous pouvez aussi chercher ailleurs, à condition de pouvoir identifier et citer la source.
+
+- [Données bleues](https://donneesbleues.ca/catalogue.html) : un catalogue de données québécoises avec des fiches descriptives et des liens vers les sources. Un point de départ pour explorer un sujet local et comprendre les données.
+- [Données Québec](https://www.donneesquebec.ca/) : des données ouvertes du gouvernement et des municipalités du Québec. Recherchez un sujet, puis repérez les fichiers CSV ou Excel et la description des variables.
+- [Portail du gouvernement ouvert du Canada](https://rechercher.ouvert.canada.ca/donneesouvertes/) : des jeux de données publiés par les institutions fédérales sur de nombreux sujets. Recherchez par mot-clé et repérez un fichier que vous pouvez importer dans R.
+- [Statistique Canada](https://www.statcan.gc.ca/fr/debut) : des tableaux statistiques et des microdonnées sur la population, l’économie, la société et l’environnement. Un point de départ pour explorer des questions à l’échelle canadienne.
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday) : des données réelles sur des sujets variés, avec leur provenance et des indications d’importation dans R. Utile pour découvrir des idées d’analyse et de visualisation.
+- [Google Dataset Search](https://datasetsearch.research.google.com/) : un moteur de recherche de jeux de données hébergés sur différents sites. Consultez ensuite le site qui héberge les données pour accéder aux fichiers et à leur documentation.
+- [Harvard Dataverse](https://dataverse.harvard.edu/) : un dépôt de données de recherche dans de nombreuses disciplines. Consultez la description du jeu, la documentation des variables et les conditions d’accès avant de le choisir.
+
+Consultez la documentation du jeu choisi et citez la source originale des données dans votre travail.
+
+## Vérifier son choix
 
 Avant de confirmer votre choix, vérifiez que :
 
