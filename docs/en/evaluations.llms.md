@@ -203,4 +203,6 @@ Render the document, check outputs, reread the interpretation and remove unneces
 
 ### After feedback
 
-Keep useful corrections and reuse them in the next challenge, exam or project.
+Choose a correction, test it and repeat an analogous task without help. AI comments are formative; official assessment is the teaching team's responsibility.
+
+[Use comments to improve](ia.llms.md#feedback-cycle)

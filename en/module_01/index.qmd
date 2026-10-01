@@ -103,7 +103,7 @@ Isolate the error, keep the complete message and check the minimal render first.
 
 ## Learning Plan
 
-The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and AI feedback. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills. AI feedback revisits work you have already completed; it does not require an additional submission.
+The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and feedback with or without AI. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills. Feedback revisits work you have already completed; it does not require an additional submission.
 
 ```{=html}
 <div class="path-grid interactive-path module-path learning-plan-path">
@@ -192,17 +192,23 @@ The cards follow the five steps of the learning plan: readings, adventure, chall
   </details>
 <details class="path-card learning-plan-card ai-feedback-card" id="retroaction-ia">
   <summary><span class="path-number">5</span>
-  <span class="path-title">AI feedback</span>
+  <span class="path-title">Feedback</span>
   <span class="path-preview">Have one excerpt of your work reviewed, then decide what to improve yourself.</span>
-  <span class="path-resource"><a class="summary-resource-link" href="../ia.html">/retroaction mode</a></span>
+  <span class="path-resource"><a class="summary-resource-link" href="../ia.html#feedback-cycle">Process and examples</a></span>
   <span class="path-toggle"><span class="closed-label">Open card</span><span class="open-label">Collapse</span></span></summary>
   <div class="step-detail">
-  <p><span class="step-label">Starting point</span> Choose one actual element produced in the adventure, challenge or exercises: a code excerpt, chart, interpretation or methodological choice.</p>
-  <p><span class="step-label">Prepare</span> Provide the instruction, context, what you tried and the exact element you want reviewed.</p>
-  <p><span class="step-label">Ask</span> Open <a href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100" target="_blank" rel="noopener">GPT STT-1100</a> in <code>/retroaction</code> mode. Ask for one strength, one weakness to verify and one question that will help you revise.</p>
-  <p><span class="step-label">Decide</span> Compare the response with your data and the instructions. Revise only what you understand and can explain.</p>
-  <div class="ae-box"><p class="ae-title">Copy-ready request</p><p><code>/retroaction I am finishing this module. Here are the target instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite the entire work.</code></p></div>
-  <p><span class="step-label">Expected result</span> One improvement you understand and apply to your work, or a clear reason not to follow the suggestion. There is no portfolio or additional submission to produce.</p>
+  <h3 id="module-feedback">Feedback: a first report that renders</h3>
+  <p>After an initial attempt, choose one improvement related to data import, R objects and Quarto rendering. Use the <a href="../ia.html#feedback-cycle">feedback process</a> with or without AI; this routine adds no submission to the instructions.</p>
+  <details class="feedback-request">
+    <summary>A request tailored to module 1</summary>
+    <blockquote><p>I am working on data import, R objects and Quarto rendering. Here are the instructions, relevant criteria and an excerpt of the .qmd file, the data used and the output or error message. Identify one strength and at most two improvements, including an inconsistency between the object used, its variables and the expected result if the supplied evidence shows it. Cite the relevant passage, distinguish observable errors from items to check, then suggest a hint and test. Do not rewrite my work and wait for my correction.</p></blockquote>
+  </details>
+  <ul>
+    <li>Verify: Render the document after restarting R. Check loaded packages, file paths and whether the result appears in HTML.</li>
+    <li>Revisit the correction: present the change and test result, then ask what still needs checking.</li>
+    <li>Repeat without help: Explain the difference between the .qmd and HTML files, then adapt a command to another relevant variable.</li>
+  </ul>
+  <p>Without AI, compare your attempt with the criteria and course examples, then perform the same checks. Keep a short record in the <a href="../ia.html#feedback-trace">tracking worksheet</a> if useful.</p>
   <p><span class="step-label">Privacy</span> Do not share personal, confidential or protected data.</p>
   </div>
   </details>

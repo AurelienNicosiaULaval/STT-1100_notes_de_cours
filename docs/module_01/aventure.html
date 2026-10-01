@@ -4119,8 +4119,7 @@ return 0===self.Set.length&&2===e.size&&"Symbol"in self&&"iterator"in self.Symbo
 return"test"===t.get(e)&&!1===t["delete"](0)}return!1}catch(a){return!1}})()
 )) {!function(e){var t=Symbol("undef"),r=function a(){if(!(this instanceof a))throw new TypeError('Constructor WeakMap requires "new"');var e=OrdinaryCreateFromConstructor(this,a.prototype,{_keys:[],_values:[],_es6WeakMap:!0}),t=arguments.length>0?arguments[0]:undefined;if(null===t||t===undefined)return e;var r=Get(e,"set");if(!IsCallable(r))throw new TypeError("WeakMap.prototype.set is not a function");try{for(var o=GetIterator(t);;){var p=IteratorStep(o);if(!1===p)return e;var n=IteratorValue(p);if("object"!==Type(n))try{throw new TypeError("Iterator value "+n+" is not an entry object")}catch(s){return IteratorClose(o,s)}try{var i=Get(n,"0"),l=Get(n,"1");Call(r,e,[i,l])}catch(u){return IteratorClose(o,u)}}}catch(u){if(Array.isArray(t)||"[object Arguments]"===Object.prototype.toString.call(t)||t.callee){var y,c=t.length;for(y=0;y<c;y++)i=t[y][0],l=t[y][1],Call(r,e,[i,l])}}return e};Object.defineProperty(r,"prototype",{configurable:!1,enumerable:!1,writable:!1,value:{}}),CreateMethodProperty(r.prototype,"constructor",r),CreateMethodProperty(r.prototype,"delete",function(e){var r=this;if("object"!==Type(r))throw new TypeError("Method WeakMap.prototype.clear called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakMap)throw new TypeError("Method WeakMap.prototype.clear called on incompatible receiver "+Object.prototype.toString.call(r));var o=r._keys;if("object"!==Type(e))return!1;for(var a=0;a<o.length;a++)if(r._keys[a]!==t&&SameValue(r._keys[a],e))return this._keys[a]=t,this._values[a]=t,this._size=--this._size,!0;return!1}),CreateMethodProperty(r.prototype,"get",function p(e){var r=this;if("object"!==Type(r))throw new TypeError("Method WeakMap.prototype.get called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakMap)throw new TypeError("Method WeakMap.prototype.get called on incompatible receiver "+Object.prototype.toString.call(r));var o=r._keys;if("object"!==Type(e))return undefined;for(var a=0;a<o.length;a++)if(r._keys[a]!==t&&SameValue(r._keys[a],e))return r._values[a];return undefined}),CreateMethodProperty(r.prototype,"has",function n(e){var r=this;if("object"!=typeof r)throw new TypeError("Method WeakMap.prototype.has called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakMap)throw new TypeError("Method WeakMap.prototype.has called on incompatible receiver "+Object.prototype.toString.call(r));var o=r._keys;if("object"!==Type(e))return!1;for(var a=0;a<o.length;a++)if(r._keys[a]!==t&&SameValue(r._keys[a],e))return!0;return!1}),CreateMethodProperty(r.prototype,"set",function i(e,r){var o=this;if("object"!==Type(o))throw new TypeError("Method WeakMap.prototype.set called on incompatible receiver "+Object.prototype.toString.call(o));if(!0!==o._es6WeakMap)throw new TypeError("Method WeakMap.prototype.set called on incompatible receiver "+Object.prototype.toString.call(o));var a=o._keys;if("object"!==Type(e))throw new TypeError("Invalid value used as weak map key");for(var p=0;p<a.length;p++)if(o._keys[p]!==t&&SameValue(o._keys[p],e))return o._values[p]=r,o;var n={"[[Key]]":e,"[[Value]]":r};return o._keys.push(n["[[Key]]"]),o._values.push(n["[[Value]]"]),o}),Object.defineProperty(r.prototype,Symbol.toStringTag,{configurable:!0,enumerable:!1,writable:!1,value:"WeakMap"}),"name"in r||Object.defineProperty(r,"name",{configurable:!0,enumerable:!1,writable:!1,value:"WeakMap"});try{CreateMethodProperty(e,"WeakMap",r)}catch(o){e.WeakMap=r}}(self);}if (!((function(e){try{if(Object.prototype.hasOwnProperty.call(e,"WeakSet")&&0===e.WeakSet.length){var t={},r=new e.WeakSet([t])
 return r.has(t)&&!1===r["delete"](0)}return!1}catch(a){return!1}})(self)
-)) {!function(e){var t=Symbol("undef"),r=function a(){if(!(this instanceof a))throw new TypeError('Constructor WeakSet requires "new"');var e=OrdinaryCreateFromConstructor(this,a.prototype,{_values:[],_size:0,_es6WeakSet:!0}),t=arguments.length>0?arguments[0]:undefined;if(null===t||t===undefined)return e;var r=Get(e,"add");if(!IsCallable(r))throw new TypeError("WeakSet.prototype.add is not a function");try{for(var o=GetIterator(t);;){var n=IteratorStep(o);if(!1===n)return e;var l=IteratorValue(n);try{Call(r,e,[l])}catch(c){return IteratorClose(o,c)}}}catch(c){if(IsArray(t)||"[object Arguments]"===Object.prototype.toString.call(t)||t.callee){var p,i=t.length;for(p=0;p<i;p++)Call(r,e,[t[p]])}}return e};Object.defineProperty(r,"prototype",{configurable:!1,enumerable:!1,writable:!1,value:{}}),CreateMethodProperty(r.prototype,"add",function n(e){var r=this;if("object"!==Type(r))throw new TypeError("Method WeakSet.prototype.add called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakSet)throw new TypeError("Method WeakSet.prototype.add called on incompatible receiver "+Object.prototype.toString.call(r));if("object"!==Type(e))throw new TypeError("Invalid value used in weak set");for(var o=r._values,a=0;a<o.length;a++){var n=o[a];if(n!==t&&SameValueZero(n,e))return r}return r._values.push(e),r}),CreateMethodProperty(r.prototype,"constructor",r),CreateMethodProperty(r.prototype,"delete",function(e){var r=this;if("object"!==Type(r))throw new TypeError("Method WeakSet.prototype.delete called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakSet)throw new TypeError("Method WeakSet.prototype.delete called on incompatible receiver "+Object.prototype.toString.call(r));if("object"!==Type(e))return!1;for(var o=r._values,a=0;a<o.length;a++){var n=o[a];if(n!==t&&SameValueZero(n,e))return o[a]=t,!0}return!1}),CreateMethodProperty(r.prototype,"has",function l(e){var r=this;if("object"!==Type(r))throw new TypeError("Method WeakSet.prototype.has called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakSet)throw new TypeError("Method WeakSet.prototype.has called on incompatible receiver "+Object.prototype.toString.call(r));var o=r._values;if("object"!==Type(e))return!1;for(var a=0;a<o.length;a++){var n=o[a];if(n!==t&&SameValueZero(n,e))return!0}return!1}),"name"in r||Object.defineProperty(r,"name",{configurable:!0,enumerable:!1,writable:!1,value:"WeakSet"});try{CreateMethodProperty(e,"WeakSet",r)}catch(o){e.WeakSet=r}}(self);}function TrimString(e,u){var r=RequireObjectCoercible(e),t=ToString(r),n=/[\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF]+/.source;if("start"===u)var p=String.prototype.replace.call(t,new RegExp("^"+n,"g"),"");else p="end"===u?String.prototype.replace.call(t,new RegExp(n+"$","g"),""):String.prototype.replace.call(t,new RegExp("^"+n+"|"+n+"$","g"),"");return p}if (!("trim"in String.prototype&&function(){var r="​
-᠎"
+)) {!function(e){var t=Symbol("undef"),r=function a(){if(!(this instanceof a))throw new TypeError('Constructor WeakSet requires "new"');var e=OrdinaryCreateFromConstructor(this,a.prototype,{_values:[],_size:0,_es6WeakSet:!0}),t=arguments.length>0?arguments[0]:undefined;if(null===t||t===undefined)return e;var r=Get(e,"add");if(!IsCallable(r))throw new TypeError("WeakSet.prototype.add is not a function");try{for(var o=GetIterator(t);;){var n=IteratorStep(o);if(!1===n)return e;var l=IteratorValue(n);try{Call(r,e,[l])}catch(c){return IteratorClose(o,c)}}}catch(c){if(IsArray(t)||"[object Arguments]"===Object.prototype.toString.call(t)||t.callee){var p,i=t.length;for(p=0;p<i;p++)Call(r,e,[t[p]])}}return e};Object.defineProperty(r,"prototype",{configurable:!1,enumerable:!1,writable:!1,value:{}}),CreateMethodProperty(r.prototype,"add",function n(e){var r=this;if("object"!==Type(r))throw new TypeError("Method WeakSet.prototype.add called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakSet)throw new TypeError("Method WeakSet.prototype.add called on incompatible receiver "+Object.prototype.toString.call(r));if("object"!==Type(e))throw new TypeError("Invalid value used in weak set");for(var o=r._values,a=0;a<o.length;a++){var n=o[a];if(n!==t&&SameValueZero(n,e))return r}return r._values.push(e),r}),CreateMethodProperty(r.prototype,"constructor",r),CreateMethodProperty(r.prototype,"delete",function(e){var r=this;if("object"!==Type(r))throw new TypeError("Method WeakSet.prototype.delete called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakSet)throw new TypeError("Method WeakSet.prototype.delete called on incompatible receiver "+Object.prototype.toString.call(r));if("object"!==Type(e))return!1;for(var o=r._values,a=0;a<o.length;a++){var n=o[a];if(n!==t&&SameValueZero(n,e))return o[a]=t,!0}return!1}),CreateMethodProperty(r.prototype,"has",function l(e){var r=this;if("object"!==Type(r))throw new TypeError("Method WeakSet.prototype.has called on incompatible receiver "+Object.prototype.toString.call(r));if(!0!==r._es6WeakSet)throw new TypeError("Method WeakSet.prototype.has called on incompatible receiver "+Object.prototype.toString.call(r));var o=r._values;if("object"!==Type(e))return!1;for(var a=0;a<o.length;a++){var n=o[a];if(n!==t&&SameValueZero(n,e))return!0}return!1}),"name"in r||Object.defineProperty(r,"name",{configurable:!0,enumerable:!1,writable:!1,value:"WeakSet"});try{CreateMethodProperty(e,"WeakSet",r)}catch(o){e.WeakSet=r}}(self);}function TrimString(e,u){var r=RequireObjectCoercible(e),t=ToString(r),n=/[\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF]+/.source;if("start"===u)var p=String.prototype.replace.call(t,new RegExp("^"+n,"g"),"");else p="end"===u?String.prototype.replace.call(t,new RegExp(n+"$","g"),""):String.prototype.replace.call(t,new RegExp("^"+n+"|"+n+"$","g"),"");return p}if (!("trim"in String.prototype&&function(){var r="​᠎"
 return!"\t\n\x0B\f\r                　\u2028\u2029\ufeff".trim()&&r.trim()===r}()
 )) {CreateMethodProperty(String.prototype,"trim",function t(){"use strict";var t=this;return TrimString(t,"start+end")});}if (!("parseFloat"in Number&&1/parseFloat("\t\n\x0B\f\r                　\u2028\u2029\ufeff-0")==-Infinity
 )) {!function(r,t){var a=function o(t){var a=String(t).trim(),e=r(a);return 0===e&&"-"==a.charAt(0)?-0:e};try{CreateMethodProperty(t,"parseFloat",a)}catch(e){t.parseFloat=a}CreateMethodProperty(Number,"parseFloat",t.parseFloat)}(parseFloat,this);}if (!("parseInt"in Number&&8===Number.parseInt("08")
@@ -6315,6 +6314,80 @@ display: block;
 margin-bottom: .05rem;
 }
 .portal-button { display: block; width: fit-content; }
+}
+
+.feedback-nav {
+display: flex;
+flex-wrap: wrap;
+gap: .65rem 1.1rem;
+padding: .85rem 1rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #f7fbf5;
+}
+.feedback-nav a {
+text-underline-offset: .2em;
+}
+.feedback-request {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #fff;
+padding: .8rem 1rem;
+margin: .2rem 0;
+min-width: 0;
+}
+.feedback-request summary {
+cursor: pointer;
+color: var(--ink);
+}
+.feedback-request[open] summary {
+margin-bottom: .8rem;
+}
+.feedback-request blockquote {
+margin: 0;
+padding: .2rem 0 .2rem 1rem;
+border-left: 3px solid #b8cdb3;
+color: var(--ink);
+overflow-wrap: anywhere;
+}
+.feedback-request blockquote p:last-child {
+margin-bottom: 0;
+}
+.feedback-table-wrap {
+overflow-x: auto;
+}
+.feedback-table {
+width: 100%;
+border-collapse: collapse;
+}
+.feedback-table caption {
+caption-side: top;
+color: var(--muted);
+padding-bottom: .6rem;
+}
+.feedback-table th,
+.feedback-table td {
+padding: .8rem;
+border-bottom: 1px solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+.feedback-table th {
+font-weight: 500;
+}
+.feedback-table thead {
+background: #f7fbf5;
+}
+.feedback-nav a:focus-visible,
+.feedback-request summary:focus-visible,
+.feedback-table-wrap:focus-visible {
+outline: 3px solid #496b3e;
+outline-offset: 4px;
+}
+@media print {
+.feedback-request > blockquote {
+display: block !important;
+}
 }
 </style>
 </head>

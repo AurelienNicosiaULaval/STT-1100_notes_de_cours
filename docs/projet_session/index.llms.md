@@ -58,6 +58,8 @@ Construire une page d'accueil claire et un rapport reproductible dans le même s
 
 Dans les défis et le projet, l'IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l'examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l'IA influence une partie importante d'un livrable évalué, ajoutez une déclaration courte dans le livrable: outil utilisé, but de l'aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.
 
+Pour la proposition, choisissez un commentaire sur la question et la faisabilité. Pour le rapport ou la présentation, ciblez une analyse, une figure ou une conclusion. Suivez la [démarche de rétroaction](../ia.llms.md#feedback-cycle), vérifiez chaque correction et expliquez-la à l'équipe. Une rétroaction sur un extrait ne valide pas tout le projet.
+
 ## Avant chaque jalon
 
 Chaque remise du projet doit être lisible par une personne qui ouvre le dépôt sans vous entendre l'expliquer.

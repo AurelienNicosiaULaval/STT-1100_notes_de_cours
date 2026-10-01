@@ -56,7 +56,7 @@ Use the local page and repository test as the reference. Document the observed d
 
 ## Learning Plan
 
-The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and AI feedback. The adventure and challenge form the module story. Exercises are autonomous and use local HTML pages to consolidate the same moves without depending on an external website. AI feedback revisits work you have already completed; it does not require an additional submission.
+The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and feedback with or without AI. The adventure and challenge form the module story. Exercises are autonomous and use local HTML pages to consolidate the same moves without depending on an external website. Feedback revisits work you have already completed; it does not require an additional submission.
 
 1 Readings Prepare HTML, CSS selectors, functions and automation. In this card Open cardCollapse
 
@@ -111,21 +111,21 @@ Why Exercises use local HTML snapshots from Données Québec and SIT Québec to 
 
 Before opening a solution, name the CSS selector or output contract you want to test.
 
-5 AI feedback Have one excerpt of your work reviewed, then decide what to improve yourself. [/retroaction mode](../ia.llms.md) Open cardCollapse
+5 Feedback Have one excerpt of your work reviewed, then decide what to improve yourself. [Process and examples](../ia.llms.md#feedback-cycle) Open cardCollapse
 
-Starting point Choose one actual element produced in the adventure, challenge or exercises: a code excerpt, chart, interpretation or methodological choice.
+### Feedback: web collection that handles errors
 
-Prepare Provide the instruction, context, what you tried and the exact element you want reviewed.
+After an initial attempt, choose one improvement related to functions, selectors and responsible web collection. Use the [feedback process](../ia.llms.md#feedback-cycle) with or without AI; this routine adds no submission to the instructions.
 
-Ask Open [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) in `/retroaction` mode. Ask for one strength, one weakness to verify and one question that will help you revise.
+A request tailored to module 8
 
-Decide Compare the response with your data and the instructions. Revise only what you understand and can explain.
+> I am working on functions, selectors and responsible web collection. Here are the instructions, relevant criteria and my function, an authorized HTML excerpt, the expected output and actual output. Identify one strength and at most two improvements, including a fragile assumption about page structure or an unhandled input case if the supplied evidence shows it. Cite the relevant passage, distinguish observable errors from items to check, then suggest a hint and test. Do not rewrite my work and wait for my correction.
 
-Copy-ready request
+- Verify: Test the function on the supplied HTML copy and a case with a missing element. Check result counts and types; check collection instructions before any additional request.
+- Revisit the correction: present the change and test result, then ask what still needs checking.
+- Repeat without help: Explain a selector's role, then adapt your function to another element of the HTML copy.
 
-`/retroaction I am finishing this module. Here are the target instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite the entire work.`
-
-Expected result One improvement you understand and apply to your work, or a clear reason not to follow the suggestion. There is no portfolio or additional submission to produce.
+Without AI, compare your attempt with the criteria and course examples, then perform the same checks. Keep a short record in the [tracking worksheet](../ia.llms.md#feedback-trace) if useful.
 
 Privacy Do not share personal, confidential or protected data.
 

@@ -134,3 +134,9 @@ The concepts remain the same from one language to another. The important thing i
 ------------------------------------------------------------------------
 
 > *Strong data scientists are not people who know every answer. They are people who know how to ask better questions.*
+
+# Request feedback on your work
+
+Start with your own attempt and provide the instructions, relevant criterion and difficulty. Ask for one strength, at most two improvements and a concrete check. Make your own correction, then return with the test result.
+
+The [AI and help page](../ia.llms.md#feedback-cycle) describes this process with or without AI. It provides [requests to adapt](../ia.llms.md#feedback-prompts) and an [optional tracking worksheet](../ia.llms.md#feedback-trace). For a request to the teaching team, supply the same information and explain what you still do not understand.

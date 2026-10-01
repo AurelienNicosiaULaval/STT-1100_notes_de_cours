@@ -120,9 +120,9 @@ Cheat sheets, presentations, practical guides and complementary material.
 
 ### AI and Help
 
-Use the course AI to review, debug and improve reasoning while staying in control. Example request: *Review my reasoning, indicate what is supported by the data and what still needs checking.*
+Start with an attempt, request feedback tied to criteria, revise and test, then repeat without help. A process without AI and a tracking worksheet are also available.
 
-[Open AI help](ia.llms.md) [Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100)
+[Adapt a feedback request](ia.llms.md#feedback-prompts) [Open AI help](ia.llms.md) [Open GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100)
 
 ### Toolkit
 

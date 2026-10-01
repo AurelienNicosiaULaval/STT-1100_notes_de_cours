@@ -5645,6 +5645,80 @@ margin-bottom: .05rem;
 }
 .portal-button { display: block; width: fit-content; }
 }
+
+.feedback-nav {
+display: flex;
+flex-wrap: wrap;
+gap: .65rem 1.1rem;
+padding: .85rem 1rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #f7fbf5;
+}
+.feedback-nav a {
+text-underline-offset: .2em;
+}
+.feedback-request {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #fff;
+padding: .8rem 1rem;
+margin: .2rem 0;
+min-width: 0;
+}
+.feedback-request summary {
+cursor: pointer;
+color: var(--ink);
+}
+.feedback-request[open] summary {
+margin-bottom: .8rem;
+}
+.feedback-request blockquote {
+margin: 0;
+padding: .2rem 0 .2rem 1rem;
+border-left: 3px solid #b8cdb3;
+color: var(--ink);
+overflow-wrap: anywhere;
+}
+.feedback-request blockquote p:last-child {
+margin-bottom: 0;
+}
+.feedback-table-wrap {
+overflow-x: auto;
+}
+.feedback-table {
+width: 100%;
+border-collapse: collapse;
+}
+.feedback-table caption {
+caption-side: top;
+color: var(--muted);
+padding-bottom: .6rem;
+}
+.feedback-table th,
+.feedback-table td {
+padding: .8rem;
+border-bottom: 1px solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+.feedback-table th {
+font-weight: 500;
+}
+.feedback-table thead {
+background: #f7fbf5;
+}
+.feedback-nav a:focus-visible,
+.feedback-request summary:focus-visible,
+.feedback-table-wrap:focus-visible {
+outline: 3px solid #496b3e;
+outline-offset: 4px;
+}
+@media print {
+.feedback-request > blockquote {
+display: block !important;
+}
+}
 </style>
 </head>
 
@@ -5975,7 +6049,7 @@ margin-bottom: .05rem;
       <article class="resource-hub-card resource-hub-card--visual">
         <div class="resource-mini-visual ai-mini" aria-hidden="true"></div>
         <h3 class="anchored">AI and Help</h3>
-        <p>Use the course AI to review, debug and improve reasoning while staying in control. Example request: <em>Review my reasoning, indicate what is supported by the data and what still needs checking.</em></p>
+        <p>Start with an attempt, request feedback tied to criteria, revise and test, then repeat without help. A process without AI and a tracking worksheet are also available.</p><a class="home-action" href="ia.html#feedback-prompts">Adapt a feedback request</a>
         <a class="home-action home-action--primary" href="ia.html">Open AI help</a>
         <a class="home-action" href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100" target="_blank" rel="noopener">Open GPT STT-1100</a>
       </article>

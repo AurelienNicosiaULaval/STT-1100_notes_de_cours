@@ -247,3 +247,9 @@ Save code, visualization and communication examples that may be reused in the pr
 ### Return to exercises
 
 Use the independent exercises to revisit a specific skill without depending on the challenge story.
+
+1.  Choose a comment tied to a criterion and explain its meaning.
+2.  Revise a working copy, test it and keep the verification result.
+3.  Apply the correction in an exercise or the next assignment without help.
+
+With or without AI, use the [feedback process](ia.llms.md#feedback-cycle) and, if useful, the [tracking worksheet](ia.llms.md#feedback-trace). AI does not replace teaching-team comments. A correction after submission does not authorize resubmission; check Brio requirements.

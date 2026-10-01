@@ -6141,6 +6141,80 @@ margin-bottom: .05rem;
 }
 .portal-button { display: block; width: fit-content; }
 }
+
+.feedback-nav {
+display: flex;
+flex-wrap: wrap;
+gap: .65rem 1.1rem;
+padding: .85rem 1rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #f7fbf5;
+}
+.feedback-nav a {
+text-underline-offset: .2em;
+}
+.feedback-request {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #fff;
+padding: .8rem 1rem;
+margin: .2rem 0;
+min-width: 0;
+}
+.feedback-request summary {
+cursor: pointer;
+color: var(--ink);
+}
+.feedback-request[open] summary {
+margin-bottom: .8rem;
+}
+.feedback-request blockquote {
+margin: 0;
+padding: .2rem 0 .2rem 1rem;
+border-left: 3px solid #b8cdb3;
+color: var(--ink);
+overflow-wrap: anywhere;
+}
+.feedback-request blockquote p:last-child {
+margin-bottom: 0;
+}
+.feedback-table-wrap {
+overflow-x: auto;
+}
+.feedback-table {
+width: 100%;
+border-collapse: collapse;
+}
+.feedback-table caption {
+caption-side: top;
+color: var(--muted);
+padding-bottom: .6rem;
+}
+.feedback-table th,
+.feedback-table td {
+padding: .8rem;
+border-bottom: 1px solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+.feedback-table th {
+font-weight: 500;
+}
+.feedback-table thead {
+background: #f7fbf5;
+}
+.feedback-nav a:focus-visible,
+.feedback-request summary:focus-visible,
+.feedback-table-wrap:focus-visible {
+outline: 3px solid #496b3e;
+outline-offset: 4px;
+}
+@media print {
+.feedback-request > blockquote {
+display: block !important;
+}
+}
 </style>
 </head>
 
@@ -6396,6 +6470,7 @@ margin-bottom: .05rem;
 <section id="usage-permis-de-lia" class="level1">
 <h1>Usage permis de l’IA</h1>
 <p>Dans les défis et le projet, l’IA est permise comme aide au raisonnement, au débogage, à la révision, à la planification ou à la vérification. Dans l’examen, seuls les outils explicitement autorisés sur Brio sont permis. Dans tous les cas, le livrable final doit rester vérifiable, personnel et cohérent avec la consigne. Vous devez comprendre, tester et pouvoir expliquer tout code, texte, source, résultat ou interprétation remis. Quand l’IA influence une partie importante d’un livrable évalué, ajoutez une déclaration courte dans le livrable: outil utilisé, but de l’aide, partie touchée et vérification faite. Les modalités officielles indiquées sur Brio prévalent toujours.</p>
+<p>Pour demander une rétroaction formative, partez d’une tentative personnelle et d’un critère précis. Demandez un point réussi et au maximum deux améliorations, effectuez vous-même les corrections et vérifiez-les avant de les intégrer. La <a href="../ia.html#feedback-cycle">démarche de rétroaction</a> et la <a href="../ia.html#feedback-trace">fiche de suivi facultative</a> peuvent guider cette révision avec ou sans IA. Ces ressources n’ajoutent aucun livrable ni critère au projet.</p>
 </section>
 <section id="pondération-et-échéancier" class="level1">
 <h1>Pondération et échéancier</h1>

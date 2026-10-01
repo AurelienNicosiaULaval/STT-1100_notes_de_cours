@@ -60,7 +60,7 @@ N’utilisez des rétroactions réelles que si l’enseignant·e le confirme. Re
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction IA. Ouvrez les cartes pour voir l’action attendue et le lien utile. La rétroaction IA revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
+Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction avec ou sans IA. Ouvrez les cartes pour voir l’action attendue et le lien utile. La rétroaction revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
 
 1 Lectures à faire Préparer texte, tableaux de bord et communication interactive. Dans la carte Ouvrir la carteRéduire
 
@@ -120,21 +120,21 @@ Pourquoi Les exercices sont indépendants de l'aventure et du défi. Ils utilise
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
-5 Rétroaction IA Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Mode /retroaction](../ia.llms.md) Ouvrir la carteRéduire
+5 Rétroaction Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Démarche et exemples](../ia.llms.md#feedback-cycle) Ouvrir la carteRéduire
 
-Point de départ Choisissez un seul élément réellement produit dans l'aventure, le défi ou les exercices: un extrait de code, un graphique, une interprétation ou un choix méthodologique.
+### Rétroaction: un tableau de bord fidèle aux textes
 
-Préparer Donnez la consigne, le contexte, ce que vous avez essayé et l'élément précis à relire.
+Après une première tentative, choisissez un point à améliorer sur le nettoyage textuel, le lexique de sentiment et les filtres du tableau de bord. Utilisez la [démarche de rétroaction](../ia.llms.md#feedback-cycle) avec ou sans IA; cette routine n'ajoute pas de remise aux consignes.
 
-Demander Ouvrez [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) en mode `/retroaction`. Demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger.
+Une demande adaptée au module 10
 
-Décider Comparez la réponse aux données et à la consigne. Modifiez vous-même seulement ce que vous comprenez et pouvez expliquer.
+> Je travaille sur le nettoyage textuel, le lexique de sentiment et les filtres du tableau de bord. Voici la consigne, les critères pertinents et des commentaires fictifs, le code de nettoyage ou de score et une vue du tableau de bord. Relève un point réussi et au maximum deux améliorations, dont une négation ou un contexte mal représenté par le lexique, ou un filtre incohérent avec les indicateurs si les éléments fournis le montrent. Cite le passage concerné, distingue erreur observable et point à vérifier, puis propose un indice et un test. Ne réécris pas mon travail et attends ma correction.
 
-Demande prête à copier
+- Vérifier: Comparez quelques textes fictifs à leur score. Testez les filtres, les effectifs et un cas sans résultat; assurez-vous que les limites du lexique restent visibles.
+- Revenir sur la correction: présentez le changement et le résultat du test, puis demandez ce qui reste à vérifier.
+- Refaire sans aide: Expliquez un cas où le score représente mal le texte, puis décrivez l'effet attendu d'un filtre avant de le tester.
 
-`/retroaction Je termine ce module. Voici la consigne visée, ce que j'ai essayé et l'extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m'aidera à corriger moi-même. Ne réécris pas tout le travail.`
-
-Résultat attendu Une amélioration comprise et appliquée dans votre travail, ou une raison claire de ne pas suivre la suggestion. Il n'y a ni portfolio ni remise supplémentaire à produire.
+Sans IA, comparez votre tentative aux critères et aux exemples du cours, puis faites les mêmes vérifications. Gardez une trace courte dans la [fiche de suivi](../ia.llms.md#feedback-trace), si elle vous est utile.
 
 Confidentialité Ne transmettez aucune donnée personnelle, confidentielle ou protégée.
 

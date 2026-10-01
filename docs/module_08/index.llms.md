@@ -56,7 +56,7 @@ Utilisez la page locale et le test du dépôt comme référence. Documentez la d
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et utilisent des pages HTML locales pour consolider les mêmes gestes sans dépendre d’un site externe. La rétroaction IA revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
+Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction avec ou sans IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont autonomes et utilisent des pages HTML locales pour consolider les mêmes gestes sans dépendre d’un site externe. La rétroaction revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
 
 1 Lectures à faire Préparer HTML, sélecteurs CSS, fonctions et automatisation. Dans la carte Ouvrir la carteRéduire
 
@@ -111,21 +111,21 @@ Pourquoi Les exercices utilisent des instantanés HTML locaux provenant de Donn�
 
 Avant d'ouvrir une solution, nommez le sélecteur CSS ou le contrat de sortie que vous voulez tester.
 
-5 Rétroaction IA Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Mode /retroaction](../ia.llms.md) Ouvrir la carteRéduire
+5 Rétroaction Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Démarche et exemples](../ia.llms.md#feedback-cycle) Ouvrir la carteRéduire
 
-Point de départ Choisissez un seul élément réellement produit dans l'aventure, le défi ou les exercices: un extrait de code, un graphique, une interprétation ou un choix méthodologique.
+### Rétroaction: une collecte web qui résiste aux erreurs
 
-Préparer Donnez la consigne, le contexte, ce que vous avez essayé et l'élément précis à relire.
+Après une première tentative, choisissez un point à améliorer sur les fonctions, les sélecteurs et la collecte web responsable. Utilisez la [démarche de rétroaction](../ia.llms.md#feedback-cycle) avec ou sans IA; cette routine n'ajoute pas de remise aux consignes.
 
-Demander Ouvrez [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) en mode `/retroaction`. Demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger.
+Une demande adaptée au module 8
 
-Décider Comparez la réponse aux données et à la consigne. Modifiez vous-même seulement ce que vous comprenez et pouvez expliquer.
+> Je travaille sur les fonctions, les sélecteurs et la collecte web responsable. Voici la consigne, les critères pertinents et ma fonction, un extrait HTML autorisé, la sortie attendue et la sortie obtenue. Relève un point réussi et au maximum deux améliorations, dont une hypothèse fragile sur la structure de la page ou un cas d'entrée non traité si les éléments fournis le montrent. Cite le passage concerné, distingue erreur observable et point à vérifier, puis propose un indice et un test. Ne réécris pas mon travail et attends ma correction.
 
-Demande prête à copier
+- Vérifier: Testez la fonction sur la copie HTML fournie et un cas où l'élément manque. Contrôlez le nombre et le type des résultats; vérifiez les consignes de collecte avant toute requête supplémentaire.
+- Revenir sur la correction: présentez le changement et le résultat du test, puis demandez ce qui reste à vérifier.
+- Refaire sans aide: Expliquez le rôle d'un sélecteur, puis adaptez votre fonction à un autre élément de la copie HTML.
 
-`/retroaction Je termine ce module. Voici la consigne visée, ce que j'ai essayé et l'extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m'aidera à corriger moi-même. Ne réécris pas tout le travail.`
-
-Résultat attendu Une amélioration comprise et appliquée dans votre travail, ou une raison claire de ne pas suivre la suggestion. Il n'y a ni portfolio ni remise supplémentaire à produire.
+Sans IA, comparez votre tentative aux critères et aux exemples du cours, puis faites les mêmes vérifications. Gardez une trace courte dans la [fiche de suivi](../ia.llms.md#feedback-trace), si elle vous est utile.
 
 Confidentialité Ne transmettez aucune donnée personnelle, confidentielle ou protégée.
 

@@ -58,7 +58,7 @@ N’effacez pas une valeur seulement parce qu’elle semble étrange. Signalez-l
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à pratiquer les mêmes gestes sur d’autres données. La rétroaction IA revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
+Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction avec ou sans IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à pratiquer les mêmes gestes sur d’autres données. La rétroaction revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
 
 1 Lectures à faire Préparer importation, valeurs manquantes, tableurs, JSON et listes. Dans la carte Ouvrir la carteRéduire
 
@@ -117,21 +117,21 @@ Cas L'aide financière de dernier recours au Québec et les installations sporti
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
-5 Rétroaction IA Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Mode /retroaction](../ia.llms.md) Ouvrir la carteRéduire
+5 Rétroaction Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Démarche et exemples](../ia.llms.md#feedback-cycle) Ouvrir la carteRéduire
 
-Point de départ Choisissez un seul élément réellement produit dans l'aventure, le défi ou les exercices: un extrait de code, un graphique, une interprétation ou un choix méthodologique.
+### Rétroaction: un nettoyage justifié
 
-Préparer Donnez la consigne, le contexte, ce que vous avez essayé et l'élément précis à relire.
+Après une première tentative, choisissez un point à améliorer sur les types, les anomalies et les décisions de nettoyage. Utilisez la [démarche de rétroaction](../ia.llms.md#feedback-cycle) avec ou sans IA; cette routine n'ajoute pas de remise aux consignes.
 
-Demander Ouvrez [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) en mode `/retroaction`. Demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger.
+Une demande adaptée au module 4
 
-Décider Comparez la réponse aux données et à la consigne. Modifiez vous-même seulement ce que vous comprenez et pouvez expliquer.
+> Je travaille sur les types, les anomalies et les décisions de nettoyage. Voici la consigne, les critères pertinents et un extrait avant et après nettoyage, le code et la justification du changement. Relève un point réussi et au maximum deux améliorations, dont une transformation qui pourrait supprimer de l'information ou créer des valeurs manquantes si les éléments fournis le montrent. Cite le passage concerné, distingue erreur observable et point à vérifier, puis propose un indice et un test. Ne réécris pas mon travail et attends ma correction.
 
-Demande prête à copier
+- Vérifier: Comparez les dimensions, les types et les valeurs manquantes avant et après. Inspectez les lignes modifiées et documentez les exclusions.
+- Revenir sur la correction: présentez le changement et le résultat du test, puis demandez ce qui reste à vérifier.
+- Refaire sans aide: Justifiez une décision de nettoyage, puis vérifiez une autre anomalie sans appliquer automatiquement la même correction.
 
-`/retroaction Je termine ce module. Voici la consigne visée, ce que j'ai essayé et l'extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m'aidera à corriger moi-même. Ne réécris pas tout le travail.`
-
-Résultat attendu Une amélioration comprise et appliquée dans votre travail, ou une raison claire de ne pas suivre la suggestion. Il n'y a ni portfolio ni remise supplémentaire à produire.
+Sans IA, comparez votre tentative aux critères et aux exemples du cours, puis faites les mêmes vérifications. Gardez une trace courte dans la [fiche de suivi](../ia.llms.md#feedback-trace), si elle vous est utile.
 
 Confidentialité Ne transmettez aucune donnée personnelle, confidentielle ou protégée.
 

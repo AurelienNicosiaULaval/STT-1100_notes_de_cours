@@ -203,4 +203,6 @@ Rendre le document, vérifier les sorties, relire l'interprétation et retirer l
 
 ### Après la rétroaction
 
-Conserver les corrections utiles et les réinvestir dans le prochain défi, l'examen ou le projet.
+Choisir une correction, la tester et refaire une tâche analogue sans aide. Les commentaires de l'IA sont formatifs; l'évaluation officielle relève de l'équipe enseignante.
+
+[Utiliser les commentaires pour progresser](ia.llms.md#feedback-cycle)

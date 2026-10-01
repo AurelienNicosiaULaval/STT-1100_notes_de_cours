@@ -68,7 +68,7 @@ Isolate the error, keep the complete message and check the minimal render first.
 
 ## Learning Plan
 
-The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and AI feedback. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills. AI feedback revisits work you have already completed; it does not require an additional submission.
+The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and feedback with or without AI. The adventure and challenge form the module story. Exercises are autonomous and consolidate technical skills. Feedback revisits work you have already completed; it does not require an additional submission.
 
 1 Readings Set up the R, RStudio, Quarto, dplyr and reproducibility landmarks. [Mini-test](mini_test.llms.md) Open cardCollapse
 
@@ -143,21 +143,21 @@ Scope These exercises are not a step in the challenge. They practise RStudio, Qu
 
 Try each exercise before opening the solution, even when it gives your brain a little workout.
 
-5 AI feedback Have one excerpt of your work reviewed, then decide what to improve yourself. [/retroaction mode](../ia.llms.md) Open cardCollapse
+5 Feedback Have one excerpt of your work reviewed, then decide what to improve yourself. [Process and examples](../ia.llms.md#feedback-cycle) Open cardCollapse
 
-Starting point Choose one actual element produced in the adventure, challenge or exercises: a code excerpt, chart, interpretation or methodological choice.
+### Feedback: a first report that renders
 
-Prepare Provide the instruction, context, what you tried and the exact element you want reviewed.
+After an initial attempt, choose one improvement related to data import, R objects and Quarto rendering. Use the [feedback process](../ia.llms.md#feedback-cycle) with or without AI; this routine adds no submission to the instructions.
 
-Ask Open [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) in `/retroaction` mode. Ask for one strength, one weakness to verify and one question that will help you revise.
+A request tailored to module 1
 
-Decide Compare the response with your data and the instructions. Revise only what you understand and can explain.
+> I am working on data import, R objects and Quarto rendering. Here are the instructions, relevant criteria and an excerpt of the .qmd file, the data used and the output or error message. Identify one strength and at most two improvements, including an inconsistency between the object used, its variables and the expected result if the supplied evidence shows it. Cite the relevant passage, distinguish observable errors from items to check, then suggest a hint and test. Do not rewrite my work and wait for my correction.
 
-Copy-ready request
+- Verify: Render the document after restarting R. Check loaded packages, file paths and whether the result appears in HTML.
+- Revisit the correction: present the change and test result, then ask what still needs checking.
+- Repeat without help: Explain the difference between the .qmd and HTML files, then adapt a command to another relevant variable.
 
-`/retroaction I am finishing this module. Here are the target instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite the entire work.`
-
-Expected result One improvement you understand and apply to your work, or a clear reason not to follow the suggestion. There is no portfolio or additional submission to produce.
+Without AI, compare your attempt with the criteria and course examples, then perform the same checks. Keep a short record in the [tracking worksheet](../ia.llms.md#feedback-trace) if useful.
 
 Privacy Do not share personal, confidential or protected data.
 

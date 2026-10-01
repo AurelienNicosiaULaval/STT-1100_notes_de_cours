@@ -61,7 +61,7 @@ Start with the essential resources listed in the plan, then reserve deeper readi
 
 ## Learning Plan
 
-The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and AI feedback. The adventure and challenge form the module story. Exercises are autonomous and consolidate the same reflexes in other contexts. AI feedback revisits work you have already completed; it does not require an additional submission.
+The cards follow the five steps of the learning plan: readings, adventure, challenge, exercises and feedback with or without AI. The adventure and challenge form the module story. Exercises are autonomous and consolidate the same reflexes in other contexts. Feedback revisits work you have already completed; it does not require an additional submission.
 
 1 Readings Prepare responsible visualizations, confidentiality and ethics. In this card Open cardCollapse
 
@@ -116,21 +116,21 @@ Why Exercises use real aggregate data from Sherbrooke, Statistics Canada and Don
 
 Before opening a solution, state the ethical or visual risk you are trying to reduce.
 
-5 AI feedback Have one excerpt of your work reviewed, then decide what to improve yourself. [/retroaction mode](../ia.llms.md) Open cardCollapse
+5 Feedback Have one excerpt of your work reviewed, then decide what to improve yourself. [Process and examples](../ia.llms.md#feedback-cycle) Open cardCollapse
 
-Starting point Choose one actual element produced in the adventure, challenge or exercises: a code excerpt, chart, interpretation or methodological choice.
+### Feedback: an honest graph and protected data
 
-Prepare Provide the instruction, context, what you tried and the exact element you want reviewed.
+After an initial attempt, choose one improvement related to responsible visualization and limitations of data protection. Use the [feedback process](../ia.llms.md#feedback-cycle) with or without AI; this routine adds no submission to the instructions.
 
-Ask Open [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) in `/retroaction` mode. Ask for one strength, one weakness to verify and one question that will help you revise.
+A request tailored to module 7
 
-Decide Compare the response with your data and the instructions. Revise only what you understand and can explain.
+> I am working on responsible visualization and limitations of data protection. Here are the instructions, relevant criteria and a graph and ethical note based on fictional data or data whose sharing is authorized. Identify one strength and at most two improvements, including a misleading visual choice or insufficiently justified confidentiality claim if the supplied evidence shows it. Cite the relevant passage, distinguish observable errors from items to check, then suggest a hint and test. Do not rewrite my work and wait for my correction.
 
-Copy-ready request
+- Verify: Compare axes, scales and groups with the data. Examine information that could enable reidentification; AI approval is insufficient to authorize sharing.
+- Revisit the correction: present the change and test result, then ask what still needs checking.
+- Repeat without help: Explain a visualization choice and one limitation of the proposed protection without exposing sensitive data.
 
-`/retroaction I am finishing this module. Here are the target instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite the entire work.`
-
-Expected result One improvement you understand and apply to your work, or a clear reason not to follow the suggestion. There is no portfolio or additional submission to produce.
+Without AI, compare your attempt with the criteria and course examples, then perform the same checks. Keep a short record in the [tracking worksheet](../ia.llms.md#feedback-trace) if useful.
 
 Privacy Do not share personal, confidential or protected data.
 

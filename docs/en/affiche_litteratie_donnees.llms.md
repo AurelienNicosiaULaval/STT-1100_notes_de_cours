@@ -156,7 +156,9 @@ The team remains responsible for the accuracy of the analyses, the quality of th
 
 ### Ask clearly
 
-With the course AI companion, you can ask: “Check whether our question is clear and whether our graphs actually support our conclusion. Also flag claims that are too strong.”
+Present your question, a graph and its associated conclusion. Ask for one strength, a claim to check and a test to perform. Make your own correction, then explain the change to the team.
+
+[Adapt a feedback request](ia.llms.md#feedback-prompts)
 
 ## Rubric
 

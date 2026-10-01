@@ -6141,6 +6141,80 @@ margin-bottom: .05rem;
 }
 .portal-button { display: block; width: fit-content; }
 }
+
+.feedback-nav {
+display: flex;
+flex-wrap: wrap;
+gap: .65rem 1.1rem;
+padding: .85rem 1rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #f7fbf5;
+}
+.feedback-nav a {
+text-underline-offset: .2em;
+}
+.feedback-request {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #fff;
+padding: .8rem 1rem;
+margin: .2rem 0;
+min-width: 0;
+}
+.feedback-request summary {
+cursor: pointer;
+color: var(--ink);
+}
+.feedback-request[open] summary {
+margin-bottom: .8rem;
+}
+.feedback-request blockquote {
+margin: 0;
+padding: .2rem 0 .2rem 1rem;
+border-left: 3px solid #b8cdb3;
+color: var(--ink);
+overflow-wrap: anywhere;
+}
+.feedback-request blockquote p:last-child {
+margin-bottom: 0;
+}
+.feedback-table-wrap {
+overflow-x: auto;
+}
+.feedback-table {
+width: 100%;
+border-collapse: collapse;
+}
+.feedback-table caption {
+caption-side: top;
+color: var(--muted);
+padding-bottom: .6rem;
+}
+.feedback-table th,
+.feedback-table td {
+padding: .8rem;
+border-bottom: 1px solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+.feedback-table th {
+font-weight: 500;
+}
+.feedback-table thead {
+background: #f7fbf5;
+}
+.feedback-nav a:focus-visible,
+.feedback-request summary:focus-visible,
+.feedback-table-wrap:focus-visible {
+outline: 3px solid #496b3e;
+outline-offset: 4px;
+}
+@media print {
+.feedback-request > blockquote {
+display: block !important;
+}
+}
 </style>
 </head>
 
@@ -6423,7 +6497,7 @@ Nettoyer des données réelles et préparer des variables utilisables pour l’a
 </section>
 <section id="plan-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="plan-dapprentissage">Plan d’apprentissage</h2>
-<p>Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à pratiquer les mêmes gestes sur d’autres données. La rétroaction IA revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.</p>
+<p>Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction avec ou sans IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à pratiquer les mêmes gestes sur d’autres données. La rétroaction revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.</p>
 <div class="path-grid interactive-path module-path learning-plan-path">
 <details class="path-card learning-plan-card" id="lectures-a-faire">
   <summary><span class="path-number">1</span>
@@ -6500,17 +6574,23 @@ Nettoyer des données réelles et préparer des variables utilisables pour l’a
   </details>
 <details class="path-card learning-plan-card ai-feedback-card" id="retroaction-ia">
   <summary><span class="path-number">5</span>
-  <span class="path-title">Rétroaction IA</span>
+  <span class="path-title">Rétroaction</span>
   <span class="path-preview">Faire relire un extrait du travail, puis décider quoi améliorer soi-même.</span>
-  <span class="path-resource"><a class="summary-resource-link" href="../ia.html">Mode /retroaction</a></span>
+  <span class="path-resource"><a class="summary-resource-link" href="../ia.html#feedback-cycle">Démarche et exemples</a></span>
   <span class="path-toggle"><span class="closed-label">Ouvrir la carte</span><span class="open-label">Réduire</span></span></summary>
   <div class="step-detail">
-  <p><span class="step-label">Point de départ</span> Choisissez un seul élément réellement produit dans l&#39;aventure, le défi ou les exercices: un extrait de code, un graphique, une interprétation ou un choix méthodologique.</p>
-  <p><span class="step-label">Préparer</span> Donnez la consigne, le contexte, ce que vous avez essayé et l&#39;élément précis à relire.</p>
-  <p><span class="step-label">Demander</span> Ouvrez <a href="https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100" target="_blank" rel="noopener">GPT STT-1100</a> en mode <code>/retroaction</code>. Demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger.</p>
-  <p><span class="step-label">Décider</span> Comparez la réponse aux données et à la consigne. Modifiez vous-même seulement ce que vous comprenez et pouvez expliquer.</p>
-  <div class="ae-box"><p class="ae-title">Demande prête à copier</p><p><code>/retroaction Je termine ce module. Voici la consigne visée, ce que j&#39;ai essayé et l&#39;extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m&#39;aidera à corriger moi-même. Ne réécris pas tout le travail.</code></p></div>
-  <p><span class="step-label">Résultat attendu</span> Une amélioration comprise et appliquée dans votre travail, ou une raison claire de ne pas suivre la suggestion. Il n&#39;y a ni portfolio ni remise supplémentaire à produire.</p>
+  <h3 id="module-feedback" class="anchored">Rétroaction: un nettoyage justifié</h3>
+  <p>Après une première tentative, choisissez un point à améliorer sur les types, les anomalies et les décisions de nettoyage. Utilisez la <a href="../ia.html#feedback-cycle">démarche de rétroaction</a> avec ou sans IA; cette routine n&#39;ajoute pas de remise aux consignes.</p>
+  <details class="feedback-request">
+    <summary>Une demande adaptée au module 4</summary>
+    <blockquote class="blockquote"><p>Je travaille sur les types, les anomalies et les décisions de nettoyage. Voici la consigne, les critères pertinents et un extrait avant et après nettoyage, le code et la justification du changement. Relève un point réussi et au maximum deux améliorations, dont une transformation qui pourrait supprimer de l&#39;information ou créer des valeurs manquantes si les éléments fournis le montrent. Cite le passage concerné, distingue erreur observable et point à vérifier, puis propose un indice et un test. Ne réécris pas mon travail et attends ma correction.</p></blockquote>
+  </details>
+  <ul>
+    <li>Vérifier: Comparez les dimensions, les types et les valeurs manquantes avant et après. Inspectez les lignes modifiées et documentez les exclusions.</li>
+    <li>Revenir sur la correction: présentez le changement et le résultat du test, puis demandez ce qui reste à vérifier.</li>
+    <li>Refaire sans aide: Justifiez une décision de nettoyage, puis vérifiez une autre anomalie sans appliquer automatiquement la même correction.</li>
+  </ul>
+  <p>Sans IA, comparez votre tentative aux critères et aux exemples du cours, puis faites les mêmes vérifications. Gardez une trace courte dans la <a href="../ia.html#feedback-trace">fiche de suivi</a>, si elle vous est utile.</p>
   <p><span class="step-label">Confidentialité</span> Ne transmettez aucune donnée personnelle, confidentielle ou protégée.</p>
   </div>
   </details>

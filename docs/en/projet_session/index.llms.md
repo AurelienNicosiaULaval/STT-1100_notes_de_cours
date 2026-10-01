@@ -58,6 +58,8 @@ Build a clear landing page and a reproducible report in the same Quarto website.
 
 In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, add a short disclosure to the deliverable: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.
 
+For the proposal, choose a comment about the question and feasibility. For the report or presentation, focus on an analysis, figure or conclusion. Follow the [feedback process](../ia.llms.md#feedback-cycle), verify each correction and explain it to the team. Feedback on an excerpt does not validate the whole project.
+
 ## Before each milestone
 
 Each project submission should be readable by someone who opens the repository without hearing you explain it.

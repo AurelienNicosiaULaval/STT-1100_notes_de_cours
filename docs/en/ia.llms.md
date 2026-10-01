@@ -18,6 +18,8 @@ Verify yourself
 
 Disclose use
 
+[The process](#feedback-cycle) [Requests to adapt](#feedback-prompts) [Check comments](#feedback-check) [Tracking worksheet](#feedback-trace) [Without AI](#feedback-without-ai) [Course rules](#activity-title)
+
 ## Simple Rule
 
 AI is a working tool. It becomes a problem if it hides your understanding, invents elements or produces an answer you cannot defend.
@@ -34,41 +36,43 @@ Reuse a suggestion only after running the code, comparing it with the data and r
 
 Submitting code, text, sources or interpretations that you do not understand or cannot reproduce.
 
-## Eight modes for requesting the right kind of help
+## Choose the help you need
 
-Start your message with the command that matches your need. The GPT then adapts its process and limits to the activity concerned.
+Simply describe your need, the activity and what you have already tried. No special command is required. Provide the relevant instructions rather than assuming the GPT knows them.
 
 ### Sources and instructions
 
-`/sources` Check a course rule and find the authoritative source.
+Find the source of a rule and distinguish confirmed information from missing information.
 
 ### Review
 
-`/revision` Review a concept with a short explanation and a recall question.
+Review a concept, then answer a recall question in your own words.
 
 ### Exercises
 
-`/exercices` Get a formative exercise distinct from an active assessment, with graduated hints.
+Practise on a situation distinct from an active assessment, with graduated hints.
 
 ### Feedback
 
-`/retroaction` At the end of a module, have one element from the adventure, challenge or exercises reviewed, then decide for yourself what to improve.
+Compare your attempt with the supplied criteria, choose a correction and check your understanding. This support is formative and does not constitute a grade.
+
+[Follow the feedback process](#feedback-cycle)
 
 ### R debugging
 
-`/debug-r` Diagnose an error using minimal code, the complete message and the expected result.
+Examine minimal code, the full message and the expected result, then test a correction.
 
 ### Project
 
-`/projet` Compare options, justify a choice and maintain a decision log.
+Compare options and justify your choices in a decision log.
 
 ### Exam preparation
 
-`/examen` Build a study plan and practise with analogous questions.
+Build a study plan and practise with analogous questions. During the exam, Brio authorizations apply.
 
 ### Integrity and AI
 
-`/integrite-ia` Clarify whether a use is allowed, restricted, disclosable, prohibited or unknown.
+Check whether the proposed help follows the instructions and decide how to disclose it.
 
 ## Allowed AI Use
 
@@ -97,6 +101,136 @@ Check the tools explicitly authorized on Brio before starting.
 ### Course Project
 
 Apply the common rule in the team repository and submissions.
+
+Try, revise, verify
+
+## Feedback that helps you improve your work
+
+Start with your own attempt. Request comments on a specific objective, make your own correction and verify the result. This routine supports learning; it adds no submission, criterion or grade weight to the official instructions.
+
+1
+
+### Prepare an attempt
+
+Identify the activity, instructions, criterion and difficulty. Share a relevant excerpt of your code, output, graph or interpretation after removing sensitive information.
+
+2
+
+### Request priorities
+
+Ask for one strength and at most two improvements. Each comment should cite an element of your work, explain its connection to the criterion and suggest a hint or test.
+
+3
+
+### Decide and revise
+
+Choose one suggestion to address. Explain why you accept, adapt or reject it, then make the correction. A style preference does not have the same priority as a calculation error.
+
+4
+
+### Verify the change
+
+Run the code or render the document in your environment. Compare with the data and instructions. Present your revised version and test result for a second focused comment.
+
+5
+
+### Apply it without help
+
+Explain the correction in your own words, then complete a small analogous task without AI. Keep a useful check for the next challenge or project.
+
+Use this process during the adventure after an initial attempt, before submission to check a criterion, or after teaching-team feedback to practise. After submission, a correction in your notes does not replace the submitted file; any resubmission depends on the official requirements.
+
+## Three requests to adapt
+
+Copy the request for your current stage and replace the items in brackets. AI comments still need verification and do not predict the teaching team's grade.
+
+1\. Receive initial feedback
+
+> I am working on \[activity and module\]. Here are \[relevant instructions and criteria\], \[my attempt\] and \[my difficulty\].
+>
+> Give me feedback on my process without rewriting my work or providing the final deliverable. Identify one strength and explain why it works. Identify at most two improvements, citing the relevant passages or lines and the associated criterion.
+>
+> Distinguish an observable error, an item to check and a presentation suggestion. For each priority, provide a hint and a test I can perform. If information is missing, ask for it or state what you cannot verify. Do not claim to have run my code if you have not. Wait for my correction.
+
+2\. Check a correction
+
+> Here are \[the comment received\], \[my initial version\], \[my correction\] and \[my test result\]. I accepted or adapted this suggestion because \[my justification\].
+>
+> Compare the two versions against \[the criterion\]. Explain what the supplied evidence now supports, what still needs checking and whether my correction creates another problem. Do not validate the whole assignment from this excerpt. End with a short question to check my understanding.
+
+3\. Reuse teaching-team feedback
+
+> Here are \[a teaching-team comment, without personal information\] and \[the relevant excerpt of my work\]. Help me understand the comment without attributing an intention that is not written.
+>
+> Suggest a concrete action and a short analogous exercise in another context that I will complete without help. Do not provide the solution before my attempt. If the comment is ambiguous, help me formulate a precise question for the teaching team.
+
+## Check the feedback itself
+
+A convincing comment can be wrong. Before changing your work, check what it refers to and how you can confirm it.
+
+1.  Find the cited passage and official criterion. If the comment relies on neither, ask for clarification.
+2.  Compare the claim with the variables, units, counts, outputs and data actually used.
+3.  Test the correction. For a statistical claim, ask which assumption or limitation needs examination.
+4.  Keep your judgment: you can reject a suggestion by explaining why it does not fit.
+5.  For a persistent contradiction or ambiguous instruction, send a precise question to the teaching team.
+
+### Reading and execution
+
+Reading a `.qmd` file does not prove its code runs. HTML lets you examine the visible result but does not by itself prove reproducibility. Render the document yourself and report errors.
+
+### Excerpt and complete assignment
+
+A comment on a graph does not validate the data, all analyses or all submission files. Keep the scope of verification explicit.
+
+### Feedback and assessment
+
+AI does not issue an official grade or guarantee a future grade. The teaching team's instructions, criteria and judgment remain authoritative.
+
+### Another person's work
+
+For peer review, share only an excerpt whose sharing is authorized, with the relevant team's agreement and without sensitive information. You remain responsible for the comments you send.
+
+## Keep a useful record in a few lines
+
+This optional worksheet tracks a correction. It does not replace an AI-use disclosure when one is required. A complete conversation is unnecessary unless explicitly requested.
+
+| Record | Ask yourself |
+|----|----|
+| Objective and comment | Which criterion is involved? Did the comment come from AI, a peer or the teaching team? |
+| Decision and correction | What did I accept, adapt or reject? What did I change and why? |
+| Verification | What test did I perform and what did I observe? What remains uncertain? |
+| Transfer | What can I explain or repeat without help? What will I check next time? |
+
+One correction, one check, one learning outcome {.feedback-table .caption-top .table}
+
+[Download the feedback worksheet (.md)](../downloads/retroaction/fiche-retroaction-en.md) [See help disclosure](#declaration-title)
+
+## Follow the same process without AI
+
+You can practise this routine without using AI or buying a subscription. Use the criteria, course examples, exercises and, depending on the activity, peer or teaching-team feedback.
+
+1.  Choose an objective and produce an initial attempt.
+2.  Compare it with the criteria and identify one strength and one improvement.
+3.  Revise, test and explain your decision.
+4.  Complete an analogous exercise without consulting the solution, then check your answer.
+
+### Criteria and instructions
+
+Use the activity page and Brio requirements for comparison.
+
+[Find the challenges](defis.llms.md)
+
+### Exercises by module
+
+Revisit a skill in another context and consult the solution after your attempt.
+
+[Choose a module](modules.llms.md)
+
+### Human support
+
+Present your attempt, the specific obstacle and the test already performed.
+
+[Prepare a help request](autre_materiel/chercher-aide.llms.md)
 
 ## Which source is authoritative?
 
@@ -162,30 +296,30 @@ AI may suggest; you must decide, test and explain.
 
 Do not send personal, confidential or non-anonymized data to an external tool.
 
-## Useful Questions to Ask
+## Other useful questions to ask
 
-The best prompts request targeted help while keeping responsibility for the decision on your side.
+Request focused help and retain responsibility for the decision. For feedback with follow-up, use the [three requests above](#feedback-prompts).
 
 ### Debug
 
-`/debug-r` Here is my full error message, minimal code and expected result. Ask me two diagnostic questions, then suggest a correction I can test.
+Here are my full error message, minimal code and expected result. Ask two diagnostic questions, then suggest a hint and a correction I can test.
 
 ### Understand
 
-`/revision` Explain this R output in plain language. Separate what is directly visible in the output from what requires checking the data.
+Explain this R output in plain language. Separate what is visible from what needs checking in the data, then ask me a comprehension question.
 
-### Revise
+### Review a graph
 
-`/retroaction` Here are the instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite everything.
+Here are my graph, its question and the variables used. Identify one readability or interpretation problem, cite the relevant element and suggest a test. Do not invent any result.
 
-### Improve
+### Review a paragraph
 
-`/retroaction` Suggest a clearer version of this paragraph without changing the result, adding a source or inventing information.
+Here are my interpretation and the supporting output. Flag an ambiguous phrase or overly strong claim, explain why and let me rewrite it.
 
-### Test
+### Prepare a submission
 
-`/sources` Here are my instructions and my Quarto document. Give me a short checklist before submission: render, code, figures, interpretation and files.
+Here are the instructions and my file list. Suggest a short checklist: render, code, figures, interpretation and files. Distinguish what you observe from what I must test myself.
 
 ### Document
 
-`/integrite-ia` Help me write a two-sentence note naming the GPT used, the purpose of the help and the verification I performed.
+Using the following information, help me write a short note naming the tool, purpose, affected part and verification actually performed. Do not add any check I did not perform.

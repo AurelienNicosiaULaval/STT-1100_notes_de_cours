@@ -5645,6 +5645,80 @@ margin-bottom: .05rem;
 }
 .portal-button { display: block; width: fit-content; }
 }
+
+.feedback-nav {
+display: flex;
+flex-wrap: wrap;
+gap: .65rem 1.1rem;
+padding: .85rem 1rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #f7fbf5;
+}
+.feedback-nav a {
+text-underline-offset: .2em;
+}
+.feedback-request {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #fff;
+padding: .8rem 1rem;
+margin: .2rem 0;
+min-width: 0;
+}
+.feedback-request summary {
+cursor: pointer;
+color: var(--ink);
+}
+.feedback-request[open] summary {
+margin-bottom: .8rem;
+}
+.feedback-request blockquote {
+margin: 0;
+padding: .2rem 0 .2rem 1rem;
+border-left: 3px solid #b8cdb3;
+color: var(--ink);
+overflow-wrap: anywhere;
+}
+.feedback-request blockquote p:last-child {
+margin-bottom: 0;
+}
+.feedback-table-wrap {
+overflow-x: auto;
+}
+.feedback-table {
+width: 100%;
+border-collapse: collapse;
+}
+.feedback-table caption {
+caption-side: top;
+color: var(--muted);
+padding-bottom: .6rem;
+}
+.feedback-table th,
+.feedback-table td {
+padding: .8rem;
+border-bottom: 1px solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+.feedback-table th {
+font-weight: 500;
+}
+.feedback-table thead {
+background: #f7fbf5;
+}
+.feedback-nav a:focus-visible,
+.feedback-request summary:focus-visible,
+.feedback-table-wrap:focus-visible {
+outline: 3px solid #496b3e;
+outline-offset: 4px;
+}
+@media print {
+.feedback-request > blockquote {
+display: block !important;
+}
+}
 </style>
 </head>
 
@@ -5843,6 +5917,15 @@ margin-bottom: .05rem;
     </div>
   </section>
 
+  <nav class="feedback-nav" aria-label="AI page landmarks">
+    <a href="#feedback-cycle">The process</a>
+    <a href="#feedback-prompts">Requests to adapt</a>
+    <a href="#feedback-check">Check comments</a>
+    <a href="#feedback-trace">Tracking worksheet</a>
+    <a href="#feedback-without-ai">Without AI</a>
+    <a href="#activity-title">Course rules</a>
+  </nav>
+
   <section class="resource-section" aria-labelledby="uses-title">
     <div class="resource-section__header">
       <h2 id="uses-title" class="anchored">Simple Rule</h2>
@@ -5857,18 +5940,18 @@ margin-bottom: .05rem;
 
   <section class="resource-section" aria-labelledby="modes-title">
     <div class="resource-section__header">
-      <h2 id="modes-title" class="anchored">Eight modes for requesting the right kind of help</h2>
-      <p>Start your message with the command that matches your need. The GPT then adapts its process and limits to the activity concerned.</p>
+      <h2 id="modes-title" class="anchored">Choose the help you need</h2>
+      <p>Simply describe your need, the activity and what you have already tried. No special command is required. Provide the relevant instructions rather than assuming the GPT knows them.</p>
     </div>
     <div class="reading-map">
-      <article><h3 class="anchored">Sources and instructions</h3><p><code>/sources</code> Check a course rule and find the authoritative source.</p></article>
-      <article><h3 class="anchored">Review</h3><p><code>/revision</code> Review a concept with a short explanation and a recall question.</p></article>
-      <article><h3 class="anchored">Exercises</h3><p><code>/exercices</code> Get a formative exercise distinct from an active assessment, with graduated hints.</p></article>
-      <article><h3 class="anchored">Feedback</h3><p><code>/retroaction</code> At the end of a module, have one element from the adventure, challenge or exercises reviewed, then decide for yourself what to improve.</p></article>
-      <article><h3 class="anchored">R debugging</h3><p><code>/debug-r</code> Diagnose an error using minimal code, the complete message and the expected result.</p></article>
-      <article><h3 class="anchored">Project</h3><p><code>/projet</code> Compare options, justify a choice and maintain a decision log.</p></article>
-      <article><h3 class="anchored">Exam preparation</h3><p><code>/examen</code> Build a study plan and practise with analogous questions.</p></article>
-      <article><h3 class="anchored">Integrity and AI</h3><p><code>/integrite-ia</code> Clarify whether a use is allowed, restricted, disclosable, prohibited or unknown.</p></article>
+      <article><h3 class="anchored">Sources and instructions</h3><p>Find the source of a rule and distinguish confirmed information from missing information.</p></article>
+      <article><h3 class="anchored">Review</h3><p>Review a concept, then answer a recall question in your own words.</p></article>
+      <article><h3 class="anchored">Exercises</h3><p>Practise on a situation distinct from an active assessment, with graduated hints.</p></article>
+      <article><h3 class="anchored">Feedback</h3><p>Compare your attempt with the supplied criteria, choose a correction and check your understanding. This support is formative and does not constitute a grade.</p><a href="#feedback-cycle">Follow the feedback process</a></article>
+      <article><h3 class="anchored">R debugging</h3><p>Examine minimal code, the full message and the expected result, then test a correction.</p></article>
+      <article><h3 class="anchored">Project</h3><p>Compare options and justify your choices in a decision log.</p></article>
+      <article><h3 class="anchored">Exam preparation</h3><p>Build a study plan and practise with analogous questions. During the exam, Brio authorizations apply.</p></article>
+      <article><h3 class="anchored">Integrity and AI</h3><p>Check whether the proposed help follows the instructions and decide how to disclose it.</p></article>
     </div>
   </section>
 
@@ -5882,6 +5965,131 @@ margin-bottom: .05rem;
       <article class="flow-card"><span class="flow-number">2</span><h3 class="anchored">Challenges</h3><p>Apply the common rule and add a disclosure when help influences the deliverable.</p></article>
       <article class="flow-card"><span class="flow-number">3</span><h3 class="anchored">Exam</h3><p>Check the tools explicitly authorized on Brio before starting.</p></article>
       <article class="flow-card"><span class="flow-number">4</span><h3 class="anchored">Course Project</h3><p>Apply the common rule in the team repository and submissions.</p></article>
+    </div>
+  </section>
+
+  <section class="resource-section" id="feedback-cycle" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-cycle-title">
+    <div class="resource-section__header">
+      <p class="eyebrow">Try, revise, verify</p>
+      <h2 id="feedback-cycle-title" class="anchored">Feedback that helps you improve your work</h2>
+      <p>Start with your own attempt. Request comments on a specific objective, make your own correction and verify the result. This routine supports learning; it adds no submission, criterion or grade weight to the official instructions.</p>
+    </div>
+    <div class="course-flow" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));">
+      <article class="flow-card"><span class="flow-number">1</span><h3 class="anchored">Prepare an attempt</h3><p>Identify the activity, instructions, criterion and difficulty. Share a relevant excerpt of your code, output, graph or interpretation after removing sensitive information.</p></article>
+      <article class="flow-card"><span class="flow-number">2</span><h3 class="anchored">Request priorities</h3><p>Ask for one strength and at most two improvements. Each comment should cite an element of your work, explain its connection to the criterion and suggest a hint or test.</p></article>
+      <article class="flow-card"><span class="flow-number">3</span><h3 class="anchored">Decide and revise</h3><p>Choose one suggestion to address. Explain why you accept, adapt or reject it, then make the correction. A style preference does not have the same priority as a calculation error.</p></article>
+      <article class="flow-card"><span class="flow-number">4</span><h3 class="anchored">Verify the change</h3><p>Run the code or render the document in your environment. Compare with the data and instructions. Present your revised version and test result for a second focused comment.</p></article>
+      <article class="flow-card"><span class="flow-number">5</span><h3 class="anchored">Apply it without help</h3><p>Explain the correction in your own words, then complete a small analogous task without AI. Keep a useful check for the next challenge or project.</p></article>
+    </div>
+    <p>Use this process during the adventure after an initial attempt, before submission to check a criterion, or after teaching-team feedback to practise. After submission, a correction in your notes does not replace the submitted file; any resubmission depends on the official requirements.</p>
+  </section>
+
+  <section class="resource-section" id="feedback-prompts" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-prompts-title">
+    <div class="resource-section__header">
+      <h2 id="feedback-prompts-title" class="anchored">Three requests to adapt</h2>
+      <p>Copy the request for your current stage and replace the items in brackets. AI comments still need verification and do not predict the teaching team&#39;s grade.</p>
+    </div>
+    <details class="feedback-request" open>
+      <summary>1. Receive initial feedback</summary>
+      <blockquote class="blockquote">
+        <p>I am working on [activity and module]. Here are [relevant instructions and criteria], [my attempt] and [my difficulty].</p>
+        <p>Give me feedback on my process without rewriting my work or providing the final deliverable. Identify one strength and explain why it works. Identify at most two improvements, citing the relevant passages or lines and the associated criterion.</p>
+        <p>Distinguish an observable error, an item to check and a presentation suggestion. For each priority, provide a hint and a test I can perform. If information is missing, ask for it or state what you cannot verify. Do not claim to have run my code if you have not. Wait for my correction.</p>
+      </blockquote>
+    </details>
+    <details class="feedback-request">
+      <summary>2. Check a correction</summary>
+      <blockquote class="blockquote">
+        <p>Here are [the comment received], [my initial version], [my correction] and [my test result]. I accepted or adapted this suggestion because [my justification].</p>
+        <p>Compare the two versions against [the criterion]. Explain what the supplied evidence now supports, what still needs checking and whether my correction creates another problem. Do not validate the whole assignment from this excerpt. End with a short question to check my understanding.</p>
+      </blockquote>
+    </details>
+    <details class="feedback-request">
+      <summary>3. Reuse teaching-team feedback</summary>
+      <blockquote class="blockquote">
+        <p>Here are [a teaching-team comment, without personal information] and [the relevant excerpt of my work]. Help me understand the comment without attributing an intention that is not written.</p>
+        <p>Suggest a concrete action and a short analogous exercise in another context that I will complete without help. Do not provide the solution before my attempt. If the comment is ambiguous, help me formulate a precise question for the teaching team.</p>
+      </blockquote>
+    </details>
+  </section>
+
+  <section class="resource-section resource-split" id="feedback-check" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-check-title">
+    <div>
+      <h2 id="feedback-check-title" class="anchored">Check the feedback itself</h2>
+      <p>A convincing comment can be wrong. Before changing your work, check what it refers to and how you can confirm it.</p>
+      <ol class="clean-steps">
+        <li>Find the cited passage and official criterion. If the comment relies on neither, ask for clarification.</li>
+        <li>Compare the claim with the variables, units, counts, outputs and data actually used.</li>
+        <li>Test the correction. For a statistical claim, ask which assumption or limitation needs examination.</li>
+        <li>Keep your judgment: you can reject a suggestion by explaining why it does not fit.</li>
+        <li>For a persistent contradiction or ambiguous instruction, send a precise question to the teaching team.</li>
+      </ol>
+    </div>
+    <div class="resource-compact-list" aria-label="Feedback limitations">
+      <article class="resource-compact"><h3 class="anchored">Reading and execution</h3><p>Reading a <code>.qmd</code> file does not prove its code runs. HTML lets you examine the visible result but does not by itself prove reproducibility. Render the document yourself and report errors.</p></article>
+      <article class="resource-compact"><h3 class="anchored">Excerpt and complete assignment</h3><p>A comment on a graph does not validate the data, all analyses or all submission files. Keep the scope of verification explicit.</p></article>
+      <article class="resource-compact"><h3 class="anchored">Feedback and assessment</h3><p>AI does not issue an official grade or guarantee a future grade. The teaching team&#39;s instructions, criteria and judgment remain authoritative.</p></article>
+      <article class="resource-compact"><h3 class="anchored">Another person&#39;s work</h3><p>For peer review, share only an excerpt whose sharing is authorized, with the relevant team&#39;s agreement and without sensitive information. You remain responsible for the comments you send.</p></article>
+    </div>
+  </section>
+
+  <section class="resource-section" id="feedback-trace" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-trace-title">
+    <div class="resource-section__header">
+      <h2 id="feedback-trace-title" class="anchored">Keep a useful record in a few lines</h2>
+      <p>This optional worksheet tracks a correction. It does not replace an AI-use disclosure when one is required. A complete conversation is unnecessary unless explicitly requested.</p>
+    </div>
+    <div class="feedback-table-wrap" role="region" aria-label="Correction tracking worksheet" tabindex="0">
+
+<table class="feedback-table caption-top table">
+<caption>One correction, one check, one learning outcome</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" scope="col">Record</th>
+<th data-quarto-table-cell-role="th" scope="col">Ask yourself</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" scope="row">Objective and comment</th>
+<td>Which criterion is involved? Did the comment come from AI, a peer or the teaching team?</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th" scope="row">Decision and correction</th>
+<td>What did I accept, adapt or reject? What did I change and why?</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" scope="row">Verification</th>
+<td>What test did I perform and what did I observe? What remains uncertain?</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th" scope="row">Transfer</th>
+<td>What can I explain or repeat without help? What will I check next time?</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+    <div class="resource-actions">
+      <a class="home-action" href="../downloads/retroaction/fiche-retroaction-en.md" download>Download the feedback worksheet (.md)</a>
+      <a class="home-action" href="#declaration-title">See help disclosure</a>
+    </div>
+  </section>
+
+  <section class="resource-section resource-split" id="feedback-without-ai" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-without-ai-title">
+    <div>
+      <h2 id="feedback-without-ai-title" class="anchored">Follow the same process without AI</h2>
+      <p>You can practise this routine without using AI or buying a subscription. Use the criteria, course examples, exercises and, depending on the activity, peer or teaching-team feedback.</p>
+      <ol class="clean-steps">
+        <li>Choose an objective and produce an initial attempt.</li>
+        <li>Compare it with the criteria and identify one strength and one improvement.</li>
+        <li>Revise, test and explain your decision.</li>
+        <li>Complete an analogous exercise without consulting the solution, then check your answer.</li>
+      </ol>
+    </div>
+    <div class="resource-compact-list" aria-label="Resources for practice without AI">
+      <article class="resource-compact"><h3 class="anchored">Criteria and instructions</h3><p>Use the activity page and Brio requirements for comparison.</p><a href="defis.html">Find the challenges</a></article>
+      <article class="resource-compact"><h3 class="anchored">Exercises by module</h3><p>Revisit a skill in another context and consult the solution after your attempt.</p><a href="modules.html">Choose a module</a></article>
+      <article class="resource-compact"><h3 class="anchored">Human support</h3><p>Present your attempt, the specific obstacle and the test already performed.</p><a href="autre_materiel/chercher-aide.html">Prepare a help request</a></article>
     </div>
   </section>
 
@@ -5938,16 +6146,16 @@ margin-bottom: .05rem;
 
   <section class="resource-section" aria-labelledby="prompt-title">
     <div class="resource-section__header">
-      <h2 id="prompt-title" class="anchored">Useful Questions to Ask</h2>
-      <p>The best prompts request targeted help while keeping responsibility for the decision on your side.</p>
+      <h2 id="prompt-title" class="anchored">Other useful questions to ask</h2>
+      <p>Request focused help and retain responsibility for the decision. For feedback with follow-up, use the <a href="#feedback-prompts">three requests above</a>.</p>
     </div>
     <div class="reading-map">
-      <article><h3 class="anchored">Debug</h3><p><code>/debug-r</code> Here is my full error message, minimal code and expected result. Ask me two diagnostic questions, then suggest a correction I can test.</p></article>
-      <article><h3 class="anchored">Understand</h3><p><code>/revision</code> Explain this R output in plain language. Separate what is directly visible in the output from what requires checking the data.</p></article>
-      <article><h3 class="anchored">Revise</h3><p><code>/retroaction</code> Here are the instructions, what I tried and the exact excerpt I want to improve. Give me one strength, one weakness to verify and one question that will help me revise it myself. Do not rewrite everything.</p></article>
-      <article><h3 class="anchored">Improve</h3><p><code>/retroaction</code> Suggest a clearer version of this paragraph without changing the result, adding a source or inventing information.</p></article>
-      <article><h3 class="anchored">Test</h3><p><code>/sources</code> Here are my instructions and my Quarto document. Give me a short checklist before submission: render, code, figures, interpretation and files.</p></article>
-      <article><h3 class="anchored">Document</h3><p><code>/integrite-ia</code> Help me write a two-sentence note naming the GPT used, the purpose of the help and the verification I performed.</p></article>
+      <article><h3 class="anchored">Debug</h3><p>Here are my full error message, minimal code and expected result. Ask two diagnostic questions, then suggest a hint and a correction I can test.</p></article>
+      <article><h3 class="anchored">Understand</h3><p>Explain this R output in plain language. Separate what is visible from what needs checking in the data, then ask me a comprehension question.</p></article>
+      <article><h3 class="anchored">Review a graph</h3><p>Here are my graph, its question and the variables used. Identify one readability or interpretation problem, cite the relevant element and suggest a test. Do not invent any result.</p></article>
+      <article><h3 class="anchored">Review a paragraph</h3><p>Here are my interpretation and the supporting output. Flag an ambiguous phrase or overly strong claim, explain why and let me rewrite it.</p></article>
+      <article><h3 class="anchored">Prepare a submission</h3><p>Here are the instructions and my file list. Suggest a short checklist: render, code, figures, interpretation and files. Distinguish what you observe from what I must test myself.</p></article>
+      <article><h3 class="anchored">Document</h3><p>Using the following information, help me write a short note naming the tool, purpose, affected part and verification actually performed. Do not add any check I did not perform.</p></article>
     </div>
   </section>
 </div>

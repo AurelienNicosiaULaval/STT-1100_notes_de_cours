@@ -58,7 +58,7 @@ Documentez ce que vous avez pu vérifier, n’inventez pas de problème et signa
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à consolider les jointures, la reproductibilité et la revue constructive sur d’autres données. La rétroaction IA revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
+Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction avec ou sans IA. L’aventure et le défi forment le fil narratif du module. Les exercices sont indépendants et servent à consolider les jointures, la reproductibilité et la revue constructive sur d’autres données. La rétroaction revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
 
 1 Lectures à faire Préparer collaboration GitHub, pull requests, issues et jointures. [Mini-test](mini_test.llms.md) Ouvrir la carteRéduire
 
@@ -117,21 +117,21 @@ Ressource [Page Exercices](exercices.llms.md)
 
 Portée Ces exercices ne sont pas la suite du défi. Ils utilisent un extrait relationnel réel de Données Québec: organisations, jeux, ressources et étiquettes.
 
-5 Rétroaction IA Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Mode /retroaction](../ia.llms.md) Ouvrir la carteRéduire
+5 Rétroaction Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Démarche et exemples](../ia.llms.md#feedback-cycle) Ouvrir la carteRéduire
 
-Point de départ Choisissez un seul élément réellement produit dans l'aventure, le défi ou les exercices: un extrait de code, un graphique, une interprétation ou un choix méthodologique.
+### Rétroaction: une revue précise et une jointure contrôlée
 
-Préparer Donnez la consigne, le contexte, ce que vous avez essayé et l'élément précis à relire.
+Après une première tentative, choisissez un point à améliorer sur les jointures, la reproductibilité et la revue entre pairs. Utilisez la [démarche de rétroaction](../ia.llms.md#feedback-cycle) avec ou sans IA; cette routine n'ajoute pas de remise aux consignes.
 
-Demander Ouvrez [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) en mode `/retroaction`. Demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger.
+Une demande adaptée au module 6
 
-Décider Comparez la réponse aux données et à la consigne. Modifiez vous-même seulement ce que vous comprenez et pouvez expliquer.
+> Je travaille sur les jointures, la reproductibilité et la revue entre pairs. Voici la consigne, les critères pertinents et une issue que j'ai écrite et les éléments observables sur lesquels elle s'appuie. Relève un point réussi et au maximum deux améliorations, dont une formulation vague ou une vérification de jointure ou de rendu insuffisamment documentée si les éléments fournis le montrent. Cite le passage concerné, distingue erreur observable et point à vérifier, puis propose un indice et un test. Ne réécris pas mon travail et attends ma correction.
 
-Demande prête à copier
+- Vérifier: Vérifiez les clés et les effectifs avant et après jointure, puis testez le rendu. Si vous examinez une issue, vérifiez qu'elle indique où agir, pourquoi et comment contrôler la correction.
+- Revenir sur la correction: présentez le changement et le résultat du test, puis demandez ce qui reste à vérifier.
+- Refaire sans aide: Réécrivez une suggestion vague en commentaire actionnable, puis expliquez le suivi attendu après une réponse de l'équipe.
 
-`/retroaction Je termine ce module. Voici la consigne visée, ce que j'ai essayé et l'extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m'aidera à corriger moi-même. Ne réécris pas tout le travail.`
-
-Résultat attendu Une amélioration comprise et appliquée dans votre travail, ou une raison claire de ne pas suivre la suggestion. Il n'y a ni portfolio ni remise supplémentaire à produire.
+Sans IA, comparez votre tentative aux critères et aux exemples du cours, puis faites les mêmes vérifications. Gardez une trace courte dans la [fiche de suivi](../ia.llms.md#feedback-trace), si elle vous est utile.
 
 Confidentialité Ne transmettez aucune donnée personnelle, confidentielle ou protégée.
 

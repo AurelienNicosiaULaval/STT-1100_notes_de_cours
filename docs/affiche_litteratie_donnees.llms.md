@@ -156,7 +156,9 @@ L'équipe demeure responsable de l'exactitude des analyses, de la qualité de l'
 
 ### Demander clairement
 
-Au compagnon IA du cours, vous pouvez demander: « Vérifie si notre question est claire et si nos graphiques soutiennent vraiment notre conclusion. Signale aussi les affirmations trop fortes. »
+Présentez votre question, un graphique et la conclusion associée. Demandez un point réussi, une affirmation à vérifier et un test à faire. Corrigez vous-mêmes, puis expliquez la modification à l'équipe.
+
+[Adapter une demande de rétroaction](ia.llms.md#feedback-prompts)
 
 ## Grille d'évaluation
 

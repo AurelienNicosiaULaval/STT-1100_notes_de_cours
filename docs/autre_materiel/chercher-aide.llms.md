@@ -134,3 +134,9 @@ Apprenez de vos erreurs (et de celles des autres)
 ------------------------------------------------------------------------
 
 > *Les meilleurs data scientists ne sont pas ceux qui ont toutes les réponses… mais ceux qui savent poser les bonnes questions.*
+
+# Demander une rétroaction sur votre travail
+
+Commencez par une tentative personnelle et indiquez la consigne, le critère concerné et votre difficulté. Demandez un point réussi, au maximum deux améliorations et une vérification concrète. Corrigez vous-même, puis revenez avec le résultat du test.
+
+La [page IA et aide](../ia.llms.md#feedback-cycle) décrit cette démarche avec ou sans IA. Elle propose des [demandes à adapter](../ia.llms.md#feedback-prompts) et une [fiche de suivi facultative](../ia.llms.md#feedback-trace). Pour une demande à l’équipe enseignante, fournissez les mêmes éléments et précisez ce que vous ne comprenez pas encore.

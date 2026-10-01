@@ -30,6 +30,15 @@ format:
     </div>
   </section>
 
+  <nav class="feedback-nav" aria-label="Repères de la page IA">
+    <a href="#feedback-cycle">La démarche</a>
+    <a href="#feedback-prompts">Demandes à adapter</a>
+    <a href="#feedback-check">Vérifier les commentaires</a>
+    <a href="#feedback-trace">Fiche de suivi</a>
+    <a href="#feedback-without-ai">Sans IA</a>
+    <a href="#activity-title">Règles du cours</a>
+  </nav>
+
   <section class="resource-section" aria-labelledby="uses-title">
     <div class="resource-section__header">
       <h2 id="uses-title">Règle simple</h2>
@@ -44,18 +53,18 @@ format:
 
   <section class="resource-section" aria-labelledby="modes-title">
     <div class="resource-section__header">
-      <h2 id="modes-title">Huit modes pour demander la bonne aide</h2>
-      <p>Commencez votre message par la commande qui correspond à votre besoin. Le GPT adapte alors sa démarche et ses limites à l'activité concernée.</p>
+      <h2 id="modes-title">Choisir l'aide dont vous avez besoin</h2>
+      <p>Décrivez simplement votre besoin, l'activité et ce que vous avez déjà essayé. Aucune commande particulière n'est nécessaire. Joignez la consigne pertinente plutôt que de supposer que le GPT la connaît.</p>
     </div>
     <div class="reading-map">
-      <article><h3>Sources et consignes</h3><p><code>/sources</code> Vérifier une règle du cours et retrouver la source qui fait foi.</p></article>
-      <article><h3>Révision</h3><p><code>/revision</code> Revoir une notion avec une explication courte et une question de rappel.</p></article>
-      <article><h3>Exercices</h3><p><code>/exercices</code> Obtenir un exercice formatif distinct d'une évaluation active, avec des indices gradués.</p></article>
-      <article><h3>Rétroaction</h3><p><code>/retroaction</code> À la fin d'un module, faire relire un seul élément de l'aventure, du défi ou des exercices, puis décider soi-même quoi améliorer.</p></article>
-      <article><h3>Débogage R</h3><p><code>/debug-r</code> Diagnostiquer une erreur à partir du code minimal, du message complet et du résultat attendu.</p></article>
-      <article><h3>Projet</h3><p><code>/projet</code> Comparer des options, justifier un choix et alimenter un journal de décision.</p></article>
-      <article><h3>Préparation à l'examen</h3><p><code>/examen</code> Construire un plan de révision et pratiquer avec des questions analogues.</p></article>
-      <article><h3>Intégrité et IA</h3><p><code>/integrite-ia</code> Clarifier un usage permis, restreint, à déclarer, interdit ou inconnu.</p></article>
+      <article><h3>Sources et consignes</h3><p>Retrouver la source d'une règle et distinguer ce qui est confirmé de ce qui manque.</p></article>
+      <article><h3>Révision</h3><p>Revoir une notion, puis répondre à une question de rappel avec vos propres mots.</p></article>
+      <article><h3>Exercices</h3><p>Pratiquer sur une situation distincte d'une évaluation active, avec des indices gradués.</p></article>
+      <article><h3>Rétroaction</h3><p>Comparer votre tentative aux critères fournis, choisir une correction et vérifier votre compréhension. Cette aide est formative et ne constitue pas une note.</p><a href="#feedback-cycle">Suivre la démarche de rétroaction</a></article>
+      <article><h3>Débogage R</h3><p>Examiner le code minimal, le message complet et le résultat attendu, puis tester une correction.</p></article>
+      <article><h3>Projet</h3><p>Comparer des options et justifier vos choix dans un journal de décision.</p></article>
+      <article><h3>Préparation à l'examen</h3><p>Construire un plan de révision et pratiquer avec des questions analogues. Pendant l'examen, les autorisations de Brio s'appliquent.</p></article>
+      <article><h3>Intégrité et IA</h3><p>Vérifier si l'aide envisagée respecte les consignes et déterminer comment la déclarer.</p></article>
     </div>
   </section>
 
@@ -69,6 +78,112 @@ format:
       <article class="flow-card"><span class="flow-number">2</span><h3>Défis</h3><p>Appliquer la règle commune et ajouter une déclaration lorsque l'aide influence le livrable.</p></article>
       <article class="flow-card"><span class="flow-number">3</span><h3>Examen</h3><p>Vérifier les outils explicitement autorisés sur Brio avant de commencer.</p></article>
       <article class="flow-card"><span class="flow-number">4</span><h3>Projet de session</h3><p>Appliquer la règle commune dans le dépôt d'équipe et dans les remises.</p></article>
+    </div>
+  </section>
+
+  <section class="resource-section" id="feedback-cycle" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-cycle-title">
+    <div class="resource-section__header">
+      <p class="eyebrow">Essayer, corriger, vérifier</p>
+      <h2 id="feedback-cycle-title">Une rétroaction qui fait avancer votre travail</h2>
+      <p>Commencez par votre propre tentative. Demandez ensuite des commentaires sur un objectif précis, corrigez vous-même et vérifiez le résultat. La routine ci-dessous est une aide à l'apprentissage; elle n'ajoute aucune remise, aucun critère ni aucune pondération aux consignes officielles.</p>
+    </div>
+    <div class="course-flow" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));">
+      <article class="flow-card"><span class="flow-number">1</span><h3>Préparer une tentative</h3><p>Indiquez l'activité, la consigne, le critère travaillé et votre difficulté. Partagez un extrait pertinent de votre code, de votre sortie, de votre graphique ou de votre interprétation, après avoir retiré les informations sensibles.</p></article>
+      <article class="flow-card"><span class="flow-number">2</span><h3>Demander des priorités</h3><p>Demandez un point réussi et au maximum deux améliorations. Chaque commentaire doit citer un élément de votre travail, expliquer son rapport au critère et proposer un indice ou un test.</p></article>
+      <article class="flow-card"><span class="flow-number">3</span><h3>Décider et corriger</h3><p>Choisissez une suggestion à traiter. Expliquez pourquoi vous la retenez, l'adaptez ou la refusez, puis réalisez la correction. Une préférence de style n'a pas la même priorité qu'une erreur de calcul.</p></article>
+      <article class="flow-card"><span class="flow-number">4</span><h3>Vérifier le changement</h3><p>Exécutez le code ou rendez le document dans votre environnement. Comparez aux données et aux consignes. Présentez votre version corrigée et le résultat du test pour obtenir un second commentaire ciblé.</p></article>
+      <article class="flow-card"><span class="flow-number">5</span><h3>Réinvestir sans aide</h3><p>Expliquez la correction avec vos propres mots, puis réalisez une petite tâche analogue sans IA. Gardez une vérification utile pour le prochain défi ou le projet.</p></article>
+    </div>
+    <p>Vous pouvez utiliser cette démarche pendant l'aventure après une première tentative, avant une remise pour vérifier un critère, ou après les commentaires de l'équipe enseignante pour pratiquer. Après une remise, une correction dans vos notes ne remplace pas le fichier soumis; toute nouvelle remise dépend des modalités officielles.</p>
+  </section>
+
+  <section class="resource-section" id="feedback-prompts" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-prompts-title">
+    <div class="resource-section__header">
+      <h2 id="feedback-prompts-title">Trois demandes prêtes à adapter</h2>
+      <p>Copiez la demande qui correspond à votre étape et remplacez les éléments entre crochets. Les commentaires de l'IA restent à vérifier et ne prédisent pas la note de l'équipe enseignante.</p>
+    </div>
+    <details class="feedback-request" open>
+      <summary>1. Recevoir une première rétroaction</summary>
+      <blockquote>
+        <p>Je travaille sur [activité et module]. Voici [consigne et critères pertinents], [ma tentative] et [ma difficulté].</p>
+        <p>Donne-moi une rétroaction sur ma démarche sans réécrire mon travail ni fournir le livrable final. Relève un point réussi et explique pourquoi. Identifie au maximum deux points à améliorer en citant les passages ou lignes concernés et le critère associé.</p>
+        <p>Distingue une erreur observable, un élément à vérifier et une suggestion de présentation. Pour chaque priorité, donne un indice et un test que je peux réaliser. Si une information manque, demande-la ou indique ce que tu ne peux pas vérifier. Ne prétends pas avoir exécuté mon code si tu ne l'as pas fait. Attends ma correction.</p>
+      </blockquote>
+    </details>
+    <details class="feedback-request">
+      <summary>2. Vérifier une correction</summary>
+      <blockquote>
+        <p>Voici [le commentaire reçu], [ma première version], [ma correction] et [le résultat de mon test]. J'ai retenu ou adapté cette suggestion parce que [ma justification].</p>
+        <p>Compare les deux versions selon [le critère]. Explique ce qui est maintenant appuyé par les éléments fournis, ce qui reste à vérifier et si ma correction crée un autre problème. Ne valide pas l'ensemble du travail à partir de cet extrait. Termine par une courte question pour vérifier ma compréhension.</p>
+      </blockquote>
+    </details>
+    <details class="feedback-request">
+      <summary>3. Réutiliser les commentaires de l'équipe enseignante</summary>
+      <blockquote>
+        <p>Voici [un commentaire de l'équipe enseignante, sans information personnelle] et [l'extrait de mon travail concerné]. Aide-moi à comprendre le commentaire sans lui attribuer une intention qui n'est pas écrite.</p>
+        <p>Propose une action concrète et un court exercice analogue, dans un autre contexte, que je ferai sans aide. Ne donne pas la solution avant ma tentative. Si le commentaire est ambigu, aide-moi à formuler une question précise à l'équipe enseignante.</p>
+      </blockquote>
+    </details>
+  </section>
+
+  <section class="resource-section resource-split" id="feedback-check" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-check-title">
+    <div>
+      <h2 id="feedback-check-title">Vérifier la rétroaction elle-même</h2>
+      <p>Un commentaire convaincant peut être erroné. Avant de modifier votre travail, vérifiez à quoi il se rapporte et ce qui permet de le confirmer.</p>
+      <ol class="clean-steps">
+        <li>Retrouvez le passage cité et le critère officiel. Si le commentaire ne s'appuie sur aucun des deux, demandez une précision.</li>
+        <li>Comparez l'affirmation aux variables, aux unités, aux effectifs, aux sorties et aux données réellement utilisées.</li>
+        <li>Testez la correction. Pour une affirmation statistique, demandez quelle hypothèse ou quelle limite doit être examinée.</li>
+        <li>Gardez votre jugement: vous pouvez refuser une suggestion en expliquant pourquoi elle ne convient pas.</li>
+        <li>En cas de contradiction persistante ou de consigne ambiguë, transmettez une question précise à l'équipe enseignante.</li>
+      </ol>
+    </div>
+    <div class="resource-compact-list" aria-label="Limites de la rétroaction">
+      <article class="resource-compact"><h3>Lecture et exécution</h3><p>Lire un fichier <code>.qmd</code> ne prouve pas que son code s'exécute. Un HTML permet d'examiner le résultat visible, mais ne prouve pas à lui seul la reproductibilité. Faites le rendu vous-même et signalez les erreurs.</p></article>
+      <article class="resource-compact"><h3>Extrait et travail complet</h3><p>Un commentaire sur un graphique ne valide ni les données, ni toutes les analyses, ni tous les fichiers à remettre. La portée de la vérification doit rester explicite.</p></article>
+      <article class="resource-compact"><h3>Rétroaction et évaluation</h3><p>L'IA ne délivre pas de note officielle et ne garantit pas une note future. Les consignes, les critères et le jugement de l'équipe enseignante demeurent la référence.</p></article>
+      <article class="resource-compact"><h3>Travail d'une autre personne</h3><p>Pour une revue entre pairs, partagez seulement un extrait dont le partage est autorisé, avec l'accord de l'équipe concernée et sans information sensible. Vous restez responsable des commentaires que vous transmettez.</p></article>
+    </div>
+  </section>
+
+  <section class="resource-section" id="feedback-trace" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-trace-title">
+    <div class="resource-section__header">
+      <h2 id="feedback-trace-title">Garder une trace utile, en quelques lignes</h2>
+      <p>Cette fiche facultative sert à suivre une correction. Elle ne remplace pas la déclaration d'utilisation de l'IA lorsqu'elle est exigée. Une conversation complète n'est pas nécessaire, sauf consigne explicite.</p>
+    </div>
+    <div class="feedback-table-wrap" role="region" aria-label="Fiche de suivi d'une correction" tabindex="0">
+      <table class="feedback-table">
+        <caption>Une correction, une vérification, un apprentissage</caption>
+        <thead><tr><th scope="col">À noter</th><th scope="col">Question à vous poser</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Objectif et commentaire</th><td>Quel critère est concerné? D'où vient le commentaire: IA, pair ou équipe enseignante?</td></tr>
+          <tr><th scope="row">Décision et correction</th><td>Qu'ai-je retenu, adapté ou refusé? Qu'ai-je changé et pourquoi?</td></tr>
+          <tr><th scope="row">Vérification</th><td>Quel test ai-je fait et qu'ai-je observé? Qu'est-ce qui reste incertain?</td></tr>
+          <tr><th scope="row">Réinvestissement</th><td>Que sais-je expliquer ou refaire sans aide? Que vérifierai-je la prochaine fois?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="resource-actions">
+      <a class="home-action" href="downloads/retroaction/fiche-retroaction-fr.md" download>Télécharger la fiche de rétroaction (.md)</a>
+      <a class="home-action" href="#declaration-title">Voir la déclaration d'aide reçue</a>
+    </div>
+  </section>
+
+  <section class="resource-section resource-split" id="feedback-without-ai" style="scroll-margin-top: 6rem;" aria-labelledby="feedback-without-ai-title">
+    <div>
+      <h2 id="feedback-without-ai-title">Suivre la même démarche sans IA</h2>
+      <p>Vous pouvez pratiquer cette routine sans utiliser d'IA ni souscrire un abonnement. Appuyez-vous sur les critères, les exemples du cours, les exercices et, selon l'activité, les commentaires d'un pair ou de l'équipe enseignante.</p>
+      <ol class="clean-steps">
+        <li>Choisissez un objectif et produisez votre première tentative.</li>
+        <li>Comparez-la aux critères et repérez un point réussi et un point à améliorer.</li>
+        <li>Corrigez, testez et expliquez votre décision.</li>
+        <li>Faites un exercice analogue sans consulter la solution, puis vérifiez votre réponse.</li>
+      </ol>
+    </div>
+    <div class="resource-compact-list" aria-label="Ressources pour pratiquer sans IA">
+      <article class="resource-compact"><h3>Critères et consignes</h3><p>Utilisez la page de l'activité et les modalités de Brio comme points de comparaison.</p><a href="defis.html">Retrouver les défis</a></article>
+      <article class="resource-compact"><h3>Exercices par module</h3><p>Retravaillez une compétence dans un autre contexte et consultez la solution après votre tentative.</p><a href="modules.html">Choisir un module</a></article>
+      <article class="resource-compact"><h3>Aide humaine</h3><p>Présentez votre tentative, le point précis qui bloque et le test déjà effectué.</p><a href="autre_materiel/chercher-aide.html">Préparer une demande d'aide</a></article>
     </div>
   </section>
 
@@ -125,16 +240,16 @@ format:
 
   <section class="resource-section" aria-labelledby="prompt-title">
     <div class="resource-section__header">
-      <h2 id="prompt-title">Questions utiles à poser</h2>
-      <p>Les meilleurs prompts demandent une aide ciblée et gardent la responsabilité de la décision de votre côté.</p>
+      <h2 id="prompt-title">D'autres questions utiles à poser</h2>
+      <p>Demandez une aide ciblée et conservez la responsabilité de la décision. Pour une rétroaction suivie, utilisez les <a href="#feedback-prompts">trois demandes ci-dessus</a>.</p>
     </div>
     <div class="reading-map">
-      <article><h3>Déboguer</h3><p><code>/debug-r</code> Voici mon message d'erreur complet, le code minimal et ce que je voulais obtenir. Pose-moi deux questions de diagnostic, puis propose une correction que je peux tester.</p></article>
-      <article><h3>Comprendre</h3><p><code>/revision</code> Explique cette sortie R en langage simple. Sépare ce qui est directement visible dans la sortie de ce qui demande une vérification dans les données.</p></article>
-      <article><h3>Réviser</h3><p><code>/retroaction</code> Voici la consigne, ce que j'ai essayé et l'extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m'aidera à corriger moi-même. Ne réécris pas tout.</p></article>
-      <article><h3>Améliorer</h3><p><code>/retroaction</code> Propose une version plus claire de ce paragraphe sans changer le résultat, sans ajouter de source et sans inventer d'information.</p></article>
-      <article><h3>Tester</h3><p><code>/sources</code> Voici ma consigne et mon document Quarto. Donne-moi une liste courte de vérifications à faire avant la remise: rendu, code, figures, interprétation et fichiers.</p></article>
-      <article><h3>Documenter</h3><p><code>/integrite-ia</code> Aide-moi à écrire une note de deux phrases qui nomme le GPT utilisé, le but de l'aide et la vérification que j'ai faite.</p></article>
+      <article><h3>Déboguer</h3><p>Voici mon message d'erreur complet, mon code minimal et ce que je voulais obtenir. Pose-moi deux questions de diagnostic, puis propose un indice et une correction que je peux tester.</p></article>
+      <article><h3>Comprendre</h3><p>Explique cette sortie R en langage simple. Sépare ce qui est visible de ce qui demande une vérification dans les données, puis pose-moi une question de compréhension.</p></article>
+      <article><h3>Réviser un graphique</h3><p>Voici mon graphique, sa question et les variables utilisées. Repère un problème de lisibilité ou d'interprétation, cite l'élément concerné et propose un test. N'invente aucun résultat.</p></article>
+      <article><h3>Réviser un paragraphe</h3><p>Voici mon interprétation et la sortie qui l'appuie. Signale une formulation ambiguë ou une affirmation trop forte, explique pourquoi et laisse-moi la réécrire.</p></article>
+      <article><h3>Préparer une remise</h3><p>Voici la consigne et la liste de mes fichiers. Propose une liste courte de vérifications: rendu, code, figures, interprétation et fichiers. Distingue ce que tu observes de ce que je dois tester moi-même.</p></article>
+      <article><h3>Documenter</h3><p>À partir des informations suivantes, aide-moi à écrire une note courte qui nomme l'outil, le but de l'aide, la partie touchée et la vérification réellement faite. N'ajoute aucune vérification que je n'ai pas effectuée.</p></article>
     </div>
   </section>
 </div>

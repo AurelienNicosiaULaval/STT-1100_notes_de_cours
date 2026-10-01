@@ -5645,6 +5645,80 @@ margin-bottom: .05rem;
 }
 .portal-button { display: block; width: fit-content; }
 }
+
+.feedback-nav {
+display: flex;
+flex-wrap: wrap;
+gap: .65rem 1.1rem;
+padding: .85rem 1rem;
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #f7fbf5;
+}
+.feedback-nav a {
+text-underline-offset: .2em;
+}
+.feedback-request {
+border: 1px solid var(--line);
+border-radius: var(--radius);
+background: #fff;
+padding: .8rem 1rem;
+margin: .2rem 0;
+min-width: 0;
+}
+.feedback-request summary {
+cursor: pointer;
+color: var(--ink);
+}
+.feedback-request[open] summary {
+margin-bottom: .8rem;
+}
+.feedback-request blockquote {
+margin: 0;
+padding: .2rem 0 .2rem 1rem;
+border-left: 3px solid #b8cdb3;
+color: var(--ink);
+overflow-wrap: anywhere;
+}
+.feedback-request blockquote p:last-child {
+margin-bottom: 0;
+}
+.feedback-table-wrap {
+overflow-x: auto;
+}
+.feedback-table {
+width: 100%;
+border-collapse: collapse;
+}
+.feedback-table caption {
+caption-side: top;
+color: var(--muted);
+padding-bottom: .6rem;
+}
+.feedback-table th,
+.feedback-table td {
+padding: .8rem;
+border-bottom: 1px solid var(--line);
+vertical-align: top;
+text-align: left;
+}
+.feedback-table th {
+font-weight: 500;
+}
+.feedback-table thead {
+background: #f7fbf5;
+}
+.feedback-nav a:focus-visible,
+.feedback-request summary:focus-visible,
+.feedback-table-wrap:focus-visible {
+outline: 3px solid #496b3e;
+outline-offset: 4px;
+}
+@media print {
+.feedback-request > blockquote {
+display: block !important;
+}
+}
 </style>
 </head>
 
@@ -5900,6 +5974,7 @@ margin-bottom: .05rem;
 <section id="allowed-ai-use" class="level1">
 <h1>Allowed AI Use</h1>
 <p>In challenges and the project, AI is allowed as support for reasoning, debugging, revision, planning or checking. In the exam, only the tools explicitly authorized on Brio are allowed. In all cases, the final deliverable must remain verifiable, personal and consistent with the instructions. You must understand, test and be able to explain any submitted code, text, source, result or interpretation. When AI influences an important part of an evaluated deliverable, add a short disclosure to the deliverable: tool used, purpose of help, affected part and verification done. The official requirements posted on Brio always prevail.</p>
+<p>For formative feedback, start with your own attempt and a specific criterion. Ask for one strength and at most two improvements, make your own corrections and verify them before integration. The <a href="../ia.html#feedback-cycle">feedback process</a> and <a href="../ia.html#feedback-trace">optional tracking worksheet</a> can guide this revision with or without AI. These resources add no deliverable or criterion to the project.</p>
 </section>
 <section id="weights-and-schedule" class="level1">
 <h1>Weights and schedule</h1>

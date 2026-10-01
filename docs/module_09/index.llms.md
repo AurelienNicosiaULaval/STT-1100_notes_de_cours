@@ -57,7 +57,7 @@ Choisissez une seule option du défi, formulez la question en une phrase et cons
 
 ## Plan d’apprentissage
 
-Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction IA. Ouvrez les cartes pour voir l’action attendue et le lien utile. La rétroaction IA revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
+Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exercices et rétroaction avec ou sans IA. Ouvrez les cartes pour voir l’action attendue et le lien utile. La rétroaction revient sur un élément du travail déjà réalisé; elle ne demande aucune remise supplémentaire.
 
 1 Lectures à faire Préparer prédiction, diagnostics descriptifs et biais algorithmiques. Dans la carte Ouvrir la carteRéduire
 
@@ -130,21 +130,21 @@ Pourquoi Les exercices sont indépendants de l'aventure et du défi. Ils consoli
 
 Refaites au moins un passage sans regarder la solution immédiatement.
 
-5 Rétroaction IA Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Mode /retroaction](../ia.llms.md) Ouvrir la carteRéduire
+5 Rétroaction Faire relire un extrait du travail, puis décider quoi améliorer soi-même. [Démarche et exemples](../ia.llms.md#feedback-cycle) Ouvrir la carteRéduire
 
-Point de départ Choisissez un seul élément réellement produit dans l'aventure, le défi ou les exercices: un extrait de code, un graphique, une interprétation ou un choix méthodologique.
+### Rétroaction: une prédiction dont on connaît les limites
 
-Préparer Donnez la consigne, le contexte, ce que vous avez essayé et l'élément précis à relire.
+Après une première tentative, choisissez un point à améliorer sur la régression, les prédictions et les biais. Utilisez la [démarche de rétroaction](../ia.llms.md#feedback-cycle) avec ou sans IA; cette routine n'ajoute pas de remise aux consignes.
 
-Demander Ouvrez [GPT STT-1100](https://chatgpt.com/g/g-682d165f32e881918633affa3fe9dfd6-gpt-stt-1100) en mode `/retroaction`. Demandez un point solide, une fragilité à vérifier et une question qui vous aidera à corriger.
+Une demande adaptée au module 9
 
-Décider Comparez la réponse aux données et à la consigne. Modifiez vous-même seulement ce que vous comprenez et pouvez expliquer.
+> Je travaille sur la régression, les prédictions et les biais. Voici la consigne, les critères pertinents et la formule du modèle, une sortie R, une prédiction et mon explication de ses limites. Relève un point réussi et au maximum deux améliorations, dont une interprétation de coefficient, une extrapolation ou une conclusion sur les biais à vérifier si les éléments fournis le montrent. Cite le passage concerné, distingue erreur observable et point à vérifier, puis propose un indice et un test. Ne réécris pas mon travail et attends ma correction.
 
-Demande prête à copier
+- Vérifier: Vérifiez les unités, les variables et la plage observée. Reproduisez une prédiction et comparez-la aux observations; distinguez performance observée et généralisation à de nouvelles données.
+- Revenir sur la correction: présentez le changement et le résultat du test, puis demandez ce qui reste à vérifier.
+- Refaire sans aide: Expliquez une prédiction et une limite à un public non spécialiste, puis repérez un cas où le modèle ne devrait pas être utilisé sans vérification supplémentaire.
 
-`/retroaction Je termine ce module. Voici la consigne visée, ce que j'ai essayé et l'extrait précis que je veux améliorer. Donne-moi un point solide, une fragilité à vérifier et une question qui m'aidera à corriger moi-même. Ne réécris pas tout le travail.`
-
-Résultat attendu Une amélioration comprise et appliquée dans votre travail, ou une raison claire de ne pas suivre la suggestion. Il n'y a ni portfolio ni remise supplémentaire à produire.
+Sans IA, comparez votre tentative aux critères et aux exemples du cours, puis faites les mêmes vérifications. Gardez une trace courte dans la [fiche de suivi](../ia.llms.md#feedback-trace), si elle vous est utile.
 
 Confidentialité Ne transmettez aucune donnée personnelle, confidentielle ou protégée.
 

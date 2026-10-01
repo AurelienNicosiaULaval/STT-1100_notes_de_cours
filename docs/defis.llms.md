@@ -247,3 +247,9 @@ Garder les exemples de code, de visualisation et de communication qui pourront �
 ### Revenir aux exercices
 
 Utiliser les exercices indépendants pour retravailler une compétence précise sans dépendre de l'histoire du défi.
+
+1.  Choisir un commentaire lié à un critère et expliquer ce qu'il signifie.
+2.  Corriger dans une copie de travail, tester et conserver le résultat de la vérification.
+3.  Réinvestir la correction dans un exercice ou la prochaine production, sans aide.
+
+Avec ou sans IA, utilisez la [démarche de rétroaction](ia.llms.md#feedback-cycle) et, au besoin, la [fiche de suivi](ia.llms.md#feedback-trace). L'IA ne remplace pas les commentaires de l'équipe enseignante. Une correction après la remise n'autorise pas une nouvelle soumission; vérifiez les modalités de Brio.
