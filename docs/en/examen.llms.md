@@ -2,7 +2,7 @@ Assessment
 
 # Exam
 
-The exam follows the spirit of the adventures: a concrete situation, a dataset, a Quarto document to complete and decisions to justify. It assesses autonomy with the essential skills from modules 1 to 4.
+As in the course adventures, you will analyze a dataset in a Quarto report. You will use the methods from modules 1 to 4 and explain your choices.
 
 [Preparation](#exam-prep-title) [Exam conditions](#exam-conditions-title) [Reference bundle](#exam-resources-title) [During the exam](#exam-day-title) [Past exams](#old-exams-title) [Assessments](evaluations.llms.md)
 
@@ -24,9 +24,9 @@ Import and cleaning
 
 ## General format
 
-The exam is applied. The goal is not to recite functions, but to choose the right tools to produce a reliable short report. The individual exam is worth 25% and takes place on October 19, 2026, from 8:30 to 11:20 a.m. in PLT-2325. You will work on an exam account without Internet or AI. Files will be collected automatically; no manual submission is required.
+You will import and analyze data, then present your results in a reproducible report. The individual exam is worth 25% and takes place on October 19, 2026, from 8:30 to 11:20 a.m. in PLT-2325. You will work on an exam account without Internet or AI. Files will be collected automatically; no manual submission is required.
 
-### Narrative context
+### Assignment
 
 You receive a mission or mandate, as in the course adventures.
 
@@ -68,7 +68,7 @@ This common bundle will be available offline on the exam accounts. It contains F
 
 ### Quick guide
 
-Find the essential steps: import, check types, clean, summarize, calculate proportions, choose a graph, reshape and render a report.
+Code examples to import, check types, clean, summarize, calculate proportions, choose a graph, reshape and render a report.
 
 ### Modules 1 to 4
 
@@ -80,7 +80,7 @@ Local copies of the module readings: R4DS, Introduction to Modern Statistics, th
 
 ### Quarto practice
 
-A practice project and a template that already renders, with a small fictional example. The exam template will be provided at the start of the exam.
+An RStudio project, a Quarto template to complete and fictional data for practice. The exam template will be provided at the start of the exam.
 
 [Download the common bundleLocal references and practice for modules 1 to 4, October 5, 2026 version.](../downloads/examen/references-stt1100-examen-2026-10-19.zip)
 
@@ -92,29 +92,29 @@ Personal documents remain permitted on paper only. Course activities requiring G
 
 Internet access and AI use are not allowed during the exam. Practise completing the essential tasks independently and explaining your choices, using paper references.
 
-## What the exam is not
+## Expected approach
 
-The exam is not designed to trick you or reward the most sophisticated code. It mainly checks whether you can recognize useful moves in a new situation and produce a clear trace.
+Use the methods covered in class to analyze the provided data. Aim for a correct, readable and clearly explained solution.
 
-### Not memorization
+### Adapt the methods
 
 Questions do not ask you to reproduce a challenge word for word.
 
-### Not a speed contest
+### Keep the solution simple
 
 A simple, readable and complete solution is better than an overly ambitious one.
 
-### Not only code
+### Explain your choices
 
 Interpretations and choices must be understandable in context.
 
-### Not a team project
+### Work individually
 
 The goal is to show your individual autonomy with the course foundations.
 
 ## Skills used
 
-The tasks resemble the adventures, challenges and exercises from the first modules. The exam does not ask you to reproduce a challenge by heart; it asks you to recognize useful moves in a new situation.
+The exam combines the operations practised in the adventures, challenges and exercises from modules 1 to 4.
 
 1
 
@@ -142,7 +142,7 @@ Write short interpretations that answer the question.
 
 ## What matters
 
-A good exam shows a complete process, even if everything is not perfect. The criteria resemble those used for challenges, but in a more integrated context.
+The criteria cover whether the report works, the analysis choices and the explanations of the results.
 
 ### Reproducibility
 
@@ -195,7 +195,7 @@ Specify units, counts and denominators. Explain what the data support.
 
 ## During the exam
 
-The most robust strategy is to build a simple version that works, then improve it.
+Start by producing a report that works, then complete your answers and interpretations.
 
 1.  Read the whole mission before coding.
 2.  Import the data and check the structure with short outputs.

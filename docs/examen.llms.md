@@ -2,7 +2,7 @@
 
 # Examen
 
-L'examen reprend l'esprit des aventures: une situation concrète, un jeu de données, un document Quarto à compléter et des décisions à justifier. Il évalue l'autonomie sur les gestes essentiels des modules 1 à 4.
+Comme dans les aventures du cours, vous analyserez un jeu de données dans un rapport Quarto. Vous devrez utiliser les méthodes des modules 1 à 4 et expliquer vos choix.
 
 [Préparation](#exam-prep-title) [Modalités](#exam-conditions-title) [Dossier de références](#exam-resources-title) [Pendant l'examen](#exam-day-title) [Anciens examens](#old-exams-title) [Évaluations](evaluations.llms.md)
 
@@ -24,9 +24,9 @@ Importation et nettoyage
 
 ## Format général
 
-L'examen est appliqué. Le but n'est pas de réciter des fonctions, mais de choisir les bons outils pour produire un petit rapport fiable. L’examen individuel vaut 25 % et se déroule le 19 octobre 2026, de 8 h 30 à 11 h 20, au local PLT-2325. Il se déroule sur un compte examen, sans Internet ni IA. Les fichiers seront récupérés automatiquement; aucun dépôt manuel n’est demandé.
+Vous devrez importer les données, les analyser et présenter vos résultats dans un rapport reproductible. L’examen individuel vaut 25 % et se déroule le 19 octobre 2026, de 8 h 30 à 11 h 20, au local PLT-2325. Il se déroule sur un compte examen, sans Internet ni IA. Les fichiers seront récupérés automatiquement; aucun dépôt manuel n’est demandé.
 
-### Contexte narratif
+### Mandat
 
 Vous recevez une mission ou un mandat, comme dans les aventures du cours.
 
@@ -68,7 +68,7 @@ Vous pourrez consulter ce dossier commun sans Internet sur les comptes examens. 
 
 ### Guide rapide
 
-Retrouver les gestes utiles : importer, vérifier les types, nettoyer, résumer, calculer des proportions, choisir un graphique, transformer un format et rendre un rapport.
+Exemples de code pour importer, vérifier les types, nettoyer, résumer, calculer des proportions, choisir un graphique, transformer un format et rendre un rapport.
 
 ### Modules 1 à 4
 
@@ -80,7 +80,7 @@ Copies locales des lectures prévues dans les modules : R4DS, Introduction to Mo
 
 ### Pratique dans Quarto
 
-Un projet de pratique et un gabarit qui se rend déjà, avec un petit exemple fictif. Le gabarit de l’examen sera fourni au début de l’épreuve.
+Un projet RStudio, un gabarit Quarto à compléter et des données fictives pour vous entraîner. Le gabarit de l’examen sera fourni au début de l’épreuve.
 
 [Télécharger le dossier communRéférences locales et pratique pour les modules 1 à 4, version du 5 octobre 2026.](downloads/examen/references-stt1100-examen-2026-10-19.zip)
 
@@ -92,29 +92,29 @@ Les documents personnels restent autorisés sur papier uniquement. Les activité
 
 L’accès à Internet et l’utilisation de l’IA sont interdits pendant l’examen. Entraînez-vous à réaliser les tâches essentielles de façon autonome et à expliquer vos choix, avec vos références papier.
 
-## Ce que l'examen n'est pas
+## Approche attendue
 
-L'examen ne cherche pas à piéger ni à récompenser le code le plus sophistiqué. Il vérifie surtout si vous pouvez reconnaître les gestes utiles dans une nouvelle situation et produire une trace claire.
+Utilisez les méthodes vues en cours pour analyser les données fournies. Privilégiez une solution correcte, lisible et bien expliquée.
 
-### Pas une récitation
+### Adapter les méthodes
 
 Les questions ne demandent pas de refaire un défi mot pour mot.
 
-### Pas un concours de vitesse
+### Garder une solution simple
 
 Une solution simple, lisible et complète vaut mieux qu'une solution trop ambitieuse.
 
-### Pas seulement du code
+### Expliquer vos choix
 
 Les interprétations et les choix doivent être compréhensibles dans le contexte.
 
-### Pas un projet d'équipe
+### Travailler individuellement
 
 L'objectif est de montrer votre autonomie individuelle sur les bases du cours.
 
 ## Compétences mobilisées
 
-Les tâches ressemblent aux aventures, aux défis et aux exercices des premiers modules. L'examen ne demande pas de refaire un défi par coeur; il demande de reconnaître les gestes utiles dans une nouvelle situation.
+L’examen combine les opérations pratiquées dans les aventures, les défis et les exercices des modules 1 à 4.
 
 1
 
@@ -142,7 +142,7 @@ Rédiger des interprétations courtes qui répondent à la question.
 
 ## Ce qui compte
 
-Un bon examen montre une démarche complète, même si tout n'est pas parfait. Les critères ressemblent à ceux des défis, mais dans un contexte plus intégré.
+Les critères portent sur le fonctionnement du rapport, les choix d’analyse et les explications des résultats.
 
 ### Reproductibilité
 
@@ -195,7 +195,7 @@ Précisez les unités, les effectifs et les dénominateurs. Expliquez ce que les
 
 ## Pendant l'examen
 
-La stratégie la plus robuste est de construire une version simple qui fonctionne, puis de l'améliorer.
+Commencez par produire un rapport qui fonctionne, puis complétez les réponses et les interprétations.
 
 1.  Lire toute la mission avant de coder.
 2.  Importer les données et vérifier la structure avec des sorties courtes.
