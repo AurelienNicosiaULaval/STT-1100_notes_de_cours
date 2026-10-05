@@ -4,7 +4,7 @@
 
 L'examen reprend l'esprit des aventures: une situation concrète, un jeu de données, un document Quarto à compléter et des décisions à justifier. Il évalue l'autonomie sur les gestes essentiels des modules 1 à 4.
 
-[Préparation](#exam-prep-title) [Modalités](#exam-conditions-title) [Pendant l'examen](#exam-day-title) [Anciens examens](#old-exams-title) [Évaluations](evaluations.llms.md)
+[Préparation](#exam-prep-title) [Modalités](#exam-conditions-title) [Dossier de références](#exam-resources-title) [Pendant l'examen](#exam-day-title) [Anciens examens](#old-exams-title) [Évaluations](evaluations.llms.md)
 
 01
 
@@ -56,11 +56,37 @@ Apportez vos références papier. Ne comptez pas sur vos fichiers numériques pe
 
 ### Matériel fourni
 
-L’enseignant mettra du matériel à disposition directement sur les comptes examens.
+Le dossier commun de références ci-dessous sera accessible sur les comptes examens. Téléchargez le même dossier pour réviser avant l’épreuve.
 
 ### Récupération automatique
 
 Aucun dépôt manuel dans Brio ou sur GitHub. Enregistrez régulièrement votre travail; les fichiers seront récupérés automatiquement.
+
+## Le même dossier pour réviser et pour l’examen
+
+Vous pourrez consulter ce dossier commun sans Internet sur les comptes examens. Il réunit le matériel des modules 1 à 4 et un guide de travail. Les exercices et les solutions déjà publiées du cours sont inclus.
+
+### Guide rapide
+
+Retrouver les gestes utiles : importer, vérifier les types, nettoyer, résumer, calculer des proportions, choisir un graphique, transformer un format et rendre un rapport.
+
+### Modules 1 à 4
+
+Plans d’apprentissage, aventures, défis, exercices, mini-tests, solutions déjà publiées et fichiers de pratique.
+
+### Lectures et aide-mémoires
+
+Copies locales des lectures prévues dans les modules : R4DS, Introduction to Modern Statistics, guide de style, documentation des packages et tutoriel Quarto; aide-mémoires Posit et feuille de référence du cours.
+
+### Pratique dans Quarto
+
+Un projet de pratique et un gabarit qui se rend déjà, avec un petit exemple fictif. Le gabarit de l’examen sera fourni au début de l’épreuve.
+
+[Télécharger le dossier communRéférences locales et pratique pour les modules 1 à 4, version du 5 octobre 2026.](downloads/examen/references-stt1100-examen-2026-10-19.zip)
+
+Décompressez toute l’archive, puis ouvrez `references-stt1100/ACCUEIL.html`. Gardez les sous-dossiers ensemble. La page d’accueil donne accès aux ressources par tâche et par module. Utilisez Ctrl+F pour chercher dans le document ouvert.
+
+Les documents personnels restent autorisés sur papier uniquement. Les activités du cours qui nécessitent GitHub, une installation ou un service Web servent de référence; entraînez-vous aux analyses et au rendu avec les fichiers locaux.
 
 ## Internet et IA pendant l’examen
 
@@ -144,34 +170,28 @@ Une solution claire avec les outils vus en cours vaut mieux qu'une solution comp
 
 ## Bien se préparer
 
-Pendant les semaines du 5 et du 12 octobre, révisez les modules 1 à 4 et poursuivez le choix des données avec votre équipe de projet et d’affiche. Il n’y a pas de séance ces deux lundis. Nous nous retrouvons à l’examen du 19 octobre. Le défi du module 4 est à remettre le 4 octobre à 23 h 55; aucune remise supplémentaire de projet n’est ajoutée pendant la pause.
+Pendant les semaines du 5 et du 12 octobre, révisez les modules 1 à 4 et poursuivez le choix des données avec votre équipe de projet et d’affiche. Il n’y a pas de séance ces deux lundis. Nous nous retrouvons à l’examen du 19 octobre.
 
-1.  D’abord, consolidez les objets R, les conditions, les valeurs manquantes, Quarto, les résumés numériques, dplyr et ggplot2 avec les modules 1 et 2.
-2.  Reprenez ensuite les chaînes, les catégories, l’ordre des facteurs, les types à l’importation, les doublons, les valeurs manquantes et les formats long et large avec les modules 3 et 4.
-3.  Téléchargez d’abord les fichiers d’entraînement, puis refaites une aventure ou des exercices dans un document Quarto vide, sans Internet ni IA et avec vos références papier. Redémarrez R et rendez le document complet.
-4.  Expliquez chaque graphique et chaque décision de nettoyage avec vos mots. Reprenez les étapes que vous ne pouvez pas reproduire de façon autonome.
+1.  Téléchargez et décompressez le dossier commun, puis ouvrez sa page `ACCUEIL.html`. Repérez le guide, les modules et les aide-mémoires.
+2.  Avec les modules 1 et 2, pratiquez les objets R, les conditions, les valeurs manquantes, Quarto, les résumés numériques, `dplyr` et `ggplot2`.
+3.  Avec les modules 3 et 4, pratiquez les chaînes, les catégories, l’ordre des facteurs, les types à l’importation, les doublons et les formats long et large.
+4.  Ouvrez le projet de pratique et complétez son gabarit; adaptez ensuite la démarche à une aventure ou à un exercice du cours avec d’autres données. Travaillez sans Internet ni IA, avec le dossier commun et vos références papier.
+5.  Expliquez vos résultats, vos graphiques et vos décisions de nettoyage. Consultez les solutions publiques après votre tentative pour reprendre les étapes difficiles.
+6.  Enregistrez, redémarrez R, rendez le document complet et ouvrez le HTML. Vérifiez que tous les objets sont créés par votre code.
 
-[Module 1R et Quarto](module_01/index.llms.md) [Module 2Résumés et graphiques](module_02/index.llms.md) [Module 3Chaînes et catégories](module_03/index.llms.md) [Module 4Importation et nettoyage](module_04/index.llms.md)
-
-La meilleure préparation consiste à refaire les défis, à relire les aventures et à construire un aide-mémoire personnel sur papier avec vos exemples les plus utiles.
-
-1.  Refaire les défis des modules visés sans regarder immédiatement la solution.
-2.  Relire les plans d'apprentissage pour retrouver les fonctions clés.
-3.  Refaire quelques exercices indépendants pour varier les contextes et les jeux de données.
-4.  Pratiquer le rendu d'un document Quarto complet.
-5.  Vérifier vos graphiques: titres, axes, légendes, unités et interprétation.
+[Module 1R et Quarto](module_01/exercices.llms.md) [Module 2Résumés et graphiques](module_02/exercices.llms.md) [Module 3Chaînes et catégories](module_03/exercices.llms.md) [Module 4Importation et nettoyage](module_04/exercices.llms.md)
 
 ### Références papier
 
-Organisez vos notes et exemples imprimés pour retrouver rapidement les fonctions et leurs usages.
+Préparez vos notes imprimées pour retrouver rapidement les fonctions et leurs usages.
 
-### Ressources numériques
+### Références numériques communes
 
-Pendant l’examen, utilisez uniquement le matériel mis à disposition par l’enseignant sur le compte examen.
+Révisez avec la même version du dossier qui sera disponible sur les comptes examens.
 
-### Objectif
+### Interprétation
 
-Montrer une démarche claire, pas seulement obtenir un résultat numérique.
+Précisez les unités, les effectifs et les dénominateurs. Expliquez ce que les données permettent d’affirmer.
 
 ## Pendant l'examen
 

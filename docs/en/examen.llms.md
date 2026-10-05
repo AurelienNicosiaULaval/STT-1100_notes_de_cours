@@ -4,7 +4,7 @@ Assessment
 
 The exam follows the spirit of the adventures: a concrete situation, a dataset, a Quarto document to complete and decisions to justify. It assesses autonomy with the essential skills from modules 1 to 4.
 
-[Preparation](#exam-prep-title) [Exam conditions](#exam-conditions-title) [During the exam](#exam-day-title) [Past exams](#old-exams-title) [Assessments](evaluations.llms.md)
+[Preparation](#exam-prep-title) [Exam conditions](#exam-conditions-title) [Reference bundle](#exam-resources-title) [During the exam](#exam-day-title) [Past exams](#old-exams-title) [Assessments](evaluations.llms.md)
 
 01
 
@@ -56,11 +56,37 @@ Bring your paper references. Do not rely on your personal digital files.
 
 ### Provided material
 
-The instructor will make material available directly on the exam accounts.
+The common reference bundle below will be available on the exam accounts. Download the same bundle to prepare before the exam.
 
 ### Automatic collection
 
 No manual submission to Brio or GitHub. Save your work regularly; files will be collected automatically.
+
+## The same bundle for preparation and for the exam
+
+This common bundle will be available offline on the exam accounts. It contains French course materials for modules 1 to 4, a short working guide and English official readings. Already published course exercises and solutions are included.
+
+### Quick guide
+
+Find the essential steps: import, check types, clean, summarize, calculate proportions, choose a graph, reshape and render a report.
+
+### Modules 1 to 4
+
+Learning plans, adventures, challenges, exercises, quizzes, already published solutions and practice files.
+
+### Readings and reference sheets
+
+Local copies of the module readings: R4DS, Introduction to Modern Statistics, the style guide, package documentation and a Quarto tutorial; Posit reference sheets and the course reference sheet.
+
+### Quarto practice
+
+A practice project and a template that already renders, with a small fictional example. The exam template will be provided at the start of the exam.
+
+[Download the common bundleLocal references and practice for modules 1 to 4, October 5, 2026 version.](../downloads/examen/references-stt1100-examen-2026-10-19.zip)
+
+Extract the entire archive, then open `references-stt1100/ACCUEIL.html`. Keep its subfolders together. The welcome page organizes resources by task and module. Use Ctrl+F to search within an open document.
+
+Personal documents remain permitted on paper only. Course activities requiring GitHub, installation or a Web service serve as references; practise the analyses and rendering with local files.
 
 ## Internet and AI during the exam
 
@@ -142,36 +168,30 @@ The report follows a readable progression: preparation, analysis, results and co
 
 A clear solution using course tools is better than a complicated and fragile solution.
 
-## How to prepare
+## Prepare well
 
-During the weeks of October 5 and 12, revise modules 1 to 4 and continue exploring a dataset with your project/poster team. There is no class meeting on those Mondays. Our next meeting is the October 19 exam. The module 4 challenge is due October 4 at 11:55 p.m.; no additional project submission is added during the break.
+During the weeks of October 5 and October 12, review modules 1 to 4 and continue selecting data with your project and poster team. There is no class on these two Mondays. We meet again at the October 19 exam.
 
-1.  First, consolidate R objects, conditions, missing values, Quarto, numerical summaries, dplyr and ggplot2 using modules 1 and 2.
-2.  Then revisit strings, categories, factor order, import types, duplicate rows, missing values and long/wide reshaping using modules 3 and 4.
-3.  Download the practice files first, then complete an adventure or exercises from a blank Quarto document without Internet or AI, using paper references. Restart R and render the complete document.
-4.  Explain every graph and cleaning decision in your own words. Revisit any step you cannot reproduce independently.
+1.  Download and extract the common bundle, then open `ACCUEIL.html`. Locate the guide, modules and reference sheets.
+2.  Use modules 1 and 2 to practise R objects, conditions, missing values, Quarto, numerical summaries, `dplyr` and `ggplot2`.
+3.  Use modules 3 and 4 to practise strings, categories, factor order, import types, duplicate rows and long/wide formats.
+4.  Open the practice project and complete its template; then adapt the workflow to an adventure or course exercise with other data. Work without Internet or AI, using the common bundle and your paper references.
+5.  Explain your results, graphs and cleaning decisions. Consult published solutions after your attempt to revisit difficult steps.
+6.  Save, restart R, render the complete document and open its HTML output. Check that your code creates every object it uses.
 
-[Module 1R and Quarto](module_01/index.llms.md) [Module 2Data summaries and graphics](module_02/index.llms.md) [Module 3Strings and categories](module_03/index.llms.md) [Module 4Import and cleaning](module_04/index.llms.md)
-
-The best preparation is to redo challenges, reread the adventures and build a personal paper reference sheet with your most useful examples.
-
-1.  Redo the relevant module challenges without looking immediately at the solution.
-2.  Reread learning plans to find the key functions.
-3.  Redo a few independent exercises to vary contexts and datasets.
-4.  Practise rendering a complete Quarto document.
-5.  Check your graphs: titles, axes, legends, units and interpretation.
+[Module 1R and Quarto](module_01/exercices.llms.md) [Module 2Summaries and graphics](module_02/exercices.llms.md) [Module 3Strings and categories](module_03/exercices.llms.md) [Module 4Import and cleaning](module_04/exercices.llms.md)
 
 ### Paper references
 
-Organize your printed notes and examples to find functions and their uses quickly.
+Prepare printed notes to find functions and their uses quickly.
 
-### Digital resources
+### Common digital references
 
-During the exam, use only the material made available by the instructor on the exam account.
+Prepare using the same bundle version that will be available on the exam accounts.
 
-### Goal
+### Interpretation
 
-Show a clear process, not only a numerical result.
+Specify units, counts and denominators. Explain what the data support.
 
 ## During the exam
 
