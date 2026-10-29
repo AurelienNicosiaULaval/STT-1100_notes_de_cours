@@ -182,7 +182,6 @@ Calculez les corrélations entre `velos_total`, `velos_entrants` et `velos_sorta
 ### Solution
 
 ```{r}
-#| fig-alt: "Nuage de points des vélos entrants et sortants, coloré selon le moment de la journée, avec une droite de tendance linéaire."
 velos_dates |>
   select(velos_total, velos_entrants, velos_sortants) |>
   cor(use = "complete.obs") |>
@@ -200,7 +199,7 @@ Créez un graphique des vélos entrants et sortants. Colorez les points selon le
 ### Solution
 
 ```{r}
-#| fig-alt: "Courbe du nombre moyen de vélos selon l'heure de la journée."
+#| fig-alt: "Nuage de points des vélos entrants et sortants, coloré selon le moment de la journée, avec une droite de tendance linéaire."
 velos_dates |>
   ggplot(aes(x = velos_entrants, y = velos_sortants)) +
   geom_point(aes(color = moment_journee), alpha = 0.45) +
@@ -225,7 +224,7 @@ Créez une variable `type_jour`, puis comparez les comptages moyens entre la sem
 velos_type_jour <- velos_dates |>
   mutate(
     type_jour = if_else(
-      wday(date_heure) %in% c(1, 7),
+      wday(date_heure, week_start = 1) %in% c(6, 7),
       "fin de semaine",
       "semaine"
     )
@@ -261,6 +260,7 @@ Produisez un graphique du comptage moyen selon l'heure de la journée.
 ### Solution possible
 
 ```{r}
+#| fig-alt: "Courbe du nombre moyen de vélos selon l'heure de la journée."
 velos_dates |>
   group_by(heure_jour) |>
   summarise(
@@ -375,7 +375,7 @@ Le fichier `data/debits_circulation_gatineau_2016_2023.csv` est un extrait péda
 
 Réalisez les tâches suivantes:
 
-1. importez le fichier et inspectez les valeurs manquantes;
+1. importez le fichier, inspectez les valeurs manquantes et repérez les pourcentages hors de l'intervalle de 0 à 100;
 2. créez une estimation du nombre de véhicules lourds;
 3. résumez les débits par secteur et par année;
 4. calculez les corrélations entre l'année, le débit, la proportion de véhicules lourds et le nombre estimé de véhicules lourds;
@@ -387,14 +387,38 @@ Réalisez les tâches suivantes:
 
 ```{r}
 #| fig-alt: "Nuage de points du débit total et du pourcentage de véhicules lourds, coloré selon le secteur."
-debits <- read_csv(
+debits_bruts <- read_csv(
   "data/debits_circulation_gatineau_2016_2023.csv",
   show_col_types = FALSE
-) |>
+)
+
+debits_bruts |>
+  summarise(
+    n_observations = n(),
+    pourcentages_manquants = sum(is.na(pourcentage_vehicules_lourds)),
+    pourcentages_invalides = sum(
+      !between(pourcentage_vehicules_lourds, 0, 100),
+      na.rm = TRUE
+    )
+  )
+
+# Conserver les données brutes et isoler les lignes utilisables pour cette analyse.
+debits <- debits_bruts |>
+  filter(
+    !is.na(debit_total_24h),
+    debit_total_24h >= 0,
+    between(pourcentage_vehicules_lourds, 0, 100)
+  ) |>
   mutate(
     vehicules_lourds_estimes =
       debit_total_24h * pourcentage_vehicules_lourds / 100
   )
+
+tibble(
+  lignes_brutes = nrow(debits_bruts),
+  lignes_retenues = nrow(debits),
+  lignes_exclues = nrow(debits_bruts) - nrow(debits)
+)
 
 debits |>
   summarise(across(everything(), ~ sum(is.na(.x))))
@@ -438,5 +462,7 @@ debits |>
   )
 ```
 
-Une conclusion prudente peut comparer les groupes présents dans le fichier. Elle doit rappeler que les lieux et années observés diffèrent, et que le nombre estimé de véhicules lourds est calculé directement à partir du débit total et du pourcentage.
+Le fichier fourni contient 8 pourcentages supérieurs à 100 et 7 pourcentages manquants. La règle ci-dessus exclut ces 15 lignes et conserve 1 185 observations; elle ne corrige pas les valeurs à leur source. Les analyses et le nombre estimé de véhicules lourds portent uniquement sur les lignes retenues.
+
+Une conclusion prudente peut comparer les groupes présents dans le fichier. Elle doit rappeler les exclusions, les différences de lieux et d'années, et le fait que le nombre estimé de véhicules lourds est calculé directement à partir du débit total et du pourcentage.
 :::

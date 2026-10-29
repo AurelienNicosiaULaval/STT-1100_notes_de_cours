@@ -6468,6 +6468,7 @@ display: block !important;
 <section id="données-de-départ" class="level2">
 <h2 class="anchored" data-anchor-id="données-de-départ">Données de départ</h2>
 <p>Le fichier principal est <code>flights_merged_2023.rds</code>. Il contient 435 352 vols et 50 variables.</p>
+<p>Il est fourni dans votre dépôt GitHub du module. Vous pouvez aussi <a href="flights_merged_2023.rds">le télécharger ici</a>. Conservez-le à côté de <code>rapport.qmd</code>. Le dossier téléchargeable des exercices de consolidation contient d’autres données.</p>
 <p>Commencez votre fichier <code>rapport.qmd</code> avec un bloc de préparation semblable à celui-ci.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
@@ -6507,10 +6508,10 @@ display: block !important;
 <section id="points-de-vigilance" class="level2">
 <h2 class="anchored" data-anchor-id="points-de-vigilance">Points de vigilance</h2>
 <ul>
-<li>Les retards annulés ont souvent <code>dep_time</code> et <code>dep_delay</code> manquants. Utilisez <code>is.na(dep_time)</code> pour mesurer les annulations.</li>
-<li>Les heures tardives peuvent contenir peu de vols. Affichez toujours le nombre de vols par groupe.</li>
+<li>Le fichier ne contient pas d’indicateur officiel d’annulation. Utilisez <code>is.na(dep_time)</code> comme indicateur de départ non renseigné, assimilé ici à une annulation pour l’exercice, et indiquez cette limite.</li>
+<li>Les heures tardives peuvent contenir peu de vols. Affichez toujours le nombre de vols par groupe et le nombre de retards renseignés qui contribuent aux moyennes.</li>
 <li>Une corrélation ne prouve pas une relation de causalité.</li>
-<li>Les variables météo peuvent être manquantes. Indiquez brièvement comment vous les traitez.</li>
+<li>Les variables météo peuvent être manquantes. Indiquez brièvement comment vous les traitez et combien de vols contribuent à la corrélation. Fixez une graine avec <code>set.seed()</code> si vous tirez un échantillon pour le graphique.</li>
 <li>Les années de fabrication manquantes doivent être exclues ou signalées avant l’analyse de l’âge des avions.</li>
 </ul>
 </section>
@@ -6524,6 +6525,7 @@ display: block !important;
 <li>tout fichier supplémentaire réellement nécessaire à votre analyse.</li>
 </ul>
 <p>Votre fichier <code>.qmd</code> doit pouvoir être rendu en HTML sans erreur.</p>
+<p>Utilisez votre dépôt personnel indiqué dans Brio, puis faites un commit et un push des fichiers attendus. Vérifiez leur présence sur GitHub après le push. Brio demeure la référence pour la date et les modalités officielles de remise.</p>
 </section>
 <section id="structure-suggérée" class="level2">
 <h2 class="anchored" data-anchor-id="structure-suggérée">Structure suggérée</h2>

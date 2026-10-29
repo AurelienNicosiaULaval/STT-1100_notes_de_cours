@@ -6473,14 +6473,15 @@ display: block !important;
 
 <section id="mise-en-situation---aventure-5" class="level2">
 <h2 class="anchored" data-anchor-id="mise-en-situation---aventure-5">Mise en situation - Aventure 5</h2>
+<p>Cette mise en situation et ses personnages sont fictifs. Les analyses portent sur le fichier de vols fourni avec le cours.</p>
 <p>Tu enfiles les chaussures (et le badge sécurisé !) d’un·e <strong>statisticien·ne des opérations aéroportuaires</strong> fraîchement recruté·e par la <strong>Port Authority Data Lab (PADL)</strong>, l’équipe d’analytique du <strong>Port Authority of New York &amp; New Jersey</strong>.<br>
-Ta mission : aider l’aéroport <strong>JFK</strong> (et, à terme, <strong>EWR</strong> et <strong>LGA</strong>) à fluidifier les départs et à réduire le <strong>temps perdu au sol</strong>.</p>
+Ta mission : explorer les départs de <strong>JFK</strong>, <strong>EWR</strong> et <strong>LGA</strong> pour décrire les retards et le <strong>temps perdu au sol</strong>. Les exemples ci-dessous utilisent les trois aéroports; si tu limites une analyse à JFK, indique le filtre et la portée de ta conclusion.</p>
 <ul>
 <li><strong>Ta coéquipière</strong> : <strong>Dr Sofia Martínez</strong>, data-scientist senior reconnue pour ses visualisations interactives percutantes. Sofia pose les bonnes questions, valide tes hypothèses et t’ouvre l’accès aux ressources internes.<br>
 </li>
 <li><strong>Le jeu de données</strong> : <strong>Alex Chen</strong>, data engineer au PADL, t’a préparé un fichier <strong><code>flights_merged_2023.rds</code></strong> qui regroupe en une seule table exhaustive les vols 2023, la météo à l’heure de départ, les infos avion, les noms complets des compagnies et la géolocalisation des aéroports d’origine et de destination.<br>
 </li>
-<li><strong>Contexte concret</strong> : le Board des opérations veut savoir <em>quand</em> et <em>pourquoi</em> les retards explosent, comment la météo influe sur les connexions, et quelles compagnies devraient revoir leur plan de vol. Tes livrables (rapports Quarto + visualisations) orienteront les décisions budgétaires pour l’été 2026.</li>
+<li><strong>Contexte concret</strong> : le comité des opérations cherche les créneaux associés aux retards et les associations avec la météo ou l’âge de la flotte. Tes livrables (rapports Quarto + visualisations) serviront à formuler des pistes à approfondir pour la planification des opérations.</li>
 </ul>
 <blockquote class="blockquote">
 <p><strong>Brief de Sofia</strong><br>
@@ -6502,7 +6503,7 @@ Carte de visite
 <p><span class="adventure-brief-label">Interlocuteurs</span> <span class="adventure-brief-value">Dr Sofia Martínez et Alex Chen</span></p>
 </div>
 <div class="adventure-brief-item">
-<p><span class="adventure-brief-label">Organisation et contexte</span> <span class="adventure-brief-value">Port Authority Data Lab, avec un mandat centré sur JFK</span></p>
+<p><span class="adventure-brief-label">Organisation et contexte</span> <span class="adventure-brief-value">Port Authority Data Lab, dans une mise en situation sur les départs de New York</span></p>
 </div>
 <div class="adventure-brief-item">
 <p><span class="adventure-brief-label">Mission</span> <span class="adventure-brief-value">Analyser les retards, la météo et la flotte pour éclairer les opérations</span></p>
@@ -6568,7 +6569,8 @@ Carte de visite
 <h2 class="anchored" data-anchor-id="github-et-rendu">GitHub et rendu</h2>
 <p>Comme pour les aventures précédentes :</p>
 <ul>
-<li><p><strong>Clonez</strong> le dépôt GitHub du module 5 depuis l’organisation du cours. Vous pouvez utiliser la cheat sheet du cours si vous avez un trou de mémoire.</p></li>
+<li><p>Ouvrez le lien de votre dépôt personnel communiqué dans Brio, puis clonez ce dépôt dans RStudio. Le <a href="https://github.com/STT-1100-A26/aventure-5">dépôt de départ du module 5</a> contient le squelette et les données; il est privé. Si votre dépôt personnel n’est pas accessible, signalez le problème à l’équipe enseignante avant de commencer la remise.</p></li>
+<li><p>Pour pratiquer localement, vous pouvez aussi <a href="flights_merged_2023.rds">télécharger les données de vols</a>. Placez le fichier à côté de <code>rapport.qmd</code>. Le <a href="../downloads/donnees/stt1100-module-05-fr.zip">dossier des exercices de consolidation</a> contient d’autres données et ne remplace pas ce fichier de vols.</p></li>
 <li><p>Travaillez dans RStudio et <strong>faites des commits régulièrement</strong> pour documenter votre avancement.</p></li>
 <li><p>Votre dépôt doit contenir :</p>
 <ul>
@@ -6662,8 +6664,12 @@ Carte de visite
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">make_date</span>(year, month, day),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="fu">make_datetime</span>(year, month, day, hour)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">datetime =</span> <span class="fu">make_datetime</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      year, month, day, hour, minute,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">tz =</span> <span class="st">&quot;America/New_York&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ici, <code>hour</code> et <code>minute</code> correspondent au départ prévu. <code>datetime</code> représente donc l’horaire prévu en heure locale de New York, et non l’heure réelle de décollage.</p>
 </section>
 <section id="exercice-1---quelle-est-la-structure-de-la-date" class="level3">
 <h3 class="anchored" data-anchor-id="exercice-1---quelle-est-la-structure-de-la-date">Exercice 1 - Quelle est la structure de la date ?</h3>
@@ -6714,7 +6720,7 @@ Voici une façon de faire :</p>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jour_semaine =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flights<span class="sc">$</span>jour_semaine, <span class="dv">7</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Cela utilise <code>label = TRUE</code> pour obtenir le nom complet (et non un chiffre).</p>
+<p>Cela utilise <code>label = TRUE</code> et <code>abbr = FALSE</code> pour obtenir le nom complet du jour. La langue des noms dépend de la configuration de R.</p>
 </div>
 </div>
 </div>
@@ -6770,8 +6776,8 @@ Astuce
 <p><strong>Réponse de Sofia</strong><br>
 Utilise :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weekend =</span> jour_semaine <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;samedi&quot;</span>, <span class="st">&quot;dimanche&quot;</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>N’oublie pas que <code>jour_semaine</code> est une variable factor avec labels.</p>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">weekend =</span> <span class="fu">wday</span>(date, <span class="at">week_start =</span> <span class="dv">1</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Avec <code>week_start = 1</code>, lundi vaut 1, samedi vaut 6 et dimanche vaut 7. Ce test fonctionne quelle que soit la langue de R.</p>
 </div>
 </div>
 </div>
@@ -6831,19 +6837,24 @@ Astuce
 <div class="callout-body-container callout-body">
 <p><strong>Réponse de Sofia</strong><br>
 Tu peux regrouper les vols par heure et calculer la moyenne des retards :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>resume_heures <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(hour) <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_vols =</span> <span class="fu">n</span>(),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">moyenne_retard =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> moyenne_retard)) <span class="sc">+</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Retard moyen au départ selon l&#39;heure&quot;</span>,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Heure prévue de départ&quot;</span>,</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Retard moyen (minutes)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Attention : ne te laisse pas piéger par les heures tardives avec peu de vols. Utilise la colonne <code>n_vols</code> pour repérer les groupes trop petits.</p>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_retards_renseignes =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_delay)),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">moyenne_retard =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>resume_heures</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>resume_heures <span class="sc">%&gt;%</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> moyenne_retard)) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Retard moyen au départ selon l&#39;heure&quot;</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Heure prévue de départ&quot;</span>,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Retard moyen (minutes)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Attention : ne te laisse pas piéger par les heures tardives avec peu de vols. <code>n_vols</code> compte tous les vols du groupe; <code>n_retards_renseignes</code> compte ceux qui contribuent à la moyenne. Les départs sans retard renseigné sont exclus de cette moyenne.</p>
 </div>
 </div>
 </div>
@@ -6881,24 +6892,32 @@ Note
 <section id="étape-1---calculer-la-corrélation" class="level4">
 <h4 class="anchored" data-anchor-id="étape-1---calculer-la-corrélation">Étape 1 - Calculer la corrélation</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dep_delay, wind_gust, visib, precip) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Ce tableau te donne un aperçu rapide de la force de la relation entre les retards (<code>dep_delay</code>) et certaines variables météo.</p>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_total =</span> <span class="fu">n</span>(),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_complets =</span> <span class="fu">sum</span>(<span class="fu">complete.cases</span>(dep_delay, wind_gust, visib, precip))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dep_delay, wind_gust, visib, precip) <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ce tableau te donne un aperçu rapide de la force de la relation entre les retards (<code>dep_delay</code>) et certaines variables météo. <code>complete.obs</code> retient seulement les vols renseignés pour les quatre variables sélectionnées; le nombre de lignes utilisées est affiché avant la matrice.</p>
 <p>Une corrélation proche de 0 ne veut pas dire que la météo ne joue jamais de rôle. Elle indique seulement qu’il n’y a pas de relation linéaire forte dans ce résumé global.</p>
 </section>
 <section id="étape-2---visualiser-une-relation" class="level4">
 <h4 class="anchored" data-anchor-id="étape-2---visualiser-une-relation">Étape 2 - Visualiser une relation</h4>
 <p>Un graphique de dispersion permet de <strong>voir</strong> la tendance entre deux variables. Tu peux par exemple tester :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wind_gust), <span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5000</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wind_gust, <span class="at">y =</span> dep_delay)) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relation entre les rafales de vent et le retard au départ&quot;</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Rafales de vent (mph)&quot;</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Retard au départ (min)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1100</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(wind_gust), <span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wind_gust, <span class="at">y =</span> dep_delay)) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relation entre les rafales de vent et le retard au départ&quot;</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Rafales de vent (mph)&quot;</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Retard au départ (min)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Le nuage de points te montre la tendance globale, et la ligne rouge correspond à une <strong>régression linéaire</strong> (c’est à dire la “meilleure” droite qui représente le lien linéaire entre les deux variables) qui estime cette relation.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -6941,8 +6960,9 @@ Note
 </div>
 </div>
 <div class="callout-question">
-<p><strong>Sofia te demande</strong> : <em>Analyse la relation entre l’âge de l’avion et les retards ou annulations (<code>is.na(dep_time)</code>).</em></p>
+<p><strong>Sofia te demande</strong> : <em>Analyse la relation entre l’âge de l’avion et les retards ou les départs non renseignés (<code>is.na(dep_time)</code>), utilisés ici comme indicateur d’annulation.</em></p>
 </div>
+<p>Le fichier fourni ne contient pas d’indicateur officiel d’annulation. <code>is.na(dep_time)</code> est donc une convention de travail à expliciter dans la conclusion. Signale aussi les vols dont l’année de fabrication manque avant de les exclure de la comparaison par âge.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -6961,24 +6981,32 @@ Tu peux créer une variable <code>age_avion</code> :</p>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_avion =</span> <span class="dv">2023</span> <span class="sc">-</span> plane_year)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Puis comparer par tranche d’âge. Les tranches évitent de surinterpréter des âges où il y a très peu d’avions.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_avion)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tranche_age =</span> <span class="fu">cut</span>(</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    age_avion,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="cn">Inf</span>),</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-5&quot;</span>, <span class="st">&quot;6-10&quot;</span>, <span class="st">&quot;11-15&quot;</span>, <span class="st">&quot;16-20&quot;</span>, <span class="st">&quot;21+&quot;</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tranche_age) <span class="sc">%&gt;%</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_vols =</span> <span class="fu">n</span>(),</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_annulation =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(dep_time)),</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">retard_moyen =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tranche_age, <span class="at">y =</span> retard_moyen)) <span class="sc">+</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Retard moyen selon l&#39;âge de l&#39;avion&quot;</span>,</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Âge de l&#39;avion (années)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Retard moyen (minutes)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Tu peux refaire le même graphique avec <code>p_annulation</code>. N’oublie pas de regarder <code>n_vols</code> avant de comparer les tranches.</p>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_vols =</span> <span class="fu">n</span>(), <span class="at">n_age_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(age_avion)))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>resume_age <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_avion)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tranche_age =</span> <span class="fu">cut</span>(</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    age_avion,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="cn">Inf</span>),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-5&quot;</span>, <span class="st">&quot;6-10&quot;</span>, <span class="st">&quot;11-15&quot;</span>, <span class="st">&quot;16-20&quot;</span>, <span class="st">&quot;21+&quot;</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tranche_age) <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_vols =</span> <span class="fu">n</span>(),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_retards_renseignes =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_delay)),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_annulation =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(dep_time)),</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">retard_moyen =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>resume_age</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>resume_age <span class="sc">%&gt;%</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tranche_age, <span class="at">y =</span> retard_moyen)) <span class="sc">+</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Retard moyen selon l&#39;âge de l&#39;avion&quot;</span>,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Âge de l&#39;avion (années)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Retard moyen (minutes)&quot;</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Tu peux refaire le même graphique avec <code>p_annulation</code>, la proportion de départs non renseignés dans chaque tranche. Regarde <code>n_vols</code> et <code>n_retards_renseignes</code> avant de comparer les tranches. La comparaison porte uniquement sur les vols dont l’âge de l’avion est connu; elle ne prouve pas que l’âge cause un retard ou une annulation.</p>
 </div>
 </div>
 </div>

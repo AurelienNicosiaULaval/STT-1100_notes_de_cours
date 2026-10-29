@@ -240,7 +240,7 @@ Créez un graphique des vélos entrants et sortants. Colorez les points selon le
 >
 >     `geom_smooth()` using formula = 'y ~ x'
 >
-> ![Courbe du nombre moyen de vélos selon l'heure de la journée.](exercices_files/figure-html/unnamed-chunk-8-1.png)
+> ![Nuage de points des vélos entrants et sortants, coloré selon le moment de la journée, avec une droite de tendance linéaire.](exercices_files/figure-html/unnamed-chunk-8-1.png)
 
 ### Exercice 9 - Comparer la semaine et la fin de semaine
 
@@ -252,7 +252,7 @@ Créez une variable `type_jour`, puis comparez les comptages moyens entre la sem
 > velos_type_jour <- velos_dates |>
 >   mutate(
 >     type_jour = if_else(
->       wday(date_heure) %in% c(1, 7),
+>       wday(date_heure, week_start = 1) %in% c(6, 7),
 >       "fin de semaine",
 >       "semaine"
 >     )
@@ -306,7 +306,7 @@ Produisez un graphique du comptage moyen selon l’heure de la journée.
 >   )
 > ```
 >
-> ![](exercices_files/figure-html/unnamed-chunk-10-1.png)
+> ![Courbe du nombre moyen de vélos selon l'heure de la journée.](exercices_files/figure-html/unnamed-chunk-10-1.png)
 
 ### Exercice 12 - Construire un tableau de synthèse quotidien
 
@@ -458,7 +458,7 @@ Le fichier `data/debits_circulation_gatineau_2016_2023.csv` est un extrait péda
 
 Réalisez les tâches suivantes:
 
-1.  importez le fichier et inspectez les valeurs manquantes;
+1.  importez le fichier, inspectez les valeurs manquantes et repérez les pourcentages hors de l’intervalle de 0 à 100;
 2.  créez une estimation du nombre de véhicules lourds;
 3.  résumez les débits par secteur et par année;
 4.  calculez les corrélations entre l’année, le débit, la proportion de véhicules lourds et le nombre estimé de véhicules lourds;
@@ -468,15 +468,53 @@ Réalisez les tâches suivantes:
 > **NOTE:**
 >
 > ``` r
-> debits <- read_csv(
+> debits_bruts <- read_csv(
 >   "data/debits_circulation_gatineau_2016_2023.csv",
 >   show_col_types = FALSE
-> ) |>
+> )
+>
+> debits_bruts |>
+>   summarise(
+>     n_observations = n(),
+>     pourcentages_manquants = sum(is.na(pourcentage_vehicules_lourds)),
+>     pourcentages_invalides = sum(
+>       !between(pourcentage_vehicules_lourds, 0, 100),
+>       na.rm = TRUE
+>     )
+>   )
+> ```
+>
+>     # A tibble: 1 × 3
+>       n_observations pourcentages_manquants pourcentages_invalides
+>                <int>                  <int>                  <int>
+>     1           1200                      7                      8
+>
+> ``` r
+> # Conserver les données brutes et isoler les lignes utilisables pour cette analyse.
+> debits <- debits_bruts |>
+>   filter(
+>     !is.na(debit_total_24h),
+>     debit_total_24h >= 0,
+>     between(pourcentage_vehicules_lourds, 0, 100)
+>   ) |>
 >   mutate(
 >     vehicules_lourds_estimes =
 >       debit_total_24h * pourcentage_vehicules_lourds / 100
 >   )
 >
+> tibble(
+>   lignes_brutes = nrow(debits_bruts),
+>   lignes_retenues = nrow(debits),
+>   lignes_exclues = nrow(debits_bruts) - nrow(debits)
+> )
+> ```
+>
+>     # A tibble: 1 × 3
+>       lignes_brutes lignes_retenues lignes_exclues
+>               <int>           <int>          <int>
+>     1          1200            1185             15
+>
+> ``` r
 > debits |>
 >   summarise(across(everything(), ~ sum(is.na(.x))))
 > ```
@@ -530,14 +568,14 @@ Réalisez les tâches suivantes:
 > ```
 >
 >                                  annee debit_total_24h pourcentage_vehicules_lourds
->     annee                         1.00           -0.11                        -0.10
->     debit_total_24h              -0.11            1.00                         0.01
->     pourcentage_vehicules_lourds -0.10            0.01                         1.00
->     vehicules_lourds_estimes     -0.08            0.27                         0.78
+>     annee                         1.00           -0.11                        -0.11
+>     debit_total_24h              -0.11            1.00                        -0.04
+>     pourcentage_vehicules_lourds -0.11           -0.04                         1.00
+>     vehicules_lourds_estimes     -0.07            0.42                         0.47
 >                                  vehicules_lourds_estimes
->     annee                                           -0.08
->     debit_total_24h                                  0.27
->     pourcentage_vehicules_lourds                     0.78
+>     annee                                           -0.07
+>     debit_total_24h                                  0.42
+>     pourcentage_vehicules_lourds                     0.47
 >     vehicules_lourds_estimes                         1.00
 >
 > ``` r
@@ -558,9 +596,8 @@ Réalisez les tâches suivantes:
 >   )
 > ```
 >
->     Warning: Removed 7 rows containing missing values or values outside the scale range
->     (`geom_point()`).
->
 > ![Nuage de points du débit total et du pourcentage de véhicules lourds, coloré selon le secteur.](exercices_files/figure-html/unnamed-chunk-13-1.png)
 >
-> Une conclusion prudente peut comparer les groupes présents dans le fichier. Elle doit rappeler que les lieux et années observés diffèrent, et que le nombre estimé de véhicules lourds est calculé directement à partir du débit total et du pourcentage.
+> Le fichier fourni contient 8 pourcentages supérieurs à 100 et 7 pourcentages manquants. La règle ci-dessus exclut ces 15 lignes et conserve 1 185 observations; elle ne corrige pas les valeurs à leur source. Les analyses et le nombre estimé de véhicules lourds portent uniquement sur les lignes retenues.
+>
+> Une conclusion prudente peut comparer les groupes présents dans le fichier. Elle doit rappeler les exclusions, les différences de lieux et d’années, et le fait que le nombre estimé de véhicules lourds est calculé directement à partir du débit total et du pourcentage.

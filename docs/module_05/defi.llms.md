@@ -12,6 +12,8 @@ Le but n’est pas de prouver une cause unique. Le but est de montrer que vous s
 
 Le fichier principal est `flights_merged_2023.rds`. Il contient 435 352 vols et 50 variables.
 
+Il est fourni dans votre dépôt GitHub du module. Vous pouvez aussi [le télécharger ici](flights_merged_2023.rds). Conservez-le à côté de `rapport.qmd`. Le dossier téléchargeable des exercices de consolidation contient d’autres données.
+
 Commencez votre fichier `rapport.qmd` avec un bloc de préparation semblable à celui-ci.
 
 ``` r
@@ -52,10 +54,10 @@ Pour chaque question, vous devez inclure :
 
 ## Points de vigilance
 
-- Les retards annulés ont souvent `dep_time` et `dep_delay` manquants. Utilisez `is.na(dep_time)` pour mesurer les annulations.
-- Les heures tardives peuvent contenir peu de vols. Affichez toujours le nombre de vols par groupe.
+- Le fichier ne contient pas d’indicateur officiel d’annulation. Utilisez `is.na(dep_time)` comme indicateur de départ non renseigné, assimilé ici à une annulation pour l’exercice, et indiquez cette limite.
+- Les heures tardives peuvent contenir peu de vols. Affichez toujours le nombre de vols par groupe et le nombre de retards renseignés qui contribuent aux moyennes.
 - Une corrélation ne prouve pas une relation de causalité.
-- Les variables météo peuvent être manquantes. Indiquez brièvement comment vous les traitez.
+- Les variables météo peuvent être manquantes. Indiquez brièvement comment vous les traitez et combien de vols contribuent à la corrélation. Fixez une graine avec `set.seed()` si vous tirez un échantillon pour le graphique.
 - Les années de fabrication manquantes doivent être exclues ou signalées avant l’analyse de l’âge des avions.
 
 ## Livrables
@@ -68,6 +70,8 @@ Votre dépôt GitHub doit contenir les fichiers suivants :
 - tout fichier supplémentaire réellement nécessaire à votre analyse.
 
 Votre fichier `.qmd` doit pouvoir être rendu en HTML sans erreur.
+
+Utilisez votre dépôt personnel indiqué dans Brio, puis faites un commit et un push des fichiers attendus. Vérifiez leur présence sur GitHub après le push. Brio demeure la référence pour la date et les modalités officielles de remise.
 
 ## Structure suggérée
 

@@ -79,7 +79,7 @@ Vous pouvez aussi aller réviser les chapitres suivants:
 - [**R for Data Science – Missing values**](https://r4ds.hadley.nz/missing-values.html)
   Ce chapitre rappelle pourquoi les valeurs manquantes doivent être repérées avant d'interpréter un résumé.
 
-Dans le libre **IMS**:
+Dans le livre **IMS**:
 
 - [**Introduction to modern statistics – Exploring numerical data**](https://openintrostat.github.io/ims/explore-numerical)
   Ce chapitre renforce les résumés numériques, les graphiques et les comparaisons descriptives.
@@ -149,7 +149,9 @@ Confidentialité Ne transmettez aucune donnée personnelle, confidentielle ou pr
 
 ### Bases de données
 
-[Télécharger le dossier de travail du module (.zip)](../downloads/donnees/stt1100-module-05-fr.zip)
+[Télécharger les données de l'aventure et du défi : flights_merged_2023.rds](flights_merged_2023.rds)
+
+[Télécharger le dossier des exercices de consolidation (.zip)](../downloads/donnees/stt1100-module-05-fr.zip)
 
 [flights_merged_2023.rds](../donnees.llms.md#dataset-card-flights-merged-2023) [Comptages vélos de Laval](data/comptages_velos_laval_2016_06.csv) [Qualité de l'air à Québec](data/qualite_air_quebec_vieux_limoilou_2025_07.csv) [Débits de circulation de Gatineau](data/debits_circulation_gatineau_2016_2023.csv)
 

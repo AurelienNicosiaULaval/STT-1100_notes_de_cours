@@ -46,7 +46,7 @@ Le défi consiste à remettre un rapport `rapport.qmd` et sa version `rapport.ht
 
 [Exercices du module 5](../module_05/exercices.llms.md)
 
-Les exercices sont indépendants de l’aventure et du défi. Ils utilisent de petits jeux de données fictifs pour consolider les compétences techniques:
+Les exercices sont indépendants de l’aventure et du défi. Ils utilisent des extraits de données réelles sur les comptages vélos de Laval, la qualité de l’air à Québec et les débits de circulation de Gatineau pour consolider les compétences techniques:
 
 1.  préparer des dates et des moments de la journée;
 2.  vérifier les valeurs manquantes;
