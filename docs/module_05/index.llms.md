@@ -65,32 +65,32 @@ Les cartes reprennent les cinq étapes du plan: lectures, aventure, défi, exerc
 
 Dans ce module, nous allons explorer les concepts de base de l’analyse exploratoire des données (EDA) et de la manipulation des dates et heures. Voici quelques lectures initiales pour vous préparer :
 
-- [**R for Data Science – EDA**](https://r4ds.hadley.nz/EDA.html)
-  Ce chapitre vous introduit à l’analyse exploratoire des données (EDA) avec le package `ggplot2`.
+- [**R for Data Science – EDA**](https://r4ds.hadley.nz/EDA.html)  
+  Ce chapitre vous introduit à l’analyse exploratoire des données (EDA) avec le package `ggplot2`.  
 
-- [**R for Data Science – Dates and Times**](https://r4ds.hadley.nz/datetimes.html)
-  Ce chapitre vous introduit à la manipulation des dates et heures avec le package `lubridate`.
+- [**R for Data Science – Dates and Times**](https://r4ds.hadley.nz/datetimes.html)  
+  Ce chapitre vous introduit à la manipulation des dates et heures avec le package `lubridate`.  
 
 Vous pouvez aussi aller réviser les chapitres suivants:
 
-- [**R for Data Science – Data visualization**](https://r4ds.hadley.nz/data-visualize.html)
-  Ce chapitre vous aide à choisir et annoter des graphiques adaptés aux questions exploratoires.
+- [**R for Data Science – Data visualization**](https://r4ds.hadley.nz/data-visualize.html)  
+  Ce chapitre vous aide à choisir et annoter des graphiques adaptés aux questions exploratoires.  
 
-- [**R for Data Science – Missing values**](https://r4ds.hadley.nz/missing-values.html)
-  Ce chapitre rappelle pourquoi les valeurs manquantes doivent être repérées avant d'interpréter un résumé.
+- [**R for Data Science – Missing values**](https://r4ds.hadley.nz/missing-values.html)  
+  Ce chapitre rappelle pourquoi les valeurs manquantes doivent être repérées avant d'interpréter un résumé.  
 
 Dans le livre **IMS**:
 
-- [**Introduction to modern statistics – Exploring numerical data**](https://openintrostat.github.io/ims/explore-numerical)
+- [**Introduction to modern statistics – Exploring numerical data**](https://openintrostat.github.io/ims/explore-numerical)  
   Ce chapitre renforce les résumés numériques, les graphiques et les comparaisons descriptives.
-- [**Introduction to modern statistics – Applications: Explore**](https://openintrostat.github.io/ims/explore-applications)
+- [**Introduction to modern statistics – Applications: Explore**](https://openintrostat.github.io/ims/explore-applications)  
   Ce chapitre vous introduit aux bonnes pratiques de modélisation exploratoire des données.
 
 #### Aide-mémoires Posit
 
-- [Dates and times with lubridate :: Cheatsheet](https://rstudio.github.io/cheatsheets/lubridate.pdf)
+- [Dates and times with lubridate :: Cheatsheet](https://rstudio.github.io/cheatsheets/lubridate.pdf)  
   Créer, extraire et manipuler des dates et heures.
-- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+- [Data visualization with ggplot2 :: Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)  
   Comparer distributions, tendances et associations.
 
 Après les lectures, faites le [mini-test formatif](mini_test.llms.md). Il n'est pas noté; il sert à vérifier les bases avant l'aventure.
@@ -150,6 +150,8 @@ Confidentialité Ne transmettez aucune donnée personnelle, confidentielle ou pr
 ### Bases de données
 
 [Télécharger les données de l'aventure et du défi : flights_merged_2023.rds](flights_merged_2023.rds)
+
+[Consulter le dictionnaire des variables des vols](dictionnaire-vols.llms.md)
 
 [Télécharger le dossier des exercices de consolidation (.zip)](../downloads/donnees/stt1100-module-05-fr.zip)
 

@@ -12,6 +12,8 @@ Le but n’est pas de prouver une cause unique. Le but est de montrer que vous s
 
 Le fichier principal est `flights_merged_2023.rds`. Il contient 435 352 vols et 50 variables.
 
+Le [dictionnaire des variables des vols](../module_05/dictionnaire-vols.llms.md) explique les colonnes, leurs unités et les principales limites du fichier.
+
 Il est fourni dans votre dépôt GitHub du module. Vous pouvez aussi [le télécharger ici](flights_merged_2023.rds). Conservez-le à côté de `rapport.qmd`. Le dossier téléchargeable des exercices de consolidation contient d’autres données.
 
 Commencez votre fichier `rapport.qmd` avec un bloc de préparation semblable à celui-ci.

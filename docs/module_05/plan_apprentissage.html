@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/**
+/** 
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document.
+ * Finds all non-overlapping matches for a search string in the document. 
  * The search string may be split between multiple consecutive leaf nodes.
- *
+ * 
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- *
+ * 
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match
+ * and would contribute the match 
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- *
+ * 
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/**
+/** 
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- *
+ * 
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset.
+// inside/outside that tabset. 
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -6236,143 +6236,143 @@ display: block !important;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Accueil</span></a>
-  </li>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-démarrage" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Démarrage</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-démarrage">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-démarrage">    
         <li>
     <a class="dropdown-item" href="../demarrage.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../installation.html">
  <span class="dropdown-text">Installation technique</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../autre_materiel/connexion-ssh-github-rstudio.html">
  <span class="dropdown-text">Connexion GitHub et RStudio</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../calendrier.html">
  <span class="dropdown-text">Calendrier</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-modules" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Modules</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-modules">    
         <li>
     <a class="dropdown-item" href="../modules.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_01/index.html">
  <span class="dropdown-text">Module 01 - Plongée en science des données</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_02/index.html">
  <span class="dropdown-text">Module 02 - GitHub et visualisation de données</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_03/index.html">
  <span class="dropdown-text">Module 03 - Les catégories sous toutes leurs formes</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_04/index.html">
  <span class="dropdown-text">Module 04 - Facteurs et nettoyage de données</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_05/index.html">
  <span class="dropdown-text">Module 05 - Explorer et comprendre les relations entre les variables</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_06/index.html">
  <span class="dropdown-text">Module 06 - Collaboration et reproductibilité dans GitHub</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_07/index.html">
  <span class="dropdown-text">Module 07 - Visualisation, éthique et sécurisation des données</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_08/index.html">
  <span class="dropdown-text">Module 08 - Automatisation et exploration du web</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_09/index.html">
  <span class="dropdown-text">Module 09 - Prédiction et biais</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../module_10/index.html">
  <span class="dropdown-text">Module 10 - Au-delà des données : texte et tableau de bord</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-valuations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Évaluations</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-valuations">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-valuations">    
         <li>
     <a class="dropdown-item" href="../evaluations.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../examen.html">
  <span class="dropdown-text">Examen</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../defis.html">
  <span class="dropdown-text">Défis</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../affiche_litteratie_donnees.html">
  <span class="dropdown-text">Affiche de littératie des données</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../projet_session/index.html">
  <span class="dropdown-text">Projet de session</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ressources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Ressources</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-ressources">
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-ressources">    
         <li>
     <a class="dropdown-item" href="../ressources.html">
  <span class="dropdown-text">Vue d’ensemble</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../livres.html">
  <span class="dropdown-text">Livres et lectures</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../packages.html">
  <span class="dropdown-text">Packages R</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../donnees.html">
  <span class="dropdown-text">Bases de données</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../supports_classe.html">
  <span class="dropdown-text">Supports de classe</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../ia.html">
  <span class="dropdown-text">IA et aide</span></a>
-  </li>
+  </li>  
         <li>
     <a class="dropdown-item" href="../boite_outils.html">
  <span class="dropdown-text">Boîte à outils</span></a>
-  </li>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -6389,7 +6389,7 @@ display: block !important;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Plan</h2>
-
+   
   <ul>
   <li><a href="#objectifs-du-module" id="toc-objectifs-du-module" class="nav-link active" data-scroll-target="#objectifs-du-module">Objectifs du module</a></li>
   <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">Lectures</a>
@@ -6415,11 +6415,11 @@ display: block !important;
 
 <div class="quarto-title-meta">
 
-
-
-
+    
+  
+    
   </div>
-
+  
 
 
 </header>
@@ -6459,6 +6459,7 @@ display: block !important;
 <h2 class="anchored" data-anchor-id="aventure">Aventure</h2>
 <p><a href="../module_05/aventure.html">Aventure 5</a></p>
 <p>Suivez l’aventure pour charger <code>flights_merged_2023.rds</code>, créer les variables temporelles et pratiquer les analyses exploratoires demandées.</p>
+<p>Consultez le <a href="../module_05/dictionnaire-vols.html">dictionnaire des variables des vols</a> pour comprendre les colonnes et leurs unités.</p>
 </section>
 <section id="défi" class="level2">
 <h2 class="anchored" data-anchor-id="défi">Défi</h2>
@@ -6818,7 +6819,7 @@ display: none !important;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {
+        if (clz.startsWith('code-annotation-')) {                     
           return true;
         }
       }
@@ -6838,11 +6839,11 @@ display: none !important;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copié");
-        tooltip = new bootstrap.Tooltip(button,
-          { trigger: "manual",
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();
+        tooltip.show();    
       }
       setTimeout(function() {
         if (tooltip) {
@@ -6924,7 +6925,7 @@ display: none !important;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config);
+      window.tippy(el, config); 
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -6999,7 +7000,7 @@ display: none !important;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined;
+        let hash = undefined; 
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -7027,7 +7028,7 @@ display: none !important;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              }
+              } 
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -7051,7 +7052,7 @@ display: none !important;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            }
+            } 
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -7091,7 +7092,7 @@ display: none !important;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it
+              // cook up a div (if necessary) and position it 
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");

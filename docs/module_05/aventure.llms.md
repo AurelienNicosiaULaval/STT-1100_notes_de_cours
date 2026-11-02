@@ -6,16 +6,17 @@ STT-1100 Introduction à la science des données
 
 Cette mise en situation et ses personnages sont fictifs. Les analyses portent sur le fichier de vols fourni avec le cours.
 
-Tu enfiles les chaussures (et le badge sécurisé !) d’un·e **statisticien·ne des opérations aéroportuaires** fraîchement recruté·e par la **Port Authority Data Lab (PADL)**, l’équipe d’analytique du **Port Authority of New York & New Jersey**.
+Tu enfiles les chaussures (et le badge sécurisé !) d’un·e **statisticien·ne des opérations aéroportuaires** fraîchement recruté·e par la **Port Authority Data Lab (PADL)**, l’équipe d’analytique du **Port Authority of New York & New Jersey**.  
 Ta mission : explorer les départs de **JFK**, **EWR** et **LGA** pour décrire les retards et le **temps perdu au sol**. Les exemples ci-dessous utilisent les trois aéroports; si tu limites une analyse à JFK, indique le filtre et la portée de ta conclusion.
 
-- **Ta coéquipière** : **Dr Sofia Martínez**, data-scientist senior reconnue pour ses visualisations interactives percutantes. Sofia pose les bonnes questions, valide tes hypothèses et t’ouvre l’accès aux ressources internes.
-- **Le jeu de données** : **Alex Chen**, data engineer au PADL, t’a préparé un fichier **`flights_merged_2023.rds`** qui regroupe en une seule table exhaustive les vols 2023, la météo à l’heure de départ, les infos avion, les noms complets des compagnies et la géolocalisation des aéroports d’origine et de destination.
+- **Ta coéquipière** : **Dr Sofia Martínez**, data-scientist senior reconnue pour ses visualisations interactives percutantes. Sofia pose les bonnes questions, valide tes hypothèses et t’ouvre l’accès aux ressources internes.  
+- **Le jeu de données** : **Alex Chen**, data engineer au PADL, t’a préparé un fichier **`flights_merged_2023.rds`** qui regroupe en une seule table exhaustive les vols 2023, la météo à l’heure de départ, les infos avion, les noms complets des compagnies et la géolocalisation des aéroports d’origine et de destination.  
+- Pour comprendre les colonnes : consulte le [dictionnaire des variables des vols](../module_05/dictionnaire-vols.llms.md), qui décrit leurs noms et leurs unités.
 - **Contexte concret** : le comité des opérations cherche les créneaux associés aux retards et les associations avec la météo ou l’âge de la flotte. Tes livrables (rapports Quarto + visualisations) serviront à formuler des pistes à approfondir pour la planification des opérations.
 
-> **Brief de Sofia**
-> 1. Quels créneaux horaires affichent systématiquement les retards les plus élevés ?
-> 2. Les variables météo disponibles sont-elles associées aux retards, et jusqu’où peut-on interpréter cette association ?
+> **Brief de Sofia**  
+> 1. Quels créneaux horaires affichent systématiquement les retards les plus élevés ?  
+> 2. Les variables météo disponibles sont-elles associées aux retards, et jusqu’où peut-on interpréter cette association ?  
 > 3. Les avions plus âgés (\> 20 ans) sont-ils davantage sujets aux annulations ?
 >
 > À toi de jouer !
@@ -154,7 +155,7 @@ flights <- flights %>%
   )
 ```
 
-Ici, `hour` et `minute` correspondent au départ prévu. `datetime` représente donc l’horaire prévu en heure locale de New York, et non l’heure réelle de décollage.
+Ici, `hour` et `minute` correspondent au départ prévu. Le code construit `datetime` en supposant que cet horaire est exprimé en heure locale de New York; ce n’est pas l’heure réelle de décollage. Les sources ne s’accordent pas sur le fuseau des heures d’origine : consulte le [dictionnaire des variables](../module_05/dictionnaire-vols.llms.md) avant de convertir ces heures.
 
 ### Exercice 1 - Quelle est la structure de la date ?
 
@@ -162,7 +163,7 @@ Ici, `hour` et `minute` correspondent au départ prévu. `datetime` représente 
 
 > **TIP:**
 >
-> **Réponse de Sofia**
+> **Réponse de Sofia**  
 > Tu peux utiliser :
 >
 > ``` r
@@ -178,7 +179,7 @@ Ici, `hour` et `minute` correspondent au départ prévu. `datetime` représente 
 
 > **TIP:**
 >
-> **Réponse de Sofia**
+> **Réponse de Sofia**  
 > Voici une façon de faire :
 >
 > ``` r
@@ -196,7 +197,7 @@ Ici, `hour` et `minute` correspondent au départ prévu. `datetime` représente 
 
 > **TIP:**
 >
-> **Réponse de Sofia**
+> **Réponse de Sofia**  
 > Voici une suggestion :
 >
 > ``` r
@@ -217,7 +218,7 @@ Ici, `hour` et `minute` correspondent au départ prévu. `datetime` représente 
 
 > **TIP:**
 >
-> **Réponse de Sofia**
+> **Réponse de Sofia**  
 > Utilise :
 >
 > ``` r
@@ -260,7 +261,7 @@ Sofia te propose maintenant d’examiner des **questions concrètes** liées à 
 
 > **TIP:**
 >
-> **Réponse de Sofia**
+> **Réponse de Sofia**  
 > Tu peux regrouper les vols par heure et calculer la moyenne des retards :
 >
 > ``` r
@@ -348,7 +349,7 @@ Le nuage de points te montre la tendance globale, et la ligne rouge correspond �
 
 > **TIP:**
 >
-> **Réponse de Sofia**
+> **Réponse de Sofia**  
 > Tu peux aussi tester avec d’autres variables comme `visib` (visibilité) ou `precip` (précipitations), et observer si les retards sont plus élevés lorsque la météo est mauvaise.
 >
 > Attention :
@@ -371,7 +372,7 @@ Le fichier fourni ne contient pas d’indicateur officiel d’annulation. `is.na
 
 > **TIP:**
 >
-> **Réponse de Sofia**
+> **Réponse de Sofia**  
 > Tu peux créer une variable `age_avion` :
 >
 > ``` r

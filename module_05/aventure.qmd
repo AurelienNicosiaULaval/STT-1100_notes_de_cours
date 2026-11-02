@@ -26,6 +26,7 @@ Ta mission : explorer les départs de **JFK**, **EWR** et **LGA** pour décrire 
 
 -   **Ta coéquipière** : **Dr Sofia Martínez**, data-scientist senior reconnue pour ses visualisations interactives percutantes. Sofia pose les bonnes questions, valide tes hypothèses et t’ouvre l’accès aux ressources internes.\
 -   **Le jeu de données** : **Alex Chen**, data engineer au PADL, t’a préparé un fichier **`flights_merged_2023.rds`** qui regroupe en une seule table exhaustive les vols 2023, la météo à l’heure de départ, les infos avion, les noms complets des compagnies et la géolocalisation des aéroports d’origine et de destination.\
+-   Pour comprendre les colonnes : consulte le [dictionnaire des variables des vols](dictionnaire-vols.qmd), qui décrit leurs noms et leurs unités.
 -   **Contexte concret** : le comité des opérations cherche les créneaux associés aux retards et les associations avec la météo ou l'âge de la flotte. Tes livrables (rapports Quarto + visualisations) serviront à formuler des pistes à approfondir pour la planification des opérations.
 
 >   **Brief de Sofia**\
@@ -190,7 +191,7 @@ flights <- flights %>%
   )
 ```
 
-Ici, `hour` et `minute` correspondent au départ prévu. `datetime` représente donc l'horaire prévu en heure locale de New York, et non l'heure réelle de décollage.
+Ici, `hour` et `minute` correspondent au départ prévu. Le code construit `datetime` en supposant que cet horaire est exprimé en heure locale de New York; ce n'est pas l'heure réelle de décollage. Les sources ne s'accordent pas sur le fuseau des heures d'origine : consulte le [dictionnaire des variables](dictionnaire-vols.qmd) avant de convertir ces heures.
 
 ### Exercice 1 - Quelle est la structure de la date ?
 

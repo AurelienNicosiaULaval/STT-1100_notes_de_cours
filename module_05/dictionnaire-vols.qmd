@@ -1,0 +1,102 @@
+---
+title: "Dictionnaire des variables : vols de 2023"
+subtitle: "STT-1100 | Module 5"
+lang: fr
+format:
+  html:
+    toc: true
+    toc-title: "Sur cette page"
+    embed-resources: true
+---
+
+Ce dictionnaire décrit les 50 colonnes du fichier `flights_merged_2023.rds`, utilisé dans l'[aventure](aventure.qmd) et le [défi](defi.qmd). Chaque ligne correspond à un vol au départ de l'un des trois aéroports de New York en 2023. Le fichier réunit des renseignements sur les vols, les compagnies, les avions, la météo et les aéroports.
+
+Dans R, `names(flights)` affiche les noms et `glimpse(flights)` montre aussi le type de chaque colonne. Ce dictionnaire explique leur signification et leurs unités. Une valeur `NA` signifie que la valeur n'est pas renseignée dans le fichier; elle ne vaut pas zéro.
+
+## Vols et horaires
+
+Les heures écrites sous forme de nombres utilisent le format `HHMM` : par exemple, `2038` signifie 20 h 38 et `18` signifie 0 h 18. Ce ne sont pas des durées en minutes. Les retards négatifs correspondent à des départs ou arrivées en avance.
+
+| Variable | Description | Unité ou format |
+|---|---|---|
+| `year` | Année du vol. | Année |
+| `month` | Mois du vol. | 1 à 12 |
+| `day` | Jour du mois du vol. | Jour du mois |
+| `hour` | Heure du départ prévu, extraite de l'horaire prévu. | Heure de 0 à 23 |
+| `dep_time` | Heure de départ observée. | `HHMM` |
+| `sched_dep_time` | Heure de départ prévue. | `HHMM` |
+| `dep_delay` | Écart entre le départ observé et le départ prévu. | Minutes |
+| `arr_time` | Heure d'arrivée observée. | `HHMM` |
+| `sched_arr_time` | Heure d'arrivée prévue. | `HHMM` |
+| `arr_delay` | Écart entre l'arrivée observée et l'arrivée prévue. | Minutes |
+| `carrier` | Code de la compagnie aérienne. | Code de compagnie |
+| `flight` | Numéro du vol. | Numéro |
+| `tailnum` | Identifiant de l'avion. | Code d'immatriculation ou de flotte |
+| `origin` | Code de l'aéroport de départ. | Code d'aéroport |
+| `dest` | Code de l'aéroport de destination. | Code d'aéroport |
+| `air_time` | Temps passé en vol. | Minutes |
+| `distance` | Distance entre les aéroports de départ et de destination. | Milles |
+| `minute` | Minute du départ prévu, extraite de l'horaire prévu. | Minute de 0 à 59 |
+| `name` | Nom complet de la compagnie aérienne associée à `carrier`. | Texte |
+
+::: {.callout-warning title="Interpréter les heures et les annulations"}
+La documentation de `nycflights23` indique UTC pour les heures des vols, tandis que la source BTS décrit les heures de départ et d'arrivée en heure locale. Le traitement exact du fuseau dans le fichier fusionné n'a pas été établi ici. Évitez de convertir ces heures vers un autre fuseau sans vérification supplémentaire.
+
+Le fichier ne contient pas de colonne officielle d'annulation. Dans le défi, `is.na(dep_time)` sert d'indicateur de départ non renseigné, assimilé à une annulation pour l'exercice. Ce n'est pas une confirmation officielle du statut du vol.
+:::
+
+## Avions
+
+Les caractéristiques de l'avion ne sont pas disponibles pour tous les vols. L'âge utilisé dans l'aventure est calculé par `2023 - plane_year` : `age_avion` est une variable créée dans le rapport, pas une colonne initiale du fichier.
+
+| Variable | Description | Unité ou format |
+|---|---|---|
+| `plane_year` | Année de fabrication de l'avion. | Année |
+| `type` | Type d'avion. | Texte |
+| `manufacturer` | Fabricant de l'avion. | Texte |
+| `model` | Modèle de l'avion. | Texte |
+| `engines` | Nombre de moteurs. | Nombre |
+| `seats` | Nombre de sièges. | Nombre |
+| `speed` | Vitesse de croisière moyenne indiquée dans les métadonnées. | Milles par heure |
+| `engine` | Type de moteur. | Texte |
+
+## Météo
+
+Ces colonnes contiennent des mesures météorologiques horaires associées aux vols. Vérifiez les valeurs manquantes avant de tracer un graphique ou de calculer une corrélation. L'heure précise du relevé météorologique et les détails de la jointure ne sont pas indiqués dans le fichier fourni.
+
+| Variable | Description | Unité ou format |
+|---|---|---|
+| `temp` | Température de l'air. | Degrés Fahrenheit |
+| `dewp` | Température du point de rosée. | Degrés Fahrenheit |
+| `humid` | Humidité relative. | Pourcentage |
+| `wind_dir` | Direction du vent. | Degrés |
+| `wind_speed` | Vitesse du vent. | Milles par heure |
+| `wind_gust` | Vitesse des rafales de vent. | Milles par heure |
+| `precip` | Précipitations. | Pouces |
+| `pressure` | Pression atmosphérique au niveau de la mer. | Millibars |
+| `visib` | Visibilité. | Milles |
+
+## Aéroports
+
+Le préfixe `origin_` décrit l'aéroport de départ; `dest_` décrit celui de destination. Les informations de fuseau proviennent des métadonnées des aéroports : un décalage numérique ne suffit pas à déterminer le décalage appliqué à une date donnée lorsque l'heure d'été change.
+
+| Variable | Description | Unité ou format |
+|---|---|---|
+| `origin_name` | Nom de l'aéroport de départ. | Texte |
+| `origin_lat` | Latitude de l'aéroport de départ. | Degrés décimaux |
+| `origin_lon` | Longitude de l'aéroport de départ. | Degrés décimaux |
+| `origin_alt` | Altitude de l'aéroport de départ. | Pieds |
+| `origin_tz_code` | Décalage numérique de fuseau associé à l'aéroport de départ dans les métadonnées. | Heures par rapport à UTC |
+| `origin_dst` | Code d'heure d'été de l'aéroport de départ dans les métadonnées. | Code |
+| `origin_tz` | Nom du fuseau horaire de l'aéroport de départ. | Identifiant IANA, par exemple `America/New_York` |
+| `dest_name` | Nom de l'aéroport de destination. | Texte |
+| `dest_lat` | Latitude de l'aéroport de destination. | Degrés décimaux |
+| `dest_lon` | Longitude de l'aéroport de destination. | Degrés décimaux |
+| `dest_alt` | Altitude de l'aéroport de destination. | Pieds |
+| `dest_tz_code` | Décalage numérique de fuseau associé à l'aéroport de destination dans les métadonnées. | Heures par rapport à UTC |
+| `dest_dst` | Code d'heure d'été de l'aéroport de destination dans les métadonnées. | Code |
+| `dest_tz` | Nom du fuseau horaire de l'aéroport de destination. | Identifiant IANA |
+
+## Sources et limites
+
+Les descriptions s'appuient sur les notices des données d'origine du paquet `nycflights23`, adaptées aux noms du fichier fusionné du cours : [vols](https://moderndive.github.io/nycflights23/reference/flights.html), [compagnies](https://moderndive.github.io/nycflights23/reference/airlines.html), [avions](https://moderndive.github.io/nycflights23/reference/planes.html), [météo](https://moderndive.github.io/nycflights23/reference/weather.html) et [aéroports](https://moderndive.github.io/nycflights23/reference/airports.html). Le [Bureau of Transportation Statistics](https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ) décrit les champs de vols et leurs horaires. Ces notices décrivent les sources; elles ne documentent pas à elles seules toutes les étapes de construction du fichier fusionné.

@@ -36,6 +36,8 @@ Après les lectures, faites le [mini-test formatif](../module_05/mini_test.llms.
 
 Suivez l’aventure pour charger `flights_merged_2023.rds`, créer les variables temporelles et pratiquer les analyses exploratoires demandées.
 
+Consultez le [dictionnaire des variables des vols](../module_05/dictionnaire-vols.llms.md) pour comprendre les colonnes et leurs unités.
+
 ## Défi
 
 [Défi 5](../module_05/defi.llms.md)
