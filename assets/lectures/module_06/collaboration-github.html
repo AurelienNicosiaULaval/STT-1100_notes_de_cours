@@ -34,13 +34,14 @@ button:focus-visible{outline:3px solid #a15a16;outline-offset:3px}
 <button data-step="3" aria-pressed="false">3 · Push</button>
 <button data-step="4" aria-pressed="false">4 · PR</button>
 <button data-step="5" aria-pressed="false">5 · Fusion</button>
-<button data-step="6" aria-pressed="false">Conflit</button>
-<button data-step="7" aria-pressed="false">Issue</button>
+<button data-step="6" aria-pressed="false">6 · Pull</button>
+<button data-step="7" aria-pressed="false">Conflit</button>
+<button data-step="8" aria-pressed="false">Issue</button>
 </nav>
 <div class="stage">
 <svg id="diagram" class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="diagram-title diagram-desc">
 <title id="diagram-title">Une contribution, trois personnes</title>
-<desc id="diagram-desc">Sur son ordinateur, Alice crée une branche et deux commits. Elle pousse ses commits sur GitHub. Camille relit la pull request. Benoît fusionne la contribution dans main. Un conflit appelle une décision sur des changements incompatibles. Une issue sert à discuter et suivre un point précis.</desc>
+<desc id="diagram-desc">Sur son ordinateur, Alice crée une branche et deux commits. Elle pousse ses commits sur GitHub. Camille relit la pull request. Benoît fusionne la contribution dans main. Chaque membre revient ensuite sur main et fait Pull pour récupérer les changements intégrés. Un conflit appelle une décision sur des changements incompatibles. Une issue sert à discuter et suivre un point précis.</desc>
 <defs>
 <marker id="arrow-blue" markerWidth="19" markerHeight="18" refX="17" refY="9" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1L17 9L1 17" fill="none" stroke="#176b9b" stroke-width="3"/></marker>
 <marker id="arrow-main" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L9 5L0 10" fill="none" stroke="#18785b" stroke-width="2.5"/></marker>
@@ -114,6 +115,11 @@ text{font-family:Arial,"Helvetica Neue",sans-serif;fill:#173449;font-weight:400}
 <text x="1400" y="327" text-anchor="middle" class="label ink-green">Fusion</text>
 <text x="1400" y="421" text-anchor="middle" class="detail">Benoît</text>
 </g>
+<g id="overview-pull">
+<path d="M1377 365Q1320 365 1320 330V285H570V365" stroke="#176b9b" stroke-width="4" fill="none" stroke-dasharray="10 8" marker-end="url(#arrow-blue)"/>
+<rect x="905" y="260" width="120" height="48" rx="9" fill="#fff"/>
+<text x="965" y="295" text-anchor="middle" class="label ink-blue">Pull</text>
+</g>
 <g id="overview-extras">
 <rect x="60" y="728" width="715" height="120" rx="14" fill="#fff1ee"/>
 <text x="90" y="775" class="label ink-red">Conflit</text>
@@ -121,6 +127,46 @@ text{font-family:Arial,"Helvetica Neue",sans-serif;fill:#173449;font-weight:400}
 <rect x="805" y="728" width="735" height="120" rx="14" fill="#f1eef8"/>
 <text x="835" y="775" class="label ink-purple">Issue</text>
 <text x="835" y="817" class="detail">Un point à discuter ou à corriger</text>
+</g>
+</g>
+<g id="pull-scene" class="hidden">
+<rect x="430" y="165" width="740" height="165" rx="18" fill="#f7f9fa"/>
+<text x="800" y="221" text-anchor="middle" class="zone-title">GitHub · main après la fusion</text>
+<path d="M500 282H1100" class="main-line"/>
+<circle cx="800" cy="282" r="24" fill="#fff" stroke="#18785b" stroke-width="5"/>
+<text x="800" y="282" class="commit-id ink-green">M</text>
+<path d="M650 330C650 373 295 373 295 455" stroke="#176b9b" stroke-width="4" fill="none" marker-end="url(#arrow-blue)"/>
+<path d="M800 330V455" stroke="#176b9b" stroke-width="4" fill="none" marker-end="url(#arrow-blue)"/>
+<path d="M950 330C950 373 1305 373 1305 455" stroke="#176b9b" stroke-width="4" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="307" y="394" width="90" height="44" rx="8" fill="#fff"/>
+<text x="352" y="427" text-anchor="middle" class="label ink-blue">Pull</text>
+<rect x="818" y="381" width="90" height="44" rx="8" fill="#fff"/>
+<text x="863" y="414" text-anchor="middle" class="label ink-blue">Pull</text>
+<rect x="1200" y="394" width="90" height="44" rx="8" fill="#fff"/>
+<text x="1245" y="427" text-anchor="middle" class="label ink-blue">Pull</text>
+<g id="pull-alice">
+<rect x="60" y="475" width="470" height="225" rx="18" fill="#f1f6f9"/>
+<text x="98" y="535" class="zone-title">Ordinateur d’Alice</text>
+<text x="98" y="596" class="label ink-green">main</text>
+<path d="M105 635H485" class="main-line"/>
+<circle cx="380" cy="635" r="24" fill="#fff" stroke="#18785b" stroke-width="5"/>
+<text x="380" y="635" class="commit-id ink-green">M</text>
+</g>
+<g id="pull-camille">
+<rect x="565" y="475" width="470" height="225" rx="18" fill="#f1f6f9"/>
+<text x="603" y="535" class="zone-title">Ordinateur de Camille</text>
+<text x="603" y="596" class="label ink-green">main</text>
+<path d="M610 635H990" class="main-line"/>
+<circle cx="885" cy="635" r="24" fill="#fff" stroke="#18785b" stroke-width="5"/>
+<text x="885" y="635" class="commit-id ink-green">M</text>
+</g>
+<g id="pull-benoit">
+<rect x="1070" y="475" width="470" height="225" rx="18" fill="#f1f6f9"/>
+<text x="1108" y="535" class="zone-title">Ordinateur de Benoît</text>
+<text x="1108" y="596" class="label ink-green">main</text>
+<path d="M1115 635H1495" class="main-line"/>
+<circle cx="1390" cy="635" r="24" fill="#fff" stroke="#18785b" stroke-width="5"/>
+<text x="1390" y="635" class="commit-id ink-green">M</text>
 </g>
 </g>
 <g id="conflict-scene" class="hidden">
@@ -162,12 +208,13 @@ text{font-family:Arial,"Helvetica Neue",sans-serif;fill:#173449;font-weight:400}
   const diagram = document.getElementById('diagram');
   const buttons = Array.from(document.querySelectorAll('button[data-step]'));
   const scenes = [
-    {title:'Une contribution, trois personnes', caption:'', description:'Alice crée une branche et deux commits sur son ordinateur. Push envoie ses commits sur GitHub. Camille relit sa pull request et Benoît fusionne la contribution dans main. Un conflit exige un choix sur des changements incompatibles. Une issue permet de discuter et suivre un point précis.'},
+    {title:'Une contribution, trois personnes', caption:'', description:'Alice crée une branche et deux commits sur son ordinateur. Push envoie ses commits sur GitHub. Camille relit sa pull request et Benoît fusionne la contribution dans main. Après la fusion, chacun revient sur main et fait Pull pour récupérer les changements intégrés. Un conflit exige un choix sur des changements incompatibles. Une issue permet de discuter et suivre un point précis.'},
     {title:'1 · Créer une branche', caption:'Alice crée une branche pour sa contribution.', description:'La branche d’Alice part de main dans sa copie locale du projet.'},
     {title:'2 · Enregistrer des commits', caption:'Un commit enregistre une étape dans l’historique local.', description:'Alice fait deux commits dans sa branche. Ces étapes sont encore sur son ordinateur.'},
     {title:'3 · Envoyer avec Push', caption:'Push envoie les commits sur GitHub.', description:'Les mêmes commits 1 et 2 deviennent disponibles dans la branche d’Alice sur le dépôt GitHub partagé.'},
     {title:'4 · Proposer une pull request', caption:'La PR propose la modification et permet à Camille de la relire.', description:'La pull request compare la branche d’Alice à main. Camille peut examiner les changements et demander une correction avant la fusion.'},
     {title:'5 · Fusionner dans main', caption:'La fusion intègre la branche d’Alice dans main.', description:'Après la relecture, Benoît fusionne la pull request. La contribution d’Alice est intégrée à main sur GitHub.'},
+    {title:'6 · Récupérer avec Pull', caption:'Chacun revient sur main, puis fait Pull.', description:'Après la fusion sur GitHub, Alice, Camille et Benoît se placent chacun sur main dans leur copie locale et font Pull. Pull récupère et intègre les changements de main du dépôt partagé. Le même commit de fusion M apparaît dans les trois copies locales. Les ordinateurs ne se mettent pas à jour automatiquement.'},
     {title:'Conflit · Choisir ensemble', caption:'L’équipe choisit le contenu final avant la fusion.', description:'Deux changements différents touchent la même ligne de titre à partir du texte Retards. Alice a écrit Retards par transporteur. Le titre sur main est devenu Retards au départ de JFK. Git attend une résolution du conflit.'},
     {title:'Issue · Ouvrir la discussion', caption:'Une issue peut lancer une nouvelle contribution.', description:'Camille ouvre une issue pour demander une unité sur le graphique 2. Cette discussion permet de préciser et suivre la correction.'}
   ];
@@ -185,9 +232,11 @@ text{font-family:Arial,"Helvetica Neue",sans-serif;fill:#173449;font-weight:400}
     visible('pr-group', overview || (current >= 4 && ordinary));
     visible('pr-curve', current === 4);
     visible('merge-group', overview || current === 5);
+    visible('overview-pull', overview);
     visible('overview-extras', overview);
-    visible('conflict-scene', current === 6);
-    visible('issue-scene', current === 7);
+    visible('pull-scene', current === 6);
+    visible('conflict-scene', current === 7);
+    visible('issue-scene', current === 8);
     visible('scene-caption', !overview);
     document.getElementById('scene-heading').textContent = scenes[current].title;
     document.getElementById('diagram-title').textContent = scenes[current].title;

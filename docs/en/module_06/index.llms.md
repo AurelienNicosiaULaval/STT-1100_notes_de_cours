@@ -40,11 +40,11 @@ By the end of this module, you should be able to:
 
 ## GitHub collaboration visual
 
-Follow a contribution with Alice, Camille and Benoît: branch, commit, push, pull request, merge, conflict and issue. The interactive visual is in French; its buttons let you revisit each step separately.
+Follow a contribution with Alice, Camille and Benoît: branch, commit, push, pull request, merge, pull, conflict and issue. After the merge, the Pull step shows how each member retrieves the changes in their local copy. The interactive visual is in French; its buttons let you revisit each step separately.
 
 [Open the interactive visual (in French)](../../assets/lectures/module_06/collaboration-github.llms.md)
 
-[![Collaboration overview: Alice creates a branch and commits, pushes them to GitHub, Camille reviews the pull request and Benoît merges into main. Open the interactive version in French.](../../assets/lectures/module_06/collaboration-github.png)](../../assets/lectures/module_06/collaboration-github.llms.md)
+[![Collaboration overview: Alice creates a branch and commits, pushes them to GitHub, Camille reviews the pull request and Benoît merges into main. Each member switches to main and pulls to retrieve the changes. Open the interactive version in French.](../../assets/lectures/module_06/collaboration-github.png)](../../assets/lectures/module_06/collaboration-github.llms.md)
 
 ## Prepare for the module
 
