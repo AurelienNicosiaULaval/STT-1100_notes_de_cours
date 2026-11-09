@@ -38,6 +38,14 @@ rapport rendu issues
 - produire un rapport Quarto reproductible;
 - formuler une rétroaction constructive dans une issue GitHub.
 
+## Visuel de collaboration GitHub
+
+Suivez une contribution avec Alice, Camille et Benoît : branche, commit, push, pull request, fusion, conflit et issue. Dans la version interactive, les boutons permettent de revoir chaque étape séparément.
+
+[Ouvrir le visuel interactif](../assets/lectures/module_06/collaboration-github.llms.md)
+
+[![Aperçu de la collaboration : Alice crée une branche et des commits, les pousse sur GitHub, Camille relit la pull request et Benoît fusionne dans main. Ouvrir la version interactive.](../assets/lectures/module_06/collaboration-github.png)](../assets/lectures/module_06/collaboration-github.llms.md)
+
 ## Préparer le module
 
 ### Prérequis

@@ -38,6 +38,14 @@ By the end of this module, you should be able to:
 - produce a reproducible Quarto report;
 - provide constructive feedback in a GitHub issue.
 
+## GitHub collaboration visual
+
+Follow a contribution with Alice, Camille and Benoît: branch, commit, push, pull request, merge, conflict and issue. The interactive visual is in French; its buttons let you revisit each step separately.
+
+[Open the interactive visual (in French)](../../assets/lectures/module_06/collaboration-github.llms.md)
+
+[![Collaboration overview: Alice creates a branch and commits, pushes them to GitHub, Camille reviews the pull request and Benoît merges into main. Open the interactive version in French.](../../assets/lectures/module_06/collaboration-github.png)](../../assets/lectures/module_06/collaboration-github.llms.md)
+
 ## Prepare for the module
 
 ### Prerequisites
