@@ -24,7 +24,7 @@ Deliverable Ethics report, anonymized file and corrected visualizations
 
 ## Starter Repository
 
-Clone the module 7 GitHub repository from the course organization: `STT-1100/aventure-7`.
+Clone the module 7 repository assigned to you in the course GitHub organization. Its name is specific to your copy.
 
 The repository contains:
 
@@ -80,13 +80,29 @@ library(lubridate)
 
 covid_raw <- readr::read_csv("covid_module7_douteux.csv", show_col_types = FALSE)
 
+# Compare all formats to identify ambiguous dates.
+date_formats <- c("%Y-%m-%d", "%Y/%m/%d", "%d/%m/%Y", "%m/%d/%Y",
+                  "%d-%m-%Y", "%m-%d-%Y", "%y/%m/%d", "%d/%m/%y", "%m/%d/%y")
+possible_dates <- lapply(date_formats, function(format) {
+  as.Date(suppressWarnings(lubridate::parse_date_time(
+    covid_raw$date_test, orders = format, exact = TRUE, quiet = TRUE
+  )))
+})
+possible_dates <- do.call(cbind, lapply(possible_dates, as.numeric))
+number_of_dates <- apply(possible_dates, 1, function(x) length(unique(x[!is.na(x)])))
+unique_date <- apply(possible_dates, 1, function(x) {
+  values <- unique(x[!is.na(x)])
+  if (length(values) == 1) values else NA_real_
+})
+
 covid_prepared <- covid_raw |>
   mutate(
-    parsed_test_date = suppressWarnings(lubridate::parse_date_time(
-      date_test,
-      orders = c("Y-m-d", "d/m/Y", "m-d-Y", "Y/m/d", "d-m-Y", "m/d/Y", "y/m/d", "d/m/y", "m/d/y")
-    )),
-    parsed_test_date = as.Date(parsed_test_date),
+    parsed_test_date = as.Date(unique_date, origin = "1970-01-01"),
+    date_status = case_when(
+      number_of_dates == 0 ~ "unrecognized",
+      number_of_dates == 1 ~ "unambiguous",
+      TRUE ~ "ambiguous"
+    ),
     standardized_result = case_when(
       result %in% c("Positive", "Pos", "+") ~ "positive",
       result %in% c("Negative", "neg", "-") ~ "negative",
@@ -101,6 +117,8 @@ covid_prepared <- covid_raw |>
     )
   )
 ```
+
+Examine `count(covid_prepared, date_status)` and the ambiguous or unrecognized dates. Correct dates only when the source establishes their format, or exclude them from time-based analysis. Check the period and group counts before plotting a trend.
 
 This step is not about deleting all useful information. It is about reducing risks while keeping the analysis understandable.
 
@@ -156,7 +174,7 @@ Your note must answer the following questions:
 
 ## Part 5 - Personal Conclusion
 
-Each team member adds a short personal conclusion of about five lines.
+Add a short personal conclusion of about five lines to your individual submission.
 
 This conclusion must explain:
 
@@ -164,9 +182,9 @@ This conclusion must explain:
 - one visualization or anonymization decision they consider important;
 - one personal rule to remember for future data science projects.
 
-Completed work
+Portfolio trace
 
-At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
+Keep evidence that your audit improves the report and protects people.
 
 - a structured list of issues found in the problematic report;
 - the anonymized file you produced;

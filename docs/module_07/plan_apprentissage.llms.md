@@ -41,13 +41,13 @@ Après les lectures, faites le [mini-test formatif](../module_07/mini_test.llms.
 
 ## Aventure
 
-Vous incarnerez un·e expert·e en éthique des données. Votre équipe évaluera un rapport problématique dans le dépôt `STT-1100/aventure-7`.
+Vous incarnerez un·e expert·e en éthique des données. Vous évaluerez un rapport problématique dans le dépôt du module 7 qui vous sera attribué.
 
 Lien vers l’aventure : [Aventure 7 - Visualisation, éthique et sécurisation des données](../module_07/aventure.llms.md)
 
 ## Défi
 
-Le défi transforme l’audit de l’aventure en note éthique reproductible. Vous devrez remettre un rapport, deux visualisations corrigées et un fichier anonymisé.
+Le défi est individuel et transforme l’audit de l’aventure en note éthique reproductible. Vous devrez remettre un rapport, deux visualisations corrigées et un fichier anonymisé.
 
 Lien vers le défi : [Défi 7 - Note éthique et visualisations responsables](../module_07/defi.llms.md)
 

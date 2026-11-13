@@ -5928,7 +5928,7 @@ display: block !important;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Adventure plan</h2>
-
+   
   <ul>
   <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
   <li><a href="#starter-repository" id="toc-starter-repository" class="nav-link" data-scroll-target="#starter-repository">Starter Repository</a></li>
@@ -5954,11 +5954,11 @@ display: block !important;
 
 <div class="quarto-title-meta">
 
-
-
-
+    
+  
+    
   </div>
-
+  
 
 
 </header>
@@ -5998,7 +5998,7 @@ Character card
 </section>
 <section id="starter-repository" class="level2">
 <h2 class="anchored" data-anchor-id="starter-repository">Starter Repository</h2>
-<p>Clone the module 7 GitHub repository from the course organization: <code>STT-1100/aventure-7</code>.</p>
+<p>Clone the module 7 repository assigned to you in the course GitHub organization. Its name is specific to your copy.</p>
 <p>The repository contains:</p>
 <ul>
 <li><code>Rapport_COVID_Douteux.html</code>: problematic report to review;</li>
@@ -6051,26 +6051,43 @@ Character card
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>covid_raw <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;covid_module7_douteux.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>covid_prepared <span class="ot">&lt;-</span> covid_raw <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">parsed_test_date =</span> <span class="fu">suppressWarnings</span>(lubridate<span class="sc">::</span><span class="fu">parse_date_time</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      date_test,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">orders =</span> <span class="fu">c</span>(<span class="st">&quot;Y-m-d&quot;</span>, <span class="st">&quot;d/m/Y&quot;</span>, <span class="st">&quot;m-d-Y&quot;</span>, <span class="st">&quot;Y/m/d&quot;</span>, <span class="st">&quot;d-m-Y&quot;</span>, <span class="st">&quot;m/d/Y&quot;</span>, <span class="st">&quot;y/m/d&quot;</span>, <span class="st">&quot;d/m/y&quot;</span>, <span class="st">&quot;m/d/y&quot;</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    )),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">parsed_test_date =</span> <span class="fu">as.Date</span>(parsed_test_date),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">standardized_result =</span> <span class="fu">case_when</span>(</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      result <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Positive&quot;</span>, <span class="st">&quot;Pos&quot;</span>, <span class="st">&quot;+&quot;</span>) <span class="sc">~</span> <span class="st">&quot;positive&quot;</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      result <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Negative&quot;</span>, <span class="st">&quot;neg&quot;</span>, <span class="st">&quot;-&quot;</span>) <span class="sc">~</span> <span class="st">&quot;negative&quot;</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">valid_age =</span> <span class="fu">if_else</span>(age <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">110</span>, age, <span class="cn">NA_real_</span>),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">cut</span>(</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      valid_age,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">80</span>, <span class="cn">Inf</span>),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-17&quot;</span>, <span class="st">&quot;18-39&quot;</span>, <span class="st">&quot;40-59&quot;</span>, <span class="st">&quot;60-79&quot;</span>, <span class="st">&quot;80+&quot;</span>),</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">right =</span> <span class="cn">FALSE</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare all formats to identify ambiguous dates.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>date_formats <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;%Y-%m-%d&quot;</span>, <span class="st">&quot;%Y/%m/%d&quot;</span>, <span class="st">&quot;%d/%m/%Y&quot;</span>, <span class="st">&quot;%m/%d/%Y&quot;</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;%d-%m-%Y&quot;</span>, <span class="st">&quot;%m-%d-%Y&quot;</span>, <span class="st">&quot;%y/%m/%d&quot;</span>, <span class="st">&quot;%d/%m/%y&quot;</span>, <span class="st">&quot;%m/%d/%y&quot;</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>possible_dates <span class="ot">&lt;-</span> <span class="fu">lapply</span>(date_formats, <span class="cf">function</span>(format) {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.Date</span>(<span class="fu">suppressWarnings</span>(lubridate<span class="sc">::</span><span class="fu">parse_date_time</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    covid_raw<span class="sc">$</span>date_test, <span class="at">orders =</span> format, <span class="at">exact =</span> <span class="cn">TRUE</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  )))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>possible_dates <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind, <span class="fu">lapply</span>(possible_dates, as.numeric))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>number_of_dates <span class="ot">&lt;-</span> <span class="fu">apply</span>(possible_dates, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">length</span>(<span class="fu">unique</span>(x[<span class="sc">!</span><span class="fu">is.na</span>(x)])))</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>unique_date <span class="ot">&lt;-</span> <span class="fu">apply</span>(possible_dates, <span class="dv">1</span>, <span class="cf">function</span>(x) {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  values <span class="ot">&lt;-</span> <span class="fu">unique</span>(x[<span class="sc">!</span><span class="fu">is.na</span>(x)])</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(values) <span class="sc">==</span> <span class="dv">1</span>) values <span class="cf">else</span> <span class="cn">NA_real_</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>covid_prepared <span class="ot">&lt;-</span> covid_raw <span class="sc">|&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">parsed_test_date =</span> <span class="fu">as.Date</span>(unique_date, <span class="at">origin =</span> <span class="st">&quot;1970-01-01&quot;</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">date_status =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      number_of_dates <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;unrecognized&quot;</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      number_of_dates <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&quot;unambiguous&quot;</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;ambiguous&quot;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">standardized_result =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      result <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Positive&quot;</span>, <span class="st">&quot;Pos&quot;</span>, <span class="st">&quot;+&quot;</span>) <span class="sc">~</span> <span class="st">&quot;positive&quot;</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      result <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Negative&quot;</span>, <span class="st">&quot;neg&quot;</span>, <span class="st">&quot;-&quot;</span>) <span class="sc">~</span> <span class="st">&quot;negative&quot;</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">valid_age =</span> <span class="fu">if_else</span>(age <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">110</span>, age, <span class="cn">NA_real_</span>),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">cut</span>(</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      valid_age,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">40</span>, <span class="dv">60</span>, <span class="dv">80</span>, <span class="cn">Inf</span>),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-17&quot;</span>, <span class="st">&quot;18-39&quot;</span>, <span class="st">&quot;40-59&quot;</span>, <span class="st">&quot;60-79&quot;</span>, <span class="st">&quot;80+&quot;</span>),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="at">right =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Examine <code>count(covid_prepared, date_status)</code> and the ambiguous or unrecognized dates. Correct dates only when the source establishes their format, or exclude them from time-based analysis. Check the period and group counts before plotting a trend.</p>
 <p>This step is not about deleting all useful information. It is about reducing risks while keeping the analysis understandable.</p>
 </section>
 <section id="part-3---corrected-visualizations" class="level2">
@@ -6121,20 +6138,20 @@ Character card
 </section>
 <section id="part-5---personal-conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="part-5---personal-conclusion">Part 5 - Personal Conclusion</h2>
-<p>Each team member adds a short personal conclusion of about five lines.</p>
+<p>Add a short personal conclusion of about five lines to your individual submission.</p>
 <p>This conclusion must explain:</p>
 <ul>
 <li>one issue they might not have noticed before this module;</li>
 <li>one visualization or anonymization decision they consider important;</li>
 <li>one personal rule to remember for future data science projects.</li>
 </ul>
-<!-- completed-work:start -->
-<div class="completed-work">
-<p class="completed-work-title">
-Completed work
+<!-- portfolio-trace:start -->
+<div class="portfolio-trace">
+<p class="portfolio-trace-title">
+Portfolio trace
 </p>
 <p>
-At the end of the adventure, check that your work includes the following elements. This is not a separate portfolio.
+Keep evidence that your audit improves the report and protects people.
 </p>
 <ul>
 <li>
@@ -6151,7 +6168,7 @@ an ethics note explaining limits and confidentiality decisions.
 </li>
 </ul>
 </div>
-<!-- completed-work:end -->
+<!-- portfolio-trace:end -->
 </section>
 <section id="final-check" class="level2">
 <h2 class="anchored" data-anchor-id="final-check">Final Check</h2>

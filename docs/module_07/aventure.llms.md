@@ -24,7 +24,7 @@ Livrable Rapport éthique, fichier anonymisé et visualisations corrigées
 
 ## Dépôt de départ
 
-Clonez le dépôt GitHub du module 7 depuis l’organisation du cours : `STT-1100/aventure-7`.
+Clonez le dépôt du module 7 qui vous a été attribué dans l’organisation du cours. Son nom est propre à votre copie.
 
 Le dépôt contient :
 
@@ -80,13 +80,29 @@ library(lubridate)
 
 covid_brut <- readr::read_csv("covid_module7_douteux.csv", show_col_types = FALSE)
 
+# Comparer tous les formats pour repérer les dates ambiguës.
+formats_date <- c("%Y-%m-%d", "%Y/%m/%d", "%d/%m/%Y", "%m/%d/%Y",
+                  "%d-%m-%Y", "%m-%d-%Y", "%y/%m/%d", "%d/%m/%y", "%m/%d/%y")
+dates_possibles <- lapply(formats_date, function(format) {
+  as.Date(suppressWarnings(lubridate::parse_date_time(
+    covid_brut$date_test, orders = format, exact = TRUE, quiet = TRUE
+  )))
+})
+dates_possibles <- do.call(cbind, lapply(dates_possibles, as.numeric))
+nombre_dates <- apply(dates_possibles, 1, function(x) length(unique(x[!is.na(x)])))
+date_unique <- apply(dates_possibles, 1, function(x) {
+  valeurs <- unique(x[!is.na(x)])
+  if (length(valeurs) == 1) valeurs else NA_real_
+})
+
 covid_prepare <- covid_brut |>
   mutate(
-    date_test_parsee = suppressWarnings(lubridate::parse_date_time(
-      date_test,
-      orders = c("Y-m-d", "d/m/Y", "m-d-Y", "Y/m/d", "d-m-Y", "m/d/Y", "y/m/d", "d/m/y", "m/d/y")
-    )),
-    date_test_parsee = as.Date(date_test_parsee),
+    date_test_parsee = as.Date(date_unique, origin = "1970-01-01"),
+    statut_date = case_when(
+      nombre_dates == 0 ~ "non reconnue",
+      nombre_dates == 1 ~ "non ambiguë",
+      TRUE ~ "ambiguë"
+    ),
     resultat_standard = case_when(
       result %in% c("Positive", "Pos", "+") ~ "positif",
       result %in% c("Negative", "neg", "-") ~ "negatif",
@@ -101,6 +117,8 @@ covid_prepare <- covid_brut |>
     )
   )
 ```
+
+Examinez `count(covid_prepare, statut_date)` et les dates ambiguës ou non reconnues. Corrigez-les seulement si leur format est établi par la source, ou excluez-les de l’analyse temporelle. Vérifiez aussi la période et les effectifs avant de tracer une évolution.
 
 Cette étape n’a pas pour but d’effacer toute information utile. Elle vise à réduire les risques tout en gardant une analyse compréhensible.
 
@@ -156,7 +174,7 @@ Votre note doit répondre aux questions suivantes :
 
 ## Partie 5 - Conclusion personnelle
 
-Chaque membre de l’équipe ajoute une courte conclusion personnelle d’environ cinq lignes.
+Ajoutez une courte conclusion personnelle d’environ cinq lignes dans votre remise individuelle.
 
 Cette conclusion doit expliquer :
 
@@ -164,9 +182,9 @@ Cette conclusion doit expliquer :
 - une décision de visualisation ou d’anonymisation qu’il ou elle juge importante;
 - une règle personnelle à retenir pour de futurs projets de science des données.
 
-Travail réalisé
+Trace portfolio
 
-À la fin de l’aventure, vérifiez que votre travail comprend les éléments suivants. Il ne s’agit pas d’un portfolio séparé.
+Conservez les preuves que votre audit améliore le rapport et protège les personnes.
 
 - une liste structurée des problèmes repérés dans le rapport douteux;
 - le fichier anonymisé produit;

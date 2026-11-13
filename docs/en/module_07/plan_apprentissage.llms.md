@@ -41,13 +41,13 @@ After the readings, complete the [formative mini-test](../module_07/mini_test.ll
 
 ## Adventure
 
-You will act as a data ethics expert. Your team will evaluate a problematic report in the `STT-1100/aventure-7` repository.
+You will act as a data ethics expert. You will evaluate a problematic report in the module 7 repository assigned to you.
 
 Link to the adventure: [Adventure 7 - Visualization, Ethics and Data Security](../module_07/aventure.llms.md)
 
 ## Challenge
 
-The challenge turns the adventure audit into a reproducible ethics note. You will submit a report, two corrected visualizations and an anonymized file.
+The individual challenge turns the adventure audit into a reproducible ethics note. You will submit a report, two corrected visualizations and an anonymized file.
 
 Link to the challenge: [Challenge 7 - Ethics Note and Responsible Visualizations](../module_07/defi.llms.md)
 
